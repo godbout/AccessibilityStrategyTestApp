@@ -11,7 +11,7 @@ import SwiftUI
 struct AccessibilityStrategyTestAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            UITestsView()
         }
     }
 }
