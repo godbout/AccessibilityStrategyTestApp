@@ -18,6 +18,15 @@
           "revision": "d86d0a3af97a07d5eece061bc46bb4447f72e786",
           "version": "0.0.1"
         }
+      },
+      {
+        "package": "KeyCombination",
+        "repositoryURL": "git@github.com:godbout/KeyCombination.git",
+        "state": {
+          "branch": null,
+          "revision": "0d12c4e15668673e9423fb7ad353b1cfb57d39cb",
+          "version": "1.0.2"
+        }
       }
     ]
   },
