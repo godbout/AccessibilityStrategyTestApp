@@ -29,7 +29,8 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "91F951C226DFF56D00DC26C6"
@@ -39,17 +40,8 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "91F951CD26DFF56D00DC26C6"
-               BuildableName = "AccessibilityStrategyTestAppUITests.xctest"
-               BlueprintName = "AccessibilityStrategyTestAppUITests"
-               ReferencedContainer = "container:AccessibilityStrategyTestApp.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "913BAFDB26E103FE002E6999"
@@ -59,17 +51,8 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "913BAFF826E10519002E6999"
-               BuildableName = "AccessibilityStrategyNormalModeUITests.xctest"
-               BlueprintName = "AccessibilityStrategyNormalModeUITests"
-               ReferencedContainer = "container:AccessibilityStrategyTestApp.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "914DD43A26E12C0F0067DD83"

@@ -13,17 +13,8 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "913BAFF826E10519002E6999"
-               BuildableName = "AccessibilityStrategyNormalModeUITests.xctest"
-               BlueprintName = "AccessibilityStrategyNormalModeUITests"
-               ReferencedContainer = "container:AccessibilityStrategyTestApp.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "914DD43A26E12C0F0067DD83"
