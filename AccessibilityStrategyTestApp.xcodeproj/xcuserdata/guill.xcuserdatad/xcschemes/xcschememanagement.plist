@@ -4,10 +4,53 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AccessibilityStrategyTestApp.xcscheme_^#shared#^_</key>
+		<key>AS NormalMode UI Tests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>ATEAdaptor UI Tests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>All Tests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>Unit Tests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>913BAFDB26E103FE002E6999</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>913BAFF826E10519002E6999</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>91F951B026DFF56C00DC26C6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>91F951C226DFF56D00DC26C6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>91F951CD26DFF56D00DC26C6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

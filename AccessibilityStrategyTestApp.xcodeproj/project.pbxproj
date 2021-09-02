@@ -7,6 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		913BAFE626E1044A002E6999 /* ATEA_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952D926DFFA4600DC26C6 /* ATEA_BaseTests.swift */; };
+		913BAFE726E10460002E6999 /* BigSurBugTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952D726DFFA4600DC26C6 /* BigSurBugTests.swift */; };
+		913BAFE826E10460002E6999 /* The2CasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952D626DFFA4600DC26C6 /* The2CasesTests.swift */; };
+		913BAFEB26E10464002E6999 /* OtherCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952D826DFFA4600DC26C6 /* OtherCasesTests.swift */; };
+		913BAFEC26E10471002E6999 /* to_TF_caretLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952DD26DFFA4600DC26C6 /* to_TF_caretLocationTests.swift */; };
+		913BAFED26E10471002E6999 /* to_TF_selectedLengthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952DE26DFFA4600DC26C6 /* to_TF_selectedLengthTests.swift */; };
+		913BAFEE26E10471002E6999 /* to_TF_selectedTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952DC26DFFA4600DC26C6 /* to_TF_selectedTextTests.swift */; };
+		913BAFEF26E10477002E6999 /* to_TV_selectedTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952E126DFFA4600DC26C6 /* to_TV_selectedTextTests.swift */; };
+		913BAFF026E10477002E6999 /* to_TV_selectedLengthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952E226DFFA4600DC26C6 /* to_TV_selectedLengthTests.swift */; };
+		913BAFF126E10477002E6999 /* to_TV_caretLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952E026DFFA4600DC26C6 /* to_TV_caretLocationTests.swift */; };
+		913BAFF226E1047C002E6999 /* NonTextElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952E426DFFA4600DC26C6 /* NonTextElementsTests.swift */; };
+		913BAFF426E10496002E6999 /* AccessibilityStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 913BAFF326E10496002E6999 /* AccessibilityStrategy */; };
+		914DD44526E12C340067DD83 /* ASUI_NM_dj_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9161A55826E0D28B009A2572 /* ASUI_NM_dj_Tests.swift */; };
+		914DD44826E12C340067DD83 /* ASUI_NM_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9159353E26E00AD800CAE186 /* ASUI_NM_BaseTests.swift */; };
+		914DD44B26E12C340067DD83 /* ASUI_NM_<<_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912F012F26E1016300A46199 /* ASUI_NM_<<_Tests.swift */; };
+		914DD44C26E12C340067DD83 /* ASUI_NM_gg_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9161A54E26E0C4DF009A2572 /* ASUI_NM_gg_Tests.swift */; };
+		914DD44D26E12C340067DD83 /* ASUI_NM_O__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9161A55026E0C57B009A2572 /* ASUI_NM_O__Tests.swift */; };
+		914DD44E26E12C340067DD83 /* ASUI_NM_x_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912F012D26E100CF00A46199 /* ASUI_NM_x_Tests.swift */; };
+		914DD44F26E12C340067DD83 /* ASUI_NM_G__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9161A54C26E0C3DE009A2572 /* ASUI_NM_G__Tests.swift */; };
+		914DD45026E12C340067DD83 /* ASUI_NM_>>_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912F013126E101B900A46199 /* ASUI_NM_>>_Tests.swift */; };
+		914DD45126E12C340067DD83 /* ASUI_NM_dd_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9161A55426E0D11F009A2572 /* ASUI_NM_dd_Tests.swift */; };
+		914DD45226E12C340067DD83 /* ASUI_NM_dk_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912F012926E1002800A46199 /* ASUI_NM_dk_Tests.swift */; };
+		914DD45526E12D0D0067DD83 /* AccessibilityStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 914DD45426E12D0D0067DD83 /* AccessibilityStrategy */; };
+		914DD45B26E1307E0067DD83 /* ASUI_NM_r_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD45A26E1307E0067DD83 /* ASUI_NM_r_Tests.swift */; };
+		914DD46326E139C40067DD83 /* ASUI_NM_j_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD46226E139C40067DD83 /* ASUI_NM_j_Tests.swift */; };
+		914DD46526E13DD90067DD83 /* ASUI_NM_k_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD46426E13DD90067DD83 /* ASUI_NM_k_Tests.swift */; };
+		914DD46C26E142DC0067DD83 /* ASUI_NM_ci(_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD46626E142DC0067DD83 /* ASUI_NM_ci(_Tests.swift */; };
+		914DD46D26E142DC0067DD83 /* ASUI_NM_cT__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD46726E142DC0067DD83 /* ASUI_NM_cT__Tests.swift */; };
+		914DD46E26E142DC0067DD83 /* ASUI_NM_ci"_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD46826E142DC0067DD83 /* ASUI_NM_ci"_Tests.swift */; };
+		914DD46F26E142DC0067DD83 /* ASUI_NM_cf_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD46926E142DC0067DD83 /* ASUI_NM_cf_Tests.swift */; };
+		914DD47026E142DC0067DD83 /* ASUI_NM_cF__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD46A26E142DC0067DD83 /* ASUI_NM_cF__Tests.swift */; };
+		914DD47126E142DC0067DD83 /* ASUI_NM_ct_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD46B26E142DC0067DD83 /* ASUI_NM_ct_Tests.swift */; };
+		914DD47526E144280067DD83 /* ASUI_NM_pForLastYankStyleCharacterwise_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD47426E144280067DD83 /* ASUI_NM_pForLastYankStyleCharacterwise_Tests.swift */; };
+		914DD47726E145540067DD83 /* ASUI_NM_pForLastYankStyleLinewise_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD47626E145540067DD83 /* ASUI_NM_pForLastYankStyleLinewise_Tests.swift */; };
+		914DD47D26E149000067DD83 /* ASUI_NM_PForLastYankStyleCharacterwise__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD47C26E149000067DD83 /* ASUI_NM_PForLastYankStyleCharacterwise__Tests.swift */; };
+		914DD47F26E149660067DD83 /* ASUI_NM_PForLastYankStyleLinewise__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD47E26E149660067DD83 /* ASUI_NM_PForLastYankStyleLinewise__Tests.swift */; };
+		91522F7526E007DF00435E47 /* KeyCombination in Frameworks */ = {isa = PBXBuildFile; productRef = 91522F7426E007DF00435E47 /* KeyCombination */; };
 		91F951B526DFF56C00DC26C6 /* AccessibilityStrategyTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F951B426DFF56C00DC26C6 /* AccessibilityStrategyTestAppApp.swift */; };
 		91F951B726DFF56C00DC26C6 /* UITestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F951B626DFF56C00DC26C6 /* UITestsView.swift */; };
 		91F951B926DFF56D00DC26C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91F951B826DFF56D00DC26C6 /* Assets.xcassets */; };
@@ -126,30 +163,24 @@
 		91F952CF26DFF7F900DC26C6 /* endOfWORDForward_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9525D26DFF7F900DC26C6 /* endOfWORDForward_Tests.swift */; };
 		91F952D026DFF7F900DC26C6 /* endOfWordBackwardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9525E26DFF7F900DC26C6 /* endOfWordBackwardTests.swift */; };
 		91F952D326DFF86F00DC26C6 /* AccessibilityStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91F952D226DFF86F00DC26C6 /* AccessibilityStrategy */; };
-		91F952E626DFFA4600DC26C6 /* The2CasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952D626DFFA4600DC26C6 /* The2CasesTests.swift */; };
-		91F952E726DFFA4600DC26C6 /* BigSurBugTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952D726DFFA4600DC26C6 /* BigSurBugTests.swift */; };
-		91F952E826DFFA4600DC26C6 /* OtherCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952D826DFFA4600DC26C6 /* OtherCasesTests.swift */; };
-		91F952E926DFFA4600DC26C6 /* ATEA_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952D926DFFA4600DC26C6 /* ATEA_BaseTests.swift */; };
-		91F952EA26DFFA4600DC26C6 /* to_TF_selectedTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952DC26DFFA4600DC26C6 /* to_TF_selectedTextTests.swift */; };
-		91F952EB26DFFA4600DC26C6 /* to_TF_caretLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952DD26DFFA4600DC26C6 /* to_TF_caretLocationTests.swift */; };
-		91F952EC26DFFA4600DC26C6 /* to_TF_selectedLengthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952DE26DFFA4600DC26C6 /* to_TF_selectedLengthTests.swift */; };
-		91F952ED26DFFA4600DC26C6 /* to_TV_caretLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952E026DFFA4600DC26C6 /* to_TV_caretLocationTests.swift */; };
-		91F952EE26DFFA4600DC26C6 /* to_TV_selectedTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952E126DFFA4600DC26C6 /* to_TV_selectedTextTests.swift */; };
-		91F952EF26DFFA4600DC26C6 /* to_TV_selectedLengthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952E226DFFA4600DC26C6 /* to_TV_selectedLengthTests.swift */; };
-		91F952F026DFFA4600DC26C6 /* NonTextElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952E426DFFA4600DC26C6 /* NonTextElementsTests.swift */; };
-		91F952F126DFFA4600DC26C6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91F952E526DFFA4600DC26C6 /* Info.plist */; };
-		91F952F426DFFA7300DC26C6 /* AccessibilityStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91F952F326DFFA7300DC26C6 /* AccessibilityStrategy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		91F951C426DFF56D00DC26C6 /* PBXContainerItemProxy */ = {
+		913BAFE126E103FE002E6999 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 91F951A926DFF56C00DC26C6 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 91F951B026DFF56C00DC26C6;
 			remoteInfo = AccessibilityStrategyTestApp;
 		};
-		91F951CF26DFF56D00DC26C6 /* PBXContainerItemProxy */ = {
+		914DD44026E12C0F0067DD83 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91F951A926DFF56C00DC26C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91F951B026DFF56C00DC26C6;
+			remoteInfo = AccessibilityStrategyTestApp;
+		};
+		91F951C426DFF56D00DC26C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 91F951A926DFF56C00DC26C6 /* Project object */;
 			proxyType = 1;
@@ -159,6 +190,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		912F012926E1002800A46199 /* ASUI_NM_dk_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_dk_Tests.swift; sourceTree = "<group>"; };
+		912F012D26E100CF00A46199 /* ASUI_NM_x_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_x_Tests.swift; sourceTree = "<group>"; };
+		912F012F26E1016300A46199 /* ASUI_NM_<<_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASUI_NM_<<_Tests.swift"; sourceTree = "<group>"; };
+		912F013126E101B900A46199 /* ASUI_NM_>>_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASUI_NM_>>_Tests.swift"; sourceTree = "<group>"; };
+		913BAFDC26E103FE002E6999 /* AccessibilityTextElementAdaptorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessibilityTextElementAdaptorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		913BAFE026E103FE002E6999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		913BAFFD26E10519002E6999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		914DD43B26E12C0F0067DD83 /* AccessibilityStrategyNormaModeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessibilityStrategyNormaModeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		914DD45A26E1307E0067DD83 /* ASUI_NM_r_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_r_Tests.swift; sourceTree = "<group>"; };
+		914DD46226E139C40067DD83 /* ASUI_NM_j_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_j_Tests.swift; sourceTree = "<group>"; };
+		914DD46426E13DD90067DD83 /* ASUI_NM_k_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_k_Tests.swift; sourceTree = "<group>"; };
+		914DD46626E142DC0067DD83 /* ASUI_NM_ci(_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASUI_NM_ci(_Tests.swift"; sourceTree = "<group>"; };
+		914DD46726E142DC0067DD83 /* ASUI_NM_cT__Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_cT__Tests.swift; sourceTree = "<group>"; };
+		914DD46826E142DC0067DD83 /* ASUI_NM_ci"_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASUI_NM_ci\"_Tests.swift"; sourceTree = "<group>"; };
+		914DD46926E142DC0067DD83 /* ASUI_NM_cf_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_cf_Tests.swift; sourceTree = "<group>"; };
+		914DD46A26E142DC0067DD83 /* ASUI_NM_cF__Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_cF__Tests.swift; sourceTree = "<group>"; };
+		914DD46B26E142DC0067DD83 /* ASUI_NM_ct_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_ct_Tests.swift; sourceTree = "<group>"; };
+		914DD47426E144280067DD83 /* ASUI_NM_pForLastYankStyleCharacterwise_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_pForLastYankStyleCharacterwise_Tests.swift; sourceTree = "<group>"; };
+		914DD47626E145540067DD83 /* ASUI_NM_pForLastYankStyleLinewise_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_pForLastYankStyleLinewise_Tests.swift; sourceTree = "<group>"; };
+		914DD47C26E149000067DD83 /* ASUI_NM_PForLastYankStyleCharacterwise__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_PForLastYankStyleCharacterwise__Tests.swift; sourceTree = "<group>"; };
+		914DD47E26E149660067DD83 /* ASUI_NM_PForLastYankStyleLinewise__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_PForLastYankStyleLinewise__Tests.swift; sourceTree = "<group>"; };
+		9159353E26E00AD800CAE186 /* ASUI_NM_BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_BaseTests.swift; sourceTree = "<group>"; };
+		9161A54C26E0C3DE009A2572 /* ASUI_NM_G__Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_G__Tests.swift; sourceTree = "<group>"; };
+		9161A54E26E0C4DF009A2572 /* ASUI_NM_gg_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_gg_Tests.swift; sourceTree = "<group>"; };
+		9161A55026E0C57B009A2572 /* ASUI_NM_O__Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_O__Tests.swift; sourceTree = "<group>"; };
+		9161A55426E0D11F009A2572 /* ASUI_NM_dd_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_dd_Tests.swift; sourceTree = "<group>"; };
+		9161A55826E0D28B009A2572 /* ASUI_NM_dj_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_dj_Tests.swift; sourceTree = "<group>"; };
 		91F951B126DFF56C00DC26C6 /* AccessibilityStrategyTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessibilityStrategyTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F951B426DFF56C00DC26C6 /* AccessibilityStrategyTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategyTestAppApp.swift; sourceTree = "<group>"; };
 		91F951B626DFF56C00DC26C6 /* UITestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsView.swift; sourceTree = "<group>"; };
@@ -168,8 +226,6 @@
 		91F951BE26DFF56D00DC26C6 /* AccessibilityStrategyTestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AccessibilityStrategyTestApp.entitlements; sourceTree = "<group>"; };
 		91F951C326DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessibilityStrategyTestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F951C926DFF56D00DC26C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		91F951CE26DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessibilityStrategyTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		91F951D426DFF56D00DC26C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91F951E326DFF7F900DC26C6 /* ASUT_NM_cG__Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUT_NM_cG__Tests.swift; sourceTree = "<group>"; };
 		91F951E426DFF7F900DC26C6 /* ASUT_NM_o_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUT_NM_o_Tests.swift; sourceTree = "<group>"; };
 		91F951E526DFF7F900DC26C6 /* ASUT_NM_ct_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUT_NM_ct_Tests.swift; sourceTree = "<group>"; };
@@ -295,14 +351,30 @@
 		91F952E126DFFA4600DC26C6 /* to_TV_selectedTextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = to_TV_selectedTextTests.swift; sourceTree = "<group>"; };
 		91F952E226DFFA4600DC26C6 /* to_TV_selectedLengthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = to_TV_selectedLengthTests.swift; sourceTree = "<group>"; };
 		91F952E426DFFA4600DC26C6 /* NonTextElementsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonTextElementsTests.swift; sourceTree = "<group>"; };
-		91F952E526DFFA4600DC26C6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		913BAFD926E103FE002E6999 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				913BAFF426E10496002E6999 /* AccessibilityStrategy in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		914DD43826E12C0F0067DD83 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				914DD45526E12D0D0067DD83 /* AccessibilityStrategy in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91F951AE26DFF56C00DC26C6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91522F7526E007DF00435E47 /* KeyCombination in Frameworks */,
 				91F952D326DFF86F00DC26C6 /* AccessibilityStrategy in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,17 +386,60 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91F951CB26DFF56D00DC26C6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				91F952F426DFFA7300DC26C6 /* AccessibilityStrategy in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		913BAFDD26E103FE002E6999 /* AccessibilityTextElementAdaptorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				91F952D526DFFA4600DC26C6 /* fromAXFocusedElement */,
+				91F952D926DFFA4600DC26C6 /* ATEA_BaseTests.swift */,
+				91F952DA26DFFA4600DC26C6 /* toAXFocusedElement */,
+				91F952E326DFFA4600DC26C6 /* Others */,
+				913BAFE026E103FE002E6999 /* Info.plist */,
+			);
+			path = AccessibilityTextElementAdaptorUITests;
+			sourceTree = "<group>";
+		};
+		913BAFFA26E10519002E6999 /* AccessibilityStrategyNormalModeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9159353E26E00AD800CAE186 /* ASUI_NM_BaseTests.swift */,
+				9159352726E00AD800CAE186 /* Moves */,
+				913BAFFD26E10519002E6999 /* Info.plist */,
+			);
+			path = AccessibilityStrategyNormalModeUITests;
+			sourceTree = "<group>";
+		};
+		9159352726E00AD800CAE186 /* Moves */ = {
+			isa = PBXGroup;
+			children = (
+				912F012F26E1016300A46199 /* ASUI_NM_<<_Tests.swift */,
+				912F013126E101B900A46199 /* ASUI_NM_>>_Tests.swift */,
+				914DD46A26E142DC0067DD83 /* ASUI_NM_cF__Tests.swift */,
+				914DD46926E142DC0067DD83 /* ASUI_NM_cf_Tests.swift */,
+				914DD46826E142DC0067DD83 /* ASUI_NM_ci"_Tests.swift */,
+				914DD46626E142DC0067DD83 /* ASUI_NM_ci(_Tests.swift */,
+				914DD46726E142DC0067DD83 /* ASUI_NM_cT__Tests.swift */,
+				914DD46B26E142DC0067DD83 /* ASUI_NM_ct_Tests.swift */,
+				9161A55426E0D11F009A2572 /* ASUI_NM_dd_Tests.swift */,
+				9161A55826E0D28B009A2572 /* ASUI_NM_dj_Tests.swift */,
+				912F012926E1002800A46199 /* ASUI_NM_dk_Tests.swift */,
+				9161A54C26E0C3DE009A2572 /* ASUI_NM_G__Tests.swift */,
+				9161A54E26E0C4DF009A2572 /* ASUI_NM_gg_Tests.swift */,
+				914DD46226E139C40067DD83 /* ASUI_NM_j_Tests.swift */,
+				914DD46426E13DD90067DD83 /* ASUI_NM_k_Tests.swift */,
+				9161A55026E0C57B009A2572 /* ASUI_NM_O__Tests.swift */,
+				914DD47C26E149000067DD83 /* ASUI_NM_PForLastYankStyleCharacterwise__Tests.swift */,
+				914DD47426E144280067DD83 /* ASUI_NM_pForLastYankStyleCharacterwise_Tests.swift */,
+				914DD47E26E149660067DD83 /* ASUI_NM_PForLastYankStyleLinewise__Tests.swift */,
+				914DD47626E145540067DD83 /* ASUI_NM_pForLastYankStyleLinewise_Tests.swift */,
+				914DD45A26E1307E0067DD83 /* ASUI_NM_r_Tests.swift */,
+				912F012D26E100CF00A46199 /* ASUI_NM_x_Tests.swift */,
+			);
+			path = Moves;
+			sourceTree = "<group>";
+		};
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
@@ -341,7 +456,8 @@
 			children = (
 				91F951B126DFF56C00DC26C6 /* AccessibilityStrategyTestApp.app */,
 				91F951C326DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests.xctest */,
-				91F951CE26DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests.xctest */,
+				913BAFDC26E103FE002E6999 /* AccessibilityTextElementAdaptorUITests.xctest */,
+				914DD43B26E12C0F0067DD83 /* AccessibilityStrategyNormaModeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -381,8 +497,8 @@
 		91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				91F952D426DFFA4600DC26C6 /* AccessibilityTextElementAdaptorUI */,
-				91F951D426DFF56D00DC26C6 /* Info.plist */,
+				913BAFDD26E103FE002E6999 /* AccessibilityTextElementAdaptorUITests */,
+				913BAFFA26E10519002E6999 /* AccessibilityStrategyNormalModeUITests */,
 			);
 			path = AccessibilityStrategyTestAppUITests;
 			sourceTree = "<group>";
@@ -602,18 +718,6 @@
 			path = VimMoves;
 			sourceTree = "<group>";
 		};
-		91F952D426DFFA4600DC26C6 /* AccessibilityTextElementAdaptorUI */ = {
-			isa = PBXGroup;
-			children = (
-				91F952D526DFFA4600DC26C6 /* fromAXFocusedElement */,
-				91F952D926DFFA4600DC26C6 /* ATEA_BaseTests.swift */,
-				91F952DA26DFFA4600DC26C6 /* toAXFocusedElement */,
-				91F952E326DFFA4600DC26C6 /* Others */,
-				91F952E526DFFA4600DC26C6 /* Info.plist */,
-			);
-			path = AccessibilityTextElementAdaptorUI;
-			sourceTree = "<group>";
-		};
 		91F952D526DFFA4600DC26C6 /* fromAXFocusedElement */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +775,48 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		913BAFDB26E103FE002E6999 /* AccessibilityTextElementAdaptorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 913BAFE526E103FE002E6999 /* Build configuration list for PBXNativeTarget "AccessibilityTextElementAdaptorUITests" */;
+			buildPhases = (
+				913BAFD826E103FE002E6999 /* Sources */,
+				913BAFD926E103FE002E6999 /* Frameworks */,
+				913BAFDA26E103FE002E6999 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				913BAFE226E103FE002E6999 /* PBXTargetDependency */,
+			);
+			name = AccessibilityTextElementAdaptorUITests;
+			packageProductDependencies = (
+				913BAFF326E10496002E6999 /* AccessibilityStrategy */,
+			);
+			productName = AccessibilityTextElementAdaptorUITests;
+			productReference = 913BAFDC26E103FE002E6999 /* AccessibilityTextElementAdaptorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		914DD43A26E12C0F0067DD83 /* AccessibilityStrategyNormaModeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 914DD44226E12C0F0067DD83 /* Build configuration list for PBXNativeTarget "AccessibilityStrategyNormaModeUITests" */;
+			buildPhases = (
+				914DD43726E12C0F0067DD83 /* Sources */,
+				914DD43826E12C0F0067DD83 /* Frameworks */,
+				914DD43926E12C0F0067DD83 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				914DD44126E12C0F0067DD83 /* PBXTargetDependency */,
+			);
+			name = AccessibilityStrategyNormaModeUITests;
+			packageProductDependencies = (
+				914DD45426E12D0D0067DD83 /* AccessibilityStrategy */,
+			);
+			productName = AccessibilityStrategyNormaModeUITests;
+			productReference = 914DD43B26E12C0F0067DD83 /* AccessibilityStrategyNormaModeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		91F951B026DFF56C00DC26C6 /* AccessibilityStrategyTestApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91F951D726DFF56D00DC26C6 /* Build configuration list for PBXNativeTarget "AccessibilityStrategyTestApp" */;
@@ -686,6 +832,7 @@
 			name = AccessibilityStrategyTestApp;
 			packageProductDependencies = (
 				91F952D226DFF86F00DC26C6 /* AccessibilityStrategy */,
+				91522F7426E007DF00435E47 /* KeyCombination */,
 			);
 			productName = AccessibilityStrategyTestApp;
 			productReference = 91F951B126DFF56C00DC26C6 /* AccessibilityStrategyTestApp.app */;
@@ -709,27 +856,6 @@
 			productReference = 91F951C326DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		91F951CD26DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 91F951DD26DFF56D00DC26C6 /* Build configuration list for PBXNativeTarget "AccessibilityStrategyTestAppUITests" */;
-			buildPhases = (
-				91F951CA26DFF56D00DC26C6 /* Sources */,
-				91F951CB26DFF56D00DC26C6 /* Frameworks */,
-				91F951CC26DFF56D00DC26C6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				91F951D026DFF56D00DC26C6 /* PBXTargetDependency */,
-			);
-			name = AccessibilityStrategyTestAppUITests;
-			packageProductDependencies = (
-				91F952F326DFFA7300DC26C6 /* AccessibilityStrategy */,
-			);
-			productName = AccessibilityStrategyTestAppUITests;
-			productReference = 91F951CE26DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -739,14 +865,18 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					913BAFDB26E103FE002E6999 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 91F951B026DFF56C00DC26C6;
+					};
+					914DD43A26E12C0F0067DD83 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 91F951B026DFF56C00DC26C6;
+					};
 					91F951B026DFF56C00DC26C6 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
 					91F951C226DFF56D00DC26C6 = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = 91F951B026DFF56C00DC26C6;
-					};
-					91F951CD26DFF56D00DC26C6 = {
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = 91F951B026DFF56C00DC26C6;
 					};
@@ -763,6 +893,7 @@
 			mainGroup = 91F951A826DFF56C00DC26C6;
 			packageReferences = (
 				91F952D126DFF86F00DC26C6 /* XCRemoteSwiftPackageReference "AccessibilityStrategy" */,
+				91522F7326E007DF00435E47 /* XCRemoteSwiftPackageReference "KeyCombination" */,
 			);
 			productRefGroup = 91F951B226DFF56C00DC26C6 /* Products */;
 			projectDirPath = "";
@@ -770,12 +901,27 @@
 			targets = (
 				91F951B026DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C226DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
-				91F951CD26DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,
+				913BAFDB26E103FE002E6999 /* AccessibilityTextElementAdaptorUITests */,
+				914DD43A26E12C0F0067DD83 /* AccessibilityStrategyNormaModeUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		913BAFDA26E103FE002E6999 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		914DD43926E12C0F0067DD83 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91F951AF26DFF56C00DC26C6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -792,17 +938,57 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91F951CC26DFF56D00DC26C6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				91F952F126DFFA4600DC26C6 /* Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		913BAFD826E103FE002E6999 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				913BAFEB26E10464002E6999 /* OtherCasesTests.swift in Sources */,
+				913BAFE726E10460002E6999 /* BigSurBugTests.swift in Sources */,
+				913BAFE826E10460002E6999 /* The2CasesTests.swift in Sources */,
+				913BAFED26E10471002E6999 /* to_TF_selectedLengthTests.swift in Sources */,
+				913BAFEF26E10477002E6999 /* to_TV_selectedTextTests.swift in Sources */,
+				913BAFF026E10477002E6999 /* to_TV_selectedLengthTests.swift in Sources */,
+				913BAFE626E1044A002E6999 /* ATEA_BaseTests.swift in Sources */,
+				913BAFF126E10477002E6999 /* to_TV_caretLocationTests.swift in Sources */,
+				913BAFF226E1047C002E6999 /* NonTextElementsTests.swift in Sources */,
+				913BAFEE26E10471002E6999 /* to_TF_selectedTextTests.swift in Sources */,
+				913BAFEC26E10471002E6999 /* to_TF_caretLocationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		914DD43726E12C0F0067DD83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				914DD45B26E1307E0067DD83 /* ASUI_NM_r_Tests.swift in Sources */,
+				914DD46D26E142DC0067DD83 /* ASUI_NM_cT__Tests.swift in Sources */,
+				914DD44F26E12C340067DD83 /* ASUI_NM_G__Tests.swift in Sources */,
+				914DD47126E142DC0067DD83 /* ASUI_NM_ct_Tests.swift in Sources */,
+				914DD44B26E12C340067DD83 /* ASUI_NM_<<_Tests.swift in Sources */,
+				914DD44526E12C340067DD83 /* ASUI_NM_dj_Tests.swift in Sources */,
+				914DD44D26E12C340067DD83 /* ASUI_NM_O__Tests.swift in Sources */,
+				914DD44E26E12C340067DD83 /* ASUI_NM_x_Tests.swift in Sources */,
+				914DD44C26E12C340067DD83 /* ASUI_NM_gg_Tests.swift in Sources */,
+				914DD46326E139C40067DD83 /* ASUI_NM_j_Tests.swift in Sources */,
+				914DD47026E142DC0067DD83 /* ASUI_NM_cF__Tests.swift in Sources */,
+				914DD45026E12C340067DD83 /* ASUI_NM_>>_Tests.swift in Sources */,
+				914DD45126E12C340067DD83 /* ASUI_NM_dd_Tests.swift in Sources */,
+				914DD47726E145540067DD83 /* ASUI_NM_pForLastYankStyleLinewise_Tests.swift in Sources */,
+				914DD44826E12C340067DD83 /* ASUI_NM_BaseTests.swift in Sources */,
+				914DD47D26E149000067DD83 /* ASUI_NM_PForLastYankStyleCharacterwise__Tests.swift in Sources */,
+				914DD46526E13DD90067DD83 /* ASUI_NM_k_Tests.swift in Sources */,
+				914DD46F26E142DC0067DD83 /* ASUI_NM_cf_Tests.swift in Sources */,
+				914DD46E26E142DC0067DD83 /* ASUI_NM_ci"_Tests.swift in Sources */,
+				914DD47F26E149660067DD83 /* ASUI_NM_PForLastYankStyleLinewise__Tests.swift in Sources */,
+				914DD47526E144280067DD83 /* ASUI_NM_pForLastYankStyleCharacterwise_Tests.swift in Sources */,
+				914DD45226E12C340067DD83 /* ASUI_NM_dk_Tests.swift in Sources */,
+				914DD46C26E142DC0067DD83 /* ASUI_NM_ci(_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91F951AD26DFF56C00DC26C6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -933,40 +1119,107 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91F951CA26DFF56D00DC26C6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				91F952E826DFFA4600DC26C6 /* OtherCasesTests.swift in Sources */,
-				91F952EA26DFFA4600DC26C6 /* to_TF_selectedTextTests.swift in Sources */,
-				91F952EC26DFFA4600DC26C6 /* to_TF_selectedLengthTests.swift in Sources */,
-				91F952E726DFFA4600DC26C6 /* BigSurBugTests.swift in Sources */,
-				91F952EB26DFFA4600DC26C6 /* to_TF_caretLocationTests.swift in Sources */,
-				91F952E626DFFA4600DC26C6 /* The2CasesTests.swift in Sources */,
-				91F952E926DFFA4600DC26C6 /* ATEA_BaseTests.swift in Sources */,
-				91F952EF26DFFA4600DC26C6 /* to_TV_selectedLengthTests.swift in Sources */,
-				91F952F026DFFA4600DC26C6 /* NonTextElementsTests.swift in Sources */,
-				91F952EE26DFFA4600DC26C6 /* to_TV_selectedTextTests.swift in Sources */,
-				91F952ED26DFFA4600DC26C6 /* to_TV_caretLocationTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		913BAFE226E103FE002E6999 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 91F951B026DFF56C00DC26C6 /* AccessibilityStrategyTestApp */;
+			targetProxy = 913BAFE126E103FE002E6999 /* PBXContainerItemProxy */;
+		};
+		914DD44126E12C0F0067DD83 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 91F951B026DFF56C00DC26C6 /* AccessibilityStrategyTestApp */;
+			targetProxy = 914DD44026E12C0F0067DD83 /* PBXContainerItemProxy */;
+		};
 		91F951C526DFF56D00DC26C6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 91F951B026DFF56C00DC26C6 /* AccessibilityStrategyTestApp */;
 			targetProxy = 91F951C426DFF56D00DC26C6 /* PBXContainerItemProxy */;
 		};
-		91F951D026DFF56D00DC26C6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 91F951B026DFF56C00DC26C6 /* AccessibilityStrategyTestApp */;
-			targetProxy = 91F951CF26DFF56D00DC26C6 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		913BAFE326E103FE002E6999 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZX49WKA8QN;
+				INFOPLIST_FILE = AccessibilityStrategyTestAppUITests/AccessibilityTextElementAdaptorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityTextElementAdaptorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = AccessibilityStrategyTestApp;
+			};
+			name = Debug;
+		};
+		913BAFE426E103FE002E6999 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZX49WKA8QN;
+				INFOPLIST_FILE = AccessibilityStrategyTestAppUITests/AccessibilityTextElementAdaptorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityTextElementAdaptorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = AccessibilityStrategyTestApp;
+			};
+			name = Release;
+		};
+		914DD44326E12C0F0067DD83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZX49WKA8QN;
+				INFOPLIST_FILE = "AccessibilityStrategyTestAppUITests/AccessibilityStrategyNormalModeUITests//Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyNormaModeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = AccessibilityStrategyTestApp;
+			};
+			name = Debug;
+		};
+		914DD44426E12C0F0067DD83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZX49WKA8QN;
+				INFOPLIST_FILE = "AccessibilityStrategyTestAppUITests/AccessibilityStrategyNormalModeUITests//Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyNormaModeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = AccessibilityStrategyTestApp;
+			};
+			name = Release;
+		};
 		91F951D526DFF56D00DC26C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1088,7 +1341,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AccessibilityStrategyTestApp/AccessibilityStrategyTestApp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"AccessibilityStrategyTestApp/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
@@ -1102,6 +1356,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -1112,7 +1367,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AccessibilityStrategyTestApp/AccessibilityStrategyTestApp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"AccessibilityStrategyTestApp/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
@@ -1126,6 +1382,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1135,7 +1392,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = AccessibilityStrategyTestAppTests/Info.plist;
@@ -1147,6 +1405,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyTestAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AccessibilityStrategyTestApp.app/Contents/MacOS/AccessibilityStrategyTestApp";
 			};
@@ -1157,7 +1416,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = AccessibilityStrategyTestAppTests/Info.plist;
@@ -1169,54 +1429,33 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyTestAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AccessibilityStrategyTestApp.app/Contents/MacOS/AccessibilityStrategyTestApp";
-			};
-			name = Release;
-		};
-		91F951DE26DFF56D00DC26C6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = ZX49WKA8QN;
-				INFOPLIST_FILE = AccessibilityStrategyTestAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyTestAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = AccessibilityStrategyTestApp;
-			};
-			name = Debug;
-		};
-		91F951DF26DFF56D00DC26C6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = ZX49WKA8QN;
-				INFOPLIST_FILE = AccessibilityStrategyTestAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyTestAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = AccessibilityStrategyTestApp;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		913BAFE526E103FE002E6999 /* Build configuration list for PBXNativeTarget "AccessibilityTextElementAdaptorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				913BAFE326E103FE002E6999 /* Debug */,
+				913BAFE426E103FE002E6999 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		914DD44226E12C0F0067DD83 /* Build configuration list for PBXNativeTarget "AccessibilityStrategyNormaModeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				914DD44326E12C0F0067DD83 /* Debug */,
+				914DD44426E12C0F0067DD83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		91F951AC26DFF56C00DC26C6 /* Build configuration list for PBXProject "AccessibilityStrategyTestApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1244,18 +1483,17 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		91F951DD26DFF56D00DC26C6 /* Build configuration list for PBXNativeTarget "AccessibilityStrategyTestAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				91F951DE26DFF56D00DC26C6 /* Debug */,
-				91F951DF26DFF56D00DC26C6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		91522F7326E007DF00435E47 /* XCRemoteSwiftPackageReference "KeyCombination" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:godbout/KeyCombination.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
 		91F952D126DFF86F00DC26C6 /* XCRemoteSwiftPackageReference "AccessibilityStrategy" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:godbout/AccessibilityStrategy.git";
@@ -1267,12 +1505,22 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		91F952D226DFF86F00DC26C6 /* AccessibilityStrategy */ = {
+		913BAFF326E10496002E6999 /* AccessibilityStrategy */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 91F952D126DFF86F00DC26C6 /* XCRemoteSwiftPackageReference "AccessibilityStrategy" */;
 			productName = AccessibilityStrategy;
 		};
-		91F952F326DFFA7300DC26C6 /* AccessibilityStrategy */ = {
+		914DD45426E12D0D0067DD83 /* AccessibilityStrategy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91F952D126DFF86F00DC26C6 /* XCRemoteSwiftPackageReference "AccessibilityStrategy" */;
+			productName = AccessibilityStrategy;
+		};
+		91522F7426E007DF00435E47 /* KeyCombination */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91522F7326E007DF00435E47 /* XCRemoteSwiftPackageReference "KeyCombination" */;
+			productName = KeyCombination;
+		};
+		91F952D226DFF86F00DC26C6 /* AccessibilityStrategy */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 91F952D126DFF86F00DC26C6 /* XCRemoteSwiftPackageReference "AccessibilityStrategy" */;
 			productName = AccessibilityStrategy;
