@@ -1,4 +1,3 @@
-@testable import kindaVim
 import XCTest
 import KeyCombination
 import AccessibilityStrategy
@@ -7,9 +6,7 @@ import AccessibilityStrategy
 class UIASNM_x_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .x))
-        
-        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        return applyMoveAndGetBackAccessibilityElement(move: asNormalMode.x)
     }
     
 }
@@ -26,8 +23,8 @@ that is not an empty line🤡️🤡️
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+       
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(accessibilityElement?.value, """
@@ -49,8 +46,7 @@ but shouldn't be deleted
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        KindaVimEngine.shared.enterNormalMode()
-        
+       
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(accessibilityElement?.value, """
@@ -69,8 +65,8 @@ shouldn't jump up on this line!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+       
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(accessibilityElement?.value, """
@@ -89,8 +85,7 @@ x
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-        KindaVimEngine.shared.enterNormalMode()
-        
+       
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(accessibilityElement?.value, """

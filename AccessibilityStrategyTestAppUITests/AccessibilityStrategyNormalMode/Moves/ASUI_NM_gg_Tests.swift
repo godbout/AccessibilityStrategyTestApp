@@ -1,4 +1,3 @@
-@testable import kindaVim
 import XCTest
 import KeyCombination
 import AccessibilityStrategy
@@ -7,10 +6,7 @@ import AccessibilityStrategy
 class UIASNM_gg_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .g))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .g))
-        
-        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        return applyMoveAndGetBackAccessibilityElement(move: asNormalMode.gg)
     }
     
 }
@@ -23,8 +19,7 @@ extension UIASNM_gg_Tests {
         let textInAXFocusedElement = "a normal sentence"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
+       
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
@@ -34,8 +29,7 @@ extension UIASNM_gg_Tests {
         let textInAXFocusedElement = "      😀️g should go to 😀️"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
+       
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 6)
@@ -46,8 +40,7 @@ extension UIASNM_gg_Tests {
         let textInAXFocusedElement = "         "
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
+       
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 8)
@@ -67,8 +60,7 @@ here
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
+       
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
@@ -83,8 +75,7 @@ bullshit
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
+       
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 3)
@@ -98,8 +89,7 @@ completely empty
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
+       
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
@@ -113,8 +103,7 @@ again only
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
+       
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 7)

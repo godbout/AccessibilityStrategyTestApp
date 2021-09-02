@@ -1,4 +1,3 @@
-@testable import kindaVim
 import KeyCombination
 import XCTest
 
@@ -16,8 +15,13 @@ cT is pretty cool
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-        KindaVimEngine.shared.enterNormalMode()
+               
+        let currentElement = accessibilityStrategy.focusedTextElement()
+        guard let elementAfterMove = asNormalMode.ct(to: "p", on: currentElement)
+        _ = accessibilityStrategy.push(element: elementAfterMove)
+        let updatedElementAfterPush = accessibilityStrategy.focusedTextElement()
         
+       
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .T))
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .p))

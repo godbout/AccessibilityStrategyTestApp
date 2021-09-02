@@ -36,5 +36,85 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA656764-A169-4631-8F0A-6E06A023B6F1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/AccessibilityStrategyTestApp-ftyhrsvbihmqmiajmwhutyqpaqiz/SourcePackages/checkouts/AccessibilityStrategy/Sources/AccessibilityStrategy/AccessibilityStrategy/NormalMode/ASKV_NM_O_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "O(on:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "456D793F-669C-4358-A170-29182DB4A8A2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/AccessibilityStrategyTestApp-ftyhrsvbihmqmiajmwhutyqpaqiz/SourcePackages/checkouts/AccessibilityStrategy/Sources/AccessibilityStrategy/AccessibilityStrategy/NormalMode/ASKV_NM_O_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "O(on:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E971F3DC-96B4-4F65-AF2A-80EAB980B4E6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/AccessibilityStrategyTestApp-ftyhrsvbihmqmiajmwhutyqpaqiz/SourcePackages/checkouts/AccessibilityStrategy/Sources/AccessibilityStrategy/AccessibilityStrategy/NormalMode/ASKV_NM_O_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "O(on:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F35FCAE5-96A2-4813-869D-2F7D7AF42A9E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/AccessibilityStrategyTestApp-ftyhrsvbihmqmiajmwhutyqpaqiz/SourcePackages/checkouts/AccessibilityStrategy/Sources/AccessibilityStrategy/AccessibilityStrategy/NormalMode/ASKV_NM_O_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "O(on:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A29E050-91E4-41B2-B52D-0419BA82237E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/AccessibilityStrategyTestApp-ftyhrsvbihmqmiajmwhutyqpaqiz/SourcePackages/checkouts/AccessibilityStrategy/Sources/AccessibilityStrategy/AccessibilityStrategy/NormalMode/ASKV_NM_O_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "O(on:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

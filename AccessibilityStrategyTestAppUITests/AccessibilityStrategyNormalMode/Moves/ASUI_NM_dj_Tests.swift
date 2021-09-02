@@ -1,4 +1,3 @@
-@testable import kindaVim
 import XCTest
 import KeyCombination
 import AccessibilityStrategy
@@ -7,10 +6,7 @@ import AccessibilityStrategy
 class UIASNM_dj_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
-        
-        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        applyMoveAndGetBackAccessibilityElement(move: asNormalMode.dj)
     }
     
 }
@@ -23,8 +19,8 @@ extension UIASNM_dj_Tests {
         let textInAXFocusedElement = "one line is not enough for dj"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.value, "one line is not enough for dj")        
@@ -45,8 +41,7 @@ one should disappear
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])      
-        KindaVimEngine.shared.enterNormalMode()
-        
+       
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.value, "")        
@@ -62,8 +57,7 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-        KindaVimEngine.shared.enterNormalMode()
-        
+       
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.value, """
@@ -83,8 +77,7 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        KindaVimEngine.shared.enterNormalMode()
-        
+       
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.value, """
@@ -96,4 +89,4 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
     }
     
 }
-
+ 

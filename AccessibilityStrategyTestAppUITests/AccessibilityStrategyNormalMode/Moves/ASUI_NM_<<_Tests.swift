@@ -1,8 +1,6 @@
-@testable import kindaVim
 import XCTest
 import KeyCombination
 import AccessibilityStrategy
-
 
 
 // this moves uses the shiftCurrentLine blah blah func. the UI tests for that
@@ -12,10 +10,7 @@ import AccessibilityStrategy
 class ASUI_NM_leftChevronLeftChevron_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .leftChevron))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .leftChevron))
-        
-        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        return applyMoveAndGetBackAccessibilityElement(move: asNormalMode.leftChevronLeftChevron)
     }
     
 }
@@ -31,8 +26,7 @@ seems that even the normal
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
+       
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 30)
@@ -47,8 +41,7 @@ seems that even the normal
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
