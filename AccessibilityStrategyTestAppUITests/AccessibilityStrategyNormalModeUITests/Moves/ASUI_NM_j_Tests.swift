@@ -1,8 +1,6 @@
-@testable import kindaVim
 import XCTest
 import KeyCombination
 import AccessibilityStrategy
-
 
 
 // there's no such thing as TextField for j and k as the KS takes over
@@ -10,9 +8,9 @@ import AccessibilityStrategy
 class UIASNM_j_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
-        
-        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        return applyMoveAndGetBackAccessibilityElement { focusedElement in
+            asNormalMode.j(on: focusedElement)
+        }
     }
     
 }
@@ -33,8 +31,10 @@ column shit
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
-        KindaVimEngine.shared.enterNormalMode()
 
+        // we're applying `h` so that the globalColumnNumber gets updated
+        // as j and k needs the globalColumnNumber to set their position properly
+        _ = asNormalMode.h(on: accessibilityStrategy.focusedTextElement())
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 14)
@@ -52,8 +52,9 @@ let's see
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
-        KindaVimEngine.shared.enterNormalMode()
-        
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+
+        _ = asNormalMode.h(on: accessibilityStrategy.focusedTextElement())
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 64)
@@ -70,8 +71,8 @@ another long line longer than all the other ones!!!
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.command])
-        KindaVimEngine.shared.enterNormalMode()
-        
+
+        _ = asNormalMode.h(on: accessibilityStrategy.focusedTextElement())
         let firstJ = applyMoveAndGetBackAccessibilityElement()
         XCTAssertEqual(firstJ?.caretLocation, 33)
         
@@ -90,8 +91,8 @@ shut up
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-                
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 32)
@@ -110,8 +111,8 @@ hehe
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        KindaVimEngine.shared.enterNormalMode()
-                
+
+        _ = asNormalMode.h(on: accessibilityStrategy.focusedTextElement())
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 27)
@@ -127,10 +128,9 @@ edge case
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        KindaVimEngine.shared.enterNormalMode()
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
 
-        // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
+        _ = asNormalMode.h(on: accessibilityStrategy.focusedTextElement())
         let globalColumnNumber = AccessibilityTextElement.globalColumnNumber
 
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()

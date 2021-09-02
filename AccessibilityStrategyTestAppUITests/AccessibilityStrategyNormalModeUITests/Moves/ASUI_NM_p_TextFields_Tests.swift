@@ -12,6 +12,9 @@ import AccessibilityStrategy
 class UIASNM_p_TextFields_Tests: ASUI_NM_BaseTests {
     
     private func sendMoveThroughVimEngineAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+        return applyMoveAndGetBackAccessibilityElement {
+            asNormalMode.pfor
+        }
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .p))
         
         return AccessibilityTextElementAdaptor.fromAXFocusedElement()        

@@ -31,6 +31,8 @@
 		914DD45226E12C340067DD83 /* ASUI_NM_dk_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912F012926E1002800A46199 /* ASUI_NM_dk_Tests.swift */; };
 		914DD45526E12D0D0067DD83 /* AccessibilityStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 914DD45426E12D0D0067DD83 /* AccessibilityStrategy */; };
 		914DD45B26E1307E0067DD83 /* ASUI_NM_r_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD45A26E1307E0067DD83 /* ASUI_NM_r_Tests.swift */; };
+		914DD46326E139C40067DD83 /* ASUI_NM_j_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD46226E139C40067DD83 /* ASUI_NM_j_Tests.swift */; };
+		914DD46526E13DD90067DD83 /* ASUI_NM_k_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD46426E13DD90067DD83 /* ASUI_NM_k_Tests.swift */; };
 		91522F7526E007DF00435E47 /* KeyCombination in Frameworks */ = {isa = PBXBuildFile; productRef = 91522F7426E007DF00435E47 /* KeyCombination */; };
 		91F951B526DFF56C00DC26C6 /* AccessibilityStrategyTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F951B426DFF56C00DC26C6 /* AccessibilityStrategyTestAppApp.swift */; };
 		91F951B726DFF56C00DC26C6 /* UITestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F951B626DFF56C00DC26C6 /* UITestsView.swift */; };
@@ -187,6 +189,8 @@
 		913BAFFD26E10519002E6999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		914DD43B26E12C0F0067DD83 /* AccessibilityStrategyNormaModeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessibilityStrategyNormaModeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		914DD45A26E1307E0067DD83 /* ASUI_NM_r_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_r_Tests.swift; sourceTree = "<group>"; };
+		914DD46226E139C40067DD83 /* ASUI_NM_j_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_j_Tests.swift; sourceTree = "<group>"; };
+		914DD46426E13DD90067DD83 /* ASUI_NM_k_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_k_Tests.swift; sourceTree = "<group>"; };
 		9159353E26E00AD800CAE186 /* ASUI_NM_BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_BaseTests.swift; sourceTree = "<group>"; };
 		9161A54C26E0C3DE009A2572 /* ASUI_NM_G__Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_G__Tests.swift; sourceTree = "<group>"; };
 		9161A54E26E0C4DF009A2572 /* ASUI_NM_gg_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_gg_Tests.swift; sourceTree = "<group>"; };
@@ -390,16 +394,18 @@
 		9159352726E00AD800CAE186 /* Moves */ = {
 			isa = PBXGroup;
 			children = (
-				914DD45A26E1307E0067DD83 /* ASUI_NM_r_Tests.swift */,
-				912F013126E101B900A46199 /* ASUI_NM_>>_Tests.swift */,
 				912F012F26E1016300A46199 /* ASUI_NM_<<_Tests.swift */,
-				912F012D26E100CF00A46199 /* ASUI_NM_x_Tests.swift */,
+				912F013126E101B900A46199 /* ASUI_NM_>>_Tests.swift */,
+				9161A55426E0D11F009A2572 /* ASUI_NM_dd_Tests.swift */,
 				9161A55826E0D28B009A2572 /* ASUI_NM_dj_Tests.swift */,
 				912F012926E1002800A46199 /* ASUI_NM_dk_Tests.swift */,
-				9161A55426E0D11F009A2572 /* ASUI_NM_dd_Tests.swift */,
 				9161A54C26E0C3DE009A2572 /* ASUI_NM_G__Tests.swift */,
 				9161A54E26E0C4DF009A2572 /* ASUI_NM_gg_Tests.swift */,
+				914DD46226E139C40067DD83 /* ASUI_NM_j_Tests.swift */,
+				914DD46426E13DD90067DD83 /* ASUI_NM_k_Tests.swift */,
 				9161A55026E0C57B009A2572 /* ASUI_NM_O__Tests.swift */,
+				914DD45A26E1307E0067DD83 /* ASUI_NM_r_Tests.swift */,
+				912F012D26E100CF00A46199 /* ASUI_NM_x_Tests.swift */,
 			);
 			path = Moves;
 			sourceTree = "<group>";
@@ -934,9 +940,11 @@
 				914DD44D26E12C340067DD83 /* ASUI_NM_O__Tests.swift in Sources */,
 				914DD44E26E12C340067DD83 /* ASUI_NM_x_Tests.swift in Sources */,
 				914DD44C26E12C340067DD83 /* ASUI_NM_gg_Tests.swift in Sources */,
+				914DD46326E139C40067DD83 /* ASUI_NM_j_Tests.swift in Sources */,
 				914DD45026E12C340067DD83 /* ASUI_NM_>>_Tests.swift in Sources */,
 				914DD45126E12C340067DD83 /* ASUI_NM_dd_Tests.swift in Sources */,
 				914DD44826E12C340067DD83 /* ASUI_NM_BaseTests.swift in Sources */,
+				914DD46526E13DD90067DD83 /* ASUI_NM_k_Tests.swift in Sources */,
 				914DD45226E12C340067DD83 /* ASUI_NM_dk_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
