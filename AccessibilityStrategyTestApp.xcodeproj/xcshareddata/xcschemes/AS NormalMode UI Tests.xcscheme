@@ -22,6 +22,16 @@
                ReferencedContainer = "container:AccessibilityStrategyTestApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "914DD43A26E12C0F0067DD83"
+               BuildableName = "AccessibilityStrategyNormaModeUITests.xctest"
+               BlueprintName = "AccessibilityStrategyNormaModeUITests"
+               ReferencedContainer = "container:AccessibilityStrategyTestApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

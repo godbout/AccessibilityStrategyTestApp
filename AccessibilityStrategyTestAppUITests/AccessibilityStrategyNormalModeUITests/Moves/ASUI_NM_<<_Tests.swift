@@ -10,7 +10,9 @@ import AccessibilityStrategy
 class ASUI_NM_leftChevronLeftChevron_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackAccessibilityElement(move: asNormalMode.leftChevronLeftChevron)
+        return applyMoveAndGetBackAccessibilityElement { focusedElement in
+            asNormalMode.leftChevronLeftChevron(on: focusedElement)
+        }
     }
     
 }

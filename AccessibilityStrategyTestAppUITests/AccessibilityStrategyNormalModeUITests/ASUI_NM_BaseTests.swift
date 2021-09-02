@@ -17,7 +17,7 @@ class ASUI_NM_BaseTests: XCTestCase {
     }
     
     
-    func applyMoveAndGetBackAccessibilityElement(move: (_ on: AccessibilityTextElement?) -> AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func applyMoveAndGetBackAccessibilityElement(_ move: (AccessibilityTextElement?) -> AccessibilityTextElement?) -> AccessibilityTextElement? {
         let currentElement = accessibilityStrategy.focusedTextElement()
         guard let elementAfterMove = move(currentElement) else { return nil }
         _ = accessibilityStrategy.push(element: elementAfterMove)
@@ -25,6 +25,15 @@ class ASUI_NM_BaseTests: XCTestCase {
 
         return updatedElementAfterPush
     }
-    
+        
+    func applyMoveAndGetBackAccessibilityElement(character: Character, _ move: (Character, AccessibilityTextElement?) -> AccessibilityTextElement?) -> AccessibilityTextElement? {
+        let currentElement = accessibilityStrategy.focusedTextElement()
+        guard let elementAfterMove = move(character, currentElement) else { return nil }
+        _ = accessibilityStrategy.push(element: elementAfterMove)
+        let updatedElementAfterPush = accessibilityStrategy.focusedTextElement()
+
+        return updatedElementAfterPush
+    }
+
 }
 

@@ -1,10 +1,19 @@
-@testable import kindaVim
 import XCTest
 import KeyCombination
 import AccessibilityStrategy
 
 
-class ASUI_NM_r_Tests: ASUI_NM_BaseTests {}
+// the caretLocation and selectedLength for `r` are not the final ones
+// as KVE will have to place the block cursor again after. this is because
+// `r` adds new text (one character) through selectedText.
+class ASUI_NM_r_Tests: ASUI_NM_BaseTests {
+    
+    private func applyMoveAndGetBackAccessibilityElement(with character: Character) -> AccessibilityTextElement? {
+        return applyMoveAndGetBackAccessibilityElement(character: character) { character, focusedElement in
+            asNormalMode.r(with: character, on: focusedElement)
+        }
+    }
+}
 
 
 extension ASUI_NM_r_Tests {
@@ -17,34 +26,28 @@ extension ASUI_NM_r_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-        KindaVimEngine.shared.enterNormalMode()
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .r))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .a))
-        
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement(with: "a")
+      
         XCTAssertEqual(accessibilityElement?.value, "gonna replace one of thosa letters...")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 25)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
 
     func test_that_it_can_replace_a_letter_by_a_space() {
         let textInAXFocusedElement = "i need more space!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .r))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .space))
-        
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
-        XCTAssertEqual(accessibilityElement?.value, "i need more space ")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 17)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-    }
+        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
 
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement(with: "\u{0020}")
+       
+        XCTAssertEqual(accessibilityElement?.value, "i need more space ")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 18)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+    }
+    
 }
 
 
@@ -60,13 +63,10 @@ a new line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        KindaVimEngine.shared.enterNormalMode()
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .r))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .enter))
-        
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+               
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement(with: "\u{000A}")
+
         XCTAssertEqual(accessibilityElement?.value, """
 gonna replace something
 b
@@ -85,13 +85,10 @@ escape
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .r))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
-        
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement(with: "\u{001B}")
+
         XCTAssertEqual(accessibilityElement?.value, """
 now we gonna start the replacement
 move but cancel it with
@@ -115,21 +112,17 @@ e💨️💨️💨️ fac"es 🥺️☹️😂️ h😀️ha👅️" hhohohoo�
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .r))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .nine))
-        
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
+
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement(with: "9")
+
         XCTAssertEqual(accessibilityElement?.value, """
 need to deal with
 e9💨️💨️ fac"es 🥺️☹️😂️ h😀️ha👅️" hhohohoo🤣️
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 19)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 20)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
     
 }

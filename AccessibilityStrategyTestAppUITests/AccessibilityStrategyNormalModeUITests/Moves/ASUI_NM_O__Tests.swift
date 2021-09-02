@@ -6,7 +6,9 @@ import AccessibilityStrategy
 class ASUI_NM_O_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackAccessibilityElement(move: asNormalMode.O)
+        return applyMoveAndGetBackAccessibilityElement { focusedElement in
+            asNormalMode.O(on: focusedElement)
+        }
     }
     
 }
@@ -27,7 +29,7 @@ abo😄️ve!
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
                
-        let accessibilityElement = try? applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.value, """
 tha😄️t's a mu😄️ltiline
