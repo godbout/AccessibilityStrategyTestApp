@@ -3,6 +3,7 @@ import KeyCombination
 import AccessibilityStrategy
 
 
+// TODO: comment below might not be accurate anymore. to review.
 // this moves uses the shiftCurrentLine blah blah func. the UI tests for that
 // func are already done on their own. here we just test that we relocate the
 // caret correctly after the move. we separate because this move will also be used
