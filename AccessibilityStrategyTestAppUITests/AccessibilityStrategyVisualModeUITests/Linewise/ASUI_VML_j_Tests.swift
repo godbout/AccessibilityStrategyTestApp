@@ -3,17 +3,7 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-class ASUI_VML_j_Tests: ASUI_VM_BaseTests {
-    
-    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
-        
-        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
-    }
-    
-}
+class ASUI_VML_j_Tests: ASUI_VM_BaseTests {}
 
 
 // TextFields
@@ -24,10 +14,11 @@ extension ASUI_VML_j_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        KindaVimEngine.shared.enterNormalMode()
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
-        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 22)
     }
@@ -50,17 +41,19 @@ when the head is after the anchor
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-        KindaVimEngine.shared.enterNormalMode()
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
-        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+
+        let accessibilityElement = applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 41)
         
-        let finalaccessibilityElementHehe = asVisualMode.jForVisualStyleLinewise(on: accessibilityElement)
-        
-        XCTAssertEqual(finalaccessibilityElementHehe?.caretLocation, 0)
-        XCTAssertEqual(finalaccessibilityElementHehe?.selectedLength, 69)        
+        let finalAccessibilityElementHehe = applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+       
+        XCTAssertEqual(finalAccessibilityElementHehe?.caretLocation, 0)
+        XCTAssertEqual(finalAccessibilityElementHehe?.selectedLength, 69)
     }
     
     func test_that_if_the_head_is_before_the_anchor_then_it_reduces_the_selection_by_one_line_below_at_a_time() {
@@ -73,22 +66,21 @@ head if before the anchor
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        
-        let accessibilityElement = asVisualMode.jForVisualStyleLinewise(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-                
+               
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 41)
         XCTAssertEqual(accessibilityElement?.selectedLength, 76)
         
-        let finalaccessibilityElementHehe = asVisualMode.jForVisualStyleLinewise(on: accessibilityElement)
+        let finalAccessibilityElementHehe = applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         
-        XCTAssertEqual(finalaccessibilityElementHehe?.caretLocation, 69)
-        XCTAssertEqual(finalaccessibilityElementHehe?.selectedLength, 48)        
+        XCTAssertEqual(finalAccessibilityElementHehe?.caretLocation, 69)
+        XCTAssertEqual(finalAccessibilityElementHehe?.selectedLength, 48)
     }
     
     func test_that_it_does_not_skip_empty_lines() {
@@ -99,14 +91,12 @@ ass off lol
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .g))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .g))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 17)
     }

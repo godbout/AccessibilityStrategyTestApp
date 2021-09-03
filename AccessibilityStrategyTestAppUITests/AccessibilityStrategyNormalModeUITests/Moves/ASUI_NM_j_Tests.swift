@@ -32,6 +32,10 @@ column shit
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
 
+        // TODO: we could rewrite the typeKey by moving with asNormalMode. that
+        // would be like before when we called KindaVimEngine.shared.handle(...)
+        // and can even test better each move. but we need to figure out this
+        // double call to push and focusedElement between every move.
         // we're applying `h` so that the globalColumnNumber gets updated
         // as j and k needs the globalColumnNumber to set their position properly
         _ = asNormalMode.h(on: accessibilityStrategy.focusedTextElement())

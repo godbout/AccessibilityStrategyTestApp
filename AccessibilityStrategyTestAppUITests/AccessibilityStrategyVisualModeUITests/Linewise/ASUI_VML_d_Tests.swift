@@ -20,19 +20,18 @@ one extra line in between!
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-                        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.dForVisualStyleLinewise(on: $0) }
+                      
         XCTAssertEqual(accessibilityElement?.value, """
 we gonna use VM
       to go to non blank of the line
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 22)        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 22)
     }
     
     func test_that_the_caret_will_go_the_the_end_limit_of_the_next_line_if_the_next_line_is_just_made_of_spaces() {
@@ -48,21 +47,19 @@ some more
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.dForVisualStyleLinewise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.value, """
 we gonna use VM
         
 some more
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 23)    
+        XCTAssertEqual(accessibilityElement?.caretLocation, 23)
     }
     
     func test_that_if_the_next_line_is_only_blanks_the_caret_goes_to_the_limit_of_the_line_before_the_linefeed() {
@@ -77,20 +74,19 @@ another line agan
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+              
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.dForVisualStyleLinewise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.value, """
 we gonna use VM
 d here and we suppose
          
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 46)    
+        XCTAssertEqual(accessibilityElement?.caretLocation, 46)
     }
     
     func test_that_removing_the_last_line_puts_the_caret_at_the_first_non_blank_of_the_previous_line() {
@@ -101,19 +97,18 @@ and it would be beautiful
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])    
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.dForVisualStyleLinewise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.value, """
    we gonna remove the last
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 3)    
+        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
     }
     
     func test_that_if_the_head_is_before_the_anchor_it_works() {
@@ -123,19 +118,18 @@ line and caret should go up
 and it would be beautiful
 """
         app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)       
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+             
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.dForVisualStyleLinewise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.value, """
    we gonna remove the last
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 3)    
+        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
     }
     
     func test_that_if_the_whole_text_is_to_be_deleted_well_it_gets_deleted_LOL() {
@@ -146,18 +140,17 @@ blah
 t
 """
         app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)     
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+               
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.dForVisualStyleLinewise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.value, "")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)    
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
 }

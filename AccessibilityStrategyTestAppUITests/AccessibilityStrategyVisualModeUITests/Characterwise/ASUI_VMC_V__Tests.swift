@@ -3,14 +3,7 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-class ASUI_VMC_V__Tests: ASUI_VM_BaseTests {
-    
-    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackAccessibilityElement { focusedElement in
-            asVisualMode.VForVisualStyleCharacterwise(on: focusedElement)
-        }
-    }
-}
+class ASUI_VMC_V__Tests: ASUI_VM_BaseTests {}
 
 
 // TextAreas
@@ -26,7 +19,7 @@ and head are nil
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
 
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMove { asVisualMode.VForVisualStyleCharacterwise(on: $0) }
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 46)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 46)

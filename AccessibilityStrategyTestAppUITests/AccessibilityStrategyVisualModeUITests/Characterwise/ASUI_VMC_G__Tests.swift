@@ -14,14 +14,13 @@ extension ASUI_VMC_G__Tests {
         let textInAXFocusedElement = "        so here we gonna test vG"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .G))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.GForVisualStyleCharacterwise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 8)
         XCTAssertEqual(accessibilityElement?.selectedLength, 23)
     }
@@ -41,15 +40,14 @@ the move and it should
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .G))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+              
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.GForVisualStyleCharacterwise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 46)
         XCTAssertEqual(accessibilityElement?.selectedLength, 31)
     }

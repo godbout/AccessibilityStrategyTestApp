@@ -16,28 +16,27 @@ always move from the anchor, not
 from the caret location
 """
         app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)        
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 54)
         XCTAssertEqual(accessibilityElement?.selectedLength, 5)
-    }  
+    }
     
     func test_that_the_head_is_getting_updated_properly() {
         let textInAXFocusedElement = "we have to updated caretLocation before selectedLength!"
         app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)        
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .zero))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
-        
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+             
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
+
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 1)
     }
     

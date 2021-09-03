@@ -13,14 +13,13 @@ extension ASUI_VMC_0_Tests {
         let textInAXFocusedElement = "that's some nice text in here yehe"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .zero))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 31)
     }
@@ -32,14 +31,13 @@ at the anchor, not at the caret location
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .zero))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 25)
         XCTAssertEqual(accessibilityElement?.selectedLength, 27)
@@ -60,13 +58,12 @@ over multiple lines coz
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .zero))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .zero))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+                
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 37)
@@ -82,14 +79,13 @@ start of the line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .zero))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+               
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 36)
     }
@@ -107,13 +103,12 @@ wow now that 😂️😂️😂️ have to handle🙈️
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .underscore))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .zero))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.underscore(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 41)
         XCTAssertEqual(accessibilityElement?.selectedLength, 7)
     }
@@ -125,15 +120,14 @@ wow now that 😂️😂️😂️ have to handle🙈️
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .b))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .j))
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .zero))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 19)
         XCTAssertEqual(accessibilityElement?.selectedLength, 25)
     }

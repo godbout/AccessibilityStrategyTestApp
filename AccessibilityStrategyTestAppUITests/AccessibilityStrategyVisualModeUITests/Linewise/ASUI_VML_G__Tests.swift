@@ -13,12 +13,11 @@ extension ASUI_VML_G__Tests {
         let textInAXFocusedElement = "        so here we gonna test VG"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .G))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.GForVisualStyleLinewise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 32)
     }
@@ -39,15 +38,14 @@ the end
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .G))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.GForVisualStyleLinewise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 21)
         XCTAssertEqual(accessibilityElement?.selectedLength, 56)
     }
@@ -62,15 +60,14 @@ the end
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .G))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.GForVisualStyleLinewise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 41)
         XCTAssertEqual(accessibilityElement?.selectedLength, 36)
     }

@@ -16,29 +16,29 @@ always move from the anchor, not
 from the caret location
 """
         app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)        
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-                
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 53)
         XCTAssertEqual(accessibilityElement?.selectedLength, 2)
-    }  
+    }
     
     func test_that_the_head_is_getting_updated_properly() {
         let textInAXFocusedElement = "we have to updated caretLocation before selectedLength!"
         app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)        
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
-        // it used to fail after the second move
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        // it used to fail after the second move
+        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 33)
     }
     

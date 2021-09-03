@@ -7,112 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "50A12BFC-15B9-4A55-BE43-0862DC93EFAF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../Library/Developer/Xcode/DerivedData/AccessibilityStrategyTestApp-ftyhrsvbihmqmiajmwhutyqpaqiz/SourcePackages/checkouts/AXEngine/Sources/AXEngine/AXEngine.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "axTextElementData(of:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E6E1595B-83AC-4FD3-81EF-DE8A3CB550D4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../Library/Developer/Xcode/DerivedData/AccessibilityStrategyTestApp-ftyhrsvbihmqmiajmwhutyqpaqiz/SourcePackages/checkouts/AccessibilityStrategy/Sources/AccessibilityStrategy/AccessibilityTextElement/AccessibilityTextElementAdaptor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "fromAXFocusedElement()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DA656764-A169-4631-8F0A-6E06A023B6F1"
+            uuid = "1C7F6486-9394-4F68-A5C3-7A352514DCF7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../Library/Developer/Xcode/DerivedData/AccessibilityStrategyTestApp-ftyhrsvbihmqmiajmwhutyqpaqiz/SourcePackages/checkouts/AccessibilityStrategy/Sources/AccessibilityStrategy/AccessibilityStrategy/NormalMode/ASKV_NM_O_.swift"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/AccessibilityStrategyTestApp-ftyhrsvbihmqmiajmwhutyqpaqiz/SourcePackages/checkouts/AccessibilityStrategy/Sources/AccessibilityStrategy/AccessibilityStrategy/VisualMode/ASKV_VM_escape.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "O(on:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "456D793F-669C-4358-A170-29182DB4A8A2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../Library/Developer/Xcode/DerivedData/AccessibilityStrategyTestApp-ftyhrsvbihmqmiajmwhutyqpaqiz/SourcePackages/checkouts/AccessibilityStrategy/Sources/AccessibilityStrategy/AccessibilityStrategy/NormalMode/ASKV_NM_O_.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "O(on:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E971F3DC-96B4-4F65-AF2A-80EAB980B4E6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../Library/Developer/Xcode/DerivedData/AccessibilityStrategyTestApp-ftyhrsvbihmqmiajmwhutyqpaqiz/SourcePackages/checkouts/AccessibilityStrategy/Sources/AccessibilityStrategy/AccessibilityStrategy/NormalMode/ASKV_NM_O_.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "O(on:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F35FCAE5-96A2-4813-869D-2F7D7AF42A9E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../Library/Developer/Xcode/DerivedData/AccessibilityStrategyTestApp-ftyhrsvbihmqmiajmwhutyqpaqiz/SourcePackages/checkouts/AccessibilityStrategy/Sources/AccessibilityStrategy/AccessibilityStrategy/NormalMode/ASKV_NM_O_.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "O(on:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4A29E050-91E4-41B2-B52D-0419BA82237E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../Library/Developer/Xcode/DerivedData/AccessibilityStrategyTestApp-ftyhrsvbihmqmiajmwhutyqpaqiz/SourcePackages/checkouts/AccessibilityStrategy/Sources/AccessibilityStrategy/AccessibilityStrategy/NormalMode/ASKV_NM_O_.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "11"
-            endingLineNumber = "11"
-            landmarkName = "O(on:)"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "escape(on:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
