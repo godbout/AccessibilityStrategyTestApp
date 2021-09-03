@@ -37,7 +37,7 @@ from the caret location
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
         // it used to fail after the second move
-        let accessibilityElement = applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
 
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 33)
     }
