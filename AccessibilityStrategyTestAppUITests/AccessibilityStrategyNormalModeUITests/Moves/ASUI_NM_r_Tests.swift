@@ -2,7 +2,7 @@ import XCTest
 import KeyCombination
 import AccessibilityStrategy
 
-
+// TODO: should the stuff below be handled in the move itself or in KVE?
 // the caretLocation and selectedLength for `r` are not the final ones
 // as KVE will have to place the block cursor again after. this is because
 // `r` adds new text (one character) through selectedText.

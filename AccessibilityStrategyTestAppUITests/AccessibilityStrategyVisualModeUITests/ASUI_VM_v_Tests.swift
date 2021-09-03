@@ -7,7 +7,7 @@ import AccessibilityStrategy
 class ASUI_VM_v_Tests: ASUI_VM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackAccessibilityElement { focusedElement in
+        return applyMove { focusedElement in
             asVisualMode.vForEnteringFromNormalMode(on: focusedElement)
         }
     }

@@ -6,7 +6,7 @@ import AccessibilityStrategy
 class ASUI_VML_v_Tests: ASUI_VM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackAccessibilityElement { focusedElement in
+        return applyMove { focusedElement in
             asVisualMode.vForVisualStyleLinewise(on: focusedElement)
         }
     }
