@@ -84,6 +84,9 @@ ass off lol
         applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0) }
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 16)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 7)
     }
     
     func test_that_if_the_head_is_after_the_anchor_and_both_are_not_on_the_same_line_and_the_new_head_location_is_before_the_anchor_then_it_goes_to_the_line_above_the_head_on_the_same_column_number_and_selects_from_that_new_head_location_to_the_anchor() {

@@ -3,4 +3,22 @@
    uuid = "0FC428A5-6BAD-4003-A270-824A0D8DB302"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C7F6486-9394-4F68-A5C3-7A352514DCF7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/AccessibilityStrategyTestApp-ftyhrsvbihmqmiajmwhutyqpaqiz/SourcePackages/checkouts/AccessibilityStrategy/Sources/AccessibilityStrategy/AccessibilityStrategy/VisualMode/ASKV_VM_escape.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "escape(on:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

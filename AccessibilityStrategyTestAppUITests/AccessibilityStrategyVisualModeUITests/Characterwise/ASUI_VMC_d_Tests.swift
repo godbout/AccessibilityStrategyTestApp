@@ -78,7 +78,6 @@ right above
         XCTAssertEqual(accessibilityElement?.caretLocation, 31)
     }
     
-    // TODO: fails. review
     func test_that_when_the_selection_spans_on_a_single_line_if_after_deletion_the_caret_ends_up_after_the_line_limit_then_it_is_moved_back_to_the_end_limit() {
         let textInAXFocusedElement = """
 if deleting the last character of
@@ -97,7 +96,7 @@ should go back to line end limit
 
         XCTAssertEqual(accessibilityElement?.value, """
 if deleting the last character of
-a line before the linefeed the
+a line before the linefeed the 
 should go back to line end limit
 """
         )

@@ -3,7 +3,8 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-// TODO: review the failing tests
+// TODO: review the failing tests. KVE is the one udpating the final selectedLength etc.
+// that is why the tests fail
 // currently VM escape has been changed to go back to IM
 // and leaving the selection untouched. this is to be able to
 // comment or indent multiple lines :D until we build the moves
