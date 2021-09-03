@@ -18,14 +18,14 @@ anchor
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-                
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMove { asVisualMode.VForVisualStyleLinewise(on: $0) }
        
         XCTAssertEqual(accessibilityElement?.caretLocation, 14)
     }
 
-// TODO: review the two below
     func test_that_the_caret_goes_to_the_head_location_after_having_being_switched_when_coming_from_Visual_Mode_linewise() {
         let textInAXFocusedElement = """
 yeah we gonna
@@ -44,25 +44,29 @@ anchor
         XCTAssertEqual(accessibilityElement?.caretLocation, 14)
     }
 
-//    func test_that_the_caret_goes_to_the_head_location_even_the_head_is_on_a_different_line_than_the_caret() {
-//        let textInAXFocusedElement = """
-//now we gonna have
-//the selection spread over
-//multiple lines
-//"""
-//        app.textViews.firstMatch.tap()
-//        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-//        KindaVimEngine.shared.enterNormalMode()
-//        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
-//        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
-//        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-//        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .j))
-//
-//        let accessibilityElement = asVisualMode.VForVisualStyleLinewise(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-//
-//        XCTAssertEqual(accessibilityElement?.caretLocation, 42)
-//    }
-//
+    // TODO: review. this is failing because the last move cannot be pushed to FocusedElement
+    // the reason is because the selectedLength is too big
+    // and currently this is because we don't handle the selectedLengh in that case in the move
+    // itself, but in KVE. there's several cases of those. may need to move the separation of concerns?
+    func test_that_the_caret_goes_to_the_head_location_even_the_head_is_on_a_different_line_than_the_caret() {
+        let textInAXFocusedElement = """
+now we gonna have
+the selection spread over
+multiple lines
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.VForVisualStyleLinewise(on: $0) }
+
+        XCTAssertEqual(accessibilityElement?.caretLocation, 42)
+    }
+
 }
 
 

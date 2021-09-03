@@ -3,17 +3,7 @@
 //import AccessibilityStrategy
 //
 //
-//class ASUI_VML_j_Tests: ASUI_VM_BaseTests {
-//    
-//    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-//        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-//        
-//        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
-//        
-//        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
-//    }
-//    
-//}
+//class ASUI_VML_j_Tests: ASUI_VM_BaseTests {}
 //
 //
 //// TextFields
@@ -24,10 +14,11 @@
 //        app.textFields.firstMatch.tap()
 //        app.textFields.firstMatch.typeText(textInAXFocusedElement)
 //        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-//        KindaVimEngine.shared.enterNormalMode()
 //        
-//        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
-//        
+//        applyMove { asNormalMode.h(on: $0) }
+//        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+//        let accessibilityElement = applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+//
 //        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
 //        XCTAssertEqual(accessibilityElement?.selectedLength, 22)
 //    }
@@ -60,7 +51,7 @@
 //        let finalaccessibilityElementHehe = asVisualMode.jForVisualStyleLinewise(on: accessibilityElement)
 //        
 //        XCTAssertEqual(finalaccessibilityElementHehe?.caretLocation, 0)
-//        XCTAssertEqual(finalaccessibilityElementHehe?.selectedLength, 69)        
+//        XCTAssertEqual(finalaccessibilityElementHehe?.selectedLength, 69)
 //    }
 //    
 //    func test_that_if_the_head_is_before_the_anchor_then_it_reduces_the_selection_by_one_line_below_at_a_time() {
@@ -88,7 +79,7 @@
 //        let finalaccessibilityElementHehe = asVisualMode.jForVisualStyleLinewise(on: accessibilityElement)
 //        
 //        XCTAssertEqual(finalaccessibilityElementHehe?.caretLocation, 69)
-//        XCTAssertEqual(finalaccessibilityElementHehe?.selectedLength, 48)        
+//        XCTAssertEqual(finalaccessibilityElementHehe?.selectedLength, 48)
 //    }
 //    
 //    func test_that_it_does_not_skip_empty_lines() {

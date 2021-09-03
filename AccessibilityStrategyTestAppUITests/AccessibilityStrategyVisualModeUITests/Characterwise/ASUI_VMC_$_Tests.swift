@@ -86,25 +86,24 @@ $ doesn't work LOOOLL
         XCTAssertEqual(accessibilityElement?.selectedLength, 25)
     }
 
-//    func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_before_the_anchor_then_it_goes_to_the_end_of_the_line_where_the_head_is_located_and_reduces_the_selection() {
-//        let textInAXFocusedElement = """
-//we gonna select
-//over multiple lines coz
-//$ doesn't work LOOOLL
-//"""
-//        app.textViews.firstMatch.tap()
-//        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-//        KindaVimEngine.shared.enterNormalMode()
-//        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-//        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
-//        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-//
-//        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
-//        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-//
-//        XCTAssertEqual(accessibilityElement?.caretLocation, 39)
-//        XCTAssertEqual(accessibilityElement?.selectedLength, 22)
-//    }
+    func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_before_the_anchor_then_it_goes_to_the_end_of_the_line_where_the_head_is_located_and_reduces_the_selection() {
+        let textInAXFocusedElement = """
+we gonna select
+over multiple lines coz
+$ doesn't work LOOOLL
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
+
+        XCTAssertEqual(accessibilityElement?.caretLocation, 39)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 22)
+    }
     
 }
 
@@ -112,26 +111,23 @@ $ doesn't work LOOOLL
 // emojis
 extension ASUI_VMC_$_Tests {
     
-    // TODO: review
-    
-//    func test_that_it_handles_emojis() {
-//        let textInAXFocusedElement = """
-//wow now that 😂️😂️😂️ have to handle🙈️
-//    🍌️dd with the 🙈️🙈️🙈️🙈️
-//"""
-//        app.textViews.firstMatch.tap()
-//        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-//        KindaVimEngine.shared.enterNormalMode()
-//        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .underscore))
-//        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .v))
-//        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
-//
-//        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
-//        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-//
-//        XCTAssertEqual(accessibilityElement?.caretLocation, 40)
-//        XCTAssertEqual(accessibilityElement?.selectedLength, 8)
-//    }
+    func test_that_it_handles_emojis() {
+        let textInAXFocusedElement = """
+wow now that 😂️😂️😂️ have to handle🙈️
+    🍌️dd with the 🙈️🙈️🙈️🙈️
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.underscore(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
+
+        XCTAssertEqual(accessibilityElement?.caretLocation, 40)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 8)
+    }
     
 }
 

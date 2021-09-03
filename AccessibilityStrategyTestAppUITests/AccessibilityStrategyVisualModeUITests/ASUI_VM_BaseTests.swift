@@ -25,7 +25,8 @@ class ASUI_VM_BaseTests: XCTestCase {
     func applyMove(_ move: (AccessibilityTextElement?) -> AccessibilityTextElement?) -> AccessibilityTextElement? {
         let focusedElement = accessibilityStrategy.focusedTextElement()
         guard let transformedElement = move(focusedElement) else { return nil }
-        _ = accessibilityStrategy.push(element: transformedElement)
+        print(  accessibilityStrategy.push(element: transformedElement) )
+                print(transformedElement)
         let latestFocusedElement = accessibilityStrategy.focusedTextElement()
 
         return latestFocusedElement
