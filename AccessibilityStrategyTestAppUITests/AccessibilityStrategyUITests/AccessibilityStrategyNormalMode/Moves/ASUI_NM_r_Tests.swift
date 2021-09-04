@@ -2,6 +2,7 @@ import XCTest
 import KeyCombination
 import AccessibilityStrategy
 
+
 // TODO: should the stuff below be handled in the move itself or in KVE?
 // the caretLocation and selectedLength for `r` are not the final ones
 // as KVE will have to place the block cursor again after. this is because
@@ -9,7 +10,7 @@ import AccessibilityStrategy
 class ASUI_NM_r_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement(with character: Character) -> AccessibilityTextElement? {
-        return applyMoveAndGetBackAccessibilityElement(character: character) { character, focusedElement in
+        return applyMove(with: character) { character, focusedElement in
             asNormalMode.r(with: character, on: focusedElement)
         }
     }
@@ -17,7 +18,6 @@ class ASUI_NM_r_Tests: ASUI_NM_BaseTests {
 
 
 extension ASUI_NM_r_Tests {
-    
 
     // TextFields
     func test_that_in_normal_setting_it_replaces_the_character_under_the_cursor_with_the_one_given() {

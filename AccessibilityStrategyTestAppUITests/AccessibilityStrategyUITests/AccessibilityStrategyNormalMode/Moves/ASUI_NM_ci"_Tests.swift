@@ -1,5 +1,5 @@
 // TODO: is this still useful? is this not tested in UT?
-
+//
 //@testable import kindaVim
 //import XCTest
 //import KeyCombination

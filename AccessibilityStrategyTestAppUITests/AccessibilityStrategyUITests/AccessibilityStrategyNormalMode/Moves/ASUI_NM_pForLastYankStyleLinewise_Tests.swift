@@ -6,9 +6,7 @@ import AccessibilityStrategy
 class UIASNM_pForLastYankStyleLinewise_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackAccessibilityElement { focusedElement in
-            asNormalMode.pForLastYankStyleLinewise(on: focusedElement)
-        }
+        return applyMove { asNormalMode.pForLastYankStyleLinewise(on: $0) }
     }
     
 }

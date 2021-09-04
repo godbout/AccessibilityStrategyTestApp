@@ -8,9 +8,7 @@ import AXEngine
 class ASUI_NM_k_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackAccessibilityElement { focusedElement in
-            asNormalMode.k(on: focusedElement)
-        }
+        return applyMove { asNormalMode.k(on: $0) }
     }
     
 }

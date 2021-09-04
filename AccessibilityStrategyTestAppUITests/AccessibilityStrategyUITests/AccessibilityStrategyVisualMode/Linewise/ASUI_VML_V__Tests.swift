@@ -23,7 +23,7 @@ anchor
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMove { asVisualMode.VForVisualStyleLinewise(on: $0) }
        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 14)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 36)
     }
 
     func test_that_the_caret_goes_to_the_head_location_after_having_being_switched_when_coming_from_Visual_Mode_linewise() {

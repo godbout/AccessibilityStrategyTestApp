@@ -3,29 +3,27 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-class UIASNM_dj_Tests: ASUI_NM_BaseTests {
+class UIASNM_dk_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackAccessibilityElement { focusedElement in
-            asNormalMode.dj(on: focusedElement)
-        }
+        return applyMove { asNormalMode.dk(on: $0) }
     }
     
 }
 
 
 // Both
-extension UIASNM_dj_Tests {
+extension UIASNM_dk_Tests {
     
     func test_that_if_there_is_only_one_line_it_does_not_do_anything() {
-        let textInAXFocusedElement = "one line is not enough for dj"
+        let textInAXFocusedElement = "one line is not enough for dk"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-
+       
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(accessibilityElement?.value, "one line is not enough for dj")        
+        XCTAssertEqual(accessibilityElement?.value, "one line is not enough for dk")        
         XCTAssertEqual(accessibilityElement?.caretLocation, 28)
     }    
     
@@ -33,7 +31,7 @@ extension UIASNM_dj_Tests {
 
 
 // TextViews
-extension UIASNM_dj_Tests {
+extension UIASNM_dk_Tests {
     
     func test_that_it_can_delete_two_lines() {
         let textInAXFocusedElement = """
@@ -42,7 +40,6 @@ one should disappear
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])      
        
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -58,7 +55,7 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
        
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -78,7 +75,6 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
        
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -91,4 +87,4 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
     }
     
 }
- 
+

@@ -6,9 +6,7 @@ import AccessibilityStrategy
 class UIASNM_x_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackAccessibilityElement { focusedElement in
-            asNormalMode.x(on: focusedElement)
-        }
+        return applyMove { asNormalMode.x(on: $0) }
     }
     
 }

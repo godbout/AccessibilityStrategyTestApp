@@ -19,6 +19,8 @@
 		913BAFF126E10477002E6999 /* to_TV_caretLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952E026DFFA4600DC26C6 /* to_TV_caretLocationTests.swift */; };
 		913BAFF226E1047C002E6999 /* NonTextElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F952E426DFFA4600DC26C6 /* NonTextElementsTests.swift */; };
 		913BAFF426E10496002E6999 /* AccessibilityStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 913BAFF326E10496002E6999 /* AccessibilityStrategy */; };
+		913DFFF226E3D06300DB4468 /* ASUI_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913DFFEF26E3D00700DB4468 /* ASUI_BaseTests.swift */; };
+		913DFFF326E3D06400DB4468 /* ASUI_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913DFFEF26E3D00700DB4468 /* ASUI_BaseTests.swift */; };
 		914DD44526E12C340067DD83 /* ASUI_NM_dj_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9161A55826E0D28B009A2572 /* ASUI_NM_dj_Tests.swift */; };
 		914DD44826E12C340067DD83 /* ASUI_NM_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9159353E26E00AD800CAE186 /* ASUI_NM_BaseTests.swift */; };
 		914DD44B26E12C340067DD83 /* ASUI_NM_<<_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912F012F26E1016300A46199 /* ASUI_NM_<<_Tests.swift */; };
@@ -230,7 +232,7 @@
 		913BAFDC26E103FE002E6999 /* AccessibilityTextElementAdaptorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessibilityTextElementAdaptorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		913BAFE026E103FE002E6999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		913BAFFD26E10519002E6999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		913DFFED26E3BE1E00DB4468 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
+		913DFFEF26E3D00700DB4468 /* ASUI_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_BaseTests.swift; sourceTree = "<group>"; };
 		914DD43B26E12C0F0067DD83 /* AccessibilityStrategyNormaModeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessibilityStrategyNormaModeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		914DD45A26E1307E0067DD83 /* ASUI_NM_r_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_r_Tests.swift; sourceTree = "<group>"; };
 		914DD46226E139C40067DD83 /* ASUI_NM_j_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_j_Tests.swift; sourceTree = "<group>"; };
@@ -470,14 +472,24 @@
 			path = AccessibilityTextElementAdaptorUITests;
 			sourceTree = "<group>";
 		};
-		913BAFFA26E10519002E6999 /* AccessibilityStrategyNormalModeUITests */ = {
+		913BAFFA26E10519002E6999 /* AccessibilityStrategyNormalMode */ = {
 			isa = PBXGroup;
 			children = (
 				9159353E26E00AD800CAE186 /* ASUI_NM_BaseTests.swift */,
 				9159352726E00AD800CAE186 /* Moves */,
 				913BAFFD26E10519002E6999 /* Info.plist */,
 			);
-			path = AccessibilityStrategyNormalModeUITests;
+			path = AccessibilityStrategyNormalMode;
+			sourceTree = "<group>";
+		};
+		913DFFEE26E3CFDF00DB4468 /* AccessibilityStrategyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				913DFFEF26E3D00700DB4468 /* ASUI_BaseTests.swift */,
+				913BAFFA26E10519002E6999 /* AccessibilityStrategyNormalMode */,
+				91AF718126E15140007C2D2E /* AccessibilityStrategyVisualMode */,
+			);
+			path = AccessibilityStrategyUITests;
 			sourceTree = "<group>";
 		};
 		9159352726E00AD800CAE186 /* Moves */ = {
@@ -509,7 +521,7 @@
 			path = Moves;
 			sourceTree = "<group>";
 		};
-		91AF718126E15140007C2D2E /* AccessibilityStrategyVisualModeUITests */ = {
+		91AF718126E15140007C2D2E /* AccessibilityStrategyVisualMode */ = {
 			isa = PBXGroup;
 			children = (
 				91AF718C26E151B7007C2D2E /* ASUI_VM_BaseTests.swift */,
@@ -519,7 +531,7 @@
 				91AF719A26E151B8007C2D2E /* Linewise */,
 				91AF718426E15140007C2D2E /* Info.plist */,
 			);
-			path = AccessibilityStrategyVisualModeUITests;
+			path = AccessibilityStrategyVisualMode;
 			sourceTree = "<group>";
 		};
 		91AF718D26E151B8007C2D2E /* Characterwise */ = {
@@ -561,7 +573,6 @@
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
-				913DFFED26E3BE1E00DB4468 /* AccessibilityStrategy */,
 				91F951B326DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,
@@ -617,8 +628,7 @@
 			isa = PBXGroup;
 			children = (
 				913BAFDD26E103FE002E6999 /* AccessibilityTextElementAdaptorUITests */,
-				913BAFFA26E10519002E6999 /* AccessibilityStrategyNormalModeUITests */,
-				91AF718126E15140007C2D2E /* AccessibilityStrategyVisualModeUITests */,
+				913DFFEE26E3CFDF00DB4468 /* AccessibilityStrategyUITests */,
 			);
 			path = AccessibilityStrategyTestAppUITests;
 			sourceTree = "<group>";
@@ -1116,6 +1126,7 @@
 				914DD47126E142DC0067DD83 /* ASUI_NM_ct_Tests.swift in Sources */,
 				914DD44B26E12C340067DD83 /* ASUI_NM_<<_Tests.swift in Sources */,
 				914DD44526E12C340067DD83 /* ASUI_NM_dj_Tests.swift in Sources */,
+				913DFFF226E3D06300DB4468 /* ASUI_BaseTests.swift in Sources */,
 				914DD44D26E12C340067DD83 /* ASUI_NM_O__Tests.swift in Sources */,
 				914DD44E26E12C340067DD83 /* ASUI_NM_x_Tests.swift in Sources */,
 				914DD44C26E12C340067DD83 /* ASUI_NM_gg_Tests.swift in Sources */,
@@ -1156,6 +1167,7 @@
 				91AF71B726E151B8007C2D2E /* ASUI_VML_j_Tests.swift in Sources */,
 				91AF71AF26E151B8007C2D2E /* ASUI_VMC_escape_Tests.swift in Sources */,
 				91AF71B526E151B8007C2D2E /* ASUI_VML_gg_Tests.swift in Sources */,
+				913DFFF326E3D06400DB4468 /* ASUI_BaseTests.swift in Sources */,
 				91AF71A626E151B8007C2D2E /* ASUI_VM_v_Tests.swift in Sources */,
 				91AF71BD26E151B8007C2D2E /* ASUI_VML_k_Tests.swift in Sources */,
 				91AF71AB26E151B8007C2D2E /* ASUI_VMC_gg_Tests.swift in Sources */,
@@ -1372,7 +1384,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
-				INFOPLIST_FILE = "AccessibilityStrategyTestAppUITests/AccessibilityStrategyNormalModeUITests//Info.plist";
+				INFOPLIST_FILE = "AccessibilityStrategyTestAppUITests/AccessibilityStrategyUITests/AccessibilityStrategyNormalMode//Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1391,7 +1403,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
-				INFOPLIST_FILE = "AccessibilityStrategyTestAppUITests/AccessibilityStrategyNormalModeUITests//Info.plist";
+				INFOPLIST_FILE = "AccessibilityStrategyTestAppUITests/AccessibilityStrategyUITests/AccessibilityStrategyNormalMode//Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1412,7 +1424,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
-				INFOPLIST_FILE = AccessibilityStrategyTestAppUITests/AccessibilityStrategyVisualModeUITests/Info.plist;
+				INFOPLIST_FILE = AccessibilityStrategyTestAppUITests/AccessibilityStrategyUITests/AccessibilityStrategyVisualMode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1435,7 +1447,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
-				INFOPLIST_FILE = AccessibilityStrategyTestAppUITests/AccessibilityStrategyVisualModeUITests/Info.plist;
+				INFOPLIST_FILE = AccessibilityStrategyTestAppUITests/AccessibilityStrategyUITests/AccessibilityStrategyVisualMode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

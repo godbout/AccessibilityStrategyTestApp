@@ -19,7 +19,7 @@ extension UIASVML_escape_Tests {
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMove { asVisualMode.escape(on: $0) }
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
     }
     
 }
@@ -58,7 +58,7 @@ gonna go after
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMove { asVisualMode.escape(on: $0) }
       
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
     }
     
 }
