@@ -3,11 +3,12 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-// TODO: review the failing tests. KVE is the one udpating the final selectedLength etc.
-// that is why the tests fail
-// currently VM escape has been changed to go back to IM
-// and leaving the selection untouched. this is to be able to
-// comment or indent multiple lines :D until we build the moves
+// so this is testing the AS escape move. this matches the real Vim
+// move, but it will (at least currently) not match the kindaVim move
+// because kindaVim will keep the whole selection when pressing escape
+// (at least at first) so that we can comment or indent multiple lines easily.
+// before, there was no separation of tests between AS and KVE, but now there is
+// and responsibility of concerts has to be separate correctly. choices.
 class ASUI_VMC_escape_Tests: ASUI_VM_BaseTests {}
 
 
@@ -49,7 +50,7 @@ over multiple lines
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMove { asVisualMode.escape(on: $0) }
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 18)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 28)
     }
     
     func test_that_if_the_head_is_above_line_end_limit_then_the_caret_goes_to_the_end_limit() {
@@ -68,7 +69,7 @@ gonna go after
         applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMove { asVisualMode.escape(on: $0) }
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 13)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
     }
     
 }
@@ -88,7 +89,7 @@ extension ASUI_VMC_escape_Tests {
         let accessibilityElement = applyMove { asVisualMode.escape(on: $0) }
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 13)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 12)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
 }

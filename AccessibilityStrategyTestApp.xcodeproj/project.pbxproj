@@ -223,7 +223,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		910ACA4926E2AA7200755B84 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		912F012926E1002800A46199 /* ASUI_NM_dk_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_dk_Tests.swift; sourceTree = "<group>"; };
 		912F012D26E100CF00A46199 /* ASUI_NM_x_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_x_Tests.swift; sourceTree = "<group>"; };
 		912F012F26E1016300A46199 /* ASUI_NM_<<_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASUI_NM_<<_Tests.swift"; sourceTree = "<group>"; };
@@ -231,6 +230,7 @@
 		913BAFDC26E103FE002E6999 /* AccessibilityTextElementAdaptorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessibilityTextElementAdaptorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		913BAFE026E103FE002E6999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		913BAFFD26E10519002E6999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		913DFFED26E3BE1E00DB4468 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		914DD43B26E12C0F0067DD83 /* AccessibilityStrategyNormaModeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessibilityStrategyNormaModeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		914DD45A26E1307E0067DD83 /* ASUI_NM_r_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_r_Tests.swift; sourceTree = "<group>"; };
 		914DD46226E139C40067DD83 /* ASUI_NM_j_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_j_Tests.swift; sourceTree = "<group>"; };
@@ -561,12 +561,11 @@
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
-				910ACA4926E2AA7200755B84 /* AccessibilityStrategy */,
+				913DFFED26E3BE1E00DB4468 /* AccessibilityStrategy */,
 				91F951B326DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,
 				91F951B226DFF56C00DC26C6 /* Products */,
-				91F952F226DFFA7300DC26C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -884,13 +883,6 @@
 				91F952E426DFFA4600DC26C6 /* NonTextElementsTests.swift */,
 			);
 			path = Others;
-			sourceTree = "<group>";
-		};
-		91F952F226DFFA7300DC26C6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
