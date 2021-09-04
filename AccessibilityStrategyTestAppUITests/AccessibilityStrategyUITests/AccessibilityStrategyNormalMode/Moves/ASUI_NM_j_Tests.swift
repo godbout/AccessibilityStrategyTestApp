@@ -7,7 +7,7 @@ import AccessibilityStrategy
 // this is tested in Unit Tests.
 class UIASNM_j_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
         return applyMove { asNormalMode.j(on: $0) }
     }
     
@@ -27,17 +27,10 @@ column shit
 
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
-
-        // TODO: we could rewrite the typeKey by moving with asNormalMode. that
-        // would be like before when we called KindaVimEngine.shared.handle(...)
-        // and can even test better each move. but we need to figure out this
-        // double call to push and focusedElement between every move.
-        // we're applying `h` so that the globalColumnNumber gets updated
-        // as j and k needs the globalColumnNumber to set their position properly
-        _ = asNormalMode.h(on: accessibilityStrategy.focusedTextElement())
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.e(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 14)
     }
@@ -52,12 +45,13 @@ let's see
 
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-
-        _ = asNormalMode.h(on: accessibilityStrategy.focusedTextElement())
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.e(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 64)
     }
@@ -71,17 +65,17 @@ another long line longer than all the other ones!!!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.command])
-
-        _ = asNormalMode.h(on: accessibilityStrategy.focusedTextElement())
-        let firstJ = applyMoveAndGetBackAccessibilityElement()
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.dollarSign(on: $0) }
+       
+        let firstJ = applyMoveBeingTested()
         XCTAssertEqual(firstJ?.caretLocation, 33)
         
-        let secondJ = applyMoveAndGetBackAccessibilityElement()
+        let secondJ = applyMoveBeingTested()
         XCTAssertEqual(secondJ?.caretLocation, 53)
         
-        let thirdJ = applyMoveAndGetBackAccessibilityElement()
+        let thirdJ = applyMoveBeingTested()
         XCTAssertEqual(thirdJ?.caretLocation, 93)
     }
     
@@ -93,9 +87,9 @@ shut up
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
 
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        applyMove { asNormalMode.h(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 32)
     }
@@ -109,13 +103,13 @@ hehe
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-
-        _ = asNormalMode.h(on: accessibilityStrategy.focusedTextElement())
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 27)
     }
@@ -128,14 +122,14 @@ edge case
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-
-        _ = asNormalMode.h(on: accessibilityStrategy.focusedTextElement())
+        
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+                
         let globalColumnNumber = AccessibilityTextElement.globalColumnNumber
-
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 26)
         XCTAssertEqual(globalColumnNumber, AccessibilityTextElement.globalColumnNumber)

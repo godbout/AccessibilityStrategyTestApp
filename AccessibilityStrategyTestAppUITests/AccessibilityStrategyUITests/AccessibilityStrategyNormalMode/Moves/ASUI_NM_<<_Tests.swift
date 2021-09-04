@@ -10,7 +10,7 @@ import AccessibilityStrategy
 // for VM.
 class ASUI_NM_leftChevronLeftChevron_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
         return applyMove { asNormalMode.leftChevronLeftChevron(on: $0) }
     }
     
@@ -28,7 +28,7 @@ seems that even the normal
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
        
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 30)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
@@ -42,9 +42,10 @@ seems that even the normal
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 14)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
