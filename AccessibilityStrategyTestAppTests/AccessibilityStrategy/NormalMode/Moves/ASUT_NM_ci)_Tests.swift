@@ -2,5 +2,5 @@
 import XCTest
 
 
-// see ci{
+// see ci(
 class ASUT_NM_ciRightParenthesis_Tests: ASNM_BaseTests {}
