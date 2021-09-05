@@ -118,7 +118,8 @@ empty
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.j(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
