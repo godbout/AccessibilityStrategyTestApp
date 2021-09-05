@@ -3,10 +3,6 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-// TODO: should the stuff below be handled in the move itself or in KVE?
-// the caretLocation and selectedLength for `r` are not the final ones
-// as KVE will have to place the block cursor again after. this is because
-// `r` adds new text (one character) through selectedText.
 class ASUI_NM_r_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(with character: Character) -> AccessibilityTextElement? {
@@ -31,8 +27,8 @@ extension ASUI_NM_r_Tests {
         let accessibilityElement = applyMoveBeingTested(with: "a")
       
         XCTAssertEqual(accessibilityElement?.value, "gonna replace one of thosa letters...")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
 
     func test_that_it_can_replace_a_letter_by_a_space() {
@@ -44,8 +40,8 @@ extension ASUI_NM_r_Tests {
         let accessibilityElement = applyMoveBeingTested(with: "\u{0020}")
        
         XCTAssertEqual(accessibilityElement?.value, "i need more space ")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 18)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 17)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }
@@ -57,7 +53,7 @@ extension ASUI_NM_r_Tests {
     func test_that_replacing_a_character_by_a_linefeed_sets_the_cursor_at_the_first_column_of_the_new_created_line() {
         let textInAXFocusedElement = """
 gonna replace something
-by
+by😀️
 a new line
 """
         app.textViews.firstMatch.tap()
@@ -65,16 +61,18 @@ a new line
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "\u{000A}")
 
         XCTAssertEqual(accessibilityElement?.value, """
 gonna replace something
 b
-
+😀️
 a new line
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
     func test_that_cancelling_the_replacement_by_giving_escape_does_not_move_the_caret_backwards() {
@@ -96,6 +94,7 @@ escape
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 64)        
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }
@@ -121,8 +120,8 @@ need to deal with
 e9💨️💨️ fac"es 🥺️☹️😂️ h😀️ha👅️" hhohohoo🤣️
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 20)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 19)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }
