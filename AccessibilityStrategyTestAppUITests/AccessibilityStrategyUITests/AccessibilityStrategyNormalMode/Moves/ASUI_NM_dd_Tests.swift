@@ -5,7 +5,7 @@ import AccessibilityStrategy
 
 class UIASNM_dd_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
         return applyMove { asNormalMode.dd(on: $0) }
     }
     
@@ -20,7 +20,7 @@ extension UIASNM_dd_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
        
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, "")        
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
@@ -31,7 +31,7 @@ extension UIASNM_dd_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
        
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, "")        
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
@@ -51,9 +51,9 @@ somehow
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-       
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, "to the next line\nsomehow")        
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
@@ -67,10 +67,10 @@ if someBullshit == true {
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
-       
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.e(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, "    bs = yeah\n}")        
         XCTAssertEqual(accessibilityElement?.caretLocation, 4)
@@ -84,10 +84,10 @@ if someBullshit == true {
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
-       
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.e(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, "\tbs = yeah\n}")        
         XCTAssertEqual(accessibilityElement?.caretLocation, 1)
@@ -101,9 +101,9 @@ after the two spaces
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-       
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+      
+        applyMove { asNormalMode.gg(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, "  it should stop\nafter the two spaces")        
         XCTAssertEqual(accessibilityElement?.caretLocation, 2)            
@@ -118,7 +118,7 @@ one
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, "this one\n    is a tough")        
         XCTAssertEqual(accessibilityElement?.caretLocation, 13)   
@@ -133,10 +133,11 @@ to stop at the end limit of the line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.upArrow , modifierFlags: [])
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, """
 if the next line is just blank characters
@@ -156,9 +157,11 @@ dd here and we suppose
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, """
 we gonna use VM
@@ -178,9 +181,9 @@ own empty
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        applyMove { asNormalMode.l(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, """
 caret is on its
@@ -205,9 +208,10 @@ wow now that 😂️😂️😂️ have to handle🙈️
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-       
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, """
 wow now that 😂️😂️😂️ have to handle🙈️

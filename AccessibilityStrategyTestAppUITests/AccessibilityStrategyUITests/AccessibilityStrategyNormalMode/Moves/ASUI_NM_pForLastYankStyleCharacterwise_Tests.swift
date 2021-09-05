@@ -5,7 +5,7 @@ import AccessibilityStrategy
 
 class UIASNM_pForLastYankStyleCharacterwise_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
         return applyMove { asNormalMode.pForLastYankStyleCharacterwise(on: $0) }
     }
     
@@ -19,13 +19,14 @@ extension UIASNM_pForLastYankStyleCharacterwise_Tests {
         let textInAXFocusedElement = "we gonna paste some shit"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("text to paste!!!", forType: .string)
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, "we gonna paste some text to paste!!!shit")
         XCTAssertEqual(accessibilityElement?.caretLocation, 35)
@@ -45,14 +46,16 @@ ho ho ho
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("pastaing", forType: .string)
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, """
 time to paste
@@ -71,14 +74,16 @@ ho ho ho
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-       
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("😂️astaing\nmy man!", forType: .string)
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, """
 time to paste
@@ -99,13 +104,14 @@ here's the last one
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-       
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("text for the new line", forType: .string)
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, """
 gonna have an empty line
@@ -126,12 +132,13 @@ extension UIASNM_pForLastYankStyleCharacterwise_Tests {
         let textInAXFocusedElement = "we go😂️😂️😂️nna paste some 💩️"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        
+        applyMove { asNormalMode.h(on: $0) }
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("text to 🥞️🥞️🥞️ paste!!!🥠️", forType: .string)
 
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.value, "we go😂️😂️😂️nna paste some 💩️text to 🥞️🥞️🥞️ paste!!!🥠️")
         XCTAssertEqual(accessibilityElement?.caretLocation, 58)
@@ -146,13 +153,14 @@ ho ho ho
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("pastain🤡️", forType: .string)
 
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.value, """
 time to paste

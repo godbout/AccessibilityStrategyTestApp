@@ -3,7 +3,13 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-class ASUI_VML_v_Tests: ASUI_VM_BaseTests {}
+class ASUI_VML_v_Tests: ASUI_VM_BaseTests {
+    
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+        return applyMove { asVisualMode.vForVisualStyleLinewise(on: $0)}
+    }
+
+}
 
 
 extension ASUI_VML_v_Tests {
@@ -17,11 +23,11 @@ if the head is not after the line end limit
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
 
         applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.vForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 62)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 62)
@@ -36,7 +42,7 @@ if the head is not after the line end limit
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.o(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.vForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }

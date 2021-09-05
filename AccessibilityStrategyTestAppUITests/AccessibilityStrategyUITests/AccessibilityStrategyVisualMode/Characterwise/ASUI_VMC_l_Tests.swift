@@ -3,7 +3,13 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-class ASUI_VMC_l_Tests: ASUI_VM_BaseTests {}
+class ASUI_VMC_l_Tests: ASUI_VM_BaseTests {
+    
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+        return applyMove { asVisualMode.lForVisualStyleCharacterwise(on: $0)}
+    }
+
+}
 
 
 // Both
@@ -13,12 +19,11 @@ extension ASUI_VMC_l_Tests {
         let textInAXFocusedElement = "hello world"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
-        
-        applyMove { asNormalMode.h(on: $0) }
+       
+        applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.lForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 6)
@@ -36,7 +41,7 @@ with head before anchor
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.lForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 38)
         XCTAssertEqual(accessibilityElement?.selectedLength, 7)
@@ -56,13 +61,12 @@ for VM l
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-              
-        applyMove { asNormalMode.h(on: $0) }
+             
+        applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.lForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 30)
@@ -76,14 +80,14 @@ for VM l and that should
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-       
+      
         applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.lForVisualStyleCharacterwise(on: $0) }
-                
+        let accessibilityElement = applyMoveBeingTested()
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 20)
         XCTAssertEqual(accessibilityElement?.selectedLength, 28)
     }
@@ -101,8 +105,8 @@ w askljaslkasdlfjak
         applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.lForVisualStyleCharacterwise(on: $0) }
-      
+        let accessibilityElement = applyMoveBeingTested()
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 24)
         XCTAssertEqual(accessibilityElement?.selectedLength, 20)
     }
@@ -126,7 +130,7 @@ wow now that 😂️😂️😂️ have to handle🙈️
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.hForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.lForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 48)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
@@ -145,7 +149,7 @@ wow now that 😂️😂️😂️ have to handle🙈️
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.lForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.lForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 44)
         XCTAssertEqual(accessibilityElement?.selectedLength, 5)
@@ -161,7 +165,7 @@ wow now that 😂️😂️😂️ have to handle🙈️
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.lForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.lForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 13)
         XCTAssertEqual(accessibilityElement?.selectedLength, 7)

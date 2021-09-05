@@ -3,7 +3,13 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-class ASUI_VMC_0_Tests: ASUI_VM_BaseTests {}
+class ASUI_VMC_0_Tests: ASUI_VM_BaseTests {
+    
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+        return applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0)}
+    }
+   
+}
 
 
 // Both
@@ -18,7 +24,7 @@ extension ASUI_VMC_0_Tests {
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 31)
@@ -37,8 +43,8 @@ at the anchor, not at the caret location
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
-        
+        let accessibilityElement = applyMoveBeingTested()
+       
         XCTAssertEqual(accessibilityElement?.caretLocation, 25)
         XCTAssertEqual(accessibilityElement?.selectedLength, 27)
     }
@@ -57,14 +63,14 @@ over multiple lines coz
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-                
+               
         applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
-        
+        let accessibilityElement = applyMoveBeingTested()
+       
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 37)
     }
@@ -78,13 +84,13 @@ start of the line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-               
+       
+        applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 36)
@@ -107,7 +113,7 @@ wow now that 😂️😂️😂️ have to handle🙈️
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.underscore(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 41)
         XCTAssertEqual(accessibilityElement?.selectedLength, 7)
@@ -126,7 +132,7 @@ wow now that 😂️😂️😂️ have to handle🙈️
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 19)
         XCTAssertEqual(accessibilityElement?.selectedLength, 25)

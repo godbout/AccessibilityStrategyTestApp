@@ -6,9 +6,10 @@ import AccessibilityStrategy
 // this is `V` when entering from NM
 class ASUI_VM_V__Tests: ASUI_VM_BaseTests {
     
-    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
         return applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0)}
     }
+    
 }
 
 
@@ -19,9 +20,9 @@ extension ASUI_VM_V__Tests {
         let textInAXFocusedElement = "a sentence without a linefeed"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-       
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        applyMove { asNormalMode.h(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
@@ -42,10 +43,11 @@ a linefeed at the end
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-       
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+                
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 20)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 20)

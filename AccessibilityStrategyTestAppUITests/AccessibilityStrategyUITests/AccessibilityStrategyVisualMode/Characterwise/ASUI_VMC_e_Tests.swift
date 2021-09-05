@@ -4,7 +4,13 @@ import AccessibilityStrategy
 
 
 // check b for blah blah blah
-class UIASVMC_e_Tests: ASUI_VM_BaseTests {}
+class UIASVMC_e_Tests: ASUI_VM_BaseTests {
+    
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+        return applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0)}
+    }
+
+}
 
 
 extension UIASVMC_e_Tests {
@@ -17,12 +23,12 @@ from the caret location
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        
+       
         applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 54)
         XCTAssertEqual(accessibilityElement?.selectedLength, 5)

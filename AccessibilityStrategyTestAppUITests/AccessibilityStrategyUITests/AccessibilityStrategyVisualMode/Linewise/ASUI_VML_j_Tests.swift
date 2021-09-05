@@ -3,7 +3,13 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-class ASUI_VML_j_Tests: ASUI_VM_BaseTests {}
+class ASUI_VML_j_Tests: ASUI_VM_BaseTests {
+    
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+        return applyMove { asVisualMode.jForVisualStyleLinewise(on: $0)}
+    }
+
+}
 
 
 // TextFields
@@ -13,11 +19,10 @@ extension ASUI_VML_j_Tests {
         let textInAXFocusedElement = "hehe you little fucker"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        
-        applyMove { asNormalMode.h(on: $0) }
+       
+        applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 22)
@@ -40,17 +45,16 @@ when the head is after the anchor
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-        
-        applyMove { asNormalMode.h(on: $0) }
+       
+        applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
 
-        let accessibilityElement = applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 41)
         
-        let finalAccessibilityElementHehe = applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        let finalAccessibilityElementHehe = applyMoveBeingTested()
        
         XCTAssertEqual(finalAccessibilityElementHehe?.caretLocation, 0)
         XCTAssertEqual(finalAccessibilityElementHehe?.selectedLength, 69)
@@ -72,12 +76,12 @@ head if before the anchor
         applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
         applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
         applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 41)
         XCTAssertEqual(accessibilityElement?.selectedLength, 76)
         
-        let finalAccessibilityElementHehe = applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        let finalAccessibilityElementHehe = applyMoveBeingTested()
         
         XCTAssertEqual(finalAccessibilityElementHehe?.caretLocation, 69)
         XCTAssertEqual(finalAccessibilityElementHehe?.selectedLength, 48)
@@ -95,7 +99,7 @@ ass off lol
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 17)

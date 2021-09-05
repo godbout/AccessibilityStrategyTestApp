@@ -9,7 +9,7 @@ import AccessibilityStrategy
 // `r` adds new text (one character) through selectedText.
 class ASUI_NM_r_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveAndGetBackAccessibilityElement(with character: Character) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(with character: Character) -> AccessibilityTextElement? {
         return applyMove(with: character) { character, focusedElement in
             asNormalMode.r(with: character, on: focusedElement)
         }
@@ -24,11 +24,11 @@ extension ASUI_NM_r_Tests {
         let textInAXFocusedElement = "gonna replace one of those letters..."
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement(with: "a")
+        
+        applyMove { asNormalMode.B(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(with: "a")
       
         XCTAssertEqual(accessibilityElement?.value, "gonna replace one of thosa letters...")
         XCTAssertEqual(accessibilityElement?.caretLocation, 26)
@@ -39,9 +39,9 @@ extension ASUI_NM_r_Tests {
         let textInAXFocusedElement = "i need more space!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement(with: "\u{0020}")
+        
+        applyMove { asNormalMode.h(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(with: "\u{0020}")
        
         XCTAssertEqual(accessibilityElement?.value, "i need more space ")
         XCTAssertEqual(accessibilityElement?.caretLocation, 18)
@@ -62,10 +62,10 @@ a new line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-               
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement(with: "\u{000A}")
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(with: "\u{000A}")
 
         XCTAssertEqual(accessibilityElement?.value, """
 gonna replace something
@@ -85,9 +85,9 @@ escape
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement(with: "\u{001B}")
+        applyMove { asNormalMode.h(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(with: "\u{001B}")
 
         XCTAssertEqual(accessibilityElement?.value, """
 now we gonna start the replacement
@@ -111,10 +111,10 @@ e💨️💨️💨️ fac"es 🥺️☹️😂️ h😀️ha👅️" hhohohoo�
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement(with: "9")
+        
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.l(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(with: "9")
 
         XCTAssertEqual(accessibilityElement?.value, """
 need to deal with

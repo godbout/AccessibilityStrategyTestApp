@@ -3,7 +3,13 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-class ASUI_VML_k_Tests: ASUI_VM_BaseTests {}
+class ASUI_VML_k_Tests: ASUI_VM_BaseTests {
+    
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+        return applyMove { asVisualMode.kForVisualStyleLinewise(on: $0)}
+    }
+
+}
 
 
 // TextFields
@@ -13,11 +19,10 @@ extension ASUI_VML_k_Tests {
         let textInAXFocusedElement = "hehe you little fucker"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        
-        applyMove { asNormalMode.h(on: $0) }
+       
+        applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 22)
@@ -41,12 +46,12 @@ the line above nice
               
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 52)
         XCTAssertEqual(accessibilityElement?.selectedLength, 43)
        
-        let finalAccessibilityElement = applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        let finalAccessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(finalAccessibilityElement?.caretLocation, 26)
         XCTAssertEqual(finalAccessibilityElement?.selectedLength, 69)
@@ -61,19 +66,18 @@ the line above nice
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-        
-        applyMove { asNormalMode.h(on: $0) }
+       
+        applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 75)
         
-        let finalAccessibilityElement = applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        let finalAccessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(finalAccessibilityElement?.caretLocation, 0)
         XCTAssertEqual(finalAccessibilityElement?.selectedLength, 51)
@@ -90,7 +94,7 @@ caret at the last empty line
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 19)
         XCTAssertEqual(accessibilityElement?.selectedLength, 29)

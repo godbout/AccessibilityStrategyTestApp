@@ -3,7 +3,13 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-class ASUI_VML_G__Tests: ASUI_VM_BaseTests {}
+class ASUI_VML_G__Tests: ASUI_VM_BaseTests {
+    
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+        return applyMove { asVisualMode.GForVisualStyleLinewise(on: $0)}
+    }
+
+}
 
 
 // Both
@@ -16,7 +22,7 @@ extension ASUI_VML_G__Tests {
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.GForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 32)
@@ -44,7 +50,7 @@ the end
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.GForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 21)
         XCTAssertEqual(accessibilityElement?.selectedLength, 56)
@@ -66,7 +72,7 @@ the end
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.GForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 41)
         XCTAssertEqual(accessibilityElement?.selectedLength, 36)

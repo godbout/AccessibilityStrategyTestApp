@@ -5,7 +5,7 @@ import AccessibilityStrategy
 
 class UIASNM_pForLastYankStyleLinewise_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
         return applyMove { asNormalMode.pForLastYankStyleLinewise(on: $0) }
     }
     
@@ -19,13 +19,13 @@ extension UIASNM_pForLastYankStyleLinewise_Tests {
         let textInAXFocusedElement = "linewise for TF is still pasted characterwise!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        
+        applyMove { asNormalMode.zero(on: $0) }
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("text to pasta", forType: .string)
 
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.value, "ltext to pastainewise for TF is still pasted characterwise!")
         XCTAssertEqual(accessibilityElement?.caretLocation, 13)
@@ -35,13 +35,14 @@ extension UIASNM_pForLastYankStyleLinewise_Tests {
         let textInAXFocusedElement = "we should not paste linefeeds in the TF"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("yanked with the linefeed\n", forType: .string)
 
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.value, "we should not paste linefeeds in the yanked with the linefeedTF")
         XCTAssertEqual(accessibilityElement?.caretLocation, 60)
@@ -61,15 +62,17 @@ a linefeed at the end of the line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-       
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("should paste that somewhere\n", forType: .string)
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, """
 we gonna linewise paste
@@ -91,15 +94,17 @@ if we are not pasting on the last line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-       
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("we pasted the last line so no linefeed", forType: .string)
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, """
 when we yank the last line it doesn't contain
@@ -121,13 +126,14 @@ ourselves
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-       
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("new line to paste after last line\n", forType: .string)
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, """
 now we gonna linewise paste
@@ -148,13 +154,15 @@ to the first non blank of the copied line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("   the copied line has non blanks\n", forType: .string)
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, """
 so now we gonna
@@ -179,7 +187,7 @@ not add a linefeed
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 3 of The 3 Cases for TextArea linewise\n", forType: .string)
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, """
 this should paste
@@ -207,15 +215,17 @@ a linefeed at the end of the line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-       
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("🦶️👋️ould paste that somewhere 🧑‍🌾️\n", forType: .string)
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, """
 we gonna linewise paste
@@ -227,7 +237,6 @@ a linefeed at the end of the line
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 72)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
-        
     }
     
 }

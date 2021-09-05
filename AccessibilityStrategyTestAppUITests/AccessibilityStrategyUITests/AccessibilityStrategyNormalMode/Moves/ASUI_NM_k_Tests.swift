@@ -7,7 +7,7 @@ import AXEngine
 // check j for all the blah blah
 class ASUI_NM_k_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
         return applyMove { asNormalMode.k(on: $0) }
     }
     
@@ -27,10 +27,10 @@ to the same column
 
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-
-        _ = asNormalMode.h(on: accessibilityStrategy.focusedTextElement())
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 38)
     }
@@ -45,10 +45,10 @@ than the previous shorter than...
 
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-
-        _ = asNormalMode.h(on: accessibilityStrategy.focusedTextElement())
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 39)
     }
@@ -62,16 +62,17 @@ another quite long line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-
-        _ = asNormalMode.h(on: accessibilityStrategy.focusedTextElement())
-        let firstK = applyMoveAndGetBackAccessibilityElement()
+        
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+                
+        let firstK = applyMoveBeingTested()
         XCTAssertEqual(firstK?.caretLocation, 81)
 
-        let secondK = applyMoveAndGetBackAccessibilityElement()
+        let secondK = applyMoveBeingTested()
         XCTAssertEqual(secondK?.caretLocation, 51)
 
-        let thirdK = applyMoveAndGetBackAccessibilityElement()
+        let thirdK = applyMoveBeingTested()
         XCTAssertEqual(thirdK?.caretLocation, 18)
     }
 
@@ -83,10 +84,10 @@ nothing ankulay
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-
-        _ = asNormalMode.h(on: accessibilityStrategy.focusedTextElement())
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
@@ -101,8 +102,8 @@ to previ ous line length
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        _ = asNormalMode.dollarSign(on: accessibilityStrategy.focusedTextElement())
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        applyMove { asNormalMode.dollarSign(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 42)
     }
@@ -116,18 +117,15 @@ empty
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        // yes, the move at this location is correct. this is to update
-        // the globalColumnNumber before going down through the typeKey func
-        // (that last one not updating the globalColumnNumber. only setting the
-        // caretLocation does).
-        _ = asNormalMode.h(on: accessibilityStrategy.focusedTextElement())
-        app.textViews.firstMatch.typeKey(.downArrow, modifierFlags: [])
-
-        _ = asNormalMode.j(on: accessibilityStrategy.focusedTextElement())
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.j(on: $0) }
+        applyMove { asNormalMode.j(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 33)
     }

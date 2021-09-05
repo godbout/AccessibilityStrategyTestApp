@@ -9,7 +9,13 @@ import AccessibilityStrategy
 // (at least at first) so that we can comment or indent multiple lines easily.
 // before, there was no separation of tests between AS and KVE, but now there is
 // and responsibility of concerts has to be separate correctly. choices.
-class ASUI_VMC_escape_Tests: ASUI_VM_BaseTests {}
+class ASUI_VMC_escape_Tests: ASUI_VM_BaseTests {
+    
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+        return applyMove { asVisualMode.escape(on: $0)}
+    }
+
+}
 
 
 // TextFields
@@ -24,7 +30,7 @@ extension ASUI_VMC_escape_Tests {
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.escape(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 23)
     }
@@ -48,7 +54,7 @@ over multiple lines
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.escape(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 28)
     }
@@ -67,7 +73,7 @@ gonna go after
         applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.escape(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 35)
     }
@@ -86,7 +92,7 @@ extension ASUI_VMC_escape_Tests {
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.escape(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 13)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)

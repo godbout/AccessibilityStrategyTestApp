@@ -3,8 +3,14 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-// the 3 cases are already done in Unit Tests. the UI for b is just to test a special case
-class UIASVMC_b_Tests: ASUI_VM_BaseTests {}
+// other tests in Unit Tests. the UI for b is just to test a special case
+class UIASVMC_b_Tests: ASUI_VM_BaseTests {
+    
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+        return applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0)}
+    }
+
+}
 
 
 extension UIASVMC_b_Tests {
@@ -17,12 +23,12 @@ from the caret location
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        
+       
         applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 53)
         XCTAssertEqual(accessibilityElement?.selectedLength, 2)
