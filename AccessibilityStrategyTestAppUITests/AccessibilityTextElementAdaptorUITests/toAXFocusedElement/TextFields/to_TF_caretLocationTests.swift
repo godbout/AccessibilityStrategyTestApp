@@ -7,10 +7,18 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
     func test_that_we_can_set_the_caret_location_to_0_on_a_non_empty_line() {
         let text = "hello you dear"
         let element = AccessibilityTextElement(
+            role: .textField,
             value: text,
             length: 14,
             caretLocation: 0,
-            selectedLength: 4
+            selectedLength: 4,
+            selectedText: nil,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 14
+            )
         )
 
         let textInAXFocusedElement = text
@@ -55,10 +63,18 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
     func test_that_the_conversion_fails_if_we_set_the_caret_location_out_of_range() {
         let text = "deifnitely not 19"
         let element = AccessibilityTextElement(
+            role: .textField,
             value: text,
             length: 17,
             caretLocation: 19,
-            selectedLength: 1
+            selectedLength: 1,
+            selectedText: nil,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 17
+            )
         )
 
         let textInAXFocusedElement = text

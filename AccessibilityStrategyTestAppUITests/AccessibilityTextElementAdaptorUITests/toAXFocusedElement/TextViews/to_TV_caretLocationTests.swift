@@ -11,10 +11,18 @@ a TextView that is not empty
 coz like come on there's so me shits inside.
 """
         let element = AccessibilityTextElement(
+            role: .textArea,
             value: text,
             length: 93,
             caretLocation: 0,
-            selectedLength: 1
+            selectedLength: 1,
+            selectedText: nil,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 20
+            )
         )
 
         app.textViews.firstMatch.tap()
@@ -66,10 +74,18 @@ but still not
 that long.
 """
         let element = AccessibilityTextElement(
+            role: .textArea,
             value: text,
-            length: 38,            
+            length: 38,
             caretLocation: 1993,
-            selectedLength: 1
+            selectedLength: 3,
+            selectedText: nil,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 14,
+                end: 28
+            )
         )
 
         app.textViews.firstMatch.tap()
