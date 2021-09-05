@@ -272,7 +272,6 @@
 		91AF71C026E15416007C2D2E /* ASUI_VML_V__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_VML_V__Tests.swift; sourceTree = "<group>"; };
 		91AF71C426E1573B007C2D2E /* ASUI_VMC_v_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_VMC_v_Tests.swift; sourceTree = "<group>"; };
 		91AF71C626E1574E007C2D2E /* ASUI_VML_v_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_VML_v_Tests.swift; sourceTree = "<group>"; };
-		91B3253226E568B000279BF3 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		91F951B126DFF56C00DC26C6 /* AccessibilityStrategyTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessibilityStrategyTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F951B426DFF56C00DC26C6 /* AccessibilityStrategyTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategyTestAppApp.swift; sourceTree = "<group>"; };
 		91F951B626DFF56C00DC26C6 /* UITestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsView.swift; sourceTree = "<group>"; };
@@ -562,7 +561,6 @@
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
-				91B3253226E568B000279BF3 /* AccessibilityStrategy */,
 				91F951B326DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,

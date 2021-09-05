@@ -3,7 +3,6 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-// see << for blah blah of why those tests are quite special
 class ASUI_NM_rightChevronRightChevron_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement? {
