@@ -4,7 +4,13 @@ import AccessibilityStrategy
 
 
 // see the other VM escape for explanation
-class UIASVML_escape_Tests: ASUI_VM_BaseTests {}
+class UIASVML_escape_Tests: ASUI_VM_BaseTests {
+    
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+        return applyMove { asVisualMode.escape(on: $0)}
+    }
+
+}
 
 
 // TextFields
@@ -17,7 +23,7 @@ extension UIASVML_escape_Tests {
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.escape(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 30)
     }
@@ -39,7 +45,7 @@ over multiple lines
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.escape(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
@@ -56,8 +62,8 @@ gonna go after
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.escape(on: $0) }
-      
+        let accessibilityElement = applyMoveBeingTested()
+
         XCTAssertEqual(accessibilityElement?.caretLocation, 35)
     }
     

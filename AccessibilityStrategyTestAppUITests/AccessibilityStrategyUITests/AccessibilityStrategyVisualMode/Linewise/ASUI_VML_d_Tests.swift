@@ -3,7 +3,13 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-class ASUI_VML_d_Tests: ASUI_VM_BaseTests {}
+class ASUI_VML_d_Tests: ASUI_VM_BaseTests {
+    
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+        return applyMove { asVisualMode.dForVisualStyleLinewise(on: $0)}
+    }
+
+}
 
 
 // Both
@@ -18,14 +24,14 @@ one extra line in between!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        
+
         applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.dForVisualStyleLinewise(on: $0) }
-                      
+        let accessibilityElement = applyMoveBeingTested()
+                     
         XCTAssertEqual(accessibilityElement?.value, """
 we gonna use VM
       to go to non blank of the line
@@ -44,14 +50,14 @@ some more
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        
+       
         applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.dForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.value, """
 we gonna use VM
@@ -72,13 +78,13 @@ another line agan
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-              
+
         applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.dForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.value, """
 we gonna use VM
@@ -97,12 +103,12 @@ and it would be beautiful
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        
+       
         applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.dForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.value, """
    we gonna remove the last
@@ -123,7 +129,7 @@ and it would be beautiful
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.dForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.value, """
    we gonna remove the last
@@ -147,7 +153,7 @@ t
         applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
         applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
         applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.dForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.value, "")
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)

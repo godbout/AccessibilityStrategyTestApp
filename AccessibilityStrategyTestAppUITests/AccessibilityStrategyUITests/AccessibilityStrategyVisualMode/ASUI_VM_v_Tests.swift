@@ -6,11 +6,12 @@ import AccessibilityStrategy
 // see `V` for blah blah
 class ASUI_VM_v_Tests: ASUI_VM_BaseTests {
     
-    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
         return applyMove { focusedElement in
             asVisualMode.vForEnteringFromNormalMode(on: focusedElement)
         }
     }
+    
 }
 
 
@@ -24,11 +25,12 @@ and head are nil
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-        
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+           
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 32)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 32)
@@ -43,9 +45,10 @@ caret out of boundaries
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
        
         XCTAssertEqual(accessibilityElement?.caretLocation, 40)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 40)
