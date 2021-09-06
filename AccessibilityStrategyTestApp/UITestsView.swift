@@ -1,6 +1,20 @@
 import SwiftUI
 
 
+// shit hack to make TextEditor stop changing quotes to smart quotes
+// and making the tests fail in GHA.
+// there's currently no way to do this on TextEditor itself :dumb:
+extension NSTextView {
+    
+    open override var frame: CGRect {
+        didSet {
+            self.isAutomaticQuoteSubstitutionEnabled = false
+        }
+    }
+    
+}
+
+
 struct UITestsView: View {
 
     @State var textFieldValue = ""
