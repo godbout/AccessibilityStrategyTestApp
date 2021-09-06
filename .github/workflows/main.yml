@@ -39,7 +39,7 @@ jobs:
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       run: |
-        xcodebuild -scheme AccessibilityStrategyTestApp -usePackageSupportBuiltinSCM -derivedDataPath $GITHUB_WORKSPACE -enableCodeCoverage YES clean build test
+        xcodebuild -scheme "All Tests" -usePackageSupportBuiltinSCM -derivedDataPath $GITHUB_WORKSPACE -enableCodeCoverage YES clean build test
         cd $GITHUB_WORKSPACE/Build/ProfileData
         cd $(ls -d */|head -n 1)
         directory=${PWD##*/}
