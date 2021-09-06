@@ -27,24 +27,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES"
-      onlyGenerateCoverageForSpecifiedTargets = "YES">
-      <CodeCoverageTargets>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AXEngine"
-            BuildableName = "AXEngine"
-            BlueprintName = "AXEngine"
-            ReferencedContainer = "container:../../../Library/Developer/Xcode/DerivedData/AccessibilityStrategyTestApp-ftyhrsvbihmqmiajmwhutyqpaqiz/SourcePackages/checkouts/AXEngine">
-         </BuildableReference>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AccessibilityStrategy"
-            BuildableName = "AccessibilityStrategy"
-            BlueprintName = "AccessibilityStrategy"
-            ReferencedContainer = "container:../../../Library/Developer/Xcode/DerivedData/AccessibilityStrategyTestApp-ftyhrsvbihmqmiajmwhutyqpaqiz/SourcePackages/checkouts/AccessibilityStrategy">
-         </BuildableReference>
-      </CodeCoverageTargets>
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO"
