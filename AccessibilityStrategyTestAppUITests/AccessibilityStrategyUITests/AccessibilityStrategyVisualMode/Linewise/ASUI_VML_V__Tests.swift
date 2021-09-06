@@ -73,6 +73,32 @@ multiple lines
 }
 
 
+// Anchor and Head
+extension ASUI_VML_V__Tests {
+
+    func test_that_it_resets_the_Anchor_and_Head_to_nil() {
+        let textInAXFocusedElement = """
+some bullshit again
+really
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+
+        XCTAssertNotNil(AccessibilityStrategyVisualMode.anchor)
+        XCTAssertNotNil(AccessibilityStrategyVisualMode.head)
+        
+        _ = applyMoveBeingTested()
+        
+        XCTAssertNil(AccessibilityStrategyVisualMode.anchor)
+        XCTAssertNil(AccessibilityStrategyVisualMode.head)
+    }
+        
+}
+
+
 // emojis
 // same as VM v. from what i saw from the code, nothing the emojis would affect
 extension ASUI_VML_V__Tests {}

@@ -5,24 +5,6 @@ import XCTest
 class ASVM_AnchorAndHead_Tests: ASVM_BaseTests {}
 
 
-// both
-// TODO: test to move to KVE
-//extension ASVM_AnchorAndHead_Tests {
-//    
-//    func test_that_anchor_and_head_get_reset_when_entering_NormalMode() {
-//        AccessibilityStrategyVisualMode.anchor = 69
-//        // head = 69 haha
-//        AccessibilityStrategyVisualMode.head = 69
-//        
-//        KindaVimEngine.shared.enterNormalMode()
-//        
-//        XCTAssertNil(AccessibilityStrategyVisualMode.anchor)
-//        XCTAssertNil(AccessibilityStrategyVisualMode.head)
-//    }
-//    
-//}
-
-
 // head
 extension ASVM_AnchorAndHead_Tests {
     

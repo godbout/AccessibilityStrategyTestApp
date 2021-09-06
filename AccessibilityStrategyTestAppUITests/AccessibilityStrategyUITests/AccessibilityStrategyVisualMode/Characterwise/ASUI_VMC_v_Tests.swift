@@ -54,7 +54,30 @@ multiple lines
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 20)
     }
+    
+}
 
+
+// Anchor and Head
+extension ASUI_VMC_v_Tests {
+
+    func test_that_it_resets_the_Anchor_and_Head_to_nil() {
+        let textInAXFocusedElement = "some bullshit really"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        
+        XCTAssertNotNil(AccessibilityStrategyVisualMode.anchor)
+        XCTAssertNotNil(AccessibilityStrategyVisualMode.head)
+        
+        _ = applyMoveBeingTested()
+        
+        XCTAssertNil(AccessibilityStrategyVisualMode.anchor)
+        XCTAssertNil(AccessibilityStrategyVisualMode.head)
+    }
+        
 }
 
 
