@@ -10,8 +10,11 @@ struct UITestsView: View {
         VStack {
             TextField("single line text field for test", text: $textFieldValue)
                 .focusable(false)
+                .disableAutocorrection(true)
+                
             TextEditor(text: $textViewValue)
                 .focusable(false)
+                .disableAutocorrection(true)
 
             Button("wo'hevah", action: {})
         }
