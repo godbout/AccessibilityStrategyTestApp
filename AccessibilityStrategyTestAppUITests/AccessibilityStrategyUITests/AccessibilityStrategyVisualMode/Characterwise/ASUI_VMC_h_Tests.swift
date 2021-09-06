@@ -147,7 +147,7 @@ wow now that 😂️😂️😂️ have to handle🙈️
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.underscore(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asVisualMode.vForVisualStyleCharacterwise(on: $0) }
+                applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.lForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
