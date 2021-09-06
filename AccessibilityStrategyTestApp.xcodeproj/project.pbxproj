@@ -1365,7 +1365,8 @@
 		914DD44326E12C0F0067DD83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = "AccessibilityStrategyTestAppUITests/AccessibilityStrategyUITests/AccessibilityStrategyNormalMode//Info.plist";
@@ -1376,6 +1377,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyNormaModeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = AccessibilityStrategyTestApp;
 			};
@@ -1384,7 +1386,8 @@
 		914DD44426E12C0F0067DD83 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = "AccessibilityStrategyTestAppUITests/AccessibilityStrategyUITests/AccessibilityStrategyNormalMode//Info.plist";
@@ -1395,6 +1398,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyNormaModeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = AccessibilityStrategyTestApp;
 			};
