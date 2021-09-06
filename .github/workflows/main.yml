@@ -1,0 +1,51 @@
+name: build, tests and coverage
+
+on: [push]
+
+jobs:
+  swift:
+    name: on Big Sur
+    runs-on: macos-11
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
+    - name: install certificates for codesigning
+      env:
+        BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+        P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
+        KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+      run: |
+        # create variables
+        CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
+        KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+
+        # import certificate and provisioning profile from secrets
+        echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode --output $CERTIFICATE_PATH
+
+        # create temporary keychain
+        security create-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
+        security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
+        security unlock-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
+
+        # import certificate to keychain
+        security import $CERTIFICATE_PATH -P $P12_PASSWORD -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+        security list-keychain -d user -s $KEYCHAIN_PATH
+    - uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.GHA_PRIVATE_SSHKEY }}
+    - name: build and test
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      run: |
+        xcodebuild -scheme AccessibilityStrategyTestApp -usePackageSupportBuiltinSCM -derivedDataPath $GITHUB_WORKSPACE -enableCodeCoverage YES clean build test
+        cd $GITHUB_WORKSPACE/Build/ProfileData
+        cd $(ls -d */|head -n 1)
+        directory=${PWD##*/}
+        pathCoverage=$GITHUB_WORKSPACE/Build/ProfileData/${directory}/Coverage.profdata
+        cd ../../../../
+        xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage $GITHUB_WORKSPACE/Build/Products/Debug/AccessibilityStrategyTestApp.app/Contents/MacOS/AccessibilityStrategyTestApp > info.lcov
+        curl -Os https://uploader.codecov.io/latest/macos/codecov
+        chmod +x codecov
+        ./codecov -t $CODECOV_TOKEN
