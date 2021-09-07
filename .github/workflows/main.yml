@@ -1,6 +1,8 @@
 name: build, tests and coverage
 
-on: [push]
+on:
+  schedule:
+    - cron:  '28 3 */3 * *'
 
 jobs:
   swift:
