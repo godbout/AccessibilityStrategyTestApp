@@ -1,4 +1,4 @@
-<h1 align="center">AccessibilityStrategyTestApp, to test AccessibilityStrategy for kindaVim</h1>
+<h1 align="center">AccessibilityStrategyTestApp<br>testing AccessibilityStrategy for kindaVim</h1>
 
 <p align="center">
     <a href="https://github.com/godbout/AccessibilityStrategyTestApp/actions">
