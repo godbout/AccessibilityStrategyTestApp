@@ -16,16 +16,16 @@ class UIASNM_dj_Tests: ASUI_NM_BaseTests {
 extension UIASNM_dj_Tests {
     
     func test_that_if_there_is_only_one_line_it_does_not_do_anything() {
-        let textInAXFocusedElement = "one line is not enough for dj"
+        let textInAXFocusedElement = "one line is not enough for dj 😀️"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, "one line is not enough for dj")        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 28)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.value, "one line is not enough for dj 😀️")        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
 }

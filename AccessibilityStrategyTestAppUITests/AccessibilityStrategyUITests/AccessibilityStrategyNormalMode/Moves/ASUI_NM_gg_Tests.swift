@@ -23,6 +23,7 @@ extension UIASNM_gg_Tests {
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
     func test_that_it_goes_to_the_first_non_blank_of_the_line() {
@@ -44,6 +45,7 @@ extension UIASNM_gg_Tests {
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 8)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }
@@ -68,7 +70,7 @@ here
     
     func test_that_it_goes_to_the_first_non_blank_of_the_TextView() {
         let textInAXFocusedElement = """
-   a couple of spaces
+   🇫🇷️ couple of spaces
 then a lot
 of
 bullshit
@@ -79,6 +81,7 @@ bullshit
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 5)
     }
     
     func test_that_it_works_with_an_empty_first_line() {
@@ -93,6 +96,7 @@ completely empty
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
     func test_that_it_stops_at_the_end_limit_when_the_first_line_is_just_spaces() {
@@ -107,6 +111,7 @@ again only
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 7)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }

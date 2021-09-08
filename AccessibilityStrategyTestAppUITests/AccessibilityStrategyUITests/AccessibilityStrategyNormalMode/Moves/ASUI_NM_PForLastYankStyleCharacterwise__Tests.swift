@@ -30,6 +30,7 @@ extension UIASNM_PForLastYankStyleCharacterwise_Tests {
         
         XCTAssertEqual(accessibilityElement?.value, "pasta text to pasta pizza!!!pizza")
         XCTAssertEqual(accessibilityElement?.caretLocation, 27)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
     func test_that_even_if_the_last_yank_was_linewise_it_still_pastes_as_characterwise_at_the_caret_location_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
@@ -46,6 +47,7 @@ extension UIASNM_PForLastYankStyleCharacterwise_Tests {
         
         XCTAssertEqual(accessibilityElement?.value, "paste me daddyP linewise for TF is still pasted characterwise!")
         XCTAssertEqual(accessibilityElement?.caretLocation, 13)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
     func test_that_when_the_last_yank_was_linewise_and_the_line_was_ending_with_a_linefeed_the_linefeed_is_not_pasted_in_the_TextField() {
@@ -63,6 +65,7 @@ extension UIASNM_PForLastYankStyleCharacterwise_Tests {
         
         XCTAssertEqual(accessibilityElement?.value, "P should not paste linefeeds in theyanked with the linefeed hum hum TF")
         XCTAssertEqual(accessibilityElement?.caretLocation, 66)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }
@@ -97,6 +100,7 @@ ho ho ho
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 23)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
 
     func test_that_in_normal_setting_it_pastes_the_text_at_the_caret_location_and_if_the_text_contains_a_linefeed_the_block_cursor_ends_up_at_the_beginning_of_the_pasted_text() {
@@ -153,6 +157,7 @@ here's the last one
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 45)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }

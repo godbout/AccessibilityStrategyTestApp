@@ -30,6 +30,7 @@ extension UIASNM_PForLastYankStyleLinewise_Tests {
         
         XCTAssertEqual(accessibilityElement?.value, "paste me daddyP linewise for TF is still pasted characterwise!")
         XCTAssertEqual(accessibilityElement?.caretLocation, 13)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
     func test_that_when_the_last_yank_was_linewise_and_the_line_was_ending_with_a_linefeed_the_linefeed_is_not_pasted_in_the_TextField() {
@@ -47,6 +48,7 @@ extension UIASNM_PForLastYankStyleLinewise_Tests {
         
         XCTAssertEqual(accessibilityElement?.value, "P should not paste linefeeds in theyanked with the linefeed hum hum TF")
         XCTAssertEqual(accessibilityElement?.caretLocation, 66)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }
@@ -83,7 +85,7 @@ pasted at the current line place
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 41)
-
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
 
     func test_that_when_pasting_the_new_line_the_block_cursor_goes_to_the_first_non_blank_of_the_new_current_line() {
@@ -112,6 +114,7 @@ to the first non blank of the copied line
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 19)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_empty_line_it_still_pastes_and_will_enforce_a_trailing_linefeed() {
@@ -138,6 +141,7 @@ test 3 of The 3 Cases for TextArea linewise P
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 58)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }

@@ -33,6 +33,7 @@ column shit
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 14)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
 
     func test_that_if_the_next_line_is_shorter_j_goes_to_the_end_of_line_limit_of_that_next_line() {
@@ -54,6 +55,7 @@ let's see
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 64)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
 
     func test_that_the_column_number_is_saved_and_reapplied_in_properly() {
@@ -71,12 +73,15 @@ another long line longer than all the other ones!!!
        
         let firstJ = applyMoveBeingTested()
         XCTAssertEqual(firstJ?.caretLocation, 33)
-        
+        XCTAssertEqual(firstJ?.selectedLength, 1)
+
         let secondJ = applyMoveBeingTested()
         XCTAssertEqual(secondJ?.caretLocation, 53)
-        
+        XCTAssertEqual(secondJ?.selectedLength, 1)
+
         let thirdJ = applyMoveBeingTested()
         XCTAssertEqual(thirdJ?.caretLocation, 93)
+        XCTAssertEqual(thirdJ?.selectedLength, 1)
     }
     
     func test_that_when_at_the_last_line_j_does_nothing() {
@@ -92,6 +97,7 @@ shut up
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 32)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
     func test_that_when_the_current_line_column_is_equal_to_the_next_line_length_and_that_this_line_is_not_the_last_one_the_caret_gets_at_the_correct_end_limit_of_the_next_line() {
@@ -112,6 +118,7 @@ hehe
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 27)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
 
     func test_that_if_the_last_line_is_only_a_linefeed_character_j_can_still_go_there_and_the_globalColumnNumber_is_not_overriden() {
@@ -132,6 +139,7 @@ edge case
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(globalColumnNumber, AccessibilityTextElement.globalColumnNumber)
     }
     
