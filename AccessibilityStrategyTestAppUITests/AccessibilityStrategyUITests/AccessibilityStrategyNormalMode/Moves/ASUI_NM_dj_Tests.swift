@@ -25,7 +25,8 @@ extension UIASNM_dj_Tests {
         
         XCTAssertEqual(accessibilityElement?.value, "one line is not enough for dj")        
         XCTAssertEqual(accessibilityElement?.caretLocation, 28)
-    }    
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+    }
     
 }
 
@@ -47,6 +48,7 @@ one should disappear
         
         XCTAssertEqual(accessibilityElement?.value, "")        
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
     
     func test_that_if_there_are_more_than_two_lines_the_caret_goes_to_the_first_non_blank_of_the_third_line() {
