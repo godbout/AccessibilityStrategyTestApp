@@ -23,6 +23,7 @@ extension UIASNM_G__Tests {
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
     func test_that_it_goes_to_the_first_non_blank_of_the_line() {
@@ -44,6 +45,7 @@ extension UIASNM_G__Tests {
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 8)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }
@@ -56,7 +58,7 @@ extension UIASNM_G__Tests {
         let textInAXFocusedElement = """
 hehehe
 do you want to
-have xxx
+🪓️ave xxx
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -64,6 +66,7 @@ have xxx
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 22)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
     func test_that_it_goes_to_the_first_non_blank_of_the_last_line_of_the_TextView() {
@@ -78,6 +81,7 @@ story bro
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 29)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
     func test_that_it_works_with_an_empty_last_line() {
@@ -94,6 +98,7 @@ completely empty
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 30)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
     
     func test_that_it_stops_at_the_end_limit_when_the_last_line_is_just_spaces() {
@@ -108,6 +113,7 @@ again at the last line
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 59)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
     func test_that_if_the_last_line_is_not_empty_and_the_caret_is_not_on_that_line_then_the_caret_still_goes_to_the_last_line_and_does_not_get_stuck_on_the_current_line() {
@@ -124,6 +130,7 @@ why
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 36)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }

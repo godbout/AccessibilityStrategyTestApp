@@ -39,6 +39,7 @@ abo😄️ve!
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
     
     func test_that_if_at_the_first_line_it_will_create_a_new_line_above() {
@@ -63,6 +64,7 @@ still create a line above
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
 
     func test_that_if_on_an_empty_line_it_will_still_create_a_line_above() {
@@ -86,6 +88,7 @@ an empty line
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 13)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
 
     func test_that_if_on_the_last_empty_line_it_creates_a_line_below_and_the_caret_stays_on_the_current_line() {
@@ -109,6 +112,7 @@ the last empty line
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 45)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
 
     func test_that_if_on_the_last_non_empty_line_it_creates_a_line_below_and_the_caret_stays_on_the_current_line() {
@@ -130,6 +134,7 @@ the last empty line
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
 
     func test_that_it_creates_a_line_above_and_goes_to_the_same_indentation_as_the_current_line() {
@@ -153,6 +158,7 @@ but it should work
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 16)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
 
     func test_that_if_keeps_the_indentation_even_if_it_is_on_the_first_line() {
@@ -170,6 +176,7 @@ but it should work
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
     
 }

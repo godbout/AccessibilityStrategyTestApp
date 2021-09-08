@@ -30,6 +30,7 @@ extension UIASNM_pForLastYankStyleCharacterwise_Tests {
         
         XCTAssertEqual(accessibilityElement?.value, "we gonna paste some text to paste!!!shit")
         XCTAssertEqual(accessibilityElement?.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }
@@ -64,6 +65,7 @@ ho ho ho
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 24)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
     func test_that_in_normal_setting_it_pastes_the_text_after_the_block_cursor_and_if_the_text_contains_a_linefeed_the_block_cursor_ends_up_at_the_beginning_of_the_pasted_text() {
@@ -120,6 +122,7 @@ here's the last one
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 45)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }

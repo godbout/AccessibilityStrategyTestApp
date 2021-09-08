@@ -33,6 +33,7 @@ to the same column
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 38)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
 
     func test_that_if_the_previous_line_is_shorter_k_goes_to_the_end_of_line_limit_of_that_previous_line() {
@@ -51,6 +52,7 @@ than the previous shorter than...
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 39)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
 
     func test_that_the_column_number_is_saved_and_reapplied_properly() {
@@ -68,12 +70,15 @@ another quite long line
                 
         let firstK = applyMoveBeingTested()
         XCTAssertEqual(firstK?.caretLocation, 81)
+        XCTAssertEqual(firstK?.selectedLength, 1)
 
         let secondK = applyMoveBeingTested()
         XCTAssertEqual(secondK?.caretLocation, 51)
+        XCTAssertEqual(secondK?.selectedLength, 1)
 
         let thirdK = applyMoveBeingTested()
         XCTAssertEqual(thirdK?.caretLocation, 18)
+        XCTAssertEqual(thirdK?.selectedLength, 1)
     }
 
     func test_that_when_at_the_first_line_k_does_nothing() {
@@ -90,6 +95,7 @@ nothing ankulay
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
 
     func test_that_when_current_line_column_is_equal_to_previous_line_length_the_caret_ends_up_at_the_right_previous_line_end_limit() {
@@ -106,6 +112,7 @@ to previ ous line length
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 42)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
 
     func test_that_if_we_are_on_the_last_line_and_it_is_just_a_linefeed_we_can_still_go_up_and_follow_the_globalColumnNumber() {
@@ -129,6 +136,7 @@ empty
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 33)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }

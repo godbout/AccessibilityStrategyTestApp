@@ -38,6 +38,8 @@ hehe (
 )
 """
         )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 7)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
 
     func test_that_in_the_case_where_it_leaves_an_empty_line_between_the_brackets_it_positions_the_cursor_according_to_the_first_non_blank_of_the_first_line_that_is_after_the_opening_bracket() {
@@ -61,6 +63,7 @@ now that shit will get cleaned (
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 37)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
 
     func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_the_linefeed_is_not_deleted() {
@@ -82,6 +85,7 @@ this work when (
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 17)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
 
     func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_and_the_closing_bracket_is_immediately_preceded_by_a_linefeed_then_the_move_keeps_an_empty_line_between_the_brackets() {
@@ -104,6 +108,7 @@ this case is when (
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 20)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
 
 }
