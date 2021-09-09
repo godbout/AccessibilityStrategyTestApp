@@ -101,8 +101,3 @@ caret at the last empty line
     }
     
 }
-
-
-// emojis
-// same as j
-extension ASUI_VML_k_Tests {}

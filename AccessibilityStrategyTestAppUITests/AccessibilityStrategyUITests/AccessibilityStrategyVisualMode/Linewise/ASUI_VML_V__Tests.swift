@@ -100,8 +100,3 @@ really
     }
         
 }
-
-
-// emojis
-// same as VM v. from what i saw from the code, nothing the emojis would affect
-extension ASUI_VML_V__Tests {}

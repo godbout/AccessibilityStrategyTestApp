@@ -57,8 +57,8 @@ extension ASUI_VMC_0_Tests {
 
     func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_before_the_anchor_the_it_goes_to_the_beginning_of_the_line_and_extends_the_selection() {
         let textInAXFocusedElement = """
-we gonna select
-over multiple lines coz
+⛱️e gonna select
+over ⛱️⛱️ multiple lines coz
 0 has some problems y
 """
         app.textViews.firstMatch.tap()
@@ -72,7 +72,7 @@ over multiple lines coz
         let accessibilityElement = applyMoveBeingTested()
        
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 37)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 38)
     }
     
     func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_after_the_anchor_then_it_goes_to_the_beginning_of_the_line_and_reduces_the_selection() {
@@ -96,46 +96,4 @@ start of the line
         XCTAssertEqual(accessibilityElement?.selectedLength, 36)
     }
 
-}
-
-
-// emojis
-extension ASUI_VMC_0_Tests {
-    
-    func test_that_it_handles_emojis_with_head_before_anchor() {
-        let textInAXFocusedElement = """
-wow now that 😂️😂️😂️ have to handle🙈️
-    🍌️dd with the 🙈️🙈️🙈️🙈️
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.underscore(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        let accessibilityElement = applyMoveBeingTested()
-
-        XCTAssertEqual(accessibilityElement?.caretLocation, 41)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 7)
-    }
-    
-    func test_that_it_handles_emojis_with_anchor_before_head() {
-        let textInAXFocusedElement = """
-wow now that 😂️😂️😂️ have to handle🙈️
-🍌️    dd with the 🙈️🙈️🙈️🙈️
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.b(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMoveBeingTested()
-
-        XCTAssertEqual(accessibilityElement?.caretLocation, 19)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 25)
-    }
-    
 }

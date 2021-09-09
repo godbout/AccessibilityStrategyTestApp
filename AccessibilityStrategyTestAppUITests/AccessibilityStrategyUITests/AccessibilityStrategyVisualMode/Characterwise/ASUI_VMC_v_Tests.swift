@@ -82,9 +82,3 @@ extension ASUI_VMC_v_Tests {
     }
         
 }
-
-
-// emojis
-// from what i've seen from the code, there's nothing that
-// the emojis would affect
-extension ASUI_VMC_v_Tests {}

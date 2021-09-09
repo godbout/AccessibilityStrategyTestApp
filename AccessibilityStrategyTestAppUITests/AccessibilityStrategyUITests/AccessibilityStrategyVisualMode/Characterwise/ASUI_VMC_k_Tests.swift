@@ -161,25 +161,3 @@ own empty
     }
     
 }
-
-
-// emojis
-extension ASUI_VMC_k_Tests {
-    
-    func test_that_it_handles_emojis() {
-        let textInAXFocusedElement = """
-askdfljha😂️jsfdkhasdkfhha😂️
-asdfa😂️sdfkjhajkhasdfkjhasfdakjsh askjh😂️😂️
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-              
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        let accessibilityElement = applyMoveBeingTested()
-
-        XCTAssertEqual(accessibilityElement?.caretLocation, 29)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 47)
-    }
-    
-}
