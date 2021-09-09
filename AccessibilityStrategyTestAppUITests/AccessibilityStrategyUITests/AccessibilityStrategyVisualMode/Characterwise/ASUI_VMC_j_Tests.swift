@@ -15,6 +15,7 @@ class ASUI_VMC_j_Tests: ASUI_VM_BaseTests {
 // TextFields
 extension ASUI_VMC_j_Tests {
     
+    // TODO: not working properly
     func test_that_in_TextFields_it_does_nothing() {
         let textInAXFocusedElement = "VM jk in TextFields will do nothing"
         app.textFields.firstMatch.tap()
@@ -26,7 +27,8 @@ extension ASUI_VMC_j_Tests {
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 28)
-        
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+
     }
     
 }

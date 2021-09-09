@@ -28,6 +28,7 @@ and head are nil
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 46)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 16)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 46)
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 61)
     }
