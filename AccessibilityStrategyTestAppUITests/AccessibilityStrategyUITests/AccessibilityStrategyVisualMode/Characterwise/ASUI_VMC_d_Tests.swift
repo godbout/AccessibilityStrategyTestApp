@@ -12,6 +12,7 @@ class ASUI_VMC_d_Tests: ASUI_VM_BaseTests {
 }
 
 
+// TODO: big changes regarding selectedLength for d
 extension ASUI_VMC_d_Tests {
     
     func test_that_it_simply_deletes_the_selection() {

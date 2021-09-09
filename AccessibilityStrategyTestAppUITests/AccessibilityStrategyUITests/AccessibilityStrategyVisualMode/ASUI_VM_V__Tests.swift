@@ -25,6 +25,7 @@ extension ASUI_VM_V__Tests {
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 29)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 28)
     }
@@ -46,10 +47,10 @@ a linefeed at the end
                 
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
-        applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 20)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 22)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 20)
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 41)
     }

@@ -26,7 +26,7 @@ extension ASUI_VMC_k_Tests {
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 28)
-        
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }

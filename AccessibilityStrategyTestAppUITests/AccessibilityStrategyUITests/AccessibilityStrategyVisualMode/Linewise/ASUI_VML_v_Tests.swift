@@ -14,7 +14,8 @@ class ASUI_VML_v_Tests: ASUI_VM_BaseTests {
 
 extension ASUI_VML_v_Tests {
 
-    func test_that_if_we_were_already_in_VisualMode_Linewise_when_calling_V_it_sets_the_caret_and_anchor_to_the_end_limit_even_when_the_head_happened_to_be_after_the_end_limit() {
+    // TODO: not working. check
+    func test_that_if_we_were_already_in_VisualMode_Linewise_when_calling_v_it_sets_the_caret_and_anchor_to_the_end_limit_even_when_the_head_happened_to_be_after_the_end_limit() {
         let textInAXFocusedElement = """
 entering with v from
 VM linewise will set
@@ -30,6 +31,7 @@ if the head is not after the line end limit
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 62)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 62)
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 62)
     }
@@ -45,6 +47,7 @@ if the head is not after the line end limit
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
 
 }

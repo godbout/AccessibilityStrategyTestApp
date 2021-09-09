@@ -33,6 +33,7 @@ extension ASUI_VMC_escape_Tests {
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 23)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }
@@ -44,19 +45,19 @@ extension ASUI_VMC_escape_Tests {
     func test_that_the_caret_location_goes_to_the_head_even_when_the_selection_spans_over_multiple_lines() {
         let textInAXFocusedElement = """
 let's try with selecting
-over multiple lines
+🥰️🥰️🥰️ multiple lines
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        
+       
         applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 28)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 31)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
     func test_that_if_the_head_is_above_line_end_limit_then_the_caret_goes_to_the_end_limit() {
@@ -76,6 +77,7 @@ gonna go after
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }

@@ -30,6 +30,7 @@ anchor
         let accessibilityElement = applyMoveBeingTested()
        
         XCTAssertEqual(accessibilityElement?.caretLocation, 36)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
 
     func test_that_the_caret_goes_to_the_head_location_after_having_being_switched_when_coming_from_Visual_Mode_linewise() {
@@ -49,12 +50,13 @@ anchor
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 14)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
 
     func test_that_the_caret_goes_to_the_head_location_even_the_head_is_on_a_different_line_than_the_caret() {
         let textInAXFocusedElement = """
 now we gonna have
-the selection spread over
+the selection spread ove⛱️
 multiple lines
 """
         app.textViews.firstMatch.tap()
@@ -68,6 +70,7 @@ multiple lines
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 42)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 2)
     }
 
 }
