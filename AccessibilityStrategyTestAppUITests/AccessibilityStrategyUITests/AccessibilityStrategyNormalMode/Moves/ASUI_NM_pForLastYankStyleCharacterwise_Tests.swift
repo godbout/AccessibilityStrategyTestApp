@@ -16,21 +16,20 @@ class UIASNM_pForLastYankStyleCharacterwise_Tests: ASUI_NM_BaseTests {
 extension UIASNM_pForLastYankStyleCharacterwise_Tests {
     
     func test_that_in_normal_setting_it_pastes_the_text_after_the_block_cursor_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
-        let textInAXFocusedElement = "we gonna paste some shit"
+        let textInAXFocusedElement = "we go😂️😂️😂️nna paste some 💩️"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
 
         NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("text to paste!!!", forType: .string)
-        
+        NSPasteboard.general.setString("text to 🥞️🥞️🥞️ paste!!!🥠️", forType: .string)
+
         let accessibilityElement = applyMoveBeingTested()
-        
-        XCTAssertEqual(accessibilityElement?.value, "we gonna paste some text to paste!!!shit")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+
+        XCTAssertEqual(accessibilityElement?.value, "we go😂️😂️😂️nna paste some 💩️text to 🥞️🥞️🥞️ paste!!!🥠️")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 58)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
 }
@@ -125,54 +124,4 @@ here's the last one
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
-}
-
-
-// emojis
-extension UIASNM_pForLastYankStyleCharacterwise_Tests {
-
-    func test_that_it_handles_emojis() {
-        let textInAXFocusedElement = "we go😂️😂️😂️nna paste some 💩️"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.h(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("text to 🥞️🥞️🥞️ paste!!!🥠️", forType: .string)
-
-        let accessibilityElement = applyMoveBeingTested()
-
-        XCTAssertEqual(accessibilityElement?.value, "we go😂️😂️😂️nna paste some 💩️text to 🥞️🥞️🥞️ paste!!!🥠️")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 58)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
-    }
-        
-    func test_that_it_handles_emojis_characterwise() {
-        let textInAXFocusedElement = """
-time to paste
-in 🚬️
-ho ho ho
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("pastain🤡️", forType: .string)
-
-        let accessibilityElement = applyMoveBeingTested()
-
-        XCTAssertEqual(accessibilityElement?.value, """
-time to paste
-in 🚬️pastain🤡️
-ho ho ho
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 27)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
-    }
-
 }

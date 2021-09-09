@@ -167,8 +167,3 @@ own empty
     }
     
 }
-
-
-// emojis
-// as far as i saw from the code there's no need to test emojis here
-extension ASUI_VMC_d_Tests {}

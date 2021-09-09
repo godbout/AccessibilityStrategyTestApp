@@ -19,7 +19,7 @@ class ASUI_NM_df_Tests: ASUI_NM_BaseTests {
 extension ASUI_NM_df_Tests {
     
     func test_that_in_normal_setting_it_selects_from_the_character_found_to_the_caret() {
-        let textInAXFocusedElement = "gonna use df on this sentence"
+        let textInAXFocusedElement = "gonna us⛱️ df on this sentence"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
@@ -28,9 +28,9 @@ extension ASUI_NM_df_Tests {
        
         let accessibilityElement = applyMoveBeingTested(with: "s")
         
-        XCTAssertEqual(accessibilityElement?.value, "ge df on this sentence")
+        XCTAssertEqual(accessibilityElement?.value, "g⛱️ df on this sentence")
         XCTAssertEqual(accessibilityElement?.caretLocation, 1)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 2)
     }
     
 }
@@ -63,32 +63,4 @@ on a line
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
-}
-
-
-// emojis
-extension ASUI_NM_df_Tests {
-
-    func test_that_it_handles_emojis() {
-        let textInAXFocusedElement = """
-need to deal with
-those💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.zero(on: $0) }
-        applyMove { asNormalMode.l(on: $0) }
-        applyMove { asNormalMode.l(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(with: "h")
-        
-        XCTAssertEqual(accessibilityElement?.value, """
-need to deal with
-th😀️ha
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 20)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
-    }
-
 }

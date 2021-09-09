@@ -166,8 +166,3 @@ t
     }
     
 }
-
-
-// emojis
-// same as for d Characterwise
-extension ASUI_VML_d_Tests {}

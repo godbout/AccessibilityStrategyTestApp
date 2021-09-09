@@ -98,30 +98,3 @@ escape
     }
     
 }
-
-
-// emojis
-extension ASUI_NM_r_Tests {
-    
-    func test_that_it_handles_emojis() {
-        let textInAXFocusedElement = """
-need to deal with
-e💨️💨️💨️ fac"es 🥺️☹️😂️ h😀️ha👅️" hhohohoo🤣️
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.zero(on: $0) }
-        applyMove { asNormalMode.l(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(with: "9")
-
-        XCTAssertEqual(accessibilityElement?.value, """
-need to deal with
-e9💨️💨️ fac"es 🥺️☹️😂️ h😀️ha👅️" hhohohoo🤣️
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 19)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-    }
-    
-}

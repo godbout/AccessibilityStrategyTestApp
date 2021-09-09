@@ -101,7 +101,7 @@ if someBullshit == true {
     func test_that_when_it_deletes_a_line_it_ends_up_at_the_correct_indentation_on_the_next_line() {
         let textInAXFocusedElement = """
 for example
-  😃️t should stop
+  🇫🇷️t should stop
 after the two spaces
 """
         app.textViews.firstMatch.tap()
@@ -110,9 +110,9 @@ after the two spaces
         applyMove { asNormalMode.gg(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, "  😃️t should stop\nafter the two spaces")
+        XCTAssertEqual(accessibilityElement?.value, "  🇫🇷️t should stop\nafter the two spaces")
         XCTAssertEqual(accessibilityElement?.caretLocation, 2)            
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 5)
     }
     
     func test_that_if_on_the_last_line_it_deletes_the_line_and_goes_up_to_the_first_non_blank_of_the_previous_line() {
@@ -201,34 +201,6 @@ own empty
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 30)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
-    }
-    
-}
-
-
-// emojis
-extension UIASNM_dd_Tests {
-    
-    func test_that_it_handles_emojis() {
-        let textInAXFocusedElement = """
-wow now that 😂️😂️😂️ have to handle🙈️
-    🍌️dd with the 🙈️🙈️🙈️🙈️🙈️🙈️🙈️ emojis🍌️🍌️
-  🇫🇷️nd i don't really 🍌️🍌️🍌️ know it it works🍌️
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
-        let accessibilityElement = applyMoveBeingTested()
-        
-        XCTAssertEqual(accessibilityElement?.value, """
-wow now that 😂️😂️😂️ have to handle🙈️
-  🇫🇷️nd i don't really 🍌️🍌️🍌️ know it it works🍌️
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 43)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 5)
     }
     
 }

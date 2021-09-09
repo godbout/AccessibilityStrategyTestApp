@@ -56,8 +56,3 @@ a linefeed at the end
     }
    
 }
-
-
-// emojis
-// same as VM v. from what i saw from the code, nothing the emojis would affect
-extension ASUI_VM_V__Tests {}

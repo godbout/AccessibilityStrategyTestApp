@@ -65,31 +65,3 @@ on a line
     }
     
 }
-
-
-// emojis
-extension ASUI_NM_dt_Tests {
-
-    func test_that_it_handles_emojis() {
-        let textInAXFocusedElement = """
-need to deal with
-those💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.zero(on: $0) }
-        applyMove { asNormalMode.l(on: $0) }
-        applyMove { asNormalMode.l(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(with: "h")
-        
-        XCTAssertEqual(accessibilityElement?.value, """
-need to deal with
-thh😀️ha
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 20)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-    }
-
-}

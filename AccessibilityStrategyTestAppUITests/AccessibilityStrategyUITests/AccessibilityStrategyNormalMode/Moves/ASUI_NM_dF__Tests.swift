@@ -65,29 +65,3 @@ should work
     }
     
 }
-
-
-// emojis
-extension ASUI_NM_dF__Tests {
-
-    func test_that_it_handles_emojis() {
-        let textInAXFocusedElement = """
-need to deal with
-those💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.B(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(with: "h")
-        
-        XCTAssertEqual(accessibilityElement?.value, """
-need to deal with
-th😀️ha
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 19)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-    }
-
-}

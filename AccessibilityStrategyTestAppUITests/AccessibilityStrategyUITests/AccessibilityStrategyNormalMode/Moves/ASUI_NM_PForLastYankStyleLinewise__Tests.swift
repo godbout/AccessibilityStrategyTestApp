@@ -72,20 +72,20 @@ pasted at the current line place
         applyMove { asNormalMode.h(on: $0) }
 
         NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("should paste that\n", forType: .string)
+        NSPasteboard.general.setString("🤍️hould paste 🤍️ that\n", forType: .string)
 
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.value, """
 so if we use P
 the current line is gonna
-should paste that
+🤍️hould paste 🤍️ that
 shift and thew new one is gonna be
 pasted at the current line place
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 41)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
 
     func test_that_when_pasting_the_new_line_the_block_cursor_goes_to_the_first_non_blank_of_the_new_current_line() {
@@ -142,45 +142,6 @@ test 3 of The 3 Cases for TextArea linewise P
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 58)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-    }
-    
-}
-
-
-// emojis
-extension UIASNM_PForLastYankStyleLinewise_Tests {
-    
-    func test_that_it_handles_emojis_linewise() {
-        let textInAXFocusedElement = """
-we gonna linewise paste
-on a line that is not
-the last so there'🚨️ 💭️
-a linefeed at the end of the line
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
-        applyMove { asNormalMode.b(on: $0) }
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.h(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("🦶️👋️ould paste that somewhere 🧑‍🌾️\n", forType: .string)
-        
-        let accessibilityElement = applyMoveBeingTested()
-        
-        XCTAssertEqual(accessibilityElement?.value, """
-we gonna linewise paste
-on a line that is not
-🦶️👋️ould paste that somewhere 🧑‍🌾️
-the last so there'🚨️ 💭️
-a linefeed at the end of the line
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 46)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)   
     }
     
 }

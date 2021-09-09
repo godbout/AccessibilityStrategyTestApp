@@ -58,9 +58,3 @@ caret out of boundaries
     }
 
 }
-
-
-// emojis
-// from what i've seen from the code, there's nothing that
-// the emojis would affect
-extension ASUI_VM_v_Tests {}
