@@ -120,30 +120,3 @@ x
     }
     
 }
-
-
-// emojis
-extension UIASNM_x_Tests {
-    
-    func test_that_it_can_delete_a_character_and_end_up_on_the_following_emoji_correctly() {
-        let textInAXFocusedElement = """
-need to deal with
-those💨️💨️💨️ fac"es 🥺️☹️😂️ 😀️😀️ha👅️" hhohohoo🤣️
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.zero(on: $0) }
-        applyMove { asNormalMode.w(on: $0) }
-        let accessibilityElement = applyMoveBeingTested()
-        
-        XCTAssertEqual(accessibilityElement?.value, """
-need to deal with
-those💨️💨️ fac"es 🥺️☹️😂️ 😀️😀️ha👅️" hhohohoo🤣️
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 23)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
-    }
-    
-}

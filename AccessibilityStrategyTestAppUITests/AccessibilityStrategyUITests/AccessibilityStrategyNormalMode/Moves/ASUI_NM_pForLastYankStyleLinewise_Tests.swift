@@ -163,19 +163,19 @@ to the first non blank of the copied line
         applyMove { asNormalMode.h(on: $0) }
 
         NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("   the copied line has non blanks\n", forType: .string)
+        NSPasteboard.general.setString("   🤍️he copied line has 🤍️🤍️🤍️ non blanks\n", forType: .string)
         
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.value, """
 so now we gonna
 have to move the caret
-   the copied line has non blanks
+   🤍️he copied line has 🤍️🤍️🤍️ non blanks
 to the first non blank of the copied line
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 42)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_empty_line_it_still_pastes_but_without_an_ending_linefeed() {
@@ -203,45 +203,6 @@ test 3 of The 3 Cases for TextArea linewise
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 59)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-    }
-    
-}
-
-
-// emojis
-extension UIASNM_pForLastYankStyleLinewise_Tests {
-    
-    func test_that_it_handles_emojis_linewise() {
-        let textInAXFocusedElement = """
-we gonna linewise paste
-on a line that is not
-the last so there'🚨️ 💭️
-a linefeed at the end of the line
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
-        applyMove { asNormalMode.b(on: $0) }
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.h(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("🦶️👋️ould paste that somewhere 🧑‍🌾️\n", forType: .string)
-        
-        let accessibilityElement = applyMoveBeingTested()
-        
-        XCTAssertEqual(accessibilityElement?.value, """
-we gonna linewise paste
-on a line that is not
-the last so there'🚨️ 💭️
-🦶️👋️ould paste that somewhere 🧑‍🌾️
-a linefeed at the end of the line
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 72)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
 }

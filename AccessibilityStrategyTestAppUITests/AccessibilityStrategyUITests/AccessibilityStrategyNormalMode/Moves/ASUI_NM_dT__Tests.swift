@@ -41,7 +41,7 @@ extension ASUI_NM_dT__Tests {
     func test_that_it_can_find_the_character_on_a_line_for_a_multiline() {
         let textInAXFocusedElement = """
 dT on a multiline
-should work
+should wor⛱️
 on a line
 """
         app.textViews.firstMatch.tap()
@@ -54,38 +54,12 @@ on a line
         
         XCTAssertEqual(accessibilityElement?.value, """
 dT on a multiline
-should wk
+should w⛱️
 on a line
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 26)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 2)
     }
     
-}
-
-
-// emojis
-extension ASUI_NM_dT__Tests {
-
-    func test_that_it_handles_emojis() {
-        let textInAXFocusedElement = """
-need to deal with
-those💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.B(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(with: "h")
-        
-        XCTAssertEqual(accessibilityElement?.value, """
-need to deal with
-thh😀️ha
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 20)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-    }
-
 }
