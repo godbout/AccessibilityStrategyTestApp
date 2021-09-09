@@ -75,7 +75,7 @@ multiline
         let textInAXFocusedElement = """
 we gonna select
 over multiple lines coz
-$ doesn't work LOOOLL
+$ not work ⛱️⛱️LOOOL
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -87,7 +87,7 @@ $ doesn't work LOOOLL
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 36)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
         XCTAssertEqual(accessibilityElement?.selectedLength, 25)
     }
 
@@ -111,28 +111,3 @@ $ doesn't work LOOOLL
     }
     
 }
-
-
-// emojis
-extension ASUI_VMC_$_Tests {
-    
-    func test_that_it_handles_emojis() {
-        let textInAXFocusedElement = """
-wow now that 😂️😂️😂️ have to handle🙈️
-    🍌️dd with the 🙈️🙈️🙈️🙈️
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.underscore(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMoveBeingTested()
-
-        XCTAssertEqual(accessibilityElement?.caretLocation, 40)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 8)
-    }
-    
-}
-

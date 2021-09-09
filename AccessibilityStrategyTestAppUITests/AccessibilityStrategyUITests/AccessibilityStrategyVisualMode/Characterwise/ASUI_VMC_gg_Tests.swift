@@ -39,7 +39,7 @@ extension ASUI_VMC_gg_Tests {
 
     func test_that_if_the_new_head_location_is_before_the_anchor_then_it_selects_from_anchor_to_the_new_head_location() {
         let textInAXFocusedElement = """
-    we gonna put the caret
+    ⛱️e gonna put the caret
 way after the new head location
 and it's gonna run smooooooooooooth
 """
@@ -54,7 +54,7 @@ and it's gonna run smooooooooooooth
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 4)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 42)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 43)
     }
     
 }

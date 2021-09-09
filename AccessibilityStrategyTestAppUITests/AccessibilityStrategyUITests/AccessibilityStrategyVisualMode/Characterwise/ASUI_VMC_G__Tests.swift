@@ -17,7 +17,7 @@ extension ASUI_VMC_G__Tests {
 
     // this only happens if the new head location and the anchor are on the same line!
     func test_that_if_the_new_head_location_is_before_the_anchor_then_it_selects_from_the_new_head_location_until_the_anchor() {
-        let textInAXFocusedElement = "        so here we gonna test vG"
+        let textInAXFocusedElement = "        💩️o here we 💩️ gonna test vG"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
@@ -28,7 +28,7 @@ extension ASUI_VMC_G__Tests {
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 8)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 23)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 29)
     }
 
 }

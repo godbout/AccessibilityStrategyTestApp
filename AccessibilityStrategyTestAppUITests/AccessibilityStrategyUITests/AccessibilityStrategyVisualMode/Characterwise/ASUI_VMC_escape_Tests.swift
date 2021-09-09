@@ -81,23 +81,3 @@ gonna go after
     }
     
 }
-
-
-// emojis
-extension ASUI_VMC_escape_Tests {
-    
-    func test_that_it_handles_emojis() {
-        let textInAXFocusedElement = "wow now that 😂️😂️😂️🙈️"
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMoveBeingTested()
-
-        XCTAssertEqual(accessibilityElement?.caretLocation, 13)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
-    }
-    
-}

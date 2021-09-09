@@ -50,9 +50,3 @@ if the head is not after the line end limit
     }
 
 }
-
-
-// emojis
-// from what i've seen from the code, there's nothing that
-// the emojis would affect
-extension ASUI_VML_v_Tests {}
