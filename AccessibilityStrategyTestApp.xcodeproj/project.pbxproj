@@ -250,7 +250,6 @@
 		9161A55826E0D28B009A2572 /* ASUI_NM_dj_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_dj_Tests.swift; sourceTree = "<group>"; };
 		9165E81026EA6D9C00E813B7 /* ASUI_NM_dt_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_dt_Tests.swift; sourceTree = "<group>"; };
 		916B4AEA26EA5FDA004ACE9B /* ASUI_NM_dF__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_dF__Tests.swift; sourceTree = "<group>"; };
-		916B4AEC26EA63B9004ACE9B /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		916B4AED26EA68EB004ACE9B /* ASUI_NM_df_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_df_Tests.swift; sourceTree = "<group>"; };
 		916B4AEF26EA6AF4004ACE9B /* ASUI_NM_dT__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_dT__Tests.swift; sourceTree = "<group>"; };
 		91AF718026E15140007C2D2E /* AccessibilityStrategyVisualModeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessibilityStrategyVisualModeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -572,7 +571,6 @@
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
-				916B4AEC26EA63B9004ACE9B /* AccessibilityStrategy */,
 				91F951B326DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,
