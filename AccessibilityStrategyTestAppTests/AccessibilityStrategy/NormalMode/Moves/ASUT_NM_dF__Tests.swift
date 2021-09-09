@@ -2,6 +2,8 @@
 import XCTest
 
 
+// TODO: cases when succeeding will have to be tested in UI because of setting block cursor
+// within moves now.
 class ASNM_dF__Tests: ASNM_BaseTests {
     
     private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
