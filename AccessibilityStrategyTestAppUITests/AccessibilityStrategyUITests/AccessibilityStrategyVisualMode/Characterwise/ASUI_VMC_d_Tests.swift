@@ -12,13 +12,12 @@ class ASUI_VMC_d_Tests: ASUI_VM_BaseTests {
 }
 
 
-// TODO: big changes regarding selectedLength for d
 extension ASUI_VMC_d_Tests {
     
     func test_that_it_simply_deletes_the_selection() {
         let textInAXFocusedElement = """
 all that VM d does
-in characterwise is deleting
+in characterwi😂️e is deleting
 the selection!
 """
         app.textViews.firstMatch.tap()
@@ -32,12 +31,12 @@ the selection!
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.value, """
-all that VM d se is deleting
+all that VM d 😂️e is deleting
 the selection!
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 14)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
     func test_that_if_there_is_only_one_character_on_a_line_deleting_it_stays_on_the_line_and_does_not_go_to_the_linefeed_of_the_above_line() {
@@ -69,7 +68,7 @@ should go back to line end limit
         let textInAXFocusedElement = """
 there's gonna be an empty line
 
-right above
+⛱️ight above
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -81,17 +80,17 @@ right above
 
         XCTAssertEqual(accessibilityElement?.value, """
 there's gonna be an empty line
-right above
+⛱️ight above
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 31)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 2)
     }
     
     func test_that_when_the_selection_spans_on_a_single_line_if_after_deletion_the_caret_ends_up_after_the_line_limit_then_it_is_moved_back_to_the_end_limit() {
         let textInAXFocusedElement = """
 if deleting the last character of
-a line before the linefeed the caret
+a line before the linefeed the ⛱️caret
 should go back to line end limit
 """
         app.textViews.firstMatch.tap()
@@ -106,12 +105,12 @@ should go back to line end limit
 
         XCTAssertEqual(accessibilityElement?.value, """
 if deleting the last character of
-a line before the linefeed the 
+a line before the linefeed the ⛱️
 should go back to line end limit
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 64)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 65)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 2)
     }
     
     func test_that_when_the_selection_spans_on_multiple_lines_if_after_deletion_the_caret_ends_up_after_the_line_limit_then_it_is_moved_back_to_the_end_limit() throws {
@@ -164,7 +163,7 @@ own empty
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 35)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
     
 }
