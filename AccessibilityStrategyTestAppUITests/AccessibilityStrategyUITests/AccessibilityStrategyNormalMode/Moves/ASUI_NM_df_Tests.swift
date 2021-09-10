@@ -15,10 +15,9 @@ class ASUI_NM_df_Tests: ASUI_NM_BaseTests {
 }
 
 
-// TextFields
 extension ASUI_NM_df_Tests {
     
-    func test_that_in_normal_setting_it_selects_from_the_character_found_to_the_caret() {
+    func test_that_the_block_cursor_is_repositioned_correctly_after_the_deletion() {
         let textInAXFocusedElement = "gonna us⛱️ df on this sentence"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -31,36 +30,6 @@ extension ASUI_NM_df_Tests {
         XCTAssertEqual(accessibilityElement?.value, "g⛱️ df on this sentence")
         XCTAssertEqual(accessibilityElement?.caretLocation, 1)
         XCTAssertEqual(accessibilityElement?.selectedLength, 2)
-    }
-    
-}
-
-
-// TextAreas
-extension ASUI_NM_df_Tests {
-    
-    func test_that_it_can_find_the_character_on_a_line_for_a_multiline() {
-        let textInAXFocusedElement = """
-df on a multiline
-should work
-on a line
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
-        applyMove { asNormalMode.zero(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(with: "w")
-        
-        XCTAssertEqual(accessibilityElement?.value, """
-df on a multiline
-ork
-on a line
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 18)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }
