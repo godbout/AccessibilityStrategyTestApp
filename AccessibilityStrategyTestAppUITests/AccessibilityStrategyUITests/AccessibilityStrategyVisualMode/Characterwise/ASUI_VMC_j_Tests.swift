@@ -178,4 +178,29 @@ own empty
         XCTAssertNotEqual(accessibilityElement?.selectedLength, 0)
     }
     
+    func test_that_if_the_ATE_globalColumnNumber_is_nil_j_goes_to_the_end_limit_of_the_next_line() {
+        let textInAXFocusedElement = """
+globalColumnNumber is nil
+coz used $ to go end of line📏️
+and also to the end of the next next line!
+"""
+
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+      
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.w(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
+
+        XCTAssertEqual(accessibilityElement?.caretLocation, 19)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 39)
+        
+        let secondPass = applyMoveBeingTested()
+        
+        XCTAssertEqual(secondPass?.caretLocation, 19)
+        XCTAssertEqual(secondPass?.selectedLength, 81)
+    }
+    
 }
