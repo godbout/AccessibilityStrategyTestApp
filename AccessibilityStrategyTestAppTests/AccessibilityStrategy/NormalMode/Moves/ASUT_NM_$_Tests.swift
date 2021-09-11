@@ -16,27 +16,56 @@ class ASUT_NM_$_Tests: ASNM_BaseTests {
 extension ASUT_NM_$_Tests {
     
     func test_that_if_line_ends_with_visible_character_$_goes_one_character_before_the_end() {
-        let text = "hello world"
+        let text = "hello world 🗺️"
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
-            length: 11,
-            caretLocation: 4,
-            selectedLength: 0,
-            selectedText: "",
+            length: 15,
+            caretLocation: 3,
+            selectedLength: 1,
+            selectedText: "l",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
                 start: 0,
-                end: 11
+                end: 15
             )
         )
 
         let returnedElement = applyMove(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 10)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement?.caretLocation, 12)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
         XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_it_sets_the_ATE_globalColumnNumber_to_nil() {
+        let text = """
+when using $
+the globalColumnNumber
+is set to nil so that next
+j or k will go to the line endLimit
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 98,
+            caretLocation: 52,
+            selectedLength: 1,
+            selectedText: " ",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 3,
+                start: 36,
+                end: 63
+            )
+        )
+        
+        AccessibilityTextElement.globalColumnNumber = 17
+        
+        _ = applyMove(on: element)
+
+        XCTAssertNil(AccessibilityTextElement.globalColumnNumber)
     }
 
 }
@@ -103,38 +132,3 @@ it's a bug!
     }
 
 }
-
-
-// emojis
-extension ASUT_NM_$_Tests {
-    
-    func test_that_it_handles_emojis() {
-        let text = """
-need to deal with
-those 🍃️🍃️🍃️🍃️🍃️🍃️ f🚀️ces 🥺️☹️😂️
-more
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 64,
-            caretLocation: 33,
-            selectedLength: 3,
-            selectedText: "🍃️",
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 2,
-                start: 18,
-                end: 60
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 56)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-}
-
