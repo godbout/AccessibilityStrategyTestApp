@@ -69,7 +69,7 @@ another long line longer than all the other ones!!!
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.gg(on: $0) }
-        applyMove { asNormalMode.dollarSign(on: $0) }
+        applyMove { asNormalMode.f(to: "g", on: $0) }
        
         let firstJ = applyMoveBeingTested()
         XCTAssertEqual(firstJ?.caretLocation, 33)
@@ -141,6 +141,24 @@ edge case
         XCTAssertEqual(accessibilityElement?.caretLocation, 26)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(globalColumnNumber, AccessibilityTextElement.globalColumnNumber)
+    }
+    
+    func test_that_if_the_ATE_globalColumnNumber_is_nil_j_goes_to_the_end_limit_of_the_next_line() {
+        let textInAXFocusedElement = """
+globalColumnNumber is nil
+coz used $ to go end of line!
+yeah this is cool.
+"""
+
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+      
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.dollarSign(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
+
+        XCTAssertEqual(accessibilityElement?.caretLocation, 54)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }
