@@ -146,8 +146,8 @@ edge case
     func test_that_if_the_ATE_globalColumnNumber_is_nil_j_goes_to_the_end_limit_of_the_next_line() {
         let textInAXFocusedElement = """
 globalColumnNumber is nil
-coz used $ to go end of line!
-yeah this is cool.
+coz used $ to go end of line📏️
+and also to the end of the next next line!
 """
 
         app.textViews.firstMatch.tap()
@@ -158,7 +158,12 @@ yeah this is cool.
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 54)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        
+        let secondPass = applyMoveBeingTested()
+        
+        XCTAssertEqual(secondPass?.caretLocation, 99)
+        XCTAssertEqual(secondPass?.selectedLength, 1)
     }
     
 }
