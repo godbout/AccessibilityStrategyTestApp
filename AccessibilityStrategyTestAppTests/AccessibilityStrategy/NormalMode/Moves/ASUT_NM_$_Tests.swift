@@ -4,7 +4,7 @@ import XCTest
 
 class ASUT_NM_$_Tests: ASNM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.dollarSign(on: element) 
     }
     
@@ -32,7 +32,7 @@ extension ASUT_NM_$_Tests {
             )
         )
 
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 12)
         XCTAssertEqual(returnedElement?.selectedLength, 3)
@@ -63,7 +63,7 @@ j or k will go to the line endLimit
         
         AccessibilityTextElement.globalColumnNumber = 17
         
-        _ = applyMove(on: element)
+        _ = applyMoveBeingTested(on: element)
 
         XCTAssertNil(AccessibilityTextElement.globalColumnNumber)
     }
@@ -95,7 +95,7 @@ multiline
             )
         )
 
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 13)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -124,7 +124,7 @@ it's a bug!
             )
             )
 
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 27)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
