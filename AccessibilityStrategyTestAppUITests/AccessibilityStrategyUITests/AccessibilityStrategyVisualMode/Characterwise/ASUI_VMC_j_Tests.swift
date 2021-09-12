@@ -136,7 +136,7 @@ extra long one here
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 14)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 42)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 46)
     }
     
     func test_that_it_can_go_back_to_the_last_empty_line_if_the_Visual_Mode_started_from_there_which_means_if_the_anchor_is_there() {
@@ -201,6 +201,19 @@ and also to the end of the next next line!
         
         XCTAssertEqual(secondPass?.caretLocation, 19)
         XCTAssertEqual(secondPass?.selectedLength, 81)
+        
+        // here we're actually testing that k works in this configuration (mix of j and k). probably would have been better
+        // to have its own test cases but would double the number of tests (it's like the tests we have for
+        // k but now with GCN being nil) and UI Tests are expensive and it's Sunday and that's enough.
+        let applyK = applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0) }
+        
+        XCTAssertEqual(applyK?.caretLocation, 19)
+        XCTAssertEqual(applyK?.selectedLength, 39)
+
+        let applyJAgain = applyMoveBeingTested()
+        
+        XCTAssertEqual(applyJAgain?.caretLocation, 19)
+        XCTAssertEqual(applyJAgain?.selectedLength, 81)
     }
     
 }
