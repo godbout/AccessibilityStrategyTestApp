@@ -41,7 +41,7 @@ from the caret location
              
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
+        _ = applyMoveBeingTested()
 
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 1)
     }
