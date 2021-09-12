@@ -6,13 +6,7 @@ import XCTest
 // and pressing b will go from after the anchor to before the anchor. this requires updating Self.anchor
 // which is hard to understand later on if tested here, so the test is done through UI.
 class ASUT_VMC_b_Tests: ASVM_BaseTests {
-    
-    override func setUp() {
-        super.setUp()
-        
-//        KindaVimEngine.shared.visualStyle = .characterwise
-    }
-    
+
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asVisualMode.bForVisualStyleCharacterwise(on: element) 
     }

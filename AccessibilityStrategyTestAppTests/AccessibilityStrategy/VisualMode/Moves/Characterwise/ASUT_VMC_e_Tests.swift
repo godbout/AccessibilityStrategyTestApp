@@ -4,13 +4,7 @@ import XCTest
 
 // see b for blah blah
 class ASUT_VMC_e_Tests: ASVM_BaseTests {
-    
-    override func setUp() {
-        super.setUp()
-        
-//        KindaVimEngine.shared.visualStyle = .characterwise
-    }
-    
+
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asVisualMode.eForVisualStyleCharacterwise(on: element) 
     }
