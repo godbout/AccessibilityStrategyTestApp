@@ -114,8 +114,6 @@ should go back to line end limit
     }
     
     func test_that_when_the_selection_spans_on_multiple_lines_if_after_deletion_the_caret_ends_up_after_the_line_limit_then_it_is_moved_back_to_the_end_limit() throws {
-        throw XCTSkip("this one requires the calculation of globalColumnNumber to be redone.")
-        
         let textInAXFocusedElement = """
 same as above
 but on multiple
