@@ -56,5 +56,20 @@ caret out of boundaries
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 40)
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 40)
     }
+    
+    func test_that_entering_VisualMode_with_v_from_NormalMode_does_not_override_the_globalColumnNumber() {
+        let textInAXFocusedElement = """
+if we $ before entering VM the GCN
+should still stay at nil
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.dollarSign(on: $0) }
+        _ = applyMoveBeingTested()
+       
+        XCTAssertNil(AccessibilityTextElement.globalColumnNumber)
+    }
 
 }
