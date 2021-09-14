@@ -1,7 +1,8 @@
 name: build, tests and coverage
 
 on:
-  push: [master]
+  push:
+    branches: [master]
   schedule:
     - cron:  '28 4 */7 * *'
 
