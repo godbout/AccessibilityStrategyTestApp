@@ -3,9 +3,9 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-// other tests in Unit Tests. the UI is just to test special cases.
-class UIASVM_wordMotionForward_Tests: ASUI_VM_BaseTests {
-    
+// see wordMotionForward for blah blah
+class UIASVM_wordMotion_backward_Tests: ASUI_VM_BaseTests {
+
     func test_that_when_we_reach_the_anchor_and_will_reverse_anchor_and_head_the_move_does_not_block_and_moves_properly() {
         let textInAXFocusedElement = """
 in Visual Mode Characterwise we
@@ -18,23 +18,25 @@ from the caret location
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
-        let accessibilityElement = applyMove { asVisualMode.wForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 54)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 6)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 53)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 2)
     }
     
     func test_that_the_head_is_getting_updated_properly() {
-        let textInAXFocusedElement = "we-have to updated caretLocation before selectedLength!"
+        let textInAXFocusedElement = "we have to updated caretLocation before-selectedLength!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-             
+        
+        applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.EForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.BForVisualStyleCharacterwise(on: $0) }
+        // it used to fail after the second move
+        applyMove { asVisualMode.BForVisualStyleCharacterwise(on: $0) }
 
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 6)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 19)
     }
     
 }
