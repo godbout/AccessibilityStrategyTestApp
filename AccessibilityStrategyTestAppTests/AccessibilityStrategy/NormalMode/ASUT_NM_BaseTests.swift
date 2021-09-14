@@ -9,9 +9,9 @@ class ASNM_BaseTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-                       
+           
+        // TODO: check if it's needed in setUp or could be set above
         asNormalMode = AccessibilityStrategyNormalMode()
-//        KindaVimEngine.shared.enterNormalMode()
     }    
     
 }
