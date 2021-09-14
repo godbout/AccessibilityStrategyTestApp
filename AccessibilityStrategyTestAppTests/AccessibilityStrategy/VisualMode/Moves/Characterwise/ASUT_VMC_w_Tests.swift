@@ -151,8 +151,8 @@ extension ASUT_VMC_w_Tests {
 
         let returnedElement = applyMove(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 17)
-        XCTAssertEqual(returnedElement?.selectedLength, 5)
+        XCTAssertEqual(returnedElement?.caretLocation, 10)
+        XCTAssertEqual(returnedElement?.selectedLength, 12)
         XCTAssertNil(returnedElement?.selectedText)
     }
 
