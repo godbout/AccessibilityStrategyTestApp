@@ -1,0 +1,3 @@
+ignore:
+  - "AccessibilityStrategyTestApp/AccessibilityStrategyTestApp/**/*"
+  - "AccessibilityStrategyTestApp/SourcePackages/checkouts/KeyCombination/**/*"
