@@ -61,8 +61,7 @@ TextAreas
         let textInAXFocusedElement = text
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-//        KindaVimEngine.shared.enterVisualMode()
-        
+       
         let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
         XCTAssertTrue(conversionSucceeded)
         
