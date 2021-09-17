@@ -497,8 +497,8 @@
 		913BAFDD26E103FE002E6999 /* AccessibilityTextElementAdaptorUITests */ = {
 			isa = PBXGroup;
 			children = (
-				91F952D526DFFA4600DC26C6 /* fromAXFocusedElement */,
 				91F952D926DFFA4600DC26C6 /* ATEA_BaseTests.swift */,
+				91F952D526DFFA4600DC26C6 /* fromAXFocusedElement */,
 				91F952DA26DFFA4600DC26C6 /* toAXFocusedElement */,
 				91F952E326DFFA4600DC26C6 /* Others */,
 				913BAFE026E103FE002E6999 /* Info.plist */,
