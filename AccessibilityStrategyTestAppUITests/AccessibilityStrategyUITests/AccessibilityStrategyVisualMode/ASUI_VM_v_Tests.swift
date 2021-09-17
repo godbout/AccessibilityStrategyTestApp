@@ -34,8 +34,7 @@ and head are nil
         XCTAssertEqual(accessibilityElement?.caretLocation, 33)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 33)
-        // head is a bit further because the character is an emoji 😀️
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 35)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 33)
     }
     
     func test_that_if_we_just_entered_VisualMode_with_v_from_NormalMode_and_the_caret_location_is_over_the_line_end_limit_then_it_sets_the_caret_anchor_and_head_to_the_line_end_limit() {
