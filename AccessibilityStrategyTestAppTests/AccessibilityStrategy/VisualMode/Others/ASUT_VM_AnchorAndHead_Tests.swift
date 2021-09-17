@@ -93,5 +93,35 @@ and head
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 31)    
     }
     
+    func test_that_when_the_caret_location_goes_onto_the_anchor_then_the_caret_location_the_anchor_and_the_head_all_get_equal() {
+        let text = """
+this has caused problems with emojis
+where the anchor 😂️😂️😂️ would be something
+but the head would be something + 3
+"""
+        var element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 118,
+            caretLocation: 57,
+            selectedLength: 6,
+            selectedText: "😂️😂️",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 37,
+                end: 83
+            )
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 60
+        AccessibilityStrategyVisualMode.head = 57
+        
+        element.caretLocation = 60
+        element.selectedLength = 3
+        
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 60)
+    }
+    
 }
 
