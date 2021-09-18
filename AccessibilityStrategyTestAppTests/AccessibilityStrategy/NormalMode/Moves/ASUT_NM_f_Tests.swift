@@ -2,13 +2,8 @@
 import XCTest
 
 
-// more tests are done on the TextEngine level
-// the TextEngine tests make sure it works properly if we are
-// at last character, out of bound, on the character we're searching, etc...
-// here the two tests relevant are:
-// 1. can find the character, then getting the right location
-// 2. cannot find the character, then not moving
-class ASNM_f_Tests: ASNM_BaseTests {
+// see F for blah blah
+class ASUT_NM_f_Tests: ASNM_BaseTests {
     
     private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.f(to: character, on: element) 
@@ -18,7 +13,7 @@ class ASNM_f_Tests: ASNM_BaseTests {
 
 
 // Both
-extension ASNM_f_Tests {
+extension ASUT_NM_f_Tests {
     
     func test_that_in_normal_setting_it_moves_the_caret_to_the_first_occurence_of_the_character_found_to_the_right() {
         let text = "check if f can find shit!"
@@ -77,7 +72,7 @@ that is not there
 
 
 // TextViews
-extension ASNM_f_Tests {
+extension ASUT_NM_f_Tests {
     
     func test_that_it_can_find_the_character_on_a_line_for_a_multiline() {
         let text = """
@@ -112,7 +107,7 @@ yeah
 
 
 // emojis
-extension ASNM_f_Tests {
+extension ASUT_NM_f_Tests {
     
     func test_that_it_handles_emojis() {
         let text = """
