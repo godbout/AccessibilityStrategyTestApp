@@ -65,7 +65,7 @@ of newHeadLocation needs some... calculation.
         )
         
         AccessibilityStrategyVisualMode.anchor = 74
-        AccessibilityStrategyVisualMode.head = 69
+        AccessibilityStrategyVisualMode.head = 60
 
         let returnedElement = applyMove(to: "s", on: element)
         
@@ -95,10 +95,40 @@ that is not there
             )
         )
         
+        AccessibilityStrategyVisualMode.anchor = 13
+        AccessibilityStrategyVisualMode.head = 15
+        
         let returnedElement = applyMove(to: "z", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 13)
         XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_it_is_looking_for_the_character_after_the_head_rather_than_after_the_anchor() {
+        let text = "found some bug here"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 19,
+            caretLocation: 2,
+            selectedLength: 7,
+            selectedText: "und som",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 19
+            )
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 2
+        AccessibilityStrategyVisualMode.head = 8
+       
+        let returnedElement = applyMove(to: "o", on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 2)
+        XCTAssertEqual(returnedElement?.selectedLength, 7)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
