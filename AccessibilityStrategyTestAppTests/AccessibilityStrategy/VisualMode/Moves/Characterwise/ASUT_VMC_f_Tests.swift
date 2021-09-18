@@ -2,9 +2,7 @@
 import XCTest
 
 
-// using TextEngine moves, that are already tested.
-// here we just have to text that the caretLocation and selectedLength
-// are correct when character is found and not found.
+// see F for blah blah
 class ASUT_VMC_f_Tests: ASVM_BaseTests {
     
     private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
@@ -17,7 +15,7 @@ class ASUT_VMC_f_Tests: ASVM_BaseTests {
 // Both
 extension ASUT_VMC_f_Tests {
     
-    func test_that_in_normal_setting_it_extends_the_selection_to_the_first_occurence_of_the_character_found_to_the_right() {
+    func test_that_if_the_new_head_location_is_after_the_Anchor_then_it_selects_from_Anchor_to_the_new_head_location() {
         let text = "check if f can 🍃️🍃️🍃️🍃️🍃️🍃️ find shit!"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -33,6 +31,9 @@ extension ASUT_VMC_f_Tests {
                 end: 44
             )
         )
+        
+        AccessibilityStrategyVisualMode.anchor = 9
+        AccessibilityStrategyVisualMode.head = 12
        
         let returnedElement = applyMove(to: "i", on: element)
         
@@ -41,6 +42,38 @@ extension ASUT_VMC_f_Tests {
         XCTAssertNil(returnedElement?.selectedText)
     }
     
+    func test_that_if_the_new_head_location_is_before_the_Anchor_then_it_selects_from_the_new_head_location_until_the_Anchor() {
+        let text = """
+check if f can 🍃️🍃️🍃️🍃️🍃️🍃️ find shit!
+also on multiple lines 🌬️ because the calculation
+of newHeadLocation needs some... calculation.
+"""
+
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 141,
+            caretLocation: 60,
+            selectedLength: 15,
+            selectedText: "e lines 🌬️ bec",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 45,
+                end: 96
+            )
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 74
+        AccessibilityStrategyVisualMode.head = 69
+
+        let returnedElement = applyMove(to: "s", on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 66)
+        XCTAssertEqual(returnedElement?.selectedLength, 9)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+
     func test_that_if_the_character_is_not_found_then_the_selection_does_not_move() {
         let text = """
 gonna look
