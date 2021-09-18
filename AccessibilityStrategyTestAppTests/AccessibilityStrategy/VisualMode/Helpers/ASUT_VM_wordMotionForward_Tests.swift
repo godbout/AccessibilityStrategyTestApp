@@ -3,7 +3,7 @@ import XCTest
 
 
 // this is used by VMC w, W, e, E.
-// they all call their own textEngine func but the VM part of testing the Anchor, Head, and set
+// they all call their own TextEngine func but the VM part of testing the Anchor, Head, and set
 // the caretLocation, selectedLength and selectedText are the same, hence the wordMotionForward function.
 class ASUT_VM_wordMotionForward_Tests: ASVM_BaseTests {
 
@@ -17,7 +17,7 @@ class ASUT_VM_wordMotionForward_Tests: ASVM_BaseTests {
 // Both
 extension ASUT_VM_wordMotionForward_Tests {
     
-    func test_that_if_the_head_is_after_the_anchor_it_extends_the_selected_length_to_the_new_caret_location_related_to_the_word_motion_move() {
+    func test_that_if_the_head_is_after_the_anchor_it_extends_the_selected_length_to_the_new_head_location_related_to_the_word_motion_move() {
         let text = "gonna start with text moves in Visual Mode"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -44,7 +44,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_if_the_head_is_before_the_anchor_it_reduces_the_selected_length_to_the_new_caret_location_related_to_the_word_motion_move() {
+    func test_that_if_the_head_is_before_the_anchor_it_reduces_the_selected_length_to_the_new_head_location_related_to_the_word_motion_move() {
         let text = "applyMove(on: element, using: textEngine.beginningOfWORDForward)"
         let element = AccessibilityTextElement(
             role: .textField,
