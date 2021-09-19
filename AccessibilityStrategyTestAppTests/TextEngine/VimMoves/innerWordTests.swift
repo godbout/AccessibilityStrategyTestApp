@@ -28,7 +28,7 @@ extension innerWordTests {
         let wordRange = textEngine.innerWord(startingAt: 10, in: text)
         
         XCTAssertEqual(wordRange.lowerBound, 9)
-        XCTAssertEqual(wordRange.upperBound, 14) 
+        XCTAssertEqual(wordRange.upperBound, 13) 
     }
     
     func test_that_if_the_caret_is_on_a_space_the_inner_word_is_all_the_consecutive_spaces() {
@@ -37,7 +37,7 @@ extension innerWordTests {
         let wordRange = textEngine.innerWord(startingAt: 28, in: text)
         
         XCTAssertEqual(wordRange.lowerBound, 26)
-        XCTAssertEqual(wordRange.upperBound, 31)         
+        XCTAssertEqual(wordRange.upperBound, 30)         
     }
     
     func test_that_if_the_caret_is_on_a_single_space_it_recognizes_it_as_an_inner_word() {
@@ -46,7 +46,7 @@ extension innerWordTests {
         let wordRange = textEngine.innerWord(startingAt: 20, in: text)
         
         XCTAssertEqual(wordRange.lowerBound, 20)
-        XCTAssertEqual(wordRange.upperBound, 21) 
+        XCTAssertEqual(wordRange.upperBound, 20) 
     }
     
     func test_that_if_the_TextField_starts_with_spaces_it_finds_the_correct_inner_word() {
@@ -55,7 +55,7 @@ extension innerWordTests {
         let wordRange = textEngine.innerWord(startingAt: 4, in: text)
         
         XCTAssertEqual(wordRange.lowerBound, 0)
-        XCTAssertEqual(wordRange.upperBound, 5) 
+        XCTAssertEqual(wordRange.upperBound, 4) 
     }
     
     func test_that_if_the_TextField_ends_with_spaces_it_still_gets_the_correct_inner_word() {
@@ -83,7 +83,7 @@ spill
         let wordRange = textEngine.innerWord(startingAt: 23, in: text)
         
         XCTAssertEqual(wordRange.lowerBound, 20)
-        XCTAssertEqual(wordRange.upperBound, 26)
+        XCTAssertEqual(wordRange.upperBound, 25)
     }
     
     func test_that_inner_word_stops_at_linefeeds_at_the_beginning_of_lines() {
@@ -96,7 +96,7 @@ spill also
         let wordrange = textEngine.innerWord(startingAt: 33, in: text)
         
         XCTAssertEqual(wordrange.lowerBound, 30)
-        XCTAssertEqual(wordrange.upperBound, 34)
+        XCTAssertEqual(wordrange.upperBound, 33)
     }
     
 }
@@ -114,7 +114,7 @@ extension innerWordTests {
         let wordRange = textEngine.innerWord(startingAt: 27, in: text)
         
         XCTAssertEqual(wordRange.lowerBound, 24)
-        XCTAssertEqual(wordRange.upperBound, 33)                
+        XCTAssertEqual(wordRange.upperBound, 30)                
     }
     
     func test_that_it_does_not_do_shit_with_emojis_before_a_space() {
@@ -123,7 +123,7 @@ extension innerWordTests {
         let wordRange = textEngine.innerWord(startingAt: 33, in: text)
         
         XCTAssertEqual(wordRange.lowerBound, 33)
-        XCTAssertEqual(wordRange.upperBound, 34)                
+        XCTAssertEqual(wordRange.upperBound, 33)                
     }
     
 }
