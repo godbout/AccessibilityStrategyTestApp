@@ -13,7 +13,16 @@ class innerWordTests: TextEngineBaseTests {}
 // Both
 extension innerWordTests {
     
-    func test_that_it_the_caret_is_on_a_letter_if_finds_the_correct_inner_word() {
+    func test_that_if_the_text_is_empty_it_returns_a_range_of_0_to_0() {
+        let text = ""
+        
+        let wordRange = textEngine.innerWord(startingAt: 0, in: text)
+        
+        XCTAssertEqual(wordRange.lowerBound, 0)
+        XCTAssertEqual(wordRange.upperBound, 0)
+    }
+    
+    func test_that_if_the_caret_is_on_a_letter_if_finds_the_correct_inner_word() {
         let text = "ok we're gonna try to get the inner word here"
         
         let wordRange = textEngine.innerWord(startingAt: 10, in: text)
@@ -57,16 +66,7 @@ extension innerWordTests {
         XCTAssertEqual(wordRange.lowerBound, 27)
         XCTAssertEqual(wordRange.upperBound, 34) 
     }
-    
-    func test_that_if_the_text_is_empty_it_returns_a_range_of_0_to_0() {
-        let text = ""
-        
-        let wordRange = textEngine.innerWord(startingAt: 0, in: text)
-        
-        XCTAssertEqual(wordRange.lowerBound, 0)
-        XCTAssertEqual(wordRange.upperBound, 0) 
-    }
-    
+
 }
 
 
