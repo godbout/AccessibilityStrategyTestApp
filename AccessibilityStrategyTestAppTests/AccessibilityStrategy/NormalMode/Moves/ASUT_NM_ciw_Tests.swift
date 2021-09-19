@@ -2,11 +2,11 @@
 import XCTest
 
 
-// ciw uses only the TextEngine.innerWord func.
-// this is already tested, so here we have only a bunch of
-// tests for extra caution, but most of them are already done
-// in TE.innerWord
-class ASNM_ciw_Tests: ASNM_BaseTests {
+// ciw uses TE.innerWord. this is already tested.
+// here what we care about is mostly the selectedLength as
+// this is calculated within the ciw move itself. the caretLocation
+// comes directly from the TE function.
+class ASUT_NM_ciw_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.ciw(on: element) 
@@ -16,7 +16,7 @@ class ASNM_ciw_Tests: ASNM_BaseTests {
 
 
 // Both
-extension ASNM_ciw_Tests {
+extension ASUT_NM_ciw_Tests {
     
     func test_that_it_can_delete_a_word_separated_by_spaces() {
         let text = "a sentence with a word, or more..."
@@ -94,7 +94,7 @@ extension ASNM_ciw_Tests {
 
 
 // TextViews
-extension ASNM_ciw_Tests {
+extension ASUT_NM_ciw_Tests {
     
     func test_that_it_stops_at_linefeeds() {
         let text = """
@@ -157,7 +157,7 @@ line
 
 
 // emojis
-extension ASNM_ciw_Tests {
+extension ASUT_NM_ciw_Tests {
     
     func test_that_it_handles_emojis() {
         let text = """
