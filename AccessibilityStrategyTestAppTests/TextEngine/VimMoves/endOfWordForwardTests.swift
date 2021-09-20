@@ -11,15 +11,15 @@ class endOfWordForward: TextEngineBaseTests {}
 // - caret at the end of TextElement on own empty line
 extension endOfWordForward {
     
-    func test_that_if_the_text_is_empty_then_it_returns_0() {
+    func test_that_if_the_text_is_empty_then_it_returns_nil() {
         let text = ""
         
-        let newCaretPosition = textEngine.endOfWordForward(startingAt: 0, in: TextEngineText(from: text))
+        let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: 0, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 0)
+        XCTAssertNil(endOfWordForwardLocation)
     }
     
-    func test_that_if_the_caret_is_after_the_last_character_on_an_empty_line_then_it_does_not_move() {
+    func test_that_if_the_caret_is_after_the_last_character_on_an_empty_line_then_it_returns_nil() {
         let text = """
 a couple of
 lines but not
@@ -28,9 +28,9 @@ with linefeed
 
 """
         
-        let newCaretPosition = textEngine.endOfWordForward(startingAt: 54, in: TextEngineText(from: text))
+        let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: 54, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 54)
+        XCTAssertNil(endOfWordForwardLocation)
     }
     
 }
@@ -41,57 +41,65 @@ extension endOfWordForward {
     func test_that_it_can_go_to_the_end_of_the_current_word() {
         let text = "some more words to live by..."
 
-        let newCaretPosition = textEngine.endOfWordForward(startingAt: 11, in: TextEngineText(from: text))
+        let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: 11, in: TextEngineText(from: text))
 
-        XCTAssertEqual(newCaretPosition, 14)
+        XCTAssertEqual(endOfWordForwardLocation, 14)
     }
 
     func test_that_it_does_not_stop_at_spaces() {
         let text = "yep, it should just jump over spaces!"
 
-        let newCaretPosition = textEngine.endOfWordForward(startingAt: 13, in: TextEngineText(from: text))
+        let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: 13, in: TextEngineText(from: text))
 
-        XCTAssertEqual(newCaretPosition, 18)
+        XCTAssertEqual(endOfWordForwardLocation, 18)
     }
 
     func test_that_it_considers_a_group_of_symbols_and_punctuations_except_underscore_as_a_word() {
         let text = "for index in text[anchorIndex..<endIndex].indices {"
 
-        let newCaretPosition = textEngine.endOfWordForward(startingAt: 28, in: TextEngineText(from: text))
+        let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: 28, in: TextEngineText(from: text))
 
-        XCTAssertEqual(newCaretPosition, 31)
+        XCTAssertEqual(endOfWordForwardLocation, 31)
     }
 
     func test_that_it_does_not_stop_at_spaces_after_symbols() {
         let text = "func e(on element: AccessibilityTextelement?) -> AccessibilityTextElement? {"
 
-        let newCaretPosition = textEngine.endOfWordForward(startingAt: 44, in: TextEngineText(from: text))
+        let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: 44, in: TextEngineText(from: text))
 
-        XCTAssertEqual(newCaretPosition, 47)
+        XCTAssertEqual(endOfWordForwardLocation, 47)
     }
 
     func test_that_it_should_skip_consecutive_whitespaces() {
         let text = "    continue"
 
-        let newCaretPosition = textEngine.endOfWordForward(startingAt: 1, in: TextEngineText(from: text))
+        let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: 1, in: TextEngineText(from: text))
 
-        XCTAssertEqual(newCaretPosition, 11)
+        XCTAssertEqual(endOfWordForwardLocation, 11)
+    }
+    
+    func test_that_if_the_text_ends_with_whitespaces_which_means_there_is_no_end_of_word_forward_then_it_returns_nil() {
+        let text = "    continue        "
+
+        let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: 11, in: TextEngineText(from: text))
+
+        XCTAssertNil(endOfWordForwardLocation)
     }
 
     func test_that_it_should_skip_whitespaces_before_symbols() {
         let text = "offsetBy: location + 1,"
 
-        let newCaretPosition = textEngine.endOfWordForward(startingAt: 17, in: TextEngineText(from: text))
+        let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: 17, in: TextEngineText(from: text))
 
-        XCTAssertEqual(newCaretPosition, 19)
+        XCTAssertEqual(endOfWordForwardLocation, 19)
     }
 
     func test_that_it_considers_consecutive_symbols_as_a_word() {
         let text = "if text[nextIndex].isWhitespace || text[nextIndex].isCharacterThatConstitutesAVimWord()"
 
-        let newCaretPosition = textEngine.endOfWordForward(startingAt: 30, in: TextEngineText(from: text))
+        let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: 30, in: TextEngineText(from: text))
 
-        XCTAssertEqual(newCaretPosition, 33)
+        XCTAssertEqual(endOfWordForwardLocation, 33)
     }
 
 }
@@ -106,9 +114,9 @@ guard index != text.index(before: endIndex) else { return text.count - 1 }
 let nextIndex = text.index(after: index)
 """
 
-        let newCaretPosition = textEngine.endOfWordForward(startingAt: 73, in: TextEngineText(from: text))
+        let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: 73, in: TextEngineText(from: text))
 
-        XCTAssertEqual(newCaretPosition, 77)
+        XCTAssertEqual(endOfWordForwardLocation, 77)
     }
 
     func test_that_it_skips_lines_that_are_just_made_of_whitespaces() {
@@ -118,9 +126,9 @@ let nextIndex = text.index(after: index)
 if text[index].isCharacterThatConstitutesAVimWord() {
 """
 
-        let newCaretPosition = textEngine.endOfWordForward(startingAt: 39, in: TextEngineText(from: text))
+        let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: 39, in: TextEngineText(from: text))
 
-        XCTAssertEqual(newCaretPosition, 58)
+        XCTAssertEqual(endOfWordForwardLocation, 58)
     }
 
 }
@@ -133,17 +141,17 @@ extension endOfWordForward {
     func test_that_it_goes_to_the_end_of_a_word_made_of_emojis() {
         let text = "emojis are symbols that 🔫️🔫️🔫️ are longer than 1 length"
         
-        let newCaretPosition = textEngine.endOfWordForward(startingAt: 24, in: TextEngineText(from: text))
+        let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: 24, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 30)                
+        XCTAssertEqual(endOfWordForwardLocation, 30)                
     }
     
     func test_that_it_can_pass_the_end_of_a_word_made_of_emojis() {
         let text = "emojis are symbols that 🔫️🔫️🔫️ are longer than 1 length"
         
-        let newCaretPosition = textEngine.endOfWordForward(startingAt: 30, in: TextEngineText(from: text))
+        let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: 30, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 36)                
+        XCTAssertEqual(endOfWordForwardLocation, 36)                
     }
     
 }
