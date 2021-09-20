@@ -16,6 +16,15 @@ extension aWordTests {
         XCTAssertEqual(wordRange.upperBound, 0)
     }
     
+    func test_bug_maybe() {
+        let text = "aWord("
+        
+        let wordRange = textEngine.aWord(startingAt: 3, in: text)
+        
+        XCTAssertEqual(wordRange.lowerBound, 0)
+        XCTAssertEqual(wordRange.upperBound, 4)
+    }
+    
     func test_that_it_finds_a_single_word_by_itself() {
         let text = "aWord"
         
@@ -35,7 +44,7 @@ extension aWordTests {
     }
     
     func test_that_if_there_are_no_trailing_spaces_before_the_beginning_of_the_word_forward_then_it_includes_the_leading_spaces() {
-        let text = "this is     aWord(my darling)"
+        let text = "this is     aWord(😂️y darling)"
         
         let wordRange = textEngine.aWord(startingAt: 14, in: text)
         
@@ -80,4 +89,42 @@ other   shit
         XCTAssertEqual(wordRange.lowerBound, 20)
         XCTAssertEqual(wordRange.upperBound, 24)
     }
+    
+    // TODO: something with linefeeds
+    func test_that_it_stops_at_linefeeds_going_backward() {
+        let text = """
+it should not
+go
+to another line
+"""
+        let wordRange = textEngine.aWord(startingAt: 14, in: text)
+        
+        XCTAssertEqual(wordRange.lowerBound, 14)
+        XCTAssertEqual(wordRange.upperBound, 16)
+    }
+    
+    // TODO: something with linefeeds
+    func test_that_it_stops_at_linefeeds_going_forward() {
+        let text = """
+it should not
+go to another
+line
+"""
+        let wordRange = textEngine.aWord(startingAt: 11, in: text)
+        
+        XCTAssertEqual(wordRange.lowerBound, 9)
+        XCTAssertEqual(wordRange.upperBound, 12)
+    }
+    
+    func test_that_it_knows_how_to_handle_ugly_emojis() {
+        let text = """
+need to deal with
+those faces 🥺️☹️😂️
+"""
+        let wordRange = textEngine.aWord(startingAt: 25, in: text)
+        
+        XCTAssertEqual(wordRange.lowerBound, 24)
+        XCTAssertEqual(wordRange.upperBound, 29)
+    }
+    
 }
