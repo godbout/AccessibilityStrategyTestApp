@@ -11,15 +11,15 @@ class beginningOfWordForwardTests: TextEngineBaseTests {}
 // - caret at the end of TextElement on own empty line
 extension beginningOfWordForwardTests {
     
-    func test_that_if_the_text_is_empty_then_it_returns_0() {
+    func test_that_if_the_text_is_empty_then_it_returns_nil() {
         let text = ""
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 0, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 0, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 0)
+        XCTAssertNil(beginningOfWordForwardLocation)
     }
     
-    func test_that_if_the_caret_is_after_the_last_character_on_an_empty_line_then_it_does_not_move() {
+    func test_that_if_the_caret_is_after_the_last_character_on_an_empty_line_then_it_returns_nil() {
         let text = """
 a couple of
 lines but not
@@ -28,9 +28,9 @@ with linefeed
 
 """
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 54, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 54, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 54)
+        XCTAssertNil(beginningOfWordForwardLocation)
     }
     
 }
@@ -42,81 +42,81 @@ extension beginningOfWordForwardTests {
     func test_that_it_can_go_to_the_beginning_of_the_next_word() {
         let text = "a few words to live by"
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 6, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 6, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 12)
+        XCTAssertEqual(beginningOfWordForwardLocation, 12)
     }
     
     func test_that_it_stops_at_punctuations() {
         let text = "class wordForwardTests: XCTestCase {"
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 8, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 8, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 22)
+        XCTAssertEqual(beginningOfWordForwardLocation, 22)
     }
     
     func test_that_it_does_not_get_blocked_at_a_punctuation() {
         let text = "textEngine.wordForward"
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 10, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 10, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 11)
+        XCTAssertEqual(beginningOfWordForwardLocation, 11)
     }
     
     func test_that_it_does_not_stop_at_an_underscore() {
         let text = "func test_that_it_does_not_stop_at_an_underscore() {"
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 5, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 5, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 48)
+        XCTAssertEqual(beginningOfWordForwardLocation, 48)
     }
     
     func test_that_it_passes_several_consecutive_whitespaces() {
         let text = "this is some text with        space"
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 20, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 20, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 30)
+        XCTAssertEqual(beginningOfWordForwardLocation, 30)
     }
 
-    func test_that_if_it_reaches_the_end_of_the_buffer_it_stops_before_the_last_character() {
+    func test_that_if_it_reaches_the_end_of_the_buffer_it_and_therefore_cannot_find_a_word_forward_it_returns_nil() {
         let text = "w at the end of the buffer shouldn't craaaash"
 
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 42, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 42, in: TextEngineText(from: text))
 
-        XCTAssertEqual(newCaretPosition, 44)
+        XCTAssertNil(beginningOfWordForwardLocation)
     }
     
     func test_that_it_passes_several_consecutive_punctuations() {
         let text = "for index in text[anchorIndex..<endIndex].indices {"
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 29, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 29, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 32)
+        XCTAssertEqual(beginningOfWordForwardLocation, 32)
     }
     
     func test_that_it_does_not_stop_at_a_space_after_a_punctuation() {
         let text = "let anchorIndex = text.index(text.startIndex, offsetBy: location)"
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 54, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 54, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 56)
+        XCTAssertEqual(beginningOfWordForwardLocation, 56)
     }
     
     func test_that_it_does_not_stop_at_a_space_after_a_symbol() {
         let text = "guard index != text.index(before: endIndex) else { return text.count - 1 }"
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 12, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 12, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 15)
+        XCTAssertEqual(beginningOfWordForwardLocation, 15)
     }
     
     func test_that_it_does_not_stop_at_a_space_after_a_number() {
         let text = "guard index != text.index(before: endIndex) else { return text.count - 1 }"
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 71, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 71, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 73)
+        XCTAssertEqual(beginningOfWordForwardLocation, 73)
     }
     
     func test_that_it_stops_at_underscores_that_are_not_part_of_a_word() {
@@ -124,9 +124,9 @@ extension beginningOfWordForwardTests {
 if text[nextIndex] == "_" {
 """
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 22, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 22, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 23)
+        XCTAssertEqual(beginningOfWordForwardLocation, 23)
     }
     
     func test_that_it_stops_at_punctuations_that_are_preceded_by_an_underscore() {
@@ -134,33 +134,33 @@ if text[nextIndex] == "_" {
 if text[nextIndex] == "_" {
 """
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 23, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 23, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 24)
+        XCTAssertEqual(beginningOfWordForwardLocation, 24)
     }
     
     func test_that_it_does_not_stop_at_numbers_that_are_part_of_a_word() {
         let text = "saf sadfhasdf4asdf dfd"
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 5, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 5, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 19)
+        XCTAssertEqual(beginningOfWordForwardLocation, 19)
     }
     
     func test_that_letters_numbers_and_underscores_together_are_considered_a_word() {
         let text = "this is gonna be only one word__oh_my_55_a yes"
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 26, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 26, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 43)
+        XCTAssertEqual(beginningOfWordForwardLocation, 43)
     }
     
     func test_that_it_does_not_stop_after_an_underscore_that_finishes_a_word() {
         let text = "but who writes stuff like_ this"
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 23, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 23, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 27)
+        XCTAssertEqual(beginningOfWordForwardLocation, 27)
     }
 
 }
@@ -174,9 +174,9 @@ w can go
 to the next line
 """
 
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 7, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 7, in: TextEngineText(from: text))
 
-        XCTAssertEqual(newCaretPosition, 9)
+        XCTAssertEqual(beginningOfWordForwardLocation, 9)
     }
     
     func test_that_it_stops_at_an_empty_line() {
@@ -186,9 +186,9 @@ w should stop
 at empty lines
 """
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 12, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 12, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 14)
+        XCTAssertEqual(beginningOfWordForwardLocation, 14)
     }
 
     func test_that_it_does_not_stop_at_a_line_that_has_just_whitespaces() {
@@ -199,9 +199,9 @@ at the following line that looks empty but has
 whitespaces
 """
 
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 63, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 63, in: TextEngineText(from: text))
 
-        XCTAssertEqual(newCaretPosition, 68)
+        XCTAssertEqual(beginningOfWordForwardLocation, 68)
     }
 
 }
@@ -214,9 +214,9 @@ extension beginningOfWordForwardTests {
     func test_that_it_handles_emojis() {
         let text = "emojis are symbols that 🔫️🔫️🔫️ are longer than 1 length"
         
-        let newCaretPosition = textEngine.beginningOfWordForward(startingAt: 27, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 27, in: TextEngineText(from: text))
         
-        XCTAssertEqual(newCaretPosition, 34)
+        XCTAssertEqual(beginningOfWordForwardLocation, 34)
     }
     
 }
