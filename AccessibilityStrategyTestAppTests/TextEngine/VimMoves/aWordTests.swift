@@ -49,6 +49,18 @@ there's 5 spaces at the end of this line
         XCTAssertEqual(wordRange?.lowerBound, 40)
         XCTAssertEqual(wordRange?.upperBound, 55)
     }
+    
+    func test_that_it_does_not_stop_at_linefeeds_going_backward() {
+        let text = """
+there's 5 spaces at the end of this line     
+   careful that Xcode doesn't delete them
+"""
+
+        let wordRange = textEngine.aWord(startingAt: 48, in: text)
+        
+        XCTAssertEqual(wordRange?.lowerBound, 46)
+        XCTAssertEqual(wordRange?.upperBound, 55)
+    }
 
 }
 
@@ -109,8 +121,32 @@ extension aWordTests {
         XCTAssertEqual(wordRange?.upperBound, 9)
     }
     
+    func test_that_it_stops_at_linefeeds_when_looking_for_the_word_forward() {
+        let text = """
+this line ends with 3 spaces   
+  and this line should be kept intact
+"""
+        let wordRange = textEngine.aWord(startingAt: 25, in: text)
+
+        XCTAssertEqual(wordRange?.lowerBound, 22)
+        XCTAssertEqual(wordRange?.upperBound, 30)
+    }
+    
+    func test_that_it_stops_at_linefeeds_when_looking_for_the_word_backward() {
+        let text = """
+this line ends with 3 spaces   
+  and this line should be kept intact
+"""
+        let wordRange = textEngine.aWord(startingAt: 25, in: text)
+
+        XCTAssertEqual(wordRange?.lowerBound, 22)
+        XCTAssertEqual(wordRange?.upperBound, 30)
+    }
+    
+
     
     
+ 
     
     
     
@@ -119,41 +155,22 @@ extension aWordTests {
 
     
 
-//    func test_that_it_grabs_the_trailing_spaces_until_a_linefeed_if_any() {
-//        let text = """
-//aWord  
-//and some more
-//"""
-//        let wordRange = textEngine.aWord(startingAt: 1, in: text)
-//
-//        XCTAssertEqual(wordRange?.lowerBound, 0)
-//        XCTAssertEqual(wordRange?.upperBound, 6)
-//    }
-//
-//
-//    func test_that_it_stops_at_linefeeds_going_backward() {
-//        let text = """
-//it should not
-//go
-//to another line
-//"""
-//        let wordRange = textEngine.aWord(startingAt: 14, in: text)
-//
-//        XCTAssertEqual(wordRange?.lowerBound, 14)
-//        XCTAssertEqual(wordRange?.upperBound, 16)
-//    }
-//
-//    func test_that_it_stops_at_linefeeds_going_forward() {
-//        let text = """
-//it should not
-//go to another
-//line
-//"""
-//        let wordRange = textEngine.aWord(startingAt: 11, in: text)
-//
-//        XCTAssertEqual(wordRange?.lowerBound, 9)
-//        XCTAssertEqual(wordRange?.upperBound, 12)
-//    }
+
+
+
+    func test_that_it_stops_at_linefeeds_going_backward() {
+        let text = """
+it should not
+go
+to another line
+"""
+        let wordRange = textEngine.aWord(startingAt: 14, in: text)
+
+        XCTAssertEqual(wordRange?.lowerBound, 14)
+        XCTAssertEqual(wordRange?.upperBound, 16)
+    }
+
+
 //
 //    func test_that_a_line_ends_with_multiple_spaces_it_does_not_select_the_next_line_but_also_it_does_not_select_the_spaces_before_the_word_where_the_caret_is() {
 //        let text = """
