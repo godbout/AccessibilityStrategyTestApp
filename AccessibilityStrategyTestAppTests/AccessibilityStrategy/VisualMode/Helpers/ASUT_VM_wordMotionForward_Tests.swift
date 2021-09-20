@@ -7,7 +7,7 @@ import XCTest
 // the caretLocation, selectedLength and selectedText are the same, hence the wordMotionForward function.
 class ASUT_VM_wordMotionForward_Tests: ASVM_BaseTests {
 
-    private func applyMove(on element: AccessibilityTextElement?, using wordMotionForwardFunction: (Int, TextEngineText) -> Int) -> AccessibilityTextElement? {
+    private func applyMove(on element: AccessibilityTextElement?, using wordMotionForwardFunction: (Int, TextEngineText) -> Int?) -> AccessibilityTextElement? {
         return asVisualMode.wordMotionForward(on: element, using: wordMotionForwardFunction)
     }
     
