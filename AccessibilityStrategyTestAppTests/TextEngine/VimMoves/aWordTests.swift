@@ -16,8 +16,8 @@ extension aWordTests {
         XCTAssertEqual(wordRange.upperBound, 0)
     }
     
-    func test_bug_maybe() {
-        let text = "aWord("
+    func test_that_it_finds_a_single_word_by_itself() {
+        let text = "aWord"
         
         let wordRange = textEngine.aWord(startingAt: 3, in: text)
         
@@ -25,8 +25,8 @@ extension aWordTests {
         XCTAssertEqual(wordRange.upperBound, 4)
     }
     
-    func test_that_it_finds_a_single_word_by_itself() {
-        let text = "aWord"
+    func test_that_it_returns_the_correct_range_if_the_last_character_of_the_text_is_the_beginning_of_a_new_word() {
+        let text = "aWord("
         
         let wordRange = textEngine.aWord(startingAt: 3, in: text)
         
@@ -90,7 +90,6 @@ other   shit
         XCTAssertEqual(wordRange.upperBound, 24)
     }
     
-    // TODO: something with linefeeds
     func test_that_it_stops_at_linefeeds_going_backward() {
         let text = """
 it should not
@@ -103,7 +102,6 @@ to another line
         XCTAssertEqual(wordRange.upperBound, 16)
     }
     
-    // TODO: something with linefeeds
     func test_that_it_stops_at_linefeeds_going_forward() {
         let text = """
 it should not
@@ -115,6 +113,19 @@ line
         XCTAssertEqual(wordRange.lowerBound, 9)
         XCTAssertEqual(wordRange.upperBound, 12)
     }
+       
+    func test_that_a_line_ends_with_multiple_spaces_it_does_not_select_the_next_line_but_also_it_does_not_select_the_spaces_before_the_word_where_the_caret_is() {
+        let text = """
+need to deal with    
+those faces 🥺️☹️😂️
+"""
+        let wordRange = textEngine.aWord(startingAt: 15, in: text)
+        
+        XCTAssertEqual(wordRange.lowerBound, 13)
+        XCTAssertEqual(wordRange.upperBound, 20)
+    }
+    
+    
     
     func test_that_it_knows_how_to_handle_ugly_emojis() {
         let text = """
