@@ -87,12 +87,12 @@ extension endOfWordBackwardTests {
         XCTAssertEqual(endOfWordBackwardLocation, 21)
     }
     
-    func test_that_if_it_reaches_the_start_of_the_buffer_it_stops_at_the_first_character() {
+    func test_that_if_it_reaches_the_start_of_the_buffer_it_returns_nil_because_there_is_no_end_of_word_backward() {
         let text = "yoooooo my man"
         
         let endOfWordBackwardLocation = textEngine.endOfWordBackward(startingAt: 5, in: TextEngineText(from: text))
         
-        XCTAssertEqual(endOfWordBackwardLocation, 0)
+        XCTAssertNil(endOfWordBackwardLocation)
     }
     
     func test_that_it_stops_at_punctuations_that_are_after_an_underscore() {
