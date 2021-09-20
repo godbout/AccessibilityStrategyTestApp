@@ -14,7 +14,7 @@ extension beginningOfWORDBackwardTests {
     func test_that_if_the_text_is_empty_then_it_returns_0() {
         let text = ""
         
-        let newCaretPosition = textEngine.beginningOfWordBackward(startingAt: 0, in: TextEngineText(from: text))
+        let newCaretPosition = textEngine.beginningOfWORDBackward(startingAt: 0, in: TextEngineText(from: text))
         
         XCTAssertEqual(newCaretPosition, 0)
     }
@@ -28,7 +28,7 @@ with linefeed
 
 """
         
-        let newCaretPosition = textEngine.beginningOfWordBackward(startingAt: 54, in: TextEngineText(from: text))
+        let newCaretPosition = textEngine.beginningOfWORDBackward(startingAt: 54, in: TextEngineText(from: text))
         
         XCTAssertEqual(newCaretPosition, 45)
     }
