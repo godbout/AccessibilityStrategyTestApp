@@ -85,7 +85,7 @@ extension aWordTests {
         XCTAssertEqual(wordRange?.upperBound, 4)
     }
     
-    func test_that_if_there_are_trailing_spaces_until_the_beginning_of_a_word_forward_it_grabs_them_and_does_not_grab_leading_spaces() {
+    func test_that_if_there_are_trailing_spaces_until_the_beginning_of_a_word_forward_it_grabs_them_and_therefore_does_not_grab_leading_spaces() {
         let text = "this is aWord   can you believe it?"
 
         let wordRange = textEngine.aWord(startingAt: 11, in: text)
@@ -121,6 +121,24 @@ extension aWordTests {
         XCTAssertEqual(wordRange?.upperBound, 9)
     }
     
+    func test_that_if_there_are_no_trailing_spaces_because_there_is_no_word_forward_but_also_no_word_backward_then_it_grabs_from_the_beginning_of_the_current_word() {
+        let text = "           aWord"
+
+        let wordRange = textEngine.aWord(startingAt: 14, in: text)
+
+        XCTAssertEqual(wordRange?.lowerBound, 11)
+        XCTAssertEqual(wordRange?.upperBound, 15)
+    }
+    
+    func test_that_if_there_are_no_trailing_spaces_because_there_is_no_word_forward_but_there_is_a_word_backward_then_it_grabs_from_the_end_of_word_backward_until_the_end_of_the_current_word() {
+        let text = "  hello         aWord"
+
+        let wordRange = textEngine.aWord(startingAt: 20, in: text)
+
+        XCTAssertEqual(wordRange?.lowerBound, 7)
+        XCTAssertEqual(wordRange?.upperBound, 20)
+    }
+    
     func test_that_it_stops_at_linefeeds_when_looking_for_the_word_forward() {
         let text = """
 this line ends with 3 spaces   
@@ -132,7 +150,7 @@ this line ends with 3 spaces
         XCTAssertEqual(wordRange?.upperBound, 30)
     }
     
-    func test_that_if_there_are_no_trailing_spaces_it_stops_at_linefeeds_when_looking_for_the_word_backward() {
+    func test_that_if_there_are_no_trailing_spaces_until_the_word_forward_it_stops_at_linefeeds_when_looking_for_the_word_backward() {
         let text = """
 this line ends with 3 spaces   
   and(this line should be kept intact
@@ -142,16 +160,27 @@ this line ends with 3 spaces
         XCTAssertEqual(wordRange?.lowerBound, 32)
         XCTAssertEqual(wordRange?.upperBound, 36)
     }
+    
+    func test_that_if_there_are_no_trailing_spaces_because_there_is_no_word_forward_it_stops_at_linefeeds_when_looking_for_the_word_backward() {
+        let text = """
+this line ends with 3 spaces   
+  and
+"""
+        let wordRange = textEngine.aWord(startingAt: 34, in: text)
+
+        XCTAssertEqual(wordRange?.lowerBound, 32)
+        XCTAssertEqual(wordRange?.upperBound, 36)
+    }
 
     func test_that_it_knows_how_to_handle_ugly_emojis() {
         let text = """
 need to deal with
-those faces 🥺️☹️😂️
+those faces 🥺️☹️😂️ fart
 """
-        let wordRange = textEngine.aWord(startingAt: 25, in: text)
+        let wordRange = textEngine.aWord(startingAt: 33, in: text)
 
-        XCTAssertEqual(wordRange?.lowerBound, 24)
-        XCTAssertEqual(wordRange?.upperBound, 29)
+        XCTAssertEqual(wordRange?.lowerBound, 30)
+        XCTAssertEqual(wordRange?.upperBound, 38)
     }
-
+    
 }
