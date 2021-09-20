@@ -103,7 +103,7 @@ extension aWordTests {
         XCTAssertEqual(wordRange?.upperBound, 10)
     }
     
-    func test_that_if_there_are_no_trailing_spaces_until_the_beginning_of_a_word_forward_then_it_grabs_until_the_end_of_the_word_backward() {
+    func test_that_if_there_are_no_trailing_spaces_until_the_beginning_of_a_word_forward_then_it_until_the_end_of_the_word_backward() {
         let text = "some     aWord(and another"
 
         let wordRange = textEngine.aWord(startingAt: 12, in: text)
@@ -132,68 +132,26 @@ this line ends with 3 spaces
         XCTAssertEqual(wordRange?.upperBound, 30)
     }
     
-    func test_that_it_stops_at_linefeeds_when_looking_for_the_word_backward() {
+    func test_that_if_there_are_no_trailing_spaces_it_stops_at_linefeeds_when_looking_for_the_word_backward() {
         let text = """
 this line ends with 3 spaces   
-  and this line should be kept intact
+  and(this line should be kept intact
+"""
+        let wordRange = textEngine.aWord(startingAt: 36, in: text)
+
+        XCTAssertEqual(wordRange?.lowerBound, 32)
+        XCTAssertEqual(wordRange?.upperBound, 36)
+    }
+
+    func test_that_it_knows_how_to_handle_ugly_emojis() {
+        let text = """
+need to deal with
+those faces 🥺️☹️😂️
 """
         let wordRange = textEngine.aWord(startingAt: 25, in: text)
 
-        XCTAssertEqual(wordRange?.lowerBound, 22)
-        XCTAssertEqual(wordRange?.upperBound, 30)
+        XCTAssertEqual(wordRange?.lowerBound, 24)
+        XCTAssertEqual(wordRange?.upperBound, 29)
     }
-    
-
-    
-    
- 
-    
-    
-    
-    
-    
-
-    
-
-
-
-
-    func test_that_it_stops_at_linefeeds_going_backward() {
-        let text = """
-it should not
-go
-to another line
-"""
-        let wordRange = textEngine.aWord(startingAt: 14, in: text)
-
-        XCTAssertEqual(wordRange?.lowerBound, 14)
-        XCTAssertEqual(wordRange?.upperBound, 16)
-    }
-
-
-//
-//    func test_that_a_line_ends_with_multiple_spaces_it_does_not_select_the_next_line_but_also_it_does_not_select_the_spaces_before_the_word_where_the_caret_is() {
-//        let text = """
-//need to deal with
-//those faces 🥺️☹️😂️
-//"""
-//        let wordRange = textEngine.aWord(startingAt: 15, in: text)
-//
-//        XCTAssertEqual(wordRange?.lowerBound, 13)
-//        XCTAssertEqual(wordRange?.upperBound, 20)
-//    }
-//
-//
-//
-//    func test_that_it_knows_how_to_handle_ugly_emojis() {
-//        let text = """
-//need to deal with
-//those faces 🥺️☹️😂️
-//"""
-//        let wordRange = textEngine.aWord(startingAt: 25, in: text)
-//
-//        XCTAssertEqual(wordRange?.lowerBound, 24)
-//        XCTAssertEqual(wordRange?.upperBound, 29)
-//    }
 
 }
