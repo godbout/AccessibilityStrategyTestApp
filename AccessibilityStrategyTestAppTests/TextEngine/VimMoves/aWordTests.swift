@@ -26,7 +26,7 @@ extension aWordTests {
         let wordRange = textEngine.aWord(startingAt: 2, in: text)
         
         XCTAssertEqual(wordRange?.lowerBound, 0)
-        XCTAssertEqual(wordRange?.upperBound, 7)
+        XCTAssertEqual(wordRange?.upperBound, 12)
     }
     
     func test_that_if_there_are_spaces_between_two_words_it_goes_from_the_end_of_the_word_backward_till_the_end_of_the_word_forward() {
@@ -35,7 +35,7 @@ extension aWordTests {
         let wordRange = textEngine.aWord(startingAt: 10, in: text)
         
         XCTAssertEqual(wordRange?.lowerBound, 7)
-        XCTAssertEqual(wordRange?.upperBound, 14)
+        XCTAssertEqual(wordRange?.upperBound, 19)
     }
 
 }
