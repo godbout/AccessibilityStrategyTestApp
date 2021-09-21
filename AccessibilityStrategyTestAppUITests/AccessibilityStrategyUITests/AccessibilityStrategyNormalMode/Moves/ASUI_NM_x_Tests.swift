@@ -23,7 +23,7 @@ extension UIASNM_x_Tests {
         applyMove { asNormalMode.b(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, "x should delete the right haracter")
+        XCTAssertEqual(accessibilityElement?.text.value, "x should delete the right haracter")
         XCTAssertEqual(accessibilityElement?.caretLocation, 26)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
@@ -46,7 +46,7 @@ that is not an empty line🤡️🤡️
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 so we're on the last
 character of the last line
 that is not an empty line🤡️
@@ -69,7 +69,7 @@ but shouldn't be deleted
         applyMove { asNormalMode.k(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 next line is gonna be empty!
 
 but shouldn't be deleted
@@ -90,7 +90,7 @@ shouldn't jump up on this line!
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 shouldn't jump up on this line!
 
 """
@@ -110,7 +110,7 @@ x
         applyMove { asNormalMode.gg(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 
 x
 """

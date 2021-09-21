@@ -30,7 +30,7 @@ abo😄️ve!
         applyMove { asNormalMode.k(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 tha😄️t's a mu😄️ltiline
 
 an😄️😄️d O will
@@ -56,7 +56,7 @@ still create a line above
         applyMove { asNormalMode.k(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 
 caret on the first
 line and it should
@@ -80,7 +80,7 @@ an empty line
         applyMove { asNormalMode.k(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 there is now
 
 
@@ -103,7 +103,7 @@ the last empty line
 
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 now the caret
 will be on
 the last empty line
@@ -126,7 +126,7 @@ the last empty line
 
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 now the caret
 will be on
 
@@ -150,7 +150,7 @@ but it should work
         applyMove { asNormalMode.k(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 now there's
     
     some indent
@@ -170,7 +170,7 @@ but it should work
 
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
    
    now indent on the first line
 """

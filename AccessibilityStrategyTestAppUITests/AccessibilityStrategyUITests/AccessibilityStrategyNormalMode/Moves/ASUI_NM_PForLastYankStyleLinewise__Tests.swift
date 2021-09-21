@@ -28,7 +28,7 @@ extension UIASNM_PForLastYankStyleLinewise_Tests {
         
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, "paste me daddyP linewise for TF is still pasted characterwise!")
+        XCTAssertEqual(accessibilityElement?.text.value, "paste me daddyP linewise for TF is still pasted characterwise!")
         XCTAssertEqual(accessibilityElement?.caretLocation, 13)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
@@ -46,7 +46,7 @@ extension UIASNM_PForLastYankStyleLinewise_Tests {
         
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, "P should not paste linefeeds in theyanked with the linefeed hum hum TF")
+        XCTAssertEqual(accessibilityElement?.text.value, "P should not paste linefeeds in theyanked with the linefeed hum hum TF")
         XCTAssertEqual(accessibilityElement?.caretLocation, 66)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
@@ -76,7 +76,7 @@ pasted at the current line place
 
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 so if we use P
 the current line is gonna
 🤍️hould paste 🤍️ that
@@ -106,7 +106,7 @@ to the first non blank of the copied line
 
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 so now we gonna
    the copied line has non blanks
 have to move the caret
@@ -132,7 +132,7 @@ enforce a linefeed
         
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 this should paste
 on the last line and
 enforce a linefeed

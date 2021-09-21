@@ -23,7 +23,7 @@ extension UIASNM_dj_Tests {
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, "one line is not enough for dj 😀️")        
+        XCTAssertEqual(accessibilityElement?.text.value, "one line is not enough for dj 😀️")        
         XCTAssertEqual(accessibilityElement?.caretLocation, 30)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
@@ -46,7 +46,7 @@ one should disappear
         applyMove { asNormalMode.k(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, "")        
+        XCTAssertEqual(accessibilityElement?.text.value, "")        
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
@@ -63,7 +63,7 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
         applyMove { asNormalMode.gg(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
      🤡️o🤡️n b🤡️lank of 🤡️this line
 """
         )        
@@ -84,7 +84,7 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
         applyMove { asNormalMode.k(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
    😚️ow 🤡️🤡️this is🤡️ get🤡️🤡️ting cool
 """
         )        

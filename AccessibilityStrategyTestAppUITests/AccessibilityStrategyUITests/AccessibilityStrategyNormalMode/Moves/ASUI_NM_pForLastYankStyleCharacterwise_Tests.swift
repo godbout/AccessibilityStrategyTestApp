@@ -27,7 +27,7 @@ extension UIASNM_pForLastYankStyleCharacterwise_Tests {
 
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, "we go😂️😂️😂️nna paste some 💩️text to 🥞️🥞️🥞️ paste!!!🥠️")
+        XCTAssertEqual(accessibilityElement?.text.value, "we go😂️😂️😂️nna paste some 💩️text to 🥞️🥞️🥞️ paste!!!🥠️")
         XCTAssertEqual(accessibilityElement?.caretLocation, 58)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
@@ -57,7 +57,7 @@ ho ho ho
         
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 time to paste
 in pastaingTextViews
 ho ho ho
@@ -86,7 +86,7 @@ ho ho ho
         
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 time to paste
 in 😂️astaing
 my man!TextViews
@@ -114,7 +114,7 @@ here's the last one
         
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 gonna have an empty line
 text for the new line
 here's the last one

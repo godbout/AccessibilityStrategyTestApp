@@ -20,7 +20,7 @@ extension The2CasesTests {
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.role, .textField)
-        XCTAssertEqual(accessibilityElement?.value, "")
+        XCTAssertEqual(accessibilityElement?.text.value, "")
         XCTAssertEqual(accessibilityElement?.length, 0)
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
@@ -45,7 +45,7 @@ extension The2CasesTests {
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.role, .textArea)
-        XCTAssertEqual(accessibilityElement?.value, "")
+        XCTAssertEqual(accessibilityElement?.text.value, "")
         XCTAssertEqual(accessibilityElement?.length, 0)
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
@@ -69,7 +69,7 @@ and i'm still having fun
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.role, .textArea)
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 it's four O eight
 and i'm still having fun
 😅️

@@ -26,7 +26,7 @@ extension ASUI_NM_r_Tests {
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "a")
       
-        XCTAssertEqual(accessibilityElement?.value, "gonna replace one of thosa letters...")
+        XCTAssertEqual(accessibilityElement?.text.value, "gonna replace one of thosa letters...")
         XCTAssertEqual(accessibilityElement?.caretLocation, 25)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
@@ -39,7 +39,7 @@ extension ASUI_NM_r_Tests {
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "\u{0020}")
        
-        XCTAssertEqual(accessibilityElement?.value, "i need more space ")
+        XCTAssertEqual(accessibilityElement?.text.value, "i need more space ")
         XCTAssertEqual(accessibilityElement?.caretLocation, 17)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
@@ -64,7 +64,7 @@ a new line
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "\u{000A}")
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 gonna replace something
 b
 😀️
@@ -87,7 +87,7 @@ escape
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "\u{001B}")
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 now we gonna start the replacement
 move but cancel it with
 escape
