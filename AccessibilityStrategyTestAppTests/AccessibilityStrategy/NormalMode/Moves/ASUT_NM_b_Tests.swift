@@ -2,10 +2,10 @@
 import XCTest
 
 
-// b is calling a TE func. we already have many tests in the TE func but just for the caretLocation
-// as the TE funcs don't handle anything else. here we will test some selectedLength as now with
-// emojis it can be different than 1
-class ASNM_b_Tests: ASNM_BaseTests {
+// now TE funcs can return nil if a word is not found (backward, forward, etc.).
+// the TE funcs are heavily tested by themselves. here we test only what is necessary for
+// this move, which is the difference between when a TE func returns nil (can't find word) and returns a range (finds word).
+class ASUT_NM_b_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.b(on: element) 
@@ -14,33 +14,58 @@ class ASNM_b_Tests: ASNM_BaseTests {
 }
 
 
-// emojis
-extension ASNM_b_Tests {
+// both
+extension ASUT_NM_b_Tests {
     
-    func test_that_it_returns_the_correct_selectedLength() {
-        let text = """
-yeah coz the text functions don't
-care about the length but 🦋️ the move
-itself does
-"""
+    func test_that_when_there_is_no_word_backward_it_goes_to_0() {
+        let text = "🚔️aretLocation at the first character of the text"
         let element = AccessibilityTextElement(
-            role: .textArea,
+            role: .textField,
             value: text,
-            length: 84,
-            caretLocation: 64,
-            selectedLength: 1,
-            selectedText: "t",
+            length: 50,
+            caretLocation: 0,
+            selectedLength: 3,
+            selectedText: "🚔️",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 2,
-                start: 34,
-                end: 73
+                number: 1,
+                start: 0,
+                end: 50
             )
         )
         
         let returnedElement = applyMove(on: element)
         
+        XCTAssertEqual(returnedElement?.caretLocation, 0)
         XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+       
+    func test_that_when_there_is_a_word_backward_it_goes_to_the_beginning_of_it() {
+        let text = """
+now we're talking
+you little mf
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 31,
+            caretLocation: 24,
+            selectedLength: 1,
+            selectedText: "t",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 18,
+                end: 31
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 22)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }

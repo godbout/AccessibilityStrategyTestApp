@@ -3,12 +3,7 @@ import XCTest
 
 
 // see b for blah blah
-// TODO: review comment above and in b once we reach there. new comment below for the time being
-// the TE funcs have been updated to return nil now if a word cannot be found (this is because we use the TE funcs
-// in many other places now, now just mimicking the Vim moves). the tests for the TE funcs are already done on their own.
-// here we need to test the special cases, i.e. when the TE funcs return nil.
-
-class ASNM_w_Tests: ASNM_BaseTests {
+class ASUT_NM_w_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.w(on: element)
@@ -16,57 +11,58 @@ class ASNM_w_Tests: ASNM_BaseTests {
     
 }
 
-// both
-extension ASNM_w_Tests {
 
-    func test_that_it_handles_empty_fields() {
-        let text = ""
+// both
+extension ASUT_NM_w_Tests {
+    
+    func test_that_when_there_is_no_word_forward_it_goes_to_the_end_limit_of_the_text() {
+        let text = "in that sentence the move can't find a word forward...        "
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
-            length: 0,
-            caretLocation: 0,
-            selectedLength: 0,
-            selectedText: "",
+            length: 62,
+            caretLocation: 55,
+            selectedLength: 1,
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
                 start: 0,
-                end: 0
+                end: 62
             )
         )
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertEqual(returnedElement?.caretLocation, 61)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
-    
-    func test_that_it_handles_fields_that_are_not_empty_but_where_there_is_no_word_forward() {
+       
+    func test_that_when_there_is_a_word_forward_it_goes_to_the_beginning_of_it() {
         let text = """
-beginningOfWordForward now
-returns nil 😍️
+now we're talking
+you little mf
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 42,
-            caretLocation: 39,
-            selectedLength: 3,
-            selectedText: "😍️",
+            length: 31,
+            caretLocation: 24,
+            selectedLength: 1,
+            selectedText: "t",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
-                start: 27,
-                end: 42
+                start: 18,
+                end: 31
             )
         )
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 39)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertEqual(returnedElement?.caretLocation, 29)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
