@@ -161,14 +161,14 @@ this line ends with 3 spaces
         XCTAssertEqual(wordRange?.upperBound, 36)
     }
     
-    func test_that_if_there_are_no_trailing_spaces_because_there_is_no_word_forward_it_stops_at_linefeeds_when_looking_for_the_word_backward() {
+    func test_that_if_there_are_no_trailing_spaces_because_there_is_no_word_forward_and_the_previous_non_blank_before_the_word_is_a_linefeed_then_it_stops_at_the_linefeed_when_looking_for_the_word_backward() {
         let text = """
 this line ends with 3 spaces   
   and
 """
         let wordRange = textEngine.aWord(startingAt: 34, in: text)
 
-        XCTAssertEqual(wordRange?.lowerBound, 32)
+        XCTAssertEqual(wordRange?.lowerBound, 34)
         XCTAssertEqual(wordRange?.upperBound, 36)
     }
 
