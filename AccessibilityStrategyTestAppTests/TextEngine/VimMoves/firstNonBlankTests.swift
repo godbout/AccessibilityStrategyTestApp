@@ -40,20 +40,20 @@ extension firstNonBlankTests {
         XCTAssertEqual(location, 0)
     }
     
-    func test_that_if_the_line_is_empty_the_caret_location_is_0() {
+    func test_that_if_the_line_is_empty_it_returns_nil() {
         let text = ""
         
         let location = textEngine.firstNonBlank(in: text)
         
-        XCTAssertEqual(location, 0)
+        XCTAssertNil(location)
     }
     
-    func test_that_if_the_TextField_only_contains_spaces_the_caret_goes_to_the_end_of_the_text() {
+    func test_that_if_the_TextField_only_contains_spaces_it_returns_nil() {
         let text = "        "
         
         let location = textEngine.firstNonBlank(in: text)
         
-        XCTAssertEqual(location, 8)
+        XCTAssertNil(location)
     }
     
 }
