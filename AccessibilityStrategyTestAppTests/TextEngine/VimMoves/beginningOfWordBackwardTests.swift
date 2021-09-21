@@ -94,9 +94,18 @@ extension beginningOfWordBackwardTests {
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 18)
     }
-    
-    func test_that_if_it_reaches_the_start_of_the_buffer_it_stops_at_the_first_character() {
+        
+    func test_that_if_the_caretLocation_is_at_the_first_character_of_the_text_then_there_is_no_word_backward_and_it_returns_nil() {
         let text = "yoooooo my man"
+        
+        let beginningOfWordBackwardLocation = textEngine.beginningOfWordBackward(startingAt: 0, in: TextEngineText(from: text))
+        
+        XCTAssertNil(beginningOfWordBackwardLocation)
+    }
+    
+    // this is strange but this is Vim
+    func test_that_at_the_beginning_of_the_text_going_back_from_whitespaces_is_considered_as_going_a_word_backward_and_returns_0_rather_than_nil_weird_but_true() {
+        let text = "               yoooo my man"
         
         let beginningOfWordBackwardLocation = textEngine.beginningOfWordBackward(startingAt: 5, in: TextEngineText(from: text))
         
