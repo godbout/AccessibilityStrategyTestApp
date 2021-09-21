@@ -39,14 +39,6 @@ with linefeed
 // Both
 extension endOfWordBackwardTests {
     
-    func test_that_if_there_is_no_end_of_word_backward_then_it_returns_nil() {
-        let text = "     where is the word backward???"
-        
-        let endOfWordBackwardLocation = textEngine.endOfWordBackward(startingAt: 3, in: TextEngineText(from: text))
-        
-        XCTAssertNil(endOfWordBackwardLocation)
-    }
-        
     func test_that_it_can_go_to_the_end_of_the_previous_word() {
         let text = "a few words to live by"
         
@@ -87,12 +79,20 @@ extension endOfWordBackwardTests {
         XCTAssertEqual(endOfWordBackwardLocation, 21)
     }
     
-    func test_that_if_it_reaches_the_start_of_the_buffer_it_returns_nil_because_there_is_no_end_of_word_backward() {
-        let text = "yoooooo my man"
+    func test_that_if_the_caretLocation_is_at_the_beginning_of_the_text_before_the_move_is_applied_then_it_returns_nil() {
+        let text = "starting already from the beginning of the text will return nil"
         
-        let endOfWordBackwardLocation = textEngine.endOfWordBackward(startingAt: 5, in: TextEngineText(from: text))
+        let endOfWordBackwardLocation = textEngine.endOfWordBackward(startingAt: 0, in: TextEngineText(from: text))
         
         XCTAssertNil(endOfWordBackwardLocation)
+    }
+    
+    func test_that_if_the_caretLocation_is_not_at_the_beginning_of_the_text_before_the_move_is_applied_but_ends_there_after_it_returns_0() {
+        let text = "  yoooooo my man"
+        
+        let endOfWordBackwardLocation = textEngine.endOfWordBackward(startingAt: 8, in: TextEngineText(from: text))
+        
+        XCTAssertEqual(endOfWordBackwardLocation, 0)
     }
     
     func test_that_it_stops_at_punctuations_that_are_after_an_underscore() {

@@ -63,12 +63,20 @@ extension beginningOfWORDForwardTests {
         XCTAssertEqual(beginningOfWORDForwardLocation, 30)
     }
     
-    func test_that_if_it_reaches_the_end_of_the_buffer_it_and_therefore_cannot_find_a_word_forward_it_returns_nil() {
+    func test_that_if_the_caretLocation_is_at_the_end_limit_of_the_text_before_applying_the_move_then_it_returns_nil() {
         let text = "w at the end of the buffer shouldn't craaaash"
-        
-        let beginningOfWORDForwardLocation = textEngine.beginningOfWORDForward(startingAt: 42, in: TextEngineText(from: text))
-        
-        XCTAssertNil(beginningOfWORDForwardLocation)
+
+        let beginningOfWordForwardLocation = textEngine.beginningOfWORDForward(startingAt: 44, in: TextEngineText(from: text))
+
+        XCTAssertNil(beginningOfWordForwardLocation)
+    }
+    
+    func test_that_if_the_caretLocation_is_not_at_the_end_limit_of_the_text_before_applying_the_move_but_ends_there_after_then_it_returns_the_end_limit_of_the_text() {
+        let text = "w at the end of the buffer shouldn't craaaash"
+
+        let beginningOfWordForwardLocation = textEngine.beginningOfWORDForward(startingAt: 42, in: TextEngineText(from: text))
+
+        XCTAssertEqual(beginningOfWordForwardLocation, 44)
     }
     
     func test_that_it_passes_several_consecutive_punctuations() {
