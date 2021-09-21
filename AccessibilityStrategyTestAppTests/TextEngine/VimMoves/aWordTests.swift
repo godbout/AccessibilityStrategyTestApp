@@ -94,6 +94,15 @@ extension aWordTests {
         XCTAssertEqual(wordRange?.upperBound, 15)
     }
     
+    func test_that_if_there_are_trailing_spaces_until_the_end_of_the_text_it_grabs_them_and_therefore_does_not_grab_leading_spaces() {
+        let text = "this is something       "
+
+        let wordRange = textEngine.aWord(startingAt: 13, in: text)
+
+        XCTAssertEqual(wordRange?.lowerBound, 8)
+        XCTAssertEqual(wordRange?.upperBound, 23)
+    }
+    
     func test_that_it_grabs_the_trailing_spaces_until_the_end_of_the_text_if_there_is_no_word_forward() {
         let text = "aWord      "
 
