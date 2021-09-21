@@ -32,7 +32,7 @@ some more
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 hehe (
 
 )
@@ -56,7 +56,7 @@ now that shit will get cleaned (
         applyMove { asNormalMode.k(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 now that shit will get cleaned (
     
 )
@@ -79,7 +79,7 @@ and ) is not preceded by a linefeed
         applyMove { asNormalMode.k(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 this work when (
 ) is not preceded by a linefeed
 """
@@ -101,7 +101,7 @@ is followed by a linefeed and
         applyMove { asNormalMode.k(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 this case is when (
 
 ) is preceded by a linefeed

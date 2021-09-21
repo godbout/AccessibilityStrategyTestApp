@@ -32,7 +32,7 @@ one extra line in between!
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
                      
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 we gonna use VM
       ⛱️o go to non blank of the line
 """
@@ -60,7 +60,7 @@ some more
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 we gonna use VM
         
 some more
@@ -88,7 +88,7 @@ another line agan
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 we gonna use VM
 d here and we suppose
          
@@ -113,7 +113,7 @@ and it would be beautiful
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
    ⛱️e gonna remove the last
 """
         )
@@ -135,7 +135,7 @@ and it would be beautiful
         applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
    we gonna remove the last
 """
         )
@@ -160,7 +160,7 @@ t
         applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.value, "")
+        XCTAssertEqual(accessibilityElement?.text.value, "")
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }

@@ -22,7 +22,7 @@ extension UIASNM_dd_Tests {
        
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, "")        
+        XCTAssertEqual(accessibilityElement?.text.value, "")        
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
@@ -34,7 +34,7 @@ extension UIASNM_dd_Tests {
        
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, "")        
+        XCTAssertEqual(accessibilityElement?.text.value, "")        
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
@@ -57,7 +57,7 @@ somehow
         applyMove { asNormalMode.gg(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, "2️⃣️ the next line\nsomehow")
+        XCTAssertEqual(accessibilityElement?.text.value, "2️⃣️ the next line\nsomehow")
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 4)
     }
@@ -75,7 +75,7 @@ if someBullshit == true {
         applyMove { asNormalMode.e(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, "    😀️s = yeah\n}")
+        XCTAssertEqual(accessibilityElement?.text.value, "    😀️s = yeah\n}")
         XCTAssertEqual(accessibilityElement?.caretLocation, 4)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
@@ -93,7 +93,7 @@ if someBullshit == true {
         applyMove { asNormalMode.e(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, "\tbs = yeah\n}")        
+        XCTAssertEqual(accessibilityElement?.text.value, "\tbs = yeah\n}")        
         XCTAssertEqual(accessibilityElement?.caretLocation, 1)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
@@ -110,7 +110,7 @@ after the two spaces
         applyMove { asNormalMode.gg(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, "  🇫🇷️t should stop\nafter the two spaces")
+        XCTAssertEqual(accessibilityElement?.text.value, "  🇫🇷️t should stop\nafter the two spaces")
         XCTAssertEqual(accessibilityElement?.caretLocation, 2)            
         XCTAssertEqual(accessibilityElement?.selectedLength, 5)
     }
@@ -126,7 +126,7 @@ one
         
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, "this one\n    🌲️s a tough")
+        XCTAssertEqual(accessibilityElement?.text.value, "this one\n    🌲️s a tough")
         XCTAssertEqual(accessibilityElement?.caretLocation, 13)   
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
@@ -146,7 +146,7 @@ to stop at the end limit of the line
         applyMove { asNormalMode.k(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 if the next line is just blank characters
           
 to stop at the end limit of the line
@@ -170,7 +170,7 @@ dd here and we suppose
         applyMove { asNormalMode.k(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 we gonna use VM
 dd here and we suppose
          
@@ -193,7 +193,7 @@ own empty
         applyMove { asNormalMode.l(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(accessibilityElement?.text.value, """
 caret is on its
 own empty
     😄️ine

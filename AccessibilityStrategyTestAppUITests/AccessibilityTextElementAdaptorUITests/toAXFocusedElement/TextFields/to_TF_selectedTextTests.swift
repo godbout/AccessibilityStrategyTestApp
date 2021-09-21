@@ -30,7 +30,7 @@ class to_TF_selectedTextTests: ATEA_BaseTests {
         
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         XCTAssertEqual(reconvertedAccessibilityTextElement?.caretLocation, 17)
-        XCTAssertEqual(reconvertedAccessibilityTextElement?.value, "gonna banana 🍌️ try to set the selected text")
+        XCTAssertEqual(reconvertedAccessibilityTextElement?.text.value, "gonna banana 🍌️ try to set the selected text")
     }
     
 }
