@@ -29,7 +29,7 @@ itself d🤨️🤨️🤨️oes
             selectedLength: 1,
             selectedText: "f",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 3,
                 start: 105,
                 end: 125

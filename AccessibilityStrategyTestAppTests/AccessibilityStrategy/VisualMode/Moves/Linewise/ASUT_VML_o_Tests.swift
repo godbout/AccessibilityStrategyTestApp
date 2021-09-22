@@ -30,7 +30,7 @@ extension ASUT_VML_o_Tests {
             selectedLength: 1,
             selectedText: "a",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 34
@@ -61,7 +61,7 @@ tricky
             selectedLength: 19,
             selectedText: "some like a little\n",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 17,
                 end: 36

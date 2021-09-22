@@ -18,7 +18,7 @@ extension ASUI_NM_i_Tests {
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 35
@@ -51,7 +51,7 @@ those💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
             selectedLength: 3,
             selectedText: "😂️",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 18,
                 end: 54

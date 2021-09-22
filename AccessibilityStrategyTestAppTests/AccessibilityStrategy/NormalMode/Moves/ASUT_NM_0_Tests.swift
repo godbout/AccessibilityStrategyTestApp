@@ -24,7 +24,7 @@ extension ASUT_NM_0_Tests {
             selectedLength: 1,
             selectedText: "s",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 45
@@ -56,7 +56,7 @@ where we gonna test 0
             selectedLength: 1,
             selectedText: "w",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 10,
                 end: 31
@@ -88,7 +88,7 @@ need to deal with
             selectedLength: 3,
             selectedText: "🍃️",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 18,
                 end: 61

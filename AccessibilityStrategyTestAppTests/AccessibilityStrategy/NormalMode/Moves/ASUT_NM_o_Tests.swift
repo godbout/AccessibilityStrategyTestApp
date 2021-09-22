@@ -24,7 +24,7 @@ extension ASUT_NM_o_Tests {
             selectedLength: 1,
             selectedText: "t",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 39
@@ -57,7 +57,7 @@ below
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 3,
                 start: 30,
                 end: 48
@@ -84,7 +84,7 @@ so the new line follows that
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 5,
                 end: 28
@@ -109,7 +109,7 @@ it should not cut the last character
             selectedLength: 1,
             selectedText: "t",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 36
@@ -136,7 +136,7 @@ caret on empty last line
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 25,
                 end: 25
@@ -163,7 +163,7 @@ two lines empty below
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 22,
                 end: 23
@@ -195,7 +195,7 @@ those 🍃️🍃️🍃️🍃️🍃️🍃️ faces 🥺️☹️😂️
             selectedLength: 1,
             selectedText: "a",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 33

@@ -248,6 +248,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		91284EB326FB33F2004711D0 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		912F012926E1002800A46199 /* ASUI_NM_dk_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_dk_Tests.swift; sourceTree = "<group>"; };
 		912F012D26E100CF00A46199 /* ASUI_NM_x_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_x_Tests.swift; sourceTree = "<group>"; };
 		912F012F26E1016300A46199 /* ASUI_NM_<<_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASUI_NM_<<_Tests.swift"; sourceTree = "<group>"; };
@@ -644,6 +645,7 @@
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
+				91284EB326FB33F2004711D0 /* AccessibilityStrategy */,
 				91F951B326DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,

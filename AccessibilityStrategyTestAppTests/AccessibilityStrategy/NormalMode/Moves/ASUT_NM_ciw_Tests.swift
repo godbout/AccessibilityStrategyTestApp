@@ -27,7 +27,7 @@ extension ASUT_NM_ciw_Tests {
             selectedLength: 1,
             selectedText: "t",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 50

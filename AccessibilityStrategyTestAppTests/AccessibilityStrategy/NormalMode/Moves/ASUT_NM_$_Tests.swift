@@ -25,7 +25,7 @@ extension ASUT_NM_$_Tests {
             selectedLength: 1,
             selectedText: "l",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 15
@@ -54,7 +54,7 @@ j or k will go to the line endLimit
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 3,
                 start: 36,
                 end: 63
@@ -88,7 +88,7 @@ multiline
             selectedLength: 1,
             selectedText: "s",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 7,
                 end: 15
@@ -117,7 +117,7 @@ it's a bug!
             selectedLength: 1,
             selectedText: "\n",
             currentLine: AccessibilityTextElementLine(
-            fullValue: text,
+            fullText: text,
             number: 3,
             start: 27,
             end: 28

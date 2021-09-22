@@ -30,7 +30,7 @@ extension AccessibilityTextElementTests {
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 0
@@ -63,7 +63,7 @@ line
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 4,
                 start: 31,
                 end: 31
@@ -98,7 +98,7 @@ extension AccessibilityTextElementTests {
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 20
@@ -144,7 +144,7 @@ line 🌻️
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 4,
                 start: 35,
                 end: 35
@@ -178,7 +178,7 @@ extension AccessibilityTextElementTests {
             selectedLength: 3,
             selectedText: "😂️",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 29

@@ -37,7 +37,7 @@ shit
         XCTAssertEqual(accessibilityElement?.length, 17)
         XCTAssertEqual(accessibilityElement?.caretLocation, 13)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.currentLine.fullValue, """
+        XCTAssertEqual(accessibilityElement?.currentLine.fullText.value, """
 some fucking
 shit
 """
@@ -72,7 +72,7 @@ shit
         XCTAssertEqual(accessibilityElement?.length, 17)
         XCTAssertEqual(accessibilityElement?.caretLocation, 12)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.currentLine.fullValue, """
+        XCTAssertEqual(accessibilityElement?.currentLine.fullText.value, """
 some fucking
 shit
 """
@@ -108,7 +108,7 @@ LOL
         XCTAssertEqual(accessibilityElement?.length, 25)
         XCTAssertEqual(accessibilityElement?.caretLocation, 22)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
-        XCTAssertEqual(accessibilityElement?.currentLine.fullValue, """
+        XCTAssertEqual(accessibilityElement?.currentLine.fullText.value, """
 that big sur shit
 LOL
 🕕️

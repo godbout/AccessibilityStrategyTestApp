@@ -25,7 +25,7 @@ extension The2CasesTests {
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
-        XCTAssertEqual(accessibilityElement?.currentLine.fullValue, "")
+        XCTAssertEqual(accessibilityElement?.currentLine.fullText.value, "")
         XCTAssertEqual(accessibilityElement?.currentLine.number, 1)
         XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
         XCTAssertEqual(accessibilityElement?.currentLine.end, 0)
@@ -50,7 +50,7 @@ extension The2CasesTests {
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
-        XCTAssertEqual(accessibilityElement?.currentLine.fullValue, "")
+        XCTAssertEqual(accessibilityElement?.currentLine.fullText.value, "")
         XCTAssertEqual(accessibilityElement?.currentLine.number, 1)
         XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
         XCTAssertEqual(accessibilityElement?.currentLine.end, 0)
@@ -80,7 +80,7 @@ and i'm still having fun
         XCTAssertEqual(accessibilityElement?.caretLocation, 47)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
-        XCTAssertEqual(accessibilityElement?.currentLine.fullValue, """
+        XCTAssertEqual(accessibilityElement?.currentLine.fullText.value, """
 it's four O eight
 and i'm still having fun
 😅️
