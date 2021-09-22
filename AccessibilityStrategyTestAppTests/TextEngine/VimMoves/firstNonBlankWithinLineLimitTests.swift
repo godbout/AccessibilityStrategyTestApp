@@ -40,28 +40,28 @@ extension firstNonBlankWithinLineLimitTests {
         XCTAssertEqual(location, 0)
     }
     
-    func test_that_if_the_line_is_empty_the_caret_location_is_0() {
+    func test_that_if_the_line_is_empty_it_returns_nil() {
         let text = ""
         
         let location = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: text))
         
-        XCTAssertEqual(location, 0)
+        XCTAssertNil(location)
     }
     
-    func test_that_if_the_line_only_contains_spaces_the_caret_goes_to_the_end_limit_of_the_line() {
+    func test_that_if_the_line_only_contains_it_returns_nil() {
         let text = "        "
         
         let location = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: text))
         
-        XCTAssertEqual(location, 7)
+        XCTAssertNil(location)
     }
     
-    func test_that_if_the_line_only_contains_spaces_and_ends_with_a_linefeed_the_caret_goes_to_the_end_limit_of_the_line() {
+    func test_that_if_the_line_only_contains_spaces_and_ends_with_a_linefeed_it_returns_nil() {
         let text = "     \n"
         
         let location = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: text))
         
-        XCTAssertEqual(location, 4)
+        XCTAssertNil(location)
     }
     
 }
