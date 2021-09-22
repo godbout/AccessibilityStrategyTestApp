@@ -14,7 +14,7 @@ extension innerBracketsTests {
         let text = "how dumb can you be LOL"
         
         XCTAssertNil(
-            textEngine.innerBrackets(using: "(", startingAt: 2, in: text)
+            textEngine.innerBrackets(using: "(", startingAt: 2, in: TextEngineText(from: text))
         )
     }
     
@@ -22,7 +22,7 @@ extension innerBracketsTests {
         let text = "hey ho there's only one { in there!"
         
         XCTAssertNil(
-            textEngine.innerBrackets(using: "{", startingAt: 15, in: text)
+            textEngine.innerBrackets(using: "{", startingAt: 15, in: TextEngineText(from: text))
         )
     }
     
@@ -30,7 +30,7 @@ extension innerBracketsTests {
         let text = "still no gourmet [ shit for that ] one"
         
         XCTAssertNil(
-            textEngine.innerBrackets(using: "[", startingAt: 3, in: text)
+            textEngine.innerBrackets(using: "[", startingAt: 3, in: TextEngineText(from: text))
         )
     }
     
@@ -38,14 +38,14 @@ extension innerBracketsTests {
         let text = "again no { gourmet shit } ducking hell"
         
         XCTAssertNil(
-            textEngine.innerBrackets(using: "{", startingAt: 33, in: text)
+            textEngine.innerBrackets(using: "{", startingAt: 33, in: TextEngineText(from: text))
         )
     }
     
     func test_that_if_there_are_two_matched_brackets_and_the_caret_is_between_them_then_it_can_find_the_text() {
         let text = "ahhhhhh finally the { gourmet shit } motherfuckers"
         
-        guard let innerBracketsRange = textEngine.innerBrackets(using: "{", startingAt: 24, in: text) else { return XCTFail() }
+        guard let innerBracketsRange = textEngine.innerBrackets(using: "{", startingAt: 24, in: TextEngineText(from: text)) else { return XCTFail() }
         
         XCTAssertEqual(innerBracketsRange.lowerBound, 20)
         XCTAssertEqual(innerBracketsRange.upperBound, 35)
@@ -54,7 +54,7 @@ extension innerBracketsTests {
     func test_extra_cautiously_that_it_matches_the_right_pair_when_there_are_more_than_two_brackets() {
         let text = "hmm ok so we ( gonna try again ( some more and ) see i ) guess"
         
-        guard let innerBracketsRange = textEngine.innerBrackets(using: "(", startingAt: 51, in: text) else { return XCTFail() }
+        guard let innerBracketsRange = textEngine.innerBrackets(using: "(", startingAt: 51, in: TextEngineText(from: text)) else { return XCTFail() }
         
         XCTAssertEqual(innerBracketsRange.lowerBound, 13)
         XCTAssertEqual(innerBracketsRange.upperBound, 55)
@@ -63,7 +63,7 @@ extension innerBracketsTests {
     func test_that_if_there_are_several_pairs_of_bracket_and_the_caret_location_is_on_an_opening_bracket_on_the_inside_pair_it_can_find_the_correct_range() {
         let text = "yeah ok so ( that fails ( somehow ) that is bad! )"
         
-        guard let innerBracketsRange = textEngine.innerBrackets(using: "(", startingAt: 24, in: text) else { return XCTFail() }
+        guard let innerBracketsRange = textEngine.innerBrackets(using: "(", startingAt: 24, in: TextEngineText(from: text)) else { return XCTFail() }
         
         XCTAssertEqual(innerBracketsRange.lowerBound, 24)
         XCTAssertEqual(innerBracketsRange.upperBound, 34)
@@ -72,7 +72,7 @@ extension innerBracketsTests {
     func test_that_if_there_are_several_pairs_of_bracket_and_the_caret_location_is_on_a_closing_bracket_on_the_inside_pair_it_can_find_the_correct_range() {
         let text = "yeah ok so ( that fails ( somehow ) that is bad! )"
         
-        guard let innerBracketsRange = textEngine.innerBrackets(using: "(", startingAt: 34, in: text) else { return XCTFail() }
+        guard let innerBracketsRange = textEngine.innerBrackets(using: "(", startingAt: 34, in: TextEngineText(from: text)) else { return XCTFail() }
         
         XCTAssertEqual(innerBracketsRange.lowerBound, 24)
         XCTAssertEqual(innerBracketsRange.upperBound, 34)
@@ -93,7 +93,7 @@ var array = [
 ]
 """
         
-        guard let innerBracketsRange = textEngine.innerBrackets(using: "[", startingAt: 27, in: text) else { return XCTFail() }
+        guard let innerBracketsRange = textEngine.innerBrackets(using: "[", startingAt: 27, in: TextEngineText(from: text)) else { return XCTFail() }
         
         XCTAssertEqual(innerBracketsRange.lowerBound, 12)
         XCTAssertEqual(innerBracketsRange.upperBound, 40)
@@ -110,7 +110,7 @@ func something() {
 }
 """
         
-        guard let innerBracketsRange = textEngine.innerBrackets(using: "{", startingAt: 48, in: text) else { return XCTFail() }
+        guard let innerBracketsRange = textEngine.innerBrackets(using: "{", startingAt: 48, in: TextEngineText(from: text)) else { return XCTFail() }
         
         XCTAssertEqual(innerBracketsRange.lowerBound, 17)
         XCTAssertEqual(innerBracketsRange.upperBound, 59)

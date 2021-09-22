@@ -11,7 +11,7 @@ extension previousUnmatchedTests {
     func test_that_it_can_move_to_a_lonely_bracket() {
         let text = "that's a lonely { right here "
         
-        let previousUnmatchedLocation = textEngine.previousUnmatched("{", before: 26, in: text)
+        let previousUnmatchedLocation = textEngine.previousUnmatched("{", before: 26, in: TextEngineText(from: text))
         
         XCTAssertEqual(previousUnmatchedLocation, 16)
     }
@@ -19,7 +19,7 @@ extension previousUnmatchedTests {
     func test_that_in_normal_setting_it_goes_to_the_previous_unmatched_bracket() {
         let text = "that one's { gonna sting { lo"
         
-        let previousUnmatchedLocation = textEngine.previousUnmatched("{", before: 29, in: text)
+        let previousUnmatchedLocation = textEngine.previousUnmatched("{", before: 29, in: TextEngineText(from: text))
         
         XCTAssertEqual(previousUnmatchedLocation, 25)
     }
@@ -27,7 +27,7 @@ extension previousUnmatchedTests {
     func test_that_it_skips_matched_brackets() {
         let text = "a { tougher { one } i believe"
         
-        let previousUnmatchedLocation = textEngine.previousUnmatched("{", before: 26, in: text)
+        let previousUnmatchedLocation = textEngine.previousUnmatched("{", before: 26, in: TextEngineText(from: text))
         
         XCTAssertEqual(previousUnmatchedLocation, 2)
     }
@@ -35,7 +35,7 @@ extension previousUnmatchedTests {
     func test_that_if_it_cannot_find_a_previous_unmatched_bracket_it_returns_nil() {
         let text = "no left brace in here move along"
         
-        let previousUnmatchedLocation = textEngine.previousUnmatched("(", before: 19, in: text)
+        let previousUnmatchedLocation = textEngine.previousUnmatched("(", before: 19, in: TextEngineText(from: text))
         
         XCTAssertNil(previousUnmatchedLocation)
     }
@@ -43,7 +43,7 @@ extension previousUnmatchedTests {
     func test_that_if_there_are_only_matched_brackets_it_returns_nil() {
         let text = "full of ( ) matched ( braces )"
         
-        let previousUnmatchedLocation = textEngine.previousUnmatched("(", before: 30, in: text)
+        let previousUnmatchedLocation = textEngine.previousUnmatched("(", before: 30, in: TextEngineText(from: text))
 
         XCTAssertNil(previousUnmatchedLocation)
     }
@@ -54,7 +54,7 @@ caret just ( before
 the second brace ( yes
 """
         
-        let previousUnmatchedLocation = textEngine.previousUnmatched("(", before: 37, in: text)
+        let previousUnmatchedLocation = textEngine.previousUnmatched("(", before: 37, in: TextEngineText(from: text))
         
         XCTAssertEqual(previousUnmatchedLocation, 11)
     }
@@ -68,7 +68,7 @@ brace { yes
 again
 """
         
-        let previousUnmatchedLocation = textEngine.previousUnmatched("{", before: 41, in: text)
+        let previousUnmatchedLocation = textEngine.previousUnmatched("{", before: 41, in: TextEngineText(from: text))
         
         XCTAssertEqual(previousUnmatchedLocation, 40)
     }
@@ -76,7 +76,7 @@ again
     func test_that_it_works_with_a_lot_of_brackets_lol() {
         let text = "(   (    (   )   )     "
         
-        let previousUnmatchedLocation = textEngine.previousUnmatched("(", before: 23, in: text)
+        let previousUnmatchedLocation = textEngine.previousUnmatched("(", before: 23, in: TextEngineText(from: text))
         
         XCTAssertEqual(previousUnmatchedLocation, 0)
     }
@@ -84,7 +84,7 @@ again
     func test_that_it_does_not_explode_with_string_out_of_bounds_like_before() {
         let text = "that one's { gonna s}ting { lo"
         
-        let previousUnmatchedLocation = textEngine.previousUnmatched("{", before: 30, in: text)
+        let previousUnmatchedLocation = textEngine.previousUnmatched("{", before: 30, in: TextEngineText(from: text))
         
         XCTAssertEqual(previousUnmatchedLocation, 26)
     }
@@ -92,7 +92,7 @@ again
     func test_whatever_to_sleep_better_at_night() {
         let text = " a couple of ( ( )"
         
-        let previousUnmatchedLocation = textEngine.previousUnmatched("(", before: 15, in: text)
+        let previousUnmatchedLocation = textEngine.previousUnmatched("(", before: 15, in: TextEngineText(from: text))
         
         XCTAssertEqual(previousUnmatchedLocation, 13)
     }
@@ -100,7 +100,7 @@ again
     func test_again_that_in_normal_cases_it_works_hehe_because_of_multiple_past_failures() {
         let text = "a couple of ( (( ))))  ) O_o"
         
-        let previousUnmatchedLocation = textEngine.previousUnmatched("(", before: 19, in: text)
+        let previousUnmatchedLocation = textEngine.previousUnmatched("(", before: 19, in: TextEngineText(from: text))
         
         XCTAssertEqual(previousUnmatchedLocation, 12)
     }
@@ -108,7 +108,7 @@ again
     func test_another_complicated_one_to_see_if_the_algorithm_works() {
         let text = "{{{          }         {{{{ }}}}}}}}"
         
-        let previousUnmatchedLocation = textEngine.previousUnmatched("{", before: 17, in: text)
+        let previousUnmatchedLocation = textEngine.previousUnmatched("{", before: 17, in: TextEngineText(from: text))
         
         XCTAssertEqual(previousUnmatchedLocation, 1)
     }
@@ -116,7 +116,7 @@ again
     func test_that_if_the_text_is_empty_it_returns_nil() {
         let text = ""
         
-        let previousUnmatchedLocation = textEngine.previousUnmatched("{", before: 0, in: text)
+        let previousUnmatchedLocation = textEngine.previousUnmatched("{", before: 0, in: TextEngineText(from: text))
         
         XCTAssertNil(previousUnmatchedLocation)
     }
@@ -131,7 +131,7 @@ extension previousUnmatchedTests {
     func test_that_it_handles_emojis() {
         let text = "emyeah 🤨️{🤨️ coz🤨️🤨️ the text 🤨️🤨️functions don't care about😂️🤨️🤨️🤨️ the length but 🦋️ the move"
         
-        let previousUnmatchedLocation = textEngine.previousUnmatched("{", before: 103, in: text)
+        let previousUnmatchedLocation = textEngine.previousUnmatched("{", before: 103, in: TextEngineText(from: text))
         
         XCTAssertEqual(previousUnmatchedLocation, 10)
     }
