@@ -20,7 +20,8 @@ extension TextEngineLineTests {
         XCTAssertEqual(textEngineLine.endLimit, 0)
         XCTAssertEqual(textEngineLine.isEmpty, true)
         XCTAssertEqual(textEngineLine.isNotEmpty, false)
-        XCTAssertEqual(textEngineLine.isOnlyALinefeedCharacter, false)
+        XCTAssertEqual(textEngineLine.isAnEmptyLine, true)
+        XCTAssertEqual(textEngineLine.isNotAnEmptyLine, false)
     }    
     
 }
@@ -40,8 +41,8 @@ extension TextEngineLineTests {
         XCTAssertEqual(textEngineLine.endLimit, 27)
         XCTAssertEqual(textEngineLine.isEmpty, false)
         XCTAssertEqual(textEngineLine.isNotEmpty, true)
-        XCTAssertEqual(textEngineLine.isOnlyALinefeedCharacter, false)
-        
+        XCTAssertEqual(textEngineLine.isAnEmptyLine, false)
+        XCTAssertEqual(textEngineLine.isNotAnEmptyLine, true)
     }
     
     func test_that_without_emojis_for_a_line_with_a_linefeed_the_computed_properties_are_correctly_calculated() {
@@ -54,7 +55,8 @@ extension TextEngineLineTests {
         XCTAssertEqual(textEngineLine.endLimit, 29)
         XCTAssertEqual(textEngineLine.isEmpty, false)
         XCTAssertEqual(textEngineLine.isNotEmpty, true)
-        XCTAssertEqual(textEngineLine.isOnlyALinefeedCharacter, false)
+        XCTAssertEqual(textEngineLine.isAnEmptyLine, false)
+        XCTAssertEqual(textEngineLine.isNotAnEmptyLine, true)
     }
     
 }
@@ -79,7 +81,8 @@ extension TextEngineLineTests {
         XCTAssertEqual(textEngineLine.endLimit, 41)
         XCTAssertEqual(textEngineLine.isEmpty, false)
         XCTAssertEqual(textEngineLine.isNotEmpty, true)
-        XCTAssertEqual(textEngineLine.isOnlyALinefeedCharacter, false)
+        XCTAssertEqual(textEngineLine.isAnEmptyLine, false)
+        XCTAssertEqual(textEngineLine.isNotAnEmptyLine, true)
     }
     
     func test_that_with_emojis_for_a_line_without_a_linefeed_the_computed_properties_are_correctly_calculated_when_the_emoji_is_at_the_end() {
@@ -92,7 +95,8 @@ extension TextEngineLineTests {
         XCTAssertEqual(textEngineLine.endLimit, 28)
         XCTAssertEqual(textEngineLine.isEmpty, false)
         XCTAssertEqual(textEngineLine.isNotEmpty, true)
-        XCTAssertEqual(textEngineLine.isOnlyALinefeedCharacter, false)
+        XCTAssertEqual(textEngineLine.isAnEmptyLine, false)
+        XCTAssertEqual(textEngineLine.isNotAnEmptyLine, true)
     }
     
     func test_that_with_emojis_for_a_line_with_a_linefeed_the_computed_properties_are_correctly_calculated_when_the_emoji_is_right_before_the_linefeed() {
@@ -105,7 +109,8 @@ extension TextEngineLineTests {
         XCTAssertEqual(textEngineLine.endLimit, 20)
         XCTAssertEqual(textEngineLine.isEmpty, false)
         XCTAssertEqual(textEngineLine.isNotEmpty, true)
-        XCTAssertEqual(textEngineLine.isOnlyALinefeedCharacter, false)
+        XCTAssertEqual(textEngineLine.isAnEmptyLine, false)
+        XCTAssertEqual(textEngineLine.isNotAnEmptyLine, true)
     }
     
 }
