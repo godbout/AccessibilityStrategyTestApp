@@ -30,13 +30,14 @@ extension AccessibilityTextElementTests {
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 0
             )
         )
         
+        XCTAssertEqual(element.endLimit, 0)
         XCTAssertEqual(element.characterLength, 0)
         XCTAssertEqual(element.nextCharacterLength, 0)
         XCTAssertEqual(element.previousCharacterLength, 0)
@@ -63,13 +64,14 @@ line
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 4,
                 start: 31,
                 end: 31
             )
         )
         
+        XCTAssertEqual(element.endLimit, 31)
         XCTAssertEqual(element.characterLength, 0)
         XCTAssertEqual(element.nextCharacterLength, 0)
         XCTAssertEqual(element.previousCharacterLength, 1)
@@ -98,13 +100,14 @@ extension AccessibilityTextElementTests {
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 20
             )
         )
         
+        XCTAssertEqual(element.endLimit, 19)
         XCTAssertEqual(element.characterLength, 1)
         XCTAssertEqual(element.nextCharacterLength, 1)
         XCTAssertEqual(element.previousCharacterLength, 1)
@@ -144,13 +147,14 @@ line 🌻️
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 4,
                 start: 35,
                 end: 35
             )
         )
         
+        XCTAssertEqual(element.endLimit, 35)
         XCTAssertEqual(element.characterLength, 0)
         XCTAssertEqual(element.nextCharacterLength, 0)
         // previous is linefeed, not sunflower :D
@@ -178,13 +182,14 @@ extension AccessibilityTextElementTests {
             selectedLength: 3,
             selectedText: "😂️",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 29
             )
         )
         
+        XCTAssertEqual(element.endLimit, 28)
         XCTAssertEqual(element.characterLength, 3)
         XCTAssertEqual(element.nextCharacterLength, 5)
         XCTAssertEqual(element.previousCharacterLength, 3)
