@@ -33,7 +33,7 @@ extension AccessibilityTextElementLineTests {
             )
         )
         
-        XCTAssertEqual(element.currentLine.value, "")
+        XCTAssertEqual(element.currentLine.text, "")
         XCTAssertEqual(element.currentLine.length, 0)
         XCTAssertEqual(element.currentLine.lengthWithoutLinefeed, 0)
         XCTAssertEqual(element.currentLine.endLimit, 0)
@@ -67,7 +67,7 @@ line
             )
         )
         
-        XCTAssertEqual(element.currentLine.value, "")
+        XCTAssertEqual(element.currentLine.text, "")
         XCTAssertEqual(element.currentLine.length, 0)
         XCTAssertEqual(element.currentLine.lengthWithoutLinefeed, 0)
         XCTAssertEqual(element.currentLine.endLimit, 31)
@@ -106,7 +106,7 @@ fucking hell
             )
         )
         
-        XCTAssertEqual(element.currentLine.value, "fucking hell")
+        XCTAssertEqual(element.currentLine.text, "fucking hell")
         XCTAssertEqual(element.currentLine.length, 12)
         XCTAssertEqual(element.currentLine.lengthWithoutLinefeed, 12)
         XCTAssertEqual(element.currentLine.endLimit, 27)
@@ -139,7 +139,7 @@ a linefeed
             )
         )
         
-        XCTAssertEqual(element.currentLine.value, "now i'm a line with\n")
+        XCTAssertEqual(element.currentLine.text, "now i'm a line with\n")
         XCTAssertEqual(element.currentLine.length, 20)
         XCTAssertEqual(element.currentLine.lengthWithoutLinefeed, 19)
         XCTAssertEqual(element.currentLine.endLimit, 18)
@@ -186,7 +186,7 @@ line 🌻️
             )
         )
         
-        XCTAssertEqual(element.currentLine.value, "")
+        XCTAssertEqual(element.currentLine.text, "")
         XCTAssertEqual(element.currentLine.length, 0)
         XCTAssertEqual(element.currentLine.lengthWithoutLinefeed, 0)
         XCTAssertEqual(element.currentLine.endLimit, 35)
@@ -226,7 +226,7 @@ fucking hell 🇸🇨️
             )
         )
         
-        XCTAssertEqual(element.currentLine.value, "here we go baby 😂️\n")
+        XCTAssertEqual(element.currentLine.text, "here we go baby 😂️\n")
         XCTAssertEqual(element.currentLine.length, 20)
         XCTAssertEqual(element.currentLine.lengthWithoutLinefeed, 19)
         XCTAssertEqual(element.currentLine.endLimit, 16)
@@ -257,7 +257,7 @@ fucking hell 🇸🇨️
             )
         )
         
-        XCTAssertEqual(element.currentLine.value, "i'm a line without linefeed 😅️")
+        XCTAssertEqual(element.currentLine.text, "i'm a line without linefeed 😅️")
         XCTAssertEqual(element.currentLine.length, 31)
         XCTAssertEqual(element.currentLine.lengthWithoutLinefeed, 31)
         XCTAssertEqual(element.currentLine.endLimit, 28)
@@ -289,7 +289,7 @@ a linefeed
             )
         )
         
-        XCTAssertEqual(element.currentLine.value, "now i'm a line with 🇲🇴️\n")
+        XCTAssertEqual(element.currentLine.text, "now i'm a line with 🇲🇴️\n")
         XCTAssertEqual(element.currentLine.length, 26)
         XCTAssertEqual(element.currentLine.lengthWithoutLinefeed, 25)
         XCTAssertEqual(element.currentLine.endLimit, 20)
