@@ -23,7 +23,7 @@ extension OtherCasesTests {
         XCTAssertEqual(accessibilityElement?.caretLocation, 23)
         XCTAssertEqual(accessibilityElement?.selectedLength, 4)
         XCTAssertEqual(accessibilityElement?.selectedText, "for ")
-        XCTAssertEqual(accessibilityElement?.currentLine.fullText.value, "here's some nice words for you")
+        XCTAssertEqual(accessibilityElement?.currentLine.text.value, "here's some nice words for you")
         XCTAssertEqual(accessibilityElement?.currentLine.number, 1)
         XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
         XCTAssertEqual(accessibilityElement?.currentLine.end, 30)
@@ -63,14 +63,7 @@ life
         XCTAssertEqual(accessibilityElement?.caretLocation, 43)
         XCTAssertEqual(accessibilityElement?.selectedLength, 20)
         XCTAssertEqual(accessibilityElement?.selectedText, "ourse 💩️💩️💩️\nbeca")
-        XCTAssertEqual(accessibilityElement?.currentLine.fullText.value, """
-that's a TextField
-with multiple lines
-of course 💩️💩️💩️
-because that's its
-life
-"""
-        )
+        XCTAssertEqual(accessibilityElement?.currentLine.text.value, "of course 💩️💩️💩️\n")
         XCTAssertEqual(accessibilityElement?.currentLine.number, 3)
         XCTAssertEqual(accessibilityElement?.currentLine.start, 39)
         XCTAssertEqual(accessibilityElement?.currentLine.end, 59)
