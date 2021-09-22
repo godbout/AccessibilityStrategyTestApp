@@ -39,8 +39,6 @@ extension AccessibilityTextElementTests {
         
         XCTAssertEqual(element.endLimit, 0)
         XCTAssertEqual(element.characterLength, 0)
-        XCTAssertEqual(element.nextCharacterLength, 0)
-        XCTAssertEqual(element.previousCharacterLength, 0)
         XCTAssertEqual(element.isEmpty, true)
         XCTAssertEqual(element.isNotEmpty, false)
         XCTAssertEqual(element.caretIsAtTheEnd, true)
@@ -73,8 +71,6 @@ line
         
         XCTAssertEqual(element.endLimit, 31)
         XCTAssertEqual(element.characterLength, 0)
-        XCTAssertEqual(element.nextCharacterLength, 0)
-        XCTAssertEqual(element.previousCharacterLength, 1)
         XCTAssertEqual(element.isEmpty, false)
         XCTAssertEqual(element.isNotEmpty, true)
         XCTAssertEqual(element.caretIsAtTheEnd, true)
@@ -109,8 +105,6 @@ extension AccessibilityTextElementTests {
         
         XCTAssertEqual(element.endLimit, 19)
         XCTAssertEqual(element.characterLength, 1)
-        XCTAssertEqual(element.nextCharacterLength, 1)
-        XCTAssertEqual(element.previousCharacterLength, 1)
         XCTAssertEqual(element.isEmpty, false)
         XCTAssertEqual(element.isNotEmpty, true)
         XCTAssertEqual(element.caretIsAtTheEnd, false)
@@ -156,9 +150,6 @@ line 🌻️
         
         XCTAssertEqual(element.endLimit, 35)
         XCTAssertEqual(element.characterLength, 0)
-        XCTAssertEqual(element.nextCharacterLength, 0)
-        // previous is linefeed, not sunflower :D
-        XCTAssertEqual(element.previousCharacterLength, 1)
         XCTAssertEqual(element.isEmpty, false)
         XCTAssertEqual(element.isNotEmpty, true)
         XCTAssertEqual(element.caretIsAtTheEnd, true)
@@ -191,8 +182,6 @@ extension AccessibilityTextElementTests {
         
         XCTAssertEqual(element.endLimit, 28)
         XCTAssertEqual(element.characterLength, 3)
-        XCTAssertEqual(element.nextCharacterLength, 5)
-        XCTAssertEqual(element.previousCharacterLength, 3)
         XCTAssertEqual(element.isEmpty, false)
         XCTAssertEqual(element.isNotEmpty, true)
         XCTAssertEqual(element.caretIsAtTheEnd, false)
