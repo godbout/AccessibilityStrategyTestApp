@@ -24,7 +24,7 @@ extension ASNM_cc_Tests {
             selectedLength: 1,
             selectedText: "g",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 21
@@ -58,7 +58,7 @@ lol
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 2,
                 start: 14,
                 end: 29
@@ -86,7 +86,7 @@ be kept
             selectedLength: 1,
             selectedText: "e",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 19
@@ -118,7 +118,7 @@ those faces 🥺️☹️😂️
             selectedLength: 1,
             selectedText: "a",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 2,
                 start: 18,
                 end: 38

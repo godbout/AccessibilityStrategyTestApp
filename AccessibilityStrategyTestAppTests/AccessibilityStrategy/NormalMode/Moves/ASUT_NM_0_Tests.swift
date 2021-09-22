@@ -24,7 +24,7 @@ extension ASUT_NM_0_Tests {
             selectedLength: 1,
             selectedText: "s",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 45
@@ -56,7 +56,7 @@ where we gonna test 0
             selectedLength: 1,
             selectedText: "w",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 2,
                 start: 10,
                 end: 31
@@ -83,15 +83,15 @@ need to deal with
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 61,
+            length: 60,
             caretLocation: 42,
             selectedLength: 3,
             selectedText: "🍃️",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 2,
                 start: 18,
-                end: 61
+                end: 60
             )
         )
         

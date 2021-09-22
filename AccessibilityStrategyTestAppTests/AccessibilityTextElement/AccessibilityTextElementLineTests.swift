@@ -26,7 +26,7 @@ extension AccessibilityTextElementLineTests {
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 0
@@ -60,7 +60,7 @@ line
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 4,
                 start: 31,
                 end: 31
@@ -99,7 +99,7 @@ fucking hell
             selectedLength: 3,
             selectedText: "ng ",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 2,
                 start: 16,
                 end: 28
@@ -132,7 +132,7 @@ a linefeed
             selectedLength: 7,
             selectedText: "'m a li",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 20
@@ -179,7 +179,7 @@ line 🌻️
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 4,
                 start: 35,
                 end: 35
@@ -219,7 +219,7 @@ fucking hell 🇸🇨️
             selectedLength: 2,
             selectedText: " b",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 20
@@ -250,7 +250,7 @@ fucking hell 🇸🇨️
             selectedLength: 2,
             selectedText: "li",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 31
@@ -282,7 +282,7 @@ a linefeed
             selectedLength: 1,
             selectedText: "n",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 26

@@ -17,7 +17,7 @@ finally dealing with the "real stuff"!
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 38
@@ -44,7 +44,7 @@ a text with only one quote ' lol
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 32
@@ -66,7 +66,7 @@ a text with only one quote ' lol
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 26
@@ -90,7 +90,7 @@ now the caret is before the ` shit with ` backtick quotes
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 57
@@ -118,7 +118,7 @@ now the "caret" is after the quotes
             selectedLength: 1,
             selectedText: "e",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 3,
                 start: 63,
                 end: 98
@@ -142,7 +142,7 @@ that's ' three quotes ' in there
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 32
@@ -168,7 +168,7 @@ that's " four quotes " in " there "
             selectedLength: 1,
             selectedText: "\"",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 35
@@ -201,7 +201,7 @@ those💨️💨️💨️ fac"es 🥺️☹️😂️ h😀️ha👅️" hhohoh
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 2,
                 start: 18,
                 end: 71

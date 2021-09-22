@@ -26,7 +26,7 @@ extension ASNM_cf_Tests {
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 29
@@ -54,7 +54,7 @@ that is not there
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 2,
                 start: 11,
                 end: 27
@@ -89,7 +89,7 @@ on a line
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 2,
                 start: 18,
                 end: 30
@@ -122,7 +122,7 @@ those💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
             selectedLength: 1,
             selectedText: "s",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 2,
                 start: 18,
                 end: 52

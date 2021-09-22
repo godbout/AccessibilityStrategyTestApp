@@ -29,7 +29,7 @@ j or k will go to the line endLimit
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 3,
                 start: 36,
                 end: 63

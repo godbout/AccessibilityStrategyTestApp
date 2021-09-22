@@ -24,7 +24,7 @@ extension ASUT_NM_cgg_Tests {
             selectedLength: 1,
             selectedText: "e",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 28
@@ -61,7 +61,7 @@ those faces 🥺️☹️😂️
             selectedLength: 1,
             selectedText: "g",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 3,
                 start: 30,
                 end: 39

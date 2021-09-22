@@ -14,7 +14,7 @@ class to_TF_selectedTextTests: ATEA_BaseTests {
             selectedLength: 0,
             selectedText: "banana 🍌️ ",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 34

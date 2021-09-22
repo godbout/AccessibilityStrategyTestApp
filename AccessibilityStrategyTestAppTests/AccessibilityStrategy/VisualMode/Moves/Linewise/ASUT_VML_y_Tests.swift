@@ -31,7 +31,7 @@ VM y in VM V
 should set 
 """,
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 19
@@ -54,7 +54,7 @@ should set
             selectedLength: 39,
             selectedText: "a whole line entirely for VM V and VM y",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 39
@@ -94,7 +94,7 @@ why the fuck am
 i writing this?
 """,
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 2,
                 start: 17,
                 end: 32
@@ -132,7 +132,7 @@ it goes back to
 the crazy caret location and
 """,
             currentLine: AccessibilityTextElementLine(
-            fullText: text,
+            fullValue: text,
             number: 2,
             start: 21,
             end: 37
@@ -171,7 +171,7 @@ not the anchor!
 the crazy caret location and
 """,
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 2,
                 start: 21,
                 end: 39

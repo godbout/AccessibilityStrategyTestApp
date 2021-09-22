@@ -24,7 +24,7 @@ extension ASNM_A__Tests {
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 1,
                 start: 0,
                 end: 36
@@ -58,7 +58,7 @@ not of a whole TV
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 2,
                 start: 19,
                 end: 33
@@ -87,7 +87,7 @@ below
             selectedLength: 1,
             selectedText: "\n",
             currentLine: AccessibilityTextElementLine(
-            fullText: text,
+            fullValue: text,
             number: 2,
             start: 13,
             end: 37
@@ -116,7 +116,7 @@ not go down
             selectedLength: 1,
             selectedText: "\n",
             currentLine: AccessibilityTextElementLine(
-            fullText: text,
+            fullValue: text,
             number: 2,
             start: 20,
             end: 21
@@ -149,7 +149,7 @@ those faces 🥺️☹️😂️
             selectedLength: 1,
             selectedText: "a",
             currentLine: AccessibilityTextElementLine(
-                fullText: text,
+                fullValue: text,
                 number: 2,
                 start: 18,
                 end: 38

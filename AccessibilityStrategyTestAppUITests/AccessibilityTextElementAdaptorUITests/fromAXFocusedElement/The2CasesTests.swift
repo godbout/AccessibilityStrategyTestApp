@@ -1,5 +1,5 @@
 import XCTest
-import AccessibilityStrategy
+@testable import AccessibilityStrategy
 
 
 // here we test what we really receive or calculate from the Adaptor,
@@ -26,6 +26,7 @@ extension The2CasesTests {
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
         XCTAssertEqual(accessibilityElement?.currentLine.fullText.value, "")
+        XCTAssertEqual(accessibilityElement?.currentLine.text.value, "")
         XCTAssertEqual(accessibilityElement?.currentLine.number, 1)
         XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
         XCTAssertEqual(accessibilityElement?.currentLine.end, 0)
