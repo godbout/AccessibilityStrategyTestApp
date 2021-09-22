@@ -24,7 +24,7 @@ extension ASUT_NM_h_Tests {
             selectedLength: 1,
             selectedText: "c",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 32
@@ -51,7 +51,7 @@ h should not move
             selectedLength: 1,
             selectedText: "i",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 38
@@ -86,7 +86,7 @@ the previous line
             selectedLength: 1,
             selectedText: "h",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 3,
                 start: 43,
                 end: 65
@@ -119,7 +119,7 @@ that shit 💣️ again
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 14,
                 end: 33
@@ -146,7 +146,7 @@ that shit 💣️ again
             selectedLength: 3,
             selectedText: "💣️",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 14,
                 end: 33

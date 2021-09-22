@@ -27,7 +27,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             selectedLength: 9,
             selectedText: "th text m",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 42
@@ -54,7 +54,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             selectedLength: 8,
             selectedText: "lyMove(o",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 64
@@ -81,7 +81,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 59
@@ -114,7 +114,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             selectedLength: 3,
             selectedText: "🤖️",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 37
@@ -141,7 +141,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             selectedLength: 14,
             selectedText: "☀️urrently 🤖️",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 37
@@ -168,7 +168,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             selectedLength: 11,
             selectedText: "☀️🤖️🤖️🤖️",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 44
@@ -195,7 +195,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             selectedLength: 2,
             selectedText: "se",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 41

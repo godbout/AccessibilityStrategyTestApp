@@ -33,7 +33,7 @@ that is not there
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 11,
                 end: 27

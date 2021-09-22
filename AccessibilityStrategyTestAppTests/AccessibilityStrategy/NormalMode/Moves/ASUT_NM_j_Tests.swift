@@ -24,7 +24,7 @@ extension ASNM_j_Tests {
             selectedLength: 1,
             selectedText: "n",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 51

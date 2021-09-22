@@ -24,7 +24,7 @@ extension ASUT_NM_percent_Tests {
             selectedLength: 1,
             selectedText: "t",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 28
@@ -51,7 +51,7 @@ and a ( nice pair line ) :))
             selectedLength: 1,
             selectedText: "d",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 28,
                 end: 56
@@ -75,7 +75,7 @@ and a ( nice pair line ) :))
             selectedLength: 1,
             selectedText: "e",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 56
@@ -99,7 +99,7 @@ and a ( nice pair line ) :))
             selectedLength: 1,
             selectedText: "a",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 62
@@ -133,7 +133,7 @@ func someBull() {
             selectedLength: 1,
             selectedText: "}",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 3,
                 start: 39,
                 end: 40
@@ -166,7 +166,7 @@ those faces 🥺️☹️ } 😂️
             selectedLength: 1,
             selectedText: "d",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 30

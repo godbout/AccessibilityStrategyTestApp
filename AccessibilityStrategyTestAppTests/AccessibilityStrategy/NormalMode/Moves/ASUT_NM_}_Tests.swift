@@ -31,7 +31,7 @@ itself d🤨️🤨️🤨️oes
             selectedLength: 3,
             selectedText: "🤨️",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 54

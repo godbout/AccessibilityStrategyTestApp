@@ -25,7 +25,7 @@ extension ASUT_NM_W__Tests {
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 62
@@ -52,7 +52,7 @@ you little mf
             selectedLength: 1,
             selectedText: "t",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 18,
                 end: 31

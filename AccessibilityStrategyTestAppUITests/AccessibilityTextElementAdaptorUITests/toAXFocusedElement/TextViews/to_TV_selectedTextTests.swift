@@ -18,7 +18,7 @@ this time
             selectedLength: 0,
             selectedText: "\nbanana banana 🍌️🍌️🍌️ banana",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 12,
                 end: 22

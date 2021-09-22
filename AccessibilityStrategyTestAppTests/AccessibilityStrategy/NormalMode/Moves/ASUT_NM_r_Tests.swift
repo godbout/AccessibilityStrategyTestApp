@@ -32,7 +32,7 @@ extension ASUT_NM_r_Tests {
             selectedLength: 1,
             selectedText: "c",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 41
@@ -64,7 +64,7 @@ linefeed
             selectedLength: 1,
             selectedText: "\n",
             currentLine: AccessibilityTextElementLine(
-            fullValue: text,
+            fullText: text,
             number: 2,
             start: 15,
             end: 16

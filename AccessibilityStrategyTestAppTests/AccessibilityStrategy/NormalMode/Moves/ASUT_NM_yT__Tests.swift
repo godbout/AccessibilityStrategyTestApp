@@ -25,7 +25,7 @@ extension ASUT_NM_yT__Tests {
             selectedLength: 1,
             selectedText: "t",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 29
@@ -54,7 +54,7 @@ that is not there
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 11,
                 end: 27
@@ -91,7 +91,7 @@ on a line
             selectedLength: 1,
             selectedText: "i",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 18
@@ -125,7 +125,7 @@ th📍️se💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
             selectedLength: 1,
             selectedText: "h",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 18,
                 end: 56

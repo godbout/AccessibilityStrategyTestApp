@@ -26,7 +26,7 @@ extension ASUT_NM_yy_Tests {
             selectedLength: 1,
             selectedText: "a",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 24
@@ -54,7 +54,7 @@ my friend
             selectedLength: 1,
             selectedText: "t",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 15
@@ -83,7 +83,7 @@ my friend
             selectedLength: 1,
             selectedText: "a",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 2,
                 start: 15,
                 end: 21
@@ -107,7 +107,7 @@ my friend
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 0
@@ -139,7 +139,7 @@ line
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 4,
                 start: 31,
                 end: 31
@@ -175,7 +175,7 @@ those 🍃️🍃️🍃️🍃️🍃️🍃️ faces 🥺️☹️😂️
             selectedLength: 3,
             selectedText: "🍃️",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullText: text,
                 number: 1,
                 start: 0,
                 end: 35
