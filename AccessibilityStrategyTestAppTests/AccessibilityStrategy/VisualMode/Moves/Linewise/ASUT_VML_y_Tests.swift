@@ -31,7 +31,8 @@ VM y in VM V
 should set 
 """,
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 54,
                 number: 1,
                 start: 0,
                 end: 19
@@ -54,7 +55,8 @@ should set
             selectedLength: 39,
             selectedText: "a whole line entirely for VM V and VM y",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 39,
                 number: 1,
                 start: 0,
                 end: 39
@@ -94,7 +96,8 @@ why the fuck am
 i writing this?
 """,
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 63,
                 number: 2,
                 start: 17,
                 end: 32
@@ -132,12 +135,13 @@ it goes back to
 the crazy caret location and
 """,
             currentLine: AccessibilityTextElementLine(
-            fullValue: text,
-            number: 2,
-            start: 21,
-            end: 37
+                fullTextValue: text,
+                fullTextLength: 81,
+                number: 2,
+                start: 21,
+                end: 37
             )
-            )
+        )
         
         var lastYankStyle: VimEngineMoveStyle = .linewise
         let returnedElement = applyMove(on: element, &lastYankStyle)
@@ -171,7 +175,8 @@ not the anchor!
 the crazy caret location and
 """,
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 83,
                 number: 2,
                 start: 21,
                 end: 39

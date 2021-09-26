@@ -18,7 +18,8 @@ TextAreas
             selectedLength: 38,
             selectedText: nil,
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 60,
                 number: 1,
                 start: 0,
                 end: 27
@@ -51,7 +52,8 @@ TextAreas
             selectedLength: 24,
             selectedText: nil,
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 54,
                 number: 3,
                 start: 44,
                 end: 53

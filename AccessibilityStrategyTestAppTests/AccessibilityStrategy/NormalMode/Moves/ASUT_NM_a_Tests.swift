@@ -24,7 +24,8 @@ extension ASNM_a_Tests {
             selectedLength: 1,
             selectedText: "n",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 38,
                 number: 1,
                 start: 0,
                 end: 38
@@ -58,7 +59,8 @@ a should not move
             selectedLength: 1,
             selectedText: "\n",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 35,
                 number: 2,
                 start: 17,
                 end: 18
@@ -91,7 +93,8 @@ those 🥺️☹️😂️ faces
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 38,
                 number: 2,
                 start: 18,
                 end: 38

@@ -14,7 +14,8 @@ class to_TF_selectedLengthTests: ATEA_BaseTests {
             selectedLength: 8,
             selectedText: nil,
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 18,
                 number: 1,
                 start: 0,
                 end: 18

@@ -18,7 +18,8 @@ extension ASVM_AnchorAndHead_Tests {
             selectedLength: 1,
             selectedText: "h",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 5,
                 number: 1,
                 start: 0,
                 end: 5
@@ -47,7 +48,8 @@ and head
             selectedLength: 1,
             selectedText: "n",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 49,
                 number: 2,
                 start: 18,
                 end: 41
@@ -77,7 +79,8 @@ and head
             selectedLength: 1,
             selectedText: "n",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 49,
                 number: 2,
                 start: 18,
                 end: 41
@@ -107,7 +110,8 @@ but the head would be something + 3
             selectedLength: 6,
             selectedText: "😂️😂️",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 118,
                 number: 2,
                 start: 37,
                 end: 83

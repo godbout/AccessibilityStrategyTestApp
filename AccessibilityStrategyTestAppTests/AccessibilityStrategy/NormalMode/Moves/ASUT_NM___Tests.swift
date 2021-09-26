@@ -30,7 +30,8 @@ extension ASUT_NM___Tests {
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 16,
                 number: 1,
                 start: 0,
                 end: 16
@@ -59,7 +60,8 @@ without a linefeed but with spaces
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 86,
                 number: 4,
                 start: 64,
                 end: 86
@@ -94,7 +96,8 @@ empty line has a linefeed
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 67,
                 number: 3,
                 start: 40,
                 end: 63
@@ -127,7 +130,8 @@ need to deal with
             selectedLength: 2,
             selectedText: "☹️",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 64,
                 number: 2,
                 start: 18,
                 end: 64

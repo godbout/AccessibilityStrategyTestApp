@@ -24,7 +24,8 @@ extension ASNM_A__Tests {
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 36,
                 number: 1,
                 start: 0,
                 end: 36
@@ -58,7 +59,8 @@ not of a whole TV
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 50,
                 number: 2,
                 start: 19,
                 end: 33
@@ -87,12 +89,13 @@ below
             selectedLength: 1,
             selectedText: "\n",
             currentLine: AccessibilityTextElementLine(
-            fullValue: text,
-            number: 2,
-            start: 13,
-            end: 37
+                fullTextValue: text,
+                fullTextLength: 67,
+                number: 2,
+                start: 13,
+                end: 37
             )
-            )
+        )
         
         let returnedElement = applyMove(on: element)
         
@@ -116,11 +119,12 @@ not go down
             selectedLength: 1,
             selectedText: "\n",
             currentLine: AccessibilityTextElementLine(
-            fullValue: text,
-            number: 2,
-            start: 20,
-            end: 21
-            )
+                fullTextValue: text,
+                fullTextLength: 54,
+                number: 2,
+                start: 20,
+                end: 21
+                )
             )
         
         let returnedElement = applyMove(on: element)
@@ -149,7 +153,8 @@ those faces 🥺️☹️😂️
             selectedLength: 1,
             selectedText: "a",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 38,
                 number: 2,
                 start: 18,
                 end: 38

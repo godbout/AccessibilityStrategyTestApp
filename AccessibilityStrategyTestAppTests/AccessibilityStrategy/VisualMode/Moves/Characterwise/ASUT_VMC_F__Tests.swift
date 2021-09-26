@@ -27,7 +27,8 @@ extension ASUT_VMC_F__Tests {
             selectedLength: 35,
             selectedText: "f F can 🍃️🍃️🍃️🍃️🍃️🍃️ find shi",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 44,
                 number: 1,
                 start: 0,
                 end: 44
@@ -59,7 +60,8 @@ of newHeadLocation needs some... calculation.
             selectedLength: 36,
             selectedText: "n multiple lines 🌬️ because the cal",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 148,
                 number: 2,
                 start: 52,
                 end: 103
@@ -90,7 +92,8 @@ that is not there
             selectedLength: 3,
             selectedText: "r a",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 44,
                 number: 2,
                 start: 11,
                 end: 27
@@ -117,7 +120,8 @@ that is not there
             selectedLength: 12,
             selectedText: "d some bug h",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 19,
                 number: 1,
                 start: 0,
                 end: 19

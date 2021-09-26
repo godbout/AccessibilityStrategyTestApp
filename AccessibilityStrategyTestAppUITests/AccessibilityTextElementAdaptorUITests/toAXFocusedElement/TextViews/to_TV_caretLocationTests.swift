@@ -18,7 +18,8 @@ coz like come on there's so me shits inside.
             selectedLength: 1,
             selectedText: nil,
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 93,
                 number: 1,
                 start: 0,
                 end: 20
@@ -50,7 +51,8 @@ hallelujah
             selectedLength: 1,
             selectedText: nil,
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 78,
                 number: 2,
                 start: 23,
                 end: 34
@@ -81,7 +83,8 @@ that long.
             selectedLength: 3,
             selectedText: nil,
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 38,
                 number: 2,
                 start: 14,
                 end: 28

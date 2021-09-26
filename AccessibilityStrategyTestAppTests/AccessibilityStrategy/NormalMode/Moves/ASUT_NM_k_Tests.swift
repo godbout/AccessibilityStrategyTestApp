@@ -24,7 +24,8 @@ extension ASNM_k_Tests {
             selectedLength: 1,
             selectedText: "S",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 51,
                 number: 1,
                 start: 0,
                 end: 51

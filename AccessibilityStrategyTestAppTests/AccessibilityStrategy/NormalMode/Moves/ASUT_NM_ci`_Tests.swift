@@ -23,7 +23,8 @@ extension ASNM_ciBacktick_Tests {
             selectedLength: 1,
             selectedText: "e",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 63,
                 number: 1,
                 start: 0,
                 end: 63
@@ -46,7 +47,8 @@ extension ASNM_ciBacktick_Tests {
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 35,
                 number: 1,
                 start: 0,
                 end: 35

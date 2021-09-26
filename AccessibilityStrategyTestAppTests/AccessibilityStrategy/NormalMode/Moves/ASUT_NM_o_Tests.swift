@@ -2,6 +2,10 @@
 import XCTest
 
 
+// so until we had to deal with the word wrap all the tests could be done here. now
+// that we deal with the word wrap we have to have some UI Tests, because we have to reposition
+// the caret after the move. in conclusion, all the other moves are tested here. the ones for
+// the word wrap are in the UI Tests.
 class ASUT_NM_o_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
@@ -24,7 +28,8 @@ extension ASUT_NM_o_Tests {
             selectedLength: 1,
             selectedText: "t",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 39,
                 number: 1,
                 start: 0,
                 end: 39
@@ -57,7 +62,8 @@ below
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 53,
                 number: 3,
                 start: 30,
                 end: 48
@@ -84,7 +90,8 @@ so the new line follows that
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 56,
                 number: 2,
                 start: 5,
                 end: 28
@@ -109,7 +116,8 @@ it should not cut the last character
             selectedLength: 1,
             selectedText: "t",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 36,
                 number: 1,
                 start: 0,
                 end: 36
@@ -136,7 +144,8 @@ caret on empty last line
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 25,
                 number: 2,
                 start: 25,
                 end: 25
@@ -163,7 +172,8 @@ two lines empty below
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 23,
                 number: 2,
                 start: 22,
                 end: 23
@@ -195,7 +205,8 @@ those 🍃️🍃️🍃️🍃️🍃️🍃️ faces 🥺️☹️😂️
             selectedLength: 1,
             selectedText: "a",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 72,
                 number: 1,
                 start: 0,
                 end: 33

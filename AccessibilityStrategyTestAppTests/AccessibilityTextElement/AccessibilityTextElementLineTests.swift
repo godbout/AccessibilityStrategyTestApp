@@ -26,7 +26,8 @@ extension AccessibilityTextElementLineTests {
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 0,
                 number: 1,
                 start: 0,
                 end: 0
@@ -60,7 +61,8 @@ line
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 31,
                 number: 4,
                 start: 31,
                 end: 31
@@ -99,7 +101,8 @@ fucking hell
             selectedLength: 3,
             selectedText: "ng ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 28,
                 number: 2,
                 start: 16,
                 end: 28
@@ -132,7 +135,8 @@ a linefeed
             selectedLength: 7,
             selectedText: "'m a li",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 30,
                 number: 1,
                 start: 0,
                 end: 20
@@ -179,7 +183,8 @@ line 🌻️
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 35,
                 number: 4,
                 start: 35,
                 end: 35
@@ -219,7 +224,8 @@ fucking hell 🇸🇨️
             selectedLength: 2,
             selectedText: " b",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 48,
                 number: 1,
                 start: 0,
                 end: 20
@@ -250,7 +256,8 @@ fucking hell 🇸🇨️
             selectedLength: 2,
             selectedText: "li",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 31,
                 number: 1,
                 start: 0,
                 end: 31
@@ -282,7 +289,8 @@ a linefeed
             selectedLength: 1,
             selectedText: "n",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 36,
                 number: 1,
                 start: 0,
                 end: 26

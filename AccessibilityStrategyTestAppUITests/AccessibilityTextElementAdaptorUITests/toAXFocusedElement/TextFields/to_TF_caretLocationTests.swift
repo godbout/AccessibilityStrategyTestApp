@@ -14,7 +14,8 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
             selectedLength: 4,
             selectedText: nil,
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 14,
                 number: 1,
                 start: 0,
                 end: 14
@@ -42,7 +43,8 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
             selectedLength: 1,
             selectedText: nil,
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 9,
                 number: 1,
                 start: 0,
                 end: 9
@@ -70,7 +72,8 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
             selectedLength: 1,
             selectedText: nil,
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 17,
                 number: 1,
                 start: 0,
                 end: 17

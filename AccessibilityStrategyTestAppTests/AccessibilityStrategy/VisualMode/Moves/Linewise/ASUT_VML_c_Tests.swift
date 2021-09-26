@@ -39,7 +39,8 @@ but the below line will not go up
 
 """,
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 126,
                 number: 2,
                 start: 17,
                 end: 48

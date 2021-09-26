@@ -25,7 +25,8 @@ extension ASUT_NM_caw_Tests {
             selectedLength: 1,
             selectedText: "t",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 50,
                 number: 1,
                 start: 0,
                 end: 50
@@ -52,7 +53,8 @@ and also a lot of spaces at the end of this line
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 66,
                 number: 2,
                 start: 10,
                 end: 66

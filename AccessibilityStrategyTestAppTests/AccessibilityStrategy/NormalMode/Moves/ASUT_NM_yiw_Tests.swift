@@ -27,7 +27,8 @@ extension ASUT_NM_yiw_Tests {
             selectedLength: 1,
             selectedText: "h",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 34,
                 number: 1,
                 start: 0,
                 end: 34
@@ -61,7 +62,8 @@ th📍️se💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
             selectedLength: 3,
             selectedText: "💨️",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 56,
                 number: 2,
                 start: 18,
                 end: 56

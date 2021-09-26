@@ -30,7 +30,8 @@ extension ASUT_VMC_c_Tests {
             selectedLength: 13,
             selectedText: "haha) on a si",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 36,
                 number: 1,
                 start: 0,
                 end: 36
@@ -62,7 +63,8 @@ but on multiple
 lines bec
 """,
             currentLine: AccessibilityTextElementLine(
-            fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 48,
                 number: 1,
                 start: 0,
                 end: 19

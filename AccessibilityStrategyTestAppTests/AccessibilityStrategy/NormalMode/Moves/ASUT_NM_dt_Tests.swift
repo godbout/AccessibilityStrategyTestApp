@@ -29,7 +29,8 @@ that is not there
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 44,
                 number: 2,
                 start: 11,
                 end: 27

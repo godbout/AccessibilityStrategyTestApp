@@ -29,7 +29,8 @@ itself does
             selectedLength: 1,
             selectedText: "t",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 84,
                 number: 2,
                 start: 34,
                 end: 73
