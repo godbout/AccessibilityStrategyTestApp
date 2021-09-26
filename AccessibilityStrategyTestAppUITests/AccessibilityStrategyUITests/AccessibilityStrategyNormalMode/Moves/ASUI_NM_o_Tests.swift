@@ -30,12 +30,12 @@ that's 😀️ a multiline 😀️😀️ and a long 😀️😀️ one that wil
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.text.value, """
-that's 😀️ a multiline 😀️😀️ and a long 😀️😀️ one that will
+that's 😀️ a multiline 😀️😀️ and a long 😀️😀️ one that will be wrapped somewhere but we 😀️ don't know where LOL and 😀️
 
-be wrapped somewhere but we 😀️ don't know where LOL and 😀️😀️ i have to 😀️ test that shit
+😀️ i have to 😀️ test that shit
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 84)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 123)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
     
@@ -57,7 +57,5 @@ that's 😀️ a multiline 😀️😀️ and a long 😀️😀️ one that wil
         XCTAssertEqual(accessibilityElement?.caretLocation, 155)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
-    
-    
     
 }
