@@ -291,7 +291,6 @@
 		916B4AEA26EA5FDA004ACE9B /* ASUI_NM_dF__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_dF__Tests.swift; sourceTree = "<group>"; };
 		916B4AED26EA68EB004ACE9B /* ASUI_NM_df_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_df_Tests.swift; sourceTree = "<group>"; };
 		916B4AEF26EA6AF4004ACE9B /* ASUI_NM_dT__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_dT__Tests.swift; sourceTree = "<group>"; };
-		9180E5B226FF7E9300EFE452 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		9180E5B326FF7F1900EFE452 /* ASUI_NM_o_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_o_Tests.swift; sourceTree = "<group>"; };
 		9181DB8726F6556A00B2DB82 /* aWordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aWordTests.swift; sourceTree = "<group>"; };
 		91A3018526F0E106001BFD23 /* ASUT_VMC_E__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_VMC_E__Tests.swift; sourceTree = "<group>"; };
@@ -648,7 +647,6 @@
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
-				9180E5B226FF7E9300EFE452 /* AccessibilityStrategy */,
 				91F951B326DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,
@@ -1858,16 +1856,16 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:godbout/KeyCombination.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.2;
+				branch = master;
+				kind = branch;
 			};
 		};
 		91F952D126DFF86F00DC26C6 /* XCRemoteSwiftPackageReference "AccessibilityStrategy" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:godbout/AccessibilityStrategy.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.7;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
