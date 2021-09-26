@@ -10,6 +10,7 @@ import XCTest
 // need to be tested more thoroughly too so here we go, 2 new tests. this is because
 // the definition of isTheLastLine before was correct only for non wrapped lines. now
 // it's updated to take in consideration wrapped lines, and tested.
+// part 3: also adding the new isWrapped and isNotWrapped. added that cp for convience.
 class AccessibilityTextElementLineTests: XCTestCase {}
 
 
@@ -49,6 +50,8 @@ extension AccessibilityTextElementLineTests {
         XCTAssertEqual(element.currentLine.isNotTheFirstLine, false)
         XCTAssertEqual(element.currentLine.isTheLastLine, true)
         XCTAssertEqual(element.currentLine.isNotTheLastLine, false)
+        XCTAssertEqual(element.currentLine.isWrapped, false)
+        XCTAssertEqual(element.currentLine.isNotWrapped, true)
     }
     
     func test_that_without_emojis_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_the_computed_properties_are_correctly_calculated() {
@@ -85,6 +88,8 @@ line
         XCTAssertEqual(element.currentLine.isNotTheFirstLine, true)
         XCTAssertEqual(element.currentLine.isTheLastLine, true)
         XCTAssertEqual(element.currentLine.isNotTheLastLine, false)
+        XCTAssertEqual(element.currentLine.isWrapped, false)
+        XCTAssertEqual(element.currentLine.isNotWrapped, true)
     }
     
 }
@@ -126,7 +131,8 @@ fucking hell
         XCTAssertEqual(element.currentLine.isNotTheFirstLine, true)
         XCTAssertEqual(element.currentLine.isTheLastLine, true)
         XCTAssertEqual(element.currentLine.isNotTheLastLine, false)
-        
+        XCTAssertEqual(element.currentLine.isWrapped, false)
+        XCTAssertEqual(element.currentLine.isNotWrapped, true)
     }
     
     func test_that_without_emojis_for_a_line_with_a_linefeed_the_computed_properties_are_correctly_calculated() {
@@ -161,6 +167,8 @@ a linefeed
         XCTAssertEqual(element.currentLine.isNotTheFirstLine, false)
         XCTAssertEqual(element.currentLine.isTheLastLine, false)
         XCTAssertEqual(element.currentLine.isNotTheLastLine, true)
+        XCTAssertEqual(element.currentLine.isWrapped, false)
+        XCTAssertEqual(element.currentLine.isNotWrapped, true)
     }
     
     func test_that_without_emojis_for_a_wrapped_line_the_computed_properties_are_correctly_calculated_especially_the_isTheLastLine() {
@@ -196,6 +204,8 @@ wrapped lines. testing on the linefeed is not enough. there's some more involved
         XCTAssertEqual(element.currentLine.isNotTheFirstLine, true)
         XCTAssertEqual(element.currentLine.isTheLastLine, false)
         XCTAssertEqual(element.currentLine.isNotTheLastLine, true)
+        XCTAssertEqual(element.currentLine.isWrapped, true)
+        XCTAssertEqual(element.currentLine.isNotWrapped, false)
     }
     
 }
@@ -245,6 +255,8 @@ line 🌻️
         XCTAssertEqual(element.currentLine.isNotTheFirstLine, true)
         XCTAssertEqual(element.currentLine.isTheLastLine, true)
         XCTAssertEqual(element.currentLine.isNotTheLastLine, false)
+        XCTAssertEqual(element.currentLine.isWrapped, false)
+        XCTAssertEqual(element.currentLine.isNotWrapped, true)
     }
     
 }
@@ -287,6 +299,8 @@ fucking hell 🇸🇨️
         XCTAssertEqual(element.currentLine.isNotTheFirstLine, false)
         XCTAssertEqual(element.currentLine.isTheLastLine, false)
         XCTAssertEqual(element.currentLine.isNotTheLastLine, true)
+        XCTAssertEqual(element.currentLine.isWrapped, false)
+        XCTAssertEqual(element.currentLine.isNotWrapped, true)
     }
     
     
@@ -320,6 +334,8 @@ fucking hell 🇸🇨️
         XCTAssertEqual(element.currentLine.isNotTheFirstLine, false)
         XCTAssertEqual(element.currentLine.isTheLastLine, true)
         XCTAssertEqual(element.currentLine.isNotTheLastLine, false)
+        XCTAssertEqual(element.currentLine.isWrapped, false)
+        XCTAssertEqual(element.currentLine.isNotWrapped, true)
     }
     
     func test_that_with_emojis_for_a_line_without_a_linefeed_the_computed_properties_are_correctly_calculated_when_the_emoji_is_right_before_the_linefeed() {
@@ -354,6 +370,8 @@ a linefeed
         XCTAssertEqual(element.currentLine.isNotTheFirstLine, false)
         XCTAssertEqual(element.currentLine.isTheLastLine, false)
         XCTAssertEqual(element.currentLine.isNotTheLastLine, true)
+        XCTAssertEqual(element.currentLine.isWrapped, false)
+        XCTAssertEqual(element.currentLine.isNotWrapped, true)
     }
     
     func test_that_with_emojis_for_a_wrapped_line_the_computed_properties_are_correctly_calculated_especially_the_isTheLastLine() {
@@ -389,6 +407,8 @@ wrapped lines. testing on the linefeed is not 😂️nough. there's some more in
         XCTAssertEqual(element.currentLine.isNotTheFirstLine, true)
         XCTAssertEqual(element.currentLine.isTheLastLine, false)
         XCTAssertEqual(element.currentLine.isNotTheLastLine, true)
+        XCTAssertEqual(element.currentLine.isWrapped, true)
+        XCTAssertEqual(element.currentLine.isNotWrapped, false)
     }
     
 }
