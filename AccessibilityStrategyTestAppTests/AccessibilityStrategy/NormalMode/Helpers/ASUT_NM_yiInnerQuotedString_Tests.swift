@@ -25,7 +25,8 @@ extension ASNM_yiInnerQuotedString_Tests {
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 34,
                 number: 1,
                 start: 0,
                 end: 34
@@ -55,7 +56,8 @@ now there's one " double quote
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 30,
                 number: 1,
                 start: 0,
                 end: 30
@@ -86,7 +88,8 @@ two 'simple quotes' on the second line
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 50,
                 number: 2,
                 start: 12,
                 end: 50
@@ -115,7 +118,8 @@ and now `hohohohoho`
             selectedLength: 1,
             selectedText: "h",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 42,
                 number: 3,
                 start: 22,
                 end: 42
@@ -142,7 +146,8 @@ double "quotes" before the caret
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 32,
                 number: 1,
                 start: 0,
                 end: 32
@@ -173,7 +178,8 @@ heheheheh
             selectedLength: 1,
             selectedText: "e",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 41,
                 number: 2,
                 start: 10,
                 end: 41
@@ -201,7 +207,8 @@ now there's gonna
             selectedLength: 1,
             selectedText: "`",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 39,
                 number: 2,
                 start: 18,
                 end: 39
@@ -235,7 +242,8 @@ those💨️💨️💨️ fac"🍵️s 🥺️☹️😂️ h😀️ha👅️" 
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 73,
                 number: 2,
                 start: 18,
                 end: 73

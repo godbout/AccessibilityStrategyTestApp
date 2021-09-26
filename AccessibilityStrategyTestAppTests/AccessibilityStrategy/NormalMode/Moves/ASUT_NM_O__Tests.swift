@@ -23,7 +23,8 @@ extension ASNM_O__Tests {
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 39,
                 number: 1,
                 start: 0,
                 end: 39

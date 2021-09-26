@@ -32,7 +32,8 @@ extension ASUT_NM_r_Tests {
             selectedLength: 1,
             selectedText: "c",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 41,
                 number: 1,
                 start: 0,
                 end: 41
@@ -64,11 +65,12 @@ linefeed
             selectedLength: 1,
             selectedText: "\n",
             currentLine: AccessibilityTextElementLine(
-            fullValue: text,
-            number: 2,
-            start: 15,
-            end: 16
-            )
+                fullTextValue: text,
+                fullTextLength: 24,
+                number: 2,
+                start: 15,
+                end: 16
+                )
             )
         
         let returnedElement = applyMove(with: "g", on: element)

@@ -31,7 +31,8 @@ to Characterwise
 should set Visu
 """,
             currentLine: AccessibilityTextElementLine(
-            fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 59, 
                 number: 1,
                 start: 0,
                 end: 19
@@ -56,7 +57,8 @@ should set Visu
             selectedLength: 27,
             selectedText: "then VM y should copy the s",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 55,
                 number: 1,
                 start: 0,
                 end: 55
@@ -81,7 +83,8 @@ should set Visu
             selectedLength: 31,
             selectedText: "nking you go back to caret you ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 47,
                 number: 1,
                 start: 0,
                 end: 47
@@ -106,7 +109,8 @@ should set Visu
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 0,
                 number: 1,
                 start: 0,
                 end: 0
@@ -139,7 +143,8 @@ line
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 31,
                 number: 4,
                 start: 31,
                 end: 31
@@ -173,7 +178,8 @@ extension ASUT_VMC_y_Tests {
             selectedLength: 33,
             selectedText: "🍦️king you go back to caret you ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 49,
                 number: 1,
                 start: 0,
                 end: 49

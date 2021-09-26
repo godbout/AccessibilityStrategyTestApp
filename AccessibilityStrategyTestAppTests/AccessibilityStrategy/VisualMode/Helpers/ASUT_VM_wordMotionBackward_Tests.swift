@@ -26,7 +26,8 @@ extension ASUT_VM_wordMotionBackward_Tests {
             selectedLength: 25,
             selectedText: "t with text moves in Visu",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 42,
                 number: 1,
                 start: 0,
                 end: 42
@@ -60,7 +61,8 @@ or, not
 fro
 """,
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 88,
                 number: 2,
                 start: 32,
                 end: 65
@@ -87,7 +89,8 @@ fro
             selectedLength: 1,
             selectedText: "i",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 34,
                 number: 1,
                 start: 0,
                 end: 34
@@ -119,7 +122,8 @@ line
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 31,
                 number: 4,
                 start: 31,
                 end: 31
@@ -153,7 +157,8 @@ extension ASUT_VM_wordMotionBackward_Tests {
             selectedLength: 3,
             selectedText: "🤖️",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 36,
                 number: 1,
                 start: 0,
                 end: 36
@@ -180,7 +185,8 @@ extension ASUT_VM_wordMotionBackward_Tests {
             selectedLength: 12,
             selectedText: "urrently 🤖️",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 37,
                 number: 1,
                 start: 0,
                 end: 37

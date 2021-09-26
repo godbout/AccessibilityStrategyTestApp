@@ -24,7 +24,8 @@ extension ASNM_C__Tests {
             selectedLength: 1,
             selectedText: "e",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 53,
                 number: 1,
                 start: 0,
                 end: 53
@@ -58,7 +59,8 @@ else everything gonna stuck
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 85,
                 number: 2,
                 start: 32,
                 end: 58
@@ -86,11 +88,12 @@ and that shouldn't be deleted by C
             selectedLength: 1,
             selectedText: "\n",
             currentLine: AccessibilityTextElementLine(
-            fullValue: text,
-            number: 2,
-            start: 26,
-            end: 27
-            )
+                fullTextValue: text,
+                fullTextLength: 61,
+                number: 2,
+                start: 26,
+                end: 27
+                )
             )
         
         let returnedElement = applyMove(on: element)
@@ -119,7 +122,8 @@ those faces 🥺️☹️😂️
             selectedLength: 1,
             selectedText: "a",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 38,
                 number: 2,
                 start: 18,
                 end: 38

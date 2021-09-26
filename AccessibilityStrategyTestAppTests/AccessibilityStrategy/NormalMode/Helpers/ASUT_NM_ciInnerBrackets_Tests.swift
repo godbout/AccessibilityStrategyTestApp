@@ -31,7 +31,8 @@ extension ASUT_NM_ciInnerBrackets_Tests {
             selectedLength: 1,
             selectedText: "o",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 58,
                 number: 1,
                 start: 0,
                 end: 58
@@ -65,7 +66,8 @@ and } is not preceded by a linefeed
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 85,
                 number: 1,
                 start: 0,
                 end: 36
@@ -93,7 +95,8 @@ by a linefeed and
             selectedLength: 1,
             selectedText: "n",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 86,
                 number: 1,
                 start: 0,
                 end: 36

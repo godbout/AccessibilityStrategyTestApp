@@ -30,7 +30,8 @@ extension ASUT_NM_yiInnerBrackets_Tests {
             selectedLength: 1,
             selectedText: "m",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 42,
                 number: 1,
                 start: 0,
                 end: 42
@@ -67,7 +68,8 @@ and } is not preceded by a linefeed
             selectedLength: 0,
             selectedText: "",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 85,
                 number: 1,
                 start: 0,
                 end: 36
@@ -103,7 +105,8 @@ and } is not preceded by a linefeed
             selectedLength: 1,
             selectedText: "b",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 78,
                 number: 2,
                 start: 17,
                 end: 43
@@ -138,7 +141,8 @@ by a linefeed and
             selectedLength: 1,
             selectedText: "n",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 86,
                 number: 1,
                 start: 0,
                 end: 36
@@ -173,7 +177,8 @@ is followed by a linefeed and
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 77,
                 number: 2,
                 start: 20,
                 end: 50

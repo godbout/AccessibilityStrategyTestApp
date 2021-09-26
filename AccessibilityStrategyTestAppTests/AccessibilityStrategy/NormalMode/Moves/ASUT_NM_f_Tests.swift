@@ -25,7 +25,8 @@ extension ASUT_NM_f_Tests {
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 25,
                 number: 1,
                 start: 0,
                 end: 25
@@ -54,7 +55,8 @@ that is not there
             selectedLength: 1,
             selectedText: "c",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 44,
                 number: 2,
                 start: 11,
                 end: 27
@@ -89,7 +91,8 @@ yeah
             selectedLength: 1,
             selectedText: "y",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 52,
                 number: 4,
                 start: 48,
                 end: 52
@@ -122,7 +125,8 @@ those 🍃️🍃️🍃️🍃️🍃️🍃️ faces 🥺️☹️😂️
             selectedLength: 1,
             selectedText: "s",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 57,
                 number: 2,
                 start: 18,
                 end: 57

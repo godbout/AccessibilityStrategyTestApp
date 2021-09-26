@@ -30,7 +30,8 @@ extension ASUT_VMC_o_Tests {
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 34,
                 number: 1,
                 start: 0,
                 end: 34
@@ -61,7 +62,8 @@ tricky
             selectedLength: 1,
             selectedText: "m",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 59,
                 number: 2,
                 start: 17,
                 end: 36
@@ -90,7 +92,8 @@ my friend
             selectedLength: 1,
             selectedText: "f",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 21,
                 number: 2,
                 start: 12,
                 end: 21

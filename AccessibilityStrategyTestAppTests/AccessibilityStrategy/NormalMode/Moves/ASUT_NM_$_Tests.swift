@@ -25,7 +25,8 @@ extension ASUT_NM_$_Tests {
             selectedLength: 1,
             selectedText: "l",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 15,
                 number: 1,
                 start: 0,
                 end: 15
@@ -54,7 +55,8 @@ j or k will go to the line endLimit
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 98,
                 number: 3,
                 start: 36,
                 end: 63
@@ -88,7 +90,8 @@ multiline
             selectedLength: 1,
             selectedText: "s",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 24,
                 number: 2,
                 start: 7,
                 end: 15
@@ -117,11 +120,12 @@ it's a bug!
             selectedLength: 1,
             selectedText: "\n",
             currentLine: AccessibilityTextElementLine(
-            fullValue: text,
-            number: 3,
-            start: 27,
-            end: 28
-            )
+                fullTextValue: text,
+                fullTextLength: 39,
+                number: 3,
+                start: 27,
+                end: 28
+                )
             )
 
         let returnedElement = applyMoveBeingTested(on: element)

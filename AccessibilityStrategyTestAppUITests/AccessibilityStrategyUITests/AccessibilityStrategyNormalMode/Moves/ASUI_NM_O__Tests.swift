@@ -3,7 +3,7 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-class ASUI_NM_O_Tests: ASUI_NM_BaseTests {
+class ASUI_NM_O__Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement? {
         return applyMove { asNormalMode.O(on: $0) }
@@ -13,7 +13,7 @@ class ASUI_NM_O_Tests: ASUI_NM_BaseTests {
 
 
 // TextViews
-extension ASUI_NM_O_Tests {
+extension ASUI_NM_O__Tests {
     
     func test_that_in_normal_setting_it_creates_a_new_line_above_the_current_one() {
         let textInAXFocusedElement = """

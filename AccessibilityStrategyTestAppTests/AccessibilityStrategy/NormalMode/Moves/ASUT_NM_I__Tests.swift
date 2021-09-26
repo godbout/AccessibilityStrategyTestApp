@@ -31,7 +31,8 @@ need to deal with
             selectedLength: 1,
             selectedText: "s",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 56,
                 number: 2,
                 start: 18,
                 end: 56

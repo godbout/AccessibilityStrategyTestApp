@@ -24,7 +24,8 @@ extension ASUT_VMC_iw_Tests {
             selectedLength: 20,
             selectedText: "hor position are imp",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 91,
                 number: 1,
                 start: 0,
                 end: 55
@@ -51,7 +52,8 @@ extension ASUT_VMC_iw_Tests {
             selectedLength: 21,
             selectedText: "⚓️⚓️ position are imp",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 100,
                 number: 1,
                 start: 0,
                 end: 100
@@ -78,7 +80,8 @@ extension ASUT_VMC_iw_Tests {
             selectedLength: 1,
             selectedText: "e",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 115,
                 number: 1,
                 start: 0,
                 end: 115
@@ -113,7 +116,8 @@ in relation to each other
             selectedLength: 6,
             selectedText: "ferent",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 147,
                 number: 2,
                 start: 43,
                 end: 78
@@ -145,7 +149,8 @@ in relation to each other
             selectedLength: 5,
             selectedText: "diffe",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+                fullTextValue: text,
+                fullTextLength: 147,
                 number: 2,
                 start: 43,
                 end: 78
