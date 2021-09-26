@@ -7,10 +7,12 @@ import XCTest
 // we gonna test with and without emojis coz i'm still not
 // familiar with that utf16 shit.
 // part 2: i'm now dealing with wrapped lines and isTheLastLine and isNotTheLastLine
-// need to be tested more thoroughly too so here we go, 2 new tests. this is because
+// need to be tested more thoroughly too so here we go, new tests. this is because
 // the definition of isTheLastLine before was correct only for non wrapped lines. now
 // it's updated to take in consideration wrapped lines, and tested.
 // part 3: also adding the new isWrapped and isNotWrapped. added that cp for convience.
+// summary: ultimately i'm not sure all those tests are needed, but they confirm
+// the foundation works, and they're UT so they're cheap :D
 class AccessibilityTextElementLineTests: XCTestCase {}
 
 
@@ -206,6 +208,45 @@ wrapped lines. testing on the linefeed is not enough. there's some more involved
         XCTAssertEqual(element.currentLine.isNotTheLastLine, true)
         XCTAssertEqual(element.currentLine.isWrapped, true)
         XCTAssertEqual(element.currentLine.isNotWrapped, false)
+    }
+    
+    func test_that_without_emojis_if_the_caret_is_on_the_line_before_the_last_empty_line_then_the_computed_properties_are_correct_and_especially_it_is_not_considered_the_last_line() {
+        let text = """
+caret is on the line
+just before the empty and before
+this test it would return isTheLastLine
+after updating to the new isTheLastLine :D
+
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 137,
+            caretLocation: 110,
+            selectedLength: 1,
+            selectedText: "o",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 137,
+                number: 4,
+                start: 94,
+                end: 137
+            )
+        )
+        
+        XCTAssertEqual(element.currentLine.text.value, "after updating to the new isTheLastLine :D\n")
+        XCTAssertEqual(element.currentLine.length, 43)
+        XCTAssertEqual(element.currentLine.lengthWithoutLinefeed, 42)
+        XCTAssertEqual(element.currentLine.endLimit, 135)
+        XCTAssertEqual(element.currentLine.relativeEndLimit, 41)
+        XCTAssertEqual(element.currentLine.isAnEmptyLine, false)
+        XCTAssertEqual(element.currentLine.isNotAnEmptyLine, true)
+        XCTAssertEqual(element.currentLine.isTheFirstLine, false)
+        XCTAssertEqual(element.currentLine.isNotTheFirstLine, true)
+        XCTAssertEqual(element.currentLine.isTheLastLine, false)
+        XCTAssertEqual(element.currentLine.isNotTheLastLine, true)
+        XCTAssertEqual(element.currentLine.isWrapped, false)
+        XCTAssertEqual(element.currentLine.isNotWrapped, true)
     }
     
 }
@@ -409,6 +450,45 @@ wrapped lines. testing on the linefeed is not 😂️nough. there's some more in
         XCTAssertEqual(element.currentLine.isNotTheLastLine, true)
         XCTAssertEqual(element.currentLine.isWrapped, true)
         XCTAssertEqual(element.currentLine.isNotWrapped, false)
+    }
+    
+    func test_that_with_emojis_if_the_caret_is_on_the_line_before_the_last_empty_line_then_the_computed_properties_are_correct_and_especially_it_is_not_considered_the_last_line() {
+        let text = """
+caret is on the line
+just before the empty and before
+this test it would return isTheLastLine
+after updating 😂️😂️😂️ the new isTheLastLine :D
+
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 144,
+            caretLocation: 106,
+            selectedLength: 20,
+            selectedText: "ng 😂️😂️😂️ the new",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 144,
+                number: 4,
+                start: 94,
+                end: 144
+            )
+        )
+        
+        XCTAssertEqual(element.currentLine.text.value, "after updating 😂️😂️😂️ the new isTheLastLine :D\n")
+        XCTAssertEqual(element.currentLine.length, 50)
+        XCTAssertEqual(element.currentLine.lengthWithoutLinefeed, 49)
+        XCTAssertEqual(element.currentLine.endLimit, 142)
+        XCTAssertEqual(element.currentLine.relativeEndLimit, 48)
+        XCTAssertEqual(element.currentLine.isAnEmptyLine, false)
+        XCTAssertEqual(element.currentLine.isNotAnEmptyLine, true)
+        XCTAssertEqual(element.currentLine.isTheFirstLine, false)
+        XCTAssertEqual(element.currentLine.isNotTheFirstLine, true)
+        XCTAssertEqual(element.currentLine.isTheLastLine, false)
+        XCTAssertEqual(element.currentLine.isNotTheLastLine, true)
+        XCTAssertEqual(element.currentLine.isWrapped, false)
+        XCTAssertEqual(element.currentLine.isNotWrapped, true)
     }
     
 }
