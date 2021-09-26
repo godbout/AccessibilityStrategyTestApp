@@ -2,7 +2,7 @@
 import XCTest
 
 
-// 1. using the move F internally, so just a few tests needed here.
+// 1. dF is calling cF, and reposition the block cursor. cF uses F. all tested.
 // 2. here in UT we can test the case where the character is not found, and therefore
 // nothing is deleted.
 // for the cases where a character is found, text is deleted and the block cursor have to
