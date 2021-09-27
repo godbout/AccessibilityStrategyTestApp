@@ -64,6 +64,9 @@
 		916B4AEB26EA5FDA004ACE9B /* ASUI_NM_dF__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916B4AEA26EA5FDA004ACE9B /* ASUI_NM_dF__Tests.swift */; };
 		916B4AEE26EA68EB004ACE9B /* ASUI_NM_df_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916B4AED26EA68EB004ACE9B /* ASUI_NM_df_Tests.swift */; };
 		916B4AF026EA6AF4004ACE9B /* ASUI_NM_dT__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916B4AEF26EA6AF4004ACE9B /* ASUI_NM_dT__Tests.swift */; };
+		9179DC082701D8E100C87DD6 /* KeyCombination in Frameworks */ = {isa = PBXBuildFile; productRef = 9179DC072701D8E100C87DD6 /* KeyCombination */; };
+		9179DC0A2701D8EE00C87DD6 /* KeyCombination in Frameworks */ = {isa = PBXBuildFile; productRef = 9179DC092701D8EE00C87DD6 /* KeyCombination */; };
+		9179DC0C2701D8F100C87DD6 /* KeyCombination in Frameworks */ = {isa = PBXBuildFile; productRef = 9179DC0B2701D8F100C87DD6 /* KeyCombination */; };
 		918022AA2700C66F0094BF92 /* ASUI_NM_daw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918022A92700C66F0094BF92 /* ASUI_NM_daw_Tests.swift */; };
 		918022AC2700C6B30094BF92 /* ASUT_NM_daw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918022AB2700C6B30094BF92 /* ASUT_NM_daw_Tests.swift */; };
 		9180E5B426FF7F1900EFE452 /* ASUI_NM_o_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9180E5B326FF7F1900EFE452 /* ASUI_NM_o_Tests.swift */; };
@@ -477,6 +480,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9179DC082701D8E100C87DD6 /* KeyCombination in Frameworks */,
 				913BAFF426E10496002E6999 /* AccessibilityStrategy in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,6 +489,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9179DC0A2701D8EE00C87DD6 /* KeyCombination in Frameworks */,
 				914DD45526E12D0D0067DD83 /* AccessibilityStrategy in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +498,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9179DC0C2701D8F100C87DD6 /* KeyCombination in Frameworks */,
 				91AF71C326E15654007C2D2E /* AccessibilityStrategy in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,6 +586,13 @@
 			path = Moves;
 			sourceTree = "<group>";
 		};
+		9179DC062701D8E100C87DD6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		91A3018726F0E202001BFD23 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -661,6 +674,7 @@
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,
 				91F951B226DFF56C00DC26C6 /* Products */,
+				9179DC062701D8E100C87DD6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1014,6 +1028,7 @@
 			name = AccessibilityTextElementAdaptorUITests;
 			packageProductDependencies = (
 				913BAFF326E10496002E6999 /* AccessibilityStrategy */,
+				9179DC072701D8E100C87DD6 /* KeyCombination */,
 			);
 			productName = AccessibilityTextElementAdaptorUITests;
 			productReference = 913BAFDC26E103FE002E6999 /* AccessibilityTextElementAdaptorUITests.xctest */;
@@ -1035,6 +1050,7 @@
 			name = AccessibilityStrategyNormaModeUITests;
 			packageProductDependencies = (
 				914DD45426E12D0D0067DD83 /* AccessibilityStrategy */,
+				9179DC092701D8EE00C87DD6 /* KeyCombination */,
 			);
 			productName = AccessibilityStrategyNormaModeUITests;
 			productReference = 914DD43B26E12C0F0067DD83 /* AccessibilityStrategyNormaModeUITests.xctest */;
@@ -1056,6 +1072,7 @@
 			name = AccessibilityStrategyVisualModeUITests;
 			packageProductDependencies = (
 				91AF71C226E15654007C2D2E /* AccessibilityStrategy */,
+				9179DC0B2701D8F100C87DD6 /* KeyCombination */,
 			);
 			productName = AccessibilityStrategyVisualModeUITests;
 			productReference = 91AF718026E15140007C2D2E /* AccessibilityStrategyVisualModeUITests.xctest */;
@@ -1898,6 +1915,21 @@
 			productName = AccessibilityStrategy;
 		};
 		91522F7426E007DF00435E47 /* KeyCombination */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91522F7326E007DF00435E47 /* XCRemoteSwiftPackageReference "KeyCombination" */;
+			productName = KeyCombination;
+		};
+		9179DC072701D8E100C87DD6 /* KeyCombination */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91522F7326E007DF00435E47 /* XCRemoteSwiftPackageReference "KeyCombination" */;
+			productName = KeyCombination;
+		};
+		9179DC092701D8EE00C87DD6 /* KeyCombination */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91522F7326E007DF00435E47 /* XCRemoteSwiftPackageReference "KeyCombination" */;
+			productName = KeyCombination;
+		};
+		9179DC0B2701D8F100C87DD6 /* KeyCombination */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 91522F7326E007DF00435E47 /* XCRemoteSwiftPackageReference "KeyCombination" */;
 			productName = KeyCombination;
