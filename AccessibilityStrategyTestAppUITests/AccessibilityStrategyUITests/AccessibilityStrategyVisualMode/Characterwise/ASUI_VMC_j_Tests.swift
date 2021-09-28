@@ -128,7 +128,7 @@ extra long one here
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
               
         applyMove { asNormalMode.gg(on: $0) }
-        applyMove { asNormalMode.dollarSign(on: $0) }
+        applyMove { asNormalMode.gDollarSign(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
