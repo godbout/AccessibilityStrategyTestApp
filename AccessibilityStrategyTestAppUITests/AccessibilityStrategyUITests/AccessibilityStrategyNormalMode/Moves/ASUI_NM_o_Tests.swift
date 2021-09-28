@@ -1,5 +1,5 @@
 import XCTest
-import AccessibilityStrategy
+@testable import AccessibilityStrategy
 
 
 // the tests for word wrap have to be done here in UI because we have to reposition

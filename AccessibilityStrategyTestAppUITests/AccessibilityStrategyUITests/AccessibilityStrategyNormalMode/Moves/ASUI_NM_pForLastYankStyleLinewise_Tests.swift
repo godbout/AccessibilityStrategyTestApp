@@ -1,5 +1,5 @@
 import XCTest
-import AccessibilityStrategy
+@testable import AccessibilityStrategy
 
 
 class UIASNM_pForLastYankStyleLinewise_Tests: ASUI_NM_BaseTests {

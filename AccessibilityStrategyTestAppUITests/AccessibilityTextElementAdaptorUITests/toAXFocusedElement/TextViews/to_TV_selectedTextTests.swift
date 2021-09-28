@@ -1,6 +1,5 @@
 import XCTest
-import AccessibilityStrategy
-
+@testable import AccessibilityStrategy
 
 class to_TV_selectedTextTests: ATEA_BaseTests {
     
