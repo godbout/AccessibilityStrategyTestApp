@@ -76,6 +76,17 @@ extension aWordTests {
         XCTAssertNil(wordRange)
     }
     
+    func test_that_if_the_caret_is_at_the_last_empty_line_it_returns_nil() {
+        let text = """
+that's gonna be a text where
+the last line is empty
+
+"""
+        let wordRange = textEngine.aWord(startingAt: 52, in: TextEngineText(from: text))
+
+        XCTAssertNil(wordRange)
+    }
+        
     func test_that_if_there_are_no_trailing_spaces_and_no_leading_spaces_it_grabs_from_the_beginning_to_the_end_of_the_word() {
         let text = "aWord"
         
