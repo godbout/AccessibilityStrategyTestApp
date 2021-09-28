@@ -88,7 +88,7 @@ start of the line
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 

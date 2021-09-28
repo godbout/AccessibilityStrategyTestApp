@@ -109,7 +109,7 @@ ass off lol
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
       
         XCTAssertEqual(accessibilityElement?.caretLocation, 10)
@@ -152,7 +152,7 @@ own empty
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 35)
@@ -191,7 +191,7 @@ and also to the end of the next next line!
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 19)

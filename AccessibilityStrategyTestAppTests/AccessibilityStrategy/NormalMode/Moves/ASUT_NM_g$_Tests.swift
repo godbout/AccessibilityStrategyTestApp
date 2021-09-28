@@ -2,10 +2,10 @@
 import XCTest
 
 
-class ASUT_NM_$_Tests: ASNM_BaseTests {
+class ASUT_NM_g$_Tests: ASNM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.dollarSign(on: element) 
+        return asNormalMode.gDollarSign(on: element) 
     }
     
 }
@@ -13,9 +13,9 @@ class ASUT_NM_$_Tests: ASNM_BaseTests {
 
 
 // Both
-extension ASUT_NM_$_Tests {
+extension ASUT_NM_g$_Tests {
     
-    func test_that_if_line_ends_with_visible_character_$_goes_one_character_before_the_end() {
+    func test_that_if_line_ends_with_visible_character_it_goes_one_character_before_the_end() {
         let text = "hello world 🗺️"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -42,7 +42,7 @@ extension ASUT_NM_$_Tests {
     
     func test_that_it_sets_the_ATE_globalColumnNumber_to_nil() {
         let text = """
-when using $
+when using g$
 the globalColumnNumber
 is set to nil so that next
 j or k will go to the line endLimit
@@ -50,16 +50,16 @@ j or k will go to the line endLimit
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 98,
-            caretLocation: 52,
+            length: 99,
+            caretLocation: 51,
             selectedLength: 1,
-            selectedText: " ",
+            selectedText: "s",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 98,
+                fullTextLength: 99,
                 number: 3,
-                start: 36,
-                end: 63
+                start: 37,
+                end: 64
             )
         )
         
@@ -74,9 +74,9 @@ j or k will go to the line endLimit
     
 
 // TextViews
-extension ASUT_NM_$_Tests {
+extension ASUT_NM_g$_Tests {
     
-    func test_that_if_line_ends_with_linefeed_$_goes_two_characters_before_the_end() {
+    func test_that_if_line_ends_with_linefeed_it_goes_two_characters_before_the_end() {
         let text = """
 indeed
 that is
@@ -105,9 +105,9 @@ multiline
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_if_a_line_is_empty_$_does_not_go_up_to_the_end_of_the_previous_line() {
+    func test_that_if_a_line_is_empty_it_does_not_go_up_to_the_end_of_the_previous_line() {
         let text = """
-$ shouldn't
+g$ shouldn't
 go up one else
 
 it's a bug!
@@ -115,22 +115,22 @@ it's a bug!
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 39,
-            caretLocation: 27,
-            selectedLength: 1,
-            selectedText: "\n",
+            length: 40,
+            caretLocation: 28,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 39,
+                fullTextLength: 40,
                 number: 3,
-                start: 27,
-                end: 28
-                )
+                start: 28,
+                end: 29
             )
+        )
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 27)
+        XCTAssertEqual(returnedElement?.caretLocation, 28)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }

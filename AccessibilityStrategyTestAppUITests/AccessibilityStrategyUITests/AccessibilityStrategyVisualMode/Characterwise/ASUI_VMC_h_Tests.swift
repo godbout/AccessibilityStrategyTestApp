@@ -23,7 +23,7 @@ extension ASUI_VMC_h_Tests {
         applyMove { asNormalMode.B(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 5)
@@ -85,7 +85,7 @@ for VM h and that should
                
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
@@ -103,7 +103,7 @@ w askljaslkasdlfjak
                
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 

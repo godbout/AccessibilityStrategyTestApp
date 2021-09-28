@@ -3,17 +3,17 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-class ASUI_VMC_$_Tests: ASUI_VM_BaseTests {
+class ASUI_VMC_g$_Tests: ASUI_VM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement? {
-        return applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0)}
+        return applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0)}
     }
     
 }
 
 
 // Both
-extension ASUI_VMC_$_Tests {
+extension ASUI_VMC_g$_Tests {
             
     func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_after_the_anchor_then_it_goes_to_the_end_of_the_line_and_extends_the_selection() {
         let textInAXFocusedElement = "hello world"
@@ -31,7 +31,7 @@ extension ASUI_VMC_$_Tests {
     
     func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_before_the_anchor_then_it_goes_to_the_end_of_the_line_and_reduces_the_selection_until_the_anchor_and_then_extends_it_after() {
         let textInAXFocusedElement = """
-$ for visual mode starts
+g$ for visual mode starts
 at the anchor, not at the caret location
 """
         app.textViews.firstMatch.tap()
@@ -42,7 +42,7 @@ at the anchor, not at the caret location
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 57)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 58)
         XCTAssertEqual(accessibilityElement?.selectedLength, 8)
     }
     
@@ -50,7 +50,7 @@ at the anchor, not at the caret location
 
 
 // TextViews
-extension ASUI_VMC_$_Tests {
+extension ASUI_VMC_g$_Tests {
     
     func test_that_if_line_ends_with_linefeed_it_goes_to_the_end_of_the_line_still() {
         let textInAXFocusedElement = """
@@ -75,7 +75,7 @@ multiline
         let textInAXFocusedElement = """
 we gonna select
 over multiple lines coz
-$ not work ⛱️⛱️LOOOL
+g$ not work ⛱️⛱️LOOOL
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -87,7 +87,7 @@ $ not work ⛱️⛱️LOOOL
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 36)
         XCTAssertEqual(accessibilityElement?.selectedLength, 25)
     }
 
@@ -95,7 +95,7 @@ $ not work ⛱️⛱️LOOOL
         let textInAXFocusedElement = """
 we gonna select
 over multiple lines coz
-$ doesn't work LOOOLL
+g$ doesn't work LOOOLL
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -107,7 +107,7 @@ $ doesn't work LOOOLL
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 39)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 22)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 23)
     }
     
 }

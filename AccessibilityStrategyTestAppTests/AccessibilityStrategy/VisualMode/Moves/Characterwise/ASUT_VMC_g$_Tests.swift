@@ -2,21 +2,21 @@
 import XCTest
 
 
-class ASUT_VMC_$_Tests: ASVM_BaseTests {
+class ASUT_VMC_g$_Tests: ASVM_BaseTests {
         
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asVisualMode.dollarSignForVisualStyleCharacterwise(on: element)
+        return asVisualMode.gDollarSignForVisualStyleCharacterwise(on: element)
     }
     
 }
 
 
 // Both
-extension ASUT_VMC_$_Tests {
+extension ASUT_VMC_g$_Tests {
     
     func test_that_it_sets_the_ATE_globalColumnNumber_to_nil() {
         let text = """
-when using $
+when using g$
 the globalColumnNumber
 is set to nil so that next
 j or k will go to the line endLimit
@@ -24,16 +24,16 @@ j or k will go to the line endLimit
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 98,
+            length: 99,
             caretLocation: 52,
             selectedLength: 1,
-            selectedText: " ",
+            selectedText: "o",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 98,
+                fullTextLength: 99,
                 number: 3,
-                start: 36,
-                end: 63
+                start: 37,
+                end: 64
             )
         )
         

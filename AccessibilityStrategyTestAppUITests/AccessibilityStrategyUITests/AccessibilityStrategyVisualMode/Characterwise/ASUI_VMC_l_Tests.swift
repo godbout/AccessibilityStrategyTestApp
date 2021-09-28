@@ -64,7 +64,7 @@ for VM l
              
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
@@ -104,7 +104,7 @@ w askljaslkasdlfjak
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 24)
