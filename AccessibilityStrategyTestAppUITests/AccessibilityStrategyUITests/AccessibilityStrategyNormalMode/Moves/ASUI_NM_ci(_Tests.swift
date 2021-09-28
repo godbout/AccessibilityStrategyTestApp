@@ -1,5 +1,5 @@
 import XCTest
-import AccessibilityStrategy
+@testable import AccessibilityStrategy
 
 
 // we don't test ci[, ci{ and ci)]} because in KVE it's copy/pasted.

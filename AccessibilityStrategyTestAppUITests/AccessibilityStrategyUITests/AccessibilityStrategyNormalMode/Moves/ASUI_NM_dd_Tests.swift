@@ -1,5 +1,5 @@
 import XCTest
-import AccessibilityStrategy
+@testable import AccessibilityStrategy
 
 
 class UIASNM_dd_Tests: ASUI_NM_BaseTests {

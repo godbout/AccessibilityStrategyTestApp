@@ -1,6 +1,5 @@
 import XCTest
-import AccessibilityStrategy
-
+@testable import AccessibilityStrategy
 
 
 // internally calling `caw`. here as usual with `d` moves we gonna test
