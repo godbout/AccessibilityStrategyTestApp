@@ -15,8 +15,6 @@ extension TextEngineLineTests {
         let textEngineLine = TextEngineLine(from: text)
         
         XCTAssertEqual(textEngineLine.value, "")
-        XCTAssertEqual(textEngineLine.start, 0)
-        XCTAssertEqual(textEngineLine.end, 0)
         XCTAssertEqual(textEngineLine.endLimit, 0)
         XCTAssertEqual(textEngineLine.isEmpty, true)
         XCTAssertEqual(textEngineLine.isNotEmpty, false)
@@ -36,8 +34,6 @@ extension TextEngineLineTests {
         let textEngineLine = TextEngineLine(from: text)
         
         XCTAssertEqual(textEngineLine.value, "here we go baby fucking hell")
-        XCTAssertEqual(textEngineLine.start, 0)
-        XCTAssertEqual(textEngineLine.end, 28)
         XCTAssertEqual(textEngineLine.endLimit, 27)
         XCTAssertEqual(textEngineLine.isEmpty, false)
         XCTAssertEqual(textEngineLine.isNotEmpty, true)
@@ -50,8 +46,6 @@ extension TextEngineLineTests {
         let textEngineLine = TextEngineLine(from: text)
         
         XCTAssertEqual(textEngineLine.value, "now i'm a line with a linefeed\n")
-        XCTAssertEqual(textEngineLine.start, 0)
-        XCTAssertEqual(textEngineLine.end, 31)
         XCTAssertEqual(textEngineLine.endLimit, 29)
         XCTAssertEqual(textEngineLine.isEmpty, false)
         XCTAssertEqual(textEngineLine.isNotEmpty, true)
@@ -76,8 +70,6 @@ extension TextEngineLineTests {
         let textEngineLine = TextEngineLine(from: text)
         
         XCTAssertEqual(textEngineLine.value, "here we go baby 😂️ 💩️💩️💩️ fucking hell")
-        XCTAssertEqual(textEngineLine.start, 0)
-        XCTAssertEqual(textEngineLine.end, 42)
         XCTAssertEqual(textEngineLine.endLimit, 41)
         XCTAssertEqual(textEngineLine.isEmpty, false)
         XCTAssertEqual(textEngineLine.isNotEmpty, true)
@@ -90,8 +82,6 @@ extension TextEngineLineTests {
         let textEngineLine = TextEngineLine(from: text)
         
         XCTAssertEqual(textEngineLine.value, "i'm a line without linefeed 😅️")
-        XCTAssertEqual(textEngineLine.start, 0)
-        XCTAssertEqual(textEngineLine.end, 31)
         XCTAssertEqual(textEngineLine.endLimit, 28)
         XCTAssertEqual(textEngineLine.isEmpty, false)
         XCTAssertEqual(textEngineLine.isNotEmpty, true)
@@ -104,8 +94,6 @@ extension TextEngineLineTests {
         let textEngineLine = TextEngineLine(from: text)
         
         XCTAssertEqual(textEngineLine.value, "now i'm a line with 🇲🇴️\n")
-        XCTAssertEqual(textEngineLine.start, 0)
-        XCTAssertEqual(textEngineLine.end, 26)
         XCTAssertEqual(textEngineLine.endLimit, 20)
         XCTAssertEqual(textEngineLine.isEmpty, false)
         XCTAssertEqual(textEngineLine.isNotEmpty, true)
