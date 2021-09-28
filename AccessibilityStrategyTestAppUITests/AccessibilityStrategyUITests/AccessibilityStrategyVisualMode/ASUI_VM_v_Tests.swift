@@ -67,7 +67,7 @@ should still stay at nil
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.dollarSign(on: $0) }
+        applyMove { asNormalMode.gDollarSign(on: $0) }
         _ = applyMoveBeingTested()
        
         XCTAssertNil(AccessibilityTextElement.globalColumnNumber)
