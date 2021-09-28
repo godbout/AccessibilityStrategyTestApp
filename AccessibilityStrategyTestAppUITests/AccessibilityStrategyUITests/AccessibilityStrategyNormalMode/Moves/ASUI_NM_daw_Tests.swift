@@ -15,8 +15,6 @@ class UIASNM_daw_Tests: ASUI_NM_BaseTests {
 }
 
 
-// i guess only one test needed, we set the block cursor to where the caret ended.
-// as usual, if last line etc... the Adaptor (or AXEngine) takes care of that.
 extension UIASNM_daw_Tests {
     
     func test_that_the_block_cursor_ends_up_at_the_right_place() {
@@ -38,6 +36,27 @@ like honestly that one should be
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 36)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+    }
+    
+    func test_that_if_the_caret_ends_up_after_the_end_limit_then_it_is_moved_back_to_the_end_limit() {
+        let textInAXFocusedElement = """
+repositionin🇫🇷️ of
+the block cursor is important!
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.dollarSign(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement?.text.value, """
+repositionin🇫🇷️
+the block cursor is important!
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 12)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 5)
     }
 
 }
