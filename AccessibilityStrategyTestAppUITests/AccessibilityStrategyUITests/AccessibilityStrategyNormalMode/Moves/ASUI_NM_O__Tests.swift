@@ -180,3 +180,34 @@ but it should work
     }
     
 }
+
+
+// word wrap for now. not sure we gonna keep this way of doing.
+// like do we insert like Vim does, on top of the real line, or on top of the visible line?
+// currently in code for `o` and `O` it is according to visible line, but decision is not
+// definitive.
+extension ASUI_NM_O__Tests {
+    
+    func test_that_in_normal_setting_it_does_insert_two_linefeeds_above_and_reposition_the_caret_between_them() {
+        let textInAXFocusedElement = """
+that's 😀️ a multiline 😀️😀️ and a long 😀️😀️ one that will be wrapped somewhere but we 😀️ don't know where LOL and i have to 😀️ test that shit
+"""
+
+        
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.k(on: $0) }        
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement?.text.value, """
+that's 😀️ a multiline 😀️😀️ and a long 😀️😀️ one that will 
+
+be wrapped somewhere but we 😀️ don't know where LOL and i have to 😀️ test that shit
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 63)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+    }
+    
+}
