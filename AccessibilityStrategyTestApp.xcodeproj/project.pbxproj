@@ -100,6 +100,7 @@
 		91C3BAB326F0D2C200174A36 /* ASUT_VMC_W__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C3BAB226F0D2C200174A36 /* ASUT_VMC_W__Tests.swift */; };
 		91D8E6E126EE7C6C004B64CC /* ASUT_VMC_w_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8E6E026EE7C6C004B64CC /* ASUT_VMC_w_Tests.swift */; };
 		91D8E6E426EE7F8B004B64CC /* ASUI_VMC_w_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8E6E226EE7F59004B64CC /* ASUI_VMC_w_Tests.swift */; };
+		91DBC3FA2703951200F30EA6 /* ASUT_NM_$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBC3F92703951200F30EA6 /* ASUT_NM_$_Tests.swift */; };
 		91F5987126F0D9E700C8EAE9 /* ASUT_VM_wordMotionForward_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5987026F0D9E700C8EAE9 /* ASUT_VM_wordMotionForward_Tests.swift */; };
 		91F951B526DFF56C00DC26C6 /* AccessibilityStrategyTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F951B426DFF56C00DC26C6 /* AccessibilityStrategyTestAppApp.swift */; };
 		91F951B726DFF56C00DC26C6 /* UITestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F951B626DFF56C00DC26C6 /* UITestsView.swift */; };
@@ -338,6 +339,7 @@
 		91C3BAB226F0D2C200174A36 /* ASUT_VMC_W__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_VMC_W__Tests.swift; sourceTree = "<group>"; };
 		91D8E6E026EE7C6C004B64CC /* ASUT_VMC_w_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_VMC_w_Tests.swift; sourceTree = "<group>"; };
 		91D8E6E226EE7F59004B64CC /* ASUI_VMC_w_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_VMC_w_Tests.swift; sourceTree = "<group>"; };
+		91DBC3F92703951200F30EA6 /* ASUT_NM_$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_$_Tests.swift; sourceTree = "<group>"; };
 		91F5987026F0D9E700C8EAE9 /* ASUT_VM_wordMotionForward_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_VM_wordMotionForward_Tests.swift; sourceTree = "<group>"; };
 		91F951B126DFF56C00DC26C6 /* AccessibilityStrategyTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessibilityStrategyTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F951B426DFF56C00DC26C6 /* AccessibilityStrategyTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategyTestAppApp.swift; sourceTree = "<group>"; };
@@ -710,9 +712,9 @@
 		91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				91F951E026DFF7F900DC26C6 /* AccessibilityStrategy */,
 				91F9524026DFF7F900DC26C6 /* AccessibilityTextElement */,
 				91F9524326DFF7F900DC26C6 /* TextEngine */,
+				91F951E026DFF7F900DC26C6 /* AccessibilityStrategy */,
 				91F951C926DFF56D00DC26C6 /* Info.plist */,
 			);
 			path = AccessibilityStrategyTestAppTests;
@@ -756,6 +758,7 @@
 				91F9521226DFF7F900DC26C6 /* ASUT_NM_]}_Tests.swift */,
 				91F9521E26DFF7F900DC26C6 /* ASUT_NM_{_Tests.swift */,
 				91F9520F26DFF7F900DC26C6 /* ASUT_NM_}_Tests.swift */,
+				91DBC3F92703951200F30EA6 /* ASUT_NM_$_Tests.swift */,
 				91F9520E26DFF7F900DC26C6 /* ASUT_NM_%_Tests.swift */,
 				91F951F926DFF7F900DC26C6 /* ASUT_NM_^_Tests.swift */,
 				91F9522526DFF7F900DC26C6 /* ASUT_NM_0_Tests.swift */,
@@ -1410,6 +1413,7 @@
 				91F9527926DFF7F900DC26C6 /* ASUT_NM_yi}_Tests.swift in Sources */,
 				91F9529C26DFF7F900DC26C6 /* ASUT_NM_yt_Tests.swift in Sources */,
 				91F952CC26DFF7F900DC26C6 /* endOfWordForwardTests.swift in Sources */,
+				91DBC3FA2703951200F30EA6 /* ASUT_NM_$_Tests.swift in Sources */,
 				91F9528026DFF7F900DC26C6 /* ASUT_NM_dT__Tests.swift in Sources */,
 				91F952C026DFF7F900DC26C6 /* beginningOfWordBackwardTests.swift in Sources */,
 				91F952C226DFF7F900DC26C6 /* innerWordTests.swift in Sources */,
