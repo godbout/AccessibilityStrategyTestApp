@@ -249,6 +249,43 @@ after updating to the new isTheLastLine :D
         XCTAssertEqual(element.currentLine.isNotWrapped, true)
     }
     
+    func test_that_without_emojis_for_an_empty_line_with_a_linefeed_the_computed_properties_are_correctly_calculated() {
+        let text = """
+the next line will be empty
+
+and there's that one line after
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 60,
+            caretLocation: 28,
+            selectedLength: 0,
+            selectedText: "",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 60,
+                number: 2,
+                start: 28,
+                end: 29
+            )
+        )
+        
+        XCTAssertEqual(element.currentLine.text.value, "\n")
+        XCTAssertEqual(element.currentLine.length, 1)
+        XCTAssertEqual(element.currentLine.lengthWithoutLinefeed, 0)
+        XCTAssertEqual(element.currentLine.endLimit, 28)
+        XCTAssertEqual(element.currentLine.relativeEndLimit, 0)
+        XCTAssertEqual(element.currentLine.isAnEmptyLine, true)
+        XCTAssertEqual(element.currentLine.isNotAnEmptyLine, false)
+        XCTAssertEqual(element.currentLine.isTheFirstLine, false)
+        XCTAssertEqual(element.currentLine.isNotTheFirstLine, true)
+        XCTAssertEqual(element.currentLine.isTheLastLine, false)
+        XCTAssertEqual(element.currentLine.isNotTheLastLine, true)
+        XCTAssertEqual(element.currentLine.isWrapped, false)
+        XCTAssertEqual(element.currentLine.isNotWrapped, true)
+    }
+    
 }
 
 
