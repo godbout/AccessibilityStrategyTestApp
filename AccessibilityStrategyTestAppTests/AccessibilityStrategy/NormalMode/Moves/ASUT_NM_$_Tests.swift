@@ -15,30 +15,31 @@ class ASUT_NM_$_Tests: ASNM_BaseTests {
 
 // line
 extension ASUT_NM_$_Tests {
+    
     func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
         let text = """
-this move stops at screen lines, which means it will
-stop even without a linefeed. that's how special it is.
+this move does not stop at screen lines. it will just pass by
+them like nothing happened. that's how special it is.
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 108,
-            caretLocation: 5,
+            length: 115,
+            caretLocation: 29,
             selectedLength: 1,
-            selectedText: "m",
+            selectedText: "r",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 108,
-                number: 1,
-                start: 0,
-                end: 33
+                fullTextLength: 115,
+                number: 2,
+                start: 27,
+                end: 54
             )
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 51)
+        XCTAssertEqual(returnedElement?.caretLocation, 60)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
@@ -141,29 +142,29 @@ gonna be wrapped
     
     func test_that_if_a_line_is_empty_it_does_not_move() {
         let text = """
-g$ shouldn't go up one else
+$ shouldn't go up one else
 
 it's a bug! my friend hehehehe
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 59,
-            caretLocation: 28,
-            selectedLength: 1,
-            selectedText: "\n",
+            length: 58,
+            caretLocation: 27,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 59,
-                number: 3,
-                start: 28,
-                end: 29
+                fullTextLength: 58,
+                number: 2,
+                start: 27,
+                end: 28
             )
         )
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 28)
+        XCTAssertEqual(returnedElement?.caretLocation, 27)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
