@@ -2,7 +2,6 @@
 import XCTest
 
 
-// TODO: reminder—end of line is in Vim way. that means end limit. line endOfWord etc...
 class endOfLineTests: TextEngineBaseTests {}
 
 
@@ -39,7 +38,7 @@ with linefeed
 // Both
 extension endOfLineTests {
     
-    func test_that_it_finds_the_end_of_a_line_that_does_not_finish_with_a_linefeed_like_in_a_TextField_or_at_the_end_of_a_TextView() {
+    func test_that_it_finds_the_end_of_a_line_that_does_not_finish_with_a_linefeed() {
         let text = "this line does not end with a linefeed i swear"
 
         let endOfLineLocation = textEngine.endOfLine(startingAt: 4, in: TextEngineText(from: text))
@@ -75,6 +74,19 @@ of the line
         let endOfLineLocation = textEngine.endOfLine(startingAt: 0, in: TextEngineText(from: text))
         
         XCTAssertEqual(endOfLineLocation, 13)
+    }
+        
+    func test_that_if_the_caret_is_on_an_empty_line_it_does_not_move() {
+        let text = """
+obviously this test is here
+because
+
+of a bug :D
+"""
+        
+        let endOfLineLocation = textEngine.endOfLine(startingAt: 36, in: TextEngineText(from: text))
+        
+        XCTAssertEqual(endOfLineLocation, 36)
     }
 
 }
