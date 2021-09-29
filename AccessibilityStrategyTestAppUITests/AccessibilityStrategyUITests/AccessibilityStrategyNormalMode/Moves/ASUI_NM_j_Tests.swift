@@ -153,7 +153,7 @@ and also to the end of the next next line!
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
       
         applyMove { asNormalMode.gg(on: $0) }
-        applyMove { asNormalMode.gDollarSign(on: $0) }
+        applyMove { asNormalMode.dollarSign(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 54)

@@ -19,6 +19,7 @@ extension UIASNM_pForLastYankStyleLinewise_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
+        applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
 
         NSPasteboard.general.clearContents()

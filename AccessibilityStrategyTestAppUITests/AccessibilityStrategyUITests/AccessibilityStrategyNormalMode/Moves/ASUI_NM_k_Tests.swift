@@ -147,7 +147,7 @@ globalColumnNumber is nil
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
       
-        applyMove { asNormalMode.gDollarSign(on: $0) }
+        applyMove { asNormalMode.dollarSign(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 71)

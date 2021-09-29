@@ -21,7 +21,7 @@ extension ASUI_NM_df_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.gZero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
        
         let accessibilityElement = applyMoveBeingTested(with: "s")
