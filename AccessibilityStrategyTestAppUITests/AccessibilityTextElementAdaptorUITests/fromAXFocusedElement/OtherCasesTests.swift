@@ -23,10 +23,10 @@ extension OtherCasesTests {
         XCTAssertEqual(accessibilityElement?.caretLocation, 23)
         XCTAssertEqual(accessibilityElement?.selectedLength, 4)
         XCTAssertEqual(accessibilityElement?.selectedText, "for ")
-        XCTAssertEqual(accessibilityElement?.currentLine.text.value, "here's some nice words for you")
-        XCTAssertEqual(accessibilityElement?.currentLine.number, 1)
-        XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
-        XCTAssertEqual(accessibilityElement?.currentLine.end, 30)
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.text.value, "here's some nice words for you")
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.number, 1)
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.start, 0)
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.end, 30)
     }
     
 }
@@ -63,10 +63,10 @@ life
         XCTAssertEqual(accessibilityElement?.caretLocation, 43)
         XCTAssertEqual(accessibilityElement?.selectedLength, 20)
         XCTAssertEqual(accessibilityElement?.selectedText, "ourse 💩️💩️💩️\nbeca")
-        XCTAssertEqual(accessibilityElement?.currentLine.text.value, "of course 💩️💩️💩️\n")
-        XCTAssertEqual(accessibilityElement?.currentLine.number, 3)
-        XCTAssertEqual(accessibilityElement?.currentLine.start, 39)
-        XCTAssertEqual(accessibilityElement?.currentLine.end, 59)
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.text.value, "of course 💩️💩️💩️\n")
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.number, 3)
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.start, 39)
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.end, 59)
     }
     
 }
