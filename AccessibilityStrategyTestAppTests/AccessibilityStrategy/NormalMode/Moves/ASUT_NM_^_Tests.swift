@@ -1,18 +1,48 @@
-@testable import AccessibilityStrategy
 import XCTest
+@testable import AccessibilityStrategy
 
 
-// the ^ move is using the TextEngine.firstNonBlank function only
-// which is already heavily tested. so there are only a few tests here,
-// some for redundancy, some that are specific to the ^ move, like
-// The 3 Cases, or the fact that it should not stop at the end of
-// the line itself like firstNonBlank, but at the end limit
+// TODO: comment.
 class ASUT_NM_caret_Tests: ASNM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.caret(on: element) 
     }
     
+}
+
+
+// line
+extension ASUT_NM_caret_Tests {
+    
+    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
+        let text = """
+  this move stops at screen lines, which 		🇧🇶️eans it will
+  stop even without a linefeed. that's 		how special it is.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 115,
+            caretLocation: 29,
+            selectedLength: 1,
+            selectedText: "r",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 115,
+                number: 2,
+                start: 27,
+                end: 54
+            )
+        )
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 2)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+     
 }
 
 
@@ -22,22 +52,22 @@ extension ASUT_NM_caret_Tests {
     func test_that_in_normal_case_it_goes_to_the_first_non_blank_of_the_line() {
         let text = "    hehe ankulay"        
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
             length: 16,
-            caretLocation: 2,
+            caretLocation: 11,
             selectedLength: 1,
-            selectedText: " ",
+            selectedText: "k",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 16,
-                number: 1,
-                start: 0,
+                number: 2,
+                start: 9,
                 end: 16
             )
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 4)     
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -55,19 +85,19 @@ without a linefeed but with spaces
             role: .textArea,
             value: text,
             length: 86,
-            caretLocation: 71,
+            caretLocation: 68,
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 86,
-                number: 4,
+                number: 5,
                 start: 64,
                 end: 86
             )
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 85)  
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -91,56 +121,22 @@ empty line has a linefeed
             role: .textArea,
             value: text,
             length: 67,
-            caretLocation: 44,
+            caretLocation: 45,
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 67,
-                number: 3,
+                number: 6,
                 start: 40,
                 end: 63
             )
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 61)   
         XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-}
-
-
-// emojis
-extension ASUT_NM_caret_Tests {
-    
-    func test_that_it_handles_emojis() {
-        let text = """
-need to deal with
-    🧕️those 🍃️🍃️🍃️🍃️🍃️🍃️ faces 🥺️☹️😂️
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 64,
-            caretLocation: 59,
-            selectedLength: 2,
-            selectedText: "☹️",
-            currentLine: AccessibilityTextElementLine(
-                fullTextValue: text,
-                fullTextLength: 64,
-                number: 2,
-                start: 18,
-                end: 64
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 22)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
