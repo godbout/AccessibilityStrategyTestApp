@@ -4,10 +4,44 @@ import XCTest
 
 class ASUT_NM_l_Tests: ASNM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.l(on: element) 
     }
     
+}
+
+
+// line
+extension ASUT_NM_l_Tests {
+    
+    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
+        let text = """
+this move does not stop at screen lines. it will just pass by
+them like nothing happened. that's how special it is.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 115,
+            caretLocation: 60,
+            selectedLength: 0,
+            selectedText: "",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 115,
+                number: 2,
+                start: 34,
+                end: 62
+            )
+        )
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 61)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+     
 }
 
 
@@ -32,7 +66,7 @@ extension ASUT_NM_l_Tests {
             )
         )
 
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 17)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -61,43 +95,8 @@ hehe
             )
         )
 
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 29)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-}
-
-
-// TextViews
-extension ASUT_NM_l_Tests {
-    
-    func test_that_if_the_caret_location_is_after_a_line_end_limit_then_it_goes_back_to_the_end_limit() {
-        let text = """
-hehe some lines
-yeah my friend
-it's two thirty
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 46,
-            caretLocation: 30,
-            selectedLength: 1,
-            selectedText: "\n",
-            currentLine: AccessibilityTextElementLine(
-                fullTextValue: text,
-                fullTextLength: 46,
-                number: 2,
-                start: 16,
-                end: 31
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
         XCTAssertEqual(returnedElement?.caretLocation, 29)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
@@ -130,7 +129,7 @@ that shit 💣️ again
             )
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 24)
         XCTAssertEqual(returnedElement?.selectedLength, 3)
@@ -158,7 +157,7 @@ that shit 💣️ again
             )
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 27)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
