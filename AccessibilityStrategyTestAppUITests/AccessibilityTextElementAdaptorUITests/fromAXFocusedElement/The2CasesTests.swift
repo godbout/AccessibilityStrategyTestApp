@@ -25,10 +25,10 @@ extension The2CasesTests {
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
-        XCTAssertEqual(accessibilityElement?.currentLine.text.value, "")
-        XCTAssertEqual(accessibilityElement?.currentLine.number, 1)
-        XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
-        XCTAssertEqual(accessibilityElement?.currentLine.end, 0)
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.text.value, "")
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.number, 1)
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.start, 0)
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.end, 0)
     }
     
 }
@@ -50,10 +50,10 @@ extension The2CasesTests {
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
-        XCTAssertEqual(accessibilityElement?.currentLine.text.value, "")
-        XCTAssertEqual(accessibilityElement?.currentLine.number, 1)
-        XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
-        XCTAssertEqual(accessibilityElement?.currentLine.end, 0)
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.text.value, "")
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.number, 1)
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.start, 0)
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.end, 0)
     }
     
     func test_that_we_grab_a_correct_AccessibilityTextElement_when_the_caret_is_at_the_end_of_the_TextView_on_an_empty_line() {
@@ -80,10 +80,10 @@ and i'm still having fun
         XCTAssertEqual(accessibilityElement?.caretLocation, 47)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
-        XCTAssertEqual(accessibilityElement?.currentLine.text.value, "")
-        XCTAssertEqual(accessibilityElement?.currentLine.number, 4)
-        XCTAssertEqual(accessibilityElement?.currentLine.start, 47)
-        XCTAssertEqual(accessibilityElement?.currentLine.end, 47)
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.text.value, "")
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.number, 4)
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.start, 47)
+        XCTAssertEqual(accessibilityElement?.currentScreenLine.end, 47)
     }
     
 }
