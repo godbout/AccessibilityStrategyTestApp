@@ -33,6 +33,7 @@ extension FileLineTests {
         XCTAssertEqual(element.currentFileLine.end, 0)
         XCTAssertEqual(element.currentFileLine.text, "")
         XCTAssertEqual(element.currentFileLine.endLimit, 0)
+        XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 0)
     }
 
     func test_that_if_the_caret_is_at_the_end_of_the_text_on_its_own_empty_line_the_computed_properties_are_correct() {
@@ -62,6 +63,7 @@ line
         XCTAssertEqual(element.currentFileLine.end, 35)
         XCTAssertEqual(element.currentFileLine.text, "")
         XCTAssertEqual(element.currentFileLine.endLimit, 35)
+        XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 35)
     }
 
 }
@@ -95,6 +97,7 @@ a linefeed 🤱️
         XCTAssertEqual(element.currentFileLine.end, 34)
         XCTAssertEqual(element.currentFileLine.text, "now i'm a line 📏️📏️📏️ with 📏️\n")
         XCTAssertEqual(element.currentFileLine.endLimit, 30)
+        XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 0)
     }
 
     func test_that_for_a_file_line_that_does_not_end_with_a_linefeed_the_computed_properties_are_correct() {
@@ -122,8 +125,11 @@ fucking 🔥️🔥️🔥️ hell
         XCTAssertEqual(element.currentFileLine.end, 48)
         XCTAssertEqual(element.currentFileLine.text, "fucking 🔥️🔥️🔥️ hell")
         XCTAssertEqual(element.currentFileLine.endLimit, 47)
+        XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 26)
     }
 
+    // it looks like it's missing a case where an empty line does not end with a linefeed
+    // but this is already tested in the last of The 3 Cases. hehe.
     func test_that_for_an_empty_line_that_ends_with_a_linefeed_the_computed_properties_are_correct() {
         let text = """
 the next line 📏️ will be empty
@@ -150,6 +156,36 @@ and there's that one 🤌🏼️ line after
         XCTAssertEqual(element.currentFileLine.end, 33)
         XCTAssertEqual(element.currentFileLine.text, "\n")
         XCTAssertEqual(element.currentFileLine.endLimit, 32)
+        XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 32)
+    }
+    
+    func test_that_for_a_blank_line_that_ends_with_a_linefeed_the_computed_properties_are_correct() {
+        let text = """
+the next like appears empty but it's actually blank!!!
+                  
+so careful that Xcode doesn't remove the fucking blanks.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 130,
+            caretLocation: 58,
+            selectedLength: 1,
+            selectedText: " ",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 130,
+                number: 4,
+                start: 55,
+                end: 74
+            )
+        )
+
+        XCTAssertEqual(element.currentFileLine.start, 55)
+        XCTAssertEqual(element.currentFileLine.end, 74)
+        XCTAssertEqual(element.currentFileLine.text, "                  \n")
+        XCTAssertEqual(element.currentFileLine.endLimit, 72)
+        XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 72)
     }
 
 }
