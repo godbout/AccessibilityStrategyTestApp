@@ -33,6 +33,7 @@ extension FileLineTests {
         XCTAssertEqual(element.currentFileLine.end, 0)
         XCTAssertEqual(element.currentFileLine.text, "")
         XCTAssertEqual(element.currentFileLine.endLimit, 0)
+        XCTAssertEqual(element.currentFileLine.firstNonBlank, 0)
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 0)
     }
 
@@ -63,6 +64,7 @@ line
         XCTAssertEqual(element.currentFileLine.end, 35)
         XCTAssertEqual(element.currentFileLine.text, "")
         XCTAssertEqual(element.currentFileLine.endLimit, 35)
+        XCTAssertEqual(element.currentFileLine.firstNonBlank, 35)
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 35)
     }
 
@@ -97,6 +99,7 @@ a linefeed 🤱️
         XCTAssertEqual(element.currentFileLine.end, 34)
         XCTAssertEqual(element.currentFileLine.text, "now i'm a line 📏️📏️📏️ with 📏️\n")
         XCTAssertEqual(element.currentFileLine.endLimit, 30)
+        XCTAssertEqual(element.currentFileLine.firstNonBlank, 0)
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 0)
     }
 
@@ -125,6 +128,7 @@ fucking 🔥️🔥️🔥️ hell
         XCTAssertEqual(element.currentFileLine.end, 48)
         XCTAssertEqual(element.currentFileLine.text, "fucking 🔥️🔥️🔥️ hell")
         XCTAssertEqual(element.currentFileLine.endLimit, 47)
+        XCTAssertEqual(element.currentFileLine.firstNonBlank, 26)
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 26)
     }
 
@@ -156,6 +160,7 @@ and there's that one 🤌🏼️ line after
         XCTAssertEqual(element.currentFileLine.end, 33)
         XCTAssertEqual(element.currentFileLine.text, "\n")
         XCTAssertEqual(element.currentFileLine.endLimit, 32)
+        XCTAssertEqual(element.currentFileLine.firstNonBlank, 32)
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 32)
     }
     
@@ -185,6 +190,7 @@ so careful that Xcode doesn't remove the fucking blanks.
         XCTAssertEqual(element.currentFileLine.end, 74)
         XCTAssertEqual(element.currentFileLine.text, "                  \n")
         XCTAssertEqual(element.currentFileLine.endLimit, 72)
+        XCTAssertEqual(element.currentFileLine.firstNonBlank, 73)
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 72)
     }
 
