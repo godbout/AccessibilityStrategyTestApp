@@ -2,7 +2,7 @@ import XCTest
 @testable import AccessibilityStrategy
 
 
-// $ uses TE endOfLine. plenty of tests there.
+// $ uses FileLine endLimit. tested in FileLine.
 // here so more to be extra sure. cheap UT aww.
 class ASUT_NM_$_Tests: ASNM_BaseTests {
     
