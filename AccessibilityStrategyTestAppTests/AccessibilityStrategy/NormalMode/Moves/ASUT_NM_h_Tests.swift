@@ -4,165 +4,101 @@ import XCTest
 
 class ASUT_NM_h_Tests: ASNM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.h(on: element) 
     }
     
 }
 
 
-// Both
+// line
 extension ASUT_NM_h_Tests {
     
-    func test_that_in_normal_setting_h_goes_one_character_to_the_left() {
-        let text = "h goes one character to the left"
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 32,
-            caretLocation: 16,
-            selectedLength: 1,
-            selectedText: "c",
-            currentLine: AccessibilityTextElementLine(
-                fullTextValue: text,
-                fullTextLength: 32,
-                number: 1,
-                start: 0,
-                end: 32
-            )
-        )
-
-        let returnedElement = applyMove(on: element)
-
-        XCTAssertEqual(returnedElement?.caretLocation, 15)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-        
-    func test_that_at_the_beginning_of_a_Text_AXUIElement_h_does_not_move() {
+    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
         let text = """
-if at beginning of a Text AXUIElement
-h should not move
+this move does not stop at screen 🇫🇷️ines. it will just pass by
+them like nothing happened. that's how special it is.
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 55,
-            caretLocation: 0,
+            length: 119,
+            caretLocation: 39,
             selectedLength: 1,
             selectedText: "i",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 55,
-                number: 1,
-                start: 0,
-                end: 38
-            )
-        )
-
-        let returnedElement = applyMove(on: element)
-
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
-    }    
-    
-}
-
-
-// TextAreas
-extension ASUT_NM_h_Tests {
-
-    func test_that_at_the_beginning_of_a_line_h_does_not_move_up_to_the_prevous_line_in_TextAreas() {
-        let text = """
-in multiline if
-at the beginning of a line
-h should not go up to
-the previous line
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 82,
-            caretLocation: 43,
-            selectedLength: 1,
-            selectedText: "h",
-            currentLine: AccessibilityTextElementLine(
-                fullTextValue: text,
-                fullTextLength: 82,
-                number: 3,
-                start: 43,
-                end: 65
-            )
-        )
-
-        let returnedElement = applyMove(on: element)
-
-        XCTAssertEqual(returnedElement?.caretLocation, 43)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-
-}
-
-
-// emojis
-extension ASUT_NM_h_Tests {
-    
-    func test_that_it_stops_at_emojis_properly_like_an_adult() {
-        let text = """
-gonna blow up
-that shit 💣️ again
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 33,
-            caretLocation: 27,
-            selectedLength: 1,
-            selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
-                fullTextValue: text,
-                fullTextLength: 33,
+                fullTextLength: 119,
                 number: 2,
-                start: 14,
-                end: 33
+                start: 39,
+                end: 66
             )
         )
         
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 24)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 34)
+        XCTAssertEqual(returnedElement?.selectedLength, 5)
         XCTAssertNil(returnedElement?.selectedText)
     }
+     
+}
+
+
+// Both
+extension ASUT_NM_h_Tests {
     
-    func test_that_it_can_pass_and_does_not_get_stuck_at_emojis() {
-        let text = """
-gonna blow up
-that shit 💣️ again
-"""
+    func test_that_in_normal_setting_on_a_file_line_it_goes_one_character_to_the_left() {
+        let text = "h goes one character to the left yes but of not course not at 💣️he beginning but it's fine here"
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 33,
-            caretLocation: 24,
+            length: 96,
+            caretLocation: 62,
             selectedLength: 3,
             selectedText: "💣️",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 33,
+                fullTextLength: 96,
                 number: 2,
-                start: 14,
-                end: 33
+                start: 37,
+                end: 68
             )
         )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 23)
+
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 61)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
+        
+    func test_that_on_a_file_line_it_does_not_move_once_it_reaches_the_beginning_of_the_line() {
+        let text = """
+like yeah it's totally true once you've reach the start of the file line you're
+definitely not going to go more up my friend
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 125,
+            caretLocation: 80,
+            selectedLength: 1,
+            selectedText: "d",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 125,
+                number: 4,
+                start: 80,
+                end: 115
+            )
+        )
+
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 80)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }    
     
 }
