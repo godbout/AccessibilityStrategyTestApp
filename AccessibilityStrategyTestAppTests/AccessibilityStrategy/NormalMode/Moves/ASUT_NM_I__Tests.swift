@@ -2,50 +2,47 @@
 import XCTest
 
 
-// this move is mainly using the TextEngine.firstNonBlank function
-// so most of the tests are there. we still need to test here that if the
-// caret location is at the end of the line, it doesn't crash.
-// and of course as usual, testing the block cursor status.
+// this move just calls the firstNonBlank cp on FileLine. tests are there.
+// here we only need to test that emojis work, selectedLength, and that the move
+// works on FileLines and not ScreenLines.
 class ASUI_NM_I__Tests: ASNM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.I(on: element) 
     }
     
 }
 
 
-// emojis
+// line
 extension ASUI_NM_I__Tests {
     
-    func test_that_it_handles_emojis() {
+    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
         let text = """
-need to deal with
-🐐️hose💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
+  this move stops at screen lines, which         🇧🇶️eans it will
+  stop even without a linefeed. that's         how special it is.
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 56,
-            caretLocation: 39,
+            length: 132,
+            caretLocation: 54,
             selectedLength: 1,
-            selectedText: "s",
+            selectedText: "e",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 56,
+                fullTextLength: 132,
                 number: 2,
-                start: 18,
-                end: 56
+                start: 35,
+                end: 67
             )
         )
         
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 18)    
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 2)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
         XCTAssertNil(returnedElement?.selectedText)
     }
-    
+     
 }
-
-
