@@ -11,162 +11,89 @@ class ASNM_A__Tests: ASNM_BaseTests {
 }
 
 
-// TextFields
 extension ASNM_A__Tests {
-
-    func test_that_in_normal_setting_it_goes_to_the_last_character_of_a_TextField() {
-        let text = "A should go the end of this sentence"
+    
+    func test_that_if_a_file_line_ends_with_a_linefeed_it_goes_after_the_last_visible_character_of_that_line() {
+        let text = "yes A now goes to the end of file lines rather than screen lines because i was a dumbass LMAO"
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
-            length: 36,
-            caretLocation: 20,
+            length: 93,
+            caretLocation: 18,
             selectedLength: 1,
-            selectedText: "o",
+            selectedText: "t",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 36,
+                fullTextLength: 93,
                 number: 1,
                 start: 0,
-                end: 36
+                end: 52
+            )
+        )	
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 93)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_if_a_file_line_does_not_end_with_a_linefeed_it_goes_after_the_last_visible_character_of_that_line_which_means_before_the_linefeed() {
+        let text = """
+there's no such thing anymore as going to the end
+of a screen line 🖥️🖥️🖥️ most of the moves have to be file line
+LMAO what a dumbass i am
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 140,
+            caretLocation: 60,
+            selectedLength: 1,
+            selectedText: "n",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 140,
+                number: 4,
+                start: 50,
+                end: 77
             )
         )
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 36)
+        XCTAssertEqual(returnedElement?.caretLocation, 115)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
+    func test_that_if_a_file_line_is_empty_it_still_stops_before_the_linefeed_and_does_not_end_on_the_line_below() {
+        let text = """
+yeah so it always seems easy but actually it's fucking hard
+
+and i'm doing this not because i'm a genius but because i'm pretty dumb LMAO
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 137,
+            caretLocation: 60,
+            selectedLength: 1,
+            selectedText: "",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 137,
+                number: 4,
+                start: 60,
+                end: 61
+            )
+        )
+            
+       let returnedElement = applyMove(on: element)
+       
+       XCTAssertEqual(returnedElement?.caretLocation, 60)
+       XCTAssertEqual(returnedElement?.selectedLength, 0)
+       XCTAssertNil(returnedElement?.selectedText)
+    }
+
 }
-
-
-// TextViews
-extension ASNM_A__Tests {
-
-    func test_that_in_normal_setting_it_goes_to_the_end_of_the_line_of_a_TextView() {
-        let text = """
-A should go to the
-end of a line
-not of a whole TV
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 50,
-            caretLocation: 25,
-            selectedLength: 1,
-            selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
-                fullTextValue: text,
-                fullTextLength: 50,
-                number: 2,
-                start: 19,
-                end: 33
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 32)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-    func test_that_if_the_caret_is_at_the_end_of_a_line_it_does_not_go_down_one_line() {
-        let text = """
-if the caret
-is at the end of a line
-it shouldn't go one line
-below
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 67,
-            caretLocation: 36,
-            selectedLength: 1,
-            selectedText: "\n",
-            currentLine: AccessibilityTextElementLine(
-                fullTextValue: text,
-                fullTextLength: 67,
-                number: 2,
-                start: 13,
-                end: 37
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 36)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-    func test_that_if_the_caret_is_on_an_empty_line_it_does_not_go_down_one_line() {
-        let text = """
-if there's an empty
-
-line the caret should
-not go down
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 54,
-            caretLocation: 20,
-            selectedLength: 1,
-            selectedText: "\n",
-            currentLine: AccessibilityTextElementLine(
-                fullTextValue: text,
-                fullTextLength: 54,
-                number: 2,
-                start: 20,
-                end: 21
-                )
-            )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 20)   
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-}
-
-
-// emojis
-extension ASNM_A__Tests {
-    
-    func test_that_it_handles_emojis() {
-        let text = """
-need to deal with
-those faces 🥺️☹️😂️
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 38,
-            caretLocation: 25,
-            selectedLength: 1,
-            selectedText: "a",
-            currentLine: AccessibilityTextElementLine(
-                fullTextValue: text,
-                fullTextLength: 38,
-                number: 2,
-                start: 18,
-                end: 38
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 38)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-}
-
