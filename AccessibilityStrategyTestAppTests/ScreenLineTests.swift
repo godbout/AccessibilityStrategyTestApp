@@ -31,7 +31,7 @@ extension ScreenLineTests {
         
         XCTAssertEqual(element.currentScreenLine.start, 0)
         XCTAssertEqual(element.currentScreenLine.end, 0)
-        XCTAssertEqual(element.currentScreenLine.text, "")
+        XCTAssertEqual(element.currentScreenLine.value, "")
         XCTAssertEqual(element.currentScreenLine.endLimit, 0)
     }
     
@@ -60,7 +60,7 @@ line
         
         XCTAssertEqual(element.currentScreenLine.start, 35)
         XCTAssertEqual(element.currentScreenLine.end, 35)
-        XCTAssertEqual(element.currentScreenLine.text, "")
+        XCTAssertEqual(element.currentScreenLine.value, "")
         XCTAssertEqual(element.currentScreenLine.endLimit, 35)
     }
     
@@ -93,7 +93,7 @@ a linefeed 🤱️
         
         XCTAssertEqual(element.currentScreenLine.start, 21)
         XCTAssertEqual(element.currentScreenLine.end, 34)
-        XCTAssertEqual(element.currentScreenLine.text, "📏️ with 📏️\n")
+        XCTAssertEqual(element.currentScreenLine.value, "📏️ with 📏️\n")
         XCTAssertEqual(element.currentScreenLine.endLimit, 30)
     }
 
@@ -120,7 +120,7 @@ fucking 🔥️🔥️🔥️ hell
         
         XCTAssertEqual(element.currentScreenLine.start, 26)
         XCTAssertEqual(element.currentScreenLine.end, 44)
-        XCTAssertEqual(element.currentScreenLine.text, "fucking 🔥️🔥️🔥️ ")
+        XCTAssertEqual(element.currentScreenLine.value, "fucking 🔥️🔥️🔥️ ")
         XCTAssertEqual(element.currentScreenLine.endLimit, 43)
     }
     
@@ -148,7 +148,7 @@ and there's that one 🤌🏼️ line after
         
         XCTAssertEqual(element.currentScreenLine.start, 32)
         XCTAssertEqual(element.currentScreenLine.end, 33)
-        XCTAssertEqual(element.currentScreenLine.text, "\n")
+        XCTAssertEqual(element.currentScreenLine.value, "\n")
         XCTAssertEqual(element.currentScreenLine.endLimit, 32)
     }
     
