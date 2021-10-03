@@ -33,6 +33,7 @@ extension ScreenLineTests {
         XCTAssertEqual(element.currentScreenLine.end, 0)
         XCTAssertEqual(element.currentScreenLine.value, "")
         XCTAssertEqual(element.currentScreenLine.endLimit, 0)
+        XCTAssertEqual(element.currentScreenLine.firstNonBlankLimit, 0)
     }
     
     func test_that_if_the_caret_is_at_the_end_of_the_text_on_its_own_empty_line_the_computed_properties_are_correct() {
@@ -62,6 +63,7 @@ line
         XCTAssertEqual(element.currentScreenLine.end, 35)
         XCTAssertEqual(element.currentScreenLine.value, "")
         XCTAssertEqual(element.currentScreenLine.endLimit, 35)
+        XCTAssertEqual(element.currentScreenLine.firstNonBlankLimit, 35)
     }
     
 }
@@ -95,6 +97,7 @@ a linefeed 🤱️
         XCTAssertEqual(element.currentScreenLine.end, 34)
         XCTAssertEqual(element.currentScreenLine.value, "📏️ with 📏️\n")
         XCTAssertEqual(element.currentScreenLine.endLimit, 30)
+        XCTAssertEqual(element.currentScreenLine.firstNonBlankLimit, 21)
     }
 
     func test_that_for_a_screen_line_that_does_not_end_with_a_linefeed_the_computed_properties_are_correct() {
@@ -122,6 +125,7 @@ fucking 🔥️🔥️🔥️ hell
         XCTAssertEqual(element.currentScreenLine.end, 44)
         XCTAssertEqual(element.currentScreenLine.value, "fucking 🔥️🔥️🔥️ ")
         XCTAssertEqual(element.currentScreenLine.endLimit, 43)
+        XCTAssertEqual(element.currentScreenLine.firstNonBlankLimit, 26)
     }
     
     func test_that_for_an_empty_line_that_ends_with_a_linefeed_the_computed_properties_are_correct() {
@@ -150,6 +154,7 @@ and there's that one 🤌🏼️ line after
         XCTAssertEqual(element.currentScreenLine.end, 33)
         XCTAssertEqual(element.currentScreenLine.value, "\n")
         XCTAssertEqual(element.currentScreenLine.endLimit, 32)
+        XCTAssertEqual(element.currentScreenLine.firstNonBlankLimit, 32)
     }
     
 }
