@@ -35,6 +35,8 @@ extension FileLineTests {
         XCTAssertEqual(element.currentFileLine.endLimit, 0)
         XCTAssertEqual(element.currentFileLine.firstNonBlank, 0)
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 0)
+        XCTAssertEqual(element.currentFileLine.length, 0)
+        XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 0)
     }
 
     func test_that_if_the_caret_is_at_the_end_of_the_text_on_its_own_empty_line_the_computed_properties_are_correct() {
@@ -66,6 +68,8 @@ line
         XCTAssertEqual(element.currentFileLine.endLimit, 35)
         XCTAssertEqual(element.currentFileLine.firstNonBlank, 35)
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 35)
+        XCTAssertEqual(element.currentFileLine.length, 0)
+        XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 0)
     }
 
 }
@@ -101,6 +105,8 @@ a linefeed 🤱️
         XCTAssertEqual(element.currentFileLine.endLimit, 30)
         XCTAssertEqual(element.currentFileLine.firstNonBlank, 0)
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 0)
+        XCTAssertEqual(element.currentFileLine.length, 34)
+        XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 33)
     }
 
     func test_that_for_a_file_line_that_does_not_end_with_a_linefeed_the_computed_properties_are_correct() {
@@ -130,6 +136,8 @@ fucking 🔥️🔥️🔥️ hell
         XCTAssertEqual(element.currentFileLine.endLimit, 47)
         XCTAssertEqual(element.currentFileLine.firstNonBlank, 26)
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 26)
+        XCTAssertEqual(element.currentFileLine.length, 22)
+        XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 22)
     }
 
     // it looks like it's missing a case where an empty line does not end with a linefeed
@@ -162,8 +170,11 @@ and there's that one 🤌🏼️ line after
         XCTAssertEqual(element.currentFileLine.endLimit, 32)
         XCTAssertEqual(element.currentFileLine.firstNonBlank, 32)
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 32)
+        XCTAssertEqual(element.currentFileLine.length, 1)
+        XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 0)
     }
     
+    // middle line has a lot of spaces!
     func test_that_for_a_blank_line_that_ends_with_a_linefeed_the_computed_properties_are_correct() {
         let text = """
 the next like appears empty but it's actually blank!!!
@@ -192,6 +203,8 @@ so careful that Xcode doesn't remove the fucking blanks.
         XCTAssertEqual(element.currentFileLine.endLimit, 72)
         XCTAssertEqual(element.currentFileLine.firstNonBlank, 73)
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 72)
+        XCTAssertEqual(element.currentFileLine.length, 19)
+        XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 18)
     }
 
 }
