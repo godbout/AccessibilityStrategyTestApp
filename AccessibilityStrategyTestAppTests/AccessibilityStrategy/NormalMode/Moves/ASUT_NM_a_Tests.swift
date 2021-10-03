@@ -2,9 +2,11 @@
 import XCTest
 
 
+// no need for the test on Lines here because `a` will always end up on the
+// same line. it just goes after the character that is selected.
 class ASNM_a_Tests: ASNM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.a(on: element) 
     }
     
@@ -32,7 +34,7 @@ extension ASNM_a_Tests {
             )
         )
 
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 14)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
@@ -67,7 +69,7 @@ a should not move
             )
         )
 
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 17)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
@@ -101,7 +103,7 @@ those 🥺️☹️😂️ faces
             )
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 29)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
