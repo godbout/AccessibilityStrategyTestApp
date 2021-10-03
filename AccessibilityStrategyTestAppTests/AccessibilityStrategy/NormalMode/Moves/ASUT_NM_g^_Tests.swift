@@ -2,11 +2,10 @@
 import XCTest
 
 
-// the g^ move is using the TextEngine.firstNonBlankWithinLineLimit function only
-// which is already heavily tested. so there are only a few tests here,
-// some for redundancy, some that are specific to the g^ move, like
+// this move uses a ScreenLine func. tested there. 
+// only a few tests here, some for redundancy, some that are specific to the g^ move, like
 // The 3 Cases, or the fact that it should not stop at the end of
-// the line itself like firstNonBlank, but at the end limit
+// the line itself like firstNonBlank, but at the end limit.
 class ASUT_NM_gCaret_Tests: ASNM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
@@ -57,20 +56,20 @@ extension ASUT_NM_gCaret_Tests {
 extension ASUT_NM_gCaret_Tests {
     
     func test_that_in_normal_case_it_goes_to_the_first_non_blank_of_the_line() {
-        let text = "    hehe ankulay"        
+        let text = "    hehe ankulay that's a long like that we gonna wrap"        
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
-            length: 16,
-            caretLocation: 2,
+            length: 54,
+            caretLocation: 18,
             selectedLength: 1,
-            selectedText: " ",
+            selectedText: "h",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 16,
+                fullTextLength: 54,
                 number: 1,
                 start: 0,
-                end: 16
+                end: 26
             )
         )
         
@@ -92,13 +91,13 @@ without a linefeed but with spaces
             role: .textArea,
             value: text,
             length: 86,
-            caretLocation: 71,
+            caretLocation: 72,
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 86,
-                number: 4,
+                number: 5,
                 start: 64,
                 end: 86
             )
@@ -128,13 +127,13 @@ empty line has a linefeed
             role: .textArea,
             value: text,
             length: 67,
-            caretLocation: 44,
+            caretLocation: 43,
             selectedLength: 1,
             selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 67,
-                number: 3,
+                number: 6,
                 start: 40,
                 end: 63
             )
