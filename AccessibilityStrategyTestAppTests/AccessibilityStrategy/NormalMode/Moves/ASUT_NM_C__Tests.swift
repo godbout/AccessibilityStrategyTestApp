@@ -39,7 +39,7 @@ them like nothing happened. that's how special it is.
         let returnedElement = applyMoveBeingTested(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 52)
-        XCTAssertEqual(returnedElement?.selectedLength, 12)
+        XCTAssertEqual(returnedElement?.selectedLength, 11)
         XCTAssertEqual(returnedElement?.selectedText, "")
     }
      
