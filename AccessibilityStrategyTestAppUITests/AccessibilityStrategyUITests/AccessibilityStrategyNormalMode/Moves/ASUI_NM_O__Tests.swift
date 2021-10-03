@@ -2,6 +2,9 @@ import XCTest
 @testable import AccessibilityStrategy
 
 
+// test that it works on FileLine and not ScreenLine is done in UT.
+// here we have those tests coz we need the AX to reposition the block cursor
+// have the move is done.
 class ASUI_NM_O__Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement? {
