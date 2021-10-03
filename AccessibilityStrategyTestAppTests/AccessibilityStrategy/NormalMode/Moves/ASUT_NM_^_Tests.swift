@@ -2,6 +2,8 @@ import XCTest
 @testable import AccessibilityStrategy
 
 
+// this moves uses a FileLine func. tested in FileLine.
+// here so more to be extra sure. cheap UT aww.
 class ASUT_NM_caret_Tests: ASNM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {

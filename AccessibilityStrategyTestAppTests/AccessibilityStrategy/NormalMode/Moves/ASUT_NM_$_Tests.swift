@@ -2,8 +2,7 @@ import XCTest
 @testable import AccessibilityStrategy
 
 
-// $ uses FileLine endLimit. tested in FileLine.
-// here so more to be extra sure. cheap UT aww.
+// see ^ for blah blah
 class ASUT_NM_$_Tests: ASNM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
