@@ -2,42 +2,77 @@
 import XCTest
 
 
+// TODO: update comment
 // more tests are done on the TextEngine level
 // the TextEngine tests make sure it works properly if we are
 // at last character, out of bound, on the character we're searching, etc...
 // here the two tests relevant are:
 // 1. can find the character, then getting the right location
 // 2. cannot find the character, then not moving
-class ASNM_F__Tests: ASNM_BaseTests {
+class ASUT_NM_F__Tests: ASNM_BaseTests {
     
-    private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.F(to: character, on: element) 
     }
 }
 
 
-// Both
-extension ASNM_F__Tests {
+// line
+extension ASUT_NM_F__Tests {
     
-    func test_that_in_normal_setting_it_moves_the_caret_to_the_first_occurence_of_the_character_found_to_the_left() {
-        let text = "check if F can find shit!"
+    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
+        let text = """
+this move does not stop at screen lines. it will just pass by
+them like nothing happened. that's how special it is.
+"""
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
-            length: 25,
-            caretLocation: 10,
+            length: 115,
+            caretLocation: 106,
             selectedLength: 1,
-            selectedText: " ",
+            selectedText: "a",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 25,
-                number: 1,
-                start: 0,
-                end: 25
+                fullTextLength: 115,
+                number: 7,
+                start: 97,
+                end: 115
             )
         )
         
-        let returnedElement = applyMove(to: "k", on: element)
+        let returnedElement = applyMoveBeingTested(to: "k", on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 69)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+     
+}
+
+
+// Both
+extension ASUT_NM_F__Tests {
+    
+    func test_that_in_normal_setting_it_moves_the_caret_to_the_first_occurence_of_the_character_found_to_the_left() {
+        let text = "check 💣️💣️💣️ if F can find shit!"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 35,
+            caretLocation: 19,
+            selectedLength: 1,
+            selectedText: "F",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 35,
+                number: 1,
+                start: 0,
+                end: 35
+            )
+        )
+        
+        let returnedElement = applyMoveBeingTested(to: "k", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 4)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -60,13 +95,13 @@ that is not there
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 44,
-                number: 2,
-                start: 11,
+                number: 3,
+                start: 17,
                 end: 27
             )
         )
         
-        let returnedElement = applyMove(to: "z", on: element)
+        let returnedElement = applyMoveBeingTested(to: "z", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 22)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -77,7 +112,7 @@ that is not there
 
 
 // TextViews
-extension ASNM_F__Tests {
+extension ASUT_NM_F__Tests {
     
     func test_that_it_can_find_the_character_on_a_line_for_a_multiline() {
         let text = """
@@ -96,49 +131,15 @@ yeah
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 52,
-                number: 4,
+                number: 6,
                 start: 48,
                 end: 52
             )
         )
         
-        let returnedElement = applyMove(to: "y", on: element)
+        let returnedElement = applyMoveBeingTested(to: "y", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 48)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-}
-
-
-// emojis
-extension ASNM_F__Tests {
-    
-    func test_that_it_handles_emojis() {
-        let text = """
-need to deal with
-those 🍃️🍃️🍃️🍃️🍃️🍃️ faces 🥺️☹️😂️
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 57,
-            caretLocation: 47,
-            selectedLength: 1,
-            selectedText: "s",
-            currentLine: AccessibilityTextElementLine(
-                fullTextValue: text,
-                fullTextLength: 57,
-                number: 2,
-                start: 18,
-                end: 57
-            )
-        )
-        
-        let returnedElement = applyMove(to: "o", on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 20)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
