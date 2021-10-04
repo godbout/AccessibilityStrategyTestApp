@@ -103,4 +103,31 @@ and the caret shouldn't move else pan pan cul cul
         XCTAssertNil(returnedElement?.selectedText)
     }
     
+    func test_that_if_it_is_on_a_character_and_we_look_for_the_same_character_it_moves_to_that_next_occurrence() {
+        let text = """
+it you're already on a z for example and wanna go to the next z it should work
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 78,
+            caretLocation: 23,
+            selectedLength: 1,
+            selectedText: "z",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 78,
+                number: 2,
+                start: 10,
+                end: 25
+            )
+        )
+        
+        let returnedElement = applyMoveBeingTested(to: "z", on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 62)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
 }
