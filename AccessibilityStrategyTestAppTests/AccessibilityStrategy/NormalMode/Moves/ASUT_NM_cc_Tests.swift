@@ -103,29 +103,29 @@ but actually it's only 21.43 LMAOOOOOOOO
     
     func test_that_it_should_keep_the_indentation_of_the_current_line() {
         let text = """
-   i delete a line
 but the indent should
+   i delete a line
 be kept
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
             length: 48,
-            caretLocation: 17,
+            caretLocation: 37,
             selectedLength: 1,
-            selectedText: "e",
+            selectedText: "i",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 48,
-                number: 2,
-                start: 12,
-                end: 19
+                number: 5,
+                start: 34,
+                end: 41
             )
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 3)
+        XCTAssertEqual(returnedElement?.caretLocation, 25)
         XCTAssertEqual(returnedElement?.selectedLength, 15)
         XCTAssertEqual(returnedElement?.selectedText, "")
     }
