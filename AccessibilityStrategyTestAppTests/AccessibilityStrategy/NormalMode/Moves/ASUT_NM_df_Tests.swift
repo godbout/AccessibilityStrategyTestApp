@@ -3,9 +3,9 @@ import XCTest
 
 
 // see dF for blah blah
-class ASNM_df_Tests: ASNM_BaseTests {
+class ASUT_NM_df_Tests: ASNM_BaseTests {
     
-    private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.df(to: character, on: element) 
     }
     
@@ -13,7 +13,7 @@ class ASNM_df_Tests: ASNM_BaseTests {
 
 
 // Both
-extension ASNM_df_Tests {
+extension ASUT_NM_df_Tests {
     
     func test_that_if_the_character_is_not_found_then_it_does_nothing() {
         let text = """
@@ -38,7 +38,7 @@ that is not there
         )
         
         
-        let returnedElement = applyMove(to: "z", on: element)
+        let returnedElement = applyMoveBeingTested(to: "z", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 14)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
