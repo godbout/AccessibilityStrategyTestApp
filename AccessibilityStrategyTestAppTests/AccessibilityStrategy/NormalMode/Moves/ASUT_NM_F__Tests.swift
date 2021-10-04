@@ -2,9 +2,8 @@
 import XCTest
 
 
-// TODO: update comment
-// more tests are done on the TextEngine level
-// the TextEngine tests make sure it works properly if we are
+// more tests are done on the FileLine level
+// the FileLine funcs tests make sure it works properly if we are
 // at last character, out of bound, on the character we're searching, etc...
 // here the two tests relevant are:
 // 1. can find the character, then getting the right location

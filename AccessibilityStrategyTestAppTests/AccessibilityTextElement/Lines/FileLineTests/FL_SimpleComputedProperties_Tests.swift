@@ -2,15 +2,16 @@
 import XCTest
 
 
-// TODO: test the FileLine funcs separately and better (next, prev. like TE funcs before)
-class FileLineTests: XCTestCase {}
+// here only the simple cp are tested. the more complicated ones, or the funcs are tested
+// on their own.
+class FileLine_BaseTests: XCTestCase {}
 
 
 // The 3 Cases:
 // - empty TextElement
 // - 2nd case is now gone!
 // - caret at the end of TextElement on own empty line
-extension FileLineTests {
+extension FileLine_BaseTests {
 
     func test_that_if_the_text_is_empty_the_computed_properties_are_corret() {
         let text = ""
@@ -38,8 +39,6 @@ extension FileLineTests {
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 0)
         XCTAssertEqual(element.currentFileLine.length, 0)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 0)
-        XCTAssertNil(element.currentFileLine.next("s", after: 0))
-        XCTAssertNil(element.currentFileLine.previous("s", before: 0))
     }
 
     func test_that_if_the_caret_is_at_the_end_of_the_text_on_its_own_empty_line_the_computed_properties_are_correct() {
@@ -73,15 +72,13 @@ line
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 35)
         XCTAssertEqual(element.currentFileLine.length, 0)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 0)
-        XCTAssertNil(element.currentFileLine.next("s", after: 35))
-        XCTAssertNil(element.currentFileLine.previous("s", before: 35))
     }
 
 }
 
 
 // other cases
-extension FileLineTests {
+extension FileLine_BaseTests {
 
     func test_that_for_a_file_line_that_ends_with_a_linefeed_the_computed_properties_are_correct() {
         let text = """
@@ -112,8 +109,6 @@ a linefeed 🤱️
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 0)
         XCTAssertEqual(element.currentFileLine.length, 34)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 33)
-        XCTAssertEqual(element.currentFileLine.next("w", after: 5), 25)
-        XCTAssertEqual(element.currentFileLine.previous("a", before: 27), 8)
     }
 
     func test_that_for_a_file_line_that_does_not_end_with_a_linefeed_the_computed_properties_are_correct() {
@@ -145,8 +140,6 @@ fucking 🔥️🔥️🔥️ hell
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 26)
         XCTAssertEqual(element.currentFileLine.length, 22)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 22)
-        XCTAssertEqual(element.currentFileLine.next("e", after: 29), 45)
-        XCTAssertEqual(element.currentFileLine.previous("f", before: 29), 26)
     }
 
     // it looks like it's missing a case where an empty line does not end with a linefeed
@@ -181,8 +174,6 @@ and there's that one 🤌🏼️ line after
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 32)
         XCTAssertEqual(element.currentFileLine.length, 1)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 0)
-        XCTAssertNil(element.currentFileLine.next("z", after: 32))
-        XCTAssertNil(element.currentFileLine.previous("z", before: 32))
     }
     
     // middle line has a lot of spaces!
@@ -216,8 +207,6 @@ so careful that Xcode doesn't remove the fucking blanks.
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 72)
         XCTAssertEqual(element.currentFileLine.length, 19)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 18)
-        XCTAssertNil(element.currentFileLine.next("r", after: 58))
-        XCTAssertNil(element.currentFileLine.previous("r", before: 58))
     }
 
 }
