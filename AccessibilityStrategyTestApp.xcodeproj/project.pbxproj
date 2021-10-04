@@ -311,7 +311,6 @@
 		918022A92700C66F0094BF92 /* ASUI_NM_daw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_daw_Tests.swift; sourceTree = "<group>"; };
 		918022AB2700C6B30094BF92 /* ASUT_NM_daw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_daw_Tests.swift; sourceTree = "<group>"; };
 		9181DB8726F6556A00B2DB82 /* aWordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aWordTests.swift; sourceTree = "<group>"; };
-		918A3764270B117C004A3438 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		918A3769270B42BE004A3438 /* FL_next_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FL_next_Tests.swift; sourceTree = "<group>"; };
 		918A376B270B4722004A3438 /* FL_previous_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FL_previous_Tests.swift; sourceTree = "<group>"; };
 		919D093B2704CFCF0066CDE8 /* ASUT_NM_0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_0_Tests.swift; sourceTree = "<group>"; };
@@ -705,7 +704,6 @@
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
-				918A3764270B117C004A3438 /* AccessibilityStrategy */,
 				91F951B326DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,
