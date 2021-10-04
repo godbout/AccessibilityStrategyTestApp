@@ -4,10 +4,44 @@ import XCTest
 
 class ASUT_NM_cgg_Tests: ASNM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.cgg(on: element) 
     }
     
+}
+
+
+// line
+extension ASUT_NM_cgg_Tests {
+    
+    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
+        let text = """
+this move does not stop at screen lines. it will just pass by
+them like nothing happened. that's how special it is.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 115,
+            caretLocation: 68,
+            selectedLength: 1,
+            selectedText: "i",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 115,
+                number: 4,
+                start: 62,
+                end: 80
+            )
+        )
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 115)
+        XCTAssertEqual(returnedElement?.selectedText, "")
+    }
+     
 }
 
 
@@ -17,22 +51,22 @@ extension ASUT_NM_cgg_Tests {
     func test_that_it_deletes_the_whole_line() {
         let text = "this is a single line ‼️‼️‼️"
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
             length: 28,
-            caretLocation: 15,
+            caretLocation: 10,
             selectedLength: 1,
-            selectedText: "e",
+            selectedText: "s",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 28,
                 number: 1,
                 start: 0,
-                end: 28
+                end: 22
             )
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
         XCTAssertEqual(returnedElement?.selectedLength, 28)
@@ -64,13 +98,13 @@ those faces 🥺️☹️😂️
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 78,
-                number: 3,
+                number: 4,
                 start: 30,
                 end: 39
             )
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
         XCTAssertEqual(returnedElement?.selectedLength, 38)
