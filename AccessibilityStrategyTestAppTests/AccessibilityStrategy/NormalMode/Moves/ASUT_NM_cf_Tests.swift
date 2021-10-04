@@ -4,40 +4,74 @@ import XCTest
 
 // using the move f internally, so just a few tests needed here
 // see cF for rest fo blah blah.
-class ASNM_cf_Tests: ASNM_BaseTests {
+class ASUT_NM_cf_Tests: ASNM_BaseTests {
     
-    private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.cf(to: character, on: element)
     }
     
 }
 
 
-// Both
-extension ASNM_cf_Tests {
+// line
+extension ASUT_NM_cf_Tests {
     
-    func test_that_in_normal_setting_it_selects_the_text_from_the_caret_to_the_character_found() {
-        let text = "gonna use cf on this sentence"
+    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
+        let text = """
+this move does not stop at screen lines. it will just pass by
+them like nothing happened. that's how special it is.
+"""
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
-            length: 29,
-            caretLocation: 1,
+            length: 115,
+            caretLocation: 24,
             selectedLength: 1,
-            selectedText: "o",
+            selectedText: "a",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 29,
-                number: 1,
-                start: 0,
-                end: 29
+                fullTextLength: 115,
+                number: 2,
+                start: 19,
+                end: 34
             )
         )
         
-        let returnedElement = applyMove(to: "s", on: element)
+        let returnedElement = applyMoveBeingTested(to: "y", on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 24)
+        XCTAssertEqual(returnedElement?.selectedLength, 37)
+        XCTAssertEqual(returnedElement?.selectedText, "")
+    }
+     
+}
+
+
+// Both
+extension ASUT_NM_cf_Tests {
+    
+    func test_that_in_normal_setting_it_selects_the_text_from_the_caret_to_the_character_found() {
+        let text = "😂️😂️😂️😂️ gonna use cf on this sentence"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 42,
+            caretLocation: 3,
+            selectedLength: 3,
+            selectedText: "😂️",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 42,
+                number: 1,
+                start: 0,
+                end: 13
+            )
+        )
         
-        XCTAssertEqual(returnedElement?.caretLocation, 1)
-        XCTAssertEqual(returnedElement?.selectedLength, 7)
+        let returnedElement = applyMoveBeingTested(to: "s", on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 3)
+        XCTAssertEqual(returnedElement?.selectedLength, 18)
         XCTAssertEqual(returnedElement?.selectedText, "")
     }
     
@@ -59,12 +93,12 @@ that is not there
                 fullTextLength: 44,
                 number: 2,
                 start: 11,
-                end: 27
+                end: 17
             )
         )
         
         
-        let returnedElement = applyMove(to: "z", on: element)
+        let returnedElement = applyMoveBeingTested(to: "z", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 14)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -75,7 +109,7 @@ that is not there
 
 
 // TextViews
-extension ASNM_cf_Tests {
+extension ASUT_NM_cf_Tests {
     
     func test_that_it_can_find_the_character_on_a_line_for_a_multiline() {
         let text = """
@@ -88,55 +122,21 @@ on a line
             value: text,
             length: 39,
             caretLocation: 18,
-            selectedLength: 0,
-            selectedText: "",
+            selectedLength: 1,
+            selectedText: "s",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 39,
-                number: 2,
+                number: 3,
                 start: 18,
                 end: 30
             )
         )
         
-        let returnedElement = applyMove(to: "w", on: element)
+        let returnedElement = applyMoveBeingTested(to: "w", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 18)
         XCTAssertEqual(returnedElement?.selectedLength, 8)
-        XCTAssertEqual(returnedElement?.selectedText, "")
-    }
-    
-}
-
-
-// emojis
-extension ASNM_cf_Tests {
-    
-    func test_that_it_handles_emojis() {
-        let text = """
-need to deal with
-those💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 52,
-            caretLocation: 21,
-            selectedLength: 1,
-            selectedText: "s",
-            currentLine: AccessibilityTextElementLine(
-                fullTextValue: text,
-                fullTextLength: 52,
-                number: 2,
-                start: 18,
-                end: 52
-            )
-        )
-        
-        let returnedElement = applyMove(to: "h", on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 21)
-        XCTAssertEqual(returnedElement?.selectedLength, 28)
         XCTAssertEqual(returnedElement?.selectedText, "")
     }
     
