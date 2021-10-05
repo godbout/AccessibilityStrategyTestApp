@@ -5,10 +5,44 @@ import XCTest
 // see F for blah blah
 class ASUT_NM_t_Tests: ASNM_BaseTests {
     
-    private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.t(to: character, on: element) 
     }
     
+}
+
+
+// line
+extension ASUT_NM_t_Tests {
+    
+    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
+        let text = """
+this move does not stop at screen lines. it will just pass by
+them like nothing happened. that's how special it is.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 115,
+            caretLocation: 7,
+            selectedLength: 1,
+            selectedText: "v",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 115,
+                number: 1,
+                start: 0,
+                end: 27
+            )
+        )
+        
+        let returnedElement = applyMoveBeingTested(to: "y", on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 59)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+     
 }
 
 
@@ -33,7 +67,7 @@ extension ASUT_NM_t_Tests {
             )
         )        
         
-        let returnedElement = applyMove(to: "i", on: element)
+        let returnedElement = applyMoveBeingTested(to: "i", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 15)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -56,13 +90,13 @@ that is not there
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 44,
-                number: 2,
-                start: 11,
+                number: 3,
+                start: 17,
                 end: 27
             )
         )        
         
-        let returnedElement = applyMove(to: "z", on: element)
+        let returnedElement = applyMoveBeingTested(to: "z", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 22)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -79,7 +113,7 @@ extension ASUT_NM_t_Tests {
         let text = """
 fFtT should
 work on multilines
-without crashing
+without cr💣️💣️💣️ashing
 yeah
 """
         let element = AccessibilityTextElement(
@@ -92,49 +126,15 @@ yeah
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 52,
-                number: 3,
+                number: 4,
                 start: 31,
-                end: 48
+                end: 39
             )
         )
         
-        let returnedElement = applyMove(to: "a", on: element)
+        let returnedElement = applyMoveBeingTested(to: "a", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 40)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-}
-
-
-// emojis
-extension ASUT_NM_t_Tests {
-    
-    func test_that_it_handles_emojis() {
-        let text = """
-need to deal with
-those 🍃️🍃️🍃️🍃️🍃️🍃️ f🚀️ces 🥺️☹️😂️
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 59,
-            caretLocation: 21,
-            selectedLength: 1,
-            selectedText: "s",
-            currentLine: AccessibilityTextElementLine(
-                fullTextValue: text,
-                fullTextLength: 59,
-                number: 2,
-                start: 18,
-                end: 59
-            )
-        )
-        
-        let returnedElement = applyMove(to: "c", on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 44)
+        XCTAssertEqual(returnedElement?.caretLocation, 47)
         XCTAssertEqual(returnedElement?.selectedLength, 3)
         XCTAssertNil(returnedElement?.selectedText)
     }
