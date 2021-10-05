@@ -7,10 +7,45 @@ import XCTest
 // so those are two things that we test here
 class ASUT_NM_yF__Tests: ASNM_BaseTests {
     
-    private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.yF(to: character, on: element) 
     }
     
+}
+
+
+// line
+extension ASUT_NM_yF__Tests {
+    
+    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
+        let text = """
+this move does not stop at screen lines. it will just pass by
+them like nothin🇫🇷️ happened. that's how special it is.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 119,
+            caretLocation: 116,
+            selectedLength: 1,
+            selectedText: "i",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 119,
+                number: 5,
+                start: 94,
+                end: 119
+            )
+        )
+
+        let returnedElement = applyMoveBeingTested(to: "k", on: element)
+
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "ke nothin🇫🇷️ happened. that's how special it ")
+        XCTAssertEqual(returnedElement?.caretLocation, 69)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+     
 }
 
 
@@ -18,26 +53,26 @@ class ASUT_NM_yF__Tests: ASNM_BaseTests {
 extension ASUT_NM_yF__Tests {
     
     func test_that_in_normal_setting_it_copies_the_text_from_the_character_found_the_caret_and_move_the_caret_to_the_character_found() {
-        let text = "gonna use yF on this sentence"
+        let text = "gonna use yF on 🦘️🦘️ this sentence"
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 29,
-            caretLocation: 24,
+            length: 36,
+            caretLocation: 32,
             selectedLength: 1,
-            selectedText: "t",
+            selectedText: "e",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 29,
-                number: 1,
-                start: 0,
-                end: 29
+                fullTextLength: 36,
+                number: 4,
+                start: 28,
+                end: 36
             )
         )
         
-        let returnedElement = applyMove(to: "F", on: element)
+        let returnedElement = applyMoveBeingTested(to: "F", on: element)
         
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "F on this sen")
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "F on 🦘️🦘️ this sent")
         XCTAssertEqual(returnedElement?.caretLocation, 11)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
@@ -61,14 +96,14 @@ that is not there
                 fullTextLength: 44,
                 number: 2,
                 start: 11,
-                end: 27
+                end: 17
             )
         )
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("404 character not found", forType: .string)
         
-        let returnedElement = applyMove(to: "z", on: element)
+        let returnedElement = applyMoveBeingTested(to: "z", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -103,44 +138,10 @@ on a line
             )
         )
         
-        let returnedElement = applyMove(to: "h", on: element)
+        let returnedElement = applyMoveBeingTested(to: "h", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "hould wo")
         XCTAssertEqual(returnedElement?.caretLocation, 19)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-}
-
-
-// emojis
-extension ASUT_NM_yF__Tests {
-    
-    func test_that_it_handles_emojis() {
-        let text = """
-need to deal with
-those💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 54,
-            caretLocation: 44,
-            selectedLength: 3,
-            selectedText: "😂️",
-            currentLine: AccessibilityTextElementLine(
-                fullTextValue: text,
-                fullTextLength: 54,
-                number: 2,
-                start: 18,
-                end: 54
-            )
-        )
-        
-        let returnedElement = applyMove(to: "h", on: element)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "hose💨️💨️💨️ faces 🥺️☹️")
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
