@@ -4,42 +4,40 @@ import XCTest
 
 class ASUT_NM_percent_Tests: ASNM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.percent(on: element) 
     }
     
 }
 
 
-// TODO: update those tests to handle FileLines
 // line
 extension ASUT_NM_percent_Tests {
     
     func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
         let text = """
 this move does not stop at screen lines. it will just pass by
-them like nothin🇫🇷️ happened. that's how special it is.
+them like nothin🇫🇷️ happened. (that's how special) it is.
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 119,
-            caretLocation: 116,
-            selectedLength: 1,
-            selectedText: "i",
+            length: 121,
+            caretLocation: 78,
+            selectedLength: 5,
+            selectedText: "🇫🇷️",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 119,
-                number: 5,
-                start: 94,
-                end: 119
+                fullTextLength: 121,
+                number: 9,
+                start: 72,
+                end: 84
             )
         )
 
-        let returnedElement = applyMoveBeingTested(to: "k", on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "ke nothin🇫🇷️ happened. that's how special it ")
-        XCTAssertEqual(returnedElement?.caretLocation, 69)
+        XCTAssertEqual(returnedElement?.caretLocation, 113)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
@@ -64,11 +62,11 @@ extension ASUT_NM_percent_Tests {
                 fullTextLength: 28,
                 number: 1,
                 start: 0,
-                end: 28
+                end: 11
             )
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 4)        
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -90,13 +88,13 @@ and a ( nice pair line ) :))
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 56,
-                number: 2,
+                number: 4,
                 start: 28,
-                end: 56
+                end: 41
             )
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 51)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -106,7 +104,7 @@ and a ( nice pair line ) :))
     func test_that_if_the_pair_cannot_be_matched_then_it_does_not_move() {
         let text = "the last { will not match } because there's { no closing"
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
             length: 56,
             caretLocation: 34,
@@ -115,13 +113,13 @@ and a ( nice pair line ) :))
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 56,
-                number: 1,
-                start: 0,
-                end: 56
+                number: 4,
+                start: 28,
+                end: 36
             )
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 34)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -140,13 +138,13 @@ and a ( nice pair line ) :))
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 70,
-                number: 1,
-                start: 0,
-                end: 62
+                number: 2,
+                start: 11,
+                end: 23
             )
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 45)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -174,14 +172,14 @@ func someBull() {
             selectedText: "}",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 39,
-                number: 3,
+                fullTextLength: 40,
+                number: 5,
                 start: 39,
                 end: 40
             )
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 16)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -211,11 +209,11 @@ those faces 🥺️☹️ } 😂️
                 fullTextLength: 53,
                 number: 1,
                 start: 0,
-                end: 30
+                end: 15
             )
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 48)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
