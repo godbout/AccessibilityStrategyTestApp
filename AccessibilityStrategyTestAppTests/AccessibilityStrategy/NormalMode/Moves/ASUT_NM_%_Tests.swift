@@ -11,6 +11,42 @@ class ASUT_NM_percent_Tests: ASNM_BaseTests {
 }
 
 
+// TODO: update those tests to handle FileLines
+// line
+extension ASUT_NM_percent_Tests {
+    
+    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
+        let text = """
+this move does not stop at screen lines. it will just pass by
+them like nothin🇫🇷️ happened. that's how special it is.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 119,
+            caretLocation: 116,
+            selectedLength: 1,
+            selectedText: "i",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 119,
+                number: 5,
+                start: 94,
+                end: 119
+            )
+        )
+
+        let returnedElement = applyMoveBeingTested(to: "k", on: element)
+
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "ke nothin🇫🇷️ happened. that's how special it ")
+        XCTAssertEqual(returnedElement?.caretLocation, 69)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+     
+}
+
+
 // Both
 extension ASUT_NM_percent_Tests {
     
