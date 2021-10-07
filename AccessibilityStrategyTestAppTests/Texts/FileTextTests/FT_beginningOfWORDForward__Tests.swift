@@ -308,16 +308,16 @@ if text[nextIndex] == "_" {
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 28,
+            length: 27,
             caretLocation: 23,
             selectedLength: 1,
             selectedText: "_",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 28,
+                fullTextLength: 27,
                 number: 3,
                 start: 15,
-                end: 28
+                end: 27
             )
         )
         
