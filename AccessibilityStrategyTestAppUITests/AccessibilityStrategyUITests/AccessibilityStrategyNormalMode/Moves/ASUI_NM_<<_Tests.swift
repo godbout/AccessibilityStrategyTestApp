@@ -1,5 +1,5 @@
 import XCTest
-import AccessibilityStrategy
+@testable import AccessibilityStrategy
 
  
 class ASUI_NM_leftChevronLeftChevron_Tests: ASUI_NM_BaseTests {
@@ -24,6 +24,11 @@ seems that even the normal
        
         let accessibilityElement = applyMoveBeingTested()
         
+        XCTAssertEqual(accessibilityElement?.currentFileText.value, """
+seems that even the normal
+   🖕️ase fails LMAO
+"""
+        )
         XCTAssertEqual(accessibilityElement?.caretLocation, 30)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
@@ -41,6 +46,12 @@ seems that even the normal
         applyMove { asNormalMode.k(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
+        XCTAssertEqual(accessibilityElement?.currentFileText.value, """
+ now the line
+😀️as just two
+ spaces
+"""
+        )
         XCTAssertEqual(accessibilityElement?.caretLocation, 14)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
