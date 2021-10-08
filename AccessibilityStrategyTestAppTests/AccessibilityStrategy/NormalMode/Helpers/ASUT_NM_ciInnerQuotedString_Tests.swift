@@ -3,7 +3,7 @@ import XCTest
 
 
 // this function is used for for ci", ci', and ci` 
-class ASNM_ciInnerQuotedString_Tests: ASNM_BaseTests {
+class ASUT_NM_ciInnerQuotedString_Tests: ASNM_BaseTests {
     
     func test_that_if_the_caret_is_between_quotes_the_content_within_the_quotes_is_deleted_and_the_caret_moves() {
         let text = """
@@ -19,9 +19,9 @@ finally dealing with the "real stuff"!
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 38,
-                number: 1,
-                start: 0,
-                end: 38
+                number: 3,
+                start: 21,
+                end: 31
             )
         )
         
@@ -47,9 +47,9 @@ a text with only one quote ' lol
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 32,
-                number: 1,
-                start: 0,
-                end: 32
+                number: 2,
+                start: 12,
+                end: 21
             )
         )
         
@@ -70,9 +70,9 @@ a text with only one quote ' lol
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 26,
-                number: 1,
-                start: 0,
-                end: 26
+                number: 2,
+                start: 7,
+                end: 20
             )
         )
         
@@ -95,9 +95,9 @@ now the caret is before the ` shit with ` backtick quotes
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 57,
-                number: 1,
-                start: 0,
-                end: 57
+                number: 3,
+                start: 17,
+                end: 30
             )
         )
         
@@ -124,9 +124,9 @@ now the "caret" is after the quotes
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 98,
-                number: 3,
-                start: 63,
-                end: 98
+                number: 9,
+                start: 82,
+                end: 92
             )
         )
         
@@ -149,9 +149,9 @@ that's ' three quotes ' in there
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 32,
-                number: 1,
-                start: 0,
-                end: 32
+                number: 2,
+                start: 9,
+                end: 22
             )
         )
         
@@ -176,9 +176,9 @@ that's " four quotes " in " there "
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 35,
-                number: 1,
-                start: 0,
-                end: 35
+                number: 3,
+                start: 21,
+                end: 34
             )
         )
         
@@ -193,7 +193,7 @@ that's " four quotes " in " there "
 
 
 // emojis
-extension ASNM_ciInnerQuotedString_Tests {
+extension ASUT_NM_ciInnerQuotedString_Tests {
     
     func test_that_it_handles_emojis() {
         let text = """
@@ -210,9 +210,9 @@ those💨️💨️💨️ fac"es 🥺️☹️😂️ h😀️ha👅️" hhohoh
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 71,
-                number: 2,
+                number: 3,
                 start: 18,
-                end: 71
+                end: 33
             )
         )
         
