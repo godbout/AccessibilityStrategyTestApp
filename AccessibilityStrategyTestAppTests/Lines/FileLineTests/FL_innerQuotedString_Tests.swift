@@ -225,6 +225,34 @@ several "pairs" here and kindaVim should "know which one to delete
         )
     }
     
+    func test_that_if_the_line_with_quotes_is_not_the_first_one_it_still_fucking_works() {
+        let text = """
+so i'm a line first
+and then the "real" shit
+and currently i fail
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 65,
+            caretLocation: 24,
+            selectedLength: 1,
+            selectedText: "t",
+            currentLine: AccessibilityTextElementLine(
+                fullTextValue: text,
+                fullTextLength: 65,
+                number: 2,
+                start: 20,
+                end: 45
+            )
+        )
+        
+        guard let quotedStringRange = element.currentFileLine.innerQuotedString(using: "\"", startingAt: 26) else { return XCTFail() }
+        
+        XCTAssertEqual(quotedStringRange.lowerBound, 34)
+        XCTAssertEqual(quotedStringRange.upperBound, 38) 
+    }
+    
 }
 
 
