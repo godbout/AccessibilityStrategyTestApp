@@ -81,7 +81,7 @@ extension endOfWordForward {
     func test_that_if_the_caretLocation_is_at_the_end_limit_of_the_text_before_applying_the_move_then_it_returns_nil() {
         let text = "all those moves are fucking weird"
 
-        let beginningOfWordForwardLocation = textEngine.beginningOfWordForward(startingAt: 32, in: TextEngineText(from: text))
+        let beginningOfWordForwardLocation = textEngine.endOfWordForward(startingAt: 32, in: TextEngineText(from: text))
 
         XCTAssertNil(beginningOfWordForwardLocation)
     }
