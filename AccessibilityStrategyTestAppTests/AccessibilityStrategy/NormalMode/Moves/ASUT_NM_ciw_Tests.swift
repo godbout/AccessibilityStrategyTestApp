@@ -20,18 +20,18 @@ extension ASUT_NM_ciw_Tests {
     func test_that_when_it_finds_an_inner_word_it_selects_the_range_and_will_delete_the_selection() {
         let text = "that's some cute     text in here don't you think?"
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
-            length: 50,
+            length: 32,
             caretLocation: 14,
             selectedLength: 1,
-            selectedText: "t",
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
-                fullTextLength: 50,
+                fullTextLength: 32,
                 number: 1,
                 start: 0,
-                end: 50
+                end: 16
             )
         )
         
