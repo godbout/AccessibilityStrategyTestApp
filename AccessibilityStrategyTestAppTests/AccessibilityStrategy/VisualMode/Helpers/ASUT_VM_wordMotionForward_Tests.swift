@@ -7,7 +7,7 @@ import XCTest
 // the caretLocation, selectedLength and selectedText are the same, hence the wordMotionForward function.
 class ASUT_VM_wordMotionForward_Tests: ASVM_BaseTests {
 
-    private func applyMove(on element: AccessibilityTextElement?, using wordMotionForwardFunction: (Int, TextEngineText) -> Int?) -> AccessibilityTextElement? {
+    private func applyMove(on element: AccessibilityTextElement?, using wordMotionForwardFunction: (Int) -> Int?) -> AccessibilityTextElement? {
         return asVisualMode.wordMotionForward(on: element, using: wordMotionForwardFunction)
     }
     
@@ -38,7 +38,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         AccessibilityStrategyVisualMode.anchor = 14
         AccessibilityStrategyVisualMode.head = 22
         
-        let returnedElement = applyMove(on: element, using: textEngine.beginningOfWordForward)
+        let returnedElement = applyMove(on: element, using: element.currentFileText.beginningOfWordForward)
         
         XCTAssertEqual(returnedElement?.caretLocation, 14)
         XCTAssertEqual(returnedElement?.selectedLength, 15)
@@ -46,7 +46,7 @@ extension ASUT_VM_wordMotionForward_Tests {
     }
     
     func test_that_if_the_head_is_before_the_anchor_it_reduces_the_selected_length_to_the_new_head_location_related_to_the_word_motion_move() {
-        let text = "applyMove(on: element, using: textEngine.beginningOfWORDForward)"
+        let text = "applyMove(on: element, using: element.currentFileText.beginningOfWORDForward)"
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
@@ -66,7 +66,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         AccessibilityStrategyVisualMode.anchor = 10
         AccessibilityStrategyVisualMode.head = 3
 
-        let returnedElement = applyMove(on: element, using: textEngine.beginningOfWORDForward)
+        let returnedElement = applyMove(on: element, using: element.currentFileText.beginningOfWORDForward)
 
         XCTAssertEqual(returnedElement?.caretLocation, 10)
         XCTAssertEqual(returnedElement?.selectedLength, 5)
@@ -94,7 +94,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         AccessibilityStrategyVisualMode.anchor = 26
         AccessibilityStrategyVisualMode.head = 26
 
-        let returnedElement = applyMove(on: element, using: textEngine.endOfWordForward)
+        let returnedElement = applyMove(on: element, using: element.currentFileText.endOfWordForward)
 
         XCTAssertEqual(returnedElement?.caretLocation, 26)
         XCTAssertEqual(returnedElement?.selectedLength, 3)
@@ -128,7 +128,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         AccessibilityStrategyVisualMode.anchor = 19
         AccessibilityStrategyVisualMode.head = 19
 
-        let returnedElement = applyMove(on: element, using: textEngine.endOfWORDForward)
+        let returnedElement = applyMove(on: element, using: element.currentFileText.endOfWORDForward)
 
         XCTAssertEqual(returnedElement?.caretLocation, 19)
         XCTAssertEqual(returnedElement?.selectedLength, 10)
@@ -156,7 +156,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         AccessibilityStrategyVisualMode.anchor = 19
         AccessibilityStrategyVisualMode.head = 8
 
-        let returnedElement = applyMove(on: element, using: textEngine.beginningOfWordForward)
+        let returnedElement = applyMove(on: element, using: element.currentFileText.beginningOfWordForward)
 
         XCTAssertEqual(returnedElement?.caretLocation, 10)
         XCTAssertEqual(returnedElement?.selectedLength, 12)
@@ -184,7 +184,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         AccessibilityStrategyVisualMode.anchor = 16
         AccessibilityStrategyVisualMode.head = 8
 
-        let returnedElement = applyMove(on: element, using: textEngine.beginningOfWORDForward)
+        let returnedElement = applyMove(on: element, using: element.currentFileText.beginningOfWORDForward)
 
         XCTAssertEqual(returnedElement?.caretLocation, 16)
         XCTAssertEqual(returnedElement?.selectedLength, 14)
@@ -212,7 +212,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         AccessibilityStrategyVisualMode.anchor = 4
         AccessibilityStrategyVisualMode.head = 5
 
-        let returnedElement = applyMove(on: element, using: textEngine.endOfWORDForward)
+        let returnedElement = applyMove(on: element, using: element.currentFileText.endOfWORDForward)
 
         XCTAssertEqual(returnedElement?.caretLocation, 4)
         XCTAssertEqual(returnedElement?.selectedLength, 21)
