@@ -246,7 +246,7 @@ those💨️💨️💨️ fac"🍵️s 🥺️☹️😂️ h😀️ha👅️" 
                 fullTextLength: 73,
                 number: 2,
                 start: 18,
-                end: 73
+                end: 52
             )
         )
         
