@@ -2,8 +2,8 @@
 import XCTest
 
 
-// this move uses TE innerBrackets which is already tested on its own.
-// TE innerBrackets returns the range of the text found, but doesn't care if the text
+// this move uses FT innerBrackets which is already tested on its own.
+// FT innerBrackets returns the range of the text found, but doesn't care if the text
 // spans on a line or several. this is up to ciInnerBrackets to handle this, which is
 // what we test here.
 // also so other stuff like going back to IM or NM have to be tested through UI.
@@ -11,7 +11,7 @@ import XCTest
 // we need to query the AX to get info about the next line.
 class ASUT_NM_ciInnerBrackets_Tests: ASNM_BaseTests {
     
-    private func applyMove(using bracket: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(using bracket: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.ciInnerBrackets(using: bracket, on: element) 
     }
     
@@ -33,13 +33,13 @@ extension ASUT_NM_ciInnerBrackets_Tests {
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 58,
-                number: 1,
-                start: 0,
-                end: 58
+                number: 2,
+                start: 12,
+                end: 22
             )
         )
         
-        let returnedElement = applyMove(using: "(", on: element)
+        let returnedElement = applyMoveBeingTested(using: "(", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 16)
         XCTAssertEqual(returnedElement?.selectedLength, 33)
@@ -63,18 +63,18 @@ and } is not preceded by a linefeed
             value: text,
             length: 85,
             caretLocation: 25,
-            selectedLength: 0,
-            selectedText: "",
+            selectedLength: 1,
+            selectedText: "t",
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 85,
-                number: 1,
-                start: 0,
+                number: 3,
+                start: 23,
                 end: 36
             )
         )
         
-        let returnedElement = applyMove(using: "{", on: element)
+        let returnedElement = applyMoveBeingTested(using: "{", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 19)
         XCTAssertEqual(returnedElement?.selectedLength, 35)
@@ -97,13 +97,13 @@ by a linefeed and
             currentLine: AccessibilityTextElementLine(
                 fullTextValue: text,
                 fullTextLength: 86,
-                number: 1,
-                start: 0,
+                number: 3,
+                start: 23,
                 end: 36
             )
         )
         
-        let returnedElement = applyMove(using: "{", on: element)
+        let returnedElement = applyMoveBeingTested(using: "{", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 19)
         XCTAssertEqual(returnedElement?.selectedLength, 34)
