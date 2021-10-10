@@ -37,7 +37,7 @@ extension ASUT_VM_wordMotionBackward_Tests {
         AccessibilityStrategyVisualMode.anchor = 10
         AccessibilityStrategyVisualMode.head = 35
         
-        let returnedElement = applyMove(on: element, using: element.currentFileText.beginningOfWordBackward)
+        let returnedElement = applyMove(on: element, using: element.fileText.beginningOfWordBackward)
         
         XCTAssertEqual(returnedElement?.caretLocation, 10)
         XCTAssertEqual(returnedElement?.selectedLength, 21)
@@ -72,7 +72,7 @@ fro
         AccessibilityStrategyVisualMode.anchor = 67
         AccessibilityStrategyVisualMode.head = 57
         
-        let returnedElement = applyMove(on: element, using: element.currentFileText.beginningOfWORDBackward)
+        let returnedElement = applyMove(on: element, using: element.fileText.beginningOfWORDBackward)
         
         XCTAssertEqual(returnedElement?.caretLocation, 53)
         XCTAssertEqual(returnedElement?.selectedLength, 15)
@@ -100,7 +100,7 @@ fro
         AccessibilityStrategyVisualMode.anchor = 18
         AccessibilityStrategyVisualMode.head = 18
         
-        let returnedElement = applyMove(on: element, using: element.currentFileText.endOfWordBackward)
+        let returnedElement = applyMove(on: element, using: element.fileText.endOfWordBackward)
         
         XCTAssertEqual(returnedElement?.caretLocation, 16)
         XCTAssertEqual(returnedElement?.selectedLength, 3)
@@ -133,7 +133,7 @@ line
         AccessibilityStrategyVisualMode.anchor = 31
         AccessibilityStrategyVisualMode.head = 31
         
-        let returnedElement = applyMove(on: element, using: element.currentFileText.beginningOfWordBackward)
+        let returnedElement = applyMove(on: element, using: element.fileText.beginningOfWordBackward)
         
         XCTAssertEqual(returnedElement?.caretLocation, 26)
         XCTAssertEqual(returnedElement?.selectedLength, 5)
@@ -168,7 +168,7 @@ extension ASUT_VM_wordMotionBackward_Tests {
         AccessibilityStrategyVisualMode.anchor = 18
         AccessibilityStrategyVisualMode.head = 18
         
-        let returnedElement = applyMove(on: element, using: element.currentFileText.endOfWORDBackward)
+        let returnedElement = applyMove(on: element, using: element.fileText.endOfWORDBackward)
         
         XCTAssertEqual(returnedElement?.caretLocation, 6)
         XCTAssertEqual(returnedElement?.selectedLength, 15)
@@ -196,7 +196,7 @@ extension ASUT_VM_wordMotionBackward_Tests {
         AccessibilityStrategyVisualMode.anchor = 19
         AccessibilityStrategyVisualMode.head = 10
         
-        let returnedElement = applyMove(on: element, using: element.currentFileText.endOfWordBackward)
+        let returnedElement = applyMove(on: element, using: element.fileText.endOfWordBackward)
         
         XCTAssertEqual(returnedElement?.caretLocation, 8)
         XCTAssertEqual(returnedElement?.selectedLength, 14)

@@ -26,7 +26,7 @@ extension FT_nextUnmatched_Tests {
             )
         )
         
-        let nextUnmatchedLocation = element.currentFileText.nextUnmatched("}", after: 11)
+        let nextUnmatchedLocation = element.fileText.nextUnmatched("}", after: 11)
         
         XCTAssertEqual(nextUnmatchedLocation, 40)
     }
@@ -49,7 +49,7 @@ extension FT_nextUnmatched_Tests {
             )
         )
         
-        let nextUnmatchedLocation = element.currentFileText.nextUnmatched("}", after: 2)
+        let nextUnmatchedLocation = element.fileText.nextUnmatched("}", after: 2)
         
         XCTAssertEqual(nextUnmatchedLocation, 11)
     }
@@ -72,7 +72,7 @@ extension FT_nextUnmatched_Tests {
             )
         )
         
-        let nextUnmatchedLocation = element.currentFileText.nextUnmatched("}", after: 19)
+        let nextUnmatchedLocation = element.fileText.nextUnmatched("}", after: 19)
         
         XCTAssertNil(nextUnmatchedLocation)
     }
@@ -95,7 +95,7 @@ extension FT_nextUnmatched_Tests {
             )
         )
         
-        let nextUnmatchedLocation = element.currentFileText.nextUnmatched(")", after: 6)
+        let nextUnmatchedLocation = element.fileText.nextUnmatched(")", after: 6)
         
         XCTAssertNil(nextUnmatchedLocation)
     }
@@ -121,7 +121,7 @@ and another ) here
             )
         )
                 
-        let nextUnmatchedLocation = element.currentFileText.nextUnmatched(")", after: 13)
+        let nextUnmatchedLocation = element.fileText.nextUnmatched(")", after: 13)
 
         XCTAssertEqual(nextUnmatchedLocation, 32)
     }
@@ -144,7 +144,7 @@ and another ) here
             )
         )
         
-        let nextUnmatchedLocation = element.currentFileText.nextUnmatched(")", after: 0)
+        let nextUnmatchedLocation = element.fileText.nextUnmatched(")", after: 0)
 
         XCTAssertEqual(nextUnmatchedLocation, 23)
     }
@@ -167,7 +167,7 @@ and another ) here
             )
         )
         
-        let nextUnmatchedLocation = element.currentFileText.nextUnmatched(")", after: 14)
+        let nextUnmatchedLocation = element.fileText.nextUnmatched(")", after: 14)
         
         XCTAssertEqual(nextUnmatchedLocation, 18)
     }
@@ -190,7 +190,7 @@ and another ) here
             )
         )
                 
-        let nextUnmatchedLocation = element.currentFileText.nextUnmatched("}", after: 20)
+        let nextUnmatchedLocation = element.fileText.nextUnmatched("}", after: 20)
         
         XCTAssertEqual(nextUnmatchedLocation, 33)
     }
@@ -213,7 +213,7 @@ and another ) here
             )
         )
         
-        let nextUnmatchedLocation = element.currentFileText.nextUnmatched("}", after: 0)
+        let nextUnmatchedLocation = element.fileText.nextUnmatched("}", after: 0)
         
         XCTAssertNil(nextUnmatchedLocation)
     }
@@ -243,7 +243,7 @@ extension FT_nextUnmatched_Tests {
             )
         )
         
-        let nextUnmatchedLocation = element.currentFileText.nextUnmatched(")", after: 6)
+        let nextUnmatchedLocation = element.fileText.nextUnmatched(")", after: 6)
         
         XCTAssertEqual(nextUnmatchedLocation, 86)
     }

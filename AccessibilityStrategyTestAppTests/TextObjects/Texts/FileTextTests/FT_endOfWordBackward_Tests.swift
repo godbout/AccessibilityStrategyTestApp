@@ -29,7 +29,7 @@ extension FT_endOfWordBackward_Tests {
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 0)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 0)
         
         XCTAssertNil(endOfWordBackwardLocation)
     }
@@ -58,7 +58,7 @@ with linefeed
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 54)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 54)
         
         XCTAssertEqual(endOfWordBackwardLocation, 52)
     }
@@ -87,7 +87,7 @@ extension FT_endOfWordBackward_Tests {
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 18)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 18)
         
         XCTAssertEqual(endOfWordBackwardLocation, 13)
     }
@@ -110,7 +110,7 @@ extension FT_endOfWordBackward_Tests {
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 17)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 17)
         
         XCTAssertEqual(endOfWordBackwardLocation, 13)
     }
@@ -133,7 +133,7 @@ extension FT_endOfWordBackward_Tests {
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 13)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 13)
         
         XCTAssertEqual(endOfWordBackwardLocation, 9)
     }
@@ -156,7 +156,7 @@ extension FT_endOfWordBackward_Tests {
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 47)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 47)
         
         XCTAssertEqual(endOfWordBackwardLocation, 3)
     }
@@ -179,7 +179,7 @@ extension FT_endOfWordBackward_Tests {
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 30)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 30)
         
         XCTAssertEqual(endOfWordBackwardLocation, 21)
     }
@@ -202,7 +202,7 @@ extension FT_endOfWordBackward_Tests {
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 0)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 0)
         
         XCTAssertNil(endOfWordBackwardLocation)
     }
@@ -225,7 +225,7 @@ extension FT_endOfWordBackward_Tests {
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 8)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 8)
         
         XCTAssertEqual(endOfWordBackwardLocation, 0)
     }
@@ -250,7 +250,7 @@ if text[index] == "_" {
             )
         )
                 
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 22)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 22)
         
         XCTAssertEqual(endOfWordBackwardLocation, 20)
     }
@@ -275,7 +275,7 @@ if text[index] == "_" {
             )
         )
 
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 20)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 20)
         
         XCTAssertEqual(endOfWordBackwardLocation, 19)
     }
@@ -301,7 +301,7 @@ if text[index] == "_" {
        )
         
                 
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 18)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 18)
         
         XCTAssertEqual(endOfWordBackwardLocation, 16)
     }
@@ -324,7 +324,7 @@ if text[index] == "_" {
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 24)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 24)
         
         XCTAssertEqual(endOfWordBackwardLocation, 4)
     }
@@ -347,7 +347,7 @@ if text[index] == "_" {
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 26)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 26)
         
         XCTAssertEqual(endOfWordBackwardLocation, 22)
     }
@@ -370,7 +370,7 @@ if text[index] == "_" {
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 29)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 29)
         
         XCTAssertEqual(endOfWordBackwardLocation, 25)                
     }
@@ -393,7 +393,7 @@ if text[index] == "_" {
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 19)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 19)
         
         XCTAssertEqual(endOfWordBackwardLocation, 15)
     }
@@ -416,7 +416,7 @@ if text[index] == "_" {
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 18)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 18)
         
         XCTAssertEqual(endOfWordBackwardLocation, 14)
     }
@@ -439,7 +439,7 @@ if text[index] == "_" {
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 12)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 12)
         
         XCTAssertEqual(endOfWordBackwardLocation, 9)
     }
@@ -462,7 +462,7 @@ if text[index] == "_" {
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 41)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 41)
         
         XCTAssertEqual(endOfWordBackwardLocation, 24)
     }
@@ -494,7 +494,7 @@ ge can go
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 22)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 22)
         
         XCTAssertEqual(endOfWordBackwardLocation, 19)
     }
@@ -521,7 +521,7 @@ at empty lines
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 16)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 16)
         
         XCTAssertEqual(endOfWordBackwardLocation, 15)
     }
@@ -548,7 +548,7 @@ ge should stop at empty lines and
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 42)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 42)
         
         XCTAssertEqual(endOfWordBackwardLocation, 34)
     }
@@ -576,7 +576,7 @@ whitespaces
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 73)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 73)
         
         XCTAssertEqual(endOfWordBackwardLocation, 62)
     }
@@ -606,7 +606,7 @@ extension FT_endOfWordBackward_Tests {
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 30)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 30)
         
         XCTAssertEqual(endOfWordBackwardLocation, 22)                
     }
@@ -632,7 +632,7 @@ emojis are symbols that 🔫️🔫️🔫️ are longer than 1 length 🔫️
             )
         )
         
-        let endOfWordBackwardLocation = element.currentFileText.endOfWordBackward(startingAt: 63)
+        let endOfWordBackwardLocation = element.fileText.endOfWordBackward(startingAt: 63)
         
         XCTAssertEqual(endOfWordBackwardLocation, 59)       
     }

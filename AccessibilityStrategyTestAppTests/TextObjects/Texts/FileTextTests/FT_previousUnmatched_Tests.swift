@@ -26,7 +26,7 @@ extension FT_previousUnmatched_Tests {
             )
         )
         
-        let previousUnmatchedLocation = element.currentFileText.previousUnmatched("{", before: 25)
+        let previousUnmatchedLocation = element.fileText.previousUnmatched("{", before: 25)
         
         XCTAssertEqual(previousUnmatchedLocation, 16)
     }
@@ -49,7 +49,7 @@ extension FT_previousUnmatched_Tests {
             )
         )
         
-        let previousUnmatchedLocation = element.currentFileText.previousUnmatched("{", before: 29)
+        let previousUnmatchedLocation = element.fileText.previousUnmatched("{", before: 29)
         
         XCTAssertEqual(previousUnmatchedLocation, 25)
     }
@@ -72,7 +72,7 @@ extension FT_previousUnmatched_Tests {
             )
         )
         
-        let previousUnmatchedLocation = element.currentFileText.previousUnmatched("{", before: 28)
+        let previousUnmatchedLocation = element.fileText.previousUnmatched("{", before: 28)
         
         XCTAssertEqual(previousUnmatchedLocation, 2)
     }
@@ -95,7 +95,7 @@ extension FT_previousUnmatched_Tests {
             )
         )
         
-        let previousUnmatchedLocation = element.currentFileText.previousUnmatched("(", before: 20)
+        let previousUnmatchedLocation = element.fileText.previousUnmatched("(", before: 20)
         
         XCTAssertNil(previousUnmatchedLocation)
     }
@@ -118,7 +118,7 @@ extension FT_previousUnmatched_Tests {
             )
         )
         
-        let previousUnmatchedLocation = element.currentFileText.previousUnmatched("(", before: 30)
+        let previousUnmatchedLocation = element.fileText.previousUnmatched("(", before: 30)
         
         XCTAssertNil(previousUnmatchedLocation)
     }
@@ -144,7 +144,7 @@ the second brace ( yes
             )
         )
         
-        let previousUnmatchedLocation = element.currentFileText.previousUnmatched("(", before: 37)
+        let previousUnmatchedLocation = element.fileText.previousUnmatched("(", before: 37)
         
         XCTAssertEqual(previousUnmatchedLocation, 11)
     }
@@ -173,7 +173,7 @@ again
             )
         )
         
-        let previousUnmatchedLocation = element.currentFileText.previousUnmatched("{", before: 41)
+        let previousUnmatchedLocation = element.fileText.previousUnmatched("{", before: 41)
         
         XCTAssertEqual(previousUnmatchedLocation, 40)
     }
@@ -196,7 +196,7 @@ again
             )
         )
         
-        let previousUnmatchedLocation = element.currentFileText.previousUnmatched("(", before: 23)
+        let previousUnmatchedLocation = element.fileText.previousUnmatched("(", before: 23)
         
         XCTAssertEqual(previousUnmatchedLocation, 0)
     }
@@ -219,7 +219,7 @@ again
             )
         )
         
-        let previousUnmatchedLocation = element.currentFileText.previousUnmatched("{", before: 28)
+        let previousUnmatchedLocation = element.fileText.previousUnmatched("{", before: 28)
         
         XCTAssertEqual(previousUnmatchedLocation, 26)
     }
@@ -242,7 +242,7 @@ again
             )
         )
         
-        let previousUnmatchedLocation = element.currentFileText.previousUnmatched("(", before: 15)
+        let previousUnmatchedLocation = element.fileText.previousUnmatched("(", before: 15)
         
         XCTAssertEqual(previousUnmatchedLocation, 13)
     }
@@ -265,7 +265,7 @@ again
             )
         )
                 
-        let previousUnmatchedLocation = element.currentFileText.previousUnmatched("(", before: 19)
+        let previousUnmatchedLocation = element.fileText.previousUnmatched("(", before: 19)
         
         XCTAssertEqual(previousUnmatchedLocation, 12)
     }
@@ -288,7 +288,7 @@ again
             )
         )
         
-        let previousUnmatchedLocation = element.currentFileText.previousUnmatched("{", before: 17)
+        let previousUnmatchedLocation = element.fileText.previousUnmatched("{", before: 17)
         
         XCTAssertEqual(previousUnmatchedLocation, 1)
     }
@@ -311,7 +311,7 @@ again
             )
         )
         
-        let previousUnmatchedLocation = element.currentFileText.previousUnmatched("{", before: 0)
+        let previousUnmatchedLocation = element.fileText.previousUnmatched("{", before: 0)
         
         XCTAssertNil(previousUnmatchedLocation)
     }
@@ -341,7 +341,7 @@ extension FT_previousUnmatched_Tests {
             )
         )
         
-        let previousUnmatchedLocation = element.currentFileText.previousUnmatched("{", before: 103)
+        let previousUnmatchedLocation = element.fileText.previousUnmatched("{", before: 103)
         
         XCTAssertEqual(previousUnmatchedLocation, 10)
     }

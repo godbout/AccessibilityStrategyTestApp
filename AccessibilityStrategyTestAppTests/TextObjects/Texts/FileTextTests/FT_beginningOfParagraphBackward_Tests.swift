@@ -29,7 +29,7 @@ extension FT_beginningOfParagraphBackward_Tests {
             )
         )
         
-        let beginningOfParagraphBackwardLocation = element.currentFileText.beginningOfParagraphBackward(startingAt: 0)
+        let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 0)
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 0)
     }
@@ -60,7 +60,7 @@ with linefeed
             )
         )
         
-       	let beginningOfParagraphBackwardLocation = element.currentFileText.beginningOfParagraphBackward(startingAt: 56)
+       	let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 56)
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 13)
     }
@@ -89,7 +89,7 @@ extension FT_beginningOfParagraphBackward_Tests {
             )
         )
         
-        let beginningOfParagraphBackwardLocation = element.currentFileText.beginningOfParagraphBackward(startingAt: 19)
+        let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 19)
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 0)
     }
@@ -122,7 +122,7 @@ and some more blah blah
             )
         )
         
-        let beginningOfParagraphBackwardLocation = element.currentFileText.beginningOfParagraphBackward(startingAt: 42)
+        let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 42)
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 30)
     }
@@ -153,7 +153,7 @@ some more
             )
         )
         
-        let beginningOfParagraphBackwardLocation = element.currentFileText.beginningOfParagraphBackward(startingAt: 21)
+        let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 21)
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 12)
     }
@@ -181,7 +181,7 @@ an empty line!
             )
         )
         
-        let beginningOfParagraphBackwardLocation = element.currentFileText.beginningOfParagraphBackward(startingAt: 23)
+        let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 23)
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 0)
     }
@@ -208,7 +208,7 @@ is a linefeed
             )
         )
         
-        let beginningOfParagraphBackwardLocation = element.currentFileText.beginningOfParagraphBackward(startingAt: 0)
+        let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 0)
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 0)
     }
@@ -235,7 +235,7 @@ caret is after the last character
             )
         )
                 
-        let beginningOfParagraphBackwardLocation = element.currentFileText.beginningOfParagraphBackward(startingAt: 63)
+        let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 63)
         
 		XCTAssertEqual(beginningOfParagraphBackwardLocation, 29)
     }
@@ -271,7 +271,7 @@ yes 🐰️🐰️🐰️🐰️ this can happen🐰️🐰️ when the
             )
         )
         
-        let beginningOfParagraphBackwardLocation = element.currentFileText.beginningOfParagraphBackward(startingAt: 96)
+        let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 96)
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 50)
     }

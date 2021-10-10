@@ -30,7 +30,7 @@ extension FT_aWord_Tests {
             )
         )
         
-        let wordRange = element.currentFileText.aWord(startingAt: 7)
+        let wordRange = element.fileText.aWord(startingAt: 7)
         
         XCTAssertNil(wordRange)
     }
@@ -53,7 +53,7 @@ extension FT_aWord_Tests {
             )
         )
 
-        let wordRange = element.currentFileText.aWord(startingAt: 2)
+        let wordRange = element.fileText.aWord(startingAt: 2)
         
         XCTAssertEqual(wordRange?.lowerBound, 0)
         XCTAssertEqual(wordRange?.upperBound, 12)
@@ -77,7 +77,7 @@ extension FT_aWord_Tests {
             )
         )
 
-        let wordRange = element.currentFileText.aWord(startingAt: 10)
+        let wordRange = element.fileText.aWord(startingAt: 10)
         
         XCTAssertEqual(wordRange?.lowerBound, 7)
         XCTAssertEqual(wordRange?.upperBound, 19)
@@ -104,7 +104,7 @@ there's 5 spaces at the end of this line
             )
         )
 
-        let wordRange = element.currentFileText.aWord(startingAt: 42)
+        let wordRange = element.fileText.aWord(startingAt: 42)
         
         XCTAssertEqual(wordRange?.lowerBound, 40)
         XCTAssertEqual(wordRange?.upperBound, 55)
@@ -131,7 +131,7 @@ there's 5 spaces at the end of this line
             )
         )
 
-        let wordRange = element.currentFileText.aWord(startingAt: 48)
+        let wordRange = element.fileText.aWord(startingAt: 48)
         
         XCTAssertEqual(wordRange?.lowerBound, 46)
         XCTAssertEqual(wordRange?.upperBound, 55)
@@ -161,7 +161,7 @@ extension FT_aWord_Tests {
             )
         )
 
-        let wordRange = element.currentFileText.aWord(startingAt: 0)
+        let wordRange = element.fileText.aWord(startingAt: 0)
 
         XCTAssertNil(wordRange)
     }
@@ -188,7 +188,7 @@ the last line is empty
             )
         )
         
-        let wordRange = element.currentFileText.aWord(startingAt: 52)
+        let wordRange = element.fileText.aWord(startingAt: 52)
 
         XCTAssertNil(wordRange)
     }
@@ -211,7 +211,7 @@ the last line is empty
             )
         )
         
-        let wordRange = element.currentFileText.aWord(startingAt: 3)
+        let wordRange = element.fileText.aWord(startingAt: 3)
 
         XCTAssertEqual(wordRange?.lowerBound, 0)
         XCTAssertEqual(wordRange?.upperBound, 4)
@@ -235,7 +235,7 @@ the last line is empty
             )
         )
 
-        let wordRange = element.currentFileText.aWord(startingAt: 11)
+        let wordRange = element.fileText.aWord(startingAt: 11)
 
         XCTAssertEqual(wordRange?.lowerBound, 8)
         XCTAssertEqual(wordRange?.upperBound, 15)
@@ -259,7 +259,7 @@ the last line is empty
             )
         )
 
-        let wordRange = element.currentFileText.aWord(startingAt: 13)
+        let wordRange = element.fileText.aWord(startingAt: 13)
 
         XCTAssertEqual(wordRange?.lowerBound, 8)
         XCTAssertEqual(wordRange?.upperBound, 23)
@@ -283,7 +283,7 @@ the last line is empty
             )
         )
 
-        let wordRange = element.currentFileText.aWord(startingAt: 3)
+        let wordRange = element.fileText.aWord(startingAt: 3)
 
         XCTAssertEqual(wordRange?.lowerBound, 0)
         XCTAssertEqual(wordRange?.upperBound, 10)
@@ -307,7 +307,7 @@ the last line is empty
             )
         )
 
-        let wordRange = element.currentFileText.aWord(startingAt: 12)
+        let wordRange = element.fileText.aWord(startingAt: 12)
 
         XCTAssertEqual(wordRange?.lowerBound, 4)
         XCTAssertEqual(wordRange?.upperBound, 13)
@@ -331,7 +331,7 @@ the last line is empty
             )
         )
 
-        let wordRange = element.currentFileText.aWord(startingAt: 7)
+        let wordRange = element.fileText.aWord(startingAt: 7)
 
         XCTAssertEqual(wordRange?.lowerBound, 5)
         XCTAssertEqual(wordRange?.upperBound, 9)
@@ -355,7 +355,7 @@ the last line is empty
             )
         )
 
-        let wordRange = element.currentFileText.aWord(startingAt: 14)
+        let wordRange = element.fileText.aWord(startingAt: 14)
 
         XCTAssertEqual(wordRange?.lowerBound, 11)
         XCTAssertEqual(wordRange?.upperBound, 15)
@@ -379,7 +379,7 @@ the last line is empty
             )
         )
 
-        let wordRange = element.currentFileText.aWord(startingAt: 20)
+        let wordRange = element.fileText.aWord(startingAt: 20)
 
         XCTAssertEqual(wordRange?.lowerBound, 7)
         XCTAssertEqual(wordRange?.upperBound, 20)
@@ -406,7 +406,7 @@ this line ends with 3 spaces
             )
         )
                 
-        let wordRange = element.currentFileText.aWord(startingAt: 25)
+        let wordRange = element.fileText.aWord(startingAt: 25)
 
         XCTAssertEqual(wordRange?.lowerBound, 22)
         XCTAssertEqual(wordRange?.upperBound, 30)
@@ -433,7 +433,7 @@ this line ends with 3 spaces
             )
         )
         
-        let wordRange = element.currentFileText.aWord(startingAt: 36)
+        let wordRange = element.fileText.aWord(startingAt: 36)
 
         XCTAssertEqual(wordRange?.lowerBound, 32)
         XCTAssertEqual(wordRange?.upperBound, 36)
@@ -460,7 +460,7 @@ this line ends with 3 spaces
             )
         )
 
-        let wordRange = element.currentFileText.aWord(startingAt: 34)
+        let wordRange = element.fileText.aWord(startingAt: 34)
 
         XCTAssertEqual(wordRange?.lowerBound, 34)
         XCTAssertEqual(wordRange?.upperBound, 36)
@@ -487,7 +487,7 @@ those faces 🥺️☹️😂️ fart
             )
         )
                 
-        let wordRange = element.currentFileText.aWord(startingAt: 33)
+        let wordRange = element.fileText.aWord(startingAt: 33)
 
         XCTAssertEqual(wordRange?.lowerBound, 30)
         XCTAssertEqual(wordRange?.upperBound, 38)

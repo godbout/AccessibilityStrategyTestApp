@@ -29,7 +29,7 @@ extension FT_beginningOfWordBackward__Tests {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 0)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 0)
         
         XCTAssertNil(beginningOfWordBackwardLocation)
     }
@@ -58,7 +58,7 @@ with linefeed
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 54)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 54)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 45)
     }
@@ -87,7 +87,7 @@ extension FT_beginningOfWordBackward__Tests {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 18)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 18)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 15)
     }
@@ -110,7 +110,7 @@ extension FT_beginningOfWordBackward__Tests {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 15)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 15)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 12)
     }
@@ -133,7 +133,7 @@ extension FT_beginningOfWordBackward__Tests {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 20)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 20)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 11)
     }
@@ -156,7 +156,7 @@ extension FT_beginningOfWordBackward__Tests {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 11)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 11)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 10)
     }
@@ -179,7 +179,7 @@ extension FT_beginningOfWordBackward__Tests {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 14)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 14)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 10)
     }
@@ -202,7 +202,7 @@ extension FT_beginningOfWordBackward__Tests {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 48)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 48)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 5)
     }
@@ -225,7 +225,7 @@ extension FT_beginningOfWordBackward__Tests {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 30)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 30)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 18)
     }
@@ -248,7 +248,7 @@ extension FT_beginningOfWordBackward__Tests {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 0)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 0)
         
         XCTAssertNil(beginningOfWordBackwardLocation)
     }
@@ -271,7 +271,7 @@ extension FT_beginningOfWordBackward__Tests {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 5)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 5)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 0)
     }
@@ -296,7 +296,7 @@ if text[index] == "_" {
             )
         )
                 
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 22)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 22)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 20)
     }
@@ -321,7 +321,7 @@ if text[index] == "_" {
             )
         )
                 
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 20)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 20)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 19)
     }
@@ -346,7 +346,7 @@ if text[index] == "_" {
             )
         )
                 
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 18)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 18)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 15)
     }
@@ -369,7 +369,7 @@ if text[index] == "_" {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 16)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 16)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 6)
     }
@@ -392,7 +392,7 @@ if text[index] == "_" {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 24)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 24)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 22)
     }
@@ -415,7 +415,7 @@ if text[index] == "_" {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 27)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 27)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 22)                
     }
@@ -438,7 +438,7 @@ if text[index] == "_" {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 19)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 19)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 16)
     }
@@ -461,7 +461,7 @@ if text[index] == "_" {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 19)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 19)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 15)
     }
@@ -484,7 +484,7 @@ if text[index] == "_" {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 14)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 14)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 11)
     }
@@ -507,7 +507,7 @@ if text[index] == "_" {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 43)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 43)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 26)
     }
@@ -539,7 +539,7 @@ b can go
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 21)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 21)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 16)
     }
@@ -566,7 +566,7 @@ at empty lines
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 15)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 15)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 14)
     }
@@ -593,7 +593,7 @@ b should stop at empty lines and
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 39)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 39)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 34)
     }
@@ -621,7 +621,7 @@ whitespaces
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 67)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 67)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 59)
     }
@@ -653,7 +653,7 @@ extension FT_beginningOfWordBackward__Tests {
             )
         )
         
-        let beginningOfWordBackwardLocation = element.currentFileText.beginningOfWordBackward(startingAt: 30)
+        let beginningOfWordBackwardLocation = element.fileText.beginningOfWordBackward(startingAt: 30)
         
         XCTAssertEqual(beginningOfWordBackwardLocation, 24)                
     }

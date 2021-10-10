@@ -24,7 +24,7 @@ seems that even the normal
        
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.currentFileText.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 seems that even the normal
    🖕️ase fails LMAO
 """
@@ -46,7 +46,7 @@ seems that even the normal
         applyMove { asNormalMode.k(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.currentFileText.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
  now the line
 😀️as just two
  spaces

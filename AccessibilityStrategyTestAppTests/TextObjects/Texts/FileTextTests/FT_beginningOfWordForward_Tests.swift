@@ -29,7 +29,7 @@ extension FT_beginningOfWordForward_Tests {
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 0)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 0)
         
         XCTAssertNil(beginningOfWordForwardLocation)
     }
@@ -58,7 +58,7 @@ with linefeed
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 54)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 54)
         
         XCTAssertNil(beginningOfWordForwardLocation)
     }
@@ -87,7 +87,7 @@ extension FT_beginningOfWordForward_Tests {
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 6)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 6)
         
         XCTAssertEqual(beginningOfWordForwardLocation, 12)
     }
@@ -110,7 +110,7 @@ extension FT_beginningOfWordForward_Tests {
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 8)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 8)
         
         XCTAssertEqual(beginningOfWordForwardLocation, 22)
     }
@@ -133,7 +133,7 @@ extension FT_beginningOfWordForward_Tests {
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 10)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 10)
         
         XCTAssertEqual(beginningOfWordForwardLocation, 11)
     }
@@ -156,7 +156,7 @@ extension FT_beginningOfWordForward_Tests {
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 5)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 5)
         
         XCTAssertEqual(beginningOfWordForwardLocation, 48)
     }
@@ -179,7 +179,7 @@ extension FT_beginningOfWordForward_Tests {
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 20)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 20)
         
         XCTAssertEqual(beginningOfWordForwardLocation, 30)
     }
@@ -202,7 +202,7 @@ extension FT_beginningOfWordForward_Tests {
             )
         )
 
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 44)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 44)
 
         XCTAssertNil(beginningOfWordForwardLocation)
     }
@@ -225,7 +225,7 @@ extension FT_beginningOfWordForward_Tests {
             )
         )
 
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 42)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 42)
 
         XCTAssertEqual(beginningOfWordForwardLocation, 44)
     }
@@ -248,7 +248,7 @@ extension FT_beginningOfWordForward_Tests {
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 29)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 29)
         
         XCTAssertEqual(beginningOfWordForwardLocation, 32)
     }
@@ -271,7 +271,7 @@ extension FT_beginningOfWordForward_Tests {
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 54)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 54)
         
         XCTAssertEqual(beginningOfWordForwardLocation, 56)
     }
@@ -294,7 +294,7 @@ extension FT_beginningOfWordForward_Tests {
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 12)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 12)
         
         XCTAssertEqual(beginningOfWordForwardLocation, 15)
     }
@@ -317,7 +317,7 @@ extension FT_beginningOfWordForward_Tests {
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 71)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 71)
         
         XCTAssertEqual(beginningOfWordForwardLocation, 73)
     }
@@ -342,7 +342,7 @@ if text[nextIndex] == "_" {
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 22)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 22)
         
         XCTAssertEqual(beginningOfWordForwardLocation, 23)
     }
@@ -367,7 +367,7 @@ if text[nextIndex] == "_" {
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 23)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 23)
         
         XCTAssertEqual(beginningOfWordForwardLocation, 24)
     }
@@ -390,7 +390,7 @@ if text[nextIndex] == "_" {
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 5)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 5)
         
         XCTAssertEqual(beginningOfWordForwardLocation, 19)
     }
@@ -413,7 +413,7 @@ if text[nextIndex] == "_" {
             )
         )
                
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 26)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 26)
         
         XCTAssertEqual(beginningOfWordForwardLocation, 43)
     }
@@ -436,7 +436,7 @@ if text[nextIndex] == "_" {
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 23)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 23)
         
         XCTAssertEqual(beginningOfWordForwardLocation, 27)
     }
@@ -467,7 +467,7 @@ to the next line
             )
         )
 
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 7)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 7)
 
         XCTAssertEqual(beginningOfWordForwardLocation, 9)
     }
@@ -494,7 +494,7 @@ at empty lines
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 12)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 12)
         
         XCTAssertEqual(beginningOfWordForwardLocation, 14)
     }
@@ -522,7 +522,7 @@ whitespaces
             )
         )
 
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 62)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 62)
 
         XCTAssertEqual(beginningOfWordForwardLocation, 68)
     }
@@ -552,7 +552,7 @@ extension FT_beginningOfWordForward_Tests {
             )
         )
         
-        let beginningOfWordForwardLocation = element.currentFileText.beginningOfWordForward(startingAt: 27)
+        let beginningOfWordForwardLocation = element.fileText.beginningOfWordForward(startingAt: 27)
         
         XCTAssertEqual(beginningOfWordForwardLocation, 34)
     }

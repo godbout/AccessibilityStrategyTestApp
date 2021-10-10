@@ -29,7 +29,7 @@ extension FT_endOfParagraphForward_Tests {
             )
         )
         
-        let endOfParagraphForwardLocation = element.currentFileText.endOfParagraphForward(startingAt: 0)
+        let endOfParagraphForwardLocation = element.fileText.endOfParagraphForward(startingAt: 0)
         
         XCTAssertEqual(endOfParagraphForwardLocation, 0)
     }
@@ -58,7 +58,7 @@ with linefeed
             )
         )
         
-       	let endOfParagraphForwardLocation = element.currentFileText.endOfParagraphForward(startingAt: 54)
+       	let endOfParagraphForwardLocation = element.fileText.endOfParagraphForward(startingAt: 54)
         
         XCTAssertEqual(endOfParagraphForwardLocation, 54)
     }
@@ -88,7 +88,7 @@ extension FT_endOfParagraphForward_Tests {
             )
         )
         
-        let endOfParagraphForwardLocation = element.currentFileText.endOfParagraphForward(startingAt: 2)
+        let endOfParagraphForwardLocation = element.fileText.endOfParagraphForward(startingAt: 2)
         
         XCTAssertEqual(endOfParagraphForwardLocation, 22)
     }
@@ -121,7 +121,7 @@ and some more blah blah
             )
         )
         
-        let endOfParagraphForwardLocation = element.currentFileText.endOfParagraphForward(startingAt: 6)
+        let endOfParagraphForwardLocation = element.fileText.endOfParagraphForward(startingAt: 6)
 
         XCTAssertEqual(endOfParagraphForwardLocation, 30)
     }
@@ -150,7 +150,7 @@ some more
             )
         )
         
-        let endOfParagraphForwardLocation = element.currentFileText.endOfParagraphForward(startingAt: 6)
+        let endOfParagraphForwardLocation = element.fileText.endOfParagraphForward(startingAt: 6)
         
         XCTAssertEqual(endOfParagraphForwardLocation, 17)
     }
@@ -186,7 +186,7 @@ yes 🐰️🐰️🐰️🐰️ this can happen🐰️🐰️ when the
             )
         )
                 
-        let endOfParagraphForwardLocation = element.currentFileText.endOfParagraphForward(startingAt: 13)
+        let endOfParagraphForwardLocation = element.fileText.endOfParagraphForward(startingAt: 13)
         
         XCTAssertEqual(endOfParagraphForwardLocation, 48)
     }

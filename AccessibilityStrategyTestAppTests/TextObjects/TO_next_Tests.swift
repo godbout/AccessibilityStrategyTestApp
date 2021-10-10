@@ -52,7 +52,7 @@ extension TexObject_next_Tests {
             )
         )
                 
-        let characterFoundLocation = element.currentFileText.next("f", after: 9)
+        let characterFoundLocation = element.fileText.next("f", after: 9)
         
         XCTAssertEqual(characterFoundLocation, 15)     
     }
@@ -101,7 +101,7 @@ here so caret shouldn't move
             )
         )
         
-        let characterFoundLocation = element.currentFileText.next("r", after: 24)
+        let characterFoundLocation = element.fileText.next("r", after: 24)
 
         XCTAssertEqual(characterFoundLocation, nil)
     }
@@ -170,7 +170,7 @@ here so caret shouldn't move
             )
         )
         
-        let characterFoundLocation = element.currentFileText.next("r", after: 69)
+        let characterFoundLocation = element.fileText.next("r", after: 69)
         
         XCTAssertNil(characterFoundLocation)
     }

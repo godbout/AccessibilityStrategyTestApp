@@ -30,10 +30,10 @@ extension FT_SimpleComputedProperties_Tests {
             )
         )
 
-        XCTAssertEqual(element.currentFileText.start, 0)
-        XCTAssertEqual(element.currentFileText.end, 0)
-        XCTAssertEqual(element.currentFileText.value, "")
-        XCTAssertEqual(element.currentFileText.endLimit, 0)
+        XCTAssertEqual(element.fileText.start, 0)
+        XCTAssertEqual(element.fileText.end, 0)
+        XCTAssertEqual(element.fileText.value, "")
+        XCTAssertEqual(element.fileText.endLimit, 0)
     }
 
     func test_that_if_the_caret_is_at_the_end_of_the_text_on_its_own_empty_line_the_computed_properties_are_correct() {
@@ -59,16 +59,16 @@ line
             )
         )
 
-        XCTAssertEqual(element.currentFileText.start, 0)
-        XCTAssertEqual(element.currentFileText.end, 35)
-        XCTAssertEqual(element.currentFileText.value, """
+        XCTAssertEqual(element.fileText.start, 0)
+        XCTAssertEqual(element.fileText.end, 35)
+        XCTAssertEqual(element.fileText.value, """
 caret is on its
 own empty 🌬️
 line
 
 """
         )
-        XCTAssertEqual(element.currentFileText.endLimit, 35)
+        XCTAssertEqual(element.fileText.endLimit, 35)
     }
 
 }
@@ -98,14 +98,14 @@ a linefeed 🤱️
             )
         )
 
-        XCTAssertEqual(element.currentFileText.start, 0)
-        XCTAssertEqual(element.currentFileText.end, 48)
-        XCTAssertEqual(element.currentFileText.value, """
+        XCTAssertEqual(element.fileText.start, 0)
+        XCTAssertEqual(element.fileText.end, 48)
+        XCTAssertEqual(element.fileText.value, """
 now i'm a line 📏️📏️📏️ with 📏️
 a linefeed 🤱️
 """
         )
-        XCTAssertEqual(element.currentFileText.endLimit, 45)
+        XCTAssertEqual(element.fileText.endLimit, 45)
     }
 
     func test_that_for_a_file_line_that_does_not_end_with_a_linefeed_the_computed_properties_are_correct() {
@@ -129,13 +129,13 @@ fucking 🔥️🔥️🔥️ hell
             )
         )
 
-        XCTAssertEqual(element.currentFileText.start, 0)
-        XCTAssertEqual(element.currentFileText.end, 48)
-        XCTAssertEqual(element.currentFileText.value, """
+        XCTAssertEqual(element.fileText.start, 0)
+        XCTAssertEqual(element.fileText.end, 48)
+        XCTAssertEqual(element.fileText.value, """
 here we go baby 👶️👶️👶️
 fucking 🔥️🔥️🔥️ hell
 """)
-        XCTAssertEqual(element.currentFileText.endLimit, 47)
+        XCTAssertEqual(element.fileText.endLimit, 47)
     }
 
     // it may look like it's missing a case where an empty line does not end with a linefeed
@@ -162,15 +162,15 @@ and there's that one 🤌🏼️ line after
             )
         )
 
-        XCTAssertEqual(element.currentFileText.start, 0)
-        XCTAssertEqual(element.currentFileText.end, 70)
-        XCTAssertEqual(element.currentFileText.value, """
+        XCTAssertEqual(element.fileText.start, 0)
+        XCTAssertEqual(element.fileText.end, 70)
+        XCTAssertEqual(element.fileText.value, """
 the next line 📏️ will be empty
 
 and there's that one 🤌🏼️ line after
 """
         )
-        XCTAssertEqual(element.currentFileText.endLimit, 69)
+        XCTAssertEqual(element.fileText.endLimit, 69)
     }
     
     // middle line has a lot of spaces!
@@ -196,15 +196,15 @@ so careful that Xcode doesn't remove the fucking blanks.
             )
         )
 
-        XCTAssertEqual(element.currentFileText.start, 0)
-        XCTAssertEqual(element.currentFileText.end, 130)
-        XCTAssertEqual(element.currentFileText.value, """
+        XCTAssertEqual(element.fileText.start, 0)
+        XCTAssertEqual(element.fileText.end, 130)
+        XCTAssertEqual(element.fileText.value, """
 the next like appears empty but it's actually blank!!!
                   
 so careful that Xcode doesn't remove the fucking blanks.
 """
         )
-        XCTAssertEqual(element.currentFileText.endLimit, 129)
+        XCTAssertEqual(element.fileText.endLimit, 129)
     }
 
 }

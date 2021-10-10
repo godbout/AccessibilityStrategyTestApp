@@ -50,7 +50,7 @@ extension TextObject_previous_Tests {
             )
         )
                 
-        let characterFoundLocation = element.currentFileText.previous("F", before: 12)
+        let characterFoundLocation = element.fileText.previous("F", before: 12)
         
         XCTAssertEqual(characterFoundLocation, 4)   
     }
@@ -99,7 +99,7 @@ here so caret shouldn't move
             )
         )
                 
-        let characterFoundLocation = element.currentFileText.previous("z", before: 0)
+        let characterFoundLocation = element.fileText.previous("z", before: 0)
         
         XCTAssertNil(characterFoundLocation)
     }
@@ -122,7 +122,7 @@ here so caret shouldn't move
             )
         )
         
-        let characterFoundLocation = element.currentFileText.previous("r", before: 69)
+        let characterFoundLocation = element.fileText.previous("r", before: 69)
         
         XCTAssertNil(characterFoundLocation)
     }

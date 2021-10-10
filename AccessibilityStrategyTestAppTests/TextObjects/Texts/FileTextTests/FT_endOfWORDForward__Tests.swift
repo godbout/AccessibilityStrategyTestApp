@@ -29,7 +29,7 @@ extension FT_endOfWORDForward__Tests {
             )
         )
         
-        let endOfWORDForwardLocation = element.currentFileText.endOfWORDForward(startingAt: 0)
+        let endOfWORDForwardLocation = element.fileText.endOfWORDForward(startingAt: 0)
         
         XCTAssertNil(endOfWORDForwardLocation)
     }
@@ -58,7 +58,7 @@ with linefeed
             )
         )
         
-        let endOfWORDForwardLocation = element.currentFileText.endOfWORDForward(startingAt: 54)
+        let endOfWORDForwardLocation = element.fileText.endOfWORDForward(startingAt: 54)
         
         XCTAssertNil(endOfWORDForwardLocation)
     }
@@ -87,7 +87,7 @@ extension FT_endOfWORDForward__Tests {
             )
         )
         
-        let endOfWORDForwardLocation = element.currentFileText.endOfWORDForward(startingAt: 11)
+        let endOfWORDForwardLocation = element.fileText.endOfWORDForward(startingAt: 11)
         
         XCTAssertEqual(endOfWORDForwardLocation, 14)
     }
@@ -110,7 +110,7 @@ extension FT_endOfWORDForward__Tests {
             )
         )
         
-        let endOfWORDForwardLocation = element.currentFileText.endOfWORDForward(startingAt: 13)
+        let endOfWORDForwardLocation = element.fileText.endOfWORDForward(startingAt: 13)
         
         XCTAssertEqual(endOfWORDForwardLocation, 18)
     }
@@ -133,7 +133,7 @@ extension FT_endOfWORDForward__Tests {
             )
         )
         
-        let endOfWORDForwardLocation = element.currentFileText.endOfWORDForward(startingAt: 28)
+        let endOfWORDForwardLocation = element.fileText.endOfWORDForward(startingAt: 28)
         
         XCTAssertEqual(endOfWORDForwardLocation, 48)
     }
@@ -156,7 +156,7 @@ extension FT_endOfWORDForward__Tests {
             )
         )
         
-        let endOfWORDForwardLocation = element.currentFileText.endOfWORDForward(startingAt: 44)
+        let endOfWORDForwardLocation = element.fileText.endOfWORDForward(startingAt: 44)
         
         XCTAssertEqual(endOfWORDForwardLocation, 47)
     }
@@ -179,7 +179,7 @@ extension FT_endOfWORDForward__Tests {
             )
         )
         
-        let endOfWORDForwardLocation = element.currentFileText.endOfWORDForward(startingAt: 1)
+        let endOfWORDForwardLocation = element.fileText.endOfWORDForward(startingAt: 1)
         
         XCTAssertEqual(endOfWORDForwardLocation, 11)
     }
@@ -202,7 +202,7 @@ extension FT_endOfWORDForward__Tests {
             )
         )
 
-        let beginningOfWORDForwardLocation = element.currentFileText.endOfWORDForward(startingAt: 32)
+        let beginningOfWORDForwardLocation = element.fileText.endOfWORDForward(startingAt: 32)
 
         XCTAssertNil(beginningOfWORDForwardLocation)
     }
@@ -225,7 +225,7 @@ extension FT_endOfWORDForward__Tests {
             )
         )
 
-        let endOfWORDForwardLocation = element.currentFileText.endOfWORDForward(startingAt: 11)
+        let endOfWORDForwardLocation = element.fileText.endOfWORDForward(startingAt: 11)
 
         XCTAssertNil(endOfWORDForwardLocation)
     }
@@ -248,7 +248,7 @@ extension FT_endOfWORDForward__Tests {
             )
         )
         
-        let endOfWORDForwardLocation = element.currentFileText.endOfWORDForward(startingAt: 17)
+        let endOfWORDForwardLocation = element.fileText.endOfWORDForward(startingAt: 17)
         
         XCTAssertEqual(endOfWORDForwardLocation, 19)
     }
@@ -271,7 +271,7 @@ extension FT_endOfWORDForward__Tests {
             )
         )
         
-        let endOfWORDForwardLocation = element.currentFileText.endOfWORDForward(startingAt: 30)
+        let endOfWORDForwardLocation = element.fileText.endOfWORDForward(startingAt: 30)
         
         XCTAssertEqual(endOfWORDForwardLocation, 33)
     }
@@ -303,7 +303,7 @@ let nextIndex = text.index(after: index)
             )
         )
         
-        let endOfWORDForwardLocation = element.currentFileText.endOfWORDForward(startingAt: 73)
+        let endOfWORDForwardLocation = element.fileText.endOfWORDForward(startingAt: 73)
         
         XCTAssertEqual(endOfWORDForwardLocation, 77)
     }
@@ -330,7 +330,7 @@ if text[index].isCharacterThatConstitutesAVimWord() {
             )
         )
         
-        let endOfWORDForwardLocation = element.currentFileText.endOfWORDForward(startingAt: 39)
+        let endOfWORDForwardLocation = element.fileText.endOfWORDForward(startingAt: 39)
         
         XCTAssertEqual(endOfWORDForwardLocation, 58)
     }
@@ -360,7 +360,7 @@ extension FT_endOfWORDForward__Tests {
             )
         )
         
-        let endOfWORDForwardLocation = element.currentFileText.endOfWORDForward(startingAt: 24)
+        let endOfWORDForwardLocation = element.fileText.endOfWORDForward(startingAt: 24)
         
         XCTAssertEqual(endOfWORDForwardLocation, 38)                
     }
@@ -383,7 +383,7 @@ extension FT_endOfWORDForward__Tests {
             )
         )
         
-        let endOfWORDForwardLocation = element.currentFileText.endOfWORDForward(startingAt: 38)
+        let endOfWORDForwardLocation = element.fileText.endOfWORDForward(startingAt: 38)
         
         XCTAssertEqual(endOfWORDForwardLocation, 44)                
     }
