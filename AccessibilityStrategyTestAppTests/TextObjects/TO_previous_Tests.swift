@@ -2,12 +2,12 @@
 import XCTest
 
 
-// TODO: see next
-class FileLine_previous_Tests: XCTestCase {}
+// see next for blah blah
+class TextObject_previous_Tests: XCTestCase {}
 
 
 // Both
-extension FileLine_previous_Tests {
+extension TextObject_previous_Tests {
     
     func test_that_in_normal_setting_it_returns_the_correct_location() {
         let text = "check if F can find shit!"
@@ -50,7 +50,7 @@ extension FileLine_previous_Tests {
             )
         )
                 
-        let characterFoundLocation = element.currentFileLine.previous("F", before: 12)
+        let characterFoundLocation = element.currentFileText.previous("F", before: 12)
         
         XCTAssertEqual(characterFoundLocation, 4)   
     }
@@ -99,7 +99,7 @@ here so caret shouldn't move
             )
         )
                 
-        let characterFoundLocation = element.currentFileLine.previous("z", before: 0)
+        let characterFoundLocation = element.currentFileText.previous("z", before: 0)
         
         XCTAssertNil(characterFoundLocation)
     }
@@ -122,7 +122,7 @@ here so caret shouldn't move
             )
         )
         
-        let characterFoundLocation = element.currentFileLine.previous("r", before: 69)
+        let characterFoundLocation = element.currentFileText.previous("r", before: 69)
         
         XCTAssertNil(characterFoundLocation)
     }
@@ -155,7 +155,7 @@ here so caret shouldn't move
 
 // emojis
 // see beginningOfWordBackward for the blah blah
-extension FileLine_previous_Tests {
+extension TextObject_previous_Tests {
     
     func test_that_it_handles_emojis() {
         let text = "check if f can 😂️ find ☹️!"

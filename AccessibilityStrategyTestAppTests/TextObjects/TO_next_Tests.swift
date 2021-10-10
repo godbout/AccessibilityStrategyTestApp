@@ -2,12 +2,14 @@
 import XCTest
 
 
-// TODO: move those tests to TO
-class FileLine_next_Tests: XCTestCase {}
+// this func is on TO so it's used by both Lines and Texts
+// so they're both tested here. sometimes the test calls element.currentFileLine,
+// sometimes element.currentFileText
+class TexObject_next_Tests: XCTestCase {}
 
 
 // Both
-extension FileLine_next_Tests {
+extension TexObject_next_Tests {
     
     func test_that_in_normal_setting_it_returns_the_correct_location() {
         let text = "check if f can find shit!"
@@ -50,7 +52,7 @@ extension FileLine_next_Tests {
             )
         )
                 
-        let characterFoundLocation = element.currentFileLine.next("f", after: 9)
+        let characterFoundLocation = element.currentFileText.next("f", after: 9)
         
         XCTAssertEqual(characterFoundLocation, 15)     
     }
@@ -99,7 +101,7 @@ here so caret shouldn't move
             )
         )
         
-        let characterFoundLocation = element.currentFileLine.next("r", after: 24)
+        let characterFoundLocation = element.currentFileText.next("r", after: 24)
 
         XCTAssertEqual(characterFoundLocation, nil)
     }
@@ -168,7 +170,7 @@ here so caret shouldn't move
             )
         )
         
-        let characterFoundLocation = element.currentFileLine.next("r", after: 69)
+        let characterFoundLocation = element.currentFileText.next("r", after: 69)
         
         XCTAssertNil(characterFoundLocation)
     }
@@ -178,7 +180,7 @@ here so caret shouldn't move
 
 // emojis
 // see beginningOfWordBackward for the blah blah
-extension FileLine_next_Tests {
+extension TexObject_next_Tests {
     
     func test_that_it_handles_emojis() {
         let text = "check if f can 😂️ find ☹️!"
