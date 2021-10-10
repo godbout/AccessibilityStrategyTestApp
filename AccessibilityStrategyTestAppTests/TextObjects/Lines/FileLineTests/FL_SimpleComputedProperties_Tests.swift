@@ -30,7 +30,7 @@ extension FileLine_BaseTests {
                 end: 0
             )
         )
-
+                
         XCTAssertEqual(element.currentFileLine.start, 0)
         XCTAssertEqual(element.currentFileLine.end, 0)
         XCTAssertEqual(element.currentFileLine.value, "")
@@ -38,6 +38,8 @@ extension FileLine_BaseTests {
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 0)
         XCTAssertEqual(element.currentFileLine.length, 0)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 0)
+        XCTAssertEqual(element.currentFileLine.isTheFirstLine, true)
+        XCTAssertEqual(element.currentFileLine.isTheLastLine, true)
     }
 
     func test_that_if_the_caret_is_at_the_end_of_the_text_on_its_own_empty_line_the_computed_properties_are_correct() {
@@ -70,6 +72,8 @@ line
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 35)
         XCTAssertEqual(element.currentFileLine.length, 0)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 0)
+        XCTAssertEqual(element.currentFileLine.isTheFirstLine, false)
+        XCTAssertEqual(element.currentFileLine.isTheLastLine, true)
     }
 
 }
@@ -106,6 +110,8 @@ a linefeed 🤱️
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 0)
         XCTAssertEqual(element.currentFileLine.length, 34)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 33)
+        XCTAssertEqual(element.currentFileLine.isTheFirstLine, true)
+        XCTAssertEqual(element.currentFileLine.isTheLastLine, false)
     }
 
     func test_that_for_a_file_line_that_does_not_end_with_a_linefeed_the_computed_properties_are_correct() {
@@ -136,6 +142,8 @@ fucking 🔥️🔥️🔥️ hell
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 26)
         XCTAssertEqual(element.currentFileLine.length, 22)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 22)
+        XCTAssertEqual(element.currentFileLine.isTheFirstLine, false)
+        XCTAssertEqual(element.currentFileLine.isTheLastLine, true)
     }
 
     // it may look like it's missing a case where an empty line does not end with a linefeed
@@ -169,6 +177,8 @@ and there's that one 🤌🏼️ line after
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 32)
         XCTAssertEqual(element.currentFileLine.length, 1)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 0)
+        XCTAssertEqual(element.currentFileLine.isTheFirstLine, false)
+        XCTAssertEqual(element.currentFileLine.isTheLastLine, false)
     }
     
     // middle line has a lot of spaces!
@@ -201,6 +211,8 @@ so careful that Xcode doesn't remove the fucking blanks.
         XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 72)
         XCTAssertEqual(element.currentFileLine.length, 19)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 18)
+        XCTAssertEqual(element.currentFileLine.isTheFirstLine, false)
+        XCTAssertEqual(element.currentFileLine.isTheLastLine, false)
     }
 
 }
