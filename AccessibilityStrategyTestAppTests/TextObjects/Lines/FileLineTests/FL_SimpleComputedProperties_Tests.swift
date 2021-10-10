@@ -39,6 +39,7 @@ extension FileLine_BaseTests {
         XCTAssertEqual(element.currentFileLine.length, 0)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 0)
         XCTAssertEqual(element.currentFileLine.isTheFirstLine, true)
+        XCTAssertEqual(element.currentFileLine.isNotTheFirstLine, false)
         XCTAssertEqual(element.currentFileLine.isTheLastLine, true)
     }
 
@@ -73,6 +74,7 @@ line
         XCTAssertEqual(element.currentFileLine.length, 0)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 0)
         XCTAssertEqual(element.currentFileLine.isTheFirstLine, false)
+        XCTAssertEqual(element.currentFileLine.isNotTheFirstLine, true)
         XCTAssertEqual(element.currentFileLine.isTheLastLine, true)
     }
 
@@ -111,6 +113,7 @@ a linefeed 🤱️
         XCTAssertEqual(element.currentFileLine.length, 34)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 33)
         XCTAssertEqual(element.currentFileLine.isTheFirstLine, true)
+        XCTAssertEqual(element.currentFileLine.isNotTheFirstLine, false)
         XCTAssertEqual(element.currentFileLine.isTheLastLine, false)
     }
 
@@ -143,6 +146,7 @@ fucking 🔥️🔥️🔥️ hell
         XCTAssertEqual(element.currentFileLine.length, 22)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 22)
         XCTAssertEqual(element.currentFileLine.isTheFirstLine, false)
+        XCTAssertEqual(element.currentFileLine.isNotTheFirstLine, true)
         XCTAssertEqual(element.currentFileLine.isTheLastLine, true)
     }
 
@@ -178,6 +182,7 @@ and there's that one 🤌🏼️ line after
         XCTAssertEqual(element.currentFileLine.length, 1)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 0)
         XCTAssertEqual(element.currentFileLine.isTheFirstLine, false)
+        XCTAssertEqual(element.currentFileLine.isNotTheFirstLine, true)
         XCTAssertEqual(element.currentFileLine.isTheLastLine, false)
     }
     
@@ -212,6 +217,7 @@ so careful that Xcode doesn't remove the fucking blanks.
         XCTAssertEqual(element.currentFileLine.length, 19)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 18)
         XCTAssertEqual(element.currentFileLine.isTheFirstLine, false)
+        XCTAssertEqual(element.currentFileLine.isNotTheFirstLine, true)
         XCTAssertEqual(element.currentFileLine.isTheLastLine, false)
     }
 
