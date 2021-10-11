@@ -4,14 +4,14 @@ import XCTest
 
 // here only the simple cp are tested. the more complicated ones, or the funcs are tested
 // on their own.
-class FileLine_BaseTests: XCTestCase {}
+class FL_SimpleComputedProperties_Tests: XCTestCase {}
 
 
 // The 3 Cases:
 // - empty TextElement
 // - 2nd case is now gone!
 // - caret at the end of TextElement on own empty line
-extension FileLine_BaseTests {
+extension FL_SimpleComputedProperties_Tests {
 
     func test_that_if_the_text_is_empty_the_computed_properties_are_corret() {
         let text = ""
@@ -35,12 +35,12 @@ extension FileLine_BaseTests {
         XCTAssertEqual(element.currentFileLine.end, 0)
         XCTAssertEqual(element.currentFileLine.value, "")
         XCTAssertEqual(element.currentFileLine.endLimit, 0)
-        XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 0)
         XCTAssertEqual(element.currentFileLine.length, 0)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 0)
         XCTAssertEqual(element.currentFileLine.isTheFirstLine, true)
         XCTAssertEqual(element.currentFileLine.isNotTheFirstLine, false)
         XCTAssertEqual(element.currentFileLine.isTheLastLine, true)
+        // TODO: add isNotTheLastLine, and check what else needs to be added
     }
 
     func test_that_if_the_caret_is_at_the_end_of_the_text_on_its_own_empty_line_the_computed_properties_are_correct() {
@@ -70,7 +70,6 @@ line
         XCTAssertEqual(element.currentFileLine.end, 35)
         XCTAssertEqual(element.currentFileLine.value, "")
         XCTAssertEqual(element.currentFileLine.endLimit, 35)
-        XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 35)
         XCTAssertEqual(element.currentFileLine.length, 0)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 0)
         XCTAssertEqual(element.currentFileLine.isTheFirstLine, false)
@@ -82,7 +81,7 @@ line
 
 
 // other cases
-extension FileLine_BaseTests {
+extension FL_SimpleComputedProperties_Tests {
 
     func test_that_for_a_file_line_that_ends_with_a_linefeed_the_computed_properties_are_correct() {
         let text = """
@@ -109,7 +108,6 @@ a linefeed 🤱️
         XCTAssertEqual(element.currentFileLine.end, 34)
         XCTAssertEqual(element.currentFileLine.value, "now i'm a line 📏️📏️📏️ with 📏️\n")
         XCTAssertEqual(element.currentFileLine.endLimit, 30)
-        XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 0)
         XCTAssertEqual(element.currentFileLine.length, 34)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 33)
         XCTAssertEqual(element.currentFileLine.isTheFirstLine, true)
@@ -142,7 +140,6 @@ fucking 🔥️🔥️🔥️ hell
         XCTAssertEqual(element.currentFileLine.end, 48)
         XCTAssertEqual(element.currentFileLine.value, "fucking 🔥️🔥️🔥️ hell")
         XCTAssertEqual(element.currentFileLine.endLimit, 47)
-        XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 26)
         XCTAssertEqual(element.currentFileLine.length, 22)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 22)
         XCTAssertEqual(element.currentFileLine.isTheFirstLine, false)
@@ -178,7 +175,6 @@ and there's that one 🤌🏼️ line after
         XCTAssertEqual(element.currentFileLine.end, 33)
         XCTAssertEqual(element.currentFileLine.value, "\n")
         XCTAssertEqual(element.currentFileLine.endLimit, 32)
-        XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 32)
         XCTAssertEqual(element.currentFileLine.length, 1)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 0)
         XCTAssertEqual(element.currentFileLine.isTheFirstLine, false)
@@ -213,7 +209,6 @@ so careful that Xcode doesn't remove the fucking blanks.
         XCTAssertEqual(element.currentFileLine.end, 74)
         XCTAssertEqual(element.currentFileLine.value, "                  \n")
         XCTAssertEqual(element.currentFileLine.endLimit, 72)
-        XCTAssertEqual(element.currentFileLine.firstNonBlankLimit, 72)
         XCTAssertEqual(element.currentFileLine.length, 19)
         XCTAssertEqual(element.currentFileLine.lengthWithoutLinefeed, 18)
         XCTAssertEqual(element.currentFileLine.isTheFirstLine, false)
