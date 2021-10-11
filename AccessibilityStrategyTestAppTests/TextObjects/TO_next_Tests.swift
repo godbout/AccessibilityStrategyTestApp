@@ -12,24 +12,14 @@ class TexObject_next_Tests: XCTestCase {}
 extension TexObject_next_Tests {
     
     func test_that_in_normal_setting_it_returns_the_correct_location() {
+        // TODO: this is more how the tests for FileLine should look like.
+        // the element = ATE etc... is for testing the ATEElement, not the TextObjects themselves.
+        // to think about and review
         let text = "check if f can find shit!"
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            length: 25,
-            caretLocation: 10,
-            selectedLength: 1,
-            selectedText: " ",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 25,
-                number: 1,
-                start: 0,
-                end: 25
-            )
-        )
+        
+        let fileLine = FileLine(fullFileText: text, fullFileTextLength: text.utf16.count, caretLocation: 10)
                 
-        let characterFoundLocation = element.currentFileLine.next("i", after: 10)
+        let characterFoundLocation = fileLine.next("i", after: 10)
         
         XCTAssertEqual(characterFoundLocation, 16)        
     }
