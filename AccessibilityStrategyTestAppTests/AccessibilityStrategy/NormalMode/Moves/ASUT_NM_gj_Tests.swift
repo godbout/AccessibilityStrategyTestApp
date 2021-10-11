@@ -23,7 +23,7 @@ extension ASNM_gj_Tests {
             caretLocation: 23,
             selectedLength: 1,
             selectedText: "n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 51,
                 number: 1,

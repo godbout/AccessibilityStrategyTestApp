@@ -29,7 +29,7 @@ extension AccessibilityTextElementTests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
                 number: 1,
@@ -62,7 +62,7 @@ line
             caretLocation: 31,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
                 number: 4,
@@ -97,7 +97,7 @@ extension AccessibilityTextElementTests {
             caretLocation: 8,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 20,
                 number: 1,
@@ -143,7 +143,7 @@ line 🌻️
             caretLocation: 35,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
                 number: 4,
@@ -176,7 +176,7 @@ extension AccessibilityTextElementTests {
             caretLocation: 13,
             selectedLength: 3,
             selectedText: "😂️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 29,
                 number: 1,

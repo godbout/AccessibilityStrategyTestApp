@@ -21,7 +21,7 @@ extension FT_SimpleComputedProperties_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
                 number: 1,
@@ -50,7 +50,7 @@ line
             caretLocation: 35,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
                 number: 5,
@@ -89,7 +89,7 @@ a linefeed 🤱️
             caretLocation: 27,
             selectedLength: 2,
             selectedText: "th",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 48,
                 number: 2,
@@ -120,7 +120,7 @@ fucking 🔥️🔥️🔥️ hell
             caretLocation: 29,
             selectedLength: 2,
             selectedText: "ki",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 48,
                 number: 3,
@@ -153,7 +153,7 @@ and there's that one 🤌🏼️ line after
             caretLocation: 32,
             selectedLength: 1,
             selectedText: "\n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 70,
                 number: 3,
@@ -187,7 +187,7 @@ so careful that Xcode doesn't remove the fucking blanks.
             caretLocation: 58,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 130,
                 number: 4,

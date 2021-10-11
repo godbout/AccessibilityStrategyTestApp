@@ -26,7 +26,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 34,
             selectedLength: 1,
             selectedText: "l",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
                 number: 2,
@@ -60,7 +60,7 @@ but actually it's only 21.43 LMAOOOOOOOO
             caretLocation: 38,
             selectedLength: 1,
             selectedText: "h",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 95,
                 number: 2,
@@ -85,7 +85,7 @@ but actually it's only 21.43 LMAOOOOOOOO
             caretLocation: 43,
             selectedLength: 3,
             selectedText: "🌻️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 94,
                 number: 2,
@@ -114,7 +114,7 @@ be kept
             caretLocation: 37,
             selectedLength: 1,
             selectedText: "i",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 48,
                 number: 5,

@@ -29,7 +29,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 92,
             selectedLength: 1,
             selectedText: "a",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
                 number: 5,
@@ -60,7 +60,7 @@ extension ASUT_NM_O__Tests {
             caretLocation: 23,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 39,
                 number: 1,
@@ -94,7 +94,7 @@ abo😄️ve!
             caretLocation: 33,
             selectedLength: 1,
             selectedText: "d",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 72,
                 number: 3,
@@ -123,7 +123,7 @@ an empty line
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "\n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 27,
                 number: 2,
@@ -153,7 +153,7 @@ the last empty line
             caretLocation: 45,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 45,
                 number: 6,
@@ -182,7 +182,7 @@ the last empty line
             caretLocation: 40,
             selectedLength: 1,
             selectedText: "l",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
                 number: 5,
@@ -211,7 +211,7 @@ but it should work
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "m",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 46,
                 number: 2,

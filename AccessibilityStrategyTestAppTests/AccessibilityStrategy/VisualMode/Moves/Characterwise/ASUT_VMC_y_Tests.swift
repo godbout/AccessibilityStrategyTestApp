@@ -30,7 +30,7 @@ to Characterwise
  VM y in VM v
 should set Visu
 """,
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 59, 
                 number: 1,
@@ -56,7 +56,7 @@ should set Visu
             caretLocation: 15,
             selectedLength: 27,
             selectedText: "then VM y should copy the s",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 55,
                 number: 1,
@@ -82,7 +82,7 @@ should set Visu
             caretLocation: 8,
             selectedLength: 31,
             selectedText: "nking you go back to caret you ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 47,
                 number: 1,
@@ -108,7 +108,7 @@ should set Visu
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
                 number: 1,
@@ -142,7 +142,7 @@ line
             caretLocation: 31,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
                 number: 4,
@@ -177,7 +177,7 @@ extension ASUT_VMC_y_Tests {
             caretLocation: 8,
             selectedLength: 33,
             selectedText: "🍦️king you go back to caret you ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 49,
                 number: 1,

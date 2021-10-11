@@ -20,7 +20,7 @@ extension FT_beginningOfParagraphBackward_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
                 number: 1,
@@ -51,7 +51,7 @@ with linefeed
             caretLocation: 56,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 56,
                 number: 10,
@@ -80,7 +80,7 @@ extension FT_beginningOfParagraphBackward_Tests {
             caretLocation: 19,
             selectedLength: 1,
             selectedText: "a",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 23,
                 number: 1,
@@ -113,7 +113,7 @@ and some more blah blah
             caretLocation: 42,
             selectedLength: 1,
             selectedText: "r",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 54,
                 number: 6,
@@ -144,7 +144,7 @@ some more
             caretLocation: 21,
             selectedLength: 1,
             selectedText: "\n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
                 number: 6,
@@ -172,7 +172,7 @@ an empty line!
             caretLocation: 22,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 38,
                 number: 4,
@@ -199,7 +199,7 @@ is a linefeed
             caretLocation: 0,
             selectedLength: 1,
             selectedText: "\n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 30,
                 number: 1,
@@ -226,7 +226,7 @@ caret is after the last character
             caretLocation: 62,
             selectedLength: 1,
             selectedText: "r",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 63,
                 number: 3,
@@ -262,7 +262,7 @@ yes 🐰️🐰️🐰️🐰️ this can happen🐰️🐰️ when the
             caretLocation: 96,
             selectedLength: 3,
             selectedText: "🐰️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
                 number: 5,

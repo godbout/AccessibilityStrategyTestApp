@@ -30,7 +30,7 @@ to Linewise
 VM y in VM V
 should set 
 """,
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 54,
                 number: 1,
@@ -54,7 +54,7 @@ should set
             caretLocation: 0,
             selectedLength: 39,
             selectedText: "a whole line entirely for VM V and VM y",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 39,
                 number: 1,
@@ -95,7 +95,7 @@ with VM V over
 why the fuck am
 i writing this?
 """,
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 63,
                 number: 2,
@@ -134,7 +134,7 @@ not the anchor!
 it goes back to
 the crazy caret location and
 """,
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 81,
                 number: 2,
@@ -174,7 +174,7 @@ not the anchor!
 🔥️t goes back to
 the crazy caret location and
 """,
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 83,
                 number: 2,

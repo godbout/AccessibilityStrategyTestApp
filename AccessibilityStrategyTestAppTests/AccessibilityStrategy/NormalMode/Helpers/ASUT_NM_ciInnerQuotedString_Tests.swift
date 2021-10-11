@@ -16,7 +16,7 @@ finally dealing with the "real stuff"!
             caretLocation: 30,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 38,
                 number: 3,
@@ -44,7 +44,7 @@ a text with only one quote ' lol
             caretLocation: 17,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
                 number: 2,
@@ -67,7 +67,7 @@ a text with only one quote ' lol
             caretLocation: 8,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 26,
                 number: 2,
@@ -92,7 +92,7 @@ now the caret is before the ` shit with ` backtick quotes
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 57,
                 number: 3,
@@ -121,7 +121,7 @@ now the "caret" is after the quotes
             caretLocation: 85,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 98,
                 number: 9,
@@ -146,7 +146,7 @@ that's ' three quotes ' in there
             caretLocation: 17,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
                 number: 2,
@@ -173,7 +173,7 @@ that's " four quotes " in " there "
             caretLocation: 26,
             selectedLength: 1,
             selectedText: "\"",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
                 number: 3,
@@ -207,7 +207,7 @@ those💨️💨️💨️ fac"es 🥺️☹️😂️ h😀️ha👅️" hhohoh
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 71,
                 number: 3,

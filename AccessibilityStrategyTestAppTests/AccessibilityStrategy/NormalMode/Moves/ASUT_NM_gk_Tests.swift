@@ -23,7 +23,7 @@ extension ASNM_gk_Tests {
             caretLocation: 36,
             selectedLength: 1,
             selectedText: "S",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 51,
                 number: 1,

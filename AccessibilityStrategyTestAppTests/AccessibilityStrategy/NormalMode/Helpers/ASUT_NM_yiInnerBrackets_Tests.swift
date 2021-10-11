@@ -29,7 +29,7 @@ extension ASUT_NM_yiInnerBrackets_Tests {
             caretLocation: 26,
             selectedLength: 1,
             selectedText: "m",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
                 number: 1,
@@ -67,7 +67,7 @@ and } is not preceded by a linefeed
             caretLocation: 25,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 85,
                 number: 1,
@@ -104,7 +104,7 @@ and } is not preceded by a linefeed
             caretLocation: 29,
             selectedLength: 1,
             selectedText: "b",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 78,
                 number: 2,
@@ -140,7 +140,7 @@ by a linefeed and
             caretLocation: 23,
             selectedLength: 1,
             selectedText: "n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 86,
                 number: 1,
@@ -176,7 +176,7 @@ is followed by a linefeed and
             caretLocation: 36,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 77,
                 number: 2,

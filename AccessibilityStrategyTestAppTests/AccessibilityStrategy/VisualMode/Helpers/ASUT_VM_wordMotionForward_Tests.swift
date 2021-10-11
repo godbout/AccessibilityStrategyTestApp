@@ -26,7 +26,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             caretLocation: 14,
             selectedLength: 9,
             selectedText: "th text m",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
                 number: 1,
@@ -54,7 +54,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             caretLocation: 3,
             selectedLength: 8,
             selectedText: "lyMove(o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 64,
                 number: 1,
@@ -82,7 +82,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             caretLocation: 26,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 59,
                 number: 1,
@@ -116,7 +116,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             caretLocation: 19,
             selectedLength: 3,
             selectedText: "🤖️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
                 number: 1,
@@ -144,7 +144,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             caretLocation: 8,
             selectedLength: 14,
             selectedText: "☀️urrently 🤖️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
                 number: 1,
@@ -172,7 +172,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             caretLocation: 8,
             selectedLength: 11,
             selectedText: "☀️🤖️🤖️🤖️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
                 number: 1,
@@ -200,7 +200,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             caretLocation: 4,
             selectedLength: 2,
             selectedText: "se",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 41,
                 number: 1,

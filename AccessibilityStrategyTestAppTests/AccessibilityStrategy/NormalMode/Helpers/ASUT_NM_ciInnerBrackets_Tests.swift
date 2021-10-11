@@ -30,7 +30,7 @@ extension ASUT_NM_ciInnerBrackets_Tests {
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 58,
                 number: 2,
@@ -65,7 +65,7 @@ and } is not preceded by a linefeed
             caretLocation: 25,
             selectedLength: 1,
             selectedText: "t",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 85,
                 number: 3,
@@ -94,7 +94,7 @@ by a linefeed and
             caretLocation: 23,
             selectedLength: 1,
             selectedText: "n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 86,
                 number: 3,

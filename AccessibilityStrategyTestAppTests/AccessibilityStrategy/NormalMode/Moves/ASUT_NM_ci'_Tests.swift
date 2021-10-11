@@ -22,7 +22,7 @@ extension ASNM_ciSingleQuote_Tests {
             caretLocation: 21,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 63,
                 number: 1,
@@ -46,7 +46,7 @@ extension ASNM_ciSingleQuote_Tests {
             caretLocation: 28,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
                 number: 1,

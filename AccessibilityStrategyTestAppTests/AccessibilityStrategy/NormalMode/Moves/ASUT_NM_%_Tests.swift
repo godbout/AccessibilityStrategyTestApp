@@ -26,7 +26,7 @@ them like nothin🇫🇷️ happened. (that's how special) it is.
             caretLocation: 78,
             selectedLength: 5,
             selectedText: "🇫🇷️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 121,
                 number: 9,
@@ -57,7 +57,7 @@ extension ASUT_NM_percent_Tests {
             caretLocation: 4,
             selectedLength: 1,
             selectedText: "t",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 28,
                 number: 1,
@@ -85,7 +85,7 @@ and a ( nice pair line ) :))
             caretLocation: 30,
             selectedLength: 1,
             selectedText: "d",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 56,
                 number: 4,
@@ -110,7 +110,7 @@ and a ( nice pair line ) :))
             caretLocation: 34,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 56,
                 number: 4,
@@ -135,7 +135,7 @@ and a ( nice pair line ) :))
             caretLocation: 14,
             selectedLength: 1,
             selectedText: "a",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 70,
                 number: 2,
@@ -170,7 +170,7 @@ func someBull() {
             caretLocation: 39,
             selectedLength: 1,
             selectedText: "}",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 40,
                 number: 5,
@@ -204,7 +204,7 @@ those faces 🥺️☹️ } 😂️
             caretLocation: 3,
             selectedLength: 1,
             selectedText: "d",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 53,
                 number: 1,

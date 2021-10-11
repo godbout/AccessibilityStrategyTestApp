@@ -31,7 +31,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 106,
             selectedLength: 1,
             selectedText: "a",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
                 number: 7,
@@ -62,7 +62,7 @@ extension ASUT_NM_F__Tests {
             caretLocation: 19,
             selectedLength: 1,
             selectedText: "F",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
                 number: 1,
@@ -91,7 +91,7 @@ that is not there
             caretLocation: 22,
             selectedLength: 1,
             selectedText: "c",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
                 number: 3,
@@ -127,7 +127,7 @@ yeah
             caretLocation: 51,
             selectedLength: 1,
             selectedText: "h",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 52,
                 number: 6,

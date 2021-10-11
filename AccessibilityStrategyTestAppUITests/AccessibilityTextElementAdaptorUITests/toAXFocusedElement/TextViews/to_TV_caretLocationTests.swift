@@ -1,5 +1,5 @@
 import XCTest
-import AccessibilityStrategy
+@testable import AccessibilityStrategy
 
 
 class to_TV_caretLocationTests: ATEA_BaseTests {
@@ -17,7 +17,7 @@ coz like come on there's so me shits inside.
             caretLocation: 0,
             selectedLength: 1,
             selectedText: nil,
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 93,
                 number: 1,
@@ -50,7 +50,7 @@ hallelujah
             caretLocation: 30,
             selectedLength: 1,
             selectedText: nil,
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 78,
                 number: 2,
@@ -85,7 +85,7 @@ that long.
             caretLocation: 1993,
             selectedLength: 3,
             selectedText: nil,
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 38,
                 number: 2,

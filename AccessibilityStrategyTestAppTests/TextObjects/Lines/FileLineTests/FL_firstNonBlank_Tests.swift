@@ -17,7 +17,7 @@ extension FL_firstNonBlank_Tests {
             caretLocation: 23,
             selectedLength: 1,
             selectedText: "s",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 56,
                 number: 1,
@@ -40,7 +40,7 @@ extension FL_firstNonBlank_Tests {
             caretLocation: 17,
             selectedLength: 1,
             selectedText: "t",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 54,
                 number: 1,
@@ -63,7 +63,7 @@ extension FL_firstNonBlank_Tests {
             caretLocation: 11,
             selectedLength: 1,
             selectedText: "w",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 30,
                 number: 1,
@@ -86,7 +86,7 @@ extension FL_firstNonBlank_Tests {
             caretLocation: 30,
             selectedLength: 1,
             selectedText: "g",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 36,
                 number: 2,
@@ -109,7 +109,7 @@ extension FL_firstNonBlank_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
                 number: 1,
@@ -132,7 +132,7 @@ extension FL_firstNonBlank_Tests {
             caretLocation: 5,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 8,
                 number: 1,
@@ -164,7 +164,7 @@ and a line is empty!
             caretLocation: 7,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
                 number: 1,
@@ -197,7 +197,7 @@ extension FL_firstNonBlank_Tests {
             caretLocation: 1,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 8,
                 number: 1,

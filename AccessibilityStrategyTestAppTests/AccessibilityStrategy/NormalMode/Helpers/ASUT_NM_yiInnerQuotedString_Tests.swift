@@ -24,7 +24,7 @@ extension ASNM_yiInnerQuotedString_Tests {
             caretLocation: 23,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
                 number: 1,
@@ -55,7 +55,7 @@ now there's one " double quote
             caretLocation: 12,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 30,
                 number: 1,
@@ -87,7 +87,7 @@ two 'simple quotes' on the second line
             caretLocation: 14,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 50,
                 number: 2,
@@ -117,7 +117,7 @@ and now `hohohohoho`
             caretLocation: 37,
             selectedLength: 1,
             selectedText: "h",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
                 number: 3,
@@ -145,7 +145,7 @@ double "quotes" before the caret
             caretLocation: 26,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
                 number: 1,
@@ -177,7 +177,7 @@ heheheheh
             caretLocation: 30,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 41,
                 number: 2,
@@ -206,7 +206,7 @@ now there's gonna
             caretLocation: 27,
             selectedLength: 1,
             selectedText: "`",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 39,
                 number: 2,
@@ -241,7 +241,7 @@ those💨️💨️💨️ fac"🍵️s 🥺️☹️😂️ h😀️ha👅️" 
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 73,
                 number: 2,

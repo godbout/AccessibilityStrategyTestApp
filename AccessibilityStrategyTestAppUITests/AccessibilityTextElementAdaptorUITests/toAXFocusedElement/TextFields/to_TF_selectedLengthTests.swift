@@ -1,5 +1,5 @@
 import XCTest
-import AccessibilityStrategy
+@testable import AccessibilityStrategy
 
 
 class to_TF_selectedLengthTests: ATEA_BaseTests {
@@ -13,7 +13,7 @@ class to_TF_selectedLengthTests: ATEA_BaseTests {
             caretLocation: 10,
             selectedLength: 8,
             selectedText: nil,
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 18,
                 number: 1,

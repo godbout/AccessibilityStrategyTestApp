@@ -33,7 +33,7 @@ extension ASUT_NM_gCaret_Tests {
             caretLocation: 57,
             selectedLength: 1,
             selectedText: "i",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 120,
                 number: 2,
@@ -64,7 +64,7 @@ extension ASUT_NM_gCaret_Tests {
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "h",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 54,
                 number: 1,
@@ -94,7 +94,7 @@ without a linefeed but with spaces
             caretLocation: 72,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 86,
                 number: 5,
@@ -130,7 +130,7 @@ empty line has a linefeed
             caretLocation: 43,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 67,
                 number: 6,

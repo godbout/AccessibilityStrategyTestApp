@@ -17,7 +17,7 @@ extension ASUI_NM_i_Tests {
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
                 number: 1,
@@ -51,7 +51,7 @@ those💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
             caretLocation: 44,
             selectedLength: 3,
             selectedText: "😂️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 54,
                 number: 2,

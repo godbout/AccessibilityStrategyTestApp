@@ -20,7 +20,7 @@ extension FT_endOfWORDForward__Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
                 number: 1,
@@ -49,7 +49,7 @@ with linefeed
             caretLocation: 54,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 54,
                 number: 8,
@@ -78,7 +78,7 @@ extension FT_endOfWORDForward__Tests {
             caretLocation: 11,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 29,
                 number: 2,
@@ -101,7 +101,7 @@ extension FT_endOfWORDForward__Tests {
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "d",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
                 number: 2,
@@ -124,7 +124,7 @@ extension FT_endOfWORDForward__Tests {
             caretLocation: 28,
             selectedLength: 1,
             selectedText: "x",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 51,
                 number: 3,
@@ -147,7 +147,7 @@ extension FT_endOfWORDForward__Tests {
             caretLocation: 44,
             selectedLength: 1,
             selectedText: ")",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 76,
                 number: 5,
@@ -170,7 +170,7 @@ extension FT_endOfWORDForward__Tests {
             caretLocation: 1,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 12,
                 number: 1,
@@ -193,7 +193,7 @@ extension FT_endOfWORDForward__Tests {
             caretLocation: 32,
             selectedLength: 1,
             selectedText: "d",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 33,
                 number: 4,
@@ -216,7 +216,7 @@ extension FT_endOfWORDForward__Tests {
             caretLocation: 11,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 20,
                 number: 1,
@@ -239,7 +239,7 @@ extension FT_endOfWORDForward__Tests {
             caretLocation: 17,
             selectedLength: 1,
             selectedText: "n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 23,
                 number: 2,
@@ -262,7 +262,7 @@ extension FT_endOfWORDForward__Tests {
             caretLocation: 30,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 87,
                 number: 4,
@@ -294,7 +294,7 @@ let nextIndex = text.index(after: index)
             caretLocation: 73,
             selectedLength: 1,
             selectedText: "}",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
                 number: 9,
@@ -321,7 +321,7 @@ if text[index].isCharacterThatConstitutesAVimWord() {
             caretLocation: 39,
             selectedLength: 1,
             selectedText: ")",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 110,
                 number: 4,
@@ -351,7 +351,7 @@ extension FT_endOfWORDForward__Tests {
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "t",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 66,
                 number: 3,
@@ -374,7 +374,7 @@ extension FT_endOfWORDForward__Tests {
             caretLocation: 38,
             selectedLength: 3,
             selectedText: "🔫️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 66,
                 number: 4,

@@ -26,7 +26,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 29,
             selectedLength: 1,
             selectedText: "r",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
                 number: 2,
@@ -60,7 +60,7 @@ LMAO what a dumbass i am
             caretLocation: 60,
             selectedLength: 1,
             selectedText: "n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 140,
                 number: 4,
@@ -85,7 +85,7 @@ LMAO what a dumbass i am
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "t",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 93,
                 number: 1,
@@ -114,7 +114,7 @@ and i'm doing this not because i'm a genius but because i'm pretty dumb LMAO
             caretLocation: 60,
             selectedLength: 1,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 137,
                 number: 4,

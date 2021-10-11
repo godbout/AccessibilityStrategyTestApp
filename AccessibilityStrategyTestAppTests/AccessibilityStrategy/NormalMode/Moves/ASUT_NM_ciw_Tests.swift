@@ -26,7 +26,7 @@ extension ASUT_NM_ciw_Tests {
             caretLocation: 14,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
                 number: 1,

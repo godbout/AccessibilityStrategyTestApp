@@ -17,7 +17,7 @@ extension ASVM_AnchorAndHead_Tests {
             caretLocation: 0,
             selectedLength: 1,
             selectedText: "h",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 5,
                 number: 1,
@@ -47,7 +47,7 @@ and head
             caretLocation: 27,
             selectedLength: 1,
             selectedText: "n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 49,
                 number: 2,
@@ -78,7 +78,7 @@ and head
             caretLocation: 27,
             selectedLength: 1,
             selectedText: "n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 49,
                 number: 2,
@@ -109,7 +109,7 @@ but the head would be something + 3
             caretLocation: 57,
             selectedLength: 6,
             selectedText: "😂️😂️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 118,
                 number: 2,

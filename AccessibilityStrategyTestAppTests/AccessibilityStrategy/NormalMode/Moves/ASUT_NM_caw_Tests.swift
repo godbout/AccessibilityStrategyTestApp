@@ -24,7 +24,7 @@ extension ASUT_NM_caw_Tests {
             caretLocation: 14,
             selectedLength: 1,
             selectedText: "t",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 50,
                 number: 1,
@@ -52,7 +52,7 @@ and also a lot of spaces at the end of this line
             caretLocation: 60,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 66,
                 number: 2,

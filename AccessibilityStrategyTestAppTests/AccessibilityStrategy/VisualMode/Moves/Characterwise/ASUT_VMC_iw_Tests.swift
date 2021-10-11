@@ -23,7 +23,7 @@ extension ASUT_VMC_iw_Tests {
             caretLocation: 20,
             selectedLength: 20,
             selectedText: "hor position are imp",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 91,
                 number: 1,
@@ -51,7 +51,7 @@ extension ASUT_VMC_iw_Tests {
             caretLocation: 28,
             selectedLength: 21,
             selectedText: "⚓️⚓️ position are imp",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 100,
                 number: 1,
@@ -79,7 +79,7 @@ extension ASUT_VMC_iw_Tests {
             caretLocation: 100,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
                 number: 1,
@@ -115,7 +115,7 @@ in relation to each other
             caretLocation: 61,
             selectedLength: 6,
             selectedText: "ferent",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 147,
                 number: 2,
@@ -148,7 +148,7 @@ in relation to each other
             caretLocation: 58,
             selectedLength: 5,
             selectedText: "diffe",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 147,
                 number: 2,

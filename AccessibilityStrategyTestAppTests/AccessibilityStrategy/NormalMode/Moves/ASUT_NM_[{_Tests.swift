@@ -28,7 +28,7 @@ itself d🤨️🤨️🤨️oes
             caretLocation: 110,
             selectedLength: 1,
             selectedText: "f",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 125,
                 number: 3,

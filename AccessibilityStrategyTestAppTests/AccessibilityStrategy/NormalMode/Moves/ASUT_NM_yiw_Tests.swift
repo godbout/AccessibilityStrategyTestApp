@@ -26,7 +26,7 @@ extension ASUT_NM_yiw_Tests {
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "h",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
                 number: 1,
@@ -61,7 +61,7 @@ th📍️se💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
             caretLocation: 28,
             selectedLength: 3,
             selectedText: "💨️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 56,
                 number: 2,

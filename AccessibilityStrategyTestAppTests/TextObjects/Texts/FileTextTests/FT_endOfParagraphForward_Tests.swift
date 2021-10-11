@@ -20,7 +20,7 @@ extension FT_endOfParagraphForward_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
                 number: 1,
@@ -49,7 +49,7 @@ with linefeed
             caretLocation: 54,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 54,
                 number: 5,
@@ -79,7 +79,7 @@ extension FT_endOfParagraphForward_Tests {
             caretLocation: 2,
             selectedLength: 1,
             selectedText: "k",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 23,
                 number: 1,
@@ -112,7 +112,7 @@ and some more blah blah
             caretLocation: 30,
             selectedLength: 1,
             selectedText: "\n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 54,
                 number: 3,
@@ -141,7 +141,7 @@ some more
             caretLocation: 6,
             selectedLength: 1,
             selectedText: "\n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 18,
                 number: 2,
@@ -177,7 +177,7 @@ yes 🐰️🐰️🐰️🐰️ this can happen🐰️🐰️ when the
             caretLocation: 13,
             selectedLength: 3,
             selectedText: "🐰️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
                 number: 1,

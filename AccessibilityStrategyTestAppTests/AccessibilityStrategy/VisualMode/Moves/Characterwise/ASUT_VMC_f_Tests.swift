@@ -24,7 +24,7 @@ extension ASUT_VMC_f_Tests {
             caretLocation: 9,
             selectedLength: 4,
             selectedText: "f ca",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
                 number: 1,
@@ -57,7 +57,7 @@ of newHeadLocation needs some... calculation.
             caretLocation: 60,
             selectedLength: 15,
             selectedText: "e lines 🌬️ bec",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 141,
                 number: 2,
@@ -89,7 +89,7 @@ that is not there
             caretLocation: 13,
             selectedLength: 3,
             selectedText: "r a",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
                 number: 2,
@@ -117,7 +117,7 @@ that is not there
             caretLocation: 2,
             selectedLength: 7,
             selectedText: "und som",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 19,
                 number: 1,
