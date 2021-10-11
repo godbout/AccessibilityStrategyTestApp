@@ -2,14 +2,14 @@
 import XCTest
 
 
-class ScreenLineTests: XCTestCase {}
+class SL_SimpleComputerProperties_Tests: XCTestCase {}
 
 
 // The 3 Cases:
 // - empty TextElement
 // - 2nd case is now gone!
 // - caret at the end of TextElement on own empty line
-extension ScreenLineTests {
+extension SL_SimpleComputerProperties_Tests {
     
     func test_that_if_the_text_is_empty_the_computed_properties_are_corret() {
         let text = ""
@@ -70,7 +70,7 @@ line
 
 
 // other cases
-extension ScreenLineTests {
+extension SL_SimpleComputerProperties_Tests {
     
     func test_that_for_a_screen_line_that_ends_with_a_linefeed_the_computed_properties_are_correct() {
         let text = """
