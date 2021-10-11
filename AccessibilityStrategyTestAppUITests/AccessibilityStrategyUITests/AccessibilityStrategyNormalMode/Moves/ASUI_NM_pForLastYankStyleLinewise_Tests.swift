@@ -2,7 +2,7 @@ import XCTest
 @testable import AccessibilityStrategy
 
 
-class UIASNM_pForLastYankStyleLinewise_Tests: ASUI_NM_BaseTests {
+class ASUI_NM_pForLastYankStyleLinewise_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement? {
         return applyMove { asNormalMode.pForLastYankStyleLinewise(on: $0) }
@@ -12,7 +12,7 @@ class UIASNM_pForLastYankStyleLinewise_Tests: ASUI_NM_BaseTests {
 
 
 // TextFields
-extension UIASNM_pForLastYankStyleLinewise_Tests {
+extension ASUI_NM_pForLastYankStyleLinewise_Tests {
 
     func test_that_even_if_the_last_yank_was_linewise_it_still_pastes_as_characterwise_after_the_block_cursor_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
         let textInAXFocusedElement = "linewise for TF is still pasted characterwise!"
@@ -53,7 +53,7 @@ extension UIASNM_pForLastYankStyleLinewise_Tests {
 
 
 // TextAreas
-extension UIASNM_pForLastYankStyleLinewise_Tests {
+extension ASUI_NM_pForLastYankStyleLinewise_Tests {
     
     func test_that_in_normal_setting_it_pasts_the_content_on_a_new_line_below() {
         let textInAXFocusedElement = """
