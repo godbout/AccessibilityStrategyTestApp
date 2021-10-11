@@ -43,7 +43,7 @@ seems that even the normal
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.fileText.value, """

@@ -23,9 +23,9 @@ the selection!
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.lForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
@@ -48,7 +48,7 @@ should go back to line end limit
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
@@ -73,7 +73,7 @@ there's gonna be an empty line
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
       
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
@@ -96,7 +96,7 @@ should go back to line end limit
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
        
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.e(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
@@ -122,10 +122,10 @@ lines this time
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
               
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gjForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.text.value, """

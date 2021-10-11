@@ -61,7 +61,7 @@ multiline
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
@@ -80,7 +80,7 @@ g$ not work ⛱️⛱️LOOOL
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
@@ -102,7 +102,7 @@ g$ doesn't work LOOOLL
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 39)

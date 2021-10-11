@@ -2,17 +2,17 @@ import XCTest
 import AccessibilityStrategy
 
 
-class ASUI_VMC_k_Tests: ASUI_VM_BaseTests {
+class ASUI_VMC_gk_Tests: ASUI_VM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement? {
-        return applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0)}
+        return applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0)}
     }
 
 }
 
 
 // TextFields
-extension ASUI_VMC_k_Tests {
+extension ASUI_VMC_gk_Tests {
     
     func test_that_in_TextFields_it_does_nothing() {
         let textInAXFocusedElement = "VM jk in TextFields will do nothing"
@@ -32,7 +32,7 @@ extension ASUI_VMC_k_Tests {
 
 
 // TextViews
-extension ASUI_VMC_k_Tests {
+extension ASUI_VMC_gk_Tests {
     
     func test_that_if_the_head_is_before_the_anchor_then_it_goes_to_the_line_above_the_head_on_the_same_column_number_and_selects_from_that_new_head_location_to_the_anchor() {
         let textInAXFocusedElement = """
@@ -44,7 +44,7 @@ ass off lol
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
@@ -62,7 +62,7 @@ ass off lol
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
        
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
@@ -82,11 +82,11 @@ ass off lol
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gjForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
        
@@ -104,7 +104,7 @@ ass off lol
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
@@ -128,8 +128,8 @@ wow that one is
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 13)
@@ -149,7 +149,7 @@ own empty
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
-        applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         // same test as NM k:
@@ -183,7 +183,7 @@ globalColumnNumber is nil
         XCTAssertEqual(secondPass?.selectedLength, 56)
         
         // see VMC j Tests for blah blah
-        let applyJ = applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
+        let applyJ = applyMove { asVisualMode.gjForVisualStyleCharacterwise(on: $0) }
         
         XCTAssertEqual(applyJ?.caretLocation, 74)
         XCTAssertEqual(applyJ?.selectedLength, 24)

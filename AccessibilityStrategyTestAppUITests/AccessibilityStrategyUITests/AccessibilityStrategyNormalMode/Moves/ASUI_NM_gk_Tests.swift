@@ -3,17 +3,17 @@ import AccessibilityStrategy
 
 
 // check j for all the blah blah
-class ASUI_NM_k_Tests: ASUI_NM_BaseTests {
+class ASUI_NM_gk_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.k(on: $0) }
+        return applyMove { asNormalMode.gk(on: $0) }
     }
     
 }
 
 
 // TextViews
-extension ASUI_NM_k_Tests {
+extension ASUI_NM_gk_Tests {
 
     func test_that_in_normal_setting_k_goes_to_the_previous_line_at_the_same_column() {
         let textInAXFocusedElement = """
@@ -124,13 +124,13 @@ empty
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.b(on: $0) }
-        applyMove { asNormalMode.j(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gj(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.j(on: $0) }
-        applyMove { asNormalMode.j(on: $0) }
+        applyMove { asNormalMode.gj(on: $0) }
+        applyMove { asNormalMode.gj(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 33)
@@ -164,4 +164,4 @@ globalColumnNumber is nil
 
 // emojis
 // see j for blah blah
-extension ASUI_NM_k_Tests {}
+extension ASUI_NM_gk_Tests {}

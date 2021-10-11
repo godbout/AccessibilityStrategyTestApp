@@ -26,7 +26,7 @@ and head are nil
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
            
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
@@ -46,7 +46,7 @@ caret out of boundaries
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
        
         XCTAssertEqual(accessibilityElement?.caretLocation, 40)

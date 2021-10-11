@@ -15,7 +15,7 @@ from the caret location
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
        
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }

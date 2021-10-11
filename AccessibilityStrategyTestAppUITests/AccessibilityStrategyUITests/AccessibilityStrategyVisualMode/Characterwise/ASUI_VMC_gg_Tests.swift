@@ -46,7 +46,7 @@ and it's gonna run smooooooooooooth
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
               
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }

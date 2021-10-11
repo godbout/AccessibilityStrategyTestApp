@@ -2,17 +2,17 @@ import XCTest
 import AccessibilityStrategy
 
 
-class ASUI_VML_k_Tests: ASUI_VM_BaseTests {
+class ASUI_VML_gk_Tests: ASUI_VM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement? {
-        return applyMove { asVisualMode.kForVisualStyleLinewise(on: $0)}
+        return applyMove { asVisualMode.gkForVisualStyleLinewise(on: $0)}
     }
 
 }
 
 
 // TextFields
-extension ASUI_VML_k_Tests {
+extension ASUI_VML_gk_Tests {
     
     func test_that_in_TextFields_basically_it_does_nothing() {
         let textInAXFocusedElement = "hehe you little fucker"
@@ -31,7 +31,7 @@ extension ASUI_VML_k_Tests {
 
 
 // TextViews
-extension ASUI_VML_k_Tests {
+extension ASUI_VML_gk_Tests {
 
     func test_that_if_the_head_is_before_the_anchor_then_it_extends_the_selection_by_one_line_above_at_a_time() {
         let textInAXFocusedElement = """
@@ -68,9 +68,9 @@ the line above nice
        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.gjForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.gjForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.gjForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)

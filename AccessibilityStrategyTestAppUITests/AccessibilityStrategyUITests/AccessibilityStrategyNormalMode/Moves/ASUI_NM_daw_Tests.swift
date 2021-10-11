@@ -46,7 +46,7 @@ the block cursor is important!
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.dollarSign(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.text.value, """

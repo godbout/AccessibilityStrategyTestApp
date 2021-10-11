@@ -4,17 +4,17 @@ import AccessibilityStrategy
 
 // there's no such thing as TextField for j and k as the KS takes over
 // this is tested in Unit Tests.
-class UIASNM_j_Tests: ASUI_NM_BaseTests {
+class UIASNM_gj_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.j(on: $0) }
+        return applyMove { asNormalMode.gj(on: $0) }
     }
     
 }
 
 
 // TextViews
-extension UIASNM_j_Tests {
+extension UIASNM_gj_Tests {
 
     func test_that_in_normal_setting_j_goes_to_the_next_line_at_the_same_column() {
         let textInAXFocusedElement = """
@@ -47,7 +47,7 @@ let's see
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.e(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
@@ -110,8 +110,8 @@ hehe
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
@@ -129,7 +129,7 @@ edge case
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
@@ -171,4 +171,4 @@ and also to the end of the next next line!
 // emojis
 // unfortunately for now we not gonna test for j and k because i don't know how to handle
 // with the globalColumnNumber
-extension UIASNM_j_Tests {}
+extension UIASNM_gj_Tests {}
