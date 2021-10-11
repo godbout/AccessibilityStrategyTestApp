@@ -29,7 +29,7 @@ shit
         accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.role, .textArea)
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 some fucking
 shit
 """
@@ -60,7 +60,7 @@ shit
         accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.role, .textArea)
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 some fucking
 shit
 """
@@ -91,7 +91,7 @@ LOL
         accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.role, .textArea)
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 that big sur shit
 LOL
 🕕️

@@ -2,7 +2,7 @@
 import XCTest
 
 
-class FT_endOfWORDBackward__Tests: TextEngineBaseTests {}
+class FT_endOfWORDBackward__Tests: XCTestCase {}
 
 
 // The 3 Cases:

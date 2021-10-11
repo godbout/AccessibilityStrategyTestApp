@@ -18,7 +18,7 @@ extension OtherCasesTests {
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.role, .textField)
-        XCTAssertEqual(accessibilityElement?.text.value, "here's some nice words for you")
+        XCTAssertEqual(accessibilityElement?.fileText.value, "here's some nice words for you")
         XCTAssertEqual(accessibilityElement?.length, 30)
         XCTAssertEqual(accessibilityElement?.caretLocation, 23)
         XCTAssertEqual(accessibilityElement?.selectedLength, 4)
@@ -51,7 +51,7 @@ life
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.role, .textArea)
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 that's a TextField
 with multiple lines
 of course 💩️💩️💩️

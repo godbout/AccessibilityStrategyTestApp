@@ -26,7 +26,7 @@ extension ASUI_NM_df_Tests {
        
         let accessibilityElement = applyMoveBeingTested(with: "s")
         
-        XCTAssertEqual(accessibilityElement?.text.value, "g⛱️ df on this sentence")
+        XCTAssertEqual(accessibilityElement?.fileText.value, "g⛱️ df on this sentence")
         XCTAssertEqual(accessibilityElement?.caretLocation, 1)
         XCTAssertEqual(accessibilityElement?.selectedLength, 2)
     }

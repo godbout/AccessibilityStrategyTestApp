@@ -31,7 +31,7 @@ one extra line in between!
         applyMove { asVisualMode.gjForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
                      
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 we gonna use VM
       ⛱️o go to non blank of the line
 """
@@ -59,7 +59,7 @@ some more
         applyMove { asVisualMode.gjForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 we gonna use VM
         
 some more
@@ -87,7 +87,7 @@ another line agan
         applyMove { asVisualMode.gjForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 we gonna use VM
 d here and we suppose
          
@@ -112,7 +112,7 @@ and it would be beautiful
         applyMove { asVisualMode.gjForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
    ⛱️e gonna remove the last
 """
         )
@@ -134,7 +134,7 @@ and it would be beautiful
         applyMove { asVisualMode.gkForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
    we gonna remove the last
 """
         )
@@ -159,7 +159,7 @@ t
         applyMove { asVisualMode.gkForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, "")
+        XCTAssertEqual(accessibilityElement?.fileText.value, "")
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }

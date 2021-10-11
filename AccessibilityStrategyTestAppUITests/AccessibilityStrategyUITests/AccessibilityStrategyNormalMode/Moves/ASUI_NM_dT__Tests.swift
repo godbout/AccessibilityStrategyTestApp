@@ -30,7 +30,7 @@ on a line
         applyMove { asNormalMode.dollarSign(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "w")
         
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 dT on a multiline
 should w⛱️
 on a line

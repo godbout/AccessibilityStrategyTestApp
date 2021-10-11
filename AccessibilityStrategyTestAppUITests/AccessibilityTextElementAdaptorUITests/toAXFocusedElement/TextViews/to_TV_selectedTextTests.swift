@@ -34,7 +34,7 @@ this time
         
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         XCTAssertEqual(reconvertedAccessibilityTextElement?.caretLocation, 52) 
-        XCTAssertEqual(reconvertedAccessibilityTextElement?.text.value, """
+        XCTAssertEqual(reconvertedAccessibilityTextElement?.fileText.value, """
 a full line
 of banana
 banana banana 🍌️🍌️🍌️ banana
