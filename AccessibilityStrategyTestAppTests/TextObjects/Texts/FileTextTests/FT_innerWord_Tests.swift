@@ -2,9 +2,8 @@
 import XCTest
 
 
-// TODO: check if need to update comment below
 // here we don't need much tests for what is a Vim word
-// as this is already tested in other Text Engine funcs.
+// as this is already tested in other FileText funcs.
 // innerWord is using beginningOfWordBackward and endOfWordForward
 // for its calculation (which are already tested), except for whitespaces
 // which is why it's more important to have the whitespaces tested here
