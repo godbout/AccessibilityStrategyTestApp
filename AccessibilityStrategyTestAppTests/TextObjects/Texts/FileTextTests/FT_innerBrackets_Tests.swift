@@ -19,7 +19,7 @@ extension FT_innerBrackets_Tests {
             caretLocation: 2,
             selectedLength: 1,
             selectedText: "w",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 23,
                 number: 1,
@@ -29,7 +29,7 @@ extension FT_innerBrackets_Tests {
         )
         
         XCTAssertNil(
-            element.currentFileText.innerBrackets(using: "(", startingAt: 2)
+            element.fileText.innerBrackets(using: "(", startingAt: 2)
         )
     }
     
@@ -42,7 +42,7 @@ extension FT_innerBrackets_Tests {
             caretLocation: 15,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
                 number: 2,
@@ -52,7 +52,7 @@ extension FT_innerBrackets_Tests {
         )
         
         XCTAssertNil(
-            element.currentFileText.innerBrackets(using: "{", startingAt: 15)
+            element.fileText.innerBrackets(using: "{", startingAt: 15)
         )
     }
     
@@ -65,7 +65,7 @@ extension FT_innerBrackets_Tests {
             caretLocation: 3,
             selectedLength: 1,
             selectedText: "l",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 38,
                 number: 1,
@@ -75,7 +75,7 @@ extension FT_innerBrackets_Tests {
         )
         
         XCTAssertNil(
-            element.currentFileText.innerBrackets(using: "[", startingAt: 3)
+            element.fileText.innerBrackets(using: "[", startingAt: 3)
         )
     }
     
@@ -88,7 +88,7 @@ extension FT_innerBrackets_Tests {
             caretLocation: 33,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 38,
                 number: 4,
@@ -98,7 +98,7 @@ extension FT_innerBrackets_Tests {
         )
         
         XCTAssertNil(
-            element.currentFileText.innerBrackets(using: "{", startingAt: 33)
+            element.fileText.innerBrackets(using: "{", startingAt: 33)
         )
     }
     
@@ -111,7 +111,7 @@ extension FT_innerBrackets_Tests {
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "u",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 50,
                 number: 3,
@@ -120,7 +120,7 @@ extension FT_innerBrackets_Tests {
             )
         )
         
-        guard let innerBracketsRange = element.currentFileText.innerBrackets(using: "{", startingAt: 24) else { return XCTFail() }
+        guard let innerBracketsRange = element.fileText.innerBrackets(using: "{", startingAt: 24) else { return XCTFail() }
         
         XCTAssertEqual(innerBracketsRange.lowerBound, 20)
         XCTAssertEqual(innerBracketsRange.upperBound, 35)
@@ -135,7 +135,7 @@ extension FT_innerBrackets_Tests {
             caretLocation: 51,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 62,
                 number: 5,
@@ -144,7 +144,7 @@ extension FT_innerBrackets_Tests {
             )
         )
         
-        guard let innerBracketsRange = element.currentFileText.innerBrackets(using: "(", startingAt: 51) else { return XCTFail() }
+        guard let innerBracketsRange = element.fileText.innerBrackets(using: "(", startingAt: 51) else { return XCTFail() }
         
         XCTAssertEqual(innerBracketsRange.lowerBound, 13)
         XCTAssertEqual(innerBracketsRange.upperBound, 55)
@@ -159,7 +159,7 @@ extension FT_innerBrackets_Tests {
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "(",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 50,
                 number: 3,
@@ -168,7 +168,7 @@ extension FT_innerBrackets_Tests {
             )
         )
         
-        guard let innerBracketsRange = element.currentFileText.innerBrackets(using: "(", startingAt: 24) else { return XCTFail() }
+        guard let innerBracketsRange = element.fileText.innerBrackets(using: "(", startingAt: 24) else { return XCTFail() }
         
         XCTAssertEqual(innerBracketsRange.lowerBound, 24)
         XCTAssertEqual(innerBracketsRange.upperBound, 34)
@@ -183,7 +183,7 @@ extension FT_innerBrackets_Tests {
             caretLocation: 34,
             selectedLength: 1,
             selectedText: ")",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 50,
                 number: 3,
@@ -192,7 +192,7 @@ extension FT_innerBrackets_Tests {
             )
         )
         
-        guard let innerBracketsRange = element.currentFileText.innerBrackets(using: "(", startingAt: 34) else { return XCTFail() }
+        guard let innerBracketsRange = element.fileText.innerBrackets(using: "(", startingAt: 34) else { return XCTFail() }
         
         XCTAssertEqual(innerBracketsRange.lowerBound, 24)
         XCTAssertEqual(innerBracketsRange.upperBound, 34)
@@ -219,7 +219,7 @@ var array = [
             caretLocation: 27,
             selectedLength: 3,
             selectedText: "💩️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 41,
                 number: 4,
@@ -228,7 +228,7 @@ var array = [
             )
         )
         
-        guard let innerBracketsRange = element.currentFileText.innerBrackets(using: "[", startingAt: 27) else { return XCTFail() }
+        guard let innerBracketsRange = element.fileText.innerBrackets(using: "[", startingAt: 27) else { return XCTFail() }
         
         XCTAssertEqual(innerBracketsRange.lowerBound, 12)
         XCTAssertEqual(innerBracketsRange.upperBound, 40)
@@ -251,7 +251,7 @@ func something() {
             caretLocation: 48,
             selectedLength: 1,
             selectedText: "v",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 63,
                 number: 6,
@@ -260,7 +260,7 @@ func something() {
             )
         )
         
-        guard let innerBracketsRange = element.currentFileText.innerBrackets(using: "{", startingAt: 48) else { return XCTFail() }
+        guard let innerBracketsRange = element.fileText.innerBrackets(using: "{", startingAt: 48) else { return XCTFail() }
         
         XCTAssertEqual(innerBracketsRange.lowerBound, 17)
         XCTAssertEqual(innerBracketsRange.upperBound, 59)

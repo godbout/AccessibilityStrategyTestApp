@@ -23,7 +23,7 @@ extension FT_innerWordTests_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
                 number: 1,
@@ -32,7 +32,7 @@ extension FT_innerWordTests_Tests {
             )
         )
         
-        let wordRange = element.currentFileText.innerWord(startingAt: 0)
+        let wordRange = element.fileText.innerWord(startingAt: 0)
         
         XCTAssertEqual(wordRange.lowerBound, 0)
         XCTAssertEqual(wordRange.upperBound, 0)
@@ -47,7 +47,7 @@ extension FT_innerWordTests_Tests {
             caretLocation: 10,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 45,
                 number: 2,
@@ -56,7 +56,7 @@ extension FT_innerWordTests_Tests {
             )
         )
         
-        let wordRange = element.currentFileText.innerWord(startingAt: 10)
+        let wordRange = element.fileText.innerWord(startingAt: 10)
         
         XCTAssertEqual(wordRange.lowerBound, 9)
         XCTAssertEqual(wordRange.upperBound, 13) 
@@ -71,7 +71,7 @@ extension FT_innerWordTests_Tests {
             caretLocation: 28,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
                 number: 3,
@@ -80,7 +80,7 @@ extension FT_innerWordTests_Tests {
             )
         )
         
-        let wordRange = element.currentFileText.innerWord(startingAt: 28)
+        let wordRange = element.fileText.innerWord(startingAt: 28)
         
         XCTAssertEqual(wordRange.lowerBound, 26)
         XCTAssertEqual(wordRange.upperBound, 30)         
@@ -95,7 +95,7 @@ extension FT_innerWordTests_Tests {
             caretLocation: 20,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
                 number: 2,
@@ -104,7 +104,7 @@ extension FT_innerWordTests_Tests {
             )
         )
         
-        let wordRange = element.currentFileText.innerWord(startingAt: 20)
+        let wordRange = element.fileText.innerWord(startingAt: 20)
         
         XCTAssertEqual(wordRange.lowerBound, 20)
         XCTAssertEqual(wordRange.upperBound, 20) 
@@ -119,7 +119,7 @@ extension FT_innerWordTests_Tests {
             caretLocation: 4,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 26,
                 number: 1,
@@ -128,7 +128,7 @@ extension FT_innerWordTests_Tests {
             )
         )
         
-        let wordRange = element.currentFileText.innerWord(startingAt: 4)
+        let wordRange = element.fileText.innerWord(startingAt: 4)
         
         XCTAssertEqual(wordRange.lowerBound, 0)
         XCTAssertEqual(wordRange.upperBound, 4) 
@@ -143,7 +143,7 @@ extension FT_innerWordTests_Tests {
             caretLocation: 29,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
                 number: 3,
@@ -152,7 +152,7 @@ extension FT_innerWordTests_Tests {
             )
         )
         
-        let wordRange = element.currentFileText.innerWord(startingAt: 29)
+        let wordRange = element.fileText.innerWord(startingAt: 29)
         
         XCTAssertEqual(wordRange.lowerBound, 27)
         XCTAssertEqual(wordRange.upperBound, 34) 
@@ -177,7 +177,7 @@ spill
             caretLocation: 23,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 46,
                 number: 3,
@@ -186,7 +186,7 @@ spill
             )
         )
         
-        let wordRange = element.currentFileText.innerWord(startingAt: 23)
+        let wordRange = element.fileText.innerWord(startingAt: 23)
         
         XCTAssertEqual(wordRange.lowerBound, 20)
         XCTAssertEqual(wordRange.upperBound, 25)
@@ -205,7 +205,7 @@ spill also
             caretLocation: 33,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 43,
                 number: 4,
@@ -214,7 +214,7 @@ spill also
             )
         )
         
-        let wordrange = element.currentFileText.innerWord(startingAt: 33)
+        let wordrange = element.fileText.innerWord(startingAt: 33)
         
         XCTAssertEqual(wordrange.lowerBound, 30)
         XCTAssertEqual(wordrange.upperBound, 33)
@@ -238,7 +238,7 @@ extension FT_innerWordTests_Tests {
             caretLocation: 27,
             selectedLength: 3,
             selectedText: "🔫️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 58,
                 number: 3,
@@ -247,7 +247,7 @@ extension FT_innerWordTests_Tests {
             )
         )
         
-        let wordRange = element.currentFileText.innerWord(startingAt: 27)
+        let wordRange = element.fileText.innerWord(startingAt: 27)
         
         XCTAssertEqual(wordRange.lowerBound, 24)
         XCTAssertEqual(wordRange.upperBound, 30)                
@@ -262,7 +262,7 @@ extension FT_innerWordTests_Tests {
             caretLocation: 33,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 58,
                 number: 3,
@@ -271,7 +271,7 @@ extension FT_innerWordTests_Tests {
             )
         )
         
-        let wordRange = element.currentFileText.innerWord(startingAt: 33)
+        let wordRange = element.fileText.innerWord(startingAt: 33)
         
         XCTAssertEqual(wordRange.lowerBound, 33)
         XCTAssertEqual(wordRange.upperBound, 33)                
