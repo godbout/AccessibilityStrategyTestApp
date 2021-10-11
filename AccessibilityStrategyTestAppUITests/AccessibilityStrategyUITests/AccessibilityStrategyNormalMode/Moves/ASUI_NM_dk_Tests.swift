@@ -2,7 +2,7 @@ import XCTest
 @testable import AccessibilityStrategy
 
 
-class UIASNM_dk_Tests: ASUI_NM_BaseTests {
+class ASUI_NM_dk_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement? {
         return applyMove { asNormalMode.dk(on: $0) }
@@ -12,7 +12,7 @@ class UIASNM_dk_Tests: ASUI_NM_BaseTests {
 
 
 // Both
-extension UIASNM_dk_Tests {
+extension ASUI_NM_dk_Tests {
     
     func test_that_if_there_is_only_one_line_it_does_not_do_anything() {
         let textInAXFocusedElement = "one line is not enough for dk"
@@ -31,7 +31,7 @@ extension UIASNM_dk_Tests {
 
 
 // TextViews
-extension UIASNM_dk_Tests {
+extension ASUI_NM_dk_Tests {
     
     func test_that_it_can_delete_two_lines() {
         let textInAXFocusedElement = """
