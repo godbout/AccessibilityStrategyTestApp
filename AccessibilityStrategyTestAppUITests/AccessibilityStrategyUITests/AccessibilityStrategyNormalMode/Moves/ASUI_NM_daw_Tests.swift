@@ -28,7 +28,7 @@ like honestly that one should be
         applyMove { asNormalMode.w(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 like honestly that one should be
    📏️traight forward if you ask me
 """
@@ -49,7 +49,7 @@ the block cursor is important!
         applyMove { asNormalMode.gk(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 repositionin🇫🇷️
 the block cursor is important!
 """

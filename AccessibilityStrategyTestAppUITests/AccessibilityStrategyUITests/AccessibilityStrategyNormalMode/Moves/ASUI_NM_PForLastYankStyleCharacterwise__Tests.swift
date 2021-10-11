@@ -27,7 +27,7 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.text.value, "🍕️🍕️text to pasta 🍕️!!🍔️🍕️")
+        XCTAssertEqual(accessibilityElement?.fileText.value, "🍕️🍕️text to pasta 🍕️!!🍔️🍕️")
         XCTAssertEqual(accessibilityElement?.caretLocation, 25)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
@@ -45,7 +45,7 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.text.value, "paste me daddyP linewise for TF is still pasted characterwise!")
+        XCTAssertEqual(accessibilityElement?.fileText.value, "paste me daddyP linewise for TF is still pasted characterwise!")
         XCTAssertEqual(accessibilityElement?.caretLocation, 13)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
@@ -63,7 +63,7 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.text.value, "P should not paste linefeeds in theyanked with the linefeed hum hum TF")
+        XCTAssertEqual(accessibilityElement?.fileText.value, "P should not paste linefeeds in theyanked with the linefeed hum hum TF")
         XCTAssertEqual(accessibilityElement?.caretLocation, 66)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
@@ -93,7 +93,7 @@ ho ho ho
 
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 time to paste
 inpastaing TextViews
 ho ho ho
@@ -122,7 +122,7 @@ ho ho ho
 
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 time to paste
 in😂️astaing
 my man! TextViews
@@ -150,7 +150,7 @@ here's the last one
 
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 gonna have an empty line
 text for the new line
 here's the last one

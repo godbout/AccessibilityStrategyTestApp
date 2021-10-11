@@ -29,7 +29,7 @@ still create a line above
         applyMove { asNormalMode.gk(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 
 caret on the first
 line and it should
@@ -49,7 +49,7 @@ still create a line above
 
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
    
    now indent on the first line
 """

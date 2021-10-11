@@ -26,7 +26,7 @@ extension ASUI_NM_dt_Tests {
        
         let accessibilityElement = applyMoveBeingTested(with: "s")
         
-        XCTAssertEqual(accessibilityElement?.text.value, "gse dt on this sentence")
+        XCTAssertEqual(accessibilityElement?.fileText.value, "gse dt on this sentence")
         XCTAssertEqual(accessibilityElement?.caretLocation, 1)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }

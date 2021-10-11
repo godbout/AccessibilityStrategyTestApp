@@ -29,7 +29,7 @@ on a lin😂️
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "o")
         
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 dF on a multiline
 should work
 😂️

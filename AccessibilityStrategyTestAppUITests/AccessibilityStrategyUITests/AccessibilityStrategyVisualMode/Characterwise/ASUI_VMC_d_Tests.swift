@@ -29,7 +29,7 @@ the selection!
         applyMove { asVisualMode.lForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 all that VM d 😂️e is deleting
 the selection!
 """
@@ -53,7 +53,7 @@ should go back to line end limit
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 if deleting the last character of
 
 should go back to line end limit
@@ -77,7 +77,7 @@ there's gonna be an empty line
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 there's gonna be an empty line
 ⛱️ight above
 """
@@ -102,7 +102,7 @@ should go back to line end limit
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 if deleting the last character of
 a line before the linefeed the ⛱️
 should go back to line end limit
@@ -128,7 +128,7 @@ lines this time
         applyMove { asVisualMode.gjForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 same as abov
 lines this time
 """
@@ -152,7 +152,7 @@ own empty
         applyMove { asVisualMode.lForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 caret is on its
 own empty
     line

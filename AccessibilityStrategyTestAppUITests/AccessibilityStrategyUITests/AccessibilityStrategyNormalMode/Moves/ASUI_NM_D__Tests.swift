@@ -34,7 +34,7 @@ which😂️means it will not up one line and this is tested in the endLimit!
         applyMove { asNormalMode.l(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.text.value, """
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
 D will delete till the end of line but not the linefeed (tested in C) and will go to the end limit even if the line is empty
 which😂️
 """

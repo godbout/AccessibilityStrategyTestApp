@@ -25,7 +25,7 @@ hehe there's gonna be some "double quotes" in that shit
         applyMove { asNormalMode.gg(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.text.value, "hehe there's gonna be some \"\" in that shit")
+        XCTAssertEqual(accessibilityElement?.fileText.value, "hehe there's gonna be some \"\" in that shit")
     }
 
 }
