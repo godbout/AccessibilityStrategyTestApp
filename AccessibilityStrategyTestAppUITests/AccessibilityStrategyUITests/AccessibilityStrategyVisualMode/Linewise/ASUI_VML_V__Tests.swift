@@ -24,7 +24,7 @@ anchor
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
        
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
        
@@ -42,7 +42,7 @@ anchor
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.o(on: $0) }
@@ -62,10 +62,10 @@ multiple lines
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.gjForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 42)
@@ -87,7 +87,7 @@ really
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.gjForVisualStyleLinewise(on: $0) }
 
         XCTAssertNotNil(AccessibilityStrategyVisualMode.anchor)
         XCTAssertNotNil(AccessibilityStrategyVisualMode.head)

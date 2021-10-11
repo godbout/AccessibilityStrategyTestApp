@@ -98,7 +98,7 @@ to the first non blank of the copied line
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
 
         NSPasteboard.general.clearContents()

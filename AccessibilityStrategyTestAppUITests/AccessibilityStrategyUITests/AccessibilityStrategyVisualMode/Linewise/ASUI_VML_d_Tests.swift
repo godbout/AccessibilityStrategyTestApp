@@ -25,10 +25,10 @@ one extra line in between!
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.gjForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
                      
         XCTAssertEqual(accessibilityElement?.text.value, """
@@ -52,11 +52,11 @@ some more
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
        
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.gjForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.text.value, """
@@ -81,10 +81,10 @@ another line agan
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.gjForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.text.value, """
@@ -107,9 +107,9 @@ and it would be beautiful
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
        
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.gjForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.text.value, """
@@ -131,7 +131,7 @@ and it would be beautiful
              
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.gkForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.text.value, """
@@ -154,9 +154,9 @@ t
                
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
-        applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
-        applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.gkForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.gkForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.gkForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.text.value, "")

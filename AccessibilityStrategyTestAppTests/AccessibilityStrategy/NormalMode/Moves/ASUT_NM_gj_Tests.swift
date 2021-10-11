@@ -3,16 +3,16 @@ import XCTest
 
 
 // only testing for when KS takes over here, rest is in UI Tests
-class ASNM_j_Tests: ASNM_BaseTests {
+class ASNM_gj_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.j(on: element) 
+        return asNormalMode.gj(on: element) 
     }
     
 }
 
 
-extension ASNM_j_Tests {
+extension ASNM_gj_Tests {
     
     func test_that_for_TextFields_j_returns_nil_coz_we_want_the_KS_to_take_over() {
         let text = "j on a TextField shouldn't use the AS! think Alfred"

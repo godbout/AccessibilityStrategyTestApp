@@ -82,7 +82,7 @@ for VM l and that should
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
       
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
