@@ -17,7 +17,7 @@ extension FL_innerQuotedString_Tests {
             caretLocation: 2,
             selectedLength: 2,
             selectedText: "p ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 20,
                 number: 1,
@@ -40,7 +40,7 @@ extension FL_innerQuotedString_Tests {
             caretLocation: 6,
             selectedLength: 1,
             selectedText: "n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 24,
                 number: 1,
@@ -63,7 +63,7 @@ extension FL_innerQuotedString_Tests {
             caretLocation: 4,
             selectedLength: 1,
             selectedText: "l",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
                 number: 1,
@@ -87,7 +87,7 @@ extension FL_innerQuotedString_Tests {
             caretLocation: 15,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 39,
                 number: 2,
@@ -111,7 +111,7 @@ extension FL_innerQuotedString_Tests {
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "y",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 28,
                 number: 3,
@@ -136,7 +136,7 @@ that's " three quotes " in there "
             caretLocation: 29,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
                 number: 2,
@@ -162,7 +162,7 @@ several "pairs" here and kindaVim should "know" which one to delete
             caretLocation: 41,
             selectedLength: 1,
             selectedText: "\"",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 67,
                 number: 2,
@@ -188,7 +188,7 @@ several "pairs" here and kindaVim should "know which one to delete
             caretLocation: 41,
             selectedLength: 1,
             selectedText: "\"",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 66,
                 number: 2,
@@ -211,7 +211,7 @@ several "pairs" here and kindaVim should "know which one to delete
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
                 number: 1,
@@ -238,7 +238,7 @@ and currently i fail
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "t",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 65,
                 number: 2,
@@ -271,7 +271,7 @@ emojis are sy🧑‍🌾️🧑‍🌾️mbols" that 🔫️🔫️🔫️ are l
             caretLocation: 9,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 72,
                 number: 1,

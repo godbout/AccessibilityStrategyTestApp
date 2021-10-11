@@ -25,7 +25,7 @@ stop even without a linefeed. that's how special it is.
             caretLocation: 48,
             selectedLength: 1,
             selectedText: "w",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 108,
                 number: 2,
@@ -56,7 +56,7 @@ extension ASUT_NM_g0_Tests {
             caretLocation: 26,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 53,
                 number: 1,
@@ -90,7 +90,7 @@ and again this is for screen lines 😀️y friend so this line is long!
             caretLocation: 87,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 101,
                 number: 4,

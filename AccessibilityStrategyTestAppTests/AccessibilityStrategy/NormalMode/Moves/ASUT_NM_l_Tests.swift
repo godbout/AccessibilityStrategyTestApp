@@ -26,7 +26,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 34,
             selectedLength: 5,
             selectedText: "🇫🇷️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
                 number: 1,
@@ -57,7 +57,7 @@ extension ASUT_NM_l_Tests {
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "a",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 68,
                 number: 1,
@@ -85,7 +85,7 @@ dumbass.
             caretLocation: 101,
             selectedLength: 1,
             selectedText: ".",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 111,
                 number: 4,

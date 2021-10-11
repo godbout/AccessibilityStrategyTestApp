@@ -29,7 +29,7 @@ extension ASUT_VMC_c_Tests {
             caretLocation: 14,
             selectedLength: 13,
             selectedText: "haha) on a si",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 36,
                 number: 1,
@@ -62,7 +62,7 @@ e as above
 but on multiple
 lines bec
 """,
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 48,
                 number: 1,

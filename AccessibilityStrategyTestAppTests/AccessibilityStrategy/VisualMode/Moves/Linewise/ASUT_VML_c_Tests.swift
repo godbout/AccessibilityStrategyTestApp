@@ -38,7 +38,7 @@ will delete the selected lines
 but the below line will not go up
 
 """,
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 126,
                 number: 2,

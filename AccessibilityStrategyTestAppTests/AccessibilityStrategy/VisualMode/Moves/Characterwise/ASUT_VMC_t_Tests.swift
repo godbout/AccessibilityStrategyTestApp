@@ -24,7 +24,7 @@ extension ASUT_VMC_t_Tests {
             caretLocation: 9,
             selectedLength: 4,
             selectedText: "the ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 51,
                 number: 1,
@@ -57,7 +57,7 @@ of newHeadLocation needs some... calculation.
             caretLocation: 58,
             selectedLength: 36,
             selectedText: "n multiple lines 🌬️ because the cal",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 148,
                 number: 2,
@@ -89,7 +89,7 @@ that is not there
             caretLocation: 13,
             selectedLength: 3,
             selectedText: "r a",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
                 number: 2,
@@ -117,7 +117,7 @@ that is not there
             caretLocation: 2,
             selectedLength: 7,
             selectedText: "und som",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 19,
                 number: 1,

@@ -1,5 +1,5 @@
 import XCTest
-import AccessibilityStrategy
+@testable import AccessibilityStrategy
 
 
 class ASUT_NM_gg_Tests: ASNM_BaseTests {
@@ -26,7 +26,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 86,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
                 number: 10,
@@ -57,7 +57,7 @@ extension ASUT_NM_gg_Tests {
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 17,
                 number: 2,
@@ -81,7 +81,7 @@ extension ASUT_NM_gg_Tests {
             caretLocation: 24,
             selectedLength: 3,
             selectedText: "😀️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 27,
                 number: 3,
@@ -105,7 +105,7 @@ extension ASUT_NM_gg_Tests {
             caretLocation: 5,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 9,
                 number: 1,
@@ -139,7 +139,7 @@ here
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "h",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 27,
                 number: 3,
@@ -168,7 +168,7 @@ bullshit
             caretLocation: 38,
             selectedLength: 1,
             selectedText: "f",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 48,
                 number: 4,
@@ -196,7 +196,7 @@ completely empty
             caretLocation: 30,
             selectedLength: 1,
             selectedText: "y",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
                 number: 5,
@@ -224,7 +224,7 @@ again only
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "l",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 38,
                 number: 2,

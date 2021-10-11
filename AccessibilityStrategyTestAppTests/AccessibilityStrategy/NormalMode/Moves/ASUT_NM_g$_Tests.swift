@@ -27,7 +27,7 @@ stop even without a linefeed. that's how special it is.
             caretLocation: 5,
             selectedLength: 1,
             selectedText: "m",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 108,
                 number: 1,
@@ -58,7 +58,7 @@ extension ASUT_NM_g$_Tests {
             caretLocation: 36,
             selectedLength: 1,
             selectedText: "a",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 56,
                 number: 2,
@@ -93,7 +93,7 @@ gonna be wrapped
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "u",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 70,
                 number: 2,
@@ -122,7 +122,7 @@ it's a bug! my friend hehehehe
             caretLocation: 28,
             selectedLength: 1,
             selectedText: "\n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 59,
                 number: 3,

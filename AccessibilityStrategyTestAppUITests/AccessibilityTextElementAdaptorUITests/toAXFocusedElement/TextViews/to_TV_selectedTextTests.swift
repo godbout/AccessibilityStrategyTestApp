@@ -16,7 +16,7 @@ this time
             caretLocation: 21,
             selectedLength: 0,
             selectedText: "\nbanana banana 🍌️🍌️🍌️ banana",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
                 number: 2,

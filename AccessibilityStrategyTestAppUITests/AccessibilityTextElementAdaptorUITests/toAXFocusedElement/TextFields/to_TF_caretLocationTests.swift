@@ -1,5 +1,5 @@
 import XCTest
-import AccessibilityStrategy
+@testable import AccessibilityStrategy
 
 
 class to_TF_caretLocationTests: ATEA_BaseTests {
@@ -13,7 +13,7 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
             caretLocation: 0,
             selectedLength: 4,
             selectedText: nil,
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 14,
                 number: 1,
@@ -42,7 +42,7 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
             caretLocation: 4,
             selectedLength: 1,
             selectedText: nil,
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 9,
                 number: 1,
@@ -73,7 +73,7 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
             caretLocation: 19,
             selectedLength: 1,
             selectedText: nil,
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 17,
                 number: 1,

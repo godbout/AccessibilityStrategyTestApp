@@ -29,7 +29,7 @@ extension ASUT_VMC_o_Tests {
             caretLocation: 10,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
                 number: 1,
@@ -61,7 +61,7 @@ tricky
             caretLocation: 19,
             selectedLength: 1,
             selectedText: "m",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 59,
                 number: 2,
@@ -91,7 +91,7 @@ my friend
             caretLocation: 15,
             selectedLength: 1,
             selectedText: "f",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 21,
                 number: 2,

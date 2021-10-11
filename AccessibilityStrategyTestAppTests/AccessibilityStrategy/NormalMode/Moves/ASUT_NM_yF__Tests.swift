@@ -29,7 +29,7 @@ them like nothin🇫🇷️ happened. that's how special it is.
             caretLocation: 116,
             selectedLength: 1,
             selectedText: "i",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
                 number: 5,
@@ -61,7 +61,7 @@ extension ASUT_NM_yF__Tests {
             caretLocation: 32,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 36,
                 number: 4,
@@ -91,7 +91,7 @@ that is not there
             caretLocation: 14,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
                 number: 2,
@@ -129,7 +129,7 @@ on a line
             caretLocation: 27,
             selectedLength: 1,
             selectedText: "r",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 40,
                 number: 2,

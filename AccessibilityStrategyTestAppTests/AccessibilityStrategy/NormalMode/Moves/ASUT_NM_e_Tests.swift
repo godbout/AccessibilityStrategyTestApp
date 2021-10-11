@@ -24,7 +24,7 @@ extension ASUT_NM_e_Tests {
             caretLocation: 54,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 62,
                 number: 1,
@@ -52,7 +52,7 @@ you little mf hehe
             caretLocation: 27,
             selectedLength: 1,
             selectedText: "t",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 36,
                 number: 2,

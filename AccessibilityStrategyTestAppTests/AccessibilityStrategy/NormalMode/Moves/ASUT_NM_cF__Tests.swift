@@ -28,7 +28,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 60,
             selectedLength: 1,
             selectedText: "y",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
                 number: 3,
@@ -59,7 +59,7 @@ extension ASUT_NM_cF__Tests {
             caretLocation: 25,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 29,
                 number: 1,
@@ -88,7 +88,7 @@ that is not there
             caretLocation: 14,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
                 number: 2,
@@ -123,7 +123,7 @@ on a 📏️📏️ line
             caretLocation: 44,
             selectedLength: 1,
             selectedText: "n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 46,
                 number: 5,

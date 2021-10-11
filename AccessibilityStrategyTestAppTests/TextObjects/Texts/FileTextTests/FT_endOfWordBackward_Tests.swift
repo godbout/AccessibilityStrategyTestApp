@@ -20,7 +20,7 @@ extension FT_endOfWordBackward_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
                 number: 1,
@@ -49,7 +49,7 @@ with linefeed
             caretLocation: 54,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 54,
                 number: 5,
@@ -78,7 +78,7 @@ extension FT_endOfWordBackward_Tests {
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 22,
                 number: 2,
@@ -101,7 +101,7 @@ extension FT_endOfWordBackward_Tests {
             caretLocation: 17,
             selectedLength: 1,
             selectedText: "d",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 74,
                 number: 2,
@@ -124,7 +124,7 @@ extension FT_endOfWordBackward_Tests {
             caretLocation: 13,
             selectedLength: 1,
             selectedText: ".",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 74,
                 number: 2,
@@ -147,7 +147,7 @@ extension FT_endOfWordBackward_Tests {
             caretLocation: 47,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 52,
                 number: 5,
@@ -170,7 +170,7 @@ extension FT_endOfWordBackward_Tests {
             caretLocation: 30,
             selectedLength: 1,
             selectedText: "s",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
                 number: 3,
@@ -193,7 +193,7 @@ extension FT_endOfWordBackward_Tests {
             caretLocation: 0,
             selectedLength: 1,
             selectedText: "s",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 63,
                 number: 1,
@@ -216,7 +216,7 @@ extension FT_endOfWordBackward_Tests {
             caretLocation: 8,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 16,
                 number: 1,
@@ -241,7 +241,7 @@ if text[index] == "_" {
             caretLocation: 22,
             selectedLength: 1,
             selectedText: "{",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 23,
                 number: 3,
@@ -266,7 +266,7 @@ if text[index] == "_" {
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "\"",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 23,
                 number: 3,
@@ -291,7 +291,7 @@ if text[index] == "_" {
            caretLocation: 18,
            selectedLength: 1,
            selectedText: "\"",
-           currentLine: AccessibilityTextElementLine(
+           currentScreenLine: ScreenLine(
                fullTextValue: text,
                fullTextLength: 23,
                number: 3,
@@ -315,7 +315,7 @@ if text[index] == "_" {
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "r",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
                 number: 3,
@@ -338,7 +338,7 @@ if text[index] == "_" {
             caretLocation: 26,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
                 number: 3,
@@ -361,7 +361,7 @@ if text[index] == "_" {
             caretLocation: 29,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 38,
                 number: 3,
@@ -384,7 +384,7 @@ if text[index] == "_" {
             caretLocation: 19,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 25,
                 number: 3,
@@ -407,7 +407,7 @@ if text[index] == "_" {
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "+",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 28,
                 number: 3,
@@ -430,7 +430,7 @@ if text[index] == "_" {
             caretLocation: 12,
             selectedLength: 1,
             selectedText: "=",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 16,
                 number: 2,
@@ -453,7 +453,7 @@ if text[index] == "_" {
             caretLocation: 41,
             selectedLength: 1,
             selectedText: "a",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 46,
                 number: 5,
@@ -485,7 +485,7 @@ ge can go
             caretLocation: 22,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 30,
                 number: 4,
@@ -512,7 +512,7 @@ at empty lines
             caretLocation: 16,
             selectedLength: 1,
             selectedText: "a",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 30,
                 number: 4,
@@ -539,7 +539,7 @@ ge should stop at empty lines and
             caretLocation: 42,
             selectedLength: 1,
             selectedText: "p",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 72,
                 number: 6,
@@ -567,7 +567,7 @@ whitespaces
             caretLocation: 73,
             selectedLength: 1,
             selectedText: "s",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 79,
                 number: 9,
@@ -597,7 +597,7 @@ extension FT_endOfWordBackward_Tests {
             caretLocation: 30,
             selectedLength: 3,
             selectedText: "🔫️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 58,
                 number: 3,
@@ -623,7 +623,7 @@ emojis are symbols that 🔫️🔫️🔫️ are longer than 1 length 🔫️
             caretLocation: 63,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 63,
                 number: 6,

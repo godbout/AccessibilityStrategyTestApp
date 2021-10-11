@@ -18,7 +18,7 @@ extension TextObject_previous_Tests {
             caretLocation: 12,
             selectedLength: 1,
             selectedText: "a",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 25,
                 number: 1,
@@ -41,7 +41,7 @@ extension TextObject_previous_Tests {
             caretLocation: 16,
             selectedLength: 1,
             selectedText: "F",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 20,
                 number: 1,
@@ -67,7 +67,7 @@ here so caret shouldn't move
             caretLocation: 22,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 49,
                 number: 3,
@@ -90,7 +90,7 @@ here so caret shouldn't move
             caretLocation: 0,
             selectedLength: 1,
             selectedText: "a",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 29,
                 number: 1,
@@ -113,7 +113,7 @@ here so caret shouldn't move
             caretLocation: 24,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 24,
                 number: 2,
@@ -136,7 +136,7 @@ here so caret shouldn't move
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
                 number: 1,
@@ -166,7 +166,7 @@ extension TextObject_previous_Tests {
             caretLocation: 26,
             selectedLength: 1,
             selectedText: "!",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 27,
                 number: 3,

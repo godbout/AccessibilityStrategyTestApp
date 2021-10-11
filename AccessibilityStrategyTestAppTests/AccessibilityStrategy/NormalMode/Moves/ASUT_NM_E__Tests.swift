@@ -28,7 +28,7 @@ itself does
             caretLocation: 58,
             selectedLength: 1,
             selectedText: "t",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 84,
                 number: 2,

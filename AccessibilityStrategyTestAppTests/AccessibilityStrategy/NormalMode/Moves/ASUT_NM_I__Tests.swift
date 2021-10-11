@@ -26,7 +26,7 @@ extension ASUT_NM_I__Tests {
             caretLocation: 54,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 132,
                 number: 2,
@@ -57,7 +57,7 @@ extension ASUT_NM_I__Tests {
             caretLocation: 68,
             selectedLength: 1,
             selectedText: "n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 84,
                 number: 3,
@@ -85,7 +85,7 @@ so that's a line, that's for sure
             caretLocation: 74,
             selectedLength: 1,
             selectedText: "g",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 94,
                 number: 4,
@@ -114,7 +114,7 @@ of this previous line
             caretLocation: 69,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 105,
                 number: 4,
@@ -142,7 +142,7 @@ so now we will have a line that is full of spaces but no linefeed
             caretLocation: 72,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 81,
                 number: 4,

@@ -31,7 +31,7 @@ extension ASUT_NM_r_Tests {
             caretLocation: 15,
             selectedLength: 1,
             selectedText: "c",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 41,
                 number: 1,
@@ -64,7 +64,7 @@ linefeed
             caretLocation: 15,
             selectedLength: 1,
             selectedText: "\n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 24,
                 number: 2,

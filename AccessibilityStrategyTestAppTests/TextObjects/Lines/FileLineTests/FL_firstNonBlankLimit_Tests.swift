@@ -17,7 +17,7 @@ extension FL_firstNonBlankLimit_Tests {
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "s",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 64,
                 number: 1,
@@ -40,7 +40,7 @@ extension FL_firstNonBlankLimit_Tests {
             caretLocation: 38,
             selectedLength: 1,
             selectedText: "i",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 54,
                 number: 4,
@@ -63,7 +63,7 @@ extension FL_firstNonBlankLimit_Tests {
             caretLocation: 23,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 30,
                 number: 1,
@@ -86,7 +86,7 @@ extension FL_firstNonBlankLimit_Tests {
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "t",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 36,
                 number: 3,
@@ -109,7 +109,7 @@ extension FL_firstNonBlankLimit_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
                 number: 1,
@@ -132,7 +132,7 @@ extension FL_firstNonBlankLimit_Tests {
             caretLocation: 4,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 8,
                 number: 1,
@@ -155,7 +155,7 @@ extension FL_firstNonBlankLimit_Tests {
             caretLocation: 4,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 6,
                 number: 1,
@@ -187,7 +187,7 @@ extension FL_firstNonBlankLimit_Tests {
             caretLocation: 22,
             selectedLength: 3,
             selectedText: "🔫️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 30,
                 number: 2,

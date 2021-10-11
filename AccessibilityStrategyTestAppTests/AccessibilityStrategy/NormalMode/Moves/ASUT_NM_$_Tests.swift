@@ -27,7 +27,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 29,
             selectedLength: 1,
             selectedText: "r",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
                 number: 2,
@@ -58,7 +58,7 @@ extension ASUT_NM_$_Tests {
             caretLocation: 36,
             selectedLength: 1,
             selectedText: "a",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 56,
                 number: 2,
@@ -88,7 +88,7 @@ j or k will go to the line endLimit
             caretLocation: 49,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 98,
                 number: 3,
@@ -123,7 +123,7 @@ gonna be wrapped
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "u",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 70,
                 number: 2,
@@ -152,7 +152,7 @@ it's a bug! my friend hehehehe
             caretLocation: 27,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 58,
                 number: 2,

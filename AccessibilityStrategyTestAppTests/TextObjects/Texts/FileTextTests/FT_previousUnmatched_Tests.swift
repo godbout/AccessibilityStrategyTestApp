@@ -17,7 +17,7 @@ extension FT_previousUnmatched_Tests {
             caretLocation: 25,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 29,
                 number: 1,
@@ -40,7 +40,7 @@ extension FT_previousUnmatched_Tests {
             caretLocation: 28,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 29,
                 number: 3,
@@ -63,7 +63,7 @@ extension FT_previousUnmatched_Tests {
             caretLocation: 28,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 29,
                 number: 3,
@@ -86,7 +86,7 @@ extension FT_previousUnmatched_Tests {
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
                 number: 3,
@@ -109,7 +109,7 @@ extension FT_previousUnmatched_Tests {
             caretLocation: 29,
             selectedLength: 1,
             selectedText: ")",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 30,
                 number: 3,
@@ -135,7 +135,7 @@ the second brace ( yes
             caretLocation: 37,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
                 number: 4,
@@ -164,7 +164,7 @@ again
             caretLocation: 41,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 51,
                 number: 5,
@@ -187,7 +187,7 @@ again
             caretLocation: 22,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 23,
                 number: 2,
@@ -210,7 +210,7 @@ again
             caretLocation: 28,
             selectedLength: 1,
             selectedText: "l",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 30,
                 number: 3,
@@ -233,7 +233,7 @@ again
             caretLocation: 15,
             selectedLength: 1,
             selectedText: "(",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 18,
                 number: 1,
@@ -256,7 +256,7 @@ again
             caretLocation: 19,
             selectedLength: 1,
             selectedText: ")",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 28,
                 number: 1,
@@ -279,7 +279,7 @@ again
             caretLocation: 17,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 36,
                 number: 2,
@@ -302,7 +302,7 @@ again
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
                 number: 1,
@@ -332,7 +332,7 @@ extension FT_previousUnmatched_Tests {
             caretLocation: 104,
             selectedLength: 1,
             selectedText: "v",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 106,
                 number: 9,

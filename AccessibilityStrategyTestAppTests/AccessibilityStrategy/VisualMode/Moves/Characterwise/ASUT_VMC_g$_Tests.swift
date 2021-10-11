@@ -28,7 +28,7 @@ j or k will go to the line endLimit
             caretLocation: 52,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 99,
                 number: 3,

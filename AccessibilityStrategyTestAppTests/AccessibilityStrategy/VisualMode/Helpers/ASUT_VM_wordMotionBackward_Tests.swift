@@ -25,7 +25,7 @@ extension ASUT_VM_wordMotionBackward_Tests {
             caretLocation: 10,
             selectedLength: 25,
             selectedText: "t with text moves in Visu",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
                 number: 1,
@@ -60,7 +60,7 @@ from the caret location
 or, not
 fro
 """,
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 88,
                 number: 2,
@@ -88,7 +88,7 @@ fro
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "i",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
                 number: 1,
@@ -121,7 +121,7 @@ line
             caretLocation: 31,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
                 number: 4,
@@ -156,7 +156,7 @@ extension ASUT_VM_wordMotionBackward_Tests {
             caretLocation: 18,
             selectedLength: 3,
             selectedText: "🤖️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 36,
                 number: 1,
@@ -184,7 +184,7 @@ extension ASUT_VM_wordMotionBackward_Tests {
             caretLocation: 10,
             selectedLength: 12,
             selectedText: "urrently 🤖️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
                 number: 1,

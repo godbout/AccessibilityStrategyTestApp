@@ -17,7 +17,7 @@ extension FT_nextUnmatched_Tests {
             caretLocation: 12,
             selectedLength: 1,
             selectedText: "y",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 79,
                 number: 1,
@@ -40,7 +40,7 @@ extension FT_nextUnmatched_Tests {
             caretLocation: 1,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 12,
                 number: 1,
@@ -63,7 +63,7 @@ extension FT_nextUnmatched_Tests {
             caretLocation: 23,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
                 number: 3,
@@ -86,7 +86,7 @@ extension FT_nextUnmatched_Tests {
             caretLocation: 6,
             selectedLength: 1,
             selectedText: "f",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
                 number: 1,
@@ -112,7 +112,7 @@ and another ) here
             caretLocation: 13,
             selectedLength: 1,
             selectedText: ")",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 39,
                 number: 2,
@@ -135,7 +135,7 @@ and another ) here
             caretLocation: 0,
             selectedLength: 1,
             selectedText: "(",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 24,
                 number: 1,
@@ -158,7 +158,7 @@ and another ) here
             caretLocation: 14,
             selectedLength: 1,
             selectedText: "(",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 28,
                 number: 2,
@@ -181,7 +181,7 @@ and another ) here
             caretLocation: 20,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
                 number: 1,
@@ -204,7 +204,7 @@ and another ) here
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
                 number: 1,
@@ -234,7 +234,7 @@ extension FT_nextUnmatched_Tests {
             caretLocation: 5,
             selectedLength: 1,
             selectedText: "h",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 107,
                 number: 1,

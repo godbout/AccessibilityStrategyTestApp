@@ -21,7 +21,7 @@ extension FT_aWord_Tests {
             caretLocation: 7,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 15,
                 number: 1,
@@ -44,7 +44,7 @@ extension FT_aWord_Tests {
             caretLocation: 2,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 25,
                 number: 1,
@@ -68,7 +68,7 @@ extension FT_aWord_Tests {
             caretLocation: 10,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
                 number: 1,
@@ -95,7 +95,7 @@ there's 5 spaces at the end of this line
             caretLocation: 42,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 86,
                 number: 4,
@@ -122,7 +122,7 @@ there's 5 spaces at the end of this line
             caretLocation: 48,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 87,
                 number: 5,
@@ -152,7 +152,7 @@ extension FT_aWord_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
                 number: 1,
@@ -179,7 +179,7 @@ the last line is empty
             caretLocation: 52,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 52,
                 number: 7,
@@ -202,7 +202,7 @@ the last line is empty
             caretLocation: 3,
             selectedLength: 1,
             selectedText: "r",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 5,
                 number: 1,
@@ -226,7 +226,7 @@ the last line is empty
             caretLocation: 11,
             selectedLength: 1,
             selectedText: "r",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
                 number: 2,
@@ -250,7 +250,7 @@ the last line is empty
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "h",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 24,
                 number: 2,
@@ -274,7 +274,7 @@ the last line is empty
             caretLocation: 3,
             selectedLength: 1,
             selectedText: "r",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 11,
                 number: 1,
@@ -298,7 +298,7 @@ the last line is empty
             caretLocation: 12,
             selectedLength: 1,
             selectedText: "r",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 26,
                 number: 2,
@@ -322,7 +322,7 @@ the last line is empty
             caretLocation: 7,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 22,
                 number: 2,
@@ -346,7 +346,7 @@ the last line is empty
             caretLocation: 14,
             selectedLength: 1,
             selectedText: "r",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 16,
                 number: 2,
@@ -370,7 +370,7 @@ the last line is empty
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "d",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 21,
                 number: 2,
@@ -397,7 +397,7 @@ this line ends with 3 spaces
             caretLocation: 25,
             selectedLength: 1,
             selectedText: "c",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 69,
                 number: 3,
@@ -424,7 +424,7 @@ this line ends with 3 spaces
             caretLocation: 36,
             selectedLength: 1,
             selectedText: "d",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 69,
                 number: 4,
@@ -451,7 +451,7 @@ this line ends with 3 spaces
             caretLocation: 34,
             selectedLength: 1,
             selectedText: "a",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
                 number: 4,
@@ -478,7 +478,7 @@ those faces 🥺️☹️😂️ fart
             caretLocation: 33,
             selectedLength: 2,
             selectedText: "☹️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 43,
                 number: 4,

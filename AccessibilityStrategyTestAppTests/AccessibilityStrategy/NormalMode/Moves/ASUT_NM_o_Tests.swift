@@ -26,7 +26,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 38,
             selectedLength: 1,
             selectedText: "s",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
                 number: 2,
@@ -57,7 +57,7 @@ extension ASUT_NM_o_Tests {
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "i",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 39,
                 number: 2,
@@ -89,7 +89,7 @@ between the first file line and the second file line
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "i",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 101,
                 number: 2,
@@ -116,7 +116,7 @@ that doesn't end with a linefeed and it's still gonna work coz 🪄️🪄️�
             caretLocation: 109,
             selectedLength: 1,
             selectedText: "n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 160,
                 number: 3,
@@ -145,7 +145,7 @@ and i'm doing this not because i'm a genius but because i'm pretty dumb LMAO
             caretLocation: 60,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 137,
                 number: 6,
@@ -174,7 +174,7 @@ so the new line follows that
             caretLocation: 23,
             selectedLength: 3,
             selectedText: "p",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 56,
                 number: 3,
@@ -203,7 +203,7 @@ caret on empty last line
             caretLocation: 25,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 25,
                 number: 2,

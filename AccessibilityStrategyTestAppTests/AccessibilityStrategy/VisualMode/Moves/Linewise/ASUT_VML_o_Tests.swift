@@ -29,7 +29,7 @@ extension ASUT_VML_o_Tests {
             caretLocation: 0,
             selectedLength: 1,
             selectedText: "a",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
                 number: 1,
@@ -61,7 +61,7 @@ tricky
             caretLocation: 17,
             selectedLength: 19,
             selectedText: "some like a little\n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 59,
                 number: 2,

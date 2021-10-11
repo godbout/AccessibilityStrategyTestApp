@@ -26,7 +26,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 68,
             selectedLength: 1,
             selectedText: "i",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
                 number: 4,
@@ -57,7 +57,7 @@ extension ASUT_NM_cgg_Tests {
             caretLocation: 10,
             selectedLength: 1,
             selectedText: "s",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 28,
                 number: 1,
@@ -95,7 +95,7 @@ those faces 🥺️☹️😂️
             caretLocation: 35,
             selectedLength: 1,
             selectedText: "g",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 78,
                 number: 4,

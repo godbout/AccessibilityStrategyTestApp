@@ -30,7 +30,7 @@ itself d🤨️🤨️🤨️oes
             caretLocation: 19,
             selectedLength: 3,
             selectedText: "🤨️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 127,
                 number: 1,

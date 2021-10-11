@@ -13,7 +13,7 @@ class to_TF_selectedTextTests: ATEA_BaseTests {
             caretLocation: 6,
             selectedLength: 0,
             selectedText: "banana 🍌️ ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
                 number: 1,

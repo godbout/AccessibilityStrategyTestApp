@@ -27,7 +27,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 11,
             selectedLength: 1,
             selectedText: "o",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
                 number: 1,
@@ -58,7 +58,7 @@ extension ASUT_NM_f_Tests {
             caretLocation: 10,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
                 number: 1,
@@ -87,7 +87,7 @@ and the caret shouldn't move else pan pan cul cul
             caretLocation: 22,
             selectedLength: 1,
             selectedText: "c",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 94,
                 number: 3,
@@ -114,7 +114,7 @@ it you're already on a z for example and wanna go to the next z it should work
             caretLocation: 23,
             selectedLength: 1,
             selectedText: "z",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 78,
                 number: 2,

@@ -20,7 +20,7 @@ extension TexObject_next_Tests {
             caretLocation: 10,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 25,
                 number: 1,
@@ -43,7 +43,7 @@ extension TexObject_next_Tests {
             caretLocation: 9,
             selectedLength: 1,
             selectedText: "f",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 22,
                 number: 1,
@@ -69,7 +69,7 @@ here so caret shouldn't move
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 49,
                 number: 3,
@@ -92,7 +92,7 @@ here so caret shouldn't move
             caretLocation: 24,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 24,
                 number: 1,
@@ -115,7 +115,7 @@ here so caret shouldn't move
             caretLocation: 28,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 29,
                 number: 3,
@@ -138,7 +138,7 @@ here so caret shouldn't move
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
                 number: 1,
@@ -161,7 +161,7 @@ here so caret shouldn't move
             caretLocation: 24,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 24,
                 number: 2,
@@ -191,7 +191,7 @@ extension TexObject_next_Tests {
             caretLocation: 2,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 27,
                 number: 1,

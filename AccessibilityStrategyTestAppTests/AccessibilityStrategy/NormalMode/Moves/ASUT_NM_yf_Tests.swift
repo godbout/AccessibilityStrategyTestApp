@@ -27,7 +27,7 @@ them like nothin🇫🇷️ happened. that's how special it is.
             caretLocation: 78,
             selectedLength: 26,
             selectedText: "🇫🇷️ happened. that's how",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
                 number: 3,
@@ -59,7 +59,7 @@ extension ASUT_NM_yf_Tests {
             caretLocation: 8,
             selectedLength: 1,
             selectedText: "e",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 30,
                 number: 1,
@@ -88,7 +88,7 @@ that is not there
             caretLocation: 14,
             selectedLength: 1,
             selectedText: " ",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
                 number: 2,
@@ -126,7 +126,7 @@ on a line
             caretLocation: 4,
             selectedLength: 1,
             selectedText: "n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 40,
                 number: 1,

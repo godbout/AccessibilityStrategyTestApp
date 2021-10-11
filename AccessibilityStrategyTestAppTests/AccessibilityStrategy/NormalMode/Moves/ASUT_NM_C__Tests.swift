@@ -26,7 +26,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 52,
             selectedLength: 3,
             selectedText: "🚬️",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 118,
                 number: 3,
@@ -61,7 +61,7 @@ and of course this is in the case there is a linefeed at the end of the line.
             caretLocation: 55,
             selectedLength: 1,
             selectedText: "t",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 177,
                 number: 3,
@@ -86,7 +86,7 @@ and of course this is in the case there is a linefeed at the end of the line.
             caretLocation: 11,
             selectedLength: 1,
             selectedText: "h",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 95,
                 number: 1,
@@ -115,7 +115,7 @@ and not delete that fucking shit
             caretLocation: 46,
             selectedLength: 1,
             selectedText: "\n",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 80,
                 number: 4,
