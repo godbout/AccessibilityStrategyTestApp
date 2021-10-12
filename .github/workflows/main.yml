@@ -2,7 +2,7 @@ name: build, tests and coverage
 
 on:
   schedule:
-    - cron:  '28 4 */5 * *'
+    - cron:  '28 4 */3 * *'
 
 jobs:
   swift:
