@@ -2,7 +2,6 @@
 import XCTest
 
 
-// TODO: probably do the failable init here
 // here only the simple cp are tested. the more complicated ones, or the funcs are tested
 // on their own.
 class FL_SimpleComputedProperties_Tests: XCTestCase {}
@@ -61,6 +60,22 @@ line
 
 // other cases
 extension FL_SimpleComputedProperties_Tests {
+    
+    func test_that_if_the_caretLocation_is_negative_the_init_fails() {
+        let text = "hehe failable initializer hehe"
+        
+        XCTAssertNil(
+            FileLine(fullFileText: text, fullFileTextLength: text.utf16.count, caretLocation: -69)
+        )        
+    }
+    
+    func test_that_if_the_caretLocation_is_incorrect_the_init_fails() {
+        let text = "hehe failable initializer hehe"
+        
+        XCTAssertNil(
+            FileLine(fullFileText: text, fullFileTextLength: text.utf16.count, caretLocation: 6969)
+        )        
+    }
 
     func test_that_for_a_file_line_that_ends_with_a_linefeed_the_computed_properties_are_correct() throws {
         let text = """
