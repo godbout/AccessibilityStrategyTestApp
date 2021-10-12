@@ -5,6 +5,7 @@ import XCTest
 class FL_next_Tests: XCTestCase {}
 
 
+// both
 extension FL_next_Tests {
     
     func test_that_in_normal_setting_it_returns_the_correct_location() {
@@ -75,6 +76,23 @@ here so caret shouldn't move
         XCTAssertNil(characterFoundLocation)
     }
     
+}
+
+
+// TextViews
+extension FL_next_Tests {
+    
+    func test_that_it_sticks_to_its_line_and_does_not_look_before_that_line() {
+        let text = """
+so if i get this right that shits should search
+on its own line else it's gay
+"""
+        let fileLine = FileLine(fullFileText: text, fullFileTextLength: text.utf16.count, caretLocation: 4)        
+        let characterFoundLocation = fileLine.next("y", after: 4)
+        
+        XCTAssertNil(characterFoundLocation)
+        
+    }
 }
 
 
