@@ -23,7 +23,7 @@ coz like come on there's so me shits inside.
                 number: 1,
                 start: 0,
                 end: 20
-            )
+            )!
         )
 
         app.textViews.firstMatch.tap()
@@ -56,7 +56,7 @@ hallelujah
                 number: 2,
                 start: 23,
                 end: 34
-            )
+            )!
         )
 
         app.textViews.firstMatch.tap()
@@ -91,7 +91,7 @@ that long.
                 number: 2,
                 start: 14,
                 end: 28
-            )
+            )!
         )
 
         app.textViews.firstMatch.tap()

@@ -19,7 +19,7 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
                 number: 1,
                 start: 0,
                 end: 14
-            )
+            )!
         )
 
         let textInAXFocusedElement = text
@@ -48,7 +48,7 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
                 number: 1,
                 start: 0,
                 end: 9
-            )
+            )!
         )
 
         let textInAXFocusedElement = text
@@ -77,7 +77,7 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
                 number: 1,
                 start: 0,
                 end: 17
-            )
+            )!
         )
 
         let textInAXFocusedElement = text

@@ -33,7 +33,7 @@ this move does not stop at screen lines. it will just pass by
                 number: 5,
                 start: 82,
                 end: 111
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -64,7 +64,7 @@ extension ASUT_NM_0_Tests {
                 number: 2,
                 start: 30,
                 end: 56
-            )
+            )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -99,7 +99,7 @@ gonna be wrapped
                 number: 2,
                 start: 27,
                 end: 54
-            )
+            )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -128,7 +128,7 @@ it's a bug! my friend hehehehe
                 number: 2,
                 start: 27,
                 end: 28
-            )
+            )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)

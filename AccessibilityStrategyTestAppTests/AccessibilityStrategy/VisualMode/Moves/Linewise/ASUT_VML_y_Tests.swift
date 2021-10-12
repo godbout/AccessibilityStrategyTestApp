@@ -36,7 +36,7 @@ should set
                 number: 1,
                 start: 0,
                 end: 19
-            )
+            )!
         )
         
         var lastYankStyle: VimEngineMoveStyle = .characterwise
@@ -60,7 +60,7 @@ should set
                 number: 1,
                 start: 0,
                 end: 39
-            )
+            )!
         )
         
         var lastYankStyle: VimEngineMoveStyle = .linewise
@@ -101,7 +101,7 @@ i writing this?
                 number: 2,
                 start: 17,
                 end: 32
-            )
+            )!
         )
         
         var lastYankStyle: VimEngineMoveStyle = .linewise
@@ -140,7 +140,7 @@ the crazy caret location and
                 number: 2,
                 start: 21,
                 end: 37
-            )
+            )!
         )
         
         var lastYankStyle: VimEngineMoveStyle = .linewise
@@ -180,7 +180,7 @@ the crazy caret location and
                 number: 2,
                 start: 21,
                 end: 39
-            )
+            )!
         )
         
         var lastYankStyle: VimEngineMoveStyle = .linewise

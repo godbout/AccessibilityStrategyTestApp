@@ -34,7 +34,7 @@ that is not there
                 number: 2,
                 start: 11,
                 end: 27
-            )
+            )!
         )
         
         let returnedElement = applyMove(to: "z", on: element)

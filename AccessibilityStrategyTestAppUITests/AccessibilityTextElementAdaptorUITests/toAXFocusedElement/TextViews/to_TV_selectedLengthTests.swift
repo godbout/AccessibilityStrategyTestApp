@@ -23,7 +23,7 @@ TextAreas
                 number: 1,
                 start: 0,
                 end: 27
-            )
+            )!
         )
         
         let textInAXFocusedElement = text
@@ -57,7 +57,7 @@ TextAreas
                 number: 3,
                 start: 44,
                 end: 53
-            )
+            )!
         )
         
         let textInAXFocusedElement = text

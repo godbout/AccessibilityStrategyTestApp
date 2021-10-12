@@ -36,7 +36,7 @@ extension ASUT_NM_ciInnerBrackets_Tests {
                 number: 2,
                 start: 12,
                 end: 22
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(using: "(", on: element)
@@ -71,7 +71,7 @@ and } is not preceded by a linefeed
                 number: 3,
                 start: 23,
                 end: 36
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(using: "{", on: element)
@@ -100,7 +100,7 @@ by a linefeed and
                 number: 3,
                 start: 23,
                 end: 36
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(using: "{", on: element)

@@ -23,7 +23,7 @@ extension ASVM_AnchorAndHead_Tests {
                 number: 1,
                 start: 0,
                 end: 5
-            )
+            )!
         )
 
         AccessibilityStrategyVisualMode.anchor = 0
@@ -53,7 +53,7 @@ and head
                 number: 2,
                 start: 18,
                 end: 41
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 30
@@ -84,7 +84,7 @@ and head
                 number: 2,
                 start: 18,
                 end: 41
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 20
@@ -115,7 +115,7 @@ but the head would be something + 3
                 number: 2,
                 start: 37,
                 end: 83
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 60

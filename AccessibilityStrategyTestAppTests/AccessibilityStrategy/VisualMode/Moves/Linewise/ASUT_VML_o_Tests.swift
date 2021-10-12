@@ -35,7 +35,7 @@ extension ASUT_VML_o_Tests {
                 number: 1,
                 start: 0,
                 end: 34
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 0
@@ -67,7 +67,7 @@ tricky
                 number: 2,
                 start: 17,
                 end: 36
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 17

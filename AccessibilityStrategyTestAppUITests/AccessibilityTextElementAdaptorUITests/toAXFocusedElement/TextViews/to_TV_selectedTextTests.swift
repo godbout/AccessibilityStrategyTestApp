@@ -22,7 +22,7 @@ this time
                 number: 2,
                 start: 12,
                 end: 22
-            )
+            )!
         )
         
         let textInAXFocusedElement = text

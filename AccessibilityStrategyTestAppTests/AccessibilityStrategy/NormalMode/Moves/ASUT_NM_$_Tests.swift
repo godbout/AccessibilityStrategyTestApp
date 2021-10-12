@@ -33,7 +33,7 @@ them like nothing happened. that's how special it is.
                 number: 2,
                 start: 27,
                 end: 54
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -64,7 +64,7 @@ extension ASUT_NM_$_Tests {
                 number: 2,
                 start: 30,
                 end: 56
-            )
+            )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -94,7 +94,7 @@ j or k will go to the line endLimit
                 number: 3,
                 start: 36,
                 end: 63
-            )
+            )!
         )
         
         AccessibilityTextElement.globalColumnNumber = 17
@@ -129,7 +129,7 @@ gonna be wrapped
                 number: 2,
                 start: 17,
                 end: 27
-            )
+            )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -158,7 +158,7 @@ it's a bug! my friend hehehehe
                 number: 2,
                 start: 27,
                 end: 28
-            )
+            )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)

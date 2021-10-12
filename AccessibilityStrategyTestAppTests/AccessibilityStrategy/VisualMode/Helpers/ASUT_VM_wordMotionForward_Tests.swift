@@ -32,7 +32,7 @@ extension ASUT_VM_wordMotionForward_Tests {
                 number: 1,
                 start: 0,
                 end: 42
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 14
@@ -60,7 +60,7 @@ extension ASUT_VM_wordMotionForward_Tests {
                 number: 1,
                 start: 0,
                 end: 64
-            )
+            )!
         )
 
         AccessibilityStrategyVisualMode.anchor = 10
@@ -88,7 +88,7 @@ extension ASUT_VM_wordMotionForward_Tests {
                 number: 1,
                 start: 0,
                 end: 59
-            )
+            )!
         )
 
         AccessibilityStrategyVisualMode.anchor = 26
@@ -122,7 +122,7 @@ extension ASUT_VM_wordMotionForward_Tests {
                 number: 1,
                 start: 0,
                 end: 37
-            )
+            )!
         )
 
         AccessibilityStrategyVisualMode.anchor = 19
@@ -150,7 +150,7 @@ extension ASUT_VM_wordMotionForward_Tests {
                 number: 1,
                 start: 0,
                 end: 37
-            )
+            )!
         )
 
         AccessibilityStrategyVisualMode.anchor = 19
@@ -178,7 +178,7 @@ extension ASUT_VM_wordMotionForward_Tests {
                 number: 1,
                 start: 0,
                 end: 44
-            )
+            )!
         )
 
         AccessibilityStrategyVisualMode.anchor = 16
@@ -206,7 +206,7 @@ extension ASUT_VM_wordMotionForward_Tests {
                 number: 1,
                 start: 0,
                 end: 41
-            )
+            )!
         )
 
         AccessibilityStrategyVisualMode.anchor = 4

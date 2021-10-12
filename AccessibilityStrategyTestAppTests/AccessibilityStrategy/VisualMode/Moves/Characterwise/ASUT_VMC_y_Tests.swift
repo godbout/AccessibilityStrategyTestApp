@@ -36,7 +36,7 @@ should set Visu
                 number: 1,
                 start: 0,
                 end: 19
-            )
+            )!
         )
         
         var lastYankStyle: VimEngineMoveStyle = .linewise
@@ -62,7 +62,7 @@ should set Visu
                 number: 1,
                 start: 0,
                 end: 55
-            )
+            )!
         )
         
         var lastYankStyle: VimEngineMoveStyle = .characterwise
@@ -88,7 +88,7 @@ should set Visu
                 number: 1,
                 start: 0,
                 end: 47
-            )
+            )!
         )
         
         var lastYankStyle: VimEngineMoveStyle = .characterwise
@@ -114,7 +114,7 @@ should set Visu
                 number: 1,
                 start: 0,
                 end: 0
-            )
+            )!
         )
         
         NSPasteboard.general.clearContents()
@@ -148,7 +148,7 @@ line
                 number: 4,
                 start: 31,
                 end: 31
-            )
+            )!
         )
         
         NSPasteboard.general.clearContents()
@@ -183,7 +183,7 @@ extension ASUT_VMC_y_Tests {
                 number: 1,
                 start: 0,
                 end: 49
-            )
+            )!
         )
         
         var lastYankStyle: VimEngineMoveStyle = .characterwise

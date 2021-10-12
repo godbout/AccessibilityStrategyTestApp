@@ -34,7 +34,7 @@ extension ASUT_NM_caret_Tests {
                 number: 2,
                 start: 27,
                 end: 54
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -65,7 +65,7 @@ extension ASUT_NM_caret_Tests {
                 number: 2,
                 start: 9,
                 end: 16
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -95,7 +95,7 @@ without a linefeed but with spaces
                 number: 5,
                 start: 64,
                 end: 86
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -131,7 +131,7 @@ empty line has a linefeed
                 number: 6,
                 start: 40,
                 end: 63
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)

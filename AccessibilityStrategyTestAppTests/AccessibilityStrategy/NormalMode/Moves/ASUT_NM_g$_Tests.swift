@@ -33,7 +33,7 @@ stop even without a linefeed. that's how special it is.
                 number: 1,
                 start: 0,
                 end: 33
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -64,7 +64,7 @@ extension ASUT_NM_g$_Tests {
                 number: 2,
                 start: 30,
                 end: 56
-            )
+            )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -99,7 +99,7 @@ gonna be wrapped
                 number: 2,
                 start: 17,
                 end: 27
-            )
+            )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -128,7 +128,7 @@ it's a bug! my friend hehehehe
                 number: 3,
                 start: 28,
                 end: 29
-            )
+            )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)

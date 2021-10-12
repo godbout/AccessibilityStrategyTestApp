@@ -44,7 +44,7 @@ but the below line will not go up
                 number: 2,
                 start: 17,
                 end: 48
-            )
+            )!
         )
         
         let returnedElement = applyMove(on: element)

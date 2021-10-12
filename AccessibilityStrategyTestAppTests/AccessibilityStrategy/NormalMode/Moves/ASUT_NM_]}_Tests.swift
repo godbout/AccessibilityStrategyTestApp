@@ -33,7 +33,7 @@ itself d🤨️}🤨️🤨️oes
                 number: 1,
                 start: 0,
                 end: 54
-            )
+            )!
         )
         
         let returnedElement = applyMove(on: element)

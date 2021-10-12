@@ -31,7 +31,7 @@ extension ASNM_a_Tests {
                 number: 1,
                 start: 0,
                 end: 38
-            )
+            )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -66,7 +66,7 @@ a should not move
                 number: 2,
                 start: 17,
                 end: 18
-            )
+            )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -100,7 +100,7 @@ those 🥺️☹️😂️ faces
                 number: 2,
                 start: 18,
                 end: 38
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)

@@ -32,7 +32,7 @@ extension ASUT_NM_yiw_Tests {
                 number: 1,
                 start: 0,
                 end: 34
-            )
+            )!
         )
         
         let returnedElement = applyMove(on: element)
@@ -67,7 +67,7 @@ th📍️se💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
                 number: 2,
                 start: 18,
                 end: 56
-            )
+            )!
         )
         
         let returnedElement = applyMove(on: element)

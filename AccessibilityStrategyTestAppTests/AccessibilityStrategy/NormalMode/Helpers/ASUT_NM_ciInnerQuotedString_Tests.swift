@@ -22,7 +22,7 @@ finally dealing with the "real stuff"!
                 number: 3,
                 start: 21,
                 end: 31
-            )
+            )!
         )
         
         let returnedElement = asNormalMode.ciInnerQuotedString(using: "\"", on: element)
@@ -50,7 +50,7 @@ a text with only one quote ' lol
                 number: 2,
                 start: 12,
                 end: 21
-            )
+            )!
         )
         
         let returnedElement = asNormalMode.ciInnerQuotedString(using: "'", on: element)
@@ -73,7 +73,7 @@ a text with only one quote ' lol
                 number: 2,
                 start: 7,
                 end: 20
-            )
+            )!
         )
         
         let returnedElement = asNormalMode.ciInnerQuotedString(using: "'", on: element)
@@ -98,7 +98,7 @@ now the caret is before the ` shit with ` backtick quotes
                 number: 3,
                 start: 17,
                 end: 30
-            )
+            )!
         )
         
         let returnedElement = asNormalMode.ciInnerQuotedString(using: "`", on: element)
@@ -127,7 +127,7 @@ now the "caret" is after the quotes
                 number: 9,
                 start: 82,
                 end: 92
-            )
+            )!
         )
         
         let returnedElement = asNormalMode.ciInnerQuotedString(using: "\"", on: element)
@@ -152,7 +152,7 @@ that's ' three quotes ' in there
                 number: 2,
                 start: 9,
                 end: 22
-            )
+            )!
         )
         
         let returnedElement = asNormalMode.ciInnerQuotedString(using: "'", on: element)
@@ -179,7 +179,7 @@ that's " four quotes " in " there "
                 number: 3,
                 start: 21,
                 end: 34
-            )
+            )!
         )
         
         let returnedElement = asNormalMode.ciInnerQuotedString(using: "\"", on: element)
@@ -213,7 +213,7 @@ those💨️💨️💨️ fac"es 🥺️☹️😂️ h😀️ha👅️" hhohoh
                 number: 3,
                 start: 18,
                 end: 33
-            )
+            )!
         )
         
         let returnedElement = asNormalMode.ciInnerQuotedString(using: "\"", on: element)

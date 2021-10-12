@@ -30,7 +30,7 @@ extension ASUT_VMC_f_Tests {
                 number: 1,
                 start: 0,
                 end: 44
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 9
@@ -63,7 +63,7 @@ of newHeadLocation needs some... calculation.
                 number: 2,
                 start: 45,
                 end: 96
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 74
@@ -95,7 +95,7 @@ that is not there
                 number: 2,
                 start: 11,
                 end: 27
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 13
@@ -123,7 +123,7 @@ that is not there
                 number: 1,
                 start: 0,
                 end: 19
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 2

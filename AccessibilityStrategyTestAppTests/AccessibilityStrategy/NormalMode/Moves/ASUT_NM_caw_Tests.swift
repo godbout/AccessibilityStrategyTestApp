@@ -30,7 +30,7 @@ extension ASUT_NM_caw_Tests {
                 number: 1,
                 start: 0,
                 end: 50
-            )
+            )!
         )
         
         let returnedElement = applyMove(on: element)
@@ -58,7 +58,7 @@ and also a lot of spaces at the end of this line
                 number: 2,
                 start: 10,
                 end: 66
-            )
+            )!
         )
         
         let returnedElement = applyMove(on: element)

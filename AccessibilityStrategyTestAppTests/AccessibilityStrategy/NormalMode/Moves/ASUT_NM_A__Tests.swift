@@ -32,7 +32,7 @@ them like nothing happened. that's how special it is.
                 number: 2,
                 start: 27,
                 end: 54
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -66,7 +66,7 @@ LMAO what a dumbass i am
                 number: 4,
                 start: 50,
                 end: 77
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -91,7 +91,7 @@ LMAO what a dumbass i am
                 number: 1,
                 start: 0,
                 end: 52
-            )
+            )!
         )    
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -120,7 +120,7 @@ and i'm doing this not because i'm a genius but because i'm pretty dumb LMAO
                 number: 4,
                 start: 60,
                 end: 61
-            )
+            )!
         )
             
        let returnedElement = applyMoveBeingTested(on: element)

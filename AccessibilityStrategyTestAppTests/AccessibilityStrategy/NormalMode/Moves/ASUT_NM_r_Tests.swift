@@ -37,7 +37,7 @@ extension ASUT_NM_r_Tests {
                 number: 1,
                 start: 0,
                 end: 41
-            )
+            )!
         )
         
         let returnedElement = applyMove(with: "\u{1b}", on: element)
@@ -70,8 +70,8 @@ linefeed
                 number: 2,
                 start: 15,
                 end: 16
-                )
-            )
+            )!
+        )
         
         let returnedElement = applyMove(with: "g", on: element)
         

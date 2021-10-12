@@ -32,7 +32,7 @@ them like nothing happened. that's how special it is.
                 number: 3,
                 start: 49,
                 end: 64
-            )
+            )!
         )
 	
         
@@ -67,7 +67,7 @@ and of course this is in the case there is a linefeed at the end of the line.
                 number: 3,
                 start: 51,
                 end: 76
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -92,7 +92,7 @@ and of course this is in the case there is a linefeed at the end of the line.
                 number: 1,
                 start: 0,
                 end: 39
-            )
+            )!
         )
                 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -121,7 +121,7 @@ and not delete that fucking shit
                 number: 4,
                 start: 46,
                 end: 47
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)

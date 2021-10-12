@@ -35,7 +35,7 @@ extension ATE_SimpleComputedProperties_Tests {
                 number: 1,
                 start: 0,
                 end: 0
-            )
+            )!
         )
         
         XCTAssertEqual(element.endLimit, 0)
@@ -68,7 +68,7 @@ line
                 number: 4,
                 start: 31,
                 end: 31
-            )
+            )!
         )
         
         XCTAssertEqual(element.endLimit, 31)
@@ -103,7 +103,7 @@ extension ATE_SimpleComputedProperties_Tests {
                 number: 1,
                 start: 0,
                 end: 20
-            )
+            )!
         )
         
         XCTAssertEqual(element.endLimit, 19)
@@ -149,7 +149,7 @@ line 🌻️
                 number: 4,
                 start: 35,
                 end: 35
-            )
+            )!
         )
         
         XCTAssertEqual(element.endLimit, 35)
@@ -182,7 +182,7 @@ extension ATE_SimpleComputedProperties_Tests {
                 number: 1,
                 start: 0,
                 end: 29
-            )
+            )!
         )
         
         XCTAssertEqual(element.endLimit, 28)

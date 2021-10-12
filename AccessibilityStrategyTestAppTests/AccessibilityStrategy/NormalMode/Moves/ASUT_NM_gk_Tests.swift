@@ -29,7 +29,7 @@ extension ASNM_gk_Tests {
                 number: 1,
                 start: 0,
                 end: 51
-            )
+            )!
         )
         
         let returnedElement = applyMove(on: element)

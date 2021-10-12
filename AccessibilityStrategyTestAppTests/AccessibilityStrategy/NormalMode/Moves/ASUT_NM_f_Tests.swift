@@ -33,7 +33,7 @@ them like nothing happened. that's how special it is.
                 number: 1,
                 start: 0,
                 end: 24
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(to: "y", on: element)
@@ -64,7 +64,7 @@ extension ASUT_NM_f_Tests {
                 number: 1,
                 start: 0,
                 end: 35
-            )
+            )!
         )
         
         
@@ -93,7 +93,7 @@ and the caret shouldn't move else pan pan cul cul
                 number: 3,
                 start: 17,
                 end: 27
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(to: "z", on: element)
@@ -120,7 +120,7 @@ it you're already on a z for example and wanna go to the next z it should work
                 number: 2,
                 start: 10,
                 end: 25
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(to: "z", on: element)

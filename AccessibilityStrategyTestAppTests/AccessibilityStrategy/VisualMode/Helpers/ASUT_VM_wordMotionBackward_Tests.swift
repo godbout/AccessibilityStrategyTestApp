@@ -31,7 +31,7 @@ extension ASUT_VM_wordMotionBackward_Tests {
                 number: 1,
                 start: 0,
                 end: 42
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 10
@@ -66,7 +66,7 @@ fro
                 number: 2,
                 start: 32,
                 end: 65
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 67
@@ -94,7 +94,7 @@ fro
                 number: 1,
                 start: 0,
                 end: 34
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 18
@@ -127,7 +127,7 @@ line
                 number: 4,
                 start: 31,
                 end: 31
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 31
@@ -162,7 +162,7 @@ extension ASUT_VM_wordMotionBackward_Tests {
                 number: 1,
                 start: 0,
                 end: 36
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 18
@@ -190,7 +190,7 @@ extension ASUT_VM_wordMotionBackward_Tests {
                 number: 1,
                 start: 0,
                 end: 37
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 19

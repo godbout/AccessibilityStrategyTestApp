@@ -32,7 +32,7 @@ them like nothing happened. that's how special it is.
                 number: 4,
                 start: 62,
                 end: 80
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -63,7 +63,7 @@ extension ASUT_NM_cgg_Tests {
                 number: 1,
                 start: 0,
                 end: 22
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -101,7 +101,7 @@ those faces 🥺️☹️😂️
                 number: 4,
                 start: 30,
                 end: 39
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)

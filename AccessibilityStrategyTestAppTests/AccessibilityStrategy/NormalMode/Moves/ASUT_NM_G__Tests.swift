@@ -32,7 +32,7 @@ them like nothing happened. that's how special it is.
                 number: 2,
                 start: 10,
                 end: 19
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -63,7 +63,7 @@ extension ASUT_NM_G__Tests {
                 number: 1,
                 start: 0,
                 end: 23
-            )
+            )!
         )
        
         let returnedElement = applyMoveBeingTested(on: element)
@@ -87,7 +87,7 @@ extension ASUT_NM_G__Tests {
                 number: 1,
                 start: 0,
                 end: 31
-            )
+            )!
         )
        
         let returnedElement = applyMoveBeingTested(on: element)
@@ -111,7 +111,7 @@ extension ASUT_NM_G__Tests {
                 number: 1,
                 start: 0,
                 end: 9
-            )
+            )!
         )
        
         let returnedElement = applyMoveBeingTested(on: element)
@@ -145,7 +145,7 @@ do you want to
                 number: 4,
                 start: 22,
                 end: 32
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -173,7 +173,7 @@ story bro
                 number: 1,
                 start: 0,
                 end: 16
-            )
+            )!
         )
        
         let returnedElement = applyMoveBeingTested(on: element)
@@ -201,7 +201,7 @@ completely empty
                 number: 1,
                 start: 0,
                 end: 13
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -229,7 +229,7 @@ again at the last line
                 number: 3,
                 start: 17,
                 end: 24
-            )
+            )!
         )
        
         let returnedElement = applyMoveBeingTested(on: element)
@@ -257,7 +257,7 @@ why
                 number: 1,
                 start: 0,
                 end: 12
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)

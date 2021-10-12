@@ -32,7 +32,7 @@ them like nothing happened. that's how special it is.
                 number: 1,
                 start: 0,
                 end: 39
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -63,7 +63,7 @@ extension ASUT_NM_l_Tests {
                 number: 1,
                 start: 0,
                 end: 68
-            )
+            )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -91,7 +91,7 @@ dumbass.
                 number: 4,
                 start: 91,
                 end: 103
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)

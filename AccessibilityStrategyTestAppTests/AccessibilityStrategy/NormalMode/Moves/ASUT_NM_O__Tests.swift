@@ -35,7 +35,7 @@ them like nothing happened. that's how special it is.
                 number: 5,
                 start: 80,
                 end: 101
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -66,7 +66,7 @@ extension ASUT_NM_O__Tests {
                 number: 1,
                 start: 0,
                 end: 39
-            )
+            )!
         )
         
 		let returnedElement = applyMoveBeingTested(on: element)
@@ -100,7 +100,7 @@ abo😄️ve!
                 number: 3,
                 start: 25,
                 end: 37
-            )
+            )!
         )
                 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -129,7 +129,7 @@ an empty line
                 number: 2,
                 start: 13,
                 end: 14
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -159,7 +159,7 @@ the last empty line
                 number: 6,
                 start: 45,
                 end: 45
-            )
+            )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -188,7 +188,7 @@ the last empty line
                 number: 5,
                 start: 34,
                 end: 44
-            )
+            )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -217,7 +217,7 @@ but it should work
                 number: 2,
                 start: 12,
                 end: 21
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)

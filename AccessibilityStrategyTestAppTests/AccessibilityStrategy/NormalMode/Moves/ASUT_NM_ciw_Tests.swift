@@ -32,7 +32,7 @@ extension ASUT_NM_ciw_Tests {
                 number: 1,
                 start: 0,
                 end: 16
-            )
+            )!
         )
         
         let returnedElement = applyMove(on: element)

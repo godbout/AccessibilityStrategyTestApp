@@ -19,7 +19,7 @@ class to_TF_selectedLengthTests: ATEA_BaseTests {
                 number: 1,
                 start: 0,
                 end: 18
-            )
+            )!
         )
         
         let textInAXFocusedElement = text

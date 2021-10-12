@@ -32,7 +32,7 @@ them like nothing happened. that's how special it is.
                 number: 2,
                 start: 27,
                 end: 59
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -63,7 +63,7 @@ extension ASUT_NM_o_Tests {
                 number: 2,
                 start: 15,
                 end: 29
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -95,7 +95,7 @@ between the first file line and the second file line
                 number: 2,
                 start: 9,
                 end: 25
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -122,7 +122,7 @@ that doesn't end with a linefeed and it's still gonna work coz 🪄️🪄️�
                 number: 3,
                 start: 75,
                 end: 112
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -151,7 +151,7 @@ and i'm doing this not because i'm a genius but because i'm pretty dumb LMAO
                 number: 6,
                 start: 60,
                 end: 61
-            )
+            )!
         )
             
         let returnedElement = applyMoveBeingTested(on: element)
@@ -180,7 +180,7 @@ so the new line follows that
                 number: 3,
                 start: 17,
                 end: 28
-            )
+            )!
         )
                 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -209,7 +209,7 @@ caret on empty last line
                 number: 2,
                 start: 25,
                 end: 25
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)

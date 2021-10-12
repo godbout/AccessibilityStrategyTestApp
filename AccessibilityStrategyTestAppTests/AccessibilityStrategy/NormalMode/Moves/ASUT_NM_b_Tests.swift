@@ -32,7 +32,7 @@ extension ASUT_NM_b_Tests {
                 number: 1,
                 start: 0,
                 end: 50
-            )
+            )!
         )
         
         let returnedElement = applyMove(on: element)
@@ -60,7 +60,7 @@ you little mf
                 number: 2,
                 start: 18,
                 end: 31
-            )
+            )!
         )
         
         let returnedElement = applyMove(on: element)

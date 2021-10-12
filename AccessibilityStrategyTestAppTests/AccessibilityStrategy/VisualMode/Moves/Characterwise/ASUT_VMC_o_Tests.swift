@@ -35,7 +35,7 @@ extension ASUT_VMC_o_Tests {
                 number: 1,
                 start: 0,
                 end: 34
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 10
@@ -67,7 +67,7 @@ tricky
                 number: 2,
                 start: 17,
                 end: 36
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 40
@@ -97,7 +97,7 @@ my friend
                 number: 2,
                 start: 12,
                 end: 21
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 15

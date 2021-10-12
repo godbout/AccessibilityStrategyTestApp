@@ -34,7 +34,7 @@ them like nothing happened. that's how special it is.
                 number: 2,
                 start: 27,
                 end: 54
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -67,7 +67,7 @@ extension ASUT_NM_yy_Tests {
                 number: 1,
                 start: 0,
                 end: 24
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -97,7 +97,7 @@ workd properly my friend
                 number: 2,
                 start: 24,
                 end: 46
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -128,7 +128,7 @@ my friend
                 number: 5,
                 start: 95,
                 end: 120
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -154,7 +154,7 @@ my friend
                 number: 1,
                 start: 0,
                 end: 0
-            )
+            )!
         )
         
         NSPasteboard.general.clearContents()
@@ -188,7 +188,7 @@ line
                 number: 4,
                 start: 31,
                 end: 31
-            )
+            )!
         )
         
         NSPasteboard.general.clearContents()

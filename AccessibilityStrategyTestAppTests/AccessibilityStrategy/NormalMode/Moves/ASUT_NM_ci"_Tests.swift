@@ -34,7 +34,7 @@ extension ASNM_ciDoubleQuote_Tests {
                 number: 1,
                 start: 0,
                 end: 63
-            )
+            )!
         )
         
         let returnedElement = applyMove(on: element)
@@ -57,7 +57,7 @@ extension ASNM_ciDoubleQuote_Tests {
                 number: 1,
                 start: 0,
                 end: 35
-            )
+            )!
         )
         
         let returnedElement = applyMove(on: element)

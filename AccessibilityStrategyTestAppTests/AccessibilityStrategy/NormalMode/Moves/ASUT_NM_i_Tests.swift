@@ -23,7 +23,7 @@ extension ASUI_NM_i_Tests {
                 number: 1,
                 start: 0,
                 end: 35
-            )
+            )!
         )
         
         let returnedElement = asNormalMode.i(on: element)
@@ -57,7 +57,7 @@ those💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
                 number: 2,
                 start: 18,
                 end: 54
-            )
+            )!
         )
         
         let returnedElement = asNormalMode.i(on: element)

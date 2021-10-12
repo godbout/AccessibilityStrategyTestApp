@@ -35,7 +35,7 @@ them like nothin🇫🇷️ happened. that's how special it is.
                 number: 3,
                 start: 62,
                 end: 119
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(to: "w", on: element)
@@ -67,7 +67,7 @@ extension ASUT_NM_yt_Tests {
                 number: 1,
                 start: 0,
                 end: 29
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(to: "s", on: element)
@@ -96,7 +96,7 @@ that is not there
                 number: 2,
                 start: 11,
                 end: 17
-            )
+            )!
         )
                 
         NSPasteboard.general.clearContents()
@@ -134,7 +134,7 @@ on a line
                 number: 1,
                 start: 0,
                 end: 12
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(to: "m", on: element)

@@ -35,7 +35,7 @@ extension ASUT_NM_yiInnerBrackets_Tests {
                 number: 1,
                 start: 0,
                 end: 42
-            )
+            )!
         )
         
         var lastYankStyle: VimEngineMoveStyle = .linewise
@@ -73,7 +73,7 @@ and } is not preceded by a linefeed
                 number: 1,
                 start: 0,
                 end: 36
-            )
+            )!
         )
         
         var lastYankStyle: VimEngineMoveStyle = .linewise
@@ -110,7 +110,7 @@ and } is not preceded by a linefeed
                 number: 2,
                 start: 17,
                 end: 43
-            )
+            )!
         )
         
         var lastYankStyle: VimEngineMoveStyle = .linewise
@@ -146,7 +146,7 @@ by a linefeed and
                 number: 1,
                 start: 0,
                 end: 36
-            )
+            )!
         )
         
         var lastYankStyle: VimEngineMoveStyle = .characterwise
@@ -182,7 +182,7 @@ is followed by a linefeed and
                 number: 2,
                 start: 20,
                 end: 50
-            )
+            )!
         )
         
         var lastYankStyle: VimEngineMoveStyle = .characterwise

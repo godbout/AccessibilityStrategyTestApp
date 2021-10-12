@@ -27,7 +27,7 @@ extension FT_SimpleComputedProperties_Tests {
                 number: 1,
                 start: 0,
                 end: 0
-            )
+            )!
         )
 
         XCTAssertEqual(element.fileText.start, 0)
@@ -56,7 +56,7 @@ line
                 number: 5,
                 start: 35,
                 end: 35
-            )
+            )!
         )
 
         XCTAssertEqual(element.fileText.start, 0)
@@ -95,7 +95,7 @@ a linefeed 🤱️
                 number: 2,
                 start: 21,
                 end: 34
-            )
+            )!
         )
 
         XCTAssertEqual(element.fileText.start, 0)
@@ -126,7 +126,7 @@ fucking 🔥️🔥️🔥️ hell
                 number: 3,
                 start: 26,
                 end: 44
-            )
+            )!
         )
 
         XCTAssertEqual(element.fileText.start, 0)
@@ -159,7 +159,7 @@ and there's that one 🤌🏼️ line after
                 number: 3,
                 start: 32,
                 end: 33
-            )
+            )!
         )
 
         XCTAssertEqual(element.fileText.start, 0)
@@ -193,7 +193,7 @@ so careful that Xcode doesn't remove the fucking blanks.
                 number: 4,
                 start: 55,
                 end: 74
-            )
+            )!
         )
 
         XCTAssertEqual(element.fileText.start, 0)

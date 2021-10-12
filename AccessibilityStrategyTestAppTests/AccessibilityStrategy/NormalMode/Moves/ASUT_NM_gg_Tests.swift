@@ -32,7 +32,7 @@ them like nothing happened. that's how special it is.
                 number: 10,
                 start: 80,
                 end: 90
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -63,7 +63,7 @@ extension ASUT_NM_gg_Tests {
                 number: 2,
                 start: 9,
                 end: 17
-            )
+            )!
         )
        
         let returnedElement = applyMoveBeingTested(on: element)
@@ -87,7 +87,7 @@ extension ASUT_NM_gg_Tests {
                 number: 3,
                 start: 24,
                 end: 27
-            )
+            )!
         )
        
         let returnedElement = applyMoveBeingTested(on: element)
@@ -111,7 +111,7 @@ extension ASUT_NM_gg_Tests {
                 number: 1,
                 start: 0,
                 end: 9
-            )
+            )!
         )
        
         let returnedElement = applyMoveBeingTested(on: element)
@@ -145,7 +145,7 @@ here
                 number: 3,
                 start: 17,
                 end: 23
-            )
+            )!
         )
        
         let returnedElement = applyMoveBeingTested(on: element)
@@ -174,7 +174,7 @@ bullshit
                 number: 4,
                 start: 37,
                 end: 40
-            )
+            )!
         )
        
         let returnedElement = applyMoveBeingTested(on: element)
@@ -202,7 +202,7 @@ completely empty
                 number: 5,
                 start: 26,
                 end: 31
-            )
+            )!
         )
        
         let returnedElement = applyMoveBeingTested(on: element)
@@ -230,7 +230,7 @@ again only
                 number: 2,
                 start: 9,
                 end: 21
-            )
+            )!
         )
        
         let returnedElement = applyMoveBeingTested(on: element)

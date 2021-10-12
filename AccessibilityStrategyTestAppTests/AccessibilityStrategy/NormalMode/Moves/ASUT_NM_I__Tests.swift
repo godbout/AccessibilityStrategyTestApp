@@ -32,7 +32,7 @@ extension ASUT_NM_I__Tests {
                 number: 2,
                 start: 35,
                 end: 67
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -63,7 +63,7 @@ extension ASUT_NM_I__Tests {
                 number: 3,
                 start: 53,
                 end: 76
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -91,7 +91,7 @@ so that's a line, that's for sure
                 number: 4,
                 start: 54,
                 end: 80
-            )
+            )!
         )
                 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -120,7 +120,7 @@ of this previous line
                 number: 4,
                 start: 62,
                 end: 84
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -148,7 +148,7 @@ so now we will have a line that is full of spaces but no linefeed
                 number: 4,
                 start: 66,
                 end: 81
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)

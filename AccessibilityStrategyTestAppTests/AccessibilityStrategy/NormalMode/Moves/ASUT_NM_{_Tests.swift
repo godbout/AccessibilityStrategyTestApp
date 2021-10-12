@@ -35,7 +35,7 @@ itself d🤨️🤨️🤨️oes
                 number: 4,
                 start: 106,
                 end: 126
-            )
+            )!
         )
         
         let returnedElement = applyMove(on: element)

@@ -34,7 +34,7 @@ j or k will go to the line endLimit
                 number: 3,
                 start: 37,
                 end: 64
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 52

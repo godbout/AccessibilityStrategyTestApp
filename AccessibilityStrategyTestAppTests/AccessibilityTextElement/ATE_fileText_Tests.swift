@@ -27,7 +27,7 @@ extension ATE_fileText_Tests {
                 number: 1,
                 start: 0,
                 end: 0
-            )
+            )!
         )
         
         XCTAssertEqual(element.fileText.value, "")
@@ -57,7 +57,7 @@ line
                 number: 4,
                 start: 31,
                 end: 31
-            )
+            )!
         )
         
         XCTAssertEqual(element.fileText.value, """
@@ -98,7 +98,7 @@ fucking hell
                 number: 2,
                 start: 16,
                 end: 28
-            )
+            )!
         )
         
         XCTAssertEqual(element.fileText.value, """
@@ -130,7 +130,7 @@ a linefeed
                 number: 1,
                 start: 0,
                 end: 20
-            )
+            )!
         )
         
         XCTAssertEqual(element.fileText.value, """
@@ -162,7 +162,7 @@ wrapped lines. testing on the linefeed is not enough. there's some more involved
                 number: 3,
                 start: 50,
                 end: 96
-            )
+            )!
         )
         
         XCTAssertEqual(element.fileText.value, """
@@ -198,7 +198,7 @@ after updating to the new isTheLastLine :D
                 number: 4,
                 start: 94,
                 end: 137
-            )
+            )!
         )
         
         XCTAssertEqual(element.fileText.value, """
@@ -233,7 +233,7 @@ and there's that one line after
                 number: 2,
                 start: 28,
                 end: 29
-            )
+            )!
         )
         
         XCTAssertEqual(element.fileText.value, """
@@ -281,7 +281,7 @@ line 🌻️
                 number: 4,
                 start: 35,
                 end: 35
-            )
+            )!
         )
         
         XCTAssertEqual(element.fileText.value, """
@@ -322,7 +322,7 @@ fucking hell 🇸🇨️
                 number: 1,
                 start: 0,
                 end: 20
-            )
+            )!
         )
         
         XCTAssertEqual(element.fileText.value, """
@@ -354,7 +354,7 @@ fucking hell 🇸🇨️
                 number: 1,
                 start: 0,
                 end: 31
-            )
+            )!
         )
         
         XCTAssertEqual(element.fileText.value, "i'm a line without linefeed 😅️")
@@ -382,7 +382,7 @@ a linefeed
                 number: 1,
                 start: 0,
                 end: 26
-            )
+            )!
         )
         
         XCTAssertEqual(element.fileText.value, """
@@ -415,7 +415,7 @@ wrapped lines. testing on the linefeed is not 😂️nough. there's some more in
                 number: 3,
                 start: 50,
                 end: 99
-            )
+            )!
         )
         
         XCTAssertEqual(element.fileText.value, """
@@ -451,7 +451,7 @@ after updating 😂️😂️😂️ the new isTheLastLine :D
                 number: 4,
                 start: 94,
                 end: 144
-            )
+            )!
         )
         
         XCTAssertEqual(element.fileText.value, """

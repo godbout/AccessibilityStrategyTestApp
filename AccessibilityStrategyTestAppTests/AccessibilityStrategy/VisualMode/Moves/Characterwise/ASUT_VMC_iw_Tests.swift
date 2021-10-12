@@ -29,7 +29,7 @@ extension ASUT_VMC_iw_Tests {
                 number: 1,
                 start: 0,
                 end: 55
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 20
@@ -57,7 +57,7 @@ extension ASUT_VMC_iw_Tests {
                 number: 1,
                 start: 0,
                 end: 100
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 48
@@ -85,7 +85,7 @@ extension ASUT_VMC_iw_Tests {
                 number: 1,
                 start: 0,
                 end: 115
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 100
@@ -121,7 +121,7 @@ in relation to each other
                 number: 2,
                 start: 43,
                 end: 78
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 61
@@ -154,7 +154,7 @@ in relation to each other
                 number: 2,
                 start: 43,
                 end: 78
-            )
+            )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 62

@@ -35,7 +35,7 @@ extension ASUT_VMC_c_Tests {
                 number: 1,
                 start: 0,
                 end: 36
-            )
+            )!
         )
         
         let returnedElement = applyMove(on: element)
@@ -68,7 +68,7 @@ lines bec
                 number: 1,
                 start: 0,
                 end: 19
-            )
+            )!
         )
         
         let returnedElement = applyMove(on: element)

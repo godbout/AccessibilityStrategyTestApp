@@ -33,7 +33,7 @@ them like nothing happened. that's how special it is.
                 number: 3,
                 start: 49,
                 end: 62
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(to: "l", on: element)
@@ -64,7 +64,7 @@ extension ASNM_cT__Tests {
                 number: 1,
                 start: 0,
                 end: 29
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(to: "T", on: element)
@@ -93,7 +93,7 @@ that is not there
                 number: 2,
                 start: 11,
                 end: 17
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(to: "z", on: element)
@@ -128,7 +128,7 @@ on a line
                 number: 2,
                 start: 18,
                 end: 39
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(to: "w", on: element)

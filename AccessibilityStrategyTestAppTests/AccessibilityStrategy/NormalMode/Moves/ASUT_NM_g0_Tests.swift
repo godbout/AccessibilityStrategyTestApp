@@ -31,7 +31,7 @@ stop even without a linefeed. that's how special it is.
                 number: 2,
                 start: 33,
                 end: 53
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -62,7 +62,7 @@ extension ASUT_NM_g0_Tests {
                 number: 1,
                 start: 0,
                 end: 35
-            )
+            )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -96,7 +96,7 @@ and again this is for screen lines 😀️y friend so this line is long!
                 number: 4,
                 start: 68,
                 end: 101
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)

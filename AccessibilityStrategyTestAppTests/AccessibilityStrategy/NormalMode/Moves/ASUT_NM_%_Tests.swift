@@ -32,7 +32,7 @@ them like nothin🇫🇷️ happened. (that's how special) it is.
                 number: 9,
                 start: 72,
                 end: 84
-            )
+            )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)
@@ -63,7 +63,7 @@ extension ASUT_NM_percent_Tests {
                 number: 1,
                 start: 0,
                 end: 11
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -91,7 +91,7 @@ and a ( nice pair line ) :))
                 number: 4,
                 start: 28,
                 end: 41
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -116,7 +116,7 @@ and a ( nice pair line ) :))
                 number: 4,
                 start: 28,
                 end: 36
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -141,7 +141,7 @@ and a ( nice pair line ) :))
                 number: 2,
                 start: 11,
                 end: 23
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -176,7 +176,7 @@ func someBull() {
                 number: 5,
                 start: 39,
                 end: 40
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
@@ -210,7 +210,7 @@ those faces 🥺️☹️ } 😂️
                 number: 1,
                 start: 0,
                 end: 15
-            )
+            )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)

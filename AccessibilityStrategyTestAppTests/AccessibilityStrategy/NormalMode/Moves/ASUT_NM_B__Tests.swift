@@ -36,7 +36,7 @@ itself does
                 number: 2,
                 start: 34,
                 end: 73
-            )
+            )!
         )
         
         let returnedElement = applyMove(on: element)

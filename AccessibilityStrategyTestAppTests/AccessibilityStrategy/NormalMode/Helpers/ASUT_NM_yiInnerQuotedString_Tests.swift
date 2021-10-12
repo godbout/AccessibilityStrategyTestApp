@@ -30,7 +30,7 @@ extension ASNM_yiInnerQuotedString_Tests {
                 number: 1,
                 start: 0,
                 end: 34
-            )
+            )!
         )
         
         NSPasteboard.general.clearContents()
@@ -61,7 +61,7 @@ now there's one " double quote
                 number: 1,
                 start: 0,
                 end: 30
-            )
+            )!
         )
         
         NSPasteboard.general.clearContents()
@@ -93,7 +93,7 @@ two 'simple quotes' on the second line
                 number: 2,
                 start: 12,
                 end: 50
-            )
+            )!
         )
         
         let returnedElement = applyMove(using: "'", on: element)
@@ -123,7 +123,7 @@ and now `hohohohoho`
                 number: 3,
                 start: 22,
                 end: 42
-            )
+            )!
         )
         
         let returnedElement = applyMove(using: "`", on: element)
@@ -151,7 +151,7 @@ double "quotes" before the caret
                 number: 1,
                 start: 0,
                 end: 32
-            )
+            )!
         )
         
         NSPasteboard.general.clearContents()
@@ -183,7 +183,7 @@ heheheheh
                 number: 2,
                 start: 10,
                 end: 41
-            )
+            )!
         )
         
         let returnedElement = applyMove(using: "'", on: element)
@@ -212,7 +212,7 @@ now there's gonna
                 number: 2,
                 start: 18,
                 end: 39
-            )
+            )!
         )
         
         let returnedElement = applyMove(using: "`", on: element)
@@ -247,7 +247,7 @@ those💨️💨️💨️ fac"🍵️s 🥺️☹️😂️ h😀️ha👅️" 
                 number: 2,
                 start: 18,
                 end: 52
-            )
+            )!
         )
         
         let returnedElement = applyMove(using: "\"", on: element)
