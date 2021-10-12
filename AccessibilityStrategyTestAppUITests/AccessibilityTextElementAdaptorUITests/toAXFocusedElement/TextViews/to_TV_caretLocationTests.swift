@@ -70,21 +70,21 @@ hallelujah
     }
 
     func test_that_the_conversion_fails_if_we_set_the_caret_location_out_of_range() throws {
-        // TODO: create a init?
-        throw XCTSkip("current crashes coz wrong element. may need to create a failable initializer.")
-        
         let text = """
 i'm multiplug
 but still not
 that long.
 """
-        let element = AccessibilityTextElement(
+        // this element has correct info, as this is what will be
+        // given by the AX API. setting a wrong caretLocation would come
+        // after, like for example if there's a bug in a move.
+        var element = AccessibilityTextElement(
             role: .textArea,
             value: text,
             length: 38,
-            caretLocation: 1993,
-            selectedLength: 3,
-            selectedText: nil,
+            caretLocation: 22,
+            selectedLength: 1,
+            selectedText: "l",
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 38,
@@ -96,6 +96,10 @@ that long.
 
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(text)
+        
+        // this is where we mock a bug in a move that sets a wrong caretLocation that will
+        // be pushed by the ATEAdaptor.
+        element.caretLocation = 3669
 
         let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
         XCTAssertFalse(conversionSucceeded)
