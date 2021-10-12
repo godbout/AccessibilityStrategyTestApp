@@ -2,6 +2,10 @@
 import XCTest
 
 
+// FL and SL use the same TO firstNonBlankLimit func
+// but i'm testing each type of Line independently. both ways to test
+// are valid but i find it harder to understand/remember if the tests are done
+// on the Protocol rather than on the Line types.
 class FL_firstNonBlankLimit_Tests: XCTestCase {}
 
 
