@@ -20,7 +20,6 @@ extension The2CasesTests {
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.role, .textField)
-        // TODO: fileText to be tested somewhere? what about screenText?
         XCTAssertEqual(accessibilityElement?.fileText.value, "")
         XCTAssertEqual(accessibilityElement?.length, 0)
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
