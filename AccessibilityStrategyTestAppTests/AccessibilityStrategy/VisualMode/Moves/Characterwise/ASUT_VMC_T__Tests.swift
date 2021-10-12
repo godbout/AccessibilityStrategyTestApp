@@ -59,7 +59,7 @@ of newHeadLocation needs some... calculation.
             selectedText: "n multiple lines 🌬️ because the cal",
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 58,
+                fullTextLength: 148,
                 number: 2,
                 start: 52,
                 end: 103
