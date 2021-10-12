@@ -13,23 +13,9 @@ extension FT_endOfParagraphForward_Tests {
     
     func test_that_if_the_text_is_empty_then_it_returns_0() {
         let text = ""
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            length: 0,
-            caretLocation: 0,
-            selectedLength: 0,
-            selectedText: "",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 0,
-                number: 1,
-                start: 0,
-                end: 0
-            )
-        )
-        
-        let endOfParagraphForwardLocation = element.fileText.endOfParagraphForward(startingAt: 0)
+
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let endOfParagraphForwardLocation = fileText.endOfParagraphForward(startingAt: 0)
         
         XCTAssertEqual(endOfParagraphForwardLocation, 0)
     }
@@ -42,23 +28,9 @@ coke haha but
 with linefeed
 
 """
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 54,
-            caretLocation: 54,
-            selectedLength: 0,
-            selectedText: "",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 54,
-                number: 5,
-                start: 54,
-                end: 54
-            )
-        )
-        
-       	let endOfParagraphForwardLocation = element.fileText.endOfParagraphForward(startingAt: 54)
+
+        let fileText = FileText(end: text.utf16.count, value: text)
+       	let endOfParagraphForwardLocation = fileText.endOfParagraphForward(startingAt: 54)
         
         XCTAssertEqual(endOfParagraphForwardLocation, 54)
     }
@@ -72,23 +44,9 @@ extension FT_endOfParagraphForward_Tests {
     
     func test_that_if_the_text_does_not_have_linefeed_then_it_stops_before_the_last_character() {
         let text = "like a TextField really"
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 23,
-            caretLocation: 2,
-            selectedLength: 1,
-            selectedText: "k",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 23,
-                number: 1,
-                start: 0,
-                end: 23
-            )
-        )
-        
-        let endOfParagraphForwardLocation = element.fileText.endOfParagraphForward(startingAt: 2)
+
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let endOfParagraphForwardLocation = fileText.endOfParagraphForward(startingAt: 2)
         
         XCTAssertEqual(endOfParagraphForwardLocation, 22)
     }
@@ -105,23 +63,9 @@ that is beautiful
 
 and some more blah blah
 """
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 54,
-            caretLocation: 30,
-            selectedLength: 1,
-            selectedText: "\n",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 54,
-                number: 3,
-                start: 30,
-                end: 31
-            )
-        )
-        
-        let endOfParagraphForwardLocation = element.fileText.endOfParagraphForward(startingAt: 6)
+
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let endOfParagraphForwardLocation = fileText.endOfParagraphForward(startingAt: 6)
 
         XCTAssertEqual(endOfParagraphForwardLocation, 30)
     }
@@ -134,23 +78,9 @@ hello
 
 some more
 """
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 18,
-            caretLocation: 6,
-            selectedLength: 1,
-            selectedText: "\n",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 18,
-                number: 2,
-                start: 6,
-                end: 7
-            )
-        )
-        
-        let endOfParagraphForwardLocation = element.fileText.endOfParagraphForward(startingAt: 6)
+
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let endOfParagraphForwardLocation = fileText.endOfParagraphForward(startingAt: 6)
         
         XCTAssertEqual(endOfParagraphForwardLocation, 17)
     }
@@ -170,23 +100,9 @@ yes 🐰️🐰️🐰️🐰️ this can happen🐰️🐰️ when the
 
 🐰️🐰️car🐰️et is after the last character🐰️🐰️🐰️
 """
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 102,
-            caretLocation: 13,
-            selectedLength: 3,
-            selectedText: "🐰️",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 102,
-                number: 1,
-                start: 0,
-                end: 48
-            )
-        )
-                
-        let endOfParagraphForwardLocation = element.fileText.endOfParagraphForward(startingAt: 13)
+
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let endOfParagraphForwardLocation = fileText.endOfParagraphForward(startingAt: 13)
         
         XCTAssertEqual(endOfParagraphForwardLocation, 48)
     }
