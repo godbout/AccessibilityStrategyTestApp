@@ -13,23 +13,9 @@ extension FT_beginningOfParagraphBackward_Tests {
     
     func test_that_if_the_text_is_empty_then_it_returns_0() {
         let text = ""
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            length: 0,
-            caretLocation: 0,
-            selectedLength: 0,
-            selectedText: "",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 0,
-                number: 1,
-                start: 0,
-                end: 0
-            )
-        )
         
-        let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 0)
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let beginningOfParagraphBackwardLocation = fileText.beginningOfParagraphBackward(startingAt: 0)
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 0)
     }
@@ -44,23 +30,9 @@ coke haha but
 with linefeed
 
 """
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 56,
-            caretLocation: 56,
-            selectedLength: 0,
-            selectedText: "",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 56,
-                number: 10,
-                start: 56,
-                end: 56
-            )
-        )
         
-       	let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 56)
+        let fileText = FileText(end: text.utf16.count, value: text)
+       	let beginningOfParagraphBackwardLocation = fileText.beginningOfParagraphBackward(startingAt: 56)
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 13)
     }
@@ -73,23 +45,9 @@ extension FT_beginningOfParagraphBackward_Tests {
     
     func test_that_if_the_text_does_not_have_linefeed_then_it_stops_at_the_beginning_of_the_text() {
         let text = "like a TextField really"
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            length: 23,
-            caretLocation: 19,
-            selectedLength: 1,
-            selectedText: "a",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 23,
-                number: 1,
-                start: 0,
-                end: 23
-            )
-        )
         
-        let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 19)
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let beginningOfParagraphBackwardLocation = fileText.beginningOfParagraphBackward(startingAt: 19)
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 0)
     }
@@ -106,23 +64,9 @@ that is beautiful
 
 and some more blah blah
 """
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 54,
-            caretLocation: 42,
-            selectedLength: 1,
-            selectedText: "r",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 54,
-                number: 6,
-                start: 40,
-                end: 50
-            )
-        )
         
-        let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 42)
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let beginningOfParagraphBackwardLocation = fileText.beginningOfParagraphBackward(startingAt: 42)
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 30)
     }
@@ -137,23 +81,9 @@ hello
 
 some more
 """
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 32,
-            caretLocation: 21,
-            selectedLength: 1,
-            selectedText: "\n",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 32,
-                number: 6,
-                start: 21,
-                end: 22
-            )
-        )
         
-        let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 21)
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let beginningOfParagraphBackwardLocation = fileText.beginningOfParagraphBackward(startingAt: 21)
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 12)
     }
@@ -165,23 +95,9 @@ text
 does not have
 an empty line!
 """
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 38,
-            caretLocation: 22,
-            selectedLength: 1,
-            selectedText: "e",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 38,
-                number: 4,
-                start: 19,
-                end: 24
-            )
-        )
         
-        let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 23)
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let beginningOfParagraphBackwardLocation = fileText.beginningOfParagraphBackward(startingAt: 23)
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 0)
     }
@@ -192,23 +108,9 @@ an empty line!
 hehe first line
 is a linefeed
 """
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 30,
-            caretLocation: 0,
-            selectedLength: 1,
-            selectedText: "\n",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 30,
-                number: 1,
-                start: 0,
-                end: 1
-            )
-        )
         
-        let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 0)
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let beginningOfParagraphBackwardLocation = fileText.beginningOfParagraphBackward(startingAt: 0)
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 0)
     }
@@ -219,23 +121,9 @@ yes this can happen when the
 
 caret is after the last character
 """
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 63,
-            caretLocation: 62,
-            selectedLength: 1,
-            selectedText: "r",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 63,
-                number: 3,
-                start: 30,
-                end: 63
-            )
-        )
-                
-        let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 63)
+        
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let beginningOfParagraphBackwardLocation = fileText.beginningOfParagraphBackward(startingAt: 63)
         
 		XCTAssertEqual(beginningOfParagraphBackwardLocation, 29)
     }
@@ -255,23 +143,9 @@ yes 🐰️🐰️🐰️🐰️ this can happen🐰️🐰️ when the
 
 🐰️🐰️car🐰️et is after the last character🐰️🐰️🐰️
 """
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 102,
-            caretLocation: 96,
-            selectedLength: 3,
-            selectedText: "🐰️",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 102,
-                number: 5,
-                start: 51,
-                end: 102
-            )
-        )
         
-        let beginningOfParagraphBackwardLocation = element.fileText.beginningOfParagraphBackward(startingAt: 96)
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let beginningOfParagraphBackwardLocation = fileText.beginningOfParagraphBackward(startingAt: 96)
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 50)
     }
