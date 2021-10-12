@@ -63,14 +63,12 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
     }
 
     func test_that_the_conversion_fails_if_we_set_the_caret_location_out_of_range() throws {
-        throw XCTSkip("current crashes coz wrong element. may need to create a failable initializer.")
-
         let text = "deifnitely not 19"
-        let element = AccessibilityTextElement(
+        var element = AccessibilityTextElement(
             role: .textField,
             value: text,
             length: 17,
-            caretLocation: 19,
+            caretLocation: 17,
             selectedLength: 1,
             selectedText: nil,
             currentScreenLine: ScreenLine(
@@ -86,6 +84,8 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
+        element.caretLocation = 19
+        
         let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
         XCTAssertFalse(conversionSucceeded)
     }
