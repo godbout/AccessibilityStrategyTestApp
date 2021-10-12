@@ -31,6 +31,8 @@ extension ATE_currentFileLine_Tests {
         )
         
         XCTAssertEqual(element.currentFileLine.value, "")
+        XCTAssertEqual(element.currentFileLine.start, 0)
+        XCTAssertEqual(element.currentFileLine.end, 0)
         XCTAssertEqual(element.currentFileLine.length, 0)
         XCTAssertEqual(element.currentFileLine.endLimit, 0)
         XCTAssertEqual(element.currentFileLine.isAnEmptyLine, true)
@@ -65,6 +67,8 @@ line
         )
         
         XCTAssertEqual(element.currentFileLine.value, "")
+        XCTAssertEqual(element.currentFileLine.start, 31)
+        XCTAssertEqual(element.currentFileLine.end, 31)
         XCTAssertEqual(element.currentFileLine.length, 0)
         XCTAssertEqual(element.currentFileLine.endLimit, 31)
         XCTAssertEqual(element.currentFileLine.isAnEmptyLine, true)
@@ -92,18 +96,20 @@ fucking hell
             value: text,
             length: 28,
             caretLocation: 21,
-            selectedLength: 3,
-            selectedText: "ng ",
+            selectedLength: 1,
+            selectedText: "n",
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 28,
-                number: 2,
+                number: 3,
                 start: 16,
                 end: 28
             )
         )
         
         XCTAssertEqual(element.currentFileLine.value, "fucking hell")
+        XCTAssertEqual(element.currentFileLine.start, 16)
+        XCTAssertEqual(element.currentFileLine.end, 28)
         XCTAssertEqual(element.currentFileLine.length, 12)
         XCTAssertEqual(element.currentFileLine.endLimit, 27)
         XCTAssertEqual(element.currentFileLine.isAnEmptyLine, false)
@@ -136,6 +142,8 @@ a linefeed
         )
         
         XCTAssertEqual(element.currentFileLine.value, "now i'm a line with\n")
+        XCTAssertEqual(element.currentFileLine.start, 0)
+        XCTAssertEqual(element.currentFileLine.end, 20)
         XCTAssertEqual(element.currentFileLine.length, 20)
         XCTAssertEqual(element.currentFileLine.endLimit, 18)
         XCTAssertEqual(element.currentFileLine.isAnEmptyLine, false)
@@ -169,6 +177,8 @@ wrapped lines. testing on the linefeed is not enough. there's some more involved
         )
         
         XCTAssertEqual(element.currentFileLine.value, "wrapped lines. testing on the linefeed is not enough. there's some more involved!")
+        XCTAssertEqual(element.currentFileLine.start, 50)
+        XCTAssertEqual(element.currentFileLine.end, 131)
         XCTAssertEqual(element.currentFileLine.length, 81)
         XCTAssertEqual(element.currentFileLine.endLimit, 130)
         XCTAssertEqual(element.currentFileLine.isAnEmptyLine, false)
@@ -204,6 +214,8 @@ after updating to the new isTheLastLine :D
         )
         
         XCTAssertEqual(element.currentFileLine.value, "after updating to the new isTheLastLine :D\n")
+        XCTAssertEqual(element.currentFileLine.start, 94)
+        XCTAssertEqual(element.currentFileLine.end, 137)
         XCTAssertEqual(element.currentFileLine.length, 43)
         XCTAssertEqual(element.currentFileLine.endLimit, 135)
         XCTAssertEqual(element.currentFileLine.isAnEmptyLine, false)
@@ -237,6 +249,8 @@ and there's that one line after
         )
         
         XCTAssertEqual(element.currentFileLine.value, "\n")
+        XCTAssertEqual(element.currentFileLine.start, 28)
+        XCTAssertEqual(element.currentFileLine.end, 29)
         XCTAssertEqual(element.currentFileLine.length, 1)
         XCTAssertEqual(element.currentFileLine.endLimit, 28)
         XCTAssertEqual(element.currentFileLine.isAnEmptyLine, true)
@@ -284,6 +298,8 @@ line 🌻️
         )
         
         XCTAssertEqual(element.currentFileLine.value, "")
+        XCTAssertEqual(element.currentFileLine.start, 35)
+        XCTAssertEqual(element.currentFileLine.end, 35)
         XCTAssertEqual(element.currentFileLine.length, 0)
         XCTAssertEqual(element.currentFileLine.endLimit, 35)
         XCTAssertEqual(element.currentFileLine.isAnEmptyLine, true)
@@ -324,6 +340,8 @@ fucking hell 🇸🇨️
         )
         
         XCTAssertEqual(element.currentFileLine.value, "here we go baby 😂️\n")
+        XCTAssertEqual(element.currentFileLine.start, 0)
+        XCTAssertEqual(element.currentFileLine.end, 20)
         XCTAssertEqual(element.currentFileLine.length, 20)
         XCTAssertEqual(element.currentFileLine.endLimit, 16)
         XCTAssertEqual(element.currentFileLine.isAnEmptyLine, false)
@@ -353,6 +371,8 @@ fucking hell 🇸🇨️
         )
         
         XCTAssertEqual(element.currentFileLine.value, "i'm a line without linefeed 😅️")
+        XCTAssertEqual(element.currentFileLine.start, 0)
+        XCTAssertEqual(element.currentFileLine.end, 31)
         XCTAssertEqual(element.currentFileLine.length, 31)
         XCTAssertEqual(element.currentFileLine.endLimit, 28)
         XCTAssertEqual(element.currentFileLine.isAnEmptyLine, false)
@@ -385,6 +405,8 @@ a linefeed
         )
         
         XCTAssertEqual(element.currentFileLine.value, "now i'm a line with 🇲🇴️\n")
+        XCTAssertEqual(element.currentFileLine.start, 0)
+        XCTAssertEqual(element.currentFileLine.end, 26)
         XCTAssertEqual(element.currentFileLine.length, 26)
         XCTAssertEqual(element.currentFileLine.endLimit, 20)
         XCTAssertEqual(element.currentFileLine.isAnEmptyLine, false)
@@ -418,6 +440,8 @@ wrapped lines. testing on the linefeed is not 😂️nough. there's some more in
         )
         
         XCTAssertEqual(element.currentFileLine.value, "wrapped lines. testing on the linefeed is not 😂️nough. there's some more involved!")
+        XCTAssertEqual(element.currentFileLine.start, 50)
+        XCTAssertEqual(element.currentFileLine.end, 133)
         XCTAssertEqual(element.currentFileLine.length, 83)
         XCTAssertEqual(element.currentFileLine.endLimit, 132)
         XCTAssertEqual(element.currentFileLine.isAnEmptyLine, false)
@@ -453,6 +477,8 @@ after updating 😂️😂️😂️ the new isTheLastLine :D
         )
         
         XCTAssertEqual(element.currentFileLine.value, "after updating 😂️😂️😂️ the new isTheLastLine :D\n")
+        XCTAssertEqual(element.currentFileLine.start, 94)
+        XCTAssertEqual(element.currentFileLine.end, 144)
         XCTAssertEqual(element.currentFileLine.length, 50)
         XCTAssertEqual(element.currentFileLine.endLimit, 142)
         XCTAssertEqual(element.currentFileLine.isAnEmptyLine, false)

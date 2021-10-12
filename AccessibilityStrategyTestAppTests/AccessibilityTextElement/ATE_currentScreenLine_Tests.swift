@@ -31,6 +31,9 @@ extension ATE_currentScreenLine_Tests {
         )
         
         XCTAssertEqual(element.currentScreenLine.value, "")
+        XCTAssertEqual(element.currentScreenLine.number, 1)
+        XCTAssertEqual(element.currentScreenLine.start, 0)
+        XCTAssertEqual(element.currentScreenLine.end, 0)
         XCTAssertEqual(element.currentScreenLine.length, 0)
         XCTAssertEqual(element.currentScreenLine.endLimit, 0)
         XCTAssertEqual(element.currentScreenLine.isAnEmptyLine, true)
@@ -65,6 +68,9 @@ line
         )
         
         XCTAssertEqual(element.currentScreenLine.value, "")
+        XCTAssertEqual(element.currentScreenLine.number, 4)
+        XCTAssertEqual(element.currentScreenLine.start, 31)
+        XCTAssertEqual(element.currentScreenLine.end, 31)
         XCTAssertEqual(element.currentScreenLine.length, 0)
         XCTAssertEqual(element.currentScreenLine.endLimit, 31)
         XCTAssertEqual(element.currentScreenLine.isAnEmptyLine, true)
@@ -104,6 +110,9 @@ fucking hell
         )
         
         XCTAssertEqual(element.currentScreenLine.value, "fucking hell")
+        XCTAssertEqual(element.currentScreenLine.number, 2)
+        XCTAssertEqual(element.currentScreenLine.start, 16)
+        XCTAssertEqual(element.currentScreenLine.end, 28)
         XCTAssertEqual(element.currentScreenLine.length, 12)
         XCTAssertEqual(element.currentScreenLine.endLimit, 27)
         XCTAssertEqual(element.currentScreenLine.isAnEmptyLine, false)
@@ -136,6 +145,9 @@ a linefeed
         )
         
         XCTAssertEqual(element.currentScreenLine.value, "now i'm a line with\n")
+        XCTAssertEqual(element.currentScreenLine.number, 1)
+        XCTAssertEqual(element.currentScreenLine.start, 0)
+        XCTAssertEqual(element.currentScreenLine.end, 20)
         XCTAssertEqual(element.currentScreenLine.length, 20)
         XCTAssertEqual(element.currentScreenLine.endLimit, 18)
         XCTAssertEqual(element.currentScreenLine.isAnEmptyLine, false)
@@ -169,6 +181,9 @@ wrapped lines. testing on the linefeed is not enough. there's some more involved
         )
         
         XCTAssertEqual(element.currentScreenLine.value, "wrapped lines. testing on the linefeed is not ")
+        XCTAssertEqual(element.currentScreenLine.number, 3)
+        XCTAssertEqual(element.currentScreenLine.start, 50)
+        XCTAssertEqual(element.currentScreenLine.end, 96)
         XCTAssertEqual(element.currentScreenLine.length, 46)
         XCTAssertEqual(element.currentScreenLine.endLimit, 95)
         XCTAssertEqual(element.currentScreenLine.isAnEmptyLine, false)
@@ -204,6 +219,9 @@ after updating to the new isTheLastLine :D
         )
         
         XCTAssertEqual(element.currentScreenLine.value, "after updating to the new isTheLastLine :D\n")
+        XCTAssertEqual(element.currentScreenLine.number, 4)
+        XCTAssertEqual(element.currentScreenLine.start, 94)
+        XCTAssertEqual(element.currentScreenLine.end, 137)
         XCTAssertEqual(element.currentScreenLine.length, 43)
         XCTAssertEqual(element.currentScreenLine.endLimit, 135)
         XCTAssertEqual(element.currentScreenLine.isAnEmptyLine, false)
@@ -237,6 +255,9 @@ and there's that one line after
         )
         
         XCTAssertEqual(element.currentScreenLine.value, "\n")
+        XCTAssertEqual(element.currentScreenLine.number, 2)
+        XCTAssertEqual(element.currentScreenLine.start, 28)
+        XCTAssertEqual(element.currentScreenLine.end, 29)
         XCTAssertEqual(element.currentScreenLine.length, 1)
         XCTAssertEqual(element.currentScreenLine.endLimit, 28)
         XCTAssertEqual(element.currentScreenLine.isAnEmptyLine, true)
@@ -284,6 +305,9 @@ line 🌻️
         )
         
         XCTAssertEqual(element.currentScreenLine.value, "")
+        XCTAssertEqual(element.currentScreenLine.number, 4)
+        XCTAssertEqual(element.currentScreenLine.start, 35)
+        XCTAssertEqual(element.currentScreenLine.end, 35)
         XCTAssertEqual(element.currentScreenLine.length, 0)
         XCTAssertEqual(element.currentScreenLine.endLimit, 35)
         XCTAssertEqual(element.currentScreenLine.isAnEmptyLine, true)
@@ -324,6 +348,9 @@ fucking hell 🇸🇨️
         )
         
         XCTAssertEqual(element.currentScreenLine.value, "here we go baby 😂️\n")
+        XCTAssertEqual(element.currentScreenLine.number, 1)
+        XCTAssertEqual(element.currentScreenLine.start, 0)
+        XCTAssertEqual(element.currentScreenLine.end, 20)
         XCTAssertEqual(element.currentScreenLine.length, 20)
         XCTAssertEqual(element.currentScreenLine.endLimit, 16)
         XCTAssertEqual(element.currentScreenLine.isAnEmptyLine, false)
@@ -353,6 +380,9 @@ fucking hell 🇸🇨️
         )
         
         XCTAssertEqual(element.currentScreenLine.value, "i'm a line without linefeed 😅️")
+        XCTAssertEqual(element.currentScreenLine.number, 1)
+        XCTAssertEqual(element.currentScreenLine.start, 0)
+        XCTAssertEqual(element.currentScreenLine.end, 31)
         XCTAssertEqual(element.currentScreenLine.length, 31)
         XCTAssertEqual(element.currentScreenLine.endLimit, 28)
         XCTAssertEqual(element.currentScreenLine.isAnEmptyLine, false)
@@ -385,6 +415,9 @@ a linefeed
         )
         
         XCTAssertEqual(element.currentScreenLine.value, "now i'm a line with 🇲🇴️\n")
+        XCTAssertEqual(element.currentScreenLine.number, 1)
+        XCTAssertEqual(element.currentScreenLine.start, 0)
+        XCTAssertEqual(element.currentScreenLine.end, 26)
         XCTAssertEqual(element.currentScreenLine.length, 26)
         XCTAssertEqual(element.currentScreenLine.endLimit, 20)
         XCTAssertEqual(element.currentScreenLine.isAnEmptyLine, false)
@@ -418,6 +451,9 @@ wrapped lines. testing on the linefeed is not 😂️nough. there's some more in
         )
         
         XCTAssertEqual(element.currentScreenLine.value, "wrapped lines. testing on the linefeed is not 😂️")
+        XCTAssertEqual(element.currentScreenLine.number, 3)
+        XCTAssertEqual(element.currentScreenLine.start, 50)
+        XCTAssertEqual(element.currentScreenLine.end, 99)
         XCTAssertEqual(element.currentScreenLine.length, 49)
         XCTAssertEqual(element.currentScreenLine.endLimit, 96)
         XCTAssertEqual(element.currentScreenLine.isAnEmptyLine, false)
@@ -453,6 +489,9 @@ after updating 😂️😂️😂️ the new isTheLastLine :D
         )
         
         XCTAssertEqual(element.currentScreenLine.value, "after updating 😂️😂️😂️ the new isTheLastLine :D\n")
+        XCTAssertEqual(element.currentScreenLine.number, 4)
+        XCTAssertEqual(element.currentScreenLine.start, 94)
+        XCTAssertEqual(element.currentScreenLine.end, 144)
         XCTAssertEqual(element.currentScreenLine.length, 50)
         XCTAssertEqual(element.currentScreenLine.endLimit, 142)
         XCTAssertEqual(element.currentScreenLine.isAnEmptyLine, false)
