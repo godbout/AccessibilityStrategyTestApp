@@ -41,7 +41,7 @@ struct UITestsView: View {
             Button("wo'hevah", action: {})
         }
         .font(.system(size: 16, weight: .regular, design: .monospaced))
-        .frame(width: 600, height: 300, alignment: .leading)
+        .frame(width: 250, height: 300, alignment: .leading)
         .fixedSize(horizontal: true, vertical: true)
         .padding()
     }
