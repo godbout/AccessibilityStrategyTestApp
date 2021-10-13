@@ -49,7 +49,7 @@ than the previous shorter than...
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 39)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 52)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
 
@@ -71,11 +71,11 @@ another quite long line
         XCTAssertEqual(firstK?.selectedLength, 1)
 
         let secondK = applyMoveBeingTested()
-        XCTAssertEqual(secondK?.caretLocation, 51)
+        XCTAssertEqual(secondK?.caretLocation, 66)
         XCTAssertEqual(secondK?.selectedLength, 1)
 
         let thirdK = applyMoveBeingTested()
-        XCTAssertEqual(thirdK?.caretLocation, 18)
+        XCTAssertEqual(thirdK?.caretLocation, 51)
         XCTAssertEqual(thirdK?.selectedLength, 1)
     }
 
@@ -150,13 +150,13 @@ globalColumnNumber is nil
         applyMove { asNormalMode.dollarSign(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 71)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 96)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
         
         let secondPass = applyMoveBeingTested()
                 
-        XCTAssertEqual(secondPass?.caretLocation, 41)
-        XCTAssertEqual(secondPass?.selectedLength, 1)
+        XCTAssertEqual(secondPass?.caretLocation, 71)
+        XCTAssertEqual(secondPass?.selectedLength, 3)
     }
     
 }

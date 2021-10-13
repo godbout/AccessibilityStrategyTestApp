@@ -79,8 +79,9 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.fileText.value, """

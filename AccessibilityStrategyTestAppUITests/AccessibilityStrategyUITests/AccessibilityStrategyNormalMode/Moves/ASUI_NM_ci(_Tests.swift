@@ -74,8 +74,8 @@ and ) is not preceded by a linefeed
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.ge(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.fileText.value, """
@@ -96,8 +96,8 @@ is followed by a linefeed and
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.fileText.value, """

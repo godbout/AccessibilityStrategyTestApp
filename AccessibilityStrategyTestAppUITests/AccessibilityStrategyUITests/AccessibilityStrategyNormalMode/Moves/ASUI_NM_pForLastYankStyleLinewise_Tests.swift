@@ -65,11 +65,9 @@ a linefeed at the end of the line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("should paste that somewhere\n", forType: .string)
@@ -97,11 +95,9 @@ if we are not pasting on the last line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("we pasted the last line so no linefeed", forType: .string)
@@ -158,8 +154,8 @@ to the first non blank of the copied line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.ge(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
 
         NSPasteboard.general.clearContents()

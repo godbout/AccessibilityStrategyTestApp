@@ -79,7 +79,7 @@ another long line longer than all the other ones!!!
         XCTAssertEqual(secondJ?.selectedLength, 1)
 
         let thirdJ = applyMoveBeingTested()
-        XCTAssertEqual(thirdJ?.caretLocation, 93)
+        XCTAssertEqual(thirdJ?.caretLocation, 73)
         XCTAssertEqual(thirdJ?.selectedLength, 1)
     }
     
@@ -156,13 +156,13 @@ and also to the end of the next next line!
         applyMove { asNormalMode.dollarSign(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 54)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 49)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
         
         let secondPass = applyMoveBeingTested()
         
-        XCTAssertEqual(secondPass?.caretLocation, 99)
-        XCTAssertEqual(secondPass?.selectedLength, 1)
+        XCTAssertEqual(secondPass?.caretLocation, 54)
+        XCTAssertEqual(secondPass?.selectedLength, 3)
     }
     
 }

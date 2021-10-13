@@ -24,9 +24,8 @@ still create a line above
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
                
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.gk(on: $0) }
-        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.dollarSign(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.fileText.value, """

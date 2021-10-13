@@ -66,8 +66,9 @@ pasted at the current line place
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
 
@@ -97,8 +98,8 @@ to the first non blank of the copied line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.ge(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
 
         NSPasteboard.general.clearContents()
