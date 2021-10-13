@@ -108,6 +108,39 @@ at the anchor, not at the caret location
         XCTAssertEqual(returnedElement?.selectedLength, 8)
     }
     
+    func test_that_it_sets_the_ATE_globalColumnNumber_to_nil() {
+        let text = """
+when using $
+the globalColumnNumber
+is set to nil so that next
+j or k will go to the line endLimit
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 98,
+            caretLocation: 18,
+            selectedLength: 34,
+            selectedText: "lobalColumnNumber\nis set to nil so",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 98,
+                number: 3,
+                start: 17,
+                end: 29
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 18
+        AccessibilityStrategyVisualMode.head = 51
+        
+        AccessibilityTextElement.globalColumnNumber = 17
+        
+        _ = applyMoveBeingTested(on: element)
+
+        XCTAssertNil(AccessibilityTextElement.globalColumnNumber)
+    }
+    
 }
 
 
