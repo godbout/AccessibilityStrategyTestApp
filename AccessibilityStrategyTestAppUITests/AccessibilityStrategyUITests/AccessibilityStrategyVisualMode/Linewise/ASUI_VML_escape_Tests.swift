@@ -3,7 +3,7 @@ import AccessibilityStrategy
 
 
 // see the other VM escape for explanation
-class UIASVML_escape_Tests: ASUI_VM_BaseTests {
+class ASUI_VML_escape_Tests: ASUI_VM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement? {
         return applyMove { asVisualMode.escape(on: $0)}
@@ -13,7 +13,7 @@ class UIASVML_escape_Tests: ASUI_VM_BaseTests {
 
 
 // TextFields
-extension UIASVML_escape_Tests {
+extension ASUI_VML_escape_Tests {
     
     func test_that_the_caret_location_goes_to_the_head() {
         let textInAXFocusedElement = "some plain simple text for once"
@@ -32,7 +32,7 @@ extension UIASVML_escape_Tests {
 
 
 // TextViews
-extension UIASVML_escape_Tests {
+extension ASUI_VML_escape_Tests {
     
     func test_that_the_caret_location_goes_to_the_head_even_when_the_selection_spans_over_multiple_lines() {
         let textInAXFocusedElement = """
@@ -42,9 +42,8 @@ over multiple lines
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.gkForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.ggForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)

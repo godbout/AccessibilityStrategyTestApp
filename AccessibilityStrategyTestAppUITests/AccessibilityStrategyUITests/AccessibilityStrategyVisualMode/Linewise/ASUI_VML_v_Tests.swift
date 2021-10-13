@@ -23,8 +23,8 @@ if the head is not after the line end limit
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.ge(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
