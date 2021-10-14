@@ -134,12 +134,12 @@ edge case
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
                 
-        let globalColumnNumber = AccessibilityTextElement.globalColumnNumber
+        let globalColumnNumber = AccessibilityTextElement.currentColumnNumber
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 26)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(globalColumnNumber, AccessibilityTextElement.globalColumnNumber)
+        XCTAssertEqual(globalColumnNumber, AccessibilityTextElement.currentColumnNumber)
     }
     
     func test_that_if_the_ATE_globalColumnNumber_is_nil_j_goes_to_the_end_limit_of_the_next_line() {
