@@ -2,7 +2,7 @@ import XCTest
 import AccessibilityStrategy
 
 
-// check gj for all the blah blah
+// check j for all the blah blah
 class ASUI_NM_gk_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement? {
