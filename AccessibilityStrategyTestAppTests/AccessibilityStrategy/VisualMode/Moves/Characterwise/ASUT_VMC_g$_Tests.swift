@@ -40,11 +40,11 @@ j or k will go to the line endLimit
         AccessibilityStrategyVisualMode.anchor = 52
         AccessibilityStrategyVisualMode.head = 52
         
-        AccessibilityTextElement.currentColumnNumber = 17
+        AccessibilityTextElement.screenLineColumnNumber = 17
        
         _ = applyMoveBeingTested(on: element)
 
-        XCTAssertNil(AccessibilityTextElement.currentColumnNumber)
+        XCTAssertNil(AccessibilityTextElement.screenLineColumnNumber)
     }
 
 }

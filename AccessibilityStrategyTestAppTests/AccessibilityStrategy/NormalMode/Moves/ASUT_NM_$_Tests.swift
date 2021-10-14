@@ -97,11 +97,11 @@ j or k will go to the line endLimit
             )!
         )
         
-        AccessibilityTextElement.currentColumnNumber = 17
+        AccessibilityTextElement.screenLineColumnNumber = 17
         
         _ = applyMoveBeingTested(on: element)
 
-        XCTAssertNil(AccessibilityTextElement.currentColumnNumber)
+        XCTAssertNil(AccessibilityTextElement.screenLineColumnNumber)
     }
 
 }
