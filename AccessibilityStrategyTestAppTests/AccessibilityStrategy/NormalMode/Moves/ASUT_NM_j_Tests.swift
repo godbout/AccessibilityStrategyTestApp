@@ -2,6 +2,10 @@ import XCTest
 import AccessibilityStrategy
 
 
+// most of the tests are done here in UT, but we have to provide the fileLineColumnNumber
+// we have one test in UI that calls the move several time to make sure that the fileLineColumnNumber
+// is updated properly and that ultimately it works.
+// coz else, those tests will pass whether the move is using ScreenLines or FileLines LMAO
 class ASUT_NM_j_Tests: ASNM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
@@ -35,11 +39,11 @@ it eats them like nothing happened. that's how special it is.
             )!
         )
         
-        AccessibilityTextElement.currentColumnNumber = 3
+        AccessibilityTextElement.fileLineColumnNumber = 14
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 87)
+        XCTAssertEqual(returnedElement?.caretLocation, 62)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
@@ -103,7 +107,7 @@ than ScreenLines
             )!
         )
         
-        AccessibilityTextElement.currentColumnNumber = 1
+        AccessibilityTextElement.fileLineColumnNumber = 14
         
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -134,7 +138,7 @@ let's see
             )!
         )
         
-        AccessibilityTextElement.currentColumnNumber = 3
+        AccessibilityTextElement.fileLineColumnNumber = 25
 
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -142,44 +146,6 @@ let's see
         XCTAssertEqual(returnedElement?.selectedLength, 1)
     }
 
-    func test_that_the_column_number_is_saved_and_reapplied_in_properly() {
-        let text = """
-a line that is long
-a shorter line
-another long line longer than the first
-another long line longer than all the other ones!!!
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 126,
-            caretLocation: 18,
-            selectedLength: 1,
-            selectedText: "g",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 126,
-                number: 2,
-                start: 12,
-                end: 20
-            )!
-        )
-        
-        AccessibilityTextElement.currentColumnNumber = 7
-        
-        let firstJ = applyMoveBeingTested(on: element)
-        XCTAssertEqual(firstJ?.caretLocation, 33)
-        XCTAssertEqual(firstJ?.selectedLength, 1)
-        
-        let secondJ = applyMoveBeingTested(on: firstJ)
-        XCTAssertEqual(secondJ?.caretLocation, 53)
-        XCTAssertEqual(secondJ?.selectedLength, 1)
-
-        let thirdJ = applyMoveBeingTested(on: secondJ)
-        XCTAssertEqual(thirdJ?.caretLocation, 93)
-        XCTAssertEqual(thirdJ?.selectedLength, 1)
-    }
-    
     func test_that_when_at_the_last_line_j_does_nothing() {
         let text = """
 at the last line j should shut
@@ -202,7 +168,7 @@ nothing else AR💣️H
             )!
         )
         
-        AccessibilityTextElement.currentColumnNumber = 3
+        AccessibilityTextElement.fileLineColumnNumber = 4
 
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -233,7 +199,7 @@ hehe hehe
             )!
         )
         
-        AccessibilityTextElement.currentColumnNumber = 5
+        AccessibilityTextElement.fileLineColumnNumber = 15
                
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -263,12 +229,12 @@ edge case
             )!
         )
         
-        let globalColumnNumber = AccessibilityTextElement.currentColumnNumber
+        let fileLineColumnNumber = AccessibilityTextElement.fileLineColumnNumber
         let returnedElement = applyMoveBeingTested(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 26)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertEqual(globalColumnNumber, AccessibilityTextElement.currentColumnNumber)
+        XCTAssertEqual(fileLineColumnNumber, AccessibilityTextElement.fileLineColumnNumber)
     }
     
     func test_that_if_the_ATE_globalColumnNumber_is_nil_j_goes_to_the_end_limit_of_the_next_line() {
@@ -293,7 +259,7 @@ and also to the end of the next next line!
             )!
         )
         
-        AccessibilityTextElement.currentColumnNumber = nil
+        AccessibilityTextElement.fileLineColumnNumber = nil
 
         let returnedElement = applyMoveBeingTested(on: element)
         

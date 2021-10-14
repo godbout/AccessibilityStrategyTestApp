@@ -2,6 +2,7 @@ import XCTest
 import AccessibilityStrategy
 
 
+// see j for blah blah
 class ASUT_NM_k_Tests: ASNM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
@@ -35,7 +36,7 @@ it eats them like nothing happened. that's how special it is.
             )!
         )
         
-        AccessibilityTextElement.currentColumnNumber = 6
+        AccessibilityTextElement.fileLineColumnNumber = 42
         
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -102,7 +103,7 @@ to the same column
             )!
         )
         
-        AccessibilityTextElement.currentColumnNumber = 1
+        AccessibilityTextElement.fileLineColumnNumber = 13
 
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -133,50 +134,12 @@ than the previous shorter than...
             )!
         )
         
-        AccessibilityTextElement.currentColumnNumber = 5
+        AccessibilityTextElement.fileLineColumnNumber = 31
 
         let returnedElement = applyMoveBeingTested(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 39)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
-    }
-
-    func test_that_the_column_number_is_saved_and_reapplied_properly() {
-        let text = """
-first one is prettyyyyy long too
-a pretty long line i would believe
-a shorter line
-another quite long line
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 106,
-            caretLocation: 101,
-            selectedLength: 1,
-            selectedText: " ",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 106,
-                number: 11,
-                start: 91,
-                end: 102
-            )!
-        )
-        
-        AccessibilityTextElement.currentColumnNumber = 11
-                        
-        let firstK = applyMoveBeingTested(on: element)
-        XCTAssertEqual(firstK?.caretLocation, 81)
-        XCTAssertEqual(firstK?.selectedLength, 1)
-
-        let secondK = applyMoveBeingTested(on: firstK)
-        XCTAssertEqual(secondK?.caretLocation, 51)
-        XCTAssertEqual(secondK?.selectedLength, 1)
-
-        let thirdK = applyMoveBeingTested(on: secondK)
-        XCTAssertEqual(thirdK?.caretLocation, 18)
-        XCTAssertEqual(thirdK?.selectedLength, 1)
     }
 
     func test_that_when_at_the_first_line_k_does_nothing() {
@@ -201,7 +164,7 @@ nothing ankulay
             )!
         )
     
-        AccessibilityTextElement.currentColumnNumber = 1
+        AccessibilityTextElement.fileLineColumnNumber = 1
     
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -232,7 +195,7 @@ to previ ous line length
             )!
         )
         
-        AccessibilityTextElement.currentColumnNumber = 8
+        AccessibilityTextElement.fileLineColumnNumber = 8
 
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -263,7 +226,7 @@ empty
             )!
         )
                 
-        AccessibilityTextElement.currentColumnNumber = 3
+        AccessibilityTextElement.fileLineColumnNumber = 3
     
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -293,7 +256,7 @@ globalColumnNumber is nil
             )!
         )
         
-        AccessibilityTextElement.currentColumnNumber = nil
+        AccessibilityTextElement.fileLineColumnNumber = nil
 
         let returnedElement = applyMoveBeingTested(on: element)
 

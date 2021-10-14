@@ -100,11 +100,11 @@ should still stay at nil
         
         // setting it manually here as this is not a UI test,
         // so the selectedLength didSet is not called.
-        AccessibilityTextElement.currentColumnNumber = 23
+        AccessibilityTextElement.screenLineColumnNumber = 23
         
         _ = applyMoveBeingTested(on: element)
        
-        XCTAssertEqual(AccessibilityTextElement.currentColumnNumber, 23)
+        XCTAssertEqual(AccessibilityTextElement.screenLineColumnNumber, 23)
     }
 
 }
