@@ -38,9 +38,9 @@ extension ASUI_VMC_gj_Tests {
     
     func test_that_if_the_head_is_after_the_anchor_then_it_goes_to_the_line_below_the_head_on_the_same_column_number_and_selects_from_the_anchor_to_that_new_head_location() {
         let textInAXFocusedElement = """
-wow that one is
-gonna rip my
-ass off lol
+wow that one is gonna rip my ass off lol
+and it's getting even harder now that
+the wrapped lines and shit is understood
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -52,15 +52,15 @@ ass off lol
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
                
-        XCTAssertEqual(accessibilityElement?.caretLocation, 16)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 18)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 79)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 25)
     }
     
     func test_that_if_the_head_is_before_the_anchor_and_both_are_on_the_same_line_then_it_goes_to_the_line_below_the_head_on_the_same_column_number_and_selects_from_the_anchor_to_that_new_head_location() {
         let textInAXFocusedElement = """
-wow that one is
-gonna rip my
-ass off lol
+wow that one is gonna rip my ass off lol
+and it's getting even harder now that
+the wrapped lines and shit is understood
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -71,15 +71,15 @@ ass off lol
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
                
-        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 10)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 96)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 18)
     }
     
     func test_that_if_the_head_is_before_the_anchor_and_both_are_not_on_the_same_line_and_the_new_head_location_is_before_the_anchor_then_it_goes_to_the_line_below_the_head_on_the_same_column_number_and_selects_from_that_new_head_location_to_the_anchor() {
         let textInAXFocusedElement = """
-wow that one is
-gonna rip my
-ass off lol
+wow that one is gonna rip my ass off lol
+and it's getting even harder now that
+the wrapped lines and shit is understood
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -91,15 +91,14 @@ ass off lol
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 25)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 2)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 90)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 7)
     }
         
     func test_that_if_the_line_below_the_head_line_is_shorter_then_it_goes_to_the_end_of_that_line_and_does_not_spill_over_the_next_next_line() {
         let textInAXFocusedElement = """
-wow that one is
-gonna rip my
-ass off lol
+wow that one is gonna rip my ass off
+definitely
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -111,12 +110,10 @@ ass off lol
         applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
       
-        XCTAssertEqual(accessibilityElement?.caretLocation, 10)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 19)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 9)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 28)
     }
     
-    // currently not fully compatible with Vim as moves like $ should bring all the following lines
-    // to the end of line too, but currently we keep track of a precise column number rather than "the end of a line"
     func test_that_it_keeps_track_of_the_column_number() {
         let textInAXFocusedElement = """
 wow that one is
@@ -128,14 +125,14 @@ extra long one here
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
               
         applyMove { asNormalMode.gg(on: $0) }
-        applyMove { asNormalMode.dollarSign(on: $0) }
+        applyMove { asNormalMode.w(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.gjForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.gjForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 14)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 46)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 4)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 42)
     }
     
     func test_that_it_can_go_back_to_the_last_empty_line_if_the_Visual_Mode_started_from_there_which_means_if_the_anchor_is_there() {
@@ -194,12 +191,12 @@ and also to the end of the next next line!
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 19)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 39)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 7)
         
         let secondPass = applyMoveBeingTested()
         
         XCTAssertEqual(secondPass?.caretLocation, 19)
-        XCTAssertEqual(secondPass?.selectedLength, 81)
+        XCTAssertEqual(secondPass?.selectedLength, 31)
         
         // here we're actually testing that k works in this configuration (mix of j and k). probably would have been better
         // to have its own test cases but would double the number of tests (it's like the tests we have for
@@ -207,12 +204,12 @@ and also to the end of the next next line!
         let applyK = applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
         
         XCTAssertEqual(applyK?.caretLocation, 19)
-        XCTAssertEqual(applyK?.selectedLength, 39)
+        XCTAssertEqual(applyK?.selectedLength, 7)
 
         let applyJAgain = applyMoveBeingTested()
         
         XCTAssertEqual(applyJAgain?.caretLocation, 19)
-        XCTAssertEqual(applyJAgain?.selectedLength, 81)
+        XCTAssertEqual(applyJAgain?.selectedLength, 31)
     }
     
 }
