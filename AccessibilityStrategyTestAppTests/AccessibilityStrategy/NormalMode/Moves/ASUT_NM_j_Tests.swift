@@ -35,7 +35,7 @@ it eats them like nothing happened. that's how special it is.
             )!
         )
         
-        AccessibilityTextElement.globalColumnNumber = 3
+        AccessibilityTextElement.currentColumnNumber = 3
         
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -103,7 +103,7 @@ than ScreenLines
             )!
         )
         
-        AccessibilityTextElement.globalColumnNumber = 1
+        AccessibilityTextElement.currentColumnNumber = 1
         
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -134,7 +134,7 @@ let's see
             )!
         )
         
-        AccessibilityTextElement.globalColumnNumber = 3
+        AccessibilityTextElement.currentColumnNumber = 3
 
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -165,7 +165,7 @@ another long line longer than all the other ones!!!
             )!
         )
         
-        AccessibilityTextElement.globalColumnNumber = 7
+        AccessibilityTextElement.currentColumnNumber = 7
         
         let firstJ = applyMoveBeingTested(on: element)
         XCTAssertEqual(firstJ?.caretLocation, 33)
@@ -202,7 +202,7 @@ nothing else AR💣️H
             )!
         )
         
-        AccessibilityTextElement.globalColumnNumber = 3
+        AccessibilityTextElement.currentColumnNumber = 3
 
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -233,7 +233,7 @@ hehe hehe
             )!
         )
         
-        AccessibilityTextElement.globalColumnNumber = 5
+        AccessibilityTextElement.currentColumnNumber = 5
                
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -263,12 +263,12 @@ edge case
             )!
         )
         
-        let globalColumnNumber = AccessibilityTextElement.globalColumnNumber
+        let globalColumnNumber = AccessibilityTextElement.currentColumnNumber
         let returnedElement = applyMoveBeingTested(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 26)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertEqual(globalColumnNumber, AccessibilityTextElement.globalColumnNumber)
+        XCTAssertEqual(globalColumnNumber, AccessibilityTextElement.currentColumnNumber)
     }
     
     func test_that_if_the_ATE_globalColumnNumber_is_nil_j_goes_to_the_end_limit_of_the_next_line() {
@@ -293,7 +293,7 @@ and also to the end of the next next line!
             )!
         )
         
-        AccessibilityTextElement.globalColumnNumber = nil
+        AccessibilityTextElement.currentColumnNumber = nil
 
         let returnedElement = applyMoveBeingTested(on: element)
         

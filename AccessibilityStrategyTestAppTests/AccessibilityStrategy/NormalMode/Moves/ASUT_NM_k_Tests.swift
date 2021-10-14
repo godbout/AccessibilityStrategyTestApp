@@ -35,7 +35,7 @@ it eats them like nothing happened. that's how special it is.
             )!
         )
         
-        AccessibilityTextElement.globalColumnNumber = 6
+        AccessibilityTextElement.currentColumnNumber = 6
         
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -102,7 +102,7 @@ to the same column
             )!
         )
         
-        AccessibilityTextElement.globalColumnNumber = 1
+        AccessibilityTextElement.currentColumnNumber = 1
 
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -133,7 +133,7 @@ than the previous shorter than...
             )!
         )
         
-        AccessibilityTextElement.globalColumnNumber = 5
+        AccessibilityTextElement.currentColumnNumber = 5
 
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -164,7 +164,7 @@ another quite long line
             )!
         )
         
-        AccessibilityTextElement.globalColumnNumber = 11
+        AccessibilityTextElement.currentColumnNumber = 11
                         
         let firstK = applyMoveBeingTested(on: element)
         XCTAssertEqual(firstK?.caretLocation, 81)
@@ -201,7 +201,7 @@ nothing ankulay
             )!
         )
     
-        AccessibilityTextElement.globalColumnNumber = 1
+        AccessibilityTextElement.currentColumnNumber = 1
     
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -232,7 +232,7 @@ to previ ous line length
             )!
         )
         
-        AccessibilityTextElement.globalColumnNumber = 8
+        AccessibilityTextElement.currentColumnNumber = 8
 
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -263,7 +263,7 @@ empty
             )!
         )
                 
-        AccessibilityTextElement.globalColumnNumber = 3
+        AccessibilityTextElement.currentColumnNumber = 3
     
         let returnedElement = applyMoveBeingTested(on: element)
 
@@ -293,7 +293,7 @@ globalColumnNumber is nil
             )!
         )
         
-        AccessibilityTextElement.globalColumnNumber = nil
+        AccessibilityTextElement.currentColumnNumber = nil
 
         let returnedElement = applyMoveBeingTested(on: element)
 
