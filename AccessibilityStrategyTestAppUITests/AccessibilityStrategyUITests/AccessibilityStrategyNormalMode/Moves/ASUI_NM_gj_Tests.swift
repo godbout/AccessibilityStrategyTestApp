@@ -2,8 +2,7 @@ import XCTest
 import AccessibilityStrategy
 
 
-// there's no such thing as TextField for j and k as the KS takes over
-// this is tested in Unit Tests.
+// see j for blah blah
 class ASUI_NM_gj_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement? {
@@ -134,12 +133,12 @@ edge case
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
                 
-        let globalColumnNumber = AccessibilityTextElement.currentColumnNumber
+        let globalColumnNumber = AccessibilityTextElement.screenLineColumnNumber
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 26)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(globalColumnNumber, AccessibilityTextElement.currentColumnNumber)
+        XCTAssertEqual(globalColumnNumber, AccessibilityTextElement.screenLineColumnNumber)
     }
     
     func test_that_if_the_ATE_globalColumnNumber_is_nil_j_goes_to_the_end_limit_of_the_next_line() {
