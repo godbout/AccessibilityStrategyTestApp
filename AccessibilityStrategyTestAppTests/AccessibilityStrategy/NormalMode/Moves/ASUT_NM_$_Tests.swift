@@ -74,30 +74,31 @@ extension ASUT_NM_$_Tests {
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_it_sets_the_ATE_globalColumnNumber_to_nil() {
+    // TODO: should also put the fileLine one to nil
+    func test_that_it_sets_the_ATE_screenLineColumnNumber_to_nil() {
         let text = """
 when using $
-the globalColumnNumber
+the screenLineColumnNumber
 is set to nil so that next
 j or k will go to the line endLimit
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 98,
+            length: 102,
             caretLocation: 49,
             selectedLength: 1,
             selectedText: " ",
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 98,
-                number: 3,
-                start: 36,
-                end: 63
+                fullTextLength: 102,
+                number: 5,
+                start: 40,
+                end: 50
             )!
         )
         
-        AccessibilityTextElement.screenLineColumnNumber = 17
+        AccessibilityTextElement.screenLineColumnNumber = 10
         
         _ = applyMoveBeingTested(on: element)
 

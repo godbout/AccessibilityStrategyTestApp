@@ -174,7 +174,7 @@ own empty
         XCTAssertNotEqual(accessibilityElement?.selectedLength, 0)
     }
     
-    func test_that_if_the_ATE_globalColumnNumber_is_nil_j_goes_to_the_end_limit_of_the_next_line() {
+    func test_that_if_the_ATE_screenLineColumnNumber_is_nil_j_goes_to_the_end_limit_of_the_next_line() {
         let textInAXFocusedElement = """
 globalColumnNumber is nil
 coz used $ to go end of line📏️

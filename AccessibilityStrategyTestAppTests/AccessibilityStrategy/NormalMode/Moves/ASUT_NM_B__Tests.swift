@@ -4,7 +4,6 @@ import XCTest
 
 // same as b
 // using TE function here that is tested heavily
-// rest of the test in UI to check for updated globalColumnNumber
 class ASNM_B__Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {

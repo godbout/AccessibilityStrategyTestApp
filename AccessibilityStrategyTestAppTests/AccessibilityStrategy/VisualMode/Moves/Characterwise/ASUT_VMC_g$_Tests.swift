@@ -14,7 +14,8 @@ class ASUT_VMC_g$_Tests: ASVM_BaseTests {
 // Both
 extension ASUT_VMC_g$_Tests {
     
-    func test_that_it_sets_the_ATE_globalColumnNumber_to_nil() {
+    // TODO: g$ should not put anything to nil
+    func test_that_it_sets_the_ATE_screenLineColumnNumber_to_nil() {
         let text = """
 when using g$
 the globalColumnNumber

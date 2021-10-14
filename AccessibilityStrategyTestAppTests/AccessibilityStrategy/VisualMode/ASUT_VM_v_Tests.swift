@@ -77,7 +77,7 @@ caret out of boundaries
     // only tested for vForEnteringFromNormalMode but done for all vs and Vs.
     // not tested because UI Tests are expensive, and it's a small thing. but adding this comment
     // because it's good to be reminded of it.
-    func test_that_entering_VisualMode_with_v_from_NormalMode_does_not_override_the_globalColumnNumber() {
+    func test_that_entering_VisualMode_with_v_from_NormalMode_does_not_override_the_screenLineColumnNumber() {
         let text = """
 if we $ before entering VM the GCN
 should still stay at nil

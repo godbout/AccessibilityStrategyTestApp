@@ -119,7 +119,8 @@ hehe
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
 
-    func test_that_if_the_last_line_is_only_a_linefeed_character_j_can_still_go_there_and_the_globalColumnNumber_is_not_overriden() {
+    // TODO: should both the columnNumber not be overridden?
+    func test_that_if_the_last_line_is_only_a_linefeed_character_j_can_still_go_there_and_the_screenLineColumnNumber_is_not_overriden() {
         let textInAXFocusedElement = """
 another fucking
 edge case
@@ -133,15 +134,15 @@ edge case
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
                 
-        let globalColumnNumber = AccessibilityTextElement.screenLineColumnNumber
+        let screenLineColumnNumber = AccessibilityTextElement.screenLineColumnNumber
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 26)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(globalColumnNumber, AccessibilityTextElement.screenLineColumnNumber)
+        XCTAssertEqual(screenLineColumnNumber, AccessibilityTextElement.screenLineColumnNumber)
     }
     
-    func test_that_if_the_ATE_globalColumnNumber_is_nil_j_goes_to_the_end_limit_of_the_next_line() {
+    func test_that_if_the_ATE_screenLineColumnNumber_is_nil_j_goes_to_the_end_limit_of_the_next_line() {
         let textInAXFocusedElement = """
 globalColumnNumber is nil
 coz used $ to go end of line📏️
@@ -169,5 +170,5 @@ and also to the end of the next next line!
 
 // emojis
 // unfortunately for now we not gonna test for j and k because i don't know how to handle
-// with the globalColumnNumber
+// with the screenLineColumnNumber
 extension ASUI_NM_gj_Tests {}

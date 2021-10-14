@@ -334,6 +334,7 @@
 		9171B8102706D02200709FDD /* SL_SimpleComputedProperties_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SL_SimpleComputedProperties_Tests.swift; sourceTree = "<group>"; };
 		917D7D26271884FD00E76274 /* ASUI_NM_j_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_j_Tests.swift; sourceTree = "<group>"; };
 		917D7D282718860900E76274 /* ASUI_NM_k_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_k_Tests.swift; sourceTree = "<group>"; };
+		917D7D2A2718994E00E76274 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		918022A92700C66F0094BF92 /* ASUI_NM_daw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_daw_Tests.swift; sourceTree = "<group>"; };
 		918022AB2700C6B30094BF92 /* ASUT_NM_daw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_daw_Tests.swift; sourceTree = "<group>"; };
 		9185ECA42715697500631DAB /* ATE_fileText_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATE_fileText_Tests.swift; sourceTree = "<group>"; };
@@ -344,7 +345,6 @@
 		91A3018826F0E225001BFD23 /* ASUI_VM_wordMotionForward_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_VM_wordMotionForward_Tests.swift; sourceTree = "<group>"; };
 		91A54BAA271843E900DEB933 /* ASUT_NM_j_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_j_Tests.swift; sourceTree = "<group>"; };
 		91A54BB92718649500DEB933 /* ASUT_NM_k_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_k_Tests.swift; sourceTree = "<group>"; };
-		91AA60362717F61C003A1D31 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		91AF718026E15140007C2D2E /* AccessibilityStrategyVisualModeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessibilityStrategyVisualModeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AF718426E15140007C2D2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91AF718C26E151B7007C2D2E /* ASUI_VM_BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_VM_BaseTests.swift; sourceTree = "<group>"; };
@@ -714,7 +714,7 @@
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
-				91AA60362717F61C003A1D31 /* AccessibilityStrategy */,
+				917D7D2A2718994E00E76274 /* AccessibilityStrategy */,
 				91F951B326DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,

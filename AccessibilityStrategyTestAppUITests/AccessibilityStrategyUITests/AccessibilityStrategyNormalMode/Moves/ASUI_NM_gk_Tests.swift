@@ -113,7 +113,7 @@ to previ ous line length
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
 
-    func test_that_if_we_are_on_the_last_line_and_it_is_just_a_linefeed_we_can_still_go_up_and_follow_the_globalColumnNumber() {
+    func test_that_if_we_are_on_the_last_line_and_it_is_just_a_linefeed_we_can_still_go_up_and_follow_the_screenLineColumnNumber() {
         let textInAXFocusedElement = """
 fucking hell
 with the last line
@@ -137,7 +137,7 @@ empty
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
-    func test_that_if_the_ATE_globalColumnNumber_is_nil_k_goes_to_the_end_limit_of_the_previous_line() {
+    func test_that_if_the_ATE_screenLineColumnNumber_is_nil_k_goes_to_the_end_limit_of_the_previous_line() {
         let textInAXFocusedElement = """
 and also to the end of the next next line!
 coz used $ to go end of line📏️

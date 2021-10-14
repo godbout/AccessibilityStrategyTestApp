@@ -207,7 +207,7 @@ hehe hehe
         XCTAssertEqual(returnedElement?.selectedLength, 1)
     }
 
-    func test_that_if_the_last_line_is_only_a_linefeed_character_j_can_still_go_there_and_the_globalColumnNumber_is_not_overriden() {
+    func test_that_if_the_last_line_is_only_a_linefeed_character_j_can_still_go_there_and_the_fileLineColumnNumber_is_not_overriden() {
         let text = """
 another fucking
 edge case
@@ -237,7 +237,7 @@ edge case
         XCTAssertEqual(fileLineColumnNumber, AccessibilityTextElement.fileLineColumnNumber)
     }
     
-    func test_that_if_the_ATE_globalColumnNumber_is_nil_j_goes_to_the_end_limit_of_the_next_line() {
+    func test_that_if_the_ATE_fileLineColumnNumber_is_nil_j_goes_to_the_end_limit_of_the_next_line() {
         let text = """
 globalColumnNumber is nil
 coz used $ to go end of line📏️
@@ -272,5 +272,5 @@ and also to the end of the next next line!
 
 // emojis
 // unfortunately for now we not gonna test for j and k because i don't know how to handle
-// with the globalColumnNumber
+// with the fileLineColumnNumber
 extension ASUT_NM_j_Tests {}
