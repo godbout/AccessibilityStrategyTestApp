@@ -36,9 +36,9 @@ extension ASUI_VMC_gk_Tests {
     
     func test_that_if_the_head_is_before_the_anchor_then_it_goes_to_the_line_above_the_head_on_the_same_column_number_and_selects_from_that_new_head_location_to_the_anchor() {
         let textInAXFocusedElement = """
-wow that one is
-gonna rip my
-ass off lol
+wow that one is gonna rip my ass off lol
+and it's getting even harder now that
+the wrapped lines and shit is understood
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -48,41 +48,37 @@ ass off lol
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 10)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 17)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 78)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 19)
     }
     
     func test_that_if_the_head_is_after_the_anchor_and_both_are_on_the_same_line_then_it_goes_to_the_line_above_the_head_on_the_same_column_number_and_selects_from_that_new_head_location_to_the_anchor() {
         let textInAXFocusedElement = """
-wow that one is
-gonna rip my
-ass off lol
+wow that one is gonna rip my ass off lol
+and it's getting even harder now that
+the wrapped lines and shit is understood
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
        
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 4)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 13)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 65)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 15)
     }
     
     func test_that_if_the_head_is_after_the_anchor_and_both_are_not_on_the_same_line_and_the_new_head_location_is_after_the_anchor_then_it_goes_to_the_line_above_the_head_on_the_same_column_number_and_selects_from_the_anchor_to_that_new_head_location() {
         let textInAXFocusedElement = """
-wow that one is
-gonna rip my
-ass off lol
+wow that one is gonna rip my ass off lol
+and it's getting even harder now that
+the wrapped lines and shit is understood
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
@@ -90,15 +86,15 @@ ass off lol
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 16)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 7)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 79)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 4)
     }
     
     func test_that_if_the_head_is_after_the_anchor_and_both_are_not_on_the_same_line_and_the_new_head_location_is_before_the_anchor_then_it_goes_to_the_line_above_the_head_on_the_same_column_number_and_selects_from_that_new_head_location_to_the_anchor() {
         let textInAXFocusedElement = """
-wow that one is
-gonna rip my
-ass off lol
+wow that one is gonna rip my ass off lol
+and it's getting even harder now that
+the wrapped lines and shit is understood
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -110,8 +106,8 @@ ass off lol
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 18)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 9)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 82)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 15)
     }
     
     // see j for blah blah
@@ -170,28 +166,29 @@ globalColumnNumber is nil
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 74)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 24)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 21)
         
         let secondPass = applyMoveBeingTested()
                 
-        XCTAssertEqual(secondPass?.caretLocation, 42)
-        XCTAssertEqual(secondPass?.selectedLength, 56)
+        XCTAssertEqual(secondPass?.caretLocation, 66)
+        XCTAssertEqual(secondPass?.selectedLength, 29)
         
         // see VMC j Tests for blah blah
         let applyJ = applyMove { asVisualMode.gjForVisualStyleCharacterwise(on: $0) }
         
         XCTAssertEqual(applyJ?.caretLocation, 74)
-        XCTAssertEqual(applyJ?.selectedLength, 24)
+        XCTAssertEqual(applyJ?.selectedLength, 21)
 
         let applyKAgain = applyMoveBeingTested()
         
-        XCTAssertEqual(applyKAgain?.caretLocation, 42)
-        XCTAssertEqual(applyKAgain?.selectedLength, 56)
+        XCTAssertEqual(applyKAgain?.caretLocation, 66)
+        XCTAssertEqual(applyKAgain?.selectedLength, 29)
     }
     
 }
