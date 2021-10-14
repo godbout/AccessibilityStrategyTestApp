@@ -108,7 +108,8 @@ at the anchor, not at the caret location
         XCTAssertEqual(returnedElement?.selectedLength, 8)
     }
     
-    func test_that_it_sets_the_ATE_globalColumnNumber_to_nil() {
+    // TODO: should probably set the other one too. to test
+    func test_that_it_sets_the_ATE_fileLineColumnNumber_to_nil() {
         let text = """
 when using $
 the globalColumnNumber
@@ -134,7 +135,7 @@ j or k will go to the line endLimit
         AccessibilityStrategyVisualMode.anchor = 18
         AccessibilityStrategyVisualMode.head = 51
         
-        AccessibilityTextElement.screenLineColumnNumber = 17
+        AccessibilityTextElement.fileLineColumnNumber = 6
         
         _ = applyMoveBeingTested(on: element)
 

@@ -149,13 +149,13 @@ own empty
         let accessibilityElement = applyMoveBeingTested()
 
         // same test as NM k:
-        // real location will depend on GlobalColumnNumber, so we test that it moved up that's all
+        // real location will depend on screenLineColumnNumber, so we test that it moved up that's all
         // we don't care where exactly on the previous line
         XCTAssertNotEqual(accessibilityElement?.caretLocation, 31)
         XCTAssertNotEqual(accessibilityElement?.selectedLength, 0)
     }
     
-    func test_that_if_the_ATE_globalColumnNumber_is_nil_k_goes_to_the_end_limit_of_the_previous_line() {
+    func test_that_if_the_ATE_screenLineColumnNumber_is_nil_k_goes_to_the_end_limit_of_the_previous_line() {
         let textInAXFocusedElement = """
 and also to the end of the next next line!
 coz used $ to go end of line📏️
