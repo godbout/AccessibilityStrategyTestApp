@@ -52,6 +52,8 @@ should go back to line end limit
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
+        // TODO: gk and gj don't work properly now coz they do a move that we can't replicate
+        // we will make gj and gk do as j and k. then we can replace them all in the tests.
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
