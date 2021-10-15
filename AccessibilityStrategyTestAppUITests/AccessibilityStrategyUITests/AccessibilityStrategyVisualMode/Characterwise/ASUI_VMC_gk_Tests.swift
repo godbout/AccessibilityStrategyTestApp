@@ -155,7 +155,7 @@ own empty
         XCTAssertNotEqual(accessibilityElement?.selectedLength, 0)
     }
     
-    func test_that_if_the_ATE_screenLineColumnNumber_is_nil_k_goes_to_the_end_limit_of_the_previous_line() {
+    func test_that_if_the_ATE_ColumnNumbers_are_nil_k_goes_to_the_end_limit_of_the_previous_line() {
         let textInAXFocusedElement = """
 and also to the end of the next next line!
 coz used $ to go end of line📏️
@@ -165,30 +165,29 @@ globalColumnNumber is nil
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.b(on: $0) }
-        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 74)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 21)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 75)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 22)
         
         let secondPass = applyMoveBeingTested()
                 
-        XCTAssertEqual(secondPass?.caretLocation, 66)
-        XCTAssertEqual(secondPass?.selectedLength, 29)
+        XCTAssertEqual(secondPass?.caretLocation, 74)
+        XCTAssertEqual(secondPass?.selectedLength, 2)
         
         // see VMC j Tests for blah blah
         let applyJ = applyMove { asVisualMode.gjForVisualStyleCharacterwise(on: $0) }
         
-        XCTAssertEqual(applyJ?.caretLocation, 74)
-        XCTAssertEqual(applyJ?.selectedLength, 21)
+        XCTAssertEqual(applyJ?.caretLocation, 75)
+        XCTAssertEqual(applyJ?.selectedLength, 22)
 
         let applyKAgain = applyMoveBeingTested()
         
-        XCTAssertEqual(applyKAgain?.caretLocation, 66)
-        XCTAssertEqual(applyKAgain?.selectedLength, 29)
+        XCTAssertEqual(applyKAgain?.caretLocation, 74)
+        XCTAssertEqual(applyKAgain?.selectedLength, 2)
     }
     
 }
