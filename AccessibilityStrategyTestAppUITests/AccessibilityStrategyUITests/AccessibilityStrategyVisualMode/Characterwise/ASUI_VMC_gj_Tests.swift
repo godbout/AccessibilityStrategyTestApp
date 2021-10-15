@@ -174,7 +174,7 @@ own empty
         XCTAssertNotEqual(accessibilityElement?.selectedLength, 0)
     }
     
-    func test_that_if_the_ATE_screenLineColumnNumber_is_nil_j_goes_to_the_end_limit_of_the_next_line() {
+    func test_that_if_the_ATE_ColumnNumbers_are_nil_j_goes_to_the_end_limit_of_the_next_line() {
         let textInAXFocusedElement = """
 globalColumnNumber is nil
 coz used $ to go end of line📏️
@@ -187,16 +187,16 @@ and also to the end of the next next line!
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 19)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 7)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 31)
         
         let secondPass = applyMoveBeingTested()
         
         XCTAssertEqual(secondPass?.caretLocation, 19)
-        XCTAssertEqual(secondPass?.selectedLength, 31)
+        XCTAssertEqual(secondPass?.selectedLength, 39)
         
         // here we're actually testing that k works in this configuration (mix of j and k). probably would have been better
         // to have its own test cases but would double the number of tests (it's like the tests we have for
@@ -204,12 +204,12 @@ and also to the end of the next next line!
         let applyK = applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
         
         XCTAssertEqual(applyK?.caretLocation, 19)
-        XCTAssertEqual(applyK?.selectedLength, 7)
+        XCTAssertEqual(applyK?.selectedLength, 31)
 
         let applyJAgain = applyMoveBeingTested()
         
         XCTAssertEqual(applyJAgain?.caretLocation, 19)
-        XCTAssertEqual(applyJAgain?.selectedLength, 31)
+        XCTAssertEqual(applyJAgain?.selectedLength, 39)
     }
     
 }
