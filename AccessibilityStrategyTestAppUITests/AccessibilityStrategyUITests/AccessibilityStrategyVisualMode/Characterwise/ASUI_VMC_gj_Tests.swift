@@ -148,7 +148,6 @@ own empty
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 35)
@@ -170,6 +169,7 @@ own empty
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
+        // /!\ NOT EQUAL
         XCTAssertNotEqual(accessibilityElement?.caretLocation, 35)
         XCTAssertNotEqual(accessibilityElement?.selectedLength, 0)
     }
