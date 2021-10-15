@@ -16,6 +16,7 @@ extension SL_SimpleComputerProperties_Tests {
         
         let screenLine = ScreenLine(fullTextValue: text, fullTextLength: text.utf16.count, number: 1, start: 0, end: 0)
 
+        XCTAssertEqual(screenLine?.number, 1)
         XCTAssertEqual(screenLine?.start, 0)
         XCTAssertEqual(screenLine?.end, 0)
         XCTAssertEqual(screenLine?.value, "")
@@ -32,6 +33,7 @@ line
 """
        let screenLine = ScreenLine(fullTextValue: text, fullTextLength: text.utf16.count, number: 5, start: 35, end: 35)
         
+        XCTAssertEqual(screenLine?.number, 5)
         XCTAssertEqual(screenLine?.start, 35)
         XCTAssertEqual(screenLine?.end, 35)
         XCTAssertEqual(screenLine?.value, "")
@@ -52,6 +54,7 @@ a linefeed 🤱️
 """
         let screenLine = ScreenLine(fullTextValue: text, fullTextLength: text.utf16.count, number: 2, start: 21, end: 34)
 
+        XCTAssertEqual(screenLine?.number, 2)
         XCTAssertEqual(screenLine?.start, 21)
         XCTAssertEqual(screenLine?.end, 34)
         XCTAssertEqual(screenLine?.value, "📏️ with 📏️\n")
@@ -66,6 +69,7 @@ fucking 🔥️🔥️🔥️ hell
 """        
         let screenLine = ScreenLine(fullTextValue: text, fullTextLength: text.utf16.count, number: 3, start: 26, end: 44)
         
+        XCTAssertEqual(screenLine?.number, 3)
         XCTAssertEqual(screenLine?.start, 26)
         XCTAssertEqual(screenLine?.end, 44)
         XCTAssertEqual(screenLine?.value, "fucking 🔥️🔥️🔥️ ")
@@ -81,6 +85,7 @@ and there's that one 🤌🏼️ line after
 """       
         let screenLine = ScreenLine(fullTextValue: text, fullTextLength: text.utf16.count, number: 3, start: 32, end: 33)
         
+        XCTAssertEqual(screenLine?.number, 3)
         XCTAssertEqual(screenLine?.start, 32)
         XCTAssertEqual(screenLine?.end, 33)
         XCTAssertEqual(screenLine?.value, "\n")
