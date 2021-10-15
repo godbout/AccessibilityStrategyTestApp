@@ -12,12 +12,13 @@ class FL_SimpleComputedProperties_Tests: XCTestCase {}
 // - 2nd case is now gone!
 // - caret at the end of TextElement on own empty line
 extension FL_SimpleComputedProperties_Tests {
-
+    
     func test_that_if_the_text_is_empty_the_computed_properties_are_corret() throws {
         let text = ""
         
         let fileLine = FileLine(fullFileText: text, fullFileTextLength: text.utf16.count, caretLocation: 0)
                 
+        XCTAssertEqual(fileLine?.number, 1)
         XCTAssertEqual(fileLine?.start, 0)
         XCTAssertEqual(fileLine?.end, 0)
         XCTAssertEqual(fileLine?.value, "")
@@ -39,6 +40,7 @@ line
 """
         let fileLine = FileLine(fullFileText: text, fullFileTextLength: text.utf16.count, caretLocation: 35)
 
+        XCTAssertEqual(fileLine?.number, 4)
         XCTAssertEqual(fileLine?.start, 35)
         XCTAssertEqual(fileLine?.end, 35)
         XCTAssertEqual(fileLine?.value, "")
@@ -80,6 +82,7 @@ a linefeed 🤱️
 """
         let fileLine = FileLine(fullFileText: text, fullFileTextLength: text.utf16.count, caretLocation: 27)
 
+        XCTAssertEqual(fileLine?.number, 1)
         XCTAssertEqual(fileLine?.start, 0)
         XCTAssertEqual(fileLine?.end, 34)
         XCTAssertEqual(fileLine?.value, "now i'm a line 📏️📏️📏️ with 📏️\n")
@@ -99,6 +102,7 @@ fucking 🔥️🔥️🔥️ hell
 """
         let fileLine = FileLine(fullFileText: text, fullFileTextLength: text.utf16.count, caretLocation: 29)
     
+        XCTAssertEqual(fileLine?.number, 2)
         XCTAssertEqual(fileLine?.start, 26)
         XCTAssertEqual(fileLine?.end, 48)
         XCTAssertEqual(fileLine?.value, "fucking 🔥️🔥️🔥️ hell")
@@ -121,6 +125,7 @@ and there's that one 🤌🏼️ line after
 """
         let fileLine = FileLine(fullFileText: text, fullFileTextLength: text.utf16.count, caretLocation: 32)
 
+        XCTAssertEqual(fileLine?.number, 2)
         XCTAssertEqual(fileLine?.start, 32)
         XCTAssertEqual(fileLine?.end, 33)
         XCTAssertEqual(fileLine?.value, "\n")
@@ -142,6 +147,7 @@ so careful that Xcode doesn't remove the fucking blanks.
 """
         let fileLine = FileLine(fullFileText: text, fullFileTextLength: text.utf16.count, caretLocation: 58)
 
+        XCTAssertEqual(fileLine?.number, 2)
         XCTAssertEqual(fileLine?.start, 55)
         XCTAssertEqual(fileLine?.end, 74)
         XCTAssertEqual(fileLine?.value, "                  \n")
