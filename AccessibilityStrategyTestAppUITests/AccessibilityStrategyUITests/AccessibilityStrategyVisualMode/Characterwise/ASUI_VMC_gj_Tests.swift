@@ -66,13 +66,13 @@ the wrapped lines and shit is understood
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
                 
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
                
-        XCTAssertEqual(accessibilityElement?.caretLocation, 96)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 18)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 77)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 14)
     }
     
     func test_that_if_the_head_is_before_the_anchor_and_both_are_not_on_the_same_line_and_the_new_head_location_is_before_the_anchor_then_it_goes_to_the_line_below_the_head_on_the_same_column_number_and_selects_from_that_new_head_location_to_the_anchor() {
