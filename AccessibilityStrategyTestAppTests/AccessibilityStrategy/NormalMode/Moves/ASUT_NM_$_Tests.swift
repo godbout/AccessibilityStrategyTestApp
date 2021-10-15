@@ -74,7 +74,7 @@ extension ASUT_NM_$_Tests {
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_it_sets_the_ATE_ColumnNumbers_to_nil() {
+    func test_that_it_sets_both_the_ATE_ColumnNumbers_to_nil() {
         let text = """
 when using $
 the screenLineColumnNumber
