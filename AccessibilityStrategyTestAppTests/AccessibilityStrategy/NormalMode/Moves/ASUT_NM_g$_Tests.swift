@@ -73,6 +73,38 @@ extension ASUT_NM_g$_Tests {
         XCTAssertEqual(returnedElement?.selectedLength, 3)
         XCTAssertNil(returnedElement?.selectedText)
     }
+    
+    func test_that_it_does_not_set_the_ATE_ColumnNumbers_to_nil() {
+        let text = """
+when using g$
+the ColumnNumbers don't get set to nil
+as this only happens for
+$
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 79,
+            caretLocation: 31,
+            selectedLength: 1,
+            selectedText: " ",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 79,
+                number: 5,
+                start: 30,
+                end: 42
+            )!
+        )
+        
+        AccessibilityTextElement.fileLineColumnNumber = 18
+        AccessibilityTextElement.screenLineColumnNumber = 2
+        
+        _ = applyMoveBeingTested(on: element)
+
+        XCTAssertNotNil(AccessibilityTextElement.fileLineColumnNumber)
+        XCTAssertNotNil(AccessibilityTextElement.screenLineColumnNumber)
+    }
 
 }
     

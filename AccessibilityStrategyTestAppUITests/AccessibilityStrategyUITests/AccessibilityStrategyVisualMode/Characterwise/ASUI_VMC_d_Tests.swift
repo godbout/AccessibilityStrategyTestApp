@@ -22,16 +22,12 @@ the selection!
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.zero(on: $0) }
-        applyMove { asNormalMode.b(on: $0) }
-        applyMove { asNormalMode.b(on: $0) }
-        applyMove { asNormalMode.b(on: $0) }
-        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.ge(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asNormalMode.b(on: $0) }
-        applyMove { asNormalMode.b(on: $0) }
-        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.fileText.value, """
@@ -52,11 +48,8 @@ should go back to line end limit
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        // TODO: gk and gj don't work properly now coz they do a move that we can't replicate
-        // we will make gj and gk do as j and k. then we can replace them all in the tests.
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.gk(on: $0) }
-        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
@@ -103,7 +96,7 @@ should go back to line end limit
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
        
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.e(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
