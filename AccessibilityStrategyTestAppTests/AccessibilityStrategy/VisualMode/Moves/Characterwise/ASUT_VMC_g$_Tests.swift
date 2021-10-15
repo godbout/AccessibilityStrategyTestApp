@@ -14,8 +14,7 @@ class ASUT_VMC_g$_Tests: ASVM_BaseTests {
 // Both
 extension ASUT_VMC_g$_Tests {
     
-    // TODO: g$ should not put anything to nil
-    func test_that_it_sets_the_ATE_screenLineColumnNumber_to_nil() {
+    func test_that_it_does_not_set_the_ATE_ColumnNumbers_to_nil() {
         let text = """
 when using g$
 the globalColumnNumber
@@ -32,16 +31,17 @@ j or k will go to the line endLimit
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 99,
-                number: 3,
-                start: 37,
-                end: 64
+                number: 7,
+                start: 47,
+                end: 59
             )!
         )
         
         AccessibilityStrategyVisualMode.anchor = 52
         AccessibilityStrategyVisualMode.head = 52
         
-        AccessibilityTextElement.screenLineColumnNumber = 17
+        AccessibilityTextElement.fileLineColumnNumber = 16
+        AccessibilityTextElement.screenLineColumnNumber = 6
        
         _ = applyMoveBeingTested(on: element)
 
