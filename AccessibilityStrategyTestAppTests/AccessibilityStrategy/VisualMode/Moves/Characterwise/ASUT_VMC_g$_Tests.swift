@@ -45,7 +45,8 @@ j or k will go to the line endLimit
        
         _ = applyMoveBeingTested(on: element)
 
-        XCTAssertNil(AccessibilityTextElement.screenLineColumnNumber)
+        XCTAssertNotNil(AccessibilityTextElement.fileLineColumnNumber)
+        XCTAssertNotNil(AccessibilityTextElement.screenLineColumnNumber)
     }
 
 }
