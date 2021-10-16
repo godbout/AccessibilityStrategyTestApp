@@ -11,6 +11,43 @@ class ASUT_VMC_l_Tests: ASVM_BaseTests {
 }
 
 
+// line
+extension ASUT_VMC_l_Tests {
+    
+    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
+        let text = """
+  this move stops at screen lines, which         🇧🇶️eans it will
+  stop even without a linefeed. that's         how special it is.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 132,
+            caretLocation: 27,
+            selectedLength: 1,
+            selectedText: " ",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 132,
+                number: 3,
+                start: 21,
+                end: 28
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 27
+        AccessibilityStrategyVisualMode.head = 27
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 27)
+        XCTAssertEqual(returnedElement?.selectedLength, 2)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+     
+}
+
+
 // Both
 extension ASUT_VMC_l_Tests {
     
