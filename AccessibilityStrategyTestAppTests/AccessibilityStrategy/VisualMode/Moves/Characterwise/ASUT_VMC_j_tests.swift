@@ -18,8 +18,7 @@ class ASUT_VMC_j_Tests: ASVM_BaseTests {
 // TextFields
 extension ASUT_VMC_j_Tests {
     
-    // TODO: should be tested here and return nil
-    func test_that_in_TextFields_it_does_nothing() {
+    func test_that_for_TextFields_it_returns_nil_coz_we_want_the_KS_to_take_over() {
         let text = "VM jk in TextFields will do ⛱️nothing"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -36,6 +35,9 @@ extension ASUT_VMC_j_Tests {
                 end: 37
             )!
         )
+        
+        AccessibilityStrategyVisualMode.anchor = 17
+        AccessibilityStrategyVisualMode.head = 33
         
         let returnedElement = applyMoveBeingTested(on: element)
 

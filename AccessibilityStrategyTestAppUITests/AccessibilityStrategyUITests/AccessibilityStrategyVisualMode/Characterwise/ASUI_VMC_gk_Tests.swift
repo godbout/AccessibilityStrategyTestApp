@@ -2,32 +2,13 @@ import XCTest
 import AccessibilityStrategy
 
 
+// see gj for blah blah
 class ASUI_VMC_gk_Tests: ASUI_VM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement? {
         return applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0)}
     }
 
-}
-
-
-// TextFields
-extension ASUI_VMC_gk_Tests {
-    
-    func test_that_in_TextFields_it_does_nothing() {
-        let textInAXFocusedElement = "VM jk in TextFields will do nothing"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.b(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        let accessibilityElement = applyMoveBeingTested()
-
-        XCTAssertEqual(accessibilityElement?.caretLocation, 28)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-    }
-    
 }
 
 
