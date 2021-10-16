@@ -2,6 +2,7 @@ import XCTest
 import AccessibilityStrategy
 
 
+// most of the tests are in UT as j uses FL, not SL. this one is just to mega confirm.
 class ASUI_VMC_j_Tests: ASUI_VM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement? {
