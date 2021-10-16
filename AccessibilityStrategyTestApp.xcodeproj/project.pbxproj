@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910501B7271AEE4900D6B0D9 /* ASUI_VMC_g0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910501B6271AEE4900D6B0D9 /* ASUI_VMC_g0_Tests.swift */; };
 		910591892707047100AD4F3F /* FL_SimpleComputedProperties_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910591882707047100AD4F3F /* FL_SimpleComputedProperties_Tests.swift */; };
 		911C027C27154B4A00092ED9 /* FL_next_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C027B27154B4A00092ED9 /* FL_next_Tests.swift */; };
 		911C027E27154B6500092ED9 /* FL_previous_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C027D27154B6500092ED9 /* FL_previous_Tests.swift */; };
@@ -263,6 +264,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		910501B6271AEE4900D6B0D9 /* ASUI_VMC_g0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_VMC_g0_Tests.swift; sourceTree = "<group>"; };
 		910591882707047100AD4F3F /* FL_SimpleComputedProperties_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FL_SimpleComputedProperties_Tests.swift; sourceTree = "<group>"; };
 		911C027B27154B4A00092ED9 /* FL_next_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FL_next_Tests.swift; sourceTree = "<group>"; };
 		911C027D27154B6500092ED9 /* FL_previous_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FL_previous_Tests.swift; sourceTree = "<group>"; };
@@ -705,6 +707,7 @@
 			children = (
 				91AF719026E151B8007C2D2E /* ASUI_VMC_d_Tests.swift */,
 				91AF719926E151B8007C2D2E /* ASUI_VMC_g$_Tests.swift */,
+				910501B6271AEE4900D6B0D9 /* ASUI_VMC_g0_Tests.swift */,
 				91AF719826E151B8007C2D2E /* ASUI_VMC_gj_Tests.swift */,
 				91AF719426E151B8007C2D2E /* ASUI_VMC_gk_Tests.swift */,
 				91E9539C2719E81C0039A016 /* ASUI_VMC_j_Tests.swift */,
@@ -1315,6 +1318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91AF71A726E151B8007C2D2E /* ASUI_VM_BaseTests.swift in Sources */,
+				910501B7271AEE4900D6B0D9 /* ASUI_VMC_g0_Tests.swift in Sources */,
 				91AF71B226E151B8007C2D2E /* ASUI_VMC_gj_Tests.swift in Sources */,
 				91AF71BC26E151B8007C2D2E /* ASUI_VML_d_Tests.swift in Sources */,
 				91A3018A26F0E251001BFD23 /* ASUI_VM_wordMotionForward_Tests.swift in Sources */,
