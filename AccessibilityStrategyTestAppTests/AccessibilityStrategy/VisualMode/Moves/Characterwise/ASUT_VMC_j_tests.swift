@@ -226,7 +226,6 @@ ass o
         XCTAssertEqual(returnedElement?.selectedLength, 42)
     }
     
-    // TODO: this one fails
     func test_that_it_can_go_back_to_the_last_empty_line_if_the_Visual_Mode_started_from_there_which_means_if_the_anchor_is_there() {
         let text = """
 caret is on its
