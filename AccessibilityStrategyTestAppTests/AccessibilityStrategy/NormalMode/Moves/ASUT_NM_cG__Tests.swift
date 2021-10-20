@@ -49,27 +49,27 @@ them like nothing happened. that's how special it is.
 // Both
 extension ASUT_NM_cG__Tests {
     
-    func test_that_it_deletes_the_whole_line() {
-        let text = "this is a single line ‼️‼️‼️"
+    func test_that_it_deletes_the_line_up_to_the_firstNonBlankLimit() {
+        let text = "    this is a single line ‼️‼️‼️"
         let element = AccessibilityTextElement(
-            role: .textArea,
+            role: .textField,
             value: text,
-            length: 28,
-            caretLocation: 14,
+            length: 32,
+            caretLocation: 15,
             selectedLength: 1,
-            selectedText: "l",
+            selectedText: "i",
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 28,
-                number: 2,
-                start: 10,
-                end: 22
+                fullTextLength: 32,
+                number: 1,
+                start: 0,
+                end: 32
             )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
+        XCTAssertEqual(returnedElement?.caretLocation, 4)
         XCTAssertEqual(returnedElement?.selectedLength, 28)
         XCTAssertEqual(returnedElement?.selectedText, "")
     }
@@ -80,11 +80,11 @@ extension ASUT_NM_cG__Tests {
 // TextViews
 extension ASUT_NM_cG__Tests {
     
-    func test_that_it_deletes_from_the_beginning_of_the_current_line_to_the_end_of_the_TextView() {
+    func test_that_it_deletes_from_the_firstNonBlankLimit_of_the_current_line_to_the_end_of_the_TextView() {
         let text = """
 blah blah some line
 some more
-haha geh
+  haha geh
 need to deal with
 those faces 🥺️☹️😂️
 
@@ -92,22 +92,22 @@ those faces 🥺️☹️😂️
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 78,
-            caretLocation: 35,
+            length: 80,
+            caretLocation: 37,
             selectedLength: 1,
             selectedText: "g",
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 78,
-                number: 3,
+                fullTextLength: 80,
+                number: 4,
                 start: 30,
-                end: 39
+                end: 41
             )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 30)
+        XCTAssertEqual(returnedElement?.caretLocation, 32)
         XCTAssertEqual(returnedElement?.selectedLength, 48)
         XCTAssertEqual(returnedElement?.selectedText, "")
     }
