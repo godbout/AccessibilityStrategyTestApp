@@ -66,7 +66,7 @@ over ⛱️⛱️ multiple     lines coz
         applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0) }
         let returnedElement = applyMoveBeingTested()
        
-        XCTAssertEqual(returnedElement?.caretLocation, 36)
+        XCTAssertEqual(returnedElement?.caretLocation, 40)
         XCTAssertEqual(returnedElement?.selectedLength, 34)
     }
     
