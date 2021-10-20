@@ -2,6 +2,7 @@
 import XCTest
 
 
+// rest of tests in UI because this is a ScreenLine move!
 class ASUT_VMC_g$_Tests: ASVM_BaseTests {
         
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
