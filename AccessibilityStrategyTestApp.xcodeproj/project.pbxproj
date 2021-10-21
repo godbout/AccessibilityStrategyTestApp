@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		910501B7271AEE4900D6B0D9 /* ASUI_VMC_g0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910501B6271AEE4900D6B0D9 /* ASUI_VMC_g0_Tests.swift */; };
 		910591892707047100AD4F3F /* FL_SimpleComputedProperties_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910591882707047100AD4F3F /* FL_SimpleComputedProperties_Tests.swift */; };
+		9115324E2721BAB0006EE863 /* ASUT_VMC_gI__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9115324D2721BAB0006EE863 /* ASUT_VMC_gI__Tests.swift */; };
 		911C027C27154B4A00092ED9 /* FL_next_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C027B27154B4A00092ED9 /* FL_next_Tests.swift */; };
 		911C027E27154B6500092ED9 /* FL_previous_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C027D27154B6500092ED9 /* FL_previous_Tests.swift */; };
 		911C028027154B8400092ED9 /* FT_next_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C027F27154B8400092ED9 /* FT_next_Tests.swift */; };
@@ -272,6 +273,7 @@
 /* Begin PBXFileReference section */
 		910501B6271AEE4900D6B0D9 /* ASUI_VMC_g0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_VMC_g0_Tests.swift; sourceTree = "<group>"; };
 		910591882707047100AD4F3F /* FL_SimpleComputedProperties_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FL_SimpleComputedProperties_Tests.swift; sourceTree = "<group>"; };
+		9115324D2721BAB0006EE863 /* ASUT_VMC_gI__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_VMC_gI__Tests.swift; sourceTree = "<group>"; };
 		911C027B27154B4A00092ED9 /* FL_next_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FL_next_Tests.swift; sourceTree = "<group>"; };
 		911C027D27154B6500092ED9 /* FL_previous_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FL_previous_Tests.swift; sourceTree = "<group>"; };
 		911C027F27154B8400092ED9 /* FT_next_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT_next_Tests.swift; sourceTree = "<group>"; };
@@ -974,6 +976,7 @@
 				9140CB8426ECEE2D00D43793 /* ASUT_VMC_g$_Tests.swift */,
 				9134ABBA26F13FED00B5B4FA /* ASUT_VMC_gE__Tests.swift */,
 				9134ABB826F13FE100B5B4FA /* ASUT_VMC_ge_Tests.swift */,
+				9115324D2721BAB0006EE863 /* ASUT_VMC_gI__Tests.swift */,
 				914B80E72717252B00688C91 /* ASUT_VMC_gg_Tests.swift */,
 				9130B964271A856C006B775E /* ASUT_VMC_gj_Tests.swift */,
 				9130B966271A8579006B775E /* ASUT_VMC_gk_Tests.swift */,
@@ -1461,6 +1464,7 @@
 				9171B8112706D02200709FDD /* SL_SimpleComputedProperties_Tests.swift in Sources */,
 				9140CB8526ECEE2D00D43793 /* ASUT_VMC_g$_Tests.swift in Sources */,
 				91F9526D26DFF7F900DC26C6 /* ASUT_NM_ci"_Tests.swift in Sources */,
+				9115324E2721BAB0006EE863 /* ASUT_VMC_gI__Tests.swift in Sources */,
 				91D5D827270D86A700876192 /* FT_beginningOfWORDBackward__Tests.swift in Sources */,
 				914B80E42717204600688C91 /* ASUT_VMC_l_Tests.swift in Sources */,
 				91F9527026DFF7F900DC26C6 /* ASUT_NM_gj_Tests.swift in Sources */,
