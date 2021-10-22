@@ -62,7 +62,7 @@ extension FL_firstNonBlankLimit_Tests {
         XCTAssertEqual(fileLine.firstNonBlankLimit, 0)
     }
     
-    func test_that_if_the_line_only_contains_it_returns_nil() throws {
+    func test_that_if_the_line_only_contains_it_returns_the_end_limit() throws {
         let text = "        "        
         
         let fileLine = try XCTUnwrap(
@@ -72,7 +72,7 @@ extension FL_firstNonBlankLimit_Tests {
         XCTAssertEqual(fileLine.firstNonBlankLimit, 7)
     }
     
-    func test_that_if_the_line_only_contains_spaces_and_ends_with_a_linefeed_it_returns_nil() throws {
+    func test_that_if_the_line_only_contains_spaces_and_ends_with_a_linefeed_it_returns_the_end_limit() throws {
         let text = "     \n"        
         
         let fileLine = try XCTUnwrap(
