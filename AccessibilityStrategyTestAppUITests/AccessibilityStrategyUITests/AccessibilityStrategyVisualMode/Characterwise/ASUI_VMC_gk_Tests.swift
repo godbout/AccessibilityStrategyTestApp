@@ -152,7 +152,7 @@ globalColumnNumber is nil
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 75)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 22)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 19)
         
         let secondPass = applyMoveBeingTested()
                 
@@ -163,7 +163,7 @@ globalColumnNumber is nil
         let applyJ = applyMove { asVisualMode.gjForVisualStyleCharacterwise(on: $0) }
         
         XCTAssertEqual(applyJ?.caretLocation, 75)
-        XCTAssertEqual(applyJ?.selectedLength, 22)
+        XCTAssertEqual(applyJ?.selectedLength, 19)
 
         let applyKAgain = applyMoveBeingTested()
         

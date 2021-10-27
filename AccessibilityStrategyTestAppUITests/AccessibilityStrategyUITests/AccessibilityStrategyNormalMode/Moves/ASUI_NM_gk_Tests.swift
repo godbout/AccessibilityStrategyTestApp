@@ -150,7 +150,7 @@ globalColumnNumber is nil
         applyMove { asNormalMode.dollarSign(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 96)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 93)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
         
         let secondPass = applyMoveBeingTested()
