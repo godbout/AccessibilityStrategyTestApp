@@ -5,8 +5,39 @@ import XCTest
 // cF for blah blah
 class ASUT_NM_ct_Tests: ASNM_BaseTests {
     
-    private func applyMoveBeingTested(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.ct(to: character, on: element)
+    private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.ct(times: count, to: character, on: element)
+    }
+    
+}
+
+
+// count
+extension ASUT_NM_ct_Tests {
+    
+    func test_that_it_implements_the_count_system() {
+        let text = "here we gonna delete up to 🕑️ characters rather than 🦴️!"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 58,
+            caretLocation: 19,
+            selectedLength: 1,
+            selectedText: "e",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 58,
+                number: 1,
+                start: 0,
+                end: 58
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(times: 2, to: "e", on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 19)
+        XCTAssertEqual(returnedElement?.selectedLength, 27)
+        XCTAssertEqual(returnedElement?.selectedText, "")
     }
     
 }
