@@ -5,10 +5,10 @@ import XCTest
 // internally this is calling C that is already tested, so we're not gonna repeat
 // every case scenario here. we're just gonna test the cases where we know we need to pay attention.
 // the UI Tests are for the block cursor repositioning after the move.
-class UIASNM_D_Tests: ASUI_NM_BaseTests {
+class ASUI_NM_D__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.D(on: $0) }
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+        return applyMove { asNormalMode.D(on: $0, pgR: pgR) }
     }
     
 }
@@ -19,7 +19,7 @@ class UIASNM_D_Tests: ASUI_NM_BaseTests {
 // 1. as stated above, here we only need to test the caret repositioning (D calls C, C is already tested)
 // 2. the caret position will always go to the line endLimit, whether the line is empty or not. this is
 // tested in the endLimit tests. so here we mostly have nothing to do. :D
-extension UIASNM_D_Tests {
+extension ASUI_NM_D__Tests {
 
     func test_that_in_any_case_the_caret_location_will_end_up_at_the_line_end_limit() {
         let textInAXFocusedElement = """
@@ -43,4 +43,34 @@ which😂️
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
 
+}
+
+
+// PGR
+extension ASUI_NM_D__Tests {
+    
+    func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+        let textInAXFocusedElement = """
+honestly that shit is painful
+so when in PGR mode we can't modify through AS
+so we need to mix it with KS fucking hell
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+honestly that shit is painful
+so when in PGR mode we can't modify 
+so we need to mix it with KS fucking hell
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 65)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+
+    }
+    
 }
