@@ -51,26 +51,24 @@ extension ASUI_NM_D__Tests {
     
     func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = """
-honestly that shit is painful
-so when in PGR mode we can't modify through AS
-so we need to mix it with KS fucking hell
+D will delete till the end of line but not the linefeed (tested in C) and will go to the end limit even if the line is empty
+which😂️means it will not up one line and this is tested in the endLimit!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.b(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.w(on: $0) }
+        applyMove { asNormalMode.l(on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
         XCTAssertEqual(accessibilityElement?.fileText.value, """
-honestly that shit is painful
-so when in PGR mode we can't modify 
-so we need to mix it with KS fucking hell
+D will delete till the end of line but not the linefeed (tested in C) and will go to the end limit even if the line is empty
+which
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 65)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 129)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-
     }
     
 }
