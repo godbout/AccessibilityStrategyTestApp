@@ -4,7 +4,7 @@ import XCTest
 
 // now the `c` moves need to be tested in UI because of the PGR tweak.
 // here we still keep the stuff that obviously don't need to go through the whole UI process,
-// like counts. or when the move does nothing.
+// like when the move does nothing. LOL (e.g. because it can't find the character asked for, etc.)
 class ASUT_NM_cF__Tests: ASNM_BaseTests {
     
     private func applyMoveBeingTested(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
