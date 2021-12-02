@@ -2,6 +2,7 @@ import XCTest
 @testable import AccessibilityStrategy
 
 
+// there's no way to test PGR for this move. if you can't remember why think harder.
 class ASUI_NM_dgg_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement? {
