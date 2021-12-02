@@ -13,7 +13,7 @@
 
 # WOT IS DAT
 
-those are all the Unit and UI Tests related to the AccessibilityStrategy part of [kindaVim](https://github.com/godbout/kindaVim.theapp). i.e. the part where we can read and write text through the [macOS Accessibility](https://developer.apple.com/accessibility/macos/). not the fallback mode, key mapping or restricted mode.
+those are all the Unit and UI Tests related to the AccessibilityStrategy part of [kindaVim](https://github.com/godbout/kindaVim.theapp). i.e. the part where we can read and write text through the [macOS Accessibility](https://developer.apple.com/accessibility/macos/). not the fallback mode, key mapping, restricted mode, or kindaVim engine core.
 
 the implementation is not available (hopefully...) but the tests may be helpful to you if you're developing some kind of Vim moves related project. Vim moves are complex, with lots of exceptions and edge cases. it's hard to get them correct. good luck.
 
