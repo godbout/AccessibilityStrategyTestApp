@@ -6,8 +6,8 @@ import XCTest
 // the caret repositioning.
 class UIASNM_daw_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.daw(on: $0) }
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+        return applyMove { asNormalMode.daw(on: $0, pgR: pgR) }
     }
     
 }
@@ -58,4 +58,32 @@ the block cursor is important!
         XCTAssertEqual(accessibilityElement?.selectedLength, 5)
     }
 
+}
+
+
+// PGR
+extension UIASNM_daw_Tests {
+    
+    func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+        let textInAXFocusedElement = """
+like honestly that one should be
+   pretty     📏️traight forward if you ask me
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.w(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+like honestly that one should be
+  📏️traight forward if you ask me
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+    }
+    
 }
