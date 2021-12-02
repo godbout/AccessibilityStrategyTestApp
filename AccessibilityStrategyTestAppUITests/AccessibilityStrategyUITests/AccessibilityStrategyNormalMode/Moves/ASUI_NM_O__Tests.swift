@@ -5,8 +5,8 @@ import XCTest
 // see ASUT O for blah blah
 class ASUI_NM_O__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.O(on: $0) }
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+        return applyMove { asNormalMode.O(on: $0, pgR: pgR) }
     }
     
 }

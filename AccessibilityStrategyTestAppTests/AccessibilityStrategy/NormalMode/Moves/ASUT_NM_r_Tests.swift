@@ -13,7 +13,7 @@ import XCTest
 class ASUT_NM_r_Tests: ASNM_BaseTests {
     
     private func applyMove(with replacement: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.r(with: replacement, on: element) 
+        return asNormalMode.r(with: replacement, on: element, pgR: false) 
     }
     
 }
