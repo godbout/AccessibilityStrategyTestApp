@@ -4,8 +4,8 @@ import XCTest
 
 class ASUI_NM_dG__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.dG(on: $0) }
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+        return applyMove { asNormalMode.dG(on: $0, pgR: pgR) }
     }
     
 }
@@ -56,3 +56,29 @@ before what was the current one.
     
 }
  
+
+// PGR
+extension ASUI_NM_dG__Tests {
+
+    func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+        let textInAXFocusedElement = """
+  😂️k so now we're having multiple lines
+and we will NOT be on on the first one so after dG
+deletes from the current line to the end of the text
+the caret will go to the first non blank limit of the line
+before what was the current one.
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.j(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        
+        XCTAssertEqual(accessibilityElement?.fileText.value, "  😂️k so now we're having multiple line")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 2)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        
+    }
+    
+}
