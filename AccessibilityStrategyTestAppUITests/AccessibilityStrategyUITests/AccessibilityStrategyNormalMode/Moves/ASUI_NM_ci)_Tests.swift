@@ -2,19 +2,18 @@ import XCTest
 @testable import AccessibilityStrategy
 
 
-// this is calling ciInnerBrackets so all the tests are there.
-// here we just test that we pass the pgR parameter correctly to ciInnerBrackets.
-class ASUI_NM_ciLeftParenthesis_Tests: ASUI_NM_BaseTests {
+// see ci(
+class ASUI_NM_ciRightParenthesis_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.ciLeftParenthesis(on: $0, pgR: pgR) }
+        return applyMove { asNormalMode.ciRightParenthesis(on: $0, pgR: pgR) }
     }
 
 }
 
 
 // PGR
-extension ASUI_NM_ciLeftParenthesis_Tests {
+extension ASUI_NM_ciRightParenthesis_Tests {
     
     func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = """
@@ -40,3 +39,6 @@ this case is when
     }
     
 }
+
+
+
