@@ -4,9 +4,9 @@ import XCTest
 
 class ASUI_NM_r_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(with character: Character) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(with character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
         return applyMove(with: character) { character, focusedElement in
-            asNormalMode.r(with: character, on: focusedElement)
+            asNormalMode.r(with: character, on: focusedElement, pgR: pgR)
         }
     }
 }

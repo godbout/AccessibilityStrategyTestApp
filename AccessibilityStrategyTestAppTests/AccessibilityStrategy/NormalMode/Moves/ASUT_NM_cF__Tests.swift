@@ -8,7 +8,7 @@ import XCTest
 class ASUT_NM_cF__Tests: ASNM_BaseTests {
     
     private func applyMoveBeingTested(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.cF(to: character, on: element)
+        return asNormalMode.cF(to: character, on: element, pgR: false)
     }
     
 }

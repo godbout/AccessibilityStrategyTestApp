@@ -6,8 +6,8 @@ import XCTest
 // this is more a legacy test that i don't wanna remove :D
 class UIASNM_ciDoubleQuote_Tests: ASUI_NM_BaseTests {
 
-    private func applyMoveBeingTested() -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.ciDoubleQuote(on: $0) }
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+        return applyMove { asNormalMode.ciDoubleQuote(on: $0, pgR: pgR) }
     }
 
 }

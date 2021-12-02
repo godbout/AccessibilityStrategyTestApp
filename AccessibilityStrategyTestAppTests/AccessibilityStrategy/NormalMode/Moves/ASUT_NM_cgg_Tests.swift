@@ -5,7 +5,7 @@ import XCTest
 class ASUT_NM_cgg_Tests: ASNM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.cgg(on: element) 
+        return asNormalMode.cgg(on: element, pgR: false) 
     }
     
 }

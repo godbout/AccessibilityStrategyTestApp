@@ -6,7 +6,7 @@ import XCTest
 class ASUT_NM_caw_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.caw(on: element) 
+        return asNormalMode.caw(on: element, pgR: false) 
     }
     
 }
