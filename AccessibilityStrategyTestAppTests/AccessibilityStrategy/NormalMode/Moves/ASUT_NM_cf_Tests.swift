@@ -81,31 +81,6 @@ them like nothing happened. that's how special it is.
 // Both
 extension ASUT_NM_cf_Tests {
     
-    func test_that_in_normal_setting_it_selects_the_text_from_the_caret_to_the_character_found() {
-        let text = "😂️😂️😂️😂️ gonna use cf on this sentence"
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 42,
-            caretLocation: 3,
-            selectedLength: 3,
-            selectedText: "😂️",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 42,
-                number: 1,
-                start: 0,
-                end: 13
-            )!
-        )
-        
-        let returnedElement = applyMoveBeingTested(to: "s", on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 3)
-        XCTAssertEqual(returnedElement?.selectedLength, 18)
-        XCTAssertEqual(returnedElement?.selectedText, "")
-    }
-    
     func test_that_if_the_character_is_not_found_then_it_does_nothing() {
         let text = """
 gonna look
@@ -134,41 +109,6 @@ that is not there
         XCTAssertEqual(returnedElement?.caretLocation, 14)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-}
-
-
-// TextViews
-extension ASUT_NM_cf_Tests {
-    
-    func test_that_it_can_find_the_character_on_a_line_for_a_multiline() {
-        let text = """
-cf on a multiline
-should work
-on a line
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 39,
-            caretLocation: 18,
-            selectedLength: 1,
-            selectedText: "s",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 39,
-                number: 3,
-                start: 18,
-                end: 30
-            )!
-        )
-        
-        let returnedElement = applyMoveBeingTested(to: "w", on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 18)
-        XCTAssertEqual(returnedElement?.selectedLength, 8)
-        XCTAssertEqual(returnedElement?.selectedText, "")
     }
     
 }
