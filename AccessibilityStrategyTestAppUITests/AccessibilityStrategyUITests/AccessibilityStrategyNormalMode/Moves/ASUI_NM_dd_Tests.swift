@@ -2,7 +2,7 @@ import XCTest
 @testable import AccessibilityStrategy
 
 
-class UIASNM_dd_Tests: ASUI_NM_BaseTests {
+class ASUI_NM_dd_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
         return applyMove { asNormalMode.dd(on: $0, pgR: pgR) }
@@ -12,7 +12,7 @@ class UIASNM_dd_Tests: ASUI_NM_BaseTests {
 
 
 // TextFields
-extension UIASNM_dd_Tests {
+extension ASUI_NM_dd_Tests {
     
     func test_that_in_normal_setting_it_deletes_the_whole_line() {
         let textInAXFocusedElement = "this is a line to be deleted"
@@ -42,7 +42,7 @@ extension UIASNM_dd_Tests {
 
 
 // TextViews
-extension UIASNM_dd_Tests {
+extension ASUI_NM_dd_Tests {
     
     func test_that_it_normal_setting_it_deletes_the_whole_line() {
         let textInAXFocusedElement = """
@@ -200,6 +200,31 @@ own empty
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 30)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+    }
+    
+}
+
+
+// PGR
+// there's two other "cases" where PGR is called but those two cases can't be tested.
+// see NM dd implementation. will be clear.
+extension ASUI_NM_dd_Tests {
+    
+    func test_that_when_there_is_a_next_line_and_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+        let textInAXFocusedElement = """
+for example
+  🇫🇷️t should stop
+after the two spaces
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+      
+        applyMove { asNormalMode.gg(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        
+        XCTAssertEqual(accessibilityElement?.fileText.value, " 🇫🇷️t should stop\nafter the two spaces")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 1)            
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
 }
