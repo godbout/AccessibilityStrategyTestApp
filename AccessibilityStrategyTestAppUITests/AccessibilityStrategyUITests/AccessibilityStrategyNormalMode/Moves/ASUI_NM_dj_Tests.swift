@@ -93,4 +93,32 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
     }
     
 }
+
+
+// PGR
+extension ASUI_NM_dj_Tests {
+    
+    func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+        let textInAXFocusedElement = """
+   😚️ow 🤡️🤡️this is🤡️ get🤡️🤡️ting cool
+becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
+     🤡️o🤡️n b🤡️lank of 🤡️this line
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+   😚️ow 🤡️🤡️this is🤡️ get🤡️🤡️ting coo
+"""
+        )        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+    }
+    
+}
  

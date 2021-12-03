@@ -224,7 +224,7 @@ after the two spaces
         
         XCTAssertEqual(accessibilityElement?.fileText.value, " 🇫🇷️t should stop\nafter the two spaces")
         XCTAssertEqual(accessibilityElement?.caretLocation, 1)            
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 5)
     }
     
 }
