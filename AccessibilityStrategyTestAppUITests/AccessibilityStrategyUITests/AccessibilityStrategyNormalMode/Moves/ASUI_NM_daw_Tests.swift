@@ -4,7 +4,7 @@ import XCTest
 
 // internally calling `caw`. here as usual with `d` moves we gonna test
 // the caret repositioning.
-class UIASNM_daw_Tests: ASUI_NM_BaseTests {
+class ASUI_NM_daw_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
         return applyMove { asNormalMode.daw(on: $0, pgR: pgR) }
@@ -13,7 +13,7 @@ class UIASNM_daw_Tests: ASUI_NM_BaseTests {
 }
 
 
-extension UIASNM_daw_Tests {
+extension ASUI_NM_daw_Tests {
     
     func test_that_the_block_cursor_ends_up_at_the_right_place() {
         let textInAXFocusedElement = """
@@ -62,7 +62,7 @@ the block cursor is important!
 
 
 // PGR
-extension UIASNM_daw_Tests {
+extension ASUI_NM_daw_Tests {
     
     func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = """
