@@ -136,6 +136,7 @@ caret on empty last line
 
 
 // PGR
+// looks different from others here because we don't delete, we paste.
 extension ASUI_NM_o_Tests {
     
     func test_that_if_on_the_last_empty_line_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
@@ -151,9 +152,11 @@ caret on empty last line
         XCTAssertEqual(accessibilityElement?.fileText.value, """
 caret on empty last line
 
+
+
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 27)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
     }
@@ -172,10 +175,12 @@ between the first file line and the second file line
         
         XCTAssertEqual(accessibilityElement?.fileText.value, """
 that's a multiline and o will create a new line
+iline and o will create a new line
+
 between the first file line and the second file line
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 47)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 83)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
     }
