@@ -12,9 +12,9 @@ class ASUI_NM_r_Tests: ASUI_NM_BaseTests {
 }
 
 
+// both
 extension ASUI_NM_r_Tests {
 
-    // TextFields
     func test_that_in_normal_setting_it_replaces_the_character_under_the_cursor_with_the_one_given() {
         let textInAXFocusedElement = "gonna replace one of those letters..."
         app.textFields.firstMatch.tap()
@@ -94,6 +94,28 @@ escape
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 64)        
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+    }
+    
+}
+
+
+// PGR
+extension ASUI_NM_r_Tests {
+    
+    func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+        let textInAXFocusedElement = "gonna replace one of those letters..."
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.B(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(with: "a", pgR: true)
+      
+        XCTAssertEqual(accessibilityElement?.fileText.value, "gonna replace one of thoaa letters...")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedText, "a")
     }
     
 }
