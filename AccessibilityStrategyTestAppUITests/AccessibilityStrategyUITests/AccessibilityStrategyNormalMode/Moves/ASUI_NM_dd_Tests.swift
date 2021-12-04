@@ -206,11 +206,11 @@ own empty
 
 
 // PGR
-// there's two other "cases" where PGR is called but those two cases can't be tested.
+// there's one other "case" where PGR is called but that one can't be tested.
 // see NM dd implementation. will be clear.
 extension ASUI_NM_dd_Tests {
     
-    func test_that_when_there_is_a_next_line_and_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_if_there_is_a_next_line_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = """
 for example
   🇫🇷️t should stop
@@ -218,13 +218,42 @@ after the two spaces
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-      
+
         applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.w(on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, " 🇫🇷️t should stop\nafter the two spaces")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 1)            
+
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+    🇫🇷️t should stop
+after the two spaces
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 4)
         XCTAssertEqual(accessibilityElement?.selectedLength, 5)
+        XCTAssertEqual(accessibilityElement?.selectedText, "🇫🇷️")
+    }
+
+    func test_that_if_there_is_no_next_line_and_there_is_a_previous_line_when_there_is_a_next_line_and_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+        let textInAXFocusedElement = """
+this one
+    🌲️s a tough
+one
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+
+        applyMove { asNormalMode.l(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(pgR: true)
+
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+this one
+    🌲️s a toug
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 13)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement?.selectedText, "🌲️")
     }
     
 }
