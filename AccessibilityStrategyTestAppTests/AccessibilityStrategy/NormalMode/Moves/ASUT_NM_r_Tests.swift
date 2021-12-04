@@ -9,6 +9,7 @@ import XCTest
 // in order to erase the emojis before replacing it by another character.
 // the tests belows are the ones that don't use the push. for the other tests they
 // are in the UI.
+// also now PGR so, UI UI UI.
 
 class ASUT_NM_r_Tests: ASNM_BaseTests {
     
