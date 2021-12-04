@@ -2,7 +2,7 @@
 import XCTest
 
 
-// one test here when o shouldn't do anything in TextViews. all the rest in UI coz PGR.
+// see NM O
 class ASUT_NM_o_Tests: ASNM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
