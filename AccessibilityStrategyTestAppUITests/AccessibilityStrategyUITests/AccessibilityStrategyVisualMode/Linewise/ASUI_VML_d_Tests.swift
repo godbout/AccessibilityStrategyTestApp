@@ -168,6 +168,7 @@ t
 
 
 // PGR
+// yes, one case cannot be tested here.
 extension ASUI_VML_d_Tests {
     
     func test_that_if_there_is_a_next_line_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
@@ -196,7 +197,7 @@ we gonna use VM      ⛱️o go to non blank of the line
         XCTAssertEqual(accessibilityElement?.selectedText, "w")
     }
     
-    func test_that_if_there_is_a_previous_line_and_there_is_no_next_line_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_if_there_is_no_next_line_and_there_is_a_previous_line_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = """
    ⛱️e gonna remove the last
 line and caret should go up
