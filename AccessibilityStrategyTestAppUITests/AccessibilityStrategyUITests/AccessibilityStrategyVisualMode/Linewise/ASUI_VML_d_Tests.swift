@@ -4,8 +4,8 @@ import XCTest
 
 class ASUI_VML_d_Tests: ASUI_VM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement? {
-        return applyMove { asVisualMode.dForVisualStyleLinewise(on: $0)}
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+        return applyMove { asVisualMode.dForVisualStyleLinewise(on: $0, pgR: pgR)}
     }
 
 }
@@ -164,4 +164,60 @@ t
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
     
+}
+
+
+// PGR
+extension ASUI_VML_d_Tests {
+    
+    func test_that_if_there_is_a_next_line_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+        let textInAXFocusedElement = """
+we gonna use VM
+d here and we suppose
+one extra line in between!
+      ⛱️o go to non blank of the line
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(pgR: true)
+                     
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+we gonna use VM      ⛱️o go to non blank of the line
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedText, "w")
+    }
+    
+    func test_that_if_there_is_a_previous_line_and_there_is_no_next_line_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+        let textInAXFocusedElement = """
+   ⛱️e gonna remove the last
+line and caret should go up
+and it would be beautiful
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+       
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(pgR: true)
+
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+   ⛱️e gonna remove the las
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 2)
+        XCTAssertEqual(accessibilityElement?.selectedText, "⛱️")
+    }
+
 }
