@@ -189,7 +189,6 @@ still create a line above
 
 
 // PGR
-// see NM o for blah blah
 extension ASUI_NM_O__Tests {
     
     func test_that_if_at_the_first_line_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
