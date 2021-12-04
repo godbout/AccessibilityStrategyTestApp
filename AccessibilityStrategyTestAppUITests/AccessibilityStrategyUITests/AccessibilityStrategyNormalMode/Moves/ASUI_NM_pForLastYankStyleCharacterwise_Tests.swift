@@ -124,3 +124,57 @@ here's the last one
     }
     
 }
+
+
+// PGR
+extension ASUI_NM_pForLastYankStyleCharacterwise_Tests {
+    
+    func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+        let textInAXFocusedElement = "we go😂️😂️😂️nna paste some 💩️"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.h(on: $0) }
+
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("text to 🥞️🥞️🥞️ paste!!!🥠️", forType: .string)
+
+        let accessibilityElement = applyMoveBeingTested(pgR: true)
+
+        XCTAssertEqual(accessibilityElement?.fileText.value, "we go😂️😂️😂️nna paste some 💩️text to 🥞️🥞️🥞️ paste!!!🥠️text to 🥞️🥞️🥞️ paste!!!🥠️")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 87)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement?.selectedText, "🥠️")
+    }
+    
+    func test_that_on_TextAreas_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+        let textInAXFocusedElement = """
+time to paste
+in TextViews
+ho ho ho
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("pastaing", forType: .string)
+        
+        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+time to paste
+in pastaingpastaingTextViews
+ho ho ho
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 32)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedText, "g")
+    }
+    
+}
