@@ -181,7 +181,7 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         XCTAssertEqual(accessibilityElement?.fileText.value, "🍕️🍕️text to pasta 🍕️!!🍔️text to pasta 🍕️!!🍔️🍕️")
         XCTAssertEqual(accessibilityElement?.caretLocation, 47)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement?.selectedText, "🍔️")
     }
     
     func test_that_on_TextAreas_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
@@ -213,7 +213,7 @@ ho ho ho
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 16)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement?.selectedText, "😂️")
     }
     
 }

@@ -5,8 +5,8 @@ import XCTest
 // read p for more blah blah
 class ASUI_NM_PForLastYankStyleLinewise_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.PForLastYankStyleLinewise(on: $0) }
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+        return applyMove { asNormalMode.PForLastYankStyleLinewise(on: $0, pgR: pgR) }
     }
     
 }
@@ -143,6 +143,65 @@ test 3 of The 3 Cases for TextArea linewise P
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 58)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+    }
+    
+}
+
+
+// PGR
+extension ASUI_NM_PForLastYankStyleLinewise_Tests {
+    
+    func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+        let textInAXFocusedElement = "P linewise for TF is still pasted characterwise!"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.zero(on: $0) }
+
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("paste me daddy", forType: .string)
+        
+        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        
+        XCTAssertEqual(accessibilityElement?.fileText.value, "paste me daddypaste me daddyP linewise for TF is still pasted characterwise!")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 27)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedText, "y")
+    }
+    
+    func test_that_on_TextAreas_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+        let textInAXFocusedElement = """
+so if we use P
+the current line is gonna
+shift and thew new one is gonna be
+pasted at the current line place
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("🤍️hould paste 🤍️ that\n", forType: .string)
+
+        let accessibilityElement = applyMoveBeingTested(pgR: true)
+
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+so if we use P
+the current line is gonna
+🤍️hould paste 🤍️ that
+🤍️hould paste 🤍️ that
+shift and thew new one is gonna be
+pasted at the current line place
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 41)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement?.selectedText, "🤍️")
     }
     
 }
