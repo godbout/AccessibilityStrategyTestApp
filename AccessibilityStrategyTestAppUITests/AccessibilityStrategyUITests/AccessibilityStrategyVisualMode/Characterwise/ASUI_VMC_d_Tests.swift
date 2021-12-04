@@ -4,8 +4,8 @@ import XCTest
 
 class ASUI_VMC_d_Tests: ASUI_VM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement? {
-        return applyMove { asVisualMode.dForVisualStyleCharacterwise(on: $0)}
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+        return applyMove { asVisualMode.dForVisualStyleCharacterwise(on: $0, pgR: pgR)}
     }
 
 }
@@ -160,6 +160,38 @@ own empty
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 35)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+    }
+    
+}
+
+
+// PGR
+extension ASUI_VMC_d_Tests {
+    
+    func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+        let textInAXFocusedElement = """
+all that VM d does
+in characterwi😂️e is deleting
+the selection!
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(pgR: true)
+
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+all that VM d😂️e is deleting
+the selection!
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 13)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement?.selectedText, "😂️")
     }
     
 }
