@@ -1,5 +1,5 @@
 import XCTest
-import AccessibilityStrategy
+@testable import AccessibilityStrategy
 
 
 class ASUI_NM_rightChevronRightChevron_Tests: ASUI_NM_BaseTests {
@@ -24,8 +24,14 @@ seems that even the normal
        
         let accessibilityElement = applyMoveBeingTested()
             
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+seems that even the normal
+    🖕️ase fails LMAO
+"""
+        )
         XCTAssertEqual(accessibilityElement?.caretLocation, 31)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement?.selectedText, "🖕️")
     }
     
     func test_that_it_does_not_shift_the_line_if_the_line_is_considered_empty() {
@@ -41,8 +47,41 @@ or just a linefeed
         applyMove { asNormalMode.gk(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+a line empty means with nothing
+
+or just a linefeed
+"""
+        )
         XCTAssertEqual(accessibilityElement?.caretLocation, 32)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedText, "\n")
+    }
+    
+}
+
+
+// PGR
+extension ASUI_NM_rightChevronRightChevron_Tests {
+    
+    func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+        let textInAXFocusedElement = """
+seems that even the normal
+🖕️ase fails LMAO
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+       
+        let accessibilityElement = applyMoveBeingTested(pgR: true)
+            
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+seems that even the normal
+        🖕️ase fails LMAO
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement?.selectedText, "🖕️")
     }
     
 }
