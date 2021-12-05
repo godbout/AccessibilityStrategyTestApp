@@ -6,7 +6,7 @@
         "repositoryURL": "git@github.com:godbout/AccessibilityStrategy.git",
         "state": {
           "branch": "master",
-          "revision": "f72ace6457e16689a83da477704a9cb26c0a357b",
+          "revision": "adaadfa65c7f73a99b3c120343fd5ac08f2925e1",
           "version": null
         }
       },
@@ -15,7 +15,7 @@
         "repositoryURL": "git@github.com:godbout/AXEngine.git",
         "state": {
           "branch": "master",
-          "revision": "9779943bc3fc9ffa175b94be12a3ab28c79fb8eb",
+          "revision": "ddb2862b8660c7218c526f0e1358060e23984834",
           "version": null
         }
       },
