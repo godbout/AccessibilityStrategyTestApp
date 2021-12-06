@@ -142,6 +142,29 @@ and it would be beautiful
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
+    func test_that_if_the_head_and_the_anchor_are_equal_it_works() {
+        let textInAXFocusedElement = """
+empty line!!!
+
+yes there is
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+             
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
+
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+empty line!!!
+yes there is
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 14)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)    
+    }
+    
     func test_that_if_the_whole_text_is_to_be_deleted_well_it_gets_deleted_LOL() {
         let textInAXFocusedElement = """
 blah blah blah
