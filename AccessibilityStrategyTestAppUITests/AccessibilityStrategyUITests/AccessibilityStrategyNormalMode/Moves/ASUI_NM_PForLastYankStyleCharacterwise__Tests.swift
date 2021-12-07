@@ -68,6 +68,23 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
+    func test_that_if_the_text_to_paste_is_empty_it_does_not_move_backwards() {
+        let textInAXFocusedElement = "possible because of PGR"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.h(on: $0) }
+
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("", forType: .string)
+        
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement?.fileText.value, "possible because of PGR")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 22)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+    }
+    
 }
 
 
@@ -157,6 +174,33 @@ here's the last one
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 45)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+    }
+    
+    func test_that_if_the_text_to_paste_is_empty_it_does_not_move_backwards_and_definitely_does_not_end_up_after_the_end_limit_of_the_previous_line() {
+        let textInAXFocusedElement = """
+still possible coz of PGR
+
+and fucking AX restrictions in browsers
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("", forType: .string)
+        
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+still possible coz of PGR
+
+and fucking AX restrictions in browsers
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
     }
     
