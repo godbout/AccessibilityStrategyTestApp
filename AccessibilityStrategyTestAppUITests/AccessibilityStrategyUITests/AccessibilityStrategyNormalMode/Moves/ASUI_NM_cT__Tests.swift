@@ -4,8 +4,30 @@ import XCTest
 
 class ASUI_NM_cT__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(to character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.cT(to: character, on: $0, pgR: pgR) }
+    private func applyMoveBeingTested(times count: Int = 1, to character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
+        return applyMove { asNormalMode.cT(times: count, to: character, on: $0, pgR: pgR) }
+    }
+    
+}
+
+
+// count
+extension ASUI_NM_cT__Tests {
+    
+    func test_that_it_implements_the_count_system() {
+        let textInAXFocusedElement = "here we gonna delete up to 🕑️ characters rather than 🦴️!"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.F(to: "u", on: $0) }
+        applyMove { asNormalMode.ge(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(times: 2, to: "e")
+        
+        XCTAssertEqual(accessibilityElement?.fileText.value, "here we gonna dee up to 🕑️ characters rather than 🦴️!")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 16)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement?.selectedText, "")
     }
     
 }
