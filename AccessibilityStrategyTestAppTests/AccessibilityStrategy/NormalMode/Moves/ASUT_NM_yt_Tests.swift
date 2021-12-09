@@ -7,8 +7,69 @@ import XCTest
 // we don't bother with caretLocation and stuff coz they're completely untouched
 class ASUT_NM_yt_Tests: ASNM_BaseTests {
     
-    private func applyMoveBeingTested(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.yt(to: character, on: element) 
+    private func applyMoveBeingTested(times count: Int = 1, with character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.yt(times: count, to: character, on: element) 
+    }
+    
+}
+
+
+// count
+extension ASUT_NM_yt_Tests {
+    
+    func test_that_it_implements_the_count_system() {
+        let text = "we gonna look for a third letter 💌️💌️💌️ rather than a first one"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 66,
+            caretLocation: 24,
+            selectedLength: 1,
+            selectedText: "d",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 66,
+                number: 1,
+                start: 0,
+                end: 66
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(times: 3, with: "e", on: element)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "d letter 💌️💌️💌️ rath")
+        XCTAssertEqual(returnedElement?.caretLocation, 24)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_if_the_count_is_too_high_and_therefore_character_is_not_found_then_it_does_not_move() {
+        let text = "now the count is gonna be too high so we can't 🍔️🍔️🍔️ find the fucking character"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 83,
+            caretLocation: 47,
+            selectedLength: 3,
+            selectedText: "🍔️",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 83,
+                number: 1,
+                start: 0,
+                end: 62
+            )!
+        )
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("404 character not found", forType: .string)
+        
+        let returnedElement = applyMoveBeingTested(times: 69, with: "i", on: element)
+
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")
+        XCTAssertEqual(returnedElement?.caretLocation, 47)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }
@@ -38,7 +99,7 @@ them like nothin🇫🇷️ happened. that's how special it is.
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(to: "w", on: element)
+        let returnedElement = applyMoveBeingTested(with: "w", on: element)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "🇫🇷️ happened. that's ho")
         XCTAssertEqual(returnedElement?.caretLocation, 78)
@@ -70,7 +131,7 @@ extension ASUT_NM_yt_Tests {
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(to: "s", on: element)
+        let returnedElement = applyMoveBeingTested(with: "s", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "e yt on thi")
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -102,7 +163,7 @@ that is not there
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("404 character not found", forType: .string)
         
-        let returnedElement = applyMoveBeingTested(to: "z", on: element)
+        let returnedElement = applyMoveBeingTested(with: "z", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -137,7 +198,7 @@ on a line
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(to: "m", on: element)
+        let returnedElement = applyMoveBeingTested(with: "m", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "n a 🍌️ ")
         XCTAssertEqual(returnedElement?.selectedLength, 1)
