@@ -3,7 +3,7 @@ import XCTest
 
 
 // see dF for blah blah
-class ASNM_dt_Tests: ASNM_BaseTests {
+class ASUT_NM_dt_Tests: ASNM_BaseTests {
     
     private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.dt(to: character, on: element, pgR: false) 
@@ -13,7 +13,7 @@ class ASNM_dt_Tests: ASNM_BaseTests {
 
 
 // Both
-extension ASNM_dt_Tests {
+extension ASUT_NM_dt_Tests {
     
     func test_that_if_the_character_is_not_found_then_it_does_nothing() {
         let text = """
