@@ -5,10 +5,32 @@ import XCTest
 // see dF for blah blah
 class ASUI_NM_dt_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(with character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
         return applyMove(with: character) { character, focusedElement in
-            asNormalMode.dt(to: character, on: focusedElement, pgR: pgR)
+            asNormalMode.dt(times: count, to: character, on: focusedElement, pgR: pgR)
         }
+    }
+    
+}
+
+
+// count
+extension ASUI_NM_dt_Tests {
+    
+    func test_that_it_implements_the_count_system() {
+        let textInAXFocusedElement = "here we gonna delete up to 🕑️ characters rather than 🦴️!"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.F(to: "u", on: $0) }
+        applyMove { asNormalMode.ge(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(times: 2, with: "e")
+        
+        XCTAssertEqual(accessibilityElement?.fileText.value, "here we gonna deleter than 🦴️!")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 19)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedText, "e")
     }
     
 }
