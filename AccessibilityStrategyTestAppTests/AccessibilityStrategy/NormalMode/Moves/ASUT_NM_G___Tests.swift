@@ -4,8 +4,134 @@ import XCTest
 
 class ASUT_NM_G__Tests: ASNM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.G(on: element)
+    private func applyMoveBeingTested(times count: Int? = nil, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.G(times: count, on: element)
+    }
+    
+}
+
+
+// count
+extension ASUT_NM_G__Tests {
+    
+    func test_that_it_implements_the_count_system() {
+        let text = """
+ok now we've stop playing
+and we add count for gg and G
+  😂️nd we're gonna go to some line
+but hey surprise mofo
+"""        
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 113,
+            caretLocation: 112,
+            selectedLength: 1,
+            selectedText: "o",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 113,
+                number: 4,
+                start: 92,
+                end: 113
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(times: 3, on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 58)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_if_count_is_nil_then_it_goes_to_the_last_line() {
+        let text = """
+ok now we've stop playing
+and we add count for gg and G
+  😂️nd we're gonna go to some line
+but hey surprise mofo
+"""        
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 113,
+            caretLocation: 112,
+            selectedLength: 1,
+            selectedText: "o",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 113,
+                number: 4,
+                start: 92,
+                end: 113
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(times: nil, on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 92)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_if_count_is_1_then_it_goes_to_the_first_line() {
+        let text = """
+ok now we've stop playing
+and we add count for gg and G
+  😂️nd we're gonna go to some line
+but hey surprise mofo
+"""        
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 113,
+            caretLocation: 112,
+            selectedLength: 1,
+            selectedText: "o",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 113,
+                number: 4,
+                start: 92,
+                end: 113
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(times: 1, on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_if_the_count_is_too_high_it_goes_to_the_last_line() {
+        let text = """
+ok now we've stop playing
+and we add count for gg and G
+  😂️nd we're gonna go to some line
+but hey surprise mofo
+"""        
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 113,
+            caretLocation: 112,
+            selectedLength: 1,
+            selectedText: "o",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 113,
+                number: 4,
+                start: 92,
+                end: 113
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(times: 69, on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 92)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }
