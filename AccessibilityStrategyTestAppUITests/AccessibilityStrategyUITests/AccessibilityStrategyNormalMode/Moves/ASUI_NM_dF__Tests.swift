@@ -6,10 +6,32 @@ import XCTest
 // the block cursor is repositioned correctly when we found the character.
 class ASUI_NM_dF__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(with character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(times count: Int = 1, to character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
         return applyMove(with: character) { character, focusedElement in
-            asNormalMode.dF(to: character, on: focusedElement, pgR: pgR)
+            asNormalMode.dF(times: count, to: character, on: focusedElement, pgR: pgR)
         }
+    }
+    
+}
+
+
+// count
+extension ASUI_NM_dF__Tests {
+    
+    func test_that_it_implements_the_count_system() {
+        let textInAXFocusedElement = "here we gonna delete up to 🕑️ characters rather than 🦴️!"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.F(to: "u", on: $0) }
+        applyMove { asNormalMode.ge(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(times: 2, to: "e")
+        
+        XCTAssertEqual(accessibilityElement?.fileText.value, "here we gonna de up to 🕑️ characters rather than 🦴️!")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 15)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedText, "e")
     }
     
 }
@@ -27,7 +49,7 @@ on a lin😂️
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(with: "o")
+        let accessibilityElement = applyMoveBeingTested(to: "o")
         
         XCTAssertEqual(accessibilityElement?.fileText.value, """
 dF on a multiline
@@ -55,7 +77,7 @@ on a lin😂️
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(with: "o", pgR: true)
+        let accessibilityElement = applyMoveBeingTested(to: "o", pgR: true)
         
         XCTAssertEqual(accessibilityElement?.fileText.value, """
 dF on a multiline
