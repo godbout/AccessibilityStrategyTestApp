@@ -6,7 +6,7 @@ import XCTest
 // the block cursor is repositioned correctly when we found the character.
 class ASUI_NM_dF__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, to character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
         return applyMove(with: character) { character, focusedElement in
             asNormalMode.dF(times: count, to: character, on: focusedElement, pgR: pgR)
         }
@@ -26,7 +26,7 @@ extension ASUI_NM_dF__Tests {
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.F(to: "u", on: $0) }
         applyMove { asNormalMode.ge(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(times: 2, to: "e")
+        let accessibilityElement = applyMoveBeingTested(times: 2, with: "e")
         
         XCTAssertEqual(accessibilityElement?.fileText.value, "here we gonna de up to 🕑️ characters rather than 🦴️!")
         XCTAssertEqual(accessibilityElement?.caretLocation, 15)
@@ -49,7 +49,7 @@ on a lin😂️
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(to: "o")
+        let accessibilityElement = applyMoveBeingTested(with: "o")
         
         XCTAssertEqual(accessibilityElement?.fileText.value, """
 dF on a multiline
@@ -77,7 +77,7 @@ on a lin😂️
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(to: "o", pgR: true)
+        let accessibilityElement = applyMoveBeingTested(with: "o", pgR: true)
         
         XCTAssertEqual(accessibilityElement?.fileText.value, """
 dF on a multiline
