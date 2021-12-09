@@ -7,7 +7,7 @@ class ASUI_NM_df_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
         return applyMove(with: character) { character, focusedElement in
-            asNormalMode.df(to: character, on: focusedElement, pgR: pgR)
+            asNormalMode.df(times: count, to: character, on: focusedElement, pgR: pgR)
         }
     }
     
@@ -27,7 +27,7 @@ extension ASUI_NM_df_Tests {
         applyMove { asNormalMode.ge(on: $0) }
         let accessibilityElement = applyMoveBeingTested(times: 2, with: "e")
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "here we gonna deletrs rather than 🦴️!")
+        XCTAssertEqual(accessibilityElement?.fileText.value, "here we gonna deletr than 🦴️!")
         XCTAssertEqual(accessibilityElement?.caretLocation, 19)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
         XCTAssertEqual(accessibilityElement?.selectedText, "r")
