@@ -3,6 +3,9 @@ import XCTest
 
 
 // see `cw` for blah blah
+// but also, this is weird. `cW` works as described in the Vim doc: http://vimdoc.sourceforge.net/htmldoc/motion.html#word
+// but `cw` doesn't. currently both work but have different implementation. once we have `innerWORD`, we can replace the
+// current implementation of `cW`. even if they would both work, the `innerWORD` one is closer to `cw`, which is the right ome.
 class ASUI_NM_cW__Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
@@ -15,7 +18,8 @@ class ASUI_NM_cW__Tests: ASUI_NM_BaseTests {
 // both
 extension ASUI_NM_cW__Tests {
     
-    func test_that_if_the_caret_is_on_a_non_blank_it_selects_the_text_from_the_caret_to_the_end_of_the_current_word() {
+    // see `cw` for blah blah
+    func test_that_if_the_caret_is_on_a_non_blank_it_selects_the_text_from_the_caret_to_the_end_of_WORD() {
         let textInAXFocusedElement = "😂️😂️😂️😂️hehehe gonna use cw on this sentence"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -30,7 +34,7 @@ extension ASUI_NM_cW__Tests {
         XCTAssertEqual(accessibilityElement?.selectedText, "")
     }
     
-    func test_that_if_the_caret_is_on_a_blank_it_selects_the_text_from_the_caret_to_the_beginning_of_the_next_word() {
+    func test_that_if_the_caret_is_on_a_blank_it_selects_the_text_from_the_caret_to_the_beginning_of_the_next_WORD() {
         let textInAXFocusedElement = "😂️😂️😂️😂️hehehe                   gonna use cw on this sentence"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
