@@ -30,6 +30,21 @@ extension ASUI_NM_dw_Tests {
         XCTAssertEqual(accessibilityElement?.selectedText, "h")
     }
     
+    func test_that_it_deletes_correctly_when_we_are_at_the_last_word_of_the_text() {
+        let textInAXFocusedElement = "😂️😂️😂️😂️hehehe gonna use ce on this sentence"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.l(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement?.fileText.value, "😂️😂️😂️😂️hehehe gonna use ce on this s")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 40)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedText, "s")
+    }
+    
 }
 
 
