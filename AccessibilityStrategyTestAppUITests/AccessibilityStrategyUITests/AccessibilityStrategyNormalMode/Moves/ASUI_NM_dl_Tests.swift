@@ -2,17 +2,17 @@ import XCTest
 @testable import AccessibilityStrategy
 
 
-class ASUI_NM_x_Tests: ASUI_NM_BaseTests {
+class ASUI_NM_dl_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.x(on: $0, pgR: pgR) }
+        return applyMove { asNormalMode.dl(on: $0, pgR: pgR) }
     }
     
 }
 
 
 // Both
-extension ASUI_NM_x_Tests {
+extension ASUI_NM_dl_Tests {
     
     func test_that_in_normal_setting_it_deletes_the_character_after_the_caret_location() {
         let textInAXFocusedElement = "x should delete the right character"
@@ -31,7 +31,7 @@ extension ASUI_NM_x_Tests {
 
 
 // TextViews
-extension ASUI_NM_x_Tests {
+extension ASUI_NM_dl_Tests {
 
     func test_that_if_the_caret_is_at_the_last_character_of_a_line_that_does_not_end_with_a_linefeed_it_deletes_the_last_character_and_goes_back_one_character() {
         let textInAXFocusedElement = """
@@ -122,7 +122,7 @@ x
 
 
 // PGR
-extension ASUI_NM_x_Tests {
+extension ASUI_NM_dl_Tests {
     
     func test_that_in_normal_setting_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "x should delete the right character"
