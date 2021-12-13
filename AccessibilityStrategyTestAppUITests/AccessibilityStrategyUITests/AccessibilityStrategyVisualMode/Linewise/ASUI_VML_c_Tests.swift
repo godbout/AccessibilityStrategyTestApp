@@ -40,6 +40,60 @@ at least if we're not at the end of the text
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
     } 
+    
+    func test_that_it_keeps_the_indentation_of_the_first_selected_line_when_it_is_a_blank_line() {
+        let textInAXFocusedElement = """
+VM c in Linewise
+         
+but the below line will not go up
+at least if we're not at the end of the text
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.j(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+VM c in Linewise
+         
+at least if we're not at the end of the text
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement?.selectedText, "")
+    } 
+    
+    func test_that_it_keeps_the_indentation_of_the_first_selected_line_when_it_is_not_a_blank_line() {
+        let textInAXFocusedElement = """
+VM c in Linewise
+   will delete the selected lines
+but the below line will not go up
+at least if we're not at the end of the text
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.j(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+VM c in Linewise
+   
+at least if we're not at the end of the text
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 20)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement?.selectedText, "")
+    } 
 
 }
 
