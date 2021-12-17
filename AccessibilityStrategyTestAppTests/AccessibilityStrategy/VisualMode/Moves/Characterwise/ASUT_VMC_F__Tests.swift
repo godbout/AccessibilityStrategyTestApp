@@ -73,7 +73,6 @@ extension ASUT_VMC_F__Tests {
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    
 }
 
 
