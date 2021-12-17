@@ -6,7 +6,7 @@
         "repositoryURL": "git@github.com:godbout/AccessibilityStrategy.git",
         "state": {
           "branch": "master",
-          "revision": "9a30651ef3f814781bdc1252e6a6d2a89e9d2602",
+          "revision": "4d57bf95b6da6dba91e444167dae0f3216c3cb79",
           "version": null
         }
       },
@@ -15,7 +15,7 @@
         "repositoryURL": "git@github.com:godbout/AXEngine.git",
         "state": {
           "branch": "master",
-          "revision": "16d6305451e1be532430769ccb5ff23e02b20c18",
+          "revision": "5b44510a9879702d9e004072e7a6138bac24827a",
           "version": null
         }
       },
@@ -24,8 +24,17 @@
         "repositoryURL": "git@github.com:godbout/KeyCombination.git",
         "state": {
           "branch": "master",
-          "revision": "6babd7b21bbb09d4244ac4fa0575457dc6c152d6",
+          "revision": "b99e796c7156883cde4c588aaa1010d895b2b632",
           "version": null
+        }
+      },
+      {
+        "package": "Sauce",
+        "repositoryURL": "git@github.com:Clipy/Sauce.git",
+        "state": {
+          "branch": null,
+          "revision": "2fcf7e43a242b183fdea3f2275ebec0d773b65f5",
+          "version": "2.2.0"
         }
       }
     ]
