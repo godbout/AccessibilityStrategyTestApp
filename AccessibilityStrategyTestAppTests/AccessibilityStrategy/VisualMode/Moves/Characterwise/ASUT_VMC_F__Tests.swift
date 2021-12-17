@@ -7,9 +7,72 @@ import XCTest
 // are correct when character is found and not found.
 class ASUT_VMC_F__Tests: ASVM_BaseTests {
     
-    private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asVisualMode.FForVisualStyleCharacterwise(to: character, on: element)
+    private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asVisualMode.FForVisualStyleCharacterwise(times: count, to: character, on: element)
     }
+    
+}
+
+
+// count
+extension ASUT_VMC_F__Tests {
+    
+    func test_that_it_implements_the_count_system() {
+        let text = "check if F can 🍃️🍃️🍃️🍃️🍃️🍃️ find shit!"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 44,
+            caretLocation: 7,
+            selectedLength: 35,
+            selectedText: "f F can 🍃️🍃️🍃️🍃️🍃️🍃️ find shi",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 44,
+                number: 1,
+                start: 0,
+                end: 44
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 7
+        AccessibilityStrategyVisualMode.head = 42
+       
+        let returnedElement = applyMoveBeingTested(times: 2, to: "c", on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 3)
+        XCTAssertEqual(returnedElement?.selectedLength, 5)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_if_the_count_is_too_high_and_therefore_character_is_not_found_then_it_does_not_move() {
+        let text = "check if F can 🍃️🍃️🍃️🍃️🍃️🍃️ find shit!"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 44,
+            caretLocation: 7,
+            selectedLength: 35,
+            selectedText: "f F can 🍃️🍃️🍃️🍃️🍃️🍃️ find shi",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 44,
+                number: 1,
+                start: 0,
+                end: 44
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 7
+        AccessibilityStrategyVisualMode.head = 42
+       
+        let returnedElement = applyMoveBeingTested(times: 69, to: "c", on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 7)
+        XCTAssertEqual(returnedElement?.selectedLength, 35)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
     
 }
 
@@ -38,7 +101,7 @@ extension ASUT_VMC_F__Tests {
         AccessibilityStrategyVisualMode.anchor = 7
         AccessibilityStrategyVisualMode.head = 42
        
-        let returnedElement = applyMove(to: "c", on: element)
+        let returnedElement = applyMoveBeingTested(to: "c", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 7)
         XCTAssertEqual(returnedElement?.selectedLength, 5)
@@ -71,7 +134,7 @@ of newHeadLocation needs some... calculation.
         AccessibilityStrategyVisualMode.anchor = 93
         AccessibilityStrategyVisualMode.head = 58
         
-        let returnedElement = applyMove(to: "s", on: element)
+        let returnedElement = applyMoveBeingTested(to: "s", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 54)
         XCTAssertEqual(returnedElement?.selectedLength, 40)
@@ -103,7 +166,7 @@ that is not there
         AccessibilityStrategyVisualMode.anchor = 13
         AccessibilityStrategyVisualMode.head = 15
         
-        let returnedElement = applyMove(to: "z", on: element)
+        let returnedElement = applyMoveBeingTested(to: "z", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 13)
         XCTAssertEqual(returnedElement?.selectedLength, 3)
@@ -131,7 +194,7 @@ that is not there
         AccessibilityStrategyVisualMode.anchor = 15
         AccessibilityStrategyVisualMode.head = 4
        
-        let returnedElement = applyMove(to: "b", on: element)
+        let returnedElement = applyMoveBeingTested(to: "b", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 4)
         XCTAssertEqual(returnedElement?.selectedLength, 12)
