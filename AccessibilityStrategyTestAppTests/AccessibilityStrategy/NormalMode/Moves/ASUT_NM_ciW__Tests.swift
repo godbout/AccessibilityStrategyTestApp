@@ -1,8 +1,6 @@
-//
-//  ASUT_NM_ciW__Tests.swift
-//  AccessibilityStrategyTestAppTests
-//
-//  Created by Guillaume Leclerc on 18/12/2021.
-//
+@testable import AccessibilityStrategy
+import XCTest
 
-import Foundation
+
+// see ciw
+class ASUT_NM_ciW__Tests: ASNM_BaseTests {}
