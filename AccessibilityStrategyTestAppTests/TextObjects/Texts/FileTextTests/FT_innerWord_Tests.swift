@@ -24,7 +24,7 @@ extension FT_innerWordTests_Tests {
     }
     
     func test_that_if_the_caret_is_on_a_letter_if_finds_the_correct_inner_word() {
-        let text = "ok we're gonna try to get the inner word here"
+        let text = "ok we're gonna-try to get the inner word here"
         
         let fileText = FileText(end: text.utf16.count, value: text)
         let wordRange = fileText.innerWord(startingAt: 10)
@@ -34,7 +34,7 @@ extension FT_innerWordTests_Tests {
     }
     
     func test_that_if_the_caret_is_on_a_space_the_inner_word_is_all_the_consecutive_spaces() {
-        let text = "ok so now we have a lot of     spaces"
+        let text = "ok so now we have a lot of     --spaces"
         
         let fileText = FileText(end: text.utf16.count, value: text)
         let wordRange = fileText.innerWord(startingAt: 28)
@@ -44,17 +44,17 @@ extension FT_innerWordTests_Tests {
     }
     
     func test_that_if_the_caret_is_on_a_single_space_it_recognizes_it_as_an_inner_word() {
-        let text = "a single space is an inner word"
+        let text = "a single space is an-- ^^inner word"
         
         let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.innerWord(startingAt: 20)
+        let wordRange = fileText.innerWord(startingAt: 22)
         
-        XCTAssertEqual(wordRange.lowerBound, 20)
-        XCTAssertEqual(wordRange.upperBound, 20) 
+        XCTAssertEqual(wordRange.lowerBound, 22)
+        XCTAssertEqual(wordRange.upperBound, 22) 
     }
     
     func test_that_if_the_TextField_starts_with_spaces_it_finds_the_correct_inner_word() {
-        let text = "     that's lots of spaces"
+        let text = "     **that's lots of spaces"
         
         let fileText = FileText(end: text.utf16.count, value: text)
         let wordRange = fileText.innerWord(startingAt: 4)
@@ -64,13 +64,13 @@ extension FT_innerWordTests_Tests {
     }
     
     func test_that_if_the_TextField_ends_with_spaces_it_still_gets_the_correct_inner_word() {
-        let text = "that's lots of spaces again       "
+        let text = "that's lots of spaces again**       "
         
         let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.innerWord(startingAt: 29)
+        let wordRange = fileText.innerWord(startingAt: 31)
         
-        XCTAssertEqual(wordRange.lowerBound, 27)
-        XCTAssertEqual(wordRange.upperBound, 34) 
+        XCTAssertEqual(wordRange.lowerBound, 29)
+        XCTAssertEqual(wordRange.upperBound, 36) 
     }
 
 }
@@ -83,7 +83,7 @@ extension FT_innerWordTests_Tests {
         let text = """
 this shouldn't
 spill      
-   on the next line
+   on the next line--
 """
         
         let fileText = FileText(end: text.utf16.count, value: text)
@@ -117,7 +117,7 @@ spill also
 extension FT_innerWordTests_Tests {
     
     func test_that_it_handles_emojis() {
-        let text = "emojis are symbols that 🔫️🔫️🔫️ are longer than 1 length"
+        let text = "emojis are symbols that 🔫️🔫️🔫️*** are longer than 1 length"
         
         let fileText = FileText(end: text.utf16.count, value: text)
         let wordRange = fileText.innerWord(startingAt: 27)
@@ -127,13 +127,13 @@ extension FT_innerWordTests_Tests {
     }
     
     func test_that_it_does_not_do_shit_with_emojis_before_a_space() {
-        let text = "emojis are symbols that 🔫️🔫️🔫️ are longer than 1 length"
+        let text = "emojis are symbols that ***🔫️🔫️🔫️ are longer than 1 length"
         
         let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.innerWord(startingAt: 33)
+        let wordRange = fileText.innerWord(startingAt: 36)
         
-        XCTAssertEqual(wordRange.lowerBound, 33)
-        XCTAssertEqual(wordRange.upperBound, 33)                
+        XCTAssertEqual(wordRange.lowerBound, 36)
+        XCTAssertEqual(wordRange.upperBound, 36)                
     }
     
 }
