@@ -21,7 +21,7 @@ extension FT_aWord_Tests {
     }
     
     func test_that_if_there_is_a_word_after_whitespaces_it_goes_until_the_end_of_that_word() {
-        let text = "        aWord and another"
+        let text = "        aWord-and another"
 
         let fileText = FileText(end: text.utf16.count, value: text)
         let wordRange = fileText.aWord(startingAt: 2)
@@ -31,7 +31,7 @@ extension FT_aWord_Tests {
     }
     
     func test_that_if_there_are_spaces_between_two_words_it_goes_from_the_end_of_the_word_backward_till_the_end_of_the_word_forward() {
-        let text = "  aWord        aWord and another"
+        let text = "  aWord        aWord-and another"
 
         let fileText = FileText(end: text.utf16.count, value: text)
         let wordRange = fileText.aWord(startingAt: 10)
@@ -43,7 +43,7 @@ extension FT_aWord_Tests {
     func test_that_it_does_not_stop_at_linefeeds_going_forward() {
         let text = """
 there's 5 spaces at the end of this line     
-   careful that Xcode doesn't delete them
+   careful-that Xcode doesn't delete them
 """
 
         let fileText = FileText(end: text.utf16.count, value: text)
@@ -56,7 +56,7 @@ there's 5 spaces at the end of this line
     func test_that_it_does_not_stop_at_linefeeds_going_backward() {
         let text = """
 there's 5 spaces at the end of this line     
-   careful that Xcode doesn't delete them
+   careful-that Xcode doesn't delete them
 """
 
         let fileText = FileText(end: text.utf16.count, value: text)
@@ -95,7 +95,7 @@ the last line is empty
     }
         
     func test_that_if_there_are_no_trailing_spaces_and_no_leading_spaces_it_grabs_from_the_beginning_to_the_end_of_the_word() {
-        let text = "aWord"
+        let text = "aWord-hehe"
 
         let fileText = FileText(end: text.utf16.count, value: text)
         let wordRange = fileText.aWord(startingAt: 3)
@@ -105,7 +105,7 @@ the last line is empty
     }
     
     func test_that_if_there_are_trailing_spaces_until_the_beginning_of_a_word_forward_it_grabs_them_and_therefore_does_not_grab_leading_spaces() {
-        let text = "this is aWord   can you believe it?"
+        let text = "this is-aWord   can you believe it?"
 
         let fileText = FileText(end: text.utf16.count, value: text)
         let wordRange = fileText.aWord(startingAt: 11)
@@ -115,7 +115,7 @@ the last line is empty
     }
     
     func test_that_if_there_are_trailing_spaces_until_the_end_of_the_text_it_grabs_them_and_therefore_does_not_grab_leading_spaces() {
-        let text = "this is something       "
+        let text = "this is-something       "
 
         let fileText = FileText(end: text.utf16.count, value: text)
         let wordRange = fileText.aWord(startingAt: 13)
@@ -125,16 +125,16 @@ the last line is empty
     }
     
     func test_that_it_grabs_the_trailing_spaces_until_the_end_of_the_text_if_there_is_no_word_forward() {
-        let text = "aWord      "
+        let text = "a-Word      "
 
         let fileText = FileText(end: text.utf16.count, value: text)
         let wordRange = fileText.aWord(startingAt: 3)
 
-        XCTAssertEqual(wordRange?.lowerBound, 0)
-        XCTAssertEqual(wordRange?.upperBound, 10)
+        XCTAssertEqual(wordRange?.lowerBound, 2)
+        XCTAssertEqual(wordRange?.upperBound, 11)
     }
     
-    func test_that_if_there_are_no_trailing_spaces_until_the_beginning_of_a_word_forward_then_it_until_the_end_of_the_word_backward() {
+    func test_that_if_there_are_no_trailing_spaces_until_the_beginning_of_a_word_forward_then_it_grabs_until_the_end_of_the_word_backward() {
         let text = "some     aWord(and another"
 
         let fileText = FileText(end: text.utf16.count, value: text)
@@ -176,7 +176,7 @@ the last line is empty
     
     func test_that_it_stops_at_linefeeds_when_looking_for_the_word_forward() {
         let text = """
-this line ends with 3 spaces   
+this line ends with 3-spaces   
   and this line should be kept intact
 """
 
@@ -187,6 +187,7 @@ this line ends with 3 spaces
         XCTAssertEqual(wordRange?.upperBound, 30)
     }
     
+    // TODO: the test is wrong
     func test_that_if_there_are_no_trailing_spaces_until_the_word_forward_it_stops_at_linefeeds_when_looking_for_the_word_backward() {
         let text = """
 this line ends with 3 spaces   
@@ -200,6 +201,7 @@ this line ends with 3 spaces
         XCTAssertEqual(wordRange?.upperBound, 36)
     }
     
+    // TODO: the func name is wrong
     func test_that_if_there_are_no_trailing_spaces_because_there_is_no_word_forward_and_the_previous_non_blank_before_the_word_is_a_linefeed_then_it_stops_at_the_linefeed_when_looking_for_the_word_backward() {
         let text = """
 this line ends with 3 spaces   
