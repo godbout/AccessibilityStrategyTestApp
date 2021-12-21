@@ -3,17 +3,72 @@ import XCTest
 
 
 // see b for blah blah
-class ASNM_gE__Tests: ASNM_BaseTests {
+class ASUT_NM_gE__Tests: ASNM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.gE(on: element) 
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.gE(times: count, on: element) 
     }
     
 }
 
 
+// count
+extension ASUT_NM_gE__Tests {
+    
+    func test_that_it_implements_the_count_system() {
+        let text = "we gonna move in-there with-count 🈹️ awww"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 42,
+            caretLocation: 30,
+            selectedLength: 1,
+            selectedText: "u",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 42,
+                number: 1,
+                start: 0,
+                end: 42
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(times: 3, on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 7)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_it_stops_at_the_beginning_of_the_text_if_the_count_is_too_high() {
+        let text = "😀️e gonna move in there with count 🈹️ awww"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 44,
+            caretLocation: 32,
+            selectedLength: 1,
+            selectedText: "u",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 44,
+                number: 1,
+                start: 0,
+                end: 44
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(times: 69, on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+}
+
+
 // emojis
-extension ASNM_gE__Tests {
+extension ASUT_NM_gE__Tests {
     
     func test_that_it_returns_the_correct_selectedLength() {
         let text = """
@@ -37,7 +92,7 @@ itself does
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.selectedLength, 3)
     }
