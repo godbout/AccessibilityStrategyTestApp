@@ -11,6 +11,7 @@ class ASUT_VMC_iw_Tests: ASVM_BaseTests {
 }
 
 
+// TODO: may be worth to specificy `word` here as `inner_word`.
 // Both
 extension ASUT_VMC_iw_Tests {
     
