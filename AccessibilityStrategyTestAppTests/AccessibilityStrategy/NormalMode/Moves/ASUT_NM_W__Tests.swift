@@ -5,10 +5,65 @@ import XCTest
 // see b for blah blah
 class ASUT_NM_W__Tests: ASNM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.W(on: element)
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.W(times: count, on: element)
     }
     
+}
+
+
+// count
+extension ASUT_NM_W__Tests {
+    
+    func test_that_it_implements_the_count_system() {
+        let text = "we gonna move in-there with-count 🈹️ awww"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 42,
+            caretLocation: 11,
+            selectedLength: 1,
+            selectedText: "v",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 42,
+                number: 1,
+                start: 0,
+                end: 42
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(times: 3, on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 34)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_it_stops_at_the_end_limit_if_the_count_goes_above_it() {
+        let text = "we gonna move in-there with-count 🈹️ awww"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 42,
+            caretLocation: 28,
+            selectedLength: 1,
+            selectedText: "c",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 42,
+                number: 1,
+                start: 0,
+                end: 42
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(times: 69, on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 41)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
 }
 
 
@@ -33,7 +88,7 @@ extension ASUT_NM_W__Tests {
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 61)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -61,7 +116,7 @@ you little mf
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 29)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
