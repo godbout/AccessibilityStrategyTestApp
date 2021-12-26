@@ -11,6 +11,36 @@ class ASUI_VMC_c_Tests: ASUI_VM_BaseTests {
 }
 
 
+// copy deleted text
+extension ASUI_VMC_c_Tests {
+    
+    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
+        let textInAXFocusedElement = """
+like same as above
+but on multiple
+lines because
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.e(on: $0) }
+        applyMove { asNormalMode.e(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
+        _ = applyMoveBeingTested()
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
+e as above
+but on multiple
+lines bec
+"""
+        )
+    }
+}
+
+
 // Both
 extension ASUI_VMC_c_Tests {
 
