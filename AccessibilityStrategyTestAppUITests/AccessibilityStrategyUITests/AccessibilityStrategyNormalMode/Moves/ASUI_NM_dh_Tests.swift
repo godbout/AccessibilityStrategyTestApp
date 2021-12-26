@@ -11,6 +11,41 @@ class ASUI_NM_dh_Tests: ASUI_NM_BaseTests {
 }
 
 
+// copy deleted text
+extension ASUI_NM_dh_Tests {
+    
+    // this case does include empty lines
+    func test_that_for_if_the_caret_is_at_the_start_of_a_line_it_not_copy_the_deleted_text_to_the_pasteboard() {
+        let textInAXFocusedElement = """
+so we're at the start of the second line
+and a shouldn't get deleted and
+we should stay there
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+      
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.zero(on: $0) }
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("nope you don't copy mofo", forType: .string)
+        _ = applyMoveBeingTested()
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "nope you don't copy mofo")
+    }
+    
+    func test_that_else_it_copies_the_deleted_text_in_the_pasteboard() {
+        let textInAXFocusedElement = "X should delete the right character😂️😂️😂️😂️"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+
+        applyMove { asNormalMode.b(on: $0) }
+        _ = applyMoveBeingTested()
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️")
+    }
+}
+
+
 // Both
 extension ASUI_NM_dh_Tests {
     
