@@ -11,6 +11,34 @@ class ASUI_VMC_d_Tests: ASUI_VM_BaseTests {
 }
 
 
+// copy deleted text
+extension ASUI_VMC_d_Tests {
+    
+    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
+        let textInAXFocusedElement = """
+all that VM d does
+in characterwi😂️e is deleting
+the selection!
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        _ = applyMoveBeingTested()
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
+does
+in characterwi
+"""
+        )
+    }
+}
+
+
 extension ASUI_VMC_d_Tests {
     
     func test_that_it_simply_deletes_the_selection() {

@@ -11,6 +11,35 @@ class ASUI_VML_d_Tests: ASUI_VM_BaseTests {
 }
 
 
+// copy deleted text
+extension ASUI_VML_d_Tests {
+    
+    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
+        let textInAXFocusedElement = """
+we gonna use VM
+d here and we suppose
+one extra line in between!
+      ⛱️o go to non blank of the line
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        _ = applyMoveBeingTested()
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
+d here and we suppose
+one extra line in between!\n
+"""
+        )
+    }
+}
+
+
 // Both
 extension ASUI_VML_d_Tests {
     
