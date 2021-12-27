@@ -11,6 +11,30 @@ class ASUI_NM_dd_Tests: ASUI_NM_BaseTests {
 }
 
 
+// copy deleted text
+extension ASUI_NM_dd_Tests {
+    
+    func test_that_for_if_the_caret_is_at_the_start_of_a_line_it_not_copy_the_deleted_text_to_the_pasteboard() {
+        let textInAXFocusedElement = """
+if the next line is just blank characters
+then there is no firstNonBlank so we need
+          
+to stop at the end limit of the line
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.ge(on: $0) }
+        applyMove { asNormalMode.ge(on: $0) }
+        _ = applyMoveBeingTested()
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "then there is no firstNonBlank so we need\n")
+    }
+    
+}
+
+
 // TextFields
 extension ASUI_NM_dd_Tests {
     
