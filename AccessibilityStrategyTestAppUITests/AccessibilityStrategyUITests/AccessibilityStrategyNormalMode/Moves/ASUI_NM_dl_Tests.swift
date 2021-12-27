@@ -25,8 +25,7 @@ but shouldn't be deleted
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("nope you don't copy mofo", forType: .string)
+        copyToClipboard(text: "nope you don't copy mofo")
         _ = applyMoveBeingTested()
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "nope you don't copy mofo")

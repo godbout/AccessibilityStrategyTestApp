@@ -14,7 +14,7 @@ class ASUI_NM_dd_Tests: ASUI_NM_BaseTests {
 // copy deleted text
 extension ASUI_NM_dd_Tests {
     
-    func test_that_for_if_the_caret_is_at_the_start_of_a_line_it_not_copy_the_deleted_text_to_the_pasteboard() {
+    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
         let textInAXFocusedElement = """
 if the next line is just blank characters
 then there is no firstNonBlank so we need

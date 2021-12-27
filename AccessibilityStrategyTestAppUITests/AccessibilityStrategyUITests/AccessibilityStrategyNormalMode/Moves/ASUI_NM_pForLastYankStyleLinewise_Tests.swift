@@ -21,10 +21,7 @@ extension ASUI_NM_pForLastYankStyleLinewise_Tests {
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("text to pasta", forType: .string)
-
+        copyToClipboard(text: "text to pasta")
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.fileText.value, "ltext to pastainewise for TF is still pasted characterwise!")
@@ -39,10 +36,7 @@ extension ASUI_NM_pForLastYankStyleLinewise_Tests {
         
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("yanked with the linefeed\n", forType: .string)
-
+        copyToClipboard(text: "yanked with the linefeed\n")
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.fileText.value, "we should not paste linefeeds in the yanked with the linefeedTF")
@@ -68,10 +62,7 @@ a linefeed at the end of the line
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("should paste that somewhere\n", forType: .string)
-        
+        copyToClipboard(text: "should paste that somewhere\n")
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.fileText.value, """
@@ -98,10 +89,7 @@ if we are not pasting on the last line
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("we pasted the last line so no linefeed", forType: .string)
-        
+        copyToClipboard(text: "we pasted the last line so no linefeed")
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.fileText.value, """
@@ -127,10 +115,7 @@ ourselves
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("new line to paste after last line\n", forType: .string)
-        
+        copyToClipboard(text: "new line to paste after last line\n")
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.fileText.value, """
@@ -157,10 +142,7 @@ to the first non blank of the copied line
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.ge(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("   🤍️he copied line has 🤍️🤍️🤍️ non blanks\n", forType: .string)
-        
+        copyToClipboard(text: "   🤍️he copied line has 🤍️🤍️🤍️ non blanks\n")
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.fileText.value, """
@@ -183,10 +165,7 @@ not add a linefeed
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 3 of The 3 Cases for TextArea linewise\n", forType: .string)
-        
+        copyToClipboard(text: "test 3 of The 3 Cases for TextArea linewise\n")
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.fileText.value, """
@@ -214,10 +193,7 @@ extension ASUI_NM_pForLastYankStyleLinewise_Tests {
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("text to pasta", forType: .string)
-
+        copyToClipboard(text: "text to pasta")
         let accessibilityElement = applyMoveBeingTested(pgR: true)
 
         XCTAssertEqual(accessibilityElement?.fileText.value, "ltext to pastatext to pastainewise for TF is still pasted characterwise!")
@@ -239,10 +215,7 @@ a linefeed at the end of the line
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("should paste that somewhere\n", forType: .string)
-        
+        copyToClipboard(text: "should paste that somewhere\n")
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
         XCTAssertEqual(accessibilityElement?.fileText.value, """

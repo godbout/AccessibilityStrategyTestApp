@@ -58,10 +58,8 @@ extension ASUT_NM_yT__Tests {
                 end: 62
             )!
         )
-                
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("404 character not found", forType: .string)
-        
+               
+        copyToClipboard(text: "404 character not found")
         let returnedElement = applyMoveBeingTested(times: 69, with: "i", on: element)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")
@@ -159,9 +157,7 @@ that is not there
             )!
         )
         
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("404 character not found", forType: .string)
-        
+        copyToClipboard(text: "404 character not found")
         let returnedElement = applyMoveBeingTested(with: "z", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")

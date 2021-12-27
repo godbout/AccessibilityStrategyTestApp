@@ -21,10 +21,7 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("text to pasta 🍕️!!🍔️", forType: .string)
-        
+        copyToClipboard(text: "text to pasta 🍕️!!🍔️")
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.fileText.value, "🍕️🍕️text to pasta 🍕️!!🍔️🍕️")
@@ -39,10 +36,7 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("paste me daddy", forType: .string)
-        
+        copyToClipboard(text: "paste me daddy")
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.fileText.value, "paste me daddyP linewise for TF is still pasted characterwise!")
@@ -57,10 +51,7 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("yanked with the linefeed hum hum\n", forType: .string)
-        
+        copyToClipboard(text: "yanked with the linefeed hum hum\n")
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.fileText.value, "P should not paste linefeeds in theyanked with the linefeed hum hum TF")
@@ -74,10 +65,7 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("", forType: .string)
-        
+        copyToClipboard(text: "")
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.fileText.value, "possible because of PGR")
@@ -104,10 +92,7 @@ ho ho ho
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("pastaing", forType: .string)
-
+        copyToClipboard(text: "pastaing")
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.fileText.value, """
@@ -133,10 +118,7 @@ ho ho ho
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("😂️astaing\nmy man!", forType: .string)
-
+        copyToClipboard(text: "😂️astaing\nmy man!")
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.fileText.value, """
@@ -161,10 +143,7 @@ here's the last one
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("text for the new line", forType: .string)
-
+        copyToClipboard(text: "text for the new line")
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement?.fileText.value, """
@@ -188,10 +167,7 @@ and fucking AX restrictions in browsers
         
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("", forType: .string)
-        
+        copyToClipboard(text: "")
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement?.fileText.value, """
@@ -216,10 +192,7 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("text to pasta 🍕️!!🍔️", forType: .string)
-        
+        copyToClipboard(text: "text to pasta 🍕️!!🍔️")
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
         XCTAssertEqual(accessibilityElement?.fileText.value, "🍕️🍕️text to pasta 🍕️!!🍔️text to pasta 🍕️!!🍔️🍕️")
@@ -241,10 +214,7 @@ ho ho ho
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("😂️astaing\nmy man!", forType: .string)
-
+        copyToClipboard(text: "😂️astaing\nmy man!")
         let accessibilityElement = applyMoveBeingTested(pgR: true)
 
         XCTAssertEqual(accessibilityElement?.fileText.value, """

@@ -33,9 +33,7 @@ extension ASNM_yiInnerQuotedString_Tests {
             )!
         )
         
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("no double quote", forType: .string)
-        
+        copyToClipboard(text: "no double quote")
         let returnedElement = applyMove(using: "\"", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "no double quote")
@@ -64,9 +62,7 @@ now there's one " double quote
             )!
         )
         
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("only one double quote", forType: .string)
-        
+        copyToClipboard(text: "only one double quote")
         let returnedElement = applyMove(using: "\"", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "only one double quote")
@@ -154,9 +150,7 @@ double "quotes" before the caret
             )!
         )
         
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("caret after double quote", forType: .string)
-        
+        copyToClipboard(text: "caret after double quote")
         let returnedElement = applyMove(using: "\"", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "caret after double quote")

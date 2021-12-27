@@ -117,9 +117,7 @@ should set Visu
             )!
         )
         
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 1 of The 3 Cases VM y", forType: .string)
-        
+        asVisualMode.copyToClipboard(text: "test 1 for The 3 Cases VM y")
         var lastYankStyle: VimEngineMoveStyle = .characterwise
         let returnedElement = applyMove(on: element, &lastYankStyle)
         
@@ -151,9 +149,7 @@ line
             )!
         )
         
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 3 of The 3 Cases VM y", forType: .string)
-        
+        asVisualMode.copyToClipboard(text: "test 3 of The 3 Cases VM y")
         var lastYankStyle: VimEngineMoveStyle = .characterwise
         let returnedElement = applyMove(on: element, &lastYankStyle)
         

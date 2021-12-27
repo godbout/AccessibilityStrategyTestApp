@@ -157,9 +157,7 @@ my friend
             )!
         )
         
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 1 of The 3 Cases", forType: .string)
-        
+        copyToClipboard(text: "test 1 of The 3 Cases")
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
@@ -191,9 +189,7 @@ line
             )!
         )
         
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 3 of The 3 Cases", forType: .string)
-        
+        copyToClipboard(text: "test 3 of The 3 cases")
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
