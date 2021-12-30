@@ -14,7 +14,7 @@ class ASUI_NM_ciw_Tests: ASUI_NM_BaseTests {
 // copy deleted text
 extension ASUI_NM_ciw_Tests {
     
-    func test_that_else_it_copies_the_deleted_text_in_the_pasteboard() {
+    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
         let textInAXFocusedElement = "that's some cute-boobies      text in here don't you think?"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)

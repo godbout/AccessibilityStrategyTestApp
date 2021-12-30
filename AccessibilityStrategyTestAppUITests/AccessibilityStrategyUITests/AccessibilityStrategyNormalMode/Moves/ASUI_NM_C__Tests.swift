@@ -14,7 +14,7 @@ class ASUI_NM_C__Tests: ASUI_NM_BaseTests {
 // copy deleted text
 extension ASUI_NM_C__Tests {
     
-    func test_that_else_it_copies_the_deleted_text_in_the_pasteboard() {
+    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
         let textInAXFocusedElement = """
 C will now work with file lines and is supposed to delete from the caret ☀️ to before the linefeed
 and of course this is in the case there is a linefeed at the end of the line.
