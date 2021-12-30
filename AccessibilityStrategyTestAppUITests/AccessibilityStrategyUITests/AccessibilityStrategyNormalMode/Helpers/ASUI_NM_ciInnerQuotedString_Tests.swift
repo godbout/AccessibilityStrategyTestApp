@@ -12,6 +12,26 @@ class ASUI_NM_ciInnerQuotedString_Tests: ASUI_NM_BaseTests {
 }
 
 
+// copy deleted text
+extension ASUI_NM_ciInnerQuotedString_Tests {
+    
+    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
+        let textInAXFocusedElement = """
+finally dealing with the "real stuff"!
+"""
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.F(to: "l", on: $0) }
+        copyToClipboard(text: "some fake shit")
+        _ = applyMoveBeingTested(using: "\"")
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "real stuff")
+    }
+    
+}
+
+
 extension ASUI_NM_ciInnerQuotedString_Tests {
     
     func test_that_if_the_caret_is_between_quotes_the_content_within_the_quotes_is_deleted_and_the_caret_moves() {
