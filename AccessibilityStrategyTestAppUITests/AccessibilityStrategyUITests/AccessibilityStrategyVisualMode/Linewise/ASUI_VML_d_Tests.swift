@@ -29,6 +29,7 @@ one extra line in between!
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        copyToClipboard(text: "some fake shit")
         _ = applyMoveBeingTested()
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """

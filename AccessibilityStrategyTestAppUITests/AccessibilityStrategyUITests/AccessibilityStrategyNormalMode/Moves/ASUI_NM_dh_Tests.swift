@@ -26,7 +26,7 @@ we should stay there
       
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
-        asVisualMode.copyToClipboard(text: "nope you don't copy mofo")
+        copyToClipboard(text: "nope you don't copy mofo")
         _ = applyMoveBeingTested()
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "nope you don't copy mofo")
@@ -38,6 +38,7 @@ we should stay there
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.b(on: $0) }
+        copyToClipboard(text: "some fake shit")
         _ = applyMoveBeingTested()
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️")

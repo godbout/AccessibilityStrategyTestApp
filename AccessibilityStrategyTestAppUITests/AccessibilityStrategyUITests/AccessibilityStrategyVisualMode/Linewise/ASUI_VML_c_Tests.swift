@@ -28,6 +28,7 @@ at least if we're not at the end of the text
         applyMove { asNormalMode.j(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        copyToClipboard(text: "some fake shit")
         _ = applyMoveBeingTested()
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """

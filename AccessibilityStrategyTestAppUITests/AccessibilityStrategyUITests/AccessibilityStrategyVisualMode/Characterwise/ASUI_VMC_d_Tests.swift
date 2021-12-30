@@ -28,6 +28,7 @@ the selection!
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        copyToClipboard(text: "some fake shit")
         _ = applyMoveBeingTested()
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """

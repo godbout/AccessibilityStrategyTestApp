@@ -37,6 +37,7 @@ but shouldn't be deleted
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.b(on: $0) }
+        copyToClipboard(text: "some fake shit")
         _ = applyMoveBeingTested()
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "c")

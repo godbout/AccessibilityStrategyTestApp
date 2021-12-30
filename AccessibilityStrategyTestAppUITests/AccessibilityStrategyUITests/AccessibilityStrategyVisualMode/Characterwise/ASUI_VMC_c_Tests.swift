@@ -29,6 +29,7 @@ lines because
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
         applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
+        copyToClipboard(text: "some fake shit")
         _ = applyMoveBeingTested()
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
