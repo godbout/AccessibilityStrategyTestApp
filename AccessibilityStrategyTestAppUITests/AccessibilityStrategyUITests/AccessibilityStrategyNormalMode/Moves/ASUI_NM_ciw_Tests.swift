@@ -11,6 +11,27 @@ class ASUI_NM_ciw_Tests: ASUI_NM_BaseTests {
 }
 
 
+// copy deleted text
+extension ASUI_NM_ciw_Tests {
+    
+    func test_that_else_it_copies_the_deleted_text_in_the_pasteboard() {
+        let textInAXFocusedElement = "that's some cute-boobies      text in here don't you think?"
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.F(to: "c", on: $0) }
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.l(on: $0) }
+        copyToClipboard(text: "some fake shit")
+        _ = applyMoveBeingTested()
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "cute")
+    }
+    
+}
+
+
 // both
 extension ASUI_NM_ciw_Tests {
     
