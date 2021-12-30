@@ -16,7 +16,7 @@ extension FT_innerWORD__Tests_Tests {
         let wordRange = fileText.innerWORD(startingAt: 0)
         
         XCTAssertEqual(wordRange.lowerBound, 0)
-        XCTAssertEqual(wordRange.upperBound, 0)
+        XCTAssertEqual(wordRange.count, 0)
     }
     
     func test_that_if_the_caret_is_on_a_letter_if_finds_the_correct_inner_word() {
@@ -26,7 +26,7 @@ extension FT_innerWORD__Tests_Tests {
         let wordRange = fileText.innerWORD(startingAt: 10)
         
         XCTAssertEqual(wordRange.lowerBound, 9)
-        XCTAssertEqual(wordRange.upperBound, 17) 
+        XCTAssertEqual(wordRange.count, 9) 
     }
     
     func test_that_if_the_caret_is_on_a_space_the_inner_word_is_all_the_consecutive_spaces() {
@@ -36,7 +36,7 @@ extension FT_innerWORD__Tests_Tests {
         let wordRange = fileText.innerWORD(startingAt: 28)
         
         XCTAssertEqual(wordRange.lowerBound, 26)
-        XCTAssertEqual(wordRange.upperBound, 30)         
+        XCTAssertEqual(wordRange.count, 5)         
     }
     
     func test_that_if_the_caret_is_on_a_single_space_it_recognizes_it_as_an_inner_word() {
@@ -46,7 +46,7 @@ extension FT_innerWORD__Tests_Tests {
         let wordRange = fileText.innerWORD(startingAt: 22)
         
         XCTAssertEqual(wordRange.lowerBound, 22)
-        XCTAssertEqual(wordRange.upperBound, 22) 
+        XCTAssertEqual(wordRange.count, 1) 
     }
     
     func test_that_if_the_TextField_starts_with_spaces_it_finds_the_correct_inner_word() {
@@ -56,7 +56,7 @@ extension FT_innerWORD__Tests_Tests {
         let wordRange = fileText.innerWORD(startingAt: 4)
         
         XCTAssertEqual(wordRange.lowerBound, 0)
-        XCTAssertEqual(wordRange.upperBound, 4) 
+        XCTAssertEqual(wordRange.count, 5) 
     }
     
     func test_that_if_the_TextField_ends_with_spaces_it_still_gets_the_correct_inner_word() {
@@ -66,7 +66,7 @@ extension FT_innerWORD__Tests_Tests {
         let wordRange = fileText.innerWORD(startingAt: 31)
         
         XCTAssertEqual(wordRange.lowerBound, 29)
-        XCTAssertEqual(wordRange.upperBound, 36) 
+        XCTAssertEqual(wordRange.count, 7) 
     }
 
 }
@@ -86,7 +86,7 @@ spill
         let wordRange = fileText.innerWORD(startingAt: 23)
         
         XCTAssertEqual(wordRange.lowerBound, 20)
-        XCTAssertEqual(wordRange.upperBound, 25)
+        XCTAssertEqual(wordRange.count, 6)
     }
     
     func test_that_inner_word_stops_at_linefeeds_at_the_beginning_of_lines() {
@@ -97,10 +97,10 @@ spill also
 """
         
         let fileText = FileText(end: text.utf16.count, value: text)
-        let wordrange = fileText.innerWORD(startingAt: 33)
+        let wordRange = fileText.innerWORD(startingAt: 33)
         
-        XCTAssertEqual(wordrange.lowerBound, 30)
-        XCTAssertEqual(wordrange.upperBound, 33)
+        XCTAssertEqual(wordRange.lowerBound, 30)
+        XCTAssertEqual(wordRange.count, 4)
     }
     
 }
@@ -119,7 +119,7 @@ extension FT_innerWORD__Tests_Tests {
         let wordRange = fileText.innerWORD(startingAt: 27)
         
         XCTAssertEqual(wordRange.lowerBound, 24)
-        XCTAssertEqual(wordRange.upperBound, 35)                
+        XCTAssertEqual(wordRange.count, 12)                
     }
     
     func test_that_it_does_not_do_shit_with_emojis_before_a_space() {
@@ -129,7 +129,7 @@ extension FT_innerWORD__Tests_Tests {
         let wordRange = fileText.innerWORD(startingAt: 36)
         
         XCTAssertEqual(wordRange.lowerBound, 36)
-        XCTAssertEqual(wordRange.upperBound, 36)                
+        XCTAssertEqual(wordRange.count, 1)                
     }
     
 }
