@@ -11,7 +11,7 @@ import XCTest
 // are in the UI.
 // also now PGR so, UI UI UI.
 
-class ASUT_NM_r_Tests: ASNM_BaseTests {
+class ASUT_NM_r_Tests: ASUT_NM_BaseTests {
     
     private func applyMove(with replacement: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.r(with: replacement, on: element, pgR: false) 

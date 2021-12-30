@@ -3,7 +3,7 @@ import XCTest
 
 
 // one test here when O shouldn't do anything in TextViews. all the rest in UI coz PGR.
-class ASUT_NM_O__Tests: ASNM_BaseTests {
+class ASUT_NM_O__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.O(on: element, pgR: false) 

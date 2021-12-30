@@ -4,7 +4,7 @@ import XCTest
 
 // using the move f internally, so just a few tests needed here
 // see cF for rest fo blah blah.
-class ASUT_NM_cf_Tests: ASNM_BaseTests {
+class ASUT_NM_cf_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.cf(times: count, to: character, on: element, pgR: false)

@@ -1,8 +1,7 @@
 @testable import AccessibilityStrategy
 import XCTest
 
-// TODO: rename ASNM to ASUT
-class ASNM_BaseTests: XCTestCase {
+class ASUT_NM_BaseTests: XCTestCase {
     
     let asNormalMode = AccessibilityStrategyNormalMode()
     

@@ -2,7 +2,7 @@
 import XCTest
 
 
-class ASUT_NM_rightBracketRightBrace_Tests: ASNM_BaseTests {
+class ASUT_NM_rightBracketRightBrace_Tests: ASUT_NM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.rightBracketRightBrace(on: element) 

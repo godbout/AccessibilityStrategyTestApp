@@ -4,7 +4,7 @@ import XCTest
 
 // this moves uses a FileLine func. tested in FileLine.
 // here so more to be extra sure. cheap UT aww.
-class ASUT_NM_caret_Tests: ASNM_BaseTests {
+class ASUT_NM_caret_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.caret(on: element) 

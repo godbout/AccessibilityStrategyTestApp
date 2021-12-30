@@ -3,7 +3,7 @@ import XCTest
 
 
 // see dF for blah blah
-class ASUT_NM_dT__Tests: ASNM_BaseTests {
+class ASUT_NM_dT__Tests: ASUT_NM_BaseTests {
     
     private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.dT(to: character, on: element, pgR: false) 

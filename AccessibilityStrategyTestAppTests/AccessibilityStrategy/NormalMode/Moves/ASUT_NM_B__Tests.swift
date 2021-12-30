@@ -4,7 +4,7 @@ import XCTest
 
 // same as b
 // using TE function here that is tested heavily
-class ASUT_NM_B__Tests: ASNM_BaseTests {
+class ASUT_NM_B__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.B(times: count, on: element) 

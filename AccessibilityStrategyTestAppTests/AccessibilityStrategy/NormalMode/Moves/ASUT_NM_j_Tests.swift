@@ -6,7 +6,7 @@ import AccessibilityStrategy
 // we have one test in UI that calls the move several time to make sure that the fileLineColumnNumber
 // is updated properly and that ultimately it works.
 // coz else, those tests will pass whether the move is using ScreenLines or FileLines LMAO
-class ASUT_NM_j_Tests: ASNM_BaseTests {
+class ASUT_NM_j_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.j(on: element) 

@@ -3,7 +3,7 @@ import XCTest
 
 
 // used by yi`, yi', yi"
-class ASNM_yiInnerQuotedString_Tests: ASNM_BaseTests {
+class ASNM_yiInnerQuotedString_Tests: ASUT_NM_BaseTests {
     
     private func applyMove(using quote: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.yiInnerQuotedString(using: quote, on: element) 

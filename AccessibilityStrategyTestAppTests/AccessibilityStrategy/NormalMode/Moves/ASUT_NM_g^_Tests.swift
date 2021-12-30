@@ -6,7 +6,7 @@ import XCTest
 // only a few tests here, some for redundancy, some that are specific to the g^ move, like
 // The 3 Cases, or the fact that it should not stop at the end of
 // the line itself like firstNonBlank, but at the end limit.
-class ASUT_NM_gCaret_Tests: ASNM_BaseTests {
+class ASUT_NM_gCaret_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.gCaret(on: element) 

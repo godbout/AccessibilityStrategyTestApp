@@ -3,4 +3,4 @@ import XCTest
 
 
 // see yi(
-class ASUT_NM_yiRightBracket_Tests: ASNM_BaseTests {}
+class ASUT_NM_yiRightBracket_Tests: ASUT_NM_BaseTests {}

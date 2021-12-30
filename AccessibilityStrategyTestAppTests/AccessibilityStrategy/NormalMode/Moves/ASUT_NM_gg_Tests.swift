@@ -2,7 +2,7 @@ import XCTest
 @testable import AccessibilityStrategy
 
 
-class ASUT_NM_gg_Tests: ASNM_BaseTests {
+class ASUT_NM_gg_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int? = 1, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.gg(times: count, on: element)

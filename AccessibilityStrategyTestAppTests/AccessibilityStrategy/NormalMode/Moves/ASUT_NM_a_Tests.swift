@@ -4,7 +4,7 @@ import XCTest
 
 // no need for the test on Lines here because `a` will always end up on the
 // same line. it just goes after the character that is selected.
-class ASNM_a_Tests: ASNM_BaseTests {
+class ASNM_a_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.a(on: element) 

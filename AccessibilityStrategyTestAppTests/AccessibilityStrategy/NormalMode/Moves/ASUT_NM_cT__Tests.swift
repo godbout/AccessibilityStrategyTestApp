@@ -3,7 +3,7 @@ import XCTest
 
 
 // cF for blah blah
-class ASNM_cT__Tests: ASNM_BaseTests {
+class ASNM_cT__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.cT(to: character, on: element, pgR: false)

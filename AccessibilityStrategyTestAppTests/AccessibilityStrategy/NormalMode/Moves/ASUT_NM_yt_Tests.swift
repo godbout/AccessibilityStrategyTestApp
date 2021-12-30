@@ -5,7 +5,7 @@ import XCTest
 // yt uses t internally, which is already tested.
 // just some tests here to confirm the NSPasteboard got filled
 // we don't bother with caretLocation and stuff coz they're completely untouched
-class ASUT_NM_yt_Tests: ASNM_BaseTests {
+class ASUT_NM_yt_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, with character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.yt(times: count, to: character, on: element) 

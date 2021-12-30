@@ -5,7 +5,7 @@ import XCTest
 // yF uses F internally that is already tested
 // but yF also copies text, and move the caretLocation to the character found
 // so those are two things that we test here
-class ASUT_NM_yF__Tests: ASNM_BaseTests {
+class ASUT_NM_yF__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, with character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.yF(times: count, to: character, on: element) 

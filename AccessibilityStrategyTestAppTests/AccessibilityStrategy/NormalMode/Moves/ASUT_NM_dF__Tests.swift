@@ -7,7 +7,7 @@ import XCTest
 // nothing is deleted.
 // for the cases where a character is found, text is deleted and the block cursor have to
 // be recalculated, those tests are in UI.
-class ASUT_NM_dF__Tests: ASNM_BaseTests {
+class ASUT_NM_dF__Tests: ASUT_NM_BaseTests {
     
     private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.dF(to: character, on: element, pgR: false) 

@@ -5,7 +5,7 @@ import XCTest
 // gI calls 0, so most of the tests are there.
 // here we test the difference between gI and 0, which is that 0 keeps the block cursor
 // as it stays in NM, while gI will switch to IM so selectedLength is gonna be different.
-class ASUT_NM_gI_Tests: ASNM_BaseTests {
+class ASUT_NM_gI_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.gI(on: element)

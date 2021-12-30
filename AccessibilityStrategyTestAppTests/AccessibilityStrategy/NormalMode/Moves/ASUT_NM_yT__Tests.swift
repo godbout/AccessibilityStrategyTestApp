@@ -3,7 +3,7 @@ import XCTest
 
 
 // see other yt/f blah blah
-class ASUT_NM_yT__Tests: ASNM_BaseTests {
+class ASUT_NM_yT__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, with character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.yT(times: count, to: character, on: element) 

@@ -3,4 +3,4 @@ import XCTest
 
 
 // see <<
-class ASUT_NM_rightChevronRightChevron_Tests: ASNM_BaseTests {}
+class ASUT_NM_rightChevronRightChevron_Tests: ASUT_NM_BaseTests {}

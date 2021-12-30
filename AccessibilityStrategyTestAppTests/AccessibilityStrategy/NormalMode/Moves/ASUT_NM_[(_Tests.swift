@@ -6,7 +6,7 @@ import XCTest
 // but also here because we are looking for the specific "{" character
 // we know the selectedLength is gonna 1, but we can still check the caretLocation
 // and see if the emojis are fucking with the counts
-class ASUT_NM_leftBracketLeftParenthesis_Tests: ASNM_BaseTests {
+class ASUT_NM_leftBracketLeftParenthesis_Tests: ASUT_NM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.leftBracketLeftParenthesis(on: element) 

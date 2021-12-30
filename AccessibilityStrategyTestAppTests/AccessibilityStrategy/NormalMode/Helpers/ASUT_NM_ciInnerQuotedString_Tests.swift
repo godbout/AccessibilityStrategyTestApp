@@ -4,7 +4,7 @@ import XCTest
 
 // here we test the cases where the move does nothing because it can't find content between quotes.
 // the rest is tested in UI, because PGR.
-class ASUT_NM_ciInnerQuotedString_Tests: ASNM_BaseTests {
+class ASUT_NM_ciInnerQuotedString_Tests: ASUT_NM_BaseTests {
         
     func test_that_if_there_is_only_one_quote_no_content_is_deleted_and_the_caret_does_not_move() {
         let text = """

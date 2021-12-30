@@ -5,7 +5,7 @@ import XCTest
 // now TE funcs can return nil if a word is not found (backward, forward, etc.).
 // the TE funcs are heavily tested by themselves. here we test only what is necessary for
 // this move, which is the difference between when a TE func returns nil (can't find word) and returns a range (finds word).
-class ASUT_NM_b_Tests: ASNM_BaseTests {
+class ASUT_NM_b_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.b(times: count, on: element) 

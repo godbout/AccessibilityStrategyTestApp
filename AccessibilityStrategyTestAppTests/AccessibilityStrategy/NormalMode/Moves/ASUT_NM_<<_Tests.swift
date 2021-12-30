@@ -3,4 +3,4 @@ import XCTest
 
 
 // UIT.
-class ASUT_NM_leftChevronLeftChevron_Tests: ASNM_BaseTests {}
+class ASUT_NM_leftChevronLeftChevron_Tests: ASUT_NM_BaseTests {}

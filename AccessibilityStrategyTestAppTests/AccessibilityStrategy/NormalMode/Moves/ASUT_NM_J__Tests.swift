@@ -3,7 +3,7 @@ import XCTest
 
 
 // most tests in UIT coz delete/paste and PGR
-class ASUT_NM_J__Tests: ASNM_BaseTests {
+class ASUT_NM_J__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.J(on: element, pgR: false)

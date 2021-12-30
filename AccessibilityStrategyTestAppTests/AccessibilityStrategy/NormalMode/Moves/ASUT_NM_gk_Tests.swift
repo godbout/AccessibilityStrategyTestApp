@@ -3,7 +3,7 @@ import XCTest
 
 
 // check gj for blah blah
-class ASNM_gk_Tests: ASNM_BaseTests {
+class ASNM_gk_Tests: ASUT_NM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.gk(on: element) 

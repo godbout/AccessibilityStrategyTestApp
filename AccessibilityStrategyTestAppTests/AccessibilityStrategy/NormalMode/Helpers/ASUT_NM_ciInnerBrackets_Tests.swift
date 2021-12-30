@@ -8,4 +8,4 @@ import XCTest
 // what we need to test.
 // the tests that were here have been moved to UI Tests now that ciInnerBrackets needs to handle PGR.
 // also so other stuff like going back to IM or NM have to be tested through UI.
-class ASUT_NM_ciInnerBrackets_Tests: ASNM_BaseTests {}
+class ASUT_NM_ciInnerBrackets_Tests: ASUT_NM_BaseTests {}

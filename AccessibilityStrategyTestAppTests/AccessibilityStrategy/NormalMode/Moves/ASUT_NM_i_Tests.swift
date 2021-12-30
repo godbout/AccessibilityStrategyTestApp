@@ -2,7 +2,7 @@
 import XCTest
 
 
-class ASUI_NM_i_Tests: ASNM_BaseTests {}
+class ASUI_NM_i_Tests: ASUT_NM_BaseTests {}
 
 
 // Both

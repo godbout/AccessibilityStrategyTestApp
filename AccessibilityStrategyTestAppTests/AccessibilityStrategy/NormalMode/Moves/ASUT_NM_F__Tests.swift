@@ -8,7 +8,7 @@ import XCTest
 // here the two tests relevant are:
 // 1. can find the character, then getting the right location
 // 2. cannot find the character, then not moving
-class ASUT_NM_F__Tests: ASNM_BaseTests {
+class ASUT_NM_F__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.F(times: count, to: character, on: element) 

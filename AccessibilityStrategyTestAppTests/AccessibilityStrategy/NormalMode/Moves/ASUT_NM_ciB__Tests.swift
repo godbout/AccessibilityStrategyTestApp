@@ -3,4 +3,4 @@ import XCTest
 
 
 // this is literally calling `ci{`
-class ASUT_NM_ciB__Tests: ASNM_BaseTests {}
+class ASUT_NM_ciB__Tests: ASUT_NM_BaseTests {}

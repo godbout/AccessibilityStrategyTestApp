@@ -3,7 +3,7 @@ import XCTest
 
 
 // see b for blah blah
-class ASUT_NM_gE__Tests: ASNM_BaseTests {
+class ASUT_NM_gE__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.gE(times: count, on: element) 

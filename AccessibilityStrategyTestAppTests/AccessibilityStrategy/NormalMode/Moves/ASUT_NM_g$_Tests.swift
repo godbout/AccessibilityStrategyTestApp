@@ -3,7 +3,7 @@ import XCTest
 
 
 // see g^ for blah blah
-class ASUT_NM_g$_Tests: ASNM_BaseTests {
+class ASUT_NM_g$_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.gDollarSign(on: element) 

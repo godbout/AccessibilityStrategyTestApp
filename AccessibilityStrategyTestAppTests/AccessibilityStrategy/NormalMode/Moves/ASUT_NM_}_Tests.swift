@@ -3,7 +3,7 @@ import XCTest
 
 
 // see [( for blah blah blah
-class ASUT_NM_RightBrace_Tests: ASNM_BaseTests {
+class ASUT_NM_RightBrace_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.rightBrace(on: element) 

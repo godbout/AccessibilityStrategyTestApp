@@ -2,7 +2,7 @@
 import XCTest
 
 
-class ASUT_NM_A__Tests: ASNM_BaseTests {
+class ASUT_NM_A__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.A(on: element) 

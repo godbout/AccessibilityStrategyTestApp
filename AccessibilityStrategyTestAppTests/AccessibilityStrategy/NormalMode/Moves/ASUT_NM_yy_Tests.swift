@@ -4,7 +4,7 @@ import XCTest
 
 // yy doesn't touch the caret position or anything else, it just copies
 // the line into the NSPasteBoard.
-class ASUT_NM_yy_Tests: ASNM_BaseTests {
+class ASUT_NM_yy_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.yy(on: element) 

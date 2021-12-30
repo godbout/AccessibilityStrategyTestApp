@@ -3,7 +3,7 @@ import AccessibilityStrategy
 
 
 // see j for blah blah
-class ASUT_NM_k_Tests: ASNM_BaseTests {
+class ASUT_NM_k_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.k(on: element) 

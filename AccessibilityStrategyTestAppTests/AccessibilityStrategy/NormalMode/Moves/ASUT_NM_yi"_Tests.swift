@@ -3,4 +3,4 @@ import XCTest
 
 
 // just calling yiInnerQuotedString. all the tests are there.
-class ASUT_NM_yiDoubleQuote_Tests: ASNM_BaseTests {}
+class ASUT_NM_yiDoubleQuote_Tests: ASUT_NM_BaseTests {}

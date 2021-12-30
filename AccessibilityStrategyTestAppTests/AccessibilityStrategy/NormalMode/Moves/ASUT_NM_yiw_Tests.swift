@@ -5,7 +5,7 @@ import XCTest
 // so. this move uses a TE func that is already tested.
 // also ciw is already extra testing, so here we gonna only test
 // stuff specific to that move, which is the copying through NSPasteboard
-class ASUT_NM_yiw_Tests: ASNM_BaseTests {
+class ASUT_NM_yiw_Tests: ASUT_NM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.yiw(on: element) 
