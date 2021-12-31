@@ -6,7 +6,9 @@ import XCTest
 class ASUI_NM_caw_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.caw(on: $0, pgR: pgR) }
+        var bipped = false
+        
+        return applyMove { asNormalMode.caw(on: $0, pgR: pgR, &bipped) }
     }
     
 }
