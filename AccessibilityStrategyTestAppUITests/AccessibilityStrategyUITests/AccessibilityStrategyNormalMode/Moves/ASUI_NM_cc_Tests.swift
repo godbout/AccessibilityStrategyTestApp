@@ -11,6 +11,28 @@ class ASUI_NM_cc_Tests: ASUI_NM_BaseTests {
 }
 
 
+// copy deleted text
+extension ASUI_NM_cc_Tests {
+    
+    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
+        let textInAXFocusedElement = """
+looks like it's late coz it's getting harder to reason
+but actually it's only 21.43 LMAOOOOOOOO
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.f(times: 1, to: "h", on: $0) }
+        copyToClipboard(text: "some fake shit")
+        _ = applyMoveBeingTested()
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "looks like it's late coz it's getting harder to reason\n")
+    }
+    
+}
+
+
 // both
 extension ASUI_NM_cc_Tests {
     
