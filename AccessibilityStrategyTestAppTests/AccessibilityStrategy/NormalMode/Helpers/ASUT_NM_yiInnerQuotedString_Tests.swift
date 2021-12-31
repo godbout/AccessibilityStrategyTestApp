@@ -3,7 +3,7 @@ import XCTest
 
 
 // used by yi`, yi', yi"
-class ASNM_yiInnerQuotedString_Tests: ASUT_NM_BaseTests {
+class ASUT_NM_yiInnerQuotedString_Tests: ASUT_NM_BaseTests {
     
     private func applyMove(using quote: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.yiInnerQuotedString(using: quote, on: element) 
@@ -13,7 +13,7 @@ class ASNM_yiInnerQuotedString_Tests: ASUT_NM_BaseTests {
 
 
 // Both
-extension ASNM_yiInnerQuotedString_Tests {
+extension ASUT_NM_yiInnerQuotedString_Tests {
     
     func test_that_there_is_no_quote_it_does_not_move_or_copy_anything() {
         let text = "some text without any double quote"
@@ -221,7 +221,7 @@ now there's gonna
 
 
 // emojis
-extension ASNM_yiInnerQuotedString_Tests {
+extension ASUT_NM_yiInnerQuotedString_Tests {
     
     func test_that_it_handles_emojis() {
         let text = """
