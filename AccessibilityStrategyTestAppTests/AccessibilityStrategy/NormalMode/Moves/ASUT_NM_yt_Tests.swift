@@ -7,8 +7,8 @@ import XCTest
 // we don't bother with caretLocation and stuff coz they're completely untouched
 class ASUT_NM_yt_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, with character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.yt(times: count, to: character, on: element) 
+    private func applyMoveBeingTested(times count: Int = 1, with character: Character, on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+        return asNormalMode.yt(times: count, to: character, on: element, &lastYankStyle)
     }
     
 }
@@ -35,7 +35,8 @@ extension ASUT_NM_yt_Tests {
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(times: 3, with: "e", on: element)
+        var lastYankStyle: VimEngineMoveStyle = .linewise
+        let returnedElement = applyMoveBeingTested(times: 3, with: "e", on: element, &lastYankStyle)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "d letter 💌️💌️💌️ rath")
         XCTAssertEqual(returnedElement?.caretLocation, 24)
@@ -62,7 +63,8 @@ extension ASUT_NM_yt_Tests {
         )
         
         copyToClipboard(text: "404 character not found")
-        let returnedElement = applyMoveBeingTested(times: 69, with: "i", on: element)
+        var lastYankStyle: VimEngineMoveStyle = .linewise
+        let returnedElement = applyMoveBeingTested(times: 69, with: "i", on: element, &lastYankStyle)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")
         XCTAssertEqual(returnedElement?.caretLocation, 47)
@@ -97,7 +99,8 @@ them like nothin🇫🇷️ happened. that's how special it is.
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(with: "w", on: element)
+        var lastYankStyle: VimEngineMoveStyle = .linewise
+        let returnedElement = applyMoveBeingTested(with: "w", on: element, &lastYankStyle)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "🇫🇷️ happened. that's ho")
         XCTAssertEqual(returnedElement?.caretLocation, 78)
@@ -111,7 +114,7 @@ them like nothin🇫🇷️ happened. that's how special it is.
 // Both
 extension ASUT_NM_yt_Tests {
     
-    func test_that_in_normal_setting_it_copies_the_text_from_the_caret_to_before_the_character_found() {
+    func test_that_in_normal_setting_it_copies_the_text_from_the_caret_to_before_the_character_found_and_sets_the_LastYankStyle_to_Characterwise() {
         let text = "gonna use yt on this sentence"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -129,14 +132,16 @@ extension ASUT_NM_yt_Tests {
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(with: "s", on: element)
+        var lastYankStyle: VimEngineMoveStyle = .linewise
+        let returnedElement = applyMoveBeingTested(with: "s", on: element, &lastYankStyle)
         
+        XCTAssertEqual(lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "e yt on thi")
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_if_the_character_is_not_found_then_it_does_nothing() {
+    func test_that_if_the_character_is_not_found_then_it_does_nothing_and_does_not_change_the_LastYankStyle() {
         let text = """
 gonna look
 for a character
@@ -159,8 +164,10 @@ that is not there
         )
                 
         copyToClipboard(text: "404 character not found")
-        let returnedElement = applyMoveBeingTested(with: "z", on: element)
+        var lastYankStyle: VimEngineMoveStyle = .linewise
+        let returnedElement = applyMoveBeingTested(with: "z", on: element, &lastYankStyle)
         
+        XCTAssertEqual(lastYankStyle, .linewise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
@@ -172,7 +179,7 @@ that is not there
 // TextViews
 extension ASUT_NM_yt_Tests {
     
-    func test_that_it_can_find_the_character_on_a_line_for_a_multiline() {
+    func test_that_it_can_find_the_character_on_a_line_for_a_multiline_and_sets_the_LastYankStyle_to_Characterwise() {
         let text = """
 yt on a 🍌️ multiline
 should work 
@@ -194,8 +201,10 @@ on a line
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(with: "m", on: element)
+        var lastYankStyle: VimEngineMoveStyle = .linewise
+        let returnedElement = applyMoveBeingTested(with: "m", on: element, &lastYankStyle)
         
+        XCTAssertEqual(lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "n a 🍌️ ")
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
