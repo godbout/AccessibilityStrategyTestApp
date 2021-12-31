@@ -13,6 +13,29 @@ class ASUI_NM_daw_Tests: ASUI_NM_BaseTests {
 }
 
 
+// copy deleted text
+extension ASUI_NM_daw_Tests {
+    
+    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
+        let textInAXFocusedElement = """
+like honestly that one should be
+   pretty     📏️traight forward if you ask me
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.w(on: $0) }
+        copyToClipboard(text: "some fake shit")
+        _ = applyMoveBeingTested()
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "pretty     ")
+    }
+    
+}
+
+
 extension ASUI_NM_daw_Tests {
     
     func test_that_the_block_cursor_ends_up_at_the_right_place() {
