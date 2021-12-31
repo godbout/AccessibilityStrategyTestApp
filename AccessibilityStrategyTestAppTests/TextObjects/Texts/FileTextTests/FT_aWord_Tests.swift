@@ -187,7 +187,6 @@ this line ends with 3-spaces
         XCTAssertEqual(wordRange?.count, 9)
     }
     
-    // TODO: current impl is wrong
     func test_that_if_there_are_no_trailing_spaces_until_the_word_forward_it_stops_at_the_beginning_of_the_current_word_when_looking_for_the_word_backward() {
         let text = """
 this line ends with 3 spaces   
