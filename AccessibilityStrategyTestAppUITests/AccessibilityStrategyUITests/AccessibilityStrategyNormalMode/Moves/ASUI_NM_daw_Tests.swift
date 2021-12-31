@@ -7,7 +7,9 @@ import XCTest
 class ASUI_NM_daw_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.daw(on: $0, pgR: pgR) }
+        var bipped = false
+        
+        return applyMove { asNormalMode.daw(on: $0, pgR: pgR, &bipped) }
     }
     
 }
