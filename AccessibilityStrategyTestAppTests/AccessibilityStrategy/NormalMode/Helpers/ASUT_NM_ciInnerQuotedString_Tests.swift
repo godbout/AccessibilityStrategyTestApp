@@ -3,8 +3,18 @@ import XCTest
 
 
 // here we test the cases where the move does nothing because it can't find content between quotes.
+// we also test the Bipped.
 // the rest is tested in UI, because PGR.
 class ASUT_NM_ciInnerQuotedString_Tests: ASUT_NM_BaseTests {
+    
+    private func applyMove(using quote: Character, on element: AccessibilityTextElement?, _ bipped: inout Bool) -> AccessibilityTextElement? {
+        return asNormalMode.ciInnerQuotedString(using: quote, on: element, pgR: false, &bipped)
+    }
+    
+}
+
+
+extension ASUT_NM_ciInnerQuotedString_Tests {
         
     func test_that_if_there_is_only_one_quote_no_content_is_deleted_and_the_caret_does_not_move() {
         let text = """
@@ -26,7 +36,8 @@ a text with only one quote ' lol
             )!
         )
         
-        let returnedElement = asNormalMode.ciInnerQuotedString(using: "'", on: element, pgR: false)
+        var bipped = false
+        let returnedElement = applyMove(using: "'", on: element, &bipped)
         
         XCTAssertNil(returnedElement?.selectedText)
     }
@@ -49,7 +60,8 @@ a text with only one quote ' lol
             )!
         )
         
-        let returnedElement = asNormalMode.ciInnerQuotedString(using: "'", on: element, pgR: false)
+        var bipped = false
+        let returnedElement = applyMove(using: "'", on: element, &bipped)
         
         XCTAssertNil(returnedElement?.selectedText)
     }
@@ -76,9 +88,62 @@ now the "caret" is after the quotes
             )!
         )
         
-        let returnedElement = asNormalMode.ciInnerQuotedString(using: "\"", on: element, pgR: false)
+        var bipped = false
+        let returnedElement = applyMove(using: "\"", on: element, &bipped)
         
         XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_it_does_not_Bip_when_it_can_find() {
+        let text = """
+finally dealing with the "real stuff"!
+"""
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 38,
+            caretLocation: 16,
+            selectedLength: 1,
+            selectedText: "w",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 38,
+                number: 1,
+                start: 0,
+                end: 38
+            )!
+        )
+        
+        var bipped = false
+        let _ = applyMove(using: "\"", on: element, &bipped)
+        
+        XCTAssertFalse(bipped)
+    }
+        
+    func test_that_it_Bips_when_it_cannot_find() {
+        let text = """
+finally dealing with the "real stuff!
+"""
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 37,
+            caretLocation: 15,
+            selectedLength: 1,
+            selectedText: " ",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 37,
+                number: 1,
+                start: 0,
+                end: 37
+            )!
+        )
+        
+        var bipped = false
+        let _ = applyMove(using: "\"", on: element, &bipped)
+        
+        XCTAssertTrue(bipped)
     }
 
 }

@@ -6,7 +6,9 @@ import XCTest
 class ASUI_NM_ciInnerQuotedString_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(using quote: Character, pgR: Bool = false) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.ciInnerQuotedString(using: quote, on: $0, pgR: pgR) }
+        var bipped = false
+        
+        return applyMove { asNormalMode.ciInnerQuotedString(using: quote, on: $0, pgR: pgR, &bipped) }
     }
     
 }
