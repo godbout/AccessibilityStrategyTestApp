@@ -3,10 +3,11 @@ import XCTest
 
 
 // used by yi`, yi', yi"
+// see yiInnerBrackets for more blah blah
 class ASUT_NM_yiInnerQuotedString_Tests: ASUT_NM_BaseTests {
     
-    private func applyMove(using quote: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.yiInnerQuotedString(using: quote, on: element) 
+    private func applyMove(using quote: Character, on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+        return asNormalMode.yiInnerQuotedString(using: quote, on: element, &lastYankStyle) 
     }
     
 }
@@ -15,7 +16,7 @@ class ASUT_NM_yiInnerQuotedString_Tests: ASUT_NM_BaseTests {
 // Both
 extension ASUT_NM_yiInnerQuotedString_Tests {
     
-    func test_that_there_is_no_quote_it_does_not_move_or_copy_anything() {
+    func test_that_there_is_no_quote_it_does_not_move_or_copy_anything_and_does_not_touch_the_LastYankStyle() {
         let text = "some text without any double quote"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -34,15 +35,17 @@ extension ASUT_NM_yiInnerQuotedString_Tests {
         )
         
         copyToClipboard(text: "no double quote")
-        let returnedElement = applyMove(using: "\"", on: element)
+        var lastYankStyle: VimEngineMoveStyle = .linewise
+        let returnedElement = applyMove(using: "\"", on: element, &lastYankStyle)
         
+        XCTAssertEqual(lastYankStyle, .linewise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "no double quote")
         XCTAssertEqual(returnedElement?.caretLocation, 23)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_there_is_only_one_quote_it_does_not_move_or_copy_anything_either() {
+    func test_that_there_is_only_one_quote_it_does_not_move_or_copy_anything_either_and_does_not_touch_the_LastYankStyle() {
         let text = """
 now there's one " double quote
 """
@@ -63,15 +66,17 @@ now there's one " double quote
         )
         
         copyToClipboard(text: "only one double quote")
-        let returnedElement = applyMove(using: "\"", on: element)
+        var lastYankStyle: VimEngineMoveStyle = .linewise
+        let returnedElement = applyMove(using: "\"", on: element, &lastYankStyle)
         
+        XCTAssertEqual(lastYankStyle, .linewise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "only one double quote")
         XCTAssertEqual(returnedElement?.caretLocation, 12)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_if_there_are_two_quotes_and_the_caret_is_before_them_then_it_moves_the_caret_and_copy_the_text() {
+    func test_that_if_there_are_two_quotes_and_the_caret_is_before_them_then_it_moves_the_caret_and_copy_the_text_and_sets_the_LastYankStyle_to_Characterwise() {
         let text = """
 now there's
 two 'simple quotes' on the second line
@@ -92,15 +97,17 @@ two 'simple quotes' on the second line
             )!
         )
         
-        let returnedElement = applyMove(using: "'", on: element)
+        var lastYankStyle: VimEngineMoveStyle = .linewise
+        let returnedElement = applyMove(using: "'", on: element, &lastYankStyle)
         
+        XCTAssertEqual(lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "simple quotes")
         XCTAssertEqual(returnedElement?.caretLocation, 17)  
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_if_there_are_two_quotes_and_the_caret_is_between_them_then_it_moves_the_caret_and_copy_the_text() {
+    func test_that_if_there_are_two_quotes_and_the_caret_is_between_them_then_it_moves_the_caret_and_copy_the_text_and_sets_the_LastYankStyle_to_Characterwise() {
         let text = """
 again multiline
 again
@@ -122,15 +129,17 @@ and now `hohohohoho`
             )!
         )
         
-        let returnedElement = applyMove(using: "`", on: element)
+        var lastYankStyle: VimEngineMoveStyle = .linewise
+        let returnedElement = applyMove(using: "`", on: element, &lastYankStyle)
         
+        XCTAssertEqual(lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "hohohohoho")
         XCTAssertEqual(returnedElement?.caretLocation, 31)  
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_if_there_are_two_quotes_and_the_caret_is_after_them_then_it_does_not_move_or_copy_anything() {
+    func test_that_if_there_are_two_quotes_and_the_caret_is_after_them_then_it_does_not_move_or_copy_anything_and_does_not_touch_the_LastYankStyle() {
         let text = """
 double "quotes" before the caret
 """
@@ -151,15 +160,17 @@ double "quotes" before the caret
         )
         
         copyToClipboard(text: "caret after double quote")
-        let returnedElement = applyMove(using: "\"", on: element)
+        var lastYankStyle: VimEngineMoveStyle = .linewise
+        let returnedElement = applyMove(using: "\"", on: element, &lastYankStyle)
         
+        XCTAssertEqual(lastYankStyle, .linewise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "caret after double quote")
         XCTAssertEqual(returnedElement?.caretLocation, 26)  
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_if_there_are_three_double_quotes_and_the_caret_is_not_after_all_of_them_then_it_moves_the_caret_and_copy_the_right_text() {
+    func test_that_if_there_are_three_double_quotes_and_the_caret_is_not_after_all_of_them_then_it_moves_the_caret_and_copy_the_right_text_and_sets_the_LastYankStyle_to_Characterwise() {
         let text = """
 heheheheh
 'quote' and some more' yeyeyeye
@@ -180,15 +191,17 @@ heheheheh
             )!
         )
         
-        let returnedElement = applyMove(using: "'", on: element)
+        var lastYankStyle: VimEngineMoveStyle = .linewise
+        let returnedElement = applyMove(using: "'", on: element, &lastYankStyle)
         
+        XCTAssertEqual(lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), " and some more")
         XCTAssertEqual(returnedElement?.caretLocation, 17)  
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_if_there_are_four_quotes_and_the_caret_is_exactly_on_the_third_one_it_calculates_the_matching_pairs_and_copy_the_right_text() {
+    func test_that_if_there_are_four_quotes_and_the_caret_is_exactly_on_the_third_one_it_calculates_the_matching_pairs_and_copy_the_right_text_and_sets_the_LastYankStyle_to_Characterwise() {
         let text = """
 now there's gonna
 `be` for `quotes` yep
@@ -209,8 +222,10 @@ now there's gonna
             )!
         )
         
-        let returnedElement = applyMove(using: "`", on: element)
+        var lastYankStyle: VimEngineMoveStyle = .linewise
+        let returnedElement = applyMove(using: "`", on: element, &lastYankStyle)
         
+        XCTAssertEqual(lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "quotes")
         XCTAssertEqual(returnedElement?.caretLocation, 28)  
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -244,8 +259,10 @@ those💨️💨️💨️ fac"🍵️s 🥺️☹️😂️ h😀️ha👅️" 
             )!
         )
         
-        let returnedElement = applyMove(using: "\"", on: element)
+        var lastYankStyle: VimEngineMoveStyle = .linewise
+        let returnedElement = applyMove(using: "\"", on: element, &lastYankStyle)
         
+        XCTAssertEqual(lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "🍵️s 🥺️☹️😂️ h😀️ha👅️")
         XCTAssertEqual(returnedElement?.caretLocation, 37)  
         XCTAssertEqual(returnedElement?.selectedLength, 3)
