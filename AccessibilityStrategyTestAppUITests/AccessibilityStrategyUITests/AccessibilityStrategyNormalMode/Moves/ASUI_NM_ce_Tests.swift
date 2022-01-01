@@ -13,6 +13,25 @@ class ASUI_NM_ce_Tests: ASUI_NM_BaseTests {
 }
 
 
+// copy deleted text
+extension ASUI_NM_ce_Tests {
+    
+    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
+        let textInAXFocusedElement = "😂️😂️😂️😂️ gonna use ce on this sentence"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.l(on: $0) }
+        copyToClipboard(text: "some fake shit")
+        _ = applyMoveBeingTested()
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️😂️😂️")
+    }
+    
+}
+
+
 // both
 extension ASUI_NM_ce_Tests {
     
