@@ -11,6 +11,37 @@ class ASUI_NM_dG__Tests: ASUI_NM_BaseTests {
 }
 
 
+// copy deleted text
+extension ASUI_NM_dG__Tests {
+    
+    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
+        let textInAXFocusedElement = """
+  😂️k so now we're having multiple lines
+and we will NOT be on on the first one so after dG
+deletes from the current line to the end of the text
+the caret will go to the first non blank limit of the line
+before what was the current one.
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.j(on: $0) }
+        copyToClipboard(text: "some fake shit")
+        _ = applyMoveBeingTested()
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
+and we will NOT be on on the first one so after dG
+deletes from the current line to the end of the text
+the caret will go to the first non blank limit of the line
+before what was the current one.
+"""
+        )
+    }
+    
+}
+
+
 // Both
 extension ASUI_NM_dG__Tests {
     
