@@ -11,6 +11,39 @@ class ASUI_NM_cG__Tests: ASUI_NM_BaseTests {
 }
 
 
+// copy deleted text
+extension ASUI_NM_cG__Tests {
+    
+    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
+        let textInAXFocusedElement = """
+blah blah some line
+some more
+  haha geh
+need to deal with
+those faces 🥺️☹️😂️
+
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.gj(on: $0) }
+        applyMove { asNormalMode.gj(on: $0) }
+        applyMove { asNormalMode.f(to: "g", on: $0) }
+        _ = applyMoveBeingTested()
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
+  haha geh
+need to deal with
+those faces 🥺️☹️😂️
+
+"""
+        )
+    }
+    
+}
+
+
 // Both
 extension ASUI_NM_cG__Tests {
     
