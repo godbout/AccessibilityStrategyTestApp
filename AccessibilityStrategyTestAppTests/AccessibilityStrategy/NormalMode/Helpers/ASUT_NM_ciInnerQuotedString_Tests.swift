@@ -2,9 +2,7 @@
 import XCTest
 
 
-// here we test the cases where the move does nothing because it can't find content between quotes.
-// we also test the Bipped.
-// the rest is tested in UI, because PGR.
+// PGR in UIT
 class ASUT_NM_ciInnerQuotedString_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(using quote: Character, on element: AccessibilityTextElement?, _ bipped: inout Bool) -> AccessibilityTextElement? {
