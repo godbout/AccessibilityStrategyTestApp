@@ -1,8 +1,7 @@
 import XCTest
 @testable import AccessibilityStrategy
 
-
-// VM C behaves the same in C and L
+// VM C behaves the same in C and L. (both are tested below.)
 // also yes, tests are the same as VML c, because basically doing a VM C is like doing
 // a NM V + VM c. implementations are different though has VM C needs to calculate start and end of
 // lines, while VM c doesn't need as the selection is provided by NM V.
