@@ -4,8 +4,8 @@ import XCTest
 
 class ASUT_VML_y_Tests: ASVM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
-        return asVisualMode.yForVisualStyleLinewise(on: element, &lastYankStyle) 
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asVisualMode.yForVisualStyleLinewise(on: element) 
     }
     
 }
@@ -13,37 +13,6 @@ class ASUT_VML_y_Tests: ASVM_BaseTests {
 
 // Both
 extension ASUT_VML_y_Tests {
-    
-    func test_that_it_sets_the_Last_Yanking_Style_to_Linewise() {
-        let text = """
-using VM y in VM V
-should set Visual Style
-to Linewise
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 54,
-            caretLocation: 6,
-            selectedLength: 24,
-            selectedText: """
-VM y in VM V
-should set 
-""",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 54,
-                number: 1,
-                start: 0,
-                end: 19
-            )!
-        )
-        
-        var lastYankStyle: VimEngineMoveStyle = .characterwise
-        _ = applyMove(on: element, &lastYankStyle)
-        
-        XCTAssertEqual(lastYankStyle, .linewise)
-    }
     
     func test_that_for_TextFields_it_yanks_the_whole_line() {
         let text = "a whole line entirely for VM V and VM y"
@@ -63,8 +32,7 @@ should set
             )!
         )
         
-        var lastYankStyle: VimEngineMoveStyle = .linewise
-        let returnedElement = applyMove(on: element, &lastYankStyle)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "a whole line entirely for VM V and VM y")   
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -104,8 +72,7 @@ i writing this?
             )!
         )
         
-        var lastYankStyle: VimEngineMoveStyle = .linewise
-        let returnedElement = applyMove(on: element, &lastYankStyle)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 with VM V over
@@ -143,8 +110,7 @@ the crazy caret location and
             )!
         )
         
-        var lastYankStyle: VimEngineMoveStyle = .linewise
-        let returnedElement = applyMove(on: element, &lastYankStyle)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 21)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -183,8 +149,7 @@ the crazy caret location and
             )!
         )
         
-        var lastYankStyle: VimEngineMoveStyle = .linewise
-        let returnedElement = applyMove(on: element, &lastYankStyle)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 21)
         XCTAssertEqual(returnedElement?.selectedLength, 3)

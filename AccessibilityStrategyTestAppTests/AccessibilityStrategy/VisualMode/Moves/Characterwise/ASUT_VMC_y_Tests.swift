@@ -4,8 +4,8 @@ import XCTest
 
 class ASUT_VMC_y_Tests: ASVM_BaseTests {
         
-    private func applyMove(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
-        return asVisualMode.yForVisualStyleCharacterwise(on: element, &lastYankStyle) 
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asVisualMode.yForVisualStyleCharacterwise(on: element) 
     }
     
 }
@@ -14,39 +14,6 @@ class ASUT_VMC_y_Tests: ASVM_BaseTests {
 // Both
 extension ASUT_VMC_y_Tests {
   
-    func test_that_it_sets_the_Last_Yanking_Style_to_Characterwise() {
-        let text = """
-using VM y in VM v
-should set Visual Style
-to Characterwise
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 59,
-            caretLocation: 5,
-            selectedLength: 29,
-            selectedText: """
- VM y in VM v
-should set Visu
-""",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 59, 
-                number: 1,
-                start: 0,
-                end: 19
-            )!
-        )
-        
-        var lastYankStyle: VimEngineMoveStyle = .linewise
-        let returnedElement = applyMove(on: element, &lastYankStyle)
-        
-        XCTAssertEqual(lastYankStyle, .characterwise)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
     func test_that_it_yanks_the_selection() {
         let text = "well VM v plus then VM y should copy the selected text."
         let element = AccessibilityTextElement(
@@ -65,8 +32,7 @@ should set Visu
             )!
         )
         
-        var lastYankStyle: VimEngineMoveStyle = .characterwise
-        let returnedElement = applyMove(on: element, &lastYankStyle)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "then VM y should copy the s")
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -91,8 +57,7 @@ should set Visu
             )!
         )
         
-        var lastYankStyle: VimEngineMoveStyle = .characterwise
-        let returnedElement = applyMove(on: element, &lastYankStyle)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 8)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -118,8 +83,7 @@ should set Visu
         )
         
         asVisualMode.copyToClipboard(text: "test 1 for The 3 Cases VM y")
-        var lastYankStyle: VimEngineMoveStyle = .characterwise
-        let returnedElement = applyMove(on: element, &lastYankStyle)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
         XCTAssertEqual(returnedElement?.selectedLength, 0)
@@ -150,8 +114,7 @@ line
         )
         
         asVisualMode.copyToClipboard(text: "test 3 of The 3 Cases VM y")
-        var lastYankStyle: VimEngineMoveStyle = .characterwise
-        let returnedElement = applyMove(on: element, &lastYankStyle)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
         XCTAssertEqual(returnedElement?.selectedLength, 0)
@@ -182,8 +145,7 @@ extension ASUT_VMC_y_Tests {
             )!
         )
         
-        var lastYankStyle: VimEngineMoveStyle = .characterwise
-        let returnedElement = applyMove(on: element, &lastYankStyle)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 8)
         XCTAssertEqual(returnedElement?.selectedLength, 3)
