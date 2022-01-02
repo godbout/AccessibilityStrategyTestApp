@@ -15,44 +15,6 @@ class ASUI_NM_cW__Tests: ASUI_NM_BaseTests {
 }
 
 
-// both
-extension ASUI_NM_cW__Tests {
-    
-    // see `cw` for blah blah
-    func test_that_if_the_caret_is_on_a_non_blank_it_selects_the_text_from_the_caret_to_the_end_of_WORD() {
-        let textInAXFocusedElement = "😂️😂️😂️😂️hehehe gonna use cw on this sentence"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.zero(on: $0) }
-        applyMove { asNormalMode.l(on: $0) }
-        let accessibilityElement = applyMoveBeingTested()
-        
-        XCTAssertEqual(accessibilityElement?.fileText.value, "😂️ gonna use cw on this sentence")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
-    }
-    
-    func test_that_if_the_caret_is_on_a_blank_it_selects_the_text_from_the_caret_to_the_beginning_of_the_next_WORD() {
-        let textInAXFocusedElement = "😂️😂️😂️😂️hehehe                   gonna use cw on this sentence"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.zero(on: $0) }
-        applyMove { asNormalMode.E(on: $0) }
-        applyMove { asNormalMode.l(times: 4, on: $0) }
-        let accessibilityElement = applyMoveBeingTested()
-        
-        XCTAssertEqual(accessibilityElement?.fileText.value, "😂️😂️😂️😂️hehehe   gonna use cw on this sentence")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 21)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
-    }
-   
-}
-
-
 // PGR
 extension ASUI_NM_cW__Tests {
     
