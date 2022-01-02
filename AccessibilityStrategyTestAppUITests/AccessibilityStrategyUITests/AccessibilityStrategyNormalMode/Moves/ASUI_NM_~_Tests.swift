@@ -2,11 +2,15 @@ import XCTest
 @testable import AccessibilityStrategy
 
 
+// `~` and `r` are two very special cases. so the UIT and PGR may look different
+// from others. this is because they delete content and paste new one, all in one move.
+// implementation is also rock n roll and has a comment about it else crying ensues.
 class ASUI_NM_tilde_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, pgR: Bool = false) -> AccessibilityTextElement? {
         return applyMove { asNormalMode.tilde(times: count, on: $0, pgR: pgR) }
     }
+    
 }
 
 
@@ -81,6 +85,25 @@ extension ASUI_NM_tilde_Tests {
       
         XCTAssertEqual(accessibilityElement?.fileText.value, "gonna replace one of those😂️letters...")
         XCTAssertEqual(accessibilityElement?.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+    }
+    
+}
+
+
+// PGR
+extension ASUI_NM_tilde_Tests {
+    
+    func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+        let textInAXFocusedElement = "gonna replace one of thOse😂️letters..."
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.B(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(times: 5, pgR: true)
+      
+        XCTAssertEqual(accessibilityElement?.fileText.value, "gonna replace one of THoSTHoSE😂️letters...")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
 
