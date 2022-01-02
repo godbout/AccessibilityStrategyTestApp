@@ -5,8 +5,8 @@ import XCTest
 // see ciw for blah blah
 class ASUT_NM_caW__Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?, pgR: Bool = false) -> AccessibilityTextElement? {
-        return asNormalMode.caW(on: element, pgR: pgR)
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.caW(on: element, pgR: false)
     }
     
 }

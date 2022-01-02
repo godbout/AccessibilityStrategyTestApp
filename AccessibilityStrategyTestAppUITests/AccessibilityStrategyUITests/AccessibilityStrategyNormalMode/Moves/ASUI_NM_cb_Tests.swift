@@ -11,26 +11,6 @@ class ASUI_NM_cb_Tests: ASUI_NM_BaseTests {
 }
 
 
-// both
-extension ASUI_NM_cb_Tests {
-    
-    func test_that_in_normal_setting_it_selects_the_text_from_the_caret_to_the_character_found() {
-        let textInAXFocusedElement = "so we gonna⏰️⏰️trytouse cb here and see 😂️😂️ if it works ⏰️"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.F(to: "u", on: $0) }
-        let accessibilityElement = applyMoveBeingTested()
-        
-        XCTAssertEqual(accessibilityElement?.fileText.value, "so we gonna⏰️⏰️use cb here and see 😂️😂️ if it works ⏰️")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 15)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
-    }
-   
-}
-
-
 // PGR
 extension ASUI_NM_cb_Tests {
 

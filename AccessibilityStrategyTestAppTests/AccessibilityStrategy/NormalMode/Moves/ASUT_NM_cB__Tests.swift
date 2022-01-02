@@ -4,8 +4,8 @@ import XCTest
 
 class ASUT_NM_cB__Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?, pgR: Bool = false) -> AccessibilityTextElement? {
-        return asNormalMode.cB(on: element, pgR: pgR)
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.cB(on: element, pgR: false)
     }
     
 }
