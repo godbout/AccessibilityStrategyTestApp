@@ -112,7 +112,7 @@ extension ASUI_NM_r_Tests {
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "a", pgR: true)
       
-        XCTAssertEqual(accessibilityElement?.fileText.value, "gonna replace one of thoaa letters...")
+        XCTAssertEqual(accessibilityElement?.fileText.value, "gonna replace one of thosa letters...")
         XCTAssertEqual(accessibilityElement?.caretLocation, 25)
         XCTAssertEqual(accessibilityElement?.selectedLength, 1)
         XCTAssertEqual(accessibilityElement?.selectedText, "a")
