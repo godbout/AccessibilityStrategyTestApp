@@ -28,31 +28,27 @@ extension ASUI_NM_tilde_Tests {
         XCTAssertEqual(accessibilityElement?.selectedText, " ")
     }
     
-    // TODO: need to check what Vim does
-//    func test_something_if_the_count_is_too_high() {
-//        let text = "😀️e gonna move in there with count 🈹️ awww"
-//        let element = AccessibilityTextElement(
-//            role: .textField,
-//            value: text,
-//            length: 44,
-//            caretLocation: 32,
-//            selectedLength: 1,
-//            selectedText: "u",
-//            currentScreenLine: ScreenLine(
-//                fullTextValue: text,
-//                fullTextLength: 44,
-//                number: 1,
-//                start: 0,
-//                end: 44
-//            )!
-//        )
-//        
-//        let returnedElement = applyMoveBeingTested(times: 69, on: element)
-//
-//        XCTAssertEqual(returnedElement?.caretLocation, 0)
-//        XCTAssertEqual(returnedElement?.selectedLength, 3)
-//        XCTAssertNil(returnedElement?.selectedText)
-//    }
+    func test_that_when_the_count_is_too_high_it_changes_the_characters_case_until_the_end_of_the_FileLine() {
+        let textInAXFocusedElement = """
+we goNNa moVe in tHere with count 🈹️ awww
+and one more line
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.w(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(times: 69)
+
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+we GOnnA MOvE IN ThERE WITH COUNT 🈹️ AWWW
+and one more line
+"""
+)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 41)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedText, "W")
+    }
     
 }
 
