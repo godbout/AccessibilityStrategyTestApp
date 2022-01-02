@@ -2,60 +2,9 @@
 import XCTest
 
 
-// `ce` uses `e` that uses `FileText.endOfWordForward` that are heavily tested.
-// here we just test what's specific to ce.
+// PGR
 class ASUI_NM_ce_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.ce(on: $0, pgR: pgR) }
-    }
-    
-}
-
-
-// copy deleted text
-extension ASUI_NM_ce_Tests {
-    
-    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
-        let textInAXFocusedElement = "😂️😂️😂️😂️ gonna use ce on this sentence"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.zero(on: $0) }
-        applyMove { asNormalMode.l(on: $0) }
-        copyToClipboard(text: "some fake shit")
-        _ = applyMoveBeingTested()
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️😂️😂️")
-    }
-    
-}
-
-
-// both
-extension ASUI_NM_ce_Tests {
-    
-    func test_that_in_normal_setting_it_selects_the_text_from_the_caret_to_the_character_found() {
-        let textInAXFocusedElement = "😂️😂️😂️😂️ gonna use ce on this sentence"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.zero(on: $0) }
-        applyMove { asNormalMode.l(on: $0) }
-        let accessibilityElement = applyMoveBeingTested()
-        
-        XCTAssertEqual(accessibilityElement?.fileText.value, "😂️ gonna use ce on this sentence")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
-    }
-   
-}
-
-
-// PGR
-extension ASUI_NM_ce_Tests {
-
     func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "😂️😂️😂️😂️ gonna use ce on this sentence"
         app.textFields.firstMatch.tap()
@@ -63,7 +12,8 @@ extension ASUI_NM_ce_Tests {
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMove { asNormalMode.ce(on: $0, pgR: true) }
+           
         
         XCTAssertEqual(accessibilityElement?.fileText.value, " gonna use ce on this sentence")
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
