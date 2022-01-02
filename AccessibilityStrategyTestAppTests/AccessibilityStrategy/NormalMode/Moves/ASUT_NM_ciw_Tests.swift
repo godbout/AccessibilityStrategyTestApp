@@ -10,6 +10,7 @@ class ASUT_NM_ciw_Tests: ASUT_NM_BaseTests {
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.ciw(on: element, pgR: false) 
     } 
+    
 }
 
 
