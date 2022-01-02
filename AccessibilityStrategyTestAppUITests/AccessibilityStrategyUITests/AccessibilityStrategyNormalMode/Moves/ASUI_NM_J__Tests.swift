@@ -11,7 +11,6 @@ class ASUI_NM_J__Tests: ASUI_NM_BaseTests {
 }
 
 
-// TODO: check J o O r and maybe Pp? maybe no need to do UI
 extension ASUI_NM_J__Tests {
     
     func test_that_in_normal_setting_it_replaces_the_linefeed_at_the_end_of_the_current_line_by_a_space() {
