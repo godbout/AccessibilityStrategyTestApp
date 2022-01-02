@@ -2,19 +2,73 @@
 import XCTest
 
 
-// now the `c` moves need to be tested in UI because of the PGR tweak.
-// here we still keep the stuff that obviously don't need to go through the whole UI process,
-// like when the move does nothing. LOL (e.g. because it can't find the character asked for, etc.)
 class ASUT_NM_cF__Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.cF(to: character, on: element, pgR: false)
+    private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.cF(times: count, to: character, on: element, pgR: false) 
     }
     
 }
 
 
+// count
 extension ASUT_NM_cF__Tests {
+    
+    func test_that_it_implements_the_count_system() {
+        let text = "here we gonna delete up to 🕑️ characters rather than 🦴️!"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 58,
+            caretLocation: 19,
+            selectedLength: 1,
+            selectedText: "e",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 58,
+                number: 1,
+                start: 0,
+                end: 58
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(times: 2, to: "e", on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 15)
+        XCTAssertEqual(returnedElement?.selectedLength, 4)
+        XCTAssertEqual(returnedElement?.selectedText, "")
+    }
+    
+}
+
+
+// Both
+extension ASUT_NM_cF__Tests {
+    
+    func test_that_in_normal_setting_it_selects_from_the_character_found_to_the_caret() {
+        let text = "gonna use cF on that sentence"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 29,
+            caretLocation: 25,
+            selectedLength: 1,
+            selectedText: "e",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 29,
+                number: 1,
+                start: 0,
+                end: 29
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(to: "F", on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 11)
+        XCTAssertEqual(returnedElement?.selectedLength, 14)
+        XCTAssertEqual(returnedElement?.selectedText, "")
+    }
     
     func test_that_if_the_character_is_not_found_then_it_does_nothing() {
         let text = """
@@ -43,6 +97,41 @@ that is not there
         XCTAssertEqual(returnedElement?.caretLocation, 14)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+}
+
+
+// TextViews
+extension ASUT_NM_cF__Tests {
+    
+    func test_that_it_can_find_the_character_on_a_line_for_a_multiline() {
+        let text = """
+cF on a multiline
+should work
+on a 📏️📏️ line
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 46,
+            caretLocation: 45,
+            selectedLength: 1,
+            selectedText: "e",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 46,
+                number: 3,
+                start: 30,
+                end: 46
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(to: "o", on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 30)
+        XCTAssertEqual(returnedElement?.selectedLength, 15)
+        XCTAssertEqual(returnedElement?.selectedText, "")
     }
     
 }
