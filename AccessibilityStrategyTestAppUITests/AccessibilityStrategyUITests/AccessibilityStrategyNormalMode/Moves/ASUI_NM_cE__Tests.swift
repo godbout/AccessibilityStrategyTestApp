@@ -12,26 +12,6 @@ class ASUI_NM_cE__Tests: ASUI_NM_BaseTests {
 }
 
 
-// both
-extension ASUI_NM_cE__Tests {
-    
-    func test_that_in_normal_setting_it_selects_the_text_from_the_caret_to_the_character_found() {
-        let textInAXFocusedElement = "😂️😂️😂️😂️hehehehe gonna use ce on this sentence"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.zero(on: $0) }
-        applyMove { asNormalMode.l(on: $0) }
-        let accessibilityElement = applyMoveBeingTested()
-        
-        XCTAssertEqual(accessibilityElement?.fileText.value, "😂️ gonna use ce on this sentence")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
-    }
-   
-}
-
 
 // PGR
 extension ASUI_NM_cE__Tests {
