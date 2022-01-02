@@ -12,7 +12,6 @@ class ASUI_NM_cE__Tests: ASUI_NM_BaseTests {
 }
 
 
-
 // PGR
 extension ASUI_NM_cE__Tests {
 

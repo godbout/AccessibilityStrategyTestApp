@@ -11,7 +11,6 @@ class ASUI_NM_cG__Tests: ASUI_NM_BaseTests {
 }
 
 
-// TODO: move them here
 // PGR
 extension ASUI_NM_cG__Tests {
     
