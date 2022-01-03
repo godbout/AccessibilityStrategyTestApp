@@ -5,7 +5,9 @@ import XCTest
 class ASUI_NM_ciInnerBrackets_Tests: ASUI_NM_BaseTests {
        
     private func applyMoveBeingTested(using bracket: Character, pgR: Bool) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.ciInnerBrackets(using: bracket, on: $0, pgR: pgR) }
+        var bipped = false
+        
+        return applyMove { asNormalMode.ciInnerBrackets(using: bracket, on: $0, pgR: pgR, &bipped) }
     }
     
 }

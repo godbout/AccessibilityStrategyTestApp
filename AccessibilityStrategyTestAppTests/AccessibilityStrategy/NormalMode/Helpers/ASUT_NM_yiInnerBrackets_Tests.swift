@@ -163,6 +163,7 @@ by a linefeed and
         XCTAssertNil(returnedElement?.selectedText)
     }
     
+    // TODO: here we mix test of move and LYS. that make sense. do the same everywhere? 
     func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_and_the_closing_bracket_is_immediately_preceded_by_a_linefeed_then_the_move_keeps_an_empty_line_between_the_brackets_and_that_the_LastYankStyle_is_set_to_Linewise() {
         let text = """
 this case is when {

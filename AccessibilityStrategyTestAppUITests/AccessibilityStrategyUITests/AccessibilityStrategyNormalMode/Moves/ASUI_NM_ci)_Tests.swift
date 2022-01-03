@@ -6,7 +6,9 @@ import XCTest
 class ASUI_NM_ciRightParenthesis_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.ciRightParenthesis(on: $0, pgR: pgR) }
+        var bipped = false
+                
+        return applyMove { asNormalMode.ciRightParenthesis(on: $0, pgR: pgR, &bipped) }
     }
 
 }
