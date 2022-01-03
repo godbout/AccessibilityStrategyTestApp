@@ -4,11 +4,55 @@ import XCTest
 
 class ASUI_NM_r_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(with character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
-        return applyMove(with: character) { character, focusedElement in
-            asNormalMode.r(with: character, on: focusedElement, pgR: pgR)
-        }
+    private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
+        return applyMove { asNormalMode.r(times: count, with: character, on: $0, pgR: pgR)}
     }
+    
+}
+
+
+// count
+// TODO: there's more tests to have here. with the linefeed. like 100r return should not work
+// even if the count is ignored for linefeed
+extension ASUI_NM_r_Tests {
+    
+    func test_that_it_implements_the_count_system() {
+        let textInAXFocusedElement = "we goNNa moVe in tHere with count 🈹️ awww"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.F(to: "g", on: $0) }
+        let accessibilityElement = applyMoveBeingTested(times: 10, with: "z")
+        
+        XCTAssertEqual(accessibilityElement?.fileText.value, "we zzzzzzzzzz in tHere with count 🈹️ awww")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 12)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedText, "z")
+    }
+    
+    func test_that_if_the_count_is_so_high_that_it_goes_over_the_FileLine_end_it_does_nothing() {
+        let textInAXFocusedElement = """
+we goNNa moVe in tHere with count awww
+and one more line
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.w(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(times: 36, with: "z")
+
+        XCTAssertEqual(accessibilityElement?.fileText.value, """
+we goNNa moVe in tHere with count awww
+and one more line
+"""
+)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedText, "g")
+    }
+    
 }
 
 
