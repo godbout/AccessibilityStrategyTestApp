@@ -5,17 +5,17 @@ import XCTest
 // cF for blah blah
 class ASUT_NM_cT__Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, _ bipped: inout Bool) -> AccessibilityTextElement? {
-        return asNormalMode.cT(times: count, to: character, on: element, pgR: false, &bipped) 
+    private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+        return asNormalMode.cT(times: count, to: character, on: element, pgR: false, &vimEngineState) 
     }
     
 }
 
 
-// copy deleted text
+// Bip, copy deletion and LYS
 extension ASUT_NM_cT__Tests {
     
-    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
+    func test_that_when_it_finds_the_stuff_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
         let text = "gonna use cT on that sentence"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -34,10 +34,43 @@ extension ASUT_NM_cT__Tests {
         )
         
         copyToClipboard(text: "some fake shit")
-        var bipped = false
-        _ = applyMoveBeingTested(to: "T", on: element, &bipped)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(to: "T", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), " on that sent")
+        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
+    }
+    
+    func test_that_it_Bips_when_it_cannot_find() {
+        let text = """
+gonna look
+for a character
+that is not there
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 44,
+            caretLocation: 14,
+            selectedLength: 1,
+            selectedText: " ",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 44,
+                number: 2,
+                start: 11,
+                end: 17
+            )!
+        )
+        
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(to: "T", on: element, &state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
+        XCTAssertTrue(state.lastMoveBipped)
+        XCTAssertEqual(state.lastYankStyle, .linewise)
     }
     
 }
@@ -64,8 +97,8 @@ extension ASUT_NM_cT__Tests {
             )!
         )
         
-        var bipped = false
-        let returnedElement = applyMoveBeingTested(times: 2, to: "e", on: element, &bipped)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(times: 2, to: "e", on: element, &state)
         
         XCTAssertEqual(returnedElement?.caretLocation, 16)
         XCTAssertEqual(returnedElement?.selectedLength, 3)
@@ -75,62 +108,7 @@ extension ASUT_NM_cT__Tests {
 }
 
 
-// bipped
-extension ASUT_NM_cT__Tests {
-    
-    func test_that_it_does_not_Bip_when_it_can_find() {
-        let text = "gonna use cT on that sentence"
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            length: 29,
-            caretLocation: 25,
-            selectedLength: 1,
-            selectedText: "e",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 29,
-                number: 1,
-                start: 0,
-                end: 29
-            )!
-        )
-        
-        var bipped = false
-        _ = applyMoveBeingTested(to: "T", on: element, &bipped)
-        
-        XCTAssertFalse(bipped)
-    }
-        
-    func test_that_it_Bips_when_it_cannot_find() {
-        let text = """
-gonna look
-for a character
-that is not there
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 44,
-            caretLocation: 14,
-            selectedLength: 1,
-            selectedText: " ",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 44,
-                number: 2,
-                start: 11,
-                end: 17
-            )!
-        )
-        
-        var bipped = false 
-        _ = applyMoveBeingTested(to: "z", on: element, &bipped)
-        
-        XCTAssertTrue(bipped)
-    }
-    
-}
+
 
 
 // Both
@@ -154,8 +132,8 @@ extension ASUT_NM_cT__Tests {
             )!
         )
         
-        var bipped = false
-        let returnedElement = applyMoveBeingTested(to: "T", on: element, &bipped)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(to: "T", on: element, &state)
         
         XCTAssertEqual(returnedElement?.caretLocation, 12)
         XCTAssertEqual(returnedElement?.selectedLength, 13)
@@ -184,8 +162,8 @@ that is not there
             )!
         )
         
-        var bipped = false
-        let returnedElement = applyMoveBeingTested(to: "z", on: element, &bipped)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(to: "z", on: element, &state)
         
         XCTAssertEqual(returnedElement?.caretLocation, 14)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -220,8 +198,8 @@ on a line
             )!
         )
         
-        var bipped = false
-        let returnedElement = applyMoveBeingTested(to: "w", on: element, &bipped)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(to: "w", on: element, &state)
         
         XCTAssertEqual(returnedElement?.caretLocation, 26)
         XCTAssertEqual(returnedElement?.selectedLength, 11)

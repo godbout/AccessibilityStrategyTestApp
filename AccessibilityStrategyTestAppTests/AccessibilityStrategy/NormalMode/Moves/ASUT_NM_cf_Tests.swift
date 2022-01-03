@@ -6,17 +6,17 @@ import XCTest
 // see cF for rest fo blah blah.
 class ASUT_NM_cf_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, _ bipped: inout Bool) -> AccessibilityTextElement? {
-        return asNormalMode.cf(times: count, to: character, on: element, pgR: false, &bipped)
+    private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+        return asNormalMode.cf(times: count, to: character, on: element, pgR: false, &vimEngineState)
     }
     
 }
 
 
-// copy deleted text
+// Bip, copy deletion and LYS
 extension ASUT_NM_cf_Tests {
     
-    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
+    func test_that_when_it_finds_the_stuff_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
         let text = "😂️😂️😂️😂️ gonna use cf on this sentence"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -35,42 +35,14 @@ extension ASUT_NM_cf_Tests {
         )
         
         copyToClipboard(text: "some fake shit")
-        var bipped = false
-        _ = applyMoveBeingTested(to: "s", on: element, &bipped)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(to: "s", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️😂️😂️ gonna us")
+        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
     }
     
-}
-
-
-// bipped
-extension ASUT_NM_cf_Tests {
-    
-    func test_that_it_does_not_Bip_when_it_can_find() {
-        let text = "😂️😂️😂️😂️ gonna use cf on this sentence"
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            length: 42,
-            caretLocation: 3,
-            selectedLength: 3,
-            selectedText: "😂️",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 42,
-                number: 1,
-                start: 0,
-                end: 42
-            )!
-        )
-       
-        var bipped = false
-        _ = applyMoveBeingTested(to: "s", on: element, &bipped)
-        
-        XCTAssertFalse(bipped)
-    }
-        
     func test_that_it_Bips_when_it_cannot_find() {
         let text = """
 gonna look
@@ -93,10 +65,13 @@ that is not there
             )!
         )
         
-        var bipped = false 
-        _ = applyMoveBeingTested(to: "z", on: element, &bipped)
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(to: "z", on: element, &state)
         
-        XCTAssertTrue(bipped)
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
+        XCTAssertTrue(state.lastMoveBipped)
+        XCTAssertEqual(state.lastYankStyle, .linewise)
     }
     
 }
@@ -123,8 +98,8 @@ extension ASUT_NM_cf_Tests {
             )!
         )
         
-        var bipped = false
-        let returnedElement = applyMoveBeingTested(times: 2, to: "e", on: element, &bipped)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(times: 2, to: "e", on: element, &state)
         
         XCTAssertEqual(returnedElement?.caretLocation, 19)
         XCTAssertEqual(returnedElement?.selectedLength, 28)
@@ -155,8 +130,8 @@ extension ASUT_NM_cf_Tests {
             )!
         )
         
-        var bipped = false
-        let returnedElement = applyMoveBeingTested(to: "s", on: element, &bipped)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(to: "s", on: element, &state)
         
         XCTAssertEqual(returnedElement?.caretLocation, 3)
         XCTAssertEqual(returnedElement?.selectedLength, 18)
@@ -185,8 +160,8 @@ that is not there
             )!
         )
         
-        var bipped = false 
-        let returnedElement = applyMoveBeingTested(to: "z", on: element, &bipped)
+        var state = VimEngineState() 
+        let returnedElement = applyMoveBeingTested(to: "z", on: element, &state)
         
         XCTAssertEqual(returnedElement?.caretLocation, 14)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -221,8 +196,8 @@ on a line
             )!
         )
         
-        var bipped = false
-        let returnedElement = applyMoveBeingTested(to: "w", on: element, &bipped)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(to: "w", on: element, &state)
         
         XCTAssertEqual(returnedElement?.caretLocation, 18)
         XCTAssertEqual(returnedElement?.selectedLength, 8)
