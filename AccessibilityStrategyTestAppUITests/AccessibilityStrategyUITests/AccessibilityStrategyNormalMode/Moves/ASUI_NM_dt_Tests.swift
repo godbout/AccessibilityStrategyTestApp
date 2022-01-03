@@ -6,9 +6,9 @@ import XCTest
 class ASUI_NM_dt_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
-        return applyMove(with: character) { character, focusedElement in
-            asNormalMode.dt(times: count, to: character, on: focusedElement, pgR: pgR)
-        }
+        var state = VimEngineState()
+        
+        return applyMove { asNormalMode.dt(times: count, to: character, on: $0, pgR: pgR, &state) }
     }
     
 }
