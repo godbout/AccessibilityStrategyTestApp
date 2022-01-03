@@ -5,7 +5,9 @@ import XCTest
 class ASUI_NM_cb_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.cb(on: $0, pgR: pgR) }
+        var bipped = false
+        
+        return applyMove { asNormalMode.cb(on: $0, pgR: pgR, &bipped) }
     }
     
 }
