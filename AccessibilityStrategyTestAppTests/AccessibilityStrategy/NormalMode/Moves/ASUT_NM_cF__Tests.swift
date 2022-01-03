@@ -74,6 +74,64 @@ extension ASUT_NM_cF__Tests {
 }
 
 
+// bipped
+extension ASUT_NM_cF__Tests {
+    
+    func test_that_it_does_not_Bip_when_it_can_find() {
+        let text = "gonna use cF on that sentence"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 29,
+            caretLocation: 25,
+            selectedLength: 1,
+            selectedText: "e",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 29,
+                number: 1,
+                start: 0,
+                end: 29
+            )!
+        )
+        
+        var bipped = false
+        _ = applyMoveBeingTested(to: "F", on: element, &bipped)
+        
+        XCTAssertFalse(bipped)
+    }
+        
+    func test_that_it_Bips_when_it_cannot_find() {
+        let text = """
+gonna look
+for a character
+that is not there
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 44,
+            caretLocation: 14,
+            selectedLength: 1,
+            selectedText: " ",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 44,
+                number: 2,
+                start: 11,
+                end: 27
+            )!
+        )
+        
+        var bipped = false 
+        _ = applyMoveBeingTested(to: "z", on: element, &bipped)
+        
+        XCTAssertTrue(bipped)
+    }
+    
+}
+
+
 // Both
 extension ASUT_NM_cF__Tests {
     
@@ -131,65 +189,6 @@ that is not there
         XCTAssertEqual(returnedElement?.caretLocation, 14)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-}
-
-
-// bipped
-extension ASUT_NM_cF__Tests {
-    
-    func test_that_it_does_not_Bip_when_it_can_find() {
-        let text = "gonna use cF on that sentence"
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            length: 29,
-            caretLocation: 25,
-            selectedLength: 1,
-            selectedText: "e",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 29,
-                number: 1,
-                start: 0,
-                end: 29
-            )!
-        )
-        
-        copyToClipboard(text: "some fake shit")
-        var bipped = false
-        _ = applyMoveBeingTested(to: "F", on: element, &bipped)
-        
-        XCTAssertFalse(bipped)
-    }
-        
-    func test_that_it_Bips_when_it_cannot_find() {
-        let text = """
-gonna look
-for a character
-that is not there
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 44,
-            caretLocation: 14,
-            selectedLength: 1,
-            selectedText: " ",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 44,
-                number: 2,
-                start: 11,
-                end: 27
-            )!
-        )
-        
-        var bipped = false 
-        _ = applyMoveBeingTested(to: "z", on: element, &bipped)
-        
-        XCTAssertTrue(bipped)
     }
     
 }
