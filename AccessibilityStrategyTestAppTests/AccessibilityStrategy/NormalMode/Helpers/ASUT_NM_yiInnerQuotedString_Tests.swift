@@ -13,6 +13,69 @@ class ASUT_NM_yiInnerQuotedString_Tests: ASUT_NM_BaseTests {
 }
 
 
+// Bip, copy deletion and LYS
+extension ASUT_NM_yiInnerQuotedString_Tests {
+    
+    func test_that_when_it_finds_the_stuff_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
+        let text = """
+again multiline
+again
+and now `hohohohoho`
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 42,
+            caretLocation: 37,
+            selectedLength: 1,
+            selectedText: "h",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 42,
+                number: 3,
+                start: 22,
+                end: 42
+            )!
+        )
+        
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMove(using: "`", on: element, &state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "hohohohoho")
+        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
+    }
+    
+    func test_that_when_it_does_not_find_the_stuff_it_Bips_and_does_not_change_the_LastYankingStyle_and_does_not_copy_anything() {
+        let text = "some text without any double quote"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 34,
+            caretLocation: 23,
+            selectedLength: 1,
+            selectedText: "o",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 34,
+                number: 1,
+                start: 0,
+                end: 34
+            )!
+        )
+        
+        copyToClipboard(text: "no double quote")
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMove(using: "\"", on: element, &state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "no double quote")
+        XCTAssertTrue(state.lastMoveBipped)
+        XCTAssertEqual(state.lastYankStyle, .linewise)
+    }
+    
+}
+
+
 // Both
 extension ASUT_NM_yiInnerQuotedString_Tests {
     

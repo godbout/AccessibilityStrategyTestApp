@@ -12,7 +12,7 @@ class ASUT_NM_daw_Tests: ASUT_NM_BaseTests {
 }
 
 
-// TODO: then we can rmeove the tests in KV UIT
+// Bip, copy deletion and LYS
 extension ASUT_NM_daw_Tests {
     
     func test_that_when_it_finds_the_stuff_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
