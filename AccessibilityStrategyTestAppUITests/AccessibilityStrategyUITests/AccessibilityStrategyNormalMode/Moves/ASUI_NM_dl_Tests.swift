@@ -4,8 +4,14 @@ import XCTest
 
 class ASUI_NM_dl_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.dl(on: $0, pgR: pgR) }
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+        var state = VimEngineState()
+        
+        return applyMoveBeingTested(&state)
+    }
+        
+    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+        return applyMove { asNormalMode.dl(on: $0, &vimEngineState) }
     }
     
 }
@@ -14,7 +20,7 @@ class ASUI_NM_dl_Tests: ASUI_NM_BaseTests {
 // copy deleted text
 extension ASUI_NM_dl_Tests {
     
-    func test_that_for_an_empty_line_it_does_not_copy_the_deleted_text_in_the_pasteboard() {
+    func test_that_for_an_empty_line_it_does_not_Bip_and_does_not_change_the_LastYankStyle_and_does_not_copy_anything() {
         let textInAXFocusedElement = """
 next line is gonna be empty!
 
@@ -26,21 +32,27 @@ but shouldn't be deleted
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         copyToClipboard(text: "nope you don't copy mofo")
-        _ = applyMoveBeingTested()
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        _ = applyMoveBeingTested(&state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "nope you don't copy mofo")
+        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertFalse(state.lastMoveBipped)
     }
     
-    func test_that_else_it_copies_the_deleted_text_in_the_pasteboard() {
+    func test_that_else_it_also_does_not_Bip_but_change_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
         let textInAXFocusedElement = "x should delete the right character"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.b(on: $0) }
         copyToClipboard(text: "some fake shit")
-        _ = applyMoveBeingTested()
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        _ = applyMoveBeingTested(&state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "c")
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(state.lastMoveBipped)
     }
 }
 
@@ -164,7 +176,8 @@ extension ASUI_NM_dl_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.b(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        var state = VimEngineState(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(&state)
 
         XCTAssertEqual(accessibilityElement?.fileText.value, "x should delete the rightharacter")
         XCTAssertEqual(accessibilityElement?.caretLocation, 25)
@@ -181,7 +194,8 @@ that is not an empty line🤡️🤡️
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
       
         applyMove { asNormalMode.h(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        var state = VimEngineState(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(&state)
         
         XCTAssertEqual(accessibilityElement?.fileText.value, """
 so we're on the last

@@ -4,18 +4,24 @@ import XCTest
 
 class ASUI_NM_dh_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.dh(on: $0, pgR: pgR) }
+    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+        return applyMove { asNormalMode.dh(on: $0, &vimEngineState) }
+    }
+    
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+        var state = VimEngineState()
+        
+        return applyMoveBeingTested(&state)
     }
     
 }
 
 
-// copy deleted text
+// Bip, copy deletion and LYS
 extension ASUI_NM_dh_Tests {
     
-    // this case does include empty lines
-    func test_that_for_if_the_caret_is_at_the_start_of_a_line_it_not_copy_the_deleted_text_to_the_pasteboard() {
+    // this case includes empty lines
+    func test_that_if_the_caret_is_at_the_start_of_a_line_it_does_not_Bip_and_does_not_change_the_LastYankStyle_and_does_not_copy_anything() {
         let textInAXFocusedElement = """
 so we're at the start of the second line
 and a shouldn't get deleted and
@@ -27,22 +33,29 @@ we should stay there
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
         copyToClipboard(text: "nope you don't copy mofo")
-        _ = applyMoveBeingTested()
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        _ = applyMoveBeingTested(&state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "nope you don't copy mofo")
+        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertFalse(state.lastMoveBipped)
     }
     
-    func test_that_else_it_copies_the_deleted_text_in_the_pasteboard() {
+    func test_that_else_it_also_does_not_Bip_but_change_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
         let textInAXFocusedElement = "X should delete the right character😂️😂️😂️😂️"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.b(on: $0) }
         copyToClipboard(text: "some fake shit")
-        _ = applyMoveBeingTested()
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        _ = applyMoveBeingTested(&state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️")
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(state.lastMoveBipped)
     }
+    
 }
 
 
@@ -103,7 +116,8 @@ extension ASUI_NM_dh_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.b(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        var state = VimEngineState(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(&state)
 
         XCTAssertEqual(accessibilityElement?.fileText.value, "X should delete the right charact😂️😂️😂️😂️")
         XCTAssertEqual(accessibilityElement?.caretLocation, 33)

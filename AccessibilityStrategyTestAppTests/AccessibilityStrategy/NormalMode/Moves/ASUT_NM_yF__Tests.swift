@@ -7,6 +7,7 @@ import XCTest
 // so those are two things that we test here
 class ASUT_NM_yF__Tests: ASUT_NM_BaseTests {
     
+    // TODO: use two func to avoid having to pass state everywhere
     private func applyMoveBeingTested(times count: Int = 1, with character: Character, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return asNormalMode.yF(times: count, to: character, on: element, &vimEngineState)
     }
