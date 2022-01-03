@@ -9,8 +9,8 @@ import XCTest
 // on the text that is being copied, so cannot test in KVE).
 class ASUT_NM_yiInnerBrackets_Tests: ASUT_NM_BaseTests {
     
-    private func applyMove(using bracket: Character, on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
-        return asNormalMode.yiInnerBrackets(using: bracket, on: element, &lastYankStyle) 
+    private func applyMove(using bracket: Character, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+        return asNormalMode.yiInnerBrackets(using: bracket, on: element, &vimEngineState) 
     }
     
 }
@@ -38,10 +38,10 @@ extension ASUT_NM_yiInnerBrackets_Tests {
             )!
         )
         
-        var lastYankStyle: VimEngineMoveStyle = .linewise
-        let returnedElement = applyMove(using: "{", on: element, &lastYankStyle)
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMove(using: "{", on: element, &state)
         
-        XCTAssertEqual(lastYankStyle, .characterwise)        
+        XCTAssertEqual(state.lastYankStyle, .characterwise)        
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️ has some nice ")
         XCTAssertEqual(returnedElement?.caretLocation, 16)  
         XCTAssertEqual(returnedElement?.selectedLength, 3)
@@ -76,10 +76,10 @@ and } is not preceded by a linefeed
             )!
         )
         
-        var lastYankStyle: VimEngineMoveStyle = .linewise
-        let returnedElement = applyMove(using: "{", on: element, &lastYankStyle)
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMove(using: "{", on: element, &state)
         
-        XCTAssertEqual(lastYankStyle, .characterwise)
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
  is not followed
 by a linefeed
@@ -113,10 +113,10 @@ and } is not preceded by a linefeed
             )!
         )
         
-        var lastYankStyle: VimEngineMoveStyle = .linewise
-        let returnedElement = applyMove(using: "{", on: element, &lastYankStyle)
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMove(using: "{", on: element, &state)
         
-        XCTAssertEqual(lastYankStyle, .characterwise)
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 is followed by a linefeed
 and 
@@ -149,10 +149,10 @@ by a linefeed and
             )!
         )
         
-        var lastYankStyle: VimEngineMoveStyle = .characterwise
-        let returnedElement = applyMove(using: "{", on: element, &lastYankStyle)
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
+        let returnedElement = applyMove(using: "{", on: element, &state)
         
-        XCTAssertEqual(lastYankStyle, .linewise)
+        XCTAssertEqual(state.lastYankStyle, .linewise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
  is not followed
 by a linefeed and
@@ -186,10 +186,10 @@ is followed by a linefeed and
             )!
         )
         
-        var lastYankStyle: VimEngineMoveStyle = .characterwise
-        let returnedElement = applyMove(using: "{", on: element, &lastYankStyle)
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
+        let returnedElement = applyMove(using: "{", on: element, &state)
         
-        XCTAssertEqual(lastYankStyle, .linewise)
+        XCTAssertEqual(state.lastYankStyle, .linewise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "is followed by a linefeed and")
         XCTAssertEqual(returnedElement?.caretLocation, 20)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
