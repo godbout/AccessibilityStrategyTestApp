@@ -12,8 +12,6 @@ class ASUI_NM_r_Tests: ASUI_NM_BaseTests {
 
 
 // count
-// TODO: there's more tests to have here. with the linefeed. like 100r return should not work
-// even if the count is ignored for linefeed
 extension ASUI_NM_r_Tests {
     
     func test_that_it_implements_the_count_system() {
@@ -31,7 +29,9 @@ extension ASUI_NM_r_Tests {
         XCTAssertEqual(accessibilityElement?.selectedText, "z")
     }
     
-    func test_that_if_the_count_is_so_high_that_it_goes_over_the_FileLine_end_it_does_nothing() {
+    // if replacement is a linefeed, count is ignored in Vim. but still, the move shouldn't work. count has precedence
+    // over the replacement itself.
+    func test_that_if_the_count_is_so_high_that_it_goes_over_the_FileLine_end_it_does_nothing_and_that_includes_if_the_replacement_is_a_linefeed() {
         let textInAXFocusedElement = """
 we goNNa moVe in tHere with count awww
 and one more line
@@ -41,7 +41,7 @@ and one more line
 
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(times: 36, with: "z")
+        let accessibilityElement = applyMoveBeingTested(times: 36, with: "\n")
 
         XCTAssertEqual(accessibilityElement?.fileText.value, """
 we goNNa moVe in tHere with count awww
