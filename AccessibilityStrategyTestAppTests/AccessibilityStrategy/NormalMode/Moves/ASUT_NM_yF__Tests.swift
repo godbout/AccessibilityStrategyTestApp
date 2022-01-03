@@ -35,7 +35,7 @@ extension ASUT_NM_yF__Tests {
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
         _ = applyMoveBeingTested(with: "F", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "F on 🦘️🦘️ this sent")
@@ -66,7 +66,7 @@ that is not there
         )
         
         copyToClipboard(text: "404 character not found")
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         _ = applyMoveBeingTested(with: "z", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")
@@ -98,7 +98,7 @@ extension ASUT_NM_yF__Tests {
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         let returnedElement = applyMoveBeingTested(times: 3, with: "e", on: element, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "etter 💌️💌️💌️ rather tha")
@@ -126,7 +126,7 @@ extension ASUT_NM_yF__Tests {
         )
                 
         copyToClipboard(text: "404 character not found")
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         let returnedElement = applyMoveBeingTested(times: 69, with: "i", on: element, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")
@@ -162,7 +162,7 @@ them like nothin🇫🇷️ happened. that's how special it is.
             )!
         )
 
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         let returnedElement = applyMoveBeingTested(with: "k", on: element, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "ke nothin🇫🇷️ happened. that's how special it ")
@@ -261,7 +261,7 @@ on a line
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         let returnedElement = applyMoveBeingTested(with: "h", on: element, &state)
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)

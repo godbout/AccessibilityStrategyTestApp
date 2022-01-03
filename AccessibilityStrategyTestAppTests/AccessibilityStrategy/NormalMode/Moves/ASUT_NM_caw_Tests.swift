@@ -34,7 +34,7 @@ extension ASUT_NM_caw_Tests {
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
         _ = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "cute      ")
@@ -64,7 +64,7 @@ and also a lot of spaces at the end of this line
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         _ = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")

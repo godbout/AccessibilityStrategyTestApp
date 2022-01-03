@@ -4,18 +4,44 @@ import XCTest
 
 class ASUT_NM_C__Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.C(on: element, pgR: false) 
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+        return asNormalMode.C(on: element, &vimEngineState)
     } 
     
 }
 
 
-
-// copy deleted text
+// Bip, copy deletion and LYS
 extension ASUT_NM_C__Tests {
     
-    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
+    func test_that_when_it_is_on_an_empty_line_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_an_empty_string() {
+        let text = ""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 0,
+            caretLocation: 0,
+            selectedLength: 0,
+            selectedText: "",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 0,
+                number: 1,
+                start: 0,
+                end: 0
+            )!
+        )
+        
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        _ = applyMoveBeingTested(on: element, &state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(state.lastMoveBipped)
+    }
+    
+    func test_that_when_it_is_not_on_an_empty_line_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Characterwise_also_but_copies_the_deletion() {
         let text = """
 C will now work with file lines and is supposed to delete from the caret ☀️ to before the linefeed
 and of course this is in the case there is a linefeed at the end of the line.
@@ -37,9 +63,12 @@ and of course this is in the case there is a linefeed at the end of the line.
         )
         
         copyToClipboard(text: "some fake shit")
-        _ = applyMoveBeingTested(on: element)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        _ = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "te from the caret ☀️ to before the linefeed")
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(state.lastMoveBipped)
     }
     
 }
@@ -68,7 +97,8 @@ this time the line will not end with a linefeed so C should delete from the care
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(on: element)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(returnedElement?.caretLocation, 11)
         XCTAssertEqual(returnedElement?.selectedLength, 84)
@@ -102,7 +132,8 @@ and of course this is in the case there is a linefeed at the end of the line.
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(on: element)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(on: element, &state)
                 
         XCTAssertEqual(returnedElement?.caretLocation, 55)
         XCTAssertEqual(returnedElement?.selectedLength, 43)
@@ -131,7 +162,8 @@ and not delete that fucking shit
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(on: element)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(on: element, &state)
                 
         XCTAssertEqual(returnedElement?.caretLocation, 46)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
@@ -139,4 +171,3 @@ and not delete that fucking shit
     }
 
 }
-

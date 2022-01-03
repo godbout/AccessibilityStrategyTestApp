@@ -35,7 +35,7 @@ extension ASUT_NM_cf_Tests {
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
         _ = applyMoveBeingTested(to: "s", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️😂️😂️ gonna us")
@@ -66,7 +66,7 @@ that is not there
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         _ = applyMoveBeingTested(to: "z", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")

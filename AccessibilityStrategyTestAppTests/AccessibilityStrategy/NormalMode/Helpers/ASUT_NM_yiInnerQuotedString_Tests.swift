@@ -38,7 +38,7 @@ and now `hohohohoho`
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
         _ = applyMove(using: "`", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "hohohohoho")
@@ -65,7 +65,7 @@ and now `hohohohoho`
         )
         
         copyToClipboard(text: "no double quote")
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
         _ = applyMove(using: "\"", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "no double quote")
@@ -98,7 +98,7 @@ extension ASUT_NM_yiInnerQuotedString_Tests {
         )
         
         copyToClipboard(text: "no double quote")
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         let returnedElement = applyMove(using: "\"", on: element, &state)
         
         XCTAssertEqual(state.lastYankStyle, .linewise)
@@ -129,7 +129,7 @@ now there's one " double quote
         )
         
         copyToClipboard(text: "only one double quote")
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         let returnedElement = applyMove(using: "\"", on: element, &state)
         
         XCTAssertEqual(state.lastYankStyle, .linewise)
@@ -160,7 +160,7 @@ two 'simple quotes' on the second line
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         let returnedElement = applyMove(using: "'", on: element, &state)
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)
@@ -192,7 +192,7 @@ and now `hohohohoho`
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         let returnedElement = applyMove(using: "`", on: element, &state)
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)
@@ -223,7 +223,7 @@ double "quotes" before the caret
         )
         
         copyToClipboard(text: "caret after double quote")
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         let returnedElement = applyMove(using: "\"", on: element, &state)
         
         XCTAssertEqual(state.lastYankStyle, .linewise)
@@ -254,7 +254,7 @@ heheheheh
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         let returnedElement = applyMove(using: "'", on: element, &state)
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)
@@ -285,7 +285,7 @@ now there's gonna
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         let returnedElement = applyMove(using: "`", on: element, &state)
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)
@@ -322,7 +322,7 @@ those💨️💨️💨️ fac"🍵️s 🥺️☹️😂️ h😀️ha👅️" 
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         let returnedElement = applyMove(using: "\"", on: element, &state)
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)

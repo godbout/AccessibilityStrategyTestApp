@@ -4,8 +4,10 @@ import XCTest
 
 class ASUI_NM_C__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.C(on: $0, pgR: pgR) }
+    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+        var state = VimEngineState(pgR: true)
+        
+        return applyMove { asNormalMode.C(on: $0, &state) }
     }
     
 }
@@ -24,7 +26,7 @@ and of course this is in the case there is a linefeed at the end of the line.
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.f(times: 3, to: "t", on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested()
                 
         XCTAssertEqual(accessibilityElement?.fileText.value, """
 C will now work with file lines and is supposed to del

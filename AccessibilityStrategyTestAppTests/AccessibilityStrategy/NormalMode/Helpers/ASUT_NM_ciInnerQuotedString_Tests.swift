@@ -36,7 +36,7 @@ finally dealing with the "real stuff"!
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
         _ = applyMoveBeingTested(using: "\"", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "real stuff")
@@ -65,7 +65,7 @@ finally dealing with the "real stuff!
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         _ = applyMoveBeingTested(using: "\"", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")

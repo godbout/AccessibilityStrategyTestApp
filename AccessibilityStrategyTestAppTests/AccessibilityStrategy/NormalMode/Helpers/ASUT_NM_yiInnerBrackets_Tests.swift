@@ -40,7 +40,7 @@ extension ASUT_NM_yiInnerBrackets_Tests {
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         _ = applyMove(using: "{", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️ has some nice ")
@@ -66,7 +66,7 @@ extension ASUT_NM_yiInnerBrackets_Tests {
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         _ = applyMove(using: "{", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
@@ -97,7 +97,7 @@ extension ASUT_NM_yiInnerBrackets_Tests {
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         let returnedElement = applyMove(using: "{", on: element, &state)
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)        
@@ -135,7 +135,7 @@ and } is not preceded by a linefeed
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         let returnedElement = applyMove(using: "{", on: element, &state)
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)
@@ -172,7 +172,7 @@ and } is not preceded by a linefeed
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         let returnedElement = applyMove(using: "{", on: element, &state)
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)
@@ -208,7 +208,7 @@ by a linefeed and
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
+        var state = VimEngineState(lastYankStyle: .characterwise, lastMoveBipped: false)
         let returnedElement = applyMove(using: "{", on: element, &state)
         
         XCTAssertEqual(state.lastYankStyle, .linewise)
@@ -244,7 +244,7 @@ is followed by a linefeed and
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
+        var state = VimEngineState(lastYankStyle: .characterwise, lastMoveBipped: false)
         let returnedElement = applyMove(using: "{", on: element, &state)
         
         XCTAssertEqual(state.lastYankStyle, .linewise)

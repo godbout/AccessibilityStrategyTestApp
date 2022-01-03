@@ -33,7 +33,7 @@ extension ASUT_NM_daw_Tests {
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
         _ = applyMoveBeingTested(on: element, &state)
         
         XCTAssertFalse(state.lastMoveBipped)
@@ -61,7 +61,7 @@ and also a lot of spaces at the end of this line
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         _ = applyMoveBeingTested(on: element, &state)
         
         XCTAssertTrue(state.lastMoveBipped)
