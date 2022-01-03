@@ -6,9 +6,9 @@ import XCTest
 class ASUI_NM_ciDoubleQuote_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement? {
-        var bipped = false
+        var state = VimEngineState()
         
-        return applyMove { asNormalMode.ciInnerQuotedString(using: "\"", on: $0, pgR: pgR, &bipped) }
+        return applyMove { asNormalMode.ciInnerQuotedString(using: "\"", on: $0, pgR: pgR, &state) }
     }
 
 }

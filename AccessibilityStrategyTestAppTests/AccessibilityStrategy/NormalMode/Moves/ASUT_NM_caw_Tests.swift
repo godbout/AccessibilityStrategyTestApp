@@ -5,17 +5,17 @@ import XCTest
 // see ciw for blah blah
 class ASUT_NM_caw_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?, _ bipped: inout Bool) -> AccessibilityTextElement? {
-        return asNormalMode.caw(on: element, pgR: false, &bipped)
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+        return asNormalMode.caw(on: element, pgR: false, &vimEngineState)
     }
     
 }
 
 
-// copy deleted text
+// Bip, copy deletion and LYS
 extension ASUT_NM_caw_Tests {
     
-    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
+    func test_that_when_it_finds_the_stuff_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
         let text = "that's some cute      text in here don't you think?"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -34,12 +34,44 @@ extension ASUT_NM_caw_Tests {
         )
         
         copyToClipboard(text: "some fake shit")
-        var bipped = false
-        _ = applyMoveBeingTested(on: element, &bipped)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "cute      ")
+        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
     }
-    
+        
+    func test_that_when_it_does_not_find_the_stuff_it_Bips_and_does_not_change_the_LastYankingStyle_and_does_not_copy_anything() {
+        let text = """
+some text
+and also a lot of spaces at the end of this line        
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 66,
+            caretLocation: 60,
+            selectedLength: 1,
+            selectedText: " ",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 66,
+                number: 2,
+                start: 10,
+                end: 66
+            )!
+        )
+        
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(on: element, &state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
+        XCTAssertTrue(state.lastMoveBipped)
+        XCTAssertEqual(state.lastYankStyle, .linewise)
+    }
+       
 }
 
 
@@ -64,8 +96,8 @@ extension ASUT_NM_caw_Tests {
             )!
         )
         
-        var bipped = false
-        let returnedElement = applyMoveBeingTested(on: element, &bipped)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(returnedElement?.caretLocation, 12)
         XCTAssertEqual(returnedElement?.selectedLength, 10)
@@ -93,69 +125,12 @@ and also a lot of spaces at the end of this line
             )!
         )
         
-        var bipped = false
-        let returnedElement = applyMoveBeingTested(on: element, &bipped)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(returnedElement?.caretLocation, 65)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
    }
     
-}
-
-
-// bipped
-extension ASUT_NM_caw_Tests {
-    
-    func test_that_it_does_not_Bip_when_it_can_find_aWord() {
-        let text = "that's some cute      text in here don't you think?"
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            length: 51,
-            caretLocation: 13,
-            selectedLength: 1,
-            selectedText: "u",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 51,
-                number: 1,
-                start: 0,
-                end: 51
-            )!
-        )
-        
-        var bipped = false
-        let _ = applyMoveBeingTested(on: element, &bipped)
-        
-        XCTAssertFalse(bipped)
-    }
-        
-    func test_that_it_Bips_when_it_cannot_find_aWord() {
-        let text = """
-some text
-and also a lot of spaces at the end of this line        
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 66,
-            caretLocation: 60,
-            selectedLength: 1,
-            selectedText: " ",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 66,
-                number: 2,
-                start: 10,
-                end: 66
-            )!
-        )
-        
-        var bipped = false
-        let _ = applyMoveBeingTested(on: element, &bipped)
-        
-        XCTAssertTrue(bipped)
-    }
-       
 }

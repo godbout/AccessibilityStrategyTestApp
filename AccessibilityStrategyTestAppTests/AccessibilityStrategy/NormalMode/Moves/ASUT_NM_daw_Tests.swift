@@ -5,16 +5,17 @@ import XCTest
 // see caw
 class ASUT_NM_daw_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?, pgR: Bool = false, _ bipped: inout Bool) -> AccessibilityTextElement? {
-        return asNormalMode.daw(on: element, pgR: pgR, &bipped)
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?, pgR: Bool = false, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+        return asNormalMode.daw(on: element, pgR: pgR, &vimEngineState)
     }
     
 }
 
 
+// TODO: then we can rmeove the tests in KV UIT
 extension ASUT_NM_daw_Tests {
     
-    func test_that_it_does_not_Bip_when_it_can_find_aWord() {
+    func test_that_when_it_finds_the_stuff_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
         let text = "that's some cute      text in here don't you think?"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -32,13 +33,14 @@ extension ASUT_NM_daw_Tests {
             )!
         )
         
-        var bipped = false
-        let _ = applyMoveBeingTested(on: element, &bipped)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(on: element, &state)
         
-        XCTAssertFalse(bipped)
+        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
     }
         
-    func test_that_it_Bips_when_it_cannot_find_aWord() {
+    func test_that_when_it_does_not_find_the_stuff_it_Bips_and_does_not_change_the_LastYankingStyle() {
         let text = """
 some text
 and also a lot of spaces at the end of this line        
@@ -59,10 +61,11 @@ and also a lot of spaces at the end of this line
             )!
         )
         
-        var bipped = false
-        let _ = applyMoveBeingTested(on: element, &bipped)
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(on: element, &state)
         
-        XCTAssertTrue(bipped)
+        XCTAssertTrue(state.lastMoveBipped)
+        XCTAssertEqual(state.lastYankStyle, .linewise)
     }
        
 }

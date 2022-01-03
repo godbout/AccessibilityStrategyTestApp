@@ -5,50 +5,17 @@ import XCTest
 // PGR in UIT
 class ASUT_NM_ciInnerQuotedString_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(using quote: Character, on element: AccessibilityTextElement?, _ bipped: inout Bool) -> AccessibilityTextElement? {
-        return asNormalMode.ciInnerQuotedString(using: quote, on: element, pgR: false, &bipped)
+    private func applyMoveBeingTested(using quote: Character, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+        return asNormalMode.ciInnerQuotedString(using: quote, on: element, pgR: false, &vimEngineState)
     }
     
 }
 
 
-// copy deleted text
+// Bip, copy deletion and LYS
 extension ASUT_NM_ciInnerQuotedString_Tests {
     
-    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
-        let text = """
-finally dealing with the "real stuff"!
-"""
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            length: 38,
-            caretLocation: 29,
-            selectedLength: 1,
-            selectedText: "l",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 38,
-                number: 1,
-                start: 0,
-                end: 38
-            )!
-        )
-        
-        copyToClipboard(text: "some fake shit")
-        var bipped = false
-        _ = applyMoveBeingTested(using: "\"", on: element, &bipped)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "real stuff")
-    }
-    
-}
-
-
-// bipped
-extension ASUT_NM_ciInnerQuotedString_Tests {
-    
-    func test_that_it_does_not_Bip_when_it_can_find() {
+    func test_that_when_it_finds_the_stuff_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
         let text = """
 finally dealing with the "real stuff"!
 """
@@ -68,13 +35,16 @@ finally dealing with the "real stuff"!
             )!
         )
         
-        var bipped = false
-        let _ = applyMoveBeingTested(using: "\"", on: element, &bipped)
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(using: "\"", on: element, &state)
         
-        XCTAssertFalse(bipped)
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "real stuff")
+        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
     }
         
-    func test_that_it_Bips_when_it_cannot_find() {
+    func test_that_when_it_does_not_find_the_stuff_it_Bips_and_does_not_change_the_LastYankingStyle_and_does_not_copy_anything() {
         let text = """
 finally dealing with the "real stuff!
 """
@@ -94,10 +64,13 @@ finally dealing with the "real stuff!
             )!
         )
         
-        var bipped = false
-        let _ = applyMoveBeingTested(using: "\"", on: element, &bipped)
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(using: "\"", on: element, &state)
         
-        XCTAssertTrue(bipped)
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
+        XCTAssertTrue(state.lastMoveBipped)
+        XCTAssertEqual(state.lastYankStyle, .linewise)
     }
     
 }
@@ -125,8 +98,8 @@ finally dealing with the "real stuff"!
             )!
         )
         
-        var bipped = false
-        let returnedElement = applyMoveBeingTested(using: "\"", on: element, &bipped)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(using: "\"", on: element, &state)
         
         XCTAssertEqual(returnedElement?.caretLocation, 26)
         XCTAssertEqual(returnedElement?.selectedLength, 10)
@@ -153,8 +126,8 @@ now the caret 💨️💨️💨️ is before the ` shit with 🥺️☹️😂�
             )!
         )
         
-        var bipped = false
-        let returnedElement = applyMoveBeingTested(using: "`", on: element, &bipped)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(using: "`", on: element, &state)
         
         XCTAssertEqual(returnedElement?.caretLocation, 39)
         XCTAssertEqual(returnedElement?.selectedLength, 30)
@@ -181,8 +154,8 @@ that's ' three quotes ' in there
             )!
         )
         
-        var bipped = false
-        let returnedElement = applyMoveBeingTested(using: "'", on: element, &bipped)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(using: "'", on: element, &state)
         
         XCTAssertEqual(returnedElement?.caretLocation, 8)
         XCTAssertEqual(returnedElement?.selectedLength, 14)
@@ -209,8 +182,8 @@ that's " four quotes " in " there "
             )!
         )
         
-        var bipped = false
-        let returnedElement = applyMoveBeingTested(using: "\"", on: element, &bipped)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(using: "\"", on: element, &state)
         
         XCTAssertEqual(returnedElement?.caretLocation, 27)
         XCTAssertEqual(returnedElement?.selectedLength, 7)
@@ -237,8 +210,8 @@ a text with only one quote ' lol
             )!
         )
         
-        var bipped = false
-        let returnedElement = applyMoveBeingTested(using: "'", on: element, &bipped)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(using: "'", on: element, &state)
         
         XCTAssertNil(returnedElement?.selectedText)
     }
@@ -261,8 +234,8 @@ a text with only one quote ' lol
             )!
         )
         
-        var bipped = false
-        let returnedElement = applyMoveBeingTested(using: "'", on: element, &bipped)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(using: "'", on: element, &state)
         
         XCTAssertNil(returnedElement?.selectedText)
     }
@@ -289,8 +262,8 @@ now the "caret" is after the quotes
             )!
         )
         
-        var bipped = false
-        let returnedElement = applyMoveBeingTested(using: "\"", on: element, &bipped)
+        var state = VimEngineState()
+        let returnedElement = applyMoveBeingTested(using: "\"", on: element, &state)
         
         XCTAssertNil(returnedElement?.selectedText)
     }
