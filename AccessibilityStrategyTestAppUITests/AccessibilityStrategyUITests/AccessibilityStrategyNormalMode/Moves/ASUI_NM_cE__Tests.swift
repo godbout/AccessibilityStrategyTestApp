@@ -5,8 +5,10 @@ import XCTest
 // see `ce` for blah blah
 class ASUI_NM_cE__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.cE(on: $0, pgR: pgR) }
+    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement? {
+        var state = VimEngineState(pgR: pgR)
+        
+        return applyMove { asNormalMode.cE(on: $0, &state) }
     }
     
 }
