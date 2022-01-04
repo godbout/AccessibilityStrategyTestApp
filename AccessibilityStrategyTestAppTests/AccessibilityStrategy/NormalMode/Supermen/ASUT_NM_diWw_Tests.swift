@@ -1,9 +1,6 @@
-//
-//  ASUT_NM_diWw_Tests.swift
-//  AccessibilityStrategyTestAppTests
-//
-//  Created by Guillaume Leclerc on 04/01/2022.
-//
+@testable import AccessibilityStrategy
+import XCTest
 
-import Foundation
-// TODO: add. don't exist yet. maybe forgot before?
+
+// see D for blah blah
+class ASUT_NM_diWw_Tests: ASUT_NM_BaseTests {}
