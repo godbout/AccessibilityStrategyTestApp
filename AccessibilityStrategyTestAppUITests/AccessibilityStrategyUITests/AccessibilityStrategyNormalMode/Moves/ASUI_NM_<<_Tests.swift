@@ -5,7 +5,9 @@ import XCTest
 class ASUI_NM_leftChevronLeftChevron_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.leftChevronLeftChevron(on: $0, pgR: pgR) }
+        var state = VimEngineState(pgR: pgR)
+        
+        return applyMove { asNormalMode.leftChevronLeftChevron(on: $0, &state) }
     }
     
 }
