@@ -8,7 +8,9 @@ import XCTest
 class ASUI_NM_tilde_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, pgR: Bool = false) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.tilde(times: count, on: $0, pgR: pgR) }
+        var state = VimEngineState(pgR: pgR)
+        
+        return applyMove { asNormalMode.tilde(times: count, on: $0, &state) }
     }
     
 }

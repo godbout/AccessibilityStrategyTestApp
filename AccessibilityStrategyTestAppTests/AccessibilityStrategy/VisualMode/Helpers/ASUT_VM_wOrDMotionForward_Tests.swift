@@ -8,7 +8,7 @@ import XCTest
 class ASUT_VM_wordMotionForward_Tests: ASVM_BaseTests {
 
     private func applyMove(on element: AccessibilityTextElement?, using wordMotionForwardFunction: (Int) -> Int?) -> AccessibilityTextElement? {
-        return asVisualMode.wordMotionForward(on: element, using: wordMotionForwardFunction)
+        return asVisualMode.wOrDMotionForward(on: element, using: wordMotionForwardFunction)
     }
     
 }

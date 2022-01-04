@@ -7,7 +7,7 @@ import XCTest
 class ASUT_VM_wordMotionBackward_Tests: ASVM_BaseTests {
 
     private func applyMove(on element: AccessibilityTextElement?, using wordMotionBackwardFunction: (Int) -> Int?) -> AccessibilityTextElement? {
-        return asVisualMode.wordMotionBackward(on: element, using: wordMotionBackwardFunction)
+        return asVisualMode.wOrDMotionBackward(on: element, using: wordMotionBackwardFunction)
     }
     
 }
