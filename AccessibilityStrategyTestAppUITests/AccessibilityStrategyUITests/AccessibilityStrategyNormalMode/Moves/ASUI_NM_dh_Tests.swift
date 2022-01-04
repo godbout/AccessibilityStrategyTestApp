@@ -32,6 +32,7 @@ we should stay there
       
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
+        
         copyToClipboard(text: "nope you don't copy mofo")
         var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
         _ = applyMoveBeingTested(&state)
@@ -47,6 +48,7 @@ we should stay there
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.b(on: $0) }
+        
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
         _ = applyMoveBeingTested(&state)
