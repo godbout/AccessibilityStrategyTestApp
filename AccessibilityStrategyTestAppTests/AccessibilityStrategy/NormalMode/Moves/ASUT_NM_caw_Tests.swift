@@ -5,8 +5,14 @@ import XCTest
 // see ciw for blah blah
 class ASUT_NM_caw_Tests: ASUT_NM_BaseTests {
     
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        var state = VimEngineState(pgR: false)
+        
+        return applyMoveBeingTested(on: element, &state)
+    }
+        
     private func applyMoveBeingTested(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
-        return asNormalMode.caw(on: element, pgR: false, &vimEngineState)
+        return asNormalMode.caw(on: element, &vimEngineState)
     }
     
 }
@@ -96,8 +102,7 @@ extension ASUT_NM_caw_Tests {
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(on: element, &state)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 12)
         XCTAssertEqual(returnedElement?.selectedLength, 10)
@@ -125,8 +130,7 @@ and also a lot of spaces at the end of this line
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(on: element, &state)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 65)
         XCTAssertEqual(returnedElement?.selectedLength, 1)

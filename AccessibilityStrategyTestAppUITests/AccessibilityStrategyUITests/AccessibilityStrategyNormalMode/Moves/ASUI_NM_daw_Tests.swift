@@ -7,9 +7,9 @@ import XCTest
 class ASUI_NM_daw_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
-        var state = VimEngineState()
+        var state = VimEngineState(pgR: pgR)
         
-        return applyMove { asNormalMode.daw(on: $0, pgR: pgR, &state) }
+        return applyMove { asNormalMode.daw(on: $0, &state) }
     }
     
 }
