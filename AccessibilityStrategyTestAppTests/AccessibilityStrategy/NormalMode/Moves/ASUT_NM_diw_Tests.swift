@@ -3,4 +3,4 @@ import XCTest
 
 
 // see D for blah blah
-class ASUT_NM_diw_Tests: ASNM_BaseTests {}
+class ASUT_NM_diw_Tests: ASUT_NM_BaseTests {}
