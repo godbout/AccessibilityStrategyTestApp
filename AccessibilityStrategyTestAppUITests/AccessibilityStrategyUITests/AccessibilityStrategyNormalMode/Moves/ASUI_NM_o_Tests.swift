@@ -5,7 +5,7 @@ import XCTest
 class ASUI_NM_o_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
-        var state = VimEngineState(pgR: false)
+        var state = VimEngineState(pgR: pgR)
         
         return applyMove { asNormalMode.o(on: $0, &state) }
     }
