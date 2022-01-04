@@ -4,8 +4,14 @@ import XCTest
 
 class ASUT_NM_cB__Tests: ASUT_NM_BaseTests {
     
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        var state = VimEngineState(pgR: false)
+        
+        return applyMoveBeingTested(on: element, &state)
+    }
+    
     private func applyMoveBeingTested(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
-        return asNormalMode.cB(on: element, pgR: false, &vimEngineState)
+        return asNormalMode.cB(on: element, &vimEngineState)
     }
     
 }
@@ -92,8 +98,7 @@ extension ASUT_NM_cB__Tests {
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(on: element, &state)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 6)
         XCTAssertEqual(returnedElement?.selectedLength, 14)
