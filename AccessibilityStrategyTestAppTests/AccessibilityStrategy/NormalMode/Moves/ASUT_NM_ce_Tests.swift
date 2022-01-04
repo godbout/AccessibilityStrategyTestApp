@@ -6,19 +6,24 @@ import XCTest
 // here we just test what's specific to ce.
 class ASUT_NM_ce_Tests: ASUT_NM_BaseTests {
     
+    // TODO: could we refactor this as we use it on all classes?
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         var state = VimEngineState(pgR: false)
         
-        return asNormalMode.ce(on: element, &state)
+        return applyMoveBeingTested(on: element, &state)
+    }
+    
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+        return asNormalMode.ce(on: element, &vimEngineState)
     }
     
 }
 
 
-// copy deleted text
+// Bip, copy deletion and LYS
 extension ASUT_NM_ce_Tests {
     
-    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
+    func test_that_when_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
         let text = "😂️😂️😂️😂️ gonna use ce on this sentence"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -37,9 +42,12 @@ extension ASUT_NM_ce_Tests {
         )
         
         copyToClipboard(text: "some fake shit")
-        _ = applyMoveBeingTested(on: element)
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        _ = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️😂️😂️")
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(state.lastMoveBipped)
     }
     
 }
