@@ -14,7 +14,9 @@ import XCTest
 class ASUT_NM_r_Tests: ASUT_NM_BaseTests {
     
     private func applyMove(with replacement: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.r(with: replacement, on: element, pgR: false) 
+        var state = VimEngineState(pgR: false)
+        
+        return asNormalMode.r(with: replacement, on: element, &state)
     }
     
 }
