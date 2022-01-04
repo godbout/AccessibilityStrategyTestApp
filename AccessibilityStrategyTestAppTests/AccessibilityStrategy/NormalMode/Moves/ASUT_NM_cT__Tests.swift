@@ -5,8 +5,14 @@ import XCTest
 // cF for blah blah
 class ASUT_NM_cT__Tests: ASUT_NM_BaseTests {
     
+    private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        var state = VimEngineState(pgR: false)
+        
+        return applyMoveBeingTested(times: count, to: character, on: element, &state)
+    }
+    
     private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
-        return asNormalMode.cT(times: count, to: character, on: element, pgR: false, &vimEngineState) 
+        return asNormalMode.cT(times: count, to: character, on: element, &vimEngineState) 
     }
     
 }
@@ -97,8 +103,7 @@ extension ASUT_NM_cT__Tests {
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(times: 2, to: "e", on: element, &state)
+        let returnedElement = applyMoveBeingTested(times: 2, to: "e", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 16)
         XCTAssertEqual(returnedElement?.selectedLength, 3)
@@ -106,9 +111,6 @@ extension ASUT_NM_cT__Tests {
     }
     
 }
-
-
-
 
 
 // Both
@@ -132,8 +134,7 @@ extension ASUT_NM_cT__Tests {
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(to: "T", on: element, &state)
+        let returnedElement = applyMoveBeingTested(to: "T", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 12)
         XCTAssertEqual(returnedElement?.selectedLength, 13)
@@ -162,8 +163,7 @@ that is not there
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(to: "z", on: element, &state)
+        let returnedElement = applyMoveBeingTested(to: "z", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 14)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -198,8 +198,7 @@ on a line
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(to: "w", on: element, &state)
+        let returnedElement = applyMoveBeingTested(to: "w", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 26)
         XCTAssertEqual(returnedElement?.selectedLength, 11)

@@ -6,9 +6,9 @@ import XCTest
 class ASUT_NM_dt_Tests: ASUT_NM_BaseTests {
     
     private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        var state = VimEngineState()
+        var state = VimEngineState(pgR: false)
         
-        return asNormalMode.dt(to: character, on: element, pgR: false, &state) 
+        return asNormalMode.dt(to: character, on: element, &state)
     }
     
 }
