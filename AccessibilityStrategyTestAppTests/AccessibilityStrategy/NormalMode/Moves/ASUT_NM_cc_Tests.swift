@@ -20,7 +20,7 @@ class ASUT_NM_cc_Tests: ASUT_NM_BaseTests {
 // Bip, copy deletion and LYS
 extension ASUT_NM_cc_Tests {
     
-    func test_that_when_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion_even_for_an_empty_line() {
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion_even_for_an_empty_line() {
         let text = """
 looks like it's late coz it's getting harder to reason
 but actually it's only 21.43 LMAOOOOOOOO

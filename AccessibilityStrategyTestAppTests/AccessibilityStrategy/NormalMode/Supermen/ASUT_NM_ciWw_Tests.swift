@@ -23,7 +23,7 @@ class ASUT_NM_ciWw_Tests: ASUT_NM_BaseTests {
 // Bip, copy deletion and LYS
 extension ASUT_NM_ciWw_Tests {
     
-    func test_that_when_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
         let text = "that's some cute-boobies      text in here don't you think?"
         let element = AccessibilityTextElement(
             role: .textArea,

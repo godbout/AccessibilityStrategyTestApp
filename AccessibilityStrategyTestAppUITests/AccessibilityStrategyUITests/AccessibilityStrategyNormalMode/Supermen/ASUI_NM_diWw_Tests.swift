@@ -2,15 +2,12 @@ import XCTest
 @testable import AccessibilityStrategy
 
 
-// TODO: review the below comment later when we touch daw
-// see daw for blah blah
-
-
 // yes, only passing `innerWord` here. both `innerWord` and `innerWORD` are heavily
 // tested, so as long as we pass the proper func from `diw` and `diW` then we're all good.
 // `diw` and `diW` are therefore not tested independently as it was before, but basically
 // it was copy pasted LMAO. and when started adding the copy deletion, didn't make sense anymore
 // to separate the implementations.
+// can see daw for blah blah.
 class ASUI_NM_diWw_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {

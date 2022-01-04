@@ -4,17 +4,22 @@ import XCTest
 
 class ASUI_NM_dd_Tests: ASUI_NM_BaseTests {
     
+    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+        return applyMove { asNormalMode.dd(on: $0, &vimEngineState) }
+    }
+    
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.dd(on: $0, pgR: pgR) }
+        var state = VimEngineState(pgR: pgR)
+        
+        return applyMoveBeingTested(&state)
     }
     
 }
 
 
-// copy deleted text
+// Bip, copy deletion and LYS
 extension ASUI_NM_dd_Tests {
-    
-    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion_even_for_an_empty_line() {
         let textInAXFocusedElement = """
 if the next line is just blank characters
 then there is no firstNonBlank so we need
@@ -27,10 +32,14 @@ to stop at the end limit of the line
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.ge(on: $0) }
         applyMove { asNormalMode.ge(on: $0) }
-        copyToClipboard(text: "some fake shit")
-        _ = applyMoveBeingTested()
+        
+        copyToClipboard(text: "nope you don't copy mofo")
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        _ = applyMoveBeingTested(&state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "then there is no firstNonBlank so we need\n")
+        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertFalse(state.lastMoveBipped)
     }
     
 }
