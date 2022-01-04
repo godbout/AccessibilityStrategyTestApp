@@ -4,8 +4,10 @@ import XCTest
 
 class ASUI_NM_cG__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
-        return applyMove { asNormalMode.cG(on: $0, pgR: pgR) }
+    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement? {
+        var state = VimEngineState(pgR: pgR)
+        
+        return applyMove { asNormalMode.cG(on: $0, &state) }
     }
     
 }

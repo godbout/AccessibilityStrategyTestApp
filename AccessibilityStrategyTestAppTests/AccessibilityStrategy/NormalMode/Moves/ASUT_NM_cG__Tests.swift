@@ -5,16 +5,22 @@ import XCTest
 class ASUT_NM_cG__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.cG(on: element, pgR: false)
+        var state = VimEngineState(pgR: false)
+        
+        return applyMoveBeingTested(on: element, &state)
+    }
+        
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+        return asNormalMode.cG(on: element, &vimEngineState)
     }
     
 }
 
 
-// copy deleted text
+// Bip, copy deletion and LYS
 extension ASUT_NM_cG__Tests {
     
-    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion() {
         let text = """
 blah blah some line
 some more
@@ -41,6 +47,13 @@ those faces 🥺️☹️😂️
         
         _ = applyMoveBeingTested(on: element)
         
+        
+        
+        
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        _ = applyMoveBeingTested(on: element, &state)
+        
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
   haha geh
 need to deal with
@@ -48,6 +61,8 @@ those faces 🥺️☹️😂️
 
 """
         )
+        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertFalse(state.lastMoveBipped)
     }
     
 }
