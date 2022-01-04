@@ -7,14 +7,14 @@ import XCTest
 // PGR in UIT.
 class ASUT_NM_ciWw_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?, using innerWoRdFunction: (Int) -> Range<Int>) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         var state = VimEngineState(pgR: false)
         
-        return applyMoveBeingTested(on: element, using: innerWoRdFunction, &state)
+        return applyMoveBeingTested(on: element, &state)
     } 
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?, using innerWoRdFunction: (Int) -> Range<Int>, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
-        return asNormalMode.ciWw(on: element, using: innerWoRdFunction, &vimEngineState) 
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+        return asNormalMode.ciWw(on: element, using: element!.fileText.innerWord, &vimEngineState) 
     } 
     
 }
@@ -43,7 +43,7 @@ extension ASUT_NM_ciWw_Tests {
        
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
-        _ = applyMoveBeingTested(on: element, using: element.fileText.innerWord, &state)
+        _ = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "cute")
         XCTAssertEqual(state.lastYankStyle, .characterwise)
@@ -74,10 +74,10 @@ extension ASUT_NM_ciWw_Tests {
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(on: element, using: element.fileText.innerWORD)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 12)
-        XCTAssertEqual(returnedElement?.selectedLength, 12)
+        XCTAssertEqual(returnedElement?.selectedLength, 4)
         XCTAssertEqual(returnedElement?.selectedText, "")
     }
     
