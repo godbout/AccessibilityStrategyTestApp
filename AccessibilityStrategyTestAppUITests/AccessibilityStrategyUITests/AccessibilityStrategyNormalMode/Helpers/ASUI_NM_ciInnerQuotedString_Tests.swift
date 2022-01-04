@@ -6,9 +6,9 @@ import XCTest
 class ASUI_NM_ciInnerQuotedString_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(using quote: Character, pgR: Bool) -> AccessibilityTextElement? {
-        var state = VimEngineState()
+        var state = VimEngineState(pgR: pgR)
         
-        return applyMove { asNormalMode.ciInnerQuotedString(using: quote, on: $0, pgR: pgR, &state) }
+        return applyMove { asNormalMode.ciInnerQuotedString(using: quote, on: $0, &state) }
     }
     
 }

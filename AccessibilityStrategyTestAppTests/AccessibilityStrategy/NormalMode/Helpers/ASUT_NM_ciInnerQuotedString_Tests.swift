@@ -5,8 +5,14 @@ import XCTest
 // PGR in UIT
 class ASUT_NM_ciInnerQuotedString_Tests: ASUT_NM_BaseTests {
     
+    private func applyMoveBeingTested(using quote: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        var state = VimEngineState(pgR: false)
+        
+        return applyMoveBeingTested(using: quote, on: element, &state)
+    }
+        
     private func applyMoveBeingTested(using quote: Character, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
-        return asNormalMode.ciInnerQuotedString(using: quote, on: element, pgR: false, &vimEngineState)
+        return asNormalMode.ciInnerQuotedString(using: quote, on: element, &vimEngineState)
     }
     
 }
@@ -98,8 +104,7 @@ finally dealing with the "real stuff"!
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(using: "\"", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: "\"", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 26)
         XCTAssertEqual(returnedElement?.selectedLength, 10)
@@ -126,8 +131,7 @@ now the caret 💨️💨️💨️ is before the ` shit with 🥺️☹️😂�
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(using: "`", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: "`", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 39)
         XCTAssertEqual(returnedElement?.selectedLength, 30)
@@ -154,8 +158,7 @@ that's ' three quotes ' in there
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(using: "'", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: "'", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 8)
         XCTAssertEqual(returnedElement?.selectedLength, 14)
@@ -182,8 +185,7 @@ that's " four quotes " in " there "
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(using: "\"", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: "\"", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 27)
         XCTAssertEqual(returnedElement?.selectedLength, 7)
@@ -210,8 +212,7 @@ a text with only one quote ' lol
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(using: "'", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: "'", on: element)
         
         XCTAssertNil(returnedElement?.selectedText)
     }
@@ -234,8 +235,7 @@ a text with only one quote ' lol
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(using: "'", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: "'", on: element)
         
         XCTAssertNil(returnedElement?.selectedText)
     }
@@ -262,8 +262,7 @@ now the "caret" is after the quotes
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(using: "\"", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: "\"", on: element)
         
         XCTAssertNil(returnedElement?.selectedText)
     }
