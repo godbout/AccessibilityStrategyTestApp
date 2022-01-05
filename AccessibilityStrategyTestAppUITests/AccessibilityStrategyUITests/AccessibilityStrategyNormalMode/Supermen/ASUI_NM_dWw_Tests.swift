@@ -21,11 +21,10 @@ class ASUI_NM_dWw_Tests: ASUI_NM_BaseTests {
 }
 
 
-// TODO: not finished. something with empty lines. also there's a bug with empty lines for now (not talking copying)
 // Bip, copy deletion and LYS
 extension ASUI_NM_dWw_Tests {
     
-    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_even_for_an_empty_line() {
         let textInAXFocusedElement = "😂️😂️😂️😂️hehehe gonna use ce on this sentence"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -33,7 +32,7 @@ extension ASUI_NM_dWw_Tests {
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
         
-        copyToClipboard(text: "nope you don't copy mofo")
+        copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
         _ = applyMoveBeingTested(&state)
         
@@ -41,22 +40,6 @@ extension ASUI_NM_dWw_Tests {
         XCTAssertEqual(state.lastYankStyle, .characterwise)
         XCTAssertFalse(state.lastMoveBipped)
     }
-    
-//    func test_that_else_it_also_does_not_Bip_but_change_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
-//        let textInAXFocusedElement = "X should delete the right character😂️😂️😂️😂️"
-//        app.textFields.firstMatch.tap()
-//        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-//
-//        applyMove { asNormalMode.b(on: $0) }
-//        
-//        copyToClipboard(text: "some fake shit")
-//        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
-//        _ = applyMoveBeingTested(&state)
-//        
-//        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️")
-//        XCTAssertEqual(state.lastYankStyle, .characterwise)
-//        XCTAssertFalse(state.lastMoveBipped)
-//    }
     
 }
 
@@ -115,6 +98,12 @@ extension ASUI_NM_dWw_Tests {
         XCTAssertEqual(accessibilityElement?.selectedText, "s")
     }
     
+}
+
+
+// TextViews
+extension ASUI_NM_dWw_Tests {
+
 }
 
 

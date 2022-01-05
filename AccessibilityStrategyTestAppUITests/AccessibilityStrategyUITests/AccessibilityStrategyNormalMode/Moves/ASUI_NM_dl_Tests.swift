@@ -17,10 +17,10 @@ class ASUI_NM_dl_Tests: ASUI_NM_BaseTests {
 }
 
 
-// copy deleted text
+// Bip, copy deletion and LYS
 extension ASUI_NM_dl_Tests {
     
-    func test_that_for_an_empty_line_it_does_not_Bip_and_does_not_change_the_LastYankStyle_and_does_not_copy_anything() {
+    func test_that_for_an_empty_line_it_does_not_Bip_but_does_not_change_the_LastYankStyle_and_does_not_copy_anything() {
         let textInAXFocusedElement = """
 next line is gonna be empty!
 
