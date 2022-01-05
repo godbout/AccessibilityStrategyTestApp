@@ -6,9 +6,7 @@ import XCTest
 class ASUT_NM_J__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        var state = VimEngineState(pgR: false)
-        
-        return asNormalMode.J(on: element, &state)
+        return asNormalMode.J(on: element, VimEngineState(pgR: false))
     }
     
 }
