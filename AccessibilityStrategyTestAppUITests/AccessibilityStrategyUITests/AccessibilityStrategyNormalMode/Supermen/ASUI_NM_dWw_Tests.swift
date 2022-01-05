@@ -21,6 +21,7 @@ class ASUI_NM_dWw_Tests: ASUI_NM_BaseTests {
 }
 
 
+// TODO: not finished. something with empty lines. also there's a bug with empty lines for now (not talking copying)
 // Bip, copy deletion and LYS
 extension ASUI_NM_dWw_Tests {
     
