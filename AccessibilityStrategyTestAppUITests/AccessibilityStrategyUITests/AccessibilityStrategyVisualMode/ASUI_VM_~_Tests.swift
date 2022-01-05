@@ -5,7 +5,7 @@ import XCTest
 class ASUI_VM_tilde_Tests: ASUI_VM_BaseTests {
 
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
-        return applyMove { asVisualMode.tilde(on: $0, pgR: pgR)}
+        return applyMove { asVisualMode.tilde(on: $0, VimEngineState(pgR: pgR))}
     }
 
 }
