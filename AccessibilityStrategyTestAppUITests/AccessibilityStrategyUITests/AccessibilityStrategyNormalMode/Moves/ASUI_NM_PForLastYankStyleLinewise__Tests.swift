@@ -6,9 +6,7 @@ import XCTest
 class ASUI_NM_PForLastYankStyleLinewise_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
-        var state = VimEngineState(pgR: pgR)
-        
-        return applyMove { asNormalMode.PForLastYankStyleLinewise(on: $0, &state) }
+        return applyMove { asNormalMode.PForLastYankStyleLinewise(on: $0, VimEngineState(pgR: pgR)) }
     }
     
 }
