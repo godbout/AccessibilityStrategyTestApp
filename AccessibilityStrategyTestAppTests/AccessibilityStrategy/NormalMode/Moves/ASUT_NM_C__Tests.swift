@@ -4,9 +4,15 @@ import XCTest
 
 class ASUT_NM_C__Tests: ASUT_NM_BaseTests {
     
+    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        var state = VimEngineState(pgR: false)
+        
+        return applyMoveBeingTested(on: element, &state)
+    }
+    
     private func applyMoveBeingTested(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
-        return asNormalMode.C(on: element, &vimEngineState)
-    } 
+        return asNormalMode.C(on: element, &vimEngineState) 
+    }
     
 }
 
@@ -97,9 +103,7 @@ this time the line will not end with a linefeed so C should delete from the care
             )!
         )
         
-        // TODO: remove state
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(on: element, &state)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 11)
         XCTAssertEqual(returnedElement?.selectedLength, 84)
@@ -133,8 +137,7 @@ and of course this is in the case there is a linefeed at the end of the line.
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(on: element, &state)
+        let returnedElement = applyMoveBeingTested(on: element)
                 
         XCTAssertEqual(returnedElement?.caretLocation, 55)
         XCTAssertEqual(returnedElement?.selectedLength, 43)
@@ -163,8 +166,7 @@ and not delete that fucking shit
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(on: element, &state)
+        let returnedElement = applyMoveBeingTested(on: element)
                 
         XCTAssertEqual(returnedElement?.caretLocation, 46)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
