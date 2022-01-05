@@ -9,6 +9,7 @@ import XCTest
 // on the text that is being copied, so cannot test in KVE).
 class ASUT_NM_yiInnerBrackets_Tests: ASUT_NM_BaseTests {
     
+    // TODO: applyMoveBeingTested
     private func applyMove(using bracket: Character, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return asNormalMode.yiInnerBrackets(using: bracket, on: element, &vimEngineState) 
     }
@@ -17,9 +18,9 @@ class ASUT_NM_yiInnerBrackets_Tests: ASUT_NM_BaseTests {
 
 
 // Bip, copy deletion and LYS
-// here it is more complicated than other moves as yiInnerBracket may sometimes
-// return Characterwise, sometimes Linewise. it's already properly tested down there from before,
-// so not gonna do it again now coz lazy :D only gonna test the bip here
+// see ciInnerBrackets for blah blah
+
+// TODO: do like ciInnerBrackets
 extension ASUT_NM_yiInnerBrackets_Tests {
     
     func test_that_when_it_finds_the_stuff_it_does_not_Bip_and_copies_the_deletion() {
@@ -40,7 +41,7 @@ extension ASUT_NM_yiInnerBrackets_Tests {
             )!
         )
         
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
+        var state = VimEngineState(lastMoveBipped: true)
         _ = applyMove(using: "{", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️ has some nice ")
@@ -66,7 +67,7 @@ extension ASUT_NM_yiInnerBrackets_Tests {
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
+        var state = VimEngineState(lastMoveBipped: false)
         _ = applyMove(using: "{", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
@@ -135,6 +136,7 @@ and } is not preceded by a linefeed
             )!
         )
         
+        // TODO: remove extra state
         var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
         let returnedElement = applyMove(using: "{", on: element, &state)
         

@@ -6,9 +6,9 @@ import XCTest
 class ASUI_NM_ciRightBracket_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement? {
-        var bipped = false
+        var state = VimEngineState(pgR: pgR)
         
-        return applyMove { asNormalMode.ciRightBracket(on: $0, pgR: pgR, &bipped) }
+        return applyMove { asNormalMode.ciRightBracket(on: $0, &state) }
     }
 
 }
