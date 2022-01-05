@@ -97,6 +97,7 @@ this time the line will not end with a linefeed so C should delete from the care
             )!
         )
         
+        // TODO: remove state
         var state = VimEngineState()
         let returnedElement = applyMoveBeingTested(on: element, &state)
         

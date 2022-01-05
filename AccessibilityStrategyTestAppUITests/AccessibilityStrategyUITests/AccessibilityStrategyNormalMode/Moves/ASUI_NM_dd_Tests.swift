@@ -19,6 +19,7 @@ class ASUI_NM_dd_Tests: ASUI_NM_BaseTests {
 
 // Bip, copy deletion and LYS
 extension ASUI_NM_dd_Tests {
+    
     func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion_even_for_an_empty_line() {
         let textInAXFocusedElement = """
 if the next line is just blank characters
