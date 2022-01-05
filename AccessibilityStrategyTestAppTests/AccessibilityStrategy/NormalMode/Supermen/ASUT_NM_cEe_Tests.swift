@@ -6,7 +6,6 @@ import XCTest
 // here we just test what's specific to ce.
 class ASUT_NM_cEe_Tests: ASUT_NM_BaseTests {
     
-    // TODO: could we refactor this as we use it on all classes?
     private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement?, using motion: (Int?, AccessibilityTextElement?) -> AccessibilityTextElement?) -> AccessibilityTextElement? {
         var state = VimEngineState(pgR: false)
         
