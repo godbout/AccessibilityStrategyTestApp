@@ -20,7 +20,7 @@ class ASUT_NM_cWw_Tests: ASUT_NM_BaseTests {
 // Bip, copy deletion and LYS
 extension ASUT_NM_cWw_Tests {
     
-    func test_that_when_it_is_on_an_empty_line_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_an_empty_string() {
+    func test_that_when_it_is_on_an_empty_line_it_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_an_empty_string() {
         let text = ""
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -39,11 +39,11 @@ extension ASUT_NM_cWw_Tests {
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        var state = VimEngineState(lastYankStyle: .characterwise, lastMoveBipped: true)
         _ = applyMoveBeingTested(on: element, using: element.fileText.innerWord, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertEqual(state.lastYankStyle, .linewise)
         XCTAssertFalse(state.lastMoveBipped)
     }
     
