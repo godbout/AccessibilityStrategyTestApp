@@ -5,7 +5,7 @@ import XCTest
 // see dF for blah blah
 class ASUI_NM_dt_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR)
         
         return applyMove { asNormalMode.dt(times: count, to: character, on: $0, &state) }
@@ -27,10 +27,10 @@ extension ASUI_NM_dt_Tests {
         applyMove { asNormalMode.ge(on: $0) }
         let accessibilityElement = applyMoveBeingTested(times: 2, with: "e")
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "here we gonna deleter than 🦴️!")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 19)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, "e")
+        XCTAssertEqual(accessibilityElement.fileText.value, "here we gonna deleter than 🦴️!")
+        XCTAssertEqual(accessibilityElement.caretLocation, 19)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "e")
     }
     
 }
@@ -48,9 +48,9 @@ extension ASUI_NM_dt_Tests {
        
         let accessibilityElement = applyMoveBeingTested(with: "s")
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "gse dt on this sentence")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 1)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.fileText.value, "gse dt on this sentence")
+        XCTAssertEqual(accessibilityElement.caretLocation, 1)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
 }
@@ -69,9 +69,9 @@ extension ASUI_NM_dt_Tests {
        
         let accessibilityElement = applyMoveBeingTested(with: "s", pgR: true)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "se dt on this sentence")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.fileText.value, "se dt on this sentence")
+        XCTAssertEqual(accessibilityElement.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
 }

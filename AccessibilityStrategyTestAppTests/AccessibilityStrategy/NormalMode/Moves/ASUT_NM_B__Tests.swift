@@ -6,7 +6,7 @@ import XCTest
 // using TE function here that is tested heavily
 class ASUT_NM_B__Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.B(times: count, on: element) 
     }
     
@@ -36,9 +36,9 @@ extension ASUT_NM_B__Tests {
         
         let returnedElement = applyMoveBeingTested(times: 3, on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 9)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 9)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_it_stops_at_the_beginning_of_the_text_if_the_count_is_too_high() {
@@ -61,9 +61,9 @@ extension ASUT_NM_B__Tests {
         
         let returnedElement = applyMoveBeingTested(times: 69, on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 3)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
@@ -96,7 +96,7 @@ itself does
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertEqual(returnedElement.selectedLength, 3)
     }
     
 }

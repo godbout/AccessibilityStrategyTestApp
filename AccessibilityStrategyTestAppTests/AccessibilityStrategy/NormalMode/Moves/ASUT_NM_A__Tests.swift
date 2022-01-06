@@ -4,7 +4,7 @@ import XCTest
 
 class ASUT_NM_A__Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.A(on: element) 
     }
     
@@ -37,9 +37,9 @@ them like nothing happened. that's how special it is.
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 61)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 61)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertNil(returnedElement.selectedText)
     }
      
 }
@@ -71,9 +71,9 @@ LMAO what a dumbass i am
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 115)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 115)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_a_file_line_does_not_end_with_a_linefeed_it_goes_after_the_last_visible_character_of_that_line_which_means_before_the_linefeed() {
@@ -96,9 +96,9 @@ LMAO what a dumbass i am
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 93)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 93)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_a_file_line_is_empty_it_still_stops_before_the_linefeed_and_does_not_end_on_the_line_below() {
@@ -125,9 +125,9 @@ and i'm doing this not because i'm a genius but because i'm pretty dumb LMAO
             
        let returnedElement = applyMoveBeingTested(on: element)
        
-       XCTAssertEqual(returnedElement?.caretLocation, 60)
-       XCTAssertEqual(returnedElement?.selectedLength, 0)
-       XCTAssertNil(returnedElement?.selectedText)
+       XCTAssertEqual(returnedElement.caretLocation, 60)
+       XCTAssertEqual(returnedElement.selectedLength, 0)
+       XCTAssertNil(returnedElement.selectedText)
     }
 
 }

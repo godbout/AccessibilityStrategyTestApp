@@ -4,7 +4,7 @@ import XCTest
 
 class ASUI_NM_pForLastYankStyleCharacterwise_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         return applyMove { asNormalMode.pForLastYankStyleCharacterwise(on: $0, VimEngineState(pgR: pgR)) }
     }
     
@@ -23,9 +23,9 @@ extension ASUI_NM_pForLastYankStyleCharacterwise_Tests {
         copyToClipboard(text: "text to 🥞️🥞️🥞️ paste!!!🥠️")
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, "we go😂️😂️😂️nna paste some 💩️text to 🥞️🥞️🥞️ paste!!!🥠️")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 58)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.fileText.value, "we go😂️😂️😂️nna paste some 💩️text to 🥞️🥞️🥞️ paste!!!🥠️")
+        XCTAssertEqual(accessibilityElement.caretLocation, 58)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
     func test_that_if_the_text_to_paste_is_empty_it_does_not_move() {
@@ -37,9 +37,9 @@ extension ASUI_NM_pForLastYankStyleCharacterwise_Tests {
         copyToClipboard(text: "")
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "possible because of PGR")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 20)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.fileText.value, "possible because of PGR")
+        XCTAssertEqual(accessibilityElement.caretLocation, 20)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
 }
@@ -64,14 +64,14 @@ ho ho ho
         copyToClipboard(text: "pastaing")
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 time to paste
 in pastaingTextViews
 ho ho ho
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 24)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.caretLocation, 24)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
     func test_that_in_normal_setting_it_pastes_the_text_after_the_block_cursor_and_if_the_text_contains_a_linefeed_the_block_cursor_ends_up_at_the_beginning_of_the_pasted_text() {
@@ -90,15 +90,15 @@ ho ho ho
         copyToClipboard(text: "😂️astaing\nmy man!")
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 time to paste
 in 😂️astaing
 my man!TextViews
 ho ho ho
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 17)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.caretLocation, 17)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
     func test_that_pasting_on_an_empty_line_does_not_paste_on_a_line_below_but_stays_on_the_same_line_and_does_not_stick_with_the_next_line() {
@@ -115,14 +115,14 @@ here's the last one
         copyToClipboard(text: "text for the new line")
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 gonna have an empty line
 text for the new line
 here's the last one
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 45)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.caretLocation, 45)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
     func test_that_if_the_text_to_paste_is_empty_it_does_not_move_backwards_and_definitely_does_not_end_up_after_the_end_limit_of_the_previous_line() {
@@ -139,14 +139,14 @@ and fucking AX restrictions in browsers
         copyToClipboard(text: "")
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 still possible coz of PGR
 
 and fucking AX restrictions in browsers
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
 }
@@ -164,10 +164,10 @@ extension ASUI_NM_pForLastYankStyleCharacterwise_Tests {
         copyToClipboard(text: "text to 🥞️🥞️🥞️ paste!!!🥠️")
         let accessibilityElement = applyMoveBeingTested(pgR: true)
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, "we go😂️😂️😂️nna paste some 💩️text to 🥞️🥞️🥞️ paste!!!🥠️text to 🥞️🥞️🥞️ paste!!!🥠️")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 87)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
-        XCTAssertEqual(accessibilityElement?.selectedText, "🥠️")
+        XCTAssertEqual(accessibilityElement.fileText.value, "we go😂️😂️😂️nna paste some 💩️text to 🥞️🥞️🥞️ paste!!!🥠️text to 🥞️🥞️🥞️ paste!!!🥠️")
+        XCTAssertEqual(accessibilityElement.caretLocation, 87)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.selectedText, "🥠️")
     }
     
     func test_that_on_TextAreas_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
@@ -186,15 +186,15 @@ ho ho ho
         copyToClipboard(text: "pastaing")
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 time to paste
 in pastaingpastaingTextViews
 ho ho ho
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 32)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, "g")
+        XCTAssertEqual(accessibilityElement.caretLocation, 32)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "g")
     }
     
 }

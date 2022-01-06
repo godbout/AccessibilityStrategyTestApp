@@ -4,10 +4,10 @@ import XCTest
 
 class ASUI_NM_caWw_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR)
         
-        return applyMove { asNormalMode.caWw(on: $0, using: $0!.fileText.aWord, &state) }
+        return applyMove { asNormalMode.caWw(on: $0, using: $0.fileText.aWord, &state) }
     }
     
 }
@@ -27,10 +27,10 @@ extension ASUI_NM_caWw_Tests {
         applyMove { asNormalMode.l(on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
            
-        XCTAssertEqual(accessibilityElement?.fileText.value, "that's sometext in here don't you think?")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 11)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement.fileText.value, "that's sometext in here don't you think?")
+        XCTAssertEqual(accessibilityElement.caretLocation, 11)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
 }

@@ -4,7 +4,7 @@ import XCTest
 
 class ASUT_VMC_iW__Tests: ASVM_BaseTests {
 
-    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.iWForVisualStyleCharacterwise(on: element)
     }
     
@@ -37,9 +37,9 @@ extension ASUT_VMC_iW__Tests {
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 20)
-        XCTAssertEqual(returnedElement?.selectedLength, 29)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 20)
+        XCTAssertEqual(returnedElement.selectedLength, 29)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_Head_is_before_the_Anchor_it_extends_the_selection_to_the_beginning_of_the_word_where_the_Head_is() {
@@ -65,9 +65,9 @@ extension ASUT_VMC_iW__Tests {
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 17)
-        XCTAssertEqual(returnedElement?.selectedLength, 31)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 17)
+        XCTAssertEqual(returnedElement.selectedLength, 31)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_Head_and_the_Anchor_are_equal_it_selects_the_whole_inner_word_and_the_Anchor_gets_updated_to_the_beginning_of_the_word_and_the_Head_gets_updated_to_the_end_of_the_word() {
@@ -93,9 +93,9 @@ extension ASUT_VMC_iW__Tests {
        
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 86)
-        XCTAssertEqual(returnedElement?.selectedLength, 24)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 86)
+        XCTAssertEqual(returnedElement.selectedLength, 24)
+        XCTAssertNil(returnedElement.selectedText)
                 
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 86)
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 109)
@@ -129,9 +129,9 @@ in relation to each other
        
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 61)
-        XCTAssertEqual(returnedElement?.selectedLength, 7)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 61)
+        XCTAssertEqual(returnedElement.selectedLength, 7)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_it_does_not_get_blocked_when_the_Head_if_before_the_Anchor_and_the_caret_is_at_the_beginning_of_a_word() {
@@ -162,9 +162,9 @@ in relation to each other
        
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 57)
-        XCTAssertEqual(returnedElement?.selectedLength, 6)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 57)
+        XCTAssertEqual(returnedElement.selectedLength, 6)
+        XCTAssertNil(returnedElement.selectedText)
     }
 
 }

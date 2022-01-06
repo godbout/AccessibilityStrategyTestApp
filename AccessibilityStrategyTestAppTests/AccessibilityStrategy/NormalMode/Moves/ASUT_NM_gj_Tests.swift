@@ -5,7 +5,7 @@ import XCTest
 // only testing for when KS takes over here, rest is in UI Tests
 class ASUT_NM_gj_Tests: ASUT_NM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.gj(on: element) 
     }
     

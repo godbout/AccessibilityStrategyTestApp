@@ -6,7 +6,7 @@ import XCTest
 // the line into the NSPasteBoard.
 class ASUT_NM_yy_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.yy(on: element) 
     }
     
@@ -40,9 +40,9 @@ them like nothing happened. that's how special it is.
         let returnedElement = applyMoveBeingTested(on: element)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "this move does not stop at screen lines. it will just pass by\n")
-        XCTAssertEqual(returnedElement?.caretLocation, 40)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 40)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
      
 }
@@ -73,9 +73,9 @@ extension ASUT_NM_yy_Tests {
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), text)
-        XCTAssertEqual(returnedElement?.caretLocation, 12)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 12)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_it_includes_the_end_of_the_line_linefeed() {
@@ -103,9 +103,9 @@ workd properly my friend
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some very long multiple lines just to be sure that it\n")
-        XCTAssertEqual(returnedElement?.caretLocation, 39)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 39)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_it_does_not_include_the_linefeed_of_the_previous_line() {
@@ -134,9 +134,9 @@ my friend
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "again yes i know i've said 😂️ this but i need them long\n")
-        XCTAssertEqual(returnedElement?.caretLocation, 95)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 95)
+        XCTAssertEqual(returnedElement.selectedLength, 3)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_text_is_empty_it_works_and_copies_the_empty_line() {
@@ -161,9 +161,9 @@ my friend
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_text_and_on_an_empty_line_on_its_own_it_works_and_copies_the_line() {
@@ -193,9 +193,9 @@ line
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
-        XCTAssertEqual(returnedElement?.caretLocation, 31)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 31)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertNil(returnedElement.selectedText)
     }    
     
 }

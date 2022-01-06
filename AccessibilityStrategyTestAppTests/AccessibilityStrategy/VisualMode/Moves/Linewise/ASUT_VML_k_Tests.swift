@@ -4,7 +4,7 @@ import AccessibilityStrategy
 
 class ASUT_VML_k_Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.kForVisualStyleLinewise(on: element)
     }
 
@@ -76,8 +76,8 @@ the line above nice
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 52)
-        XCTAssertEqual(returnedElement?.selectedLength, 43)
+        XCTAssertEqual(returnedElement.caretLocation, 52)
+        XCTAssertEqual(returnedElement.selectedLength, 43)
     }
     
     func test_that_if_the_head_is_after_the_anchor_then_it_reduces_the_selection_by_one_line_above_at_a_time() {
@@ -113,8 +113,8 @@ the line above nice
     
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 75)
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 75)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_not_get_stuck_when_trying_to_move_up_and_selects_the_line_above() {
@@ -144,8 +144,8 @@ caret at the last empty line
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 19)
-        XCTAssertEqual(returnedElement?.selectedLength, 29)
+        XCTAssertEqual(returnedElement.caretLocation, 19)
+        XCTAssertEqual(returnedElement.selectedLength, 29)
     }
     
 }

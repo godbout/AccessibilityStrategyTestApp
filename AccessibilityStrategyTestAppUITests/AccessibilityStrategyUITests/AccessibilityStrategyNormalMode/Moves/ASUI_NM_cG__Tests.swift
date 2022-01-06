@@ -4,7 +4,7 @@ import XCTest
 
 class ASUI_NM_cG__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR)
         
         return applyMove { asNormalMode.cG(on: $0, &state) }
@@ -34,14 +34,14 @@ those faces 🥺️☹️😂️
         applyMove { asNormalMode.f(to: "g", on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 blah blah some line
 some more
  
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 31)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.caretLocation, 31)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
     }
     
 }

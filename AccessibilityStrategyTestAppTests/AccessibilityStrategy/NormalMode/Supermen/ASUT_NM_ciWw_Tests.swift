@@ -7,14 +7,14 @@ import XCTest
 // PGR in UIT.
 class ASUT_NM_ciWw_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: false)
         
         return applyMoveBeingTested(on: element, &state)
     } 
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
-        return asNormalMode.ciWw(on: element, using: element!.fileText.innerWord, &vimEngineState) 
+    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        return asNormalMode.ciWw(on: element, using: element.fileText.innerWord, &vimEngineState) 
     } 
     
 }
@@ -76,9 +76,9 @@ extension ASUT_NM_ciWw_Tests {
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 12)
-        XCTAssertEqual(returnedElement?.selectedLength, 4)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 12)
+        XCTAssertEqual(returnedElement.selectedLength, 4)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
     
 }

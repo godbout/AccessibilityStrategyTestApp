@@ -4,7 +4,7 @@ import XCTest
  
 class ASUI_NM_leftChevronLeftChevron_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         return applyMove { asNormalMode.leftChevronLeftChevron(on: $0, VimEngineState(pgR: pgR)) }
     }
     
@@ -24,13 +24,13 @@ seems that even the normal
        
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 seems that even the normal
    🖕️ase fails LMAO
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.caretLocation, 30)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
     func test_that_it_removes_all_the_spaces_if_there_are_4_or_less() {
@@ -46,14 +46,14 @@ seems that even the normal
         applyMove { asNormalMode.gk(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
  now the line
 😀️as just two
  spaces
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 14)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.caretLocation, 14)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
 }
@@ -73,14 +73,14 @@ hehe
        
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 seems that even the normal
 hehe   🖕️ase fails LMAO
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 27)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, "h")
+        XCTAssertEqual(accessibilityElement.caretLocation, 27)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "h")
     }
     
 }

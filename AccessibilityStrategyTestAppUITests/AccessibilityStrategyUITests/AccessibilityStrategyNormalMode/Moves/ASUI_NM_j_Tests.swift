@@ -6,7 +6,7 @@ import AccessibilityStrategy
 // this is tested in Unit Tests.
 class ASUI_NM_j_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+    private func applyMoveBeingTested() -> AccessibilityTextElement {
         return applyMove { asNormalMode.j(on: $0) }
     }
     
@@ -30,16 +30,16 @@ another long line longer than all the other ones!!!
         applyMove { asNormalMode.f(to: "g", on: $0) }
        
         let firstJ = applyMoveBeingTested()
-        XCTAssertEqual(firstJ?.caretLocation, 33)
-        XCTAssertEqual(firstJ?.selectedLength, 1)
+        XCTAssertEqual(firstJ.caretLocation, 33)
+        XCTAssertEqual(firstJ.selectedLength, 1)
 
         let secondJ = applyMoveBeingTested()
-        XCTAssertEqual(secondJ?.caretLocation, 53)
-        XCTAssertEqual(secondJ?.selectedLength, 1)
+        XCTAssertEqual(secondJ.caretLocation, 53)
+        XCTAssertEqual(secondJ.selectedLength, 1)
 
         let thirdJ = applyMoveBeingTested()
-        XCTAssertEqual(thirdJ?.caretLocation, 93)
-        XCTAssertEqual(thirdJ?.selectedLength, 1)
+        XCTAssertEqual(thirdJ.caretLocation, 93)
+        XCTAssertEqual(thirdJ.selectedLength, 1)
     }
     
 }

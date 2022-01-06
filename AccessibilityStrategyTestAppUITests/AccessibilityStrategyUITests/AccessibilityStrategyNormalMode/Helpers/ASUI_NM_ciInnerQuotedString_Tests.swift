@@ -5,7 +5,7 @@ import XCTest
 // see ASUT ciInnerQuotedString for blah blah
 class ASUI_NM_ciInnerQuotedString_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(using quote: Character, pgR: Bool) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(using quote: Character, pgR: Bool) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR)
         
         return applyMove { asNormalMode.ciInnerQuotedString(using: quote, on: $0, &state) }
@@ -27,13 +27,13 @@ finally dealing with the "real stuff"!
         applyMove { asNormalMode.F(to: "l", on: $0) }
         let accessibilityElement = applyMoveBeingTested(using: "\"", pgR: true)
                
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 finally dealing with the "!
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 25)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
 }

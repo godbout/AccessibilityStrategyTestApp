@@ -4,7 +4,7 @@ import XCTest
 
 class ASUI_NM_rightChevronRightChevron_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         return applyMove { asNormalMode.rightChevronRightChevron(on: $0, VimEngineState(pgR: pgR)) }
     }
     
@@ -24,14 +24,14 @@ seems that even the normal
        
         let accessibilityElement = applyMoveBeingTested()
             
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 seems that even the normal
     🖕️ase fails LMAO
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 31)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
-        XCTAssertEqual(accessibilityElement?.selectedText, "🖕️")
+        XCTAssertEqual(accessibilityElement.caretLocation, 31)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.selectedText, "🖕️")
     }
     
     func test_that_it_does_not_shift_the_line_if_the_line_is_considered_empty() {
@@ -47,15 +47,15 @@ or just a linefeed
         applyMove { asNormalMode.gk(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 a line empty means with nothing
 
 or just a linefeed
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 32)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, "\n")
+        XCTAssertEqual(accessibilityElement.caretLocation, 32)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "\n")
     }
     
 }
@@ -74,14 +74,14 @@ seems that even the normal
        
         let accessibilityElement = applyMoveBeingTested(pgR: true)
             
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 seems that even the normal
         🖕️ase fails LMAO
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
-        XCTAssertEqual(accessibilityElement?.selectedText, "🖕️")
+        XCTAssertEqual(accessibilityElement.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.selectedText, "🖕️")
     }
     
 }

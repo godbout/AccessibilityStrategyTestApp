@@ -5,7 +5,7 @@ import XCTest
 // see dF for blah blah
 class ASUI_NM_dT__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR)
         
         return applyMove { asNormalMode.dT(times: count, to: character, on: $0, &state) }
@@ -27,10 +27,10 @@ extension ASUI_NM_dT__Tests {
         applyMove { asNormalMode.ge(on: $0) }
         let accessibilityElement = applyMoveBeingTested(times: 2, with: "e")
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "here we gonna dee up to 🕑️ characters rather than 🦴️!")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 16)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, "e")
+        XCTAssertEqual(accessibilityElement.fileText.value, "here we gonna dee up to 🕑️ characters rather than 🦴️!")
+        XCTAssertEqual(accessibilityElement.caretLocation, 16)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "e")
     }
     
 }
@@ -52,14 +52,14 @@ on a line
         applyMove { asNormalMode.dollarSign(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "w")
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 dT on a multiline
 should w⛱️
 on a line
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 2)
+        XCTAssertEqual(accessibilityElement.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement.selectedLength, 2)
     }
     
 }
@@ -82,14 +82,14 @@ on a line
         applyMove { asNormalMode.dollarSign(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "w", pgR: true)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 dT on a multiline
 should ⛱️
 on a line
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 25)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 2)
+        XCTAssertEqual(accessibilityElement.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement.selectedLength, 2)
     }
     
 }

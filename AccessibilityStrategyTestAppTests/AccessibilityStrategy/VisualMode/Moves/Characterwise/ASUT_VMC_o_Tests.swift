@@ -10,7 +10,7 @@ class ASUT_VMC_o_Tests: ASVM_BaseTests {
 //        KindaVimEngine.shared.visualStyle = .characterwise
     }
     
-    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.o(on: element) 
     }
     

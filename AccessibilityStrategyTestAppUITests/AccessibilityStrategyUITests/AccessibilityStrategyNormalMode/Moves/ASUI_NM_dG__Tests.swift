@@ -4,7 +4,7 @@ import XCTest
 
 class ASUI_NM_dG__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         return applyMove { asNormalMode.dG(on: $0, pgR: pgR) }
     }
     
@@ -53,9 +53,9 @@ extension ASUI_NM_dG__Tests {
         applyMove { asNormalMode.b(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "")        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.fileText.value, "")        
+        XCTAssertEqual(accessibilityElement.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
     }
     
 }
@@ -79,9 +79,9 @@ before what was the current one.
         applyMove { asNormalMode.j(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "  😂️k so now we're having multiple lines")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 2)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.fileText.value, "  😂️k so now we're having multiple lines")
+        XCTAssertEqual(accessibilityElement.caretLocation, 2)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
         
     }
     
@@ -106,9 +106,9 @@ before what was the current one.
         applyMove { asNormalMode.j(on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "  😂️k so now we're having multiple line")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 2)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.fileText.value, "  😂️k so now we're having multiple line")
+        XCTAssertEqual(accessibilityElement.caretLocation, 2)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
         
     }
     

@@ -13,7 +13,7 @@ import XCTest
 
 class ASUT_NM_r_Tests: ASUT_NM_BaseTests {
     
-    private func applyMove(with replacement: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMove(with replacement: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.r(with: replacement, on: element, VimEngineState(pgR: false))
     }
     
@@ -43,7 +43,7 @@ extension ASUT_NM_r_Tests {
         
         let returnedElement = applyMove(with: "\u{1b}", on: element)
         
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
@@ -76,9 +76,9 @@ linefeed
         
         let returnedElement = applyMove(with: "g", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 15)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 15)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
             
 }

@@ -4,7 +4,7 @@ import XCTest
 
 class ASUI_NM_cF__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, to character: Character, pgR: Bool) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(times count: Int = 1, to character: Character, pgR: Bool) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR)
         
         return applyMove { asNormalMode.cF(times: count, to: character, on: $0, &state) }
@@ -28,14 +28,14 @@ on a 📏️📏️ line
         applyMove { asNormalMode.l(on: $0) }
         let accessibilityElement = applyMoveBeingTested(to: "o", pgR: true)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 cF on a multiline
 should worke
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 29)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement.caretLocation, 29)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
 }

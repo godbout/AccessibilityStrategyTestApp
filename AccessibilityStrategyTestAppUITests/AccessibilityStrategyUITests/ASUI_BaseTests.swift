@@ -21,21 +21,23 @@ class ASUI_BaseTests: XCTestCase {
     }
     
     @discardableResult
-    func applyMove(_ move: (AccessibilityTextElement?) -> AccessibilityTextElement?) -> AccessibilityTextElement? {
-        let focusedElement = accessibilityStrategy.focusedTextElement()
-        guard let transformedElement = move(focusedElement) else { return nil }
+    func applyMove(_ move: (_ element: AccessibilityTextElement) -> AccessibilityTextElement) -> AccessibilityTextElement {
+        // TODO: currently forcing. not good. need to see how to break the tests properly
+        let focusedElement = accessibilityStrategy.focusedTextElement()!
+        let transformedElement = move(focusedElement)
         _ = accessibilityStrategy.push(element: transformedElement)
-        let latestFocusedElement = accessibilityStrategy.focusedTextElement()
-
+        // TODO: same as above
+        let latestFocusedElement = accessibilityStrategy.focusedTextElement()!
+        
         return latestFocusedElement
     }
     
     @discardableResult
-    func applyMove(with character: Character, _ move: (Character, AccessibilityTextElement?) -> AccessibilityTextElement?) -> AccessibilityTextElement? {
-        let focusedElement = accessibilityStrategy.focusedTextElement()
-        guard let transformedElement = move(character, focusedElement) else { return nil }
+    func applyMove(with character: Character, _ move: (Character, AccessibilityTextElement) -> AccessibilityTextElement) -> AccessibilityTextElement {
+        let focusedElement = accessibilityStrategy.focusedTextElement()!
+        let transformedElement = move(character, focusedElement)
         _ = accessibilityStrategy.push(element: transformedElement)
-        let latestFocusedElement = accessibilityStrategy.focusedTextElement()
+        let latestFocusedElement = accessibilityStrategy.focusedTextElement()! 
 
         return latestFocusedElement
     }

@@ -6,7 +6,7 @@ import XCTest
 // same line. it just goes after the character that is selected.
 class ASNM_a_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.a(on: element) 
     }
     
@@ -36,9 +36,9 @@ extension ASNM_a_Tests {
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 14)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 14)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertNil(returnedElement.selectedText)
     }
 
 }
@@ -71,9 +71,9 @@ a should not move
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 17)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 17)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertNil(returnedElement.selectedText)
     }
 
 }
@@ -105,9 +105,9 @@ those 🥺️☹️😂️ faces
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 29)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 29)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }

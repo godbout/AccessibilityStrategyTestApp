@@ -4,11 +4,11 @@ import XCTest
 
 class ASUI_NM_dk_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return applyMove { asNormalMode.dk(on: $0, &vimEngineState) }
     }
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR)
         
         return applyMoveBeingTested(&state)
@@ -76,9 +76,9 @@ extension ASUI_NM_dk_Tests {
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "one line is not enough for dk")        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 28)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.fileText.value, "one line is not enough for dk")        
+        XCTAssertEqual(accessibilityElement.caretLocation, 28)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
 }
@@ -97,9 +97,9 @@ one should disappear
        
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "")        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.fileText.value, "")        
+        XCTAssertEqual(accessibilityElement.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
     }
     
     func test_that_if_there_are_more_than_two_lines_the_caret_goes_to_the_first_non_blank_of_the_third_line() {
@@ -116,12 +116,12 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
         applyMove { asNormalMode.b(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
      🤡️o🤡️n b🤡️lank of 🤡️this line
 """
         )        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 5)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.caretLocation, 5)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
     func test_that_if_what_we_deleted_are_the_two_last_lines_then_the_caret_goes_to_the_first_non_blank_of_what_is_now_the_newly_last_line() {
@@ -135,12 +135,12 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
        
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
    😚️ow 🤡️🤡️this is🤡️ get🤡️🤡️ting cool
 """
         )        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
 }
@@ -160,12 +160,12 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
        
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
    😚️ow 🤡️🤡️this is🤡️ get🤡️🤡️ting coo
 """
         )        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
 }

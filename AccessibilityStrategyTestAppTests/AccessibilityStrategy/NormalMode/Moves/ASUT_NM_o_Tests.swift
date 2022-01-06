@@ -5,7 +5,7 @@ import XCTest
 // see NM O
 class ASUT_NM_o_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.o(on: element, VimEngineState(pgR: false))
     }
     
@@ -35,7 +35,7 @@ extension ASUT_NM_o_Tests {
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_a_file_line_ends_with_a_linefeed_it_creates_a_new_line_below() {
@@ -61,9 +61,9 @@ between the first file line and the second file line
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 13)
-        XCTAssertEqual(returnedElement?.selectedLength, 34)
-        XCTAssertEqual(returnedElement?.selectedText, "iline and o will create a new line\n")
+        XCTAssertEqual(returnedElement.caretLocation, 13)
+        XCTAssertEqual(returnedElement.selectedLength, 34)
+        XCTAssertEqual(returnedElement.selectedText, "iline and o will create a new line\n")
     }
     
     func test_that_if_a_file_line_does_not_end_with_a_linefeed_it_still_creates_a_new_line_below() {
@@ -89,9 +89,9 @@ that doesn't end with a linefeed and it's still gonna work coz 🪄️🪄️�
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 110)
-        XCTAssertEqual(returnedElement?.selectedLength, 50)
-        XCTAssertEqual(returnedElement?.selectedText, "d it's still gonna work coz 🪄️🪄️🪄️ we're genius\n")
+        XCTAssertEqual(returnedElement.caretLocation, 110)
+        XCTAssertEqual(returnedElement.selectedLength, 50)
+        XCTAssertEqual(returnedElement.selectedText, "d it's still gonna work coz 🪄️🪄️🪄️ we're genius\n")
     }
        
     func test_that_if_a_file_line_is_empty_it_still_creates_a_new_line_below() {
@@ -118,9 +118,9 @@ and i'm doing this not because i'm a genius but because i'm pretty dumb LMAO
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 60)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertEqual(returnedElement?.selectedText, "\n")
+        XCTAssertEqual(returnedElement.caretLocation, 60)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertEqual(returnedElement.selectedText, "\n")
     }
     
     func test_that_the_caret_goes_to_the_same_spaces_indentation_as_the_previous_line_on_the_newly_created_line() {
@@ -147,9 +147,9 @@ so the new line follows that
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 22)
-        XCTAssertEqual(returnedElement?.selectedLength, 7)
-        XCTAssertEqual(returnedElement?.selectedText, "s🙃️ace\n    ")
+        XCTAssertEqual(returnedElement.caretLocation, 22)
+        XCTAssertEqual(returnedElement.selectedLength, 7)
+        XCTAssertEqual(returnedElement.selectedText, "s🙃️ace\n    ")
     }
     
     func test_that_if_on_the_last_empty_line_it_does_create_a_new_line() {
@@ -175,9 +175,9 @@ caret on empty last line
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 25)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertEqual(returnedElement?.selectedText, "\n")
+        XCTAssertEqual(returnedElement.caretLocation, 25)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertEqual(returnedElement.selectedText, "\n")
     }
     
 }

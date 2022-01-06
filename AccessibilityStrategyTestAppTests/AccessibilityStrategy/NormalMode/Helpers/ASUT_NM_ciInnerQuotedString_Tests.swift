@@ -5,13 +5,13 @@ import XCTest
 // PGR in UIT
 class ASUT_NM_ciInnerQuotedString_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(using quote: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(using quote: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: false)
         
         return applyMoveBeingTested(using: quote, on: element, &state)
     }
         
-    private func applyMoveBeingTested(using quote: Character, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(using quote: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.ciInnerQuotedString(using: quote, on: element, &vimEngineState)
     }
     
@@ -106,9 +106,9 @@ finally dealing with the "real stuff"!
         
         let returnedElement = applyMoveBeingTested(using: "\"", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 26)
-        XCTAssertEqual(returnedElement?.selectedLength, 10)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 26)
+        XCTAssertEqual(returnedElement.selectedLength, 10)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
         
     func test_that_if_the_caret_is_before_the_quotes_then_the_content_within_is_deleted_and_the_caret_moves() {
@@ -133,9 +133,9 @@ now the caret 💨️💨️💨️ is before the ` shit with 🥺️☹️😂�
         
         let returnedElement = applyMoveBeingTested(using: "`", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 39)
-        XCTAssertEqual(returnedElement?.selectedLength, 30)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 39)
+        XCTAssertEqual(returnedElement.selectedLength, 30)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
 
     func test_that_if_there_are_three_quotes_then_the_correct_content_is_deleted_and_the_caret_moves() {
@@ -160,9 +160,9 @@ that's ' three quotes ' in there
         
         let returnedElement = applyMoveBeingTested(using: "'", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 8)
-        XCTAssertEqual(returnedElement?.selectedLength, 14)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 8)
+        XCTAssertEqual(returnedElement.selectedLength, 14)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
     
     func test_that_current_when_the_caret_is_at_a_quote_it_deletes_the_correct_content() {
@@ -187,9 +187,9 @@ that's " four quotes " in " there "
         
         let returnedElement = applyMoveBeingTested(using: "\"", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 27)
-        XCTAssertEqual(returnedElement?.selectedLength, 7)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 27)
+        XCTAssertEqual(returnedElement.selectedLength, 7)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
     
     func test_that_if_there_is_only_one_quote_no_content_is_deleted_and_the_caret_does_not_move() {
@@ -214,7 +214,7 @@ a text with only one quote ' lol
         
         let returnedElement = applyMoveBeingTested(using: "'", on: element)
         
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_there_are_no_quote_no_content_is_deleted_and_the_caret_does_not_move() {
@@ -237,7 +237,7 @@ a text with only one quote ' lol
         
         let returnedElement = applyMoveBeingTested(using: "'", on: element)
         
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_caret_is_after_the_quotes_then_no_content_is_deleted_and_the_caret_does_not_move() {
@@ -264,7 +264,7 @@ now the "caret" is after the quotes
         
         let returnedElement = applyMoveBeingTested(using: "\"", on: element)
         
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }

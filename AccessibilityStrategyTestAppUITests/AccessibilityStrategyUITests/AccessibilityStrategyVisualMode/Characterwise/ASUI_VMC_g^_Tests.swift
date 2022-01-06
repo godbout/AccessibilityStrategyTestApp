@@ -4,7 +4,7 @@ import AccessibilityStrategy
 
 class ASUI_VMC_gCaret_Tests: ASUI_VM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+    private func applyMoveBeingTested() -> AccessibilityTextElement {
         return applyMove { asVisualMode.gCaretForVisualStyleCharacterwise(on: $0)}
     }
     
@@ -23,8 +23,8 @@ extension ASUI_VMC_gCaret_Tests {
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         let returnedElement = applyMoveBeingTested()
 
-        XCTAssertEqual(returnedElement?.caretLocation, 3)
-        XCTAssertEqual(returnedElement?.selectedLength, 31)
+        XCTAssertEqual(returnedElement.caretLocation, 3)
+        XCTAssertEqual(returnedElement.selectedLength, 31)
     }
     
     func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_after_the_anchor_then_it_goes_to_beginning_of_the_line_by_reducing_the_selection_until_the_anchor_and_extending_it_from_the_anchor_to_the_beginning_of_the_line() {
@@ -42,8 +42,8 @@ extension ASUI_VMC_gCaret_Tests {
 
         let returnedElement = applyMoveBeingTested()
        
-        XCTAssertEqual(returnedElement?.caretLocation, 49)
-        XCTAssertEqual(returnedElement?.selectedLength, 5)
+        XCTAssertEqual(returnedElement.caretLocation, 49)
+        XCTAssertEqual(returnedElement.selectedLength, 5)
     }
 
 }
@@ -66,8 +66,8 @@ over ⛱️⛱️ multiple     lines coz
         applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0) }
         let returnedElement = applyMoveBeingTested()
        
-        XCTAssertEqual(returnedElement?.caretLocation, 40)
-        XCTAssertEqual(returnedElement?.selectedLength, 34)
+        XCTAssertEqual(returnedElement.caretLocation, 40)
+        XCTAssertEqual(returnedElement.selectedLength, 34)
     }
     
     func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_after_the_anchor_then_it_goes_to_the_beginning_of_the_line_and_reduces_the_selection() {
@@ -86,8 +86,8 @@ start of the line
         applyMove { asVisualMode.wForVisualStyleCharacterwise(on: $0) }
         let returnedElement = applyMoveBeingTested()
 
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 39)
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 39)
     }
 
 }

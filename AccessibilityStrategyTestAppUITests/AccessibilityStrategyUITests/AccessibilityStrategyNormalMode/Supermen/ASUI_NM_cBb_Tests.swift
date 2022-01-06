@@ -4,7 +4,7 @@ import XCTest
 
 class ASUI_NM_cBb_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR)
         
         return applyMove { asNormalMode.cBb(on: $0, using: asNormalMode.b, &state) }
@@ -24,10 +24,10 @@ extension ASUI_NM_cBb_Tests {
         applyMove { asNormalMode.F(to: "u", on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "so we gonna⏰️use cb here and see 😂️😂️ if it works ⏰️")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 13)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement.fileText.value, "so we gonna⏰️use cb here and see 😂️😂️ if it works ⏰️")
+        XCTAssertEqual(accessibilityElement.caretLocation, 13)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
     }
    
 }

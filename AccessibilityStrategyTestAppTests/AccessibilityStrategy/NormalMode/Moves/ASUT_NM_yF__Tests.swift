@@ -7,13 +7,13 @@ import XCTest
 // so those are two things that we test here
 class ASUT_NM_yF__Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, with character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(times count: Int = 1, with character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: false)
         
         return applyMoveBeingTested(times: count, with: character, on: element, &state)
     }
         
-    private func applyMoveBeingTested(times count: Int = 1, with character: Character, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(times count: Int = 1, with character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.yF(times: count, to: character, on: element, &vimEngineState)
     }
     
@@ -107,9 +107,9 @@ extension ASUT_NM_yF__Tests {
         let returnedElement = applyMoveBeingTested(times: 3, with: "e", on: element)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "etter 💌️💌️💌️ rather tha")
-        XCTAssertEqual(returnedElement?.caretLocation, 27)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 27)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_count_is_too_high_and_therefore_character_is_not_found_then_it_does_not_move() {
@@ -134,9 +134,9 @@ extension ASUT_NM_yF__Tests {
         let returnedElement = applyMoveBeingTested(times: 69, with: "i", on: element)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")
-        XCTAssertEqual(returnedElement?.caretLocation, 47)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 47)
+        XCTAssertEqual(returnedElement.selectedLength, 3)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
@@ -169,9 +169,9 @@ them like nothin🇫🇷️ happened. that's how special it is.
         let returnedElement = applyMoveBeingTested(with: "k", on: element)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "ke nothin🇫🇷️ happened. that's how special it ")
-        XCTAssertEqual(returnedElement?.caretLocation, 69)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 69)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
      
 }
@@ -200,9 +200,9 @@ extension ASUT_NM_yF__Tests {
         
         let returnedElement = applyMoveBeingTested(with: "F", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 11)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 11)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_when_it_does_not_find_the_stuff_it_does_not_move() {
@@ -229,9 +229,9 @@ that is not there
         
         let returnedElement = applyMoveBeingTested(with: "z", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 14)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 14)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
@@ -268,9 +268,9 @@ on a line
         XCTAssertEqual(state.lastYankStyle, .characterwise)
         XCTAssertFalse(state.lastMoveBipped)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "hould wo")
-        XCTAssertEqual(returnedElement?.caretLocation, 19)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 19)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }

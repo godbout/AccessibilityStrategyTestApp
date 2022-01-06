@@ -4,7 +4,7 @@ import XCTest
 
 class ASUI_VML_d_Tests: ASUI_VM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         return applyMove { asVisualMode.dForVisualStyleLinewise(on: $0, pgR: pgR)}
     }
 
@@ -61,13 +61,13 @@ one extra line in between!
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
                      
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 we gonna use VM
       ⛱️o go to non blank of the line
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 22)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 2)
+        XCTAssertEqual(accessibilityElement.caretLocation, 22)
+        XCTAssertEqual(accessibilityElement.selectedLength, 2)
     }
     
     func test_that_the_caret_will_go_the_the_end_limit_of_the_next_line_if_the_next_line_is_just_made_of_spaces() {
@@ -89,14 +89,14 @@ some more
         applyMove { asVisualMode.gjForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 we gonna use VM
         
 some more
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 23)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.caretLocation, 23)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
     func test_that_if_the_next_line_is_only_blanks_the_caret_goes_to_the_limit_of_the_line_before_the_linefeed() {
@@ -117,14 +117,14 @@ another line agan
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 we gonna use VM
 d here and we suppose
          
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 46)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.caretLocation, 46)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
     func test_that_removing_the_last_line_puts_the_caret_at_the_first_non_blank_of_the_previous_line() {
@@ -142,12 +142,12 @@ and it would be beautiful
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
    ⛱️e gonna remove the last
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 2)
+        XCTAssertEqual(accessibilityElement.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement.selectedLength, 2)
     }
     
     func test_that_if_the_head_is_before_the_anchor_it_works() {
@@ -164,12 +164,12 @@ and it would be beautiful
         applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
    we gonna remove the last
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
     func test_that_if_the_head_and_the_anchor_are_equal_it_works() {
@@ -186,13 +186,13 @@ yes there is
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 empty line!!!
 yes there is
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 14)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)    
+        XCTAssertEqual(accessibilityElement.caretLocation, 14)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)    
     }
     
     func test_that_if_the_whole_text_is_to_be_deleted_well_it_gets_deleted_LOL() {
@@ -212,9 +212,9 @@ t
         applyMove { asVisualMode.gkForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, "")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.fileText.value, "")
+        XCTAssertEqual(accessibilityElement.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
     }
     
 }
@@ -241,13 +241,13 @@ one extra line in between!
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
                      
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 we gonna use VM      ⛱️o go to non blank of the line
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, "w")
+        XCTAssertEqual(accessibilityElement.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "w")
     }
     
     func test_that_if_there_is_no_next_line_and_there_is_a_previous_line_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
@@ -265,13 +265,13 @@ and it would be beautiful
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
    ⛱️e gonna remove the las
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 2)
-        XCTAssertEqual(accessibilityElement?.selectedText, "⛱️")
+        XCTAssertEqual(accessibilityElement.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement.selectedLength, 2)
+        XCTAssertEqual(accessibilityElement.selectedText, "⛱️")
     }
 
 }

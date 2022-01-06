@@ -4,7 +4,7 @@ import XCTest
 
 class ASUT_VMC_y_Tests: ASVM_BaseTests {
         
-    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.yForVisualStyleCharacterwise(on: element) 
     }
     
@@ -35,8 +35,8 @@ extension ASUT_VMC_y_Tests {
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "then VM y should copy the s")
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)        
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)        
     }
     
     func test_that_after_yanking_it_gets_back_to_the_caret_position() {
@@ -59,9 +59,9 @@ extension ASUT_VMC_y_Tests {
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 8)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 8)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_TextElement_is_empty_it_works_and_copies_the_emptiness_of_life() {
@@ -86,8 +86,8 @@ extension ASUT_VMC_y_Tests {
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_own_it_works_and_copies_nothing() {
@@ -117,8 +117,8 @@ line
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertNil(returnedElement.selectedText)
     }   
     
 }
@@ -147,9 +147,9 @@ extension ASUT_VMC_y_Tests {
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 8)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 8)
+        XCTAssertEqual(returnedElement.selectedLength, 3)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }

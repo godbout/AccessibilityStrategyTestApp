@@ -6,7 +6,7 @@ import XCTest
 // see yiInnerBrackets for more blah blah
 class ASUT_NM_yiInnerQuotedString_Tests: ASUT_NM_BaseTests {
     
-    private func applyMove(using quote: Character, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    private func applyMove(using quote: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.yiInnerQuotedString(using: quote, on: element, &vimEngineState) 
     }
     
@@ -103,9 +103,9 @@ extension ASUT_NM_yiInnerQuotedString_Tests {
         
         XCTAssertEqual(state.lastYankStyle, .linewise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "no double quote")
-        XCTAssertEqual(returnedElement?.caretLocation, 23)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 23)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_there_is_only_one_quote_it_does_not_move_or_copy_anything_either_and_does_not_touch_the_LastYankStyle() {
@@ -134,9 +134,9 @@ now there's one " double quote
         
         XCTAssertEqual(state.lastYankStyle, .linewise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "only one double quote")
-        XCTAssertEqual(returnedElement?.caretLocation, 12)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 12)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_there_are_two_quotes_and_the_caret_is_before_them_then_it_moves_the_caret_and_copy_the_text_and_sets_the_LastYankStyle_to_Characterwise() {
@@ -165,9 +165,9 @@ two 'simple quotes' on the second line
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "simple quotes")
-        XCTAssertEqual(returnedElement?.caretLocation, 17)  
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 17)  
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_there_are_two_quotes_and_the_caret_is_between_them_then_it_moves_the_caret_and_copy_the_text_and_sets_the_LastYankStyle_to_Characterwise() {
@@ -197,9 +197,9 @@ and now `hohohohoho`
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "hohohohoho")
-        XCTAssertEqual(returnedElement?.caretLocation, 31)  
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 31)  
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_there_are_two_quotes_and_the_caret_is_after_them_then_it_does_not_move_or_copy_anything_and_does_not_touch_the_LastYankStyle() {
@@ -228,9 +228,9 @@ double "quotes" before the caret
         
         XCTAssertEqual(state.lastYankStyle, .linewise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "caret after double quote")
-        XCTAssertEqual(returnedElement?.caretLocation, 26)  
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 26)  
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_there_are_three_double_quotes_and_the_caret_is_not_after_all_of_them_then_it_moves_the_caret_and_copy_the_right_text_and_sets_the_LastYankStyle_to_Characterwise() {
@@ -259,9 +259,9 @@ heheheheh
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), " and some more")
-        XCTAssertEqual(returnedElement?.caretLocation, 17)  
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 17)  
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_there_are_four_quotes_and_the_caret_is_exactly_on_the_third_one_it_calculates_the_matching_pairs_and_copy_the_right_text_and_sets_the_LastYankStyle_to_Characterwise() {
@@ -290,9 +290,9 @@ now there's gonna
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "quotes")
-        XCTAssertEqual(returnedElement?.caretLocation, 28)  
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 28)  
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
@@ -327,9 +327,9 @@ those💨️💨️💨️ fac"🍵️s 🥺️☹️😂️ h😀️ha👅️" 
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "🍵️s 🥺️☹️😂️ h😀️ha👅️")
-        XCTAssertEqual(returnedElement?.caretLocation, 37)  
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 37)  
+        XCTAssertEqual(returnedElement.selectedLength, 3)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }

@@ -4,7 +4,7 @@ import AccessibilityStrategy
 
 class ASUT_VMC_caret_Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.caretForVisualStyleCharacterwise(on: element)
     }
    
@@ -37,8 +37,8 @@ extension ASUT_VMC_caret_Tests {
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 7)
-        XCTAssertEqual(returnedElement?.selectedLength, 25)
+        XCTAssertEqual(returnedElement.caretLocation, 7)
+        XCTAssertEqual(returnedElement.selectedLength, 25)
     }
     
     func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_after_the_anchor_then_it_goes_to_beginning_of_the_line_by_reducing_the_selection_until_the_anchor_and_extending_it_from_the_anchor_to_the_firstNonBlankLimit_of_the_line() {
@@ -67,8 +67,8 @@ extension ASUT_VMC_caret_Tests {
 
         let returnedElement = applyMoveBeingTested(on: element)
        
-        XCTAssertEqual(returnedElement?.caretLocation, 29)
-        XCTAssertEqual(returnedElement?.selectedLength, 27)
+        XCTAssertEqual(returnedElement.caretLocation, 29)
+        XCTAssertEqual(returnedElement.selectedLength, 27)
     }
 
 }
@@ -105,8 +105,8 @@ over ⛱️⛱️ multiple lines coz
 
         let returnedElement = applyMoveBeingTested(on: element)
        
-        XCTAssertEqual(returnedElement?.caretLocation, 2)
-        XCTAssertEqual(returnedElement?.selectedLength, 38)
+        XCTAssertEqual(returnedElement.caretLocation, 2)
+        XCTAssertEqual(returnedElement.selectedLength, 38)
     }
     
     func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_after_the_anchor_then_it_goes_to_the_firstNonBlankLimit_of_the_line_and_reduces_the_selection() {
@@ -137,8 +137,8 @@ start of the line
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 41)
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 41)
     }
 
 }

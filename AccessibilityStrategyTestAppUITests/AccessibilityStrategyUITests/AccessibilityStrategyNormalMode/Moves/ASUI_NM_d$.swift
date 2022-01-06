@@ -7,7 +7,7 @@ import XCTest
 // the UI Tests are for the block cursor repositioning after the move.
 class ASUI_NM_dDollarSign_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return applyMove { asNormalMode.dDollarSign(on: $0, &vimEngineState) }
     }
     
@@ -35,13 +35,13 @@ which😂️means it will not up one line and this is tested in the endLimit!
         var state = VimEngineState()
         let accessibilityElement = applyMoveBeingTested(&state)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 D will delete till the end of line but not the linefeed (tested in C) and will go to the end limit even if the line is empty
 which😂️
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 130)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.caretLocation, 130)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
 
 }
@@ -64,13 +64,13 @@ which😂️means it will not up one line and this is tested in the endLimit!
         var state = VimEngineState(pgR: true)
         let accessibilityElement = applyMoveBeingTested(&state)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 D will delete till the end of line but not the linefeed (tested in C) and will go to the end limit even if the line is empty
 which
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 129)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.caretLocation, 129)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
 }

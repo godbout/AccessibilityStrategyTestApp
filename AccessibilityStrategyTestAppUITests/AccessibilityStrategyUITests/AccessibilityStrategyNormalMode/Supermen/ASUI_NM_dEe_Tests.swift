@@ -7,7 +7,7 @@ import XCTest
 // 1) it's the same func 2) we're testing that we're passing the right func in UT.
 class ASUI_NM_dEe_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR)
         
         return applyMove { asNormalMode.dEe(on: $0, using: asNormalMode.e, &state) }
@@ -28,10 +28,10 @@ extension ASUI_NM_dEe_Tests {
         applyMove { asNormalMode.l(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "😂️ gonna use ce on this sentence")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, " ")
+        XCTAssertEqual(accessibilityElement.fileText.value, "😂️ gonna use ce on this sentence")
+        XCTAssertEqual(accessibilityElement.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, " ")
     }
     
     func test_that_if_the_caret_ends_up_after_the_end_limit_then_it_is_moved_back_to_the_end_limit() {
@@ -43,10 +43,10 @@ extension ASUI_NM_dEe_Tests {
         applyMove { asNormalMode.b(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "😂️😂️😂️😂️ gonna use ce on this 😂️😂️😂️😂️")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 34)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
-        XCTAssertEqual(accessibilityElement?.selectedText, "😂️")
+        XCTAssertEqual(accessibilityElement.fileText.value, "😂️😂️😂️😂️ gonna use ce on this 😂️😂️😂️😂️")
+        XCTAssertEqual(accessibilityElement.caretLocation, 34)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.selectedText, "😂️")
     }
    
 }
@@ -64,10 +64,10 @@ extension ASUI_NM_dEe_Tests {
         applyMove { asNormalMode.l(on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, " gonna use ce on this sentence")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, " ")
+        XCTAssertEqual(accessibilityElement.fileText.value, " gonna use ce on this sentence")
+        XCTAssertEqual(accessibilityElement.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, " ")
     }
    
 }

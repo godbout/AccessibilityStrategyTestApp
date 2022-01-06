@@ -5,7 +5,7 @@ import AccessibilityStrategy
 // see gj for blah blah
 class ASUI_VMC_gk_Tests: ASUI_VM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+    private func applyMoveBeingTested() -> AccessibilityTextElement {
         return applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0)}
     }
 
@@ -29,8 +29,8 @@ the wrapped lines and shit is understood
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 78)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 19)
+        XCTAssertEqual(accessibilityElement.caretLocation, 78)
+        XCTAssertEqual(accessibilityElement.selectedLength, 19)
     }
     
     func test_that_if_the_head_is_after_the_anchor_and_both_are_on_the_same_line_then_it_goes_to_the_line_above_the_head_on_the_same_column_number_and_selects_from_that_new_head_location_to_the_anchor() {
@@ -47,8 +47,8 @@ the wrapped lines and shit is understood
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 65)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 15)
+        XCTAssertEqual(accessibilityElement.caretLocation, 65)
+        XCTAssertEqual(accessibilityElement.selectedLength, 15)
     }
     
     func test_that_if_the_head_is_after_the_anchor_and_both_are_not_on_the_same_line_and_the_new_head_location_is_after_the_anchor_then_it_goes_to_the_line_above_the_head_on_the_same_column_number_and_selects_from_the_anchor_to_that_new_head_location() {
@@ -67,8 +67,8 @@ the wrapped lines and shit is understood
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 79)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 4)
+        XCTAssertEqual(accessibilityElement.caretLocation, 79)
+        XCTAssertEqual(accessibilityElement.selectedLength, 4)
     }
     
     func test_that_if_the_head_is_after_the_anchor_and_both_are_not_on_the_same_line_and_the_new_head_location_is_before_the_anchor_then_it_goes_to_the_line_above_the_head_on_the_same_column_number_and_selects_from_that_new_head_location_to_the_anchor() {
@@ -87,8 +87,8 @@ the wrapped lines and shit is understood
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 82)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 15)
+        XCTAssertEqual(accessibilityElement.caretLocation, 82)
+        XCTAssertEqual(accessibilityElement.selectedLength, 15)
     }
     
     // see j for blah blah
@@ -109,8 +109,8 @@ wow that one is
         applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 13)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 47)
+        XCTAssertEqual(accessibilityElement.caretLocation, 13)
+        XCTAssertEqual(accessibilityElement.selectedLength, 47)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_selects_from_the_last_character_to_some_character_of_the_previous_line() {
@@ -132,8 +132,8 @@ own empty
         // same test as NM k:
         // real location will depend on screenLineColumnNumber, so we test that it moved up that's all
         // we don't care where exactly on the previous line
-        XCTAssertNotEqual(accessibilityElement?.caretLocation, 31)
-        XCTAssertNotEqual(accessibilityElement?.selectedLength, 0)
+        XCTAssertNotEqual(accessibilityElement.caretLocation, 31)
+        XCTAssertNotEqual(accessibilityElement.selectedLength, 0)
     }
     
     func test_that_if_the_ATE_ColumnNumbers_are_nil_k_goes_to_the_end_limit_of_the_previous_line() {
@@ -151,24 +151,24 @@ globalColumnNumber is nil
         applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 75)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 19)
+        XCTAssertEqual(accessibilityElement.caretLocation, 75)
+        XCTAssertEqual(accessibilityElement.selectedLength, 19)
         
         let secondPass = applyMoveBeingTested()
                 
-        XCTAssertEqual(secondPass?.caretLocation, 74)
-        XCTAssertEqual(secondPass?.selectedLength, 2)
+        XCTAssertEqual(secondPass.caretLocation, 74)
+        XCTAssertEqual(secondPass.selectedLength, 2)
         
         // see VMC j Tests for blah blah
         let applyJ = applyMove { asVisualMode.gjForVisualStyleCharacterwise(on: $0) }
         
-        XCTAssertEqual(applyJ?.caretLocation, 75)
-        XCTAssertEqual(applyJ?.selectedLength, 19)
+        XCTAssertEqual(applyJ.caretLocation, 75)
+        XCTAssertEqual(applyJ.selectedLength, 19)
 
         let applyKAgain = applyMoveBeingTested()
         
-        XCTAssertEqual(applyKAgain?.caretLocation, 74)
-        XCTAssertEqual(applyKAgain?.selectedLength, 2)
+        XCTAssertEqual(applyKAgain.caretLocation, 74)
+        XCTAssertEqual(applyKAgain.selectedLength, 2)
     }
     
 }

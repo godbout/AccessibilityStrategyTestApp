@@ -5,7 +5,7 @@ import AccessibilityStrategy
 // see j for blah blah
 class ASUT_NM_k_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.k(on: element) 
     }
     
@@ -40,9 +40,9 @@ it eats them like nothing happened. that's how special it is.
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 41)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 41)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
      
 }
@@ -107,8 +107,8 @@ to the same column
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 39)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement.caretLocation, 39)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
     }
 
     func test_that_if_the_previous_line_is_shorter_k_goes_to_the_end_of_line_limit_of_that_previous_line() {
@@ -138,8 +138,8 @@ than the previous shorter than...
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 39)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement.caretLocation, 39)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
     }
 
     func test_that_when_at_the_first_line_k_does_nothing() {
@@ -168,8 +168,8 @@ nothing ankulay
     
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
     }
 
     func test_that_when_current_line_column_is_equal_to_previous_line_length_the_caret_ends_up_at_the_right_previous_line_end_limit() {
@@ -199,8 +199,8 @@ to previ ous line length
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 42)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement.caretLocation, 42)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
     }
 
     func test_that_if_we_are_on_the_last_line_and_it_is_just_a_linefeed_we_can_still_go_up_and_follow_the_fileLineColumnNumber() {
@@ -230,8 +230,8 @@ empty
     
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 34)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement.caretLocation, 34)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
     }
     
     func test_that_if_the_ATE_fileLineColumnNumber_is_nil_k_goes_to_the_end_limit_of_the_previous_line() {
@@ -260,13 +260,13 @@ globalColumnNumber is nil
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 71)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertEqual(returnedElement.caretLocation, 71)
+        XCTAssertEqual(returnedElement.selectedLength, 3)
         
         let secondPass = applyMoveBeingTested(on: returnedElement)
                 
-        XCTAssertEqual(secondPass?.caretLocation, 41)
-        XCTAssertEqual(secondPass?.selectedLength, 1)
+        XCTAssertEqual(secondPass.caretLocation, 41)
+        XCTAssertEqual(secondPass.selectedLength, 1)
     }
     
 }

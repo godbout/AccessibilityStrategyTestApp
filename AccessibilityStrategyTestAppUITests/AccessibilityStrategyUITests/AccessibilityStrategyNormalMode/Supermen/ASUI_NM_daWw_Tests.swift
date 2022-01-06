@@ -6,10 +6,10 @@ import XCTest
 // the caret repositioning.
 class ASUI_NM_daWw_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR)
         
-        return applyMove { asNormalMode.daWw(on: $0, using: $0!.fileText.aWord, &state) }
+        return applyMove { asNormalMode.daWw(on: $0, using: $0.fileText.aWord, &state) }
     }
     
 }
@@ -53,13 +53,13 @@ like honestly that one should be
         applyMove { asNormalMode.w(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 like honestly that one should be
    📏️traight forward if you ask me
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 36)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.caretLocation, 36)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
     func test_that_if_the_caret_ends_up_after_the_end_limit_then_it_is_moved_back_to_the_end_limit() {
@@ -74,13 +74,13 @@ the block cursor is important!
         applyMove { asNormalMode.ge(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 repositionin🇫🇷️
 the block cursor is important!
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 12)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 5)
+        XCTAssertEqual(accessibilityElement.caretLocation, 12)
+        XCTAssertEqual(accessibilityElement.selectedLength, 5)
     }
 
 }
@@ -102,13 +102,13 @@ like honestly that one should be
         applyMove { asNormalMode.w(on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 like honestly that one should be
   📏️traight forward if you ask me
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
 }

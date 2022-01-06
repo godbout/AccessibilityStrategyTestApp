@@ -4,7 +4,7 @@ import XCTest
 
 class ASUI_VM_tilde_Tests: ASUI_VM_BaseTests {
 
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         return applyMove { asVisualMode.tilde(on: $0, VimEngineState(pgR: pgR))}
     }
 
@@ -31,15 +31,15 @@ the selection!
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 all that VM d DOES
 IN CHARACTERWI😂️E IS DELETING
 THE Selection!
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 14)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, "D")
+        XCTAssertEqual(accessibilityElement.caretLocation, 14)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "D")
     }
 
 }
@@ -65,7 +65,7 @@ the selection!
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 all that VM d DOES
 IN CHARACTERWI😂️E IS DELETING
 THE DOES
@@ -73,9 +73,9 @@ IN CHARACTERWI😂️E IS DELETING
 THE Selection!
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 14)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, "D")
+        XCTAssertEqual(accessibilityElement.caretLocation, 14)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "D")
     }
 
 }

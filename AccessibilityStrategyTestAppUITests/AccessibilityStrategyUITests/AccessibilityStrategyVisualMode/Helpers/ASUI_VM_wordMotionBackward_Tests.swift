@@ -23,8 +23,8 @@ from the caret location
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 53)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 2)
+        XCTAssertEqual(accessibilityElement.caretLocation, 53)
+        XCTAssertEqual(accessibilityElement.selectedLength, 2)
     }
     
     func test_that_the_head_is_getting_updated_properly() {

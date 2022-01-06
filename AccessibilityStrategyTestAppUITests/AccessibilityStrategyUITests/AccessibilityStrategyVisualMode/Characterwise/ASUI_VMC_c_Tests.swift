@@ -4,7 +4,7 @@ import XCTest
 
 class ASUI_VMC_c_Tests: ASUI_VM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         return applyMove { asVisualMode.cForVisualStyleCharacterwise(on: $0, pgR: pgR)}
     }
 
@@ -56,10 +56,10 @@ extension ASUI_VMC_c_Tests {
         applyMove { asVisualMode.fForVisualStyleCharacterwise(to: "i", on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "ok so VM c (hangle line")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 14)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement.fileText.value, "ok so VM c (hangle line")
+        XCTAssertEqual(accessibilityElement.caretLocation, 14)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
     func test_that_when_the_selection_is_spanning_on_multiple_lines_it_deletes_the_selected_text() {
@@ -79,13 +79,13 @@ lines because
         applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 like samause
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 8)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement.caretLocation, 8)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
 }
@@ -105,10 +105,10 @@ extension ASUI_VMC_c_Tests {
         applyMove { asVisualMode.fForVisualStyleCharacterwise(to: "i", on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "ok so VM c (hngle line")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 13)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement.fileText.value, "ok so VM c (hngle line")
+        XCTAssertEqual(accessibilityElement.caretLocation, 13)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
 }

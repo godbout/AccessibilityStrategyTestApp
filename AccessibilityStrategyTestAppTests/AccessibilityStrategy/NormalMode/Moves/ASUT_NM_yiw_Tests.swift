@@ -7,7 +7,7 @@ import XCTest
 // stuff specific to that move, which is the copying through NSPasteboard
 class ASUT_NM_yiw_Tests: ASUT_NM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.yiw(on: element) 
     }
     
@@ -38,9 +38,9 @@ extension ASUT_NM_yiw_Tests {
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "without")
-        XCTAssertEqual(returnedElement?.caretLocation, 10)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 10)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
@@ -73,9 +73,9 @@ th📍️se💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "💨️💨️💨️")
-        XCTAssertEqual(returnedElement?.caretLocation, 25)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 25)
+        XCTAssertEqual(returnedElement.selectedLength, 3)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }

@@ -4,13 +4,13 @@ import XCTest
 
 class ASUT_NM_cWw_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?, using innerWoRdFunction: (Int) -> Range<Int>) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement, using innerWoRdFunction: (Int) -> Range<Int>) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: false)
         
         return applyMoveBeingTested(on: element, using: innerWoRdFunction, &state)
     } 
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?, using innerWoRdFunction: (Int) -> Range<Int>, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement, using innerWoRdFunction: (Int) -> Range<Int>, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.cWw(on: element, using: innerWoRdFunction, &vimEngineState) 
     } 
     
@@ -103,9 +103,9 @@ extension ASUT_NM_cWw_Tests {
         
         let returnedElement = applyMoveBeingTested(on: element, using: element.fileText.innerWord)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 3)
-        XCTAssertEqual(returnedElement?.selectedLength, 9)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 3)
+        XCTAssertEqual(returnedElement.selectedLength, 9)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
     
     func test_that_if_the_caret_is_on_a_blank_it_selects_the_text_from_the_caret_to_the_beginning_of_the_next_WORD() {
@@ -128,9 +128,9 @@ extension ASUT_NM_cWw_Tests {
         
         let returnedElement = applyMoveBeingTested(on: element, using: element.fileText.innerWORD)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 21)
-        XCTAssertEqual(returnedElement?.selectedLength, 16)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 21)
+        XCTAssertEqual(returnedElement.selectedLength, 16)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
     
     func test_that_if_the_caret_is_on_a_punctuation_it_selects_the_text_from_the_caret_to_the_beginning_of_the_next_word() {
@@ -153,9 +153,9 @@ extension ASUT_NM_cWw_Tests {
         
         let returnedElement = applyMoveBeingTested(on: element, using: element.fileText.innerWord)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 27)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 27)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
     
     func test_that_if_the_caret_is_on_an_empty_line_it_does_not_move() {
@@ -182,9 +182,9 @@ it does not suck the line below
         
         let returnedElement = applyMoveBeingTested(on: element, using: element.fileText.innerWord)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 36)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 36)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
    
 }

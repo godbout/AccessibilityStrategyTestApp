@@ -6,7 +6,7 @@ import XCTest
 // wordMotionBackward called by b, B, ge, gE.
 class ASUT_VM_wordMotionBackward_Tests: ASVM_BaseTests {
 
-    private func applyMove(on element: AccessibilityTextElement?, using wordMotionBackwardFunction: (Int) -> Int?) -> AccessibilityTextElement? {
+    private func applyMove(on element: AccessibilityTextElement, using wordMotionBackwardFunction: (Int) -> Int?) -> AccessibilityTextElement {
         return asVisualMode.wOrDMotionBackward(on: element, using: wordMotionBackwardFunction)
     }
     
@@ -39,9 +39,9 @@ extension ASUT_VM_wordMotionBackward_Tests {
         
         let returnedElement = applyMove(on: element, using: element.fileText.beginningOfWordBackward)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 10)
-        XCTAssertEqual(returnedElement?.selectedLength, 21)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 10)
+        XCTAssertEqual(returnedElement.selectedLength, 21)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_anchor_is_after_the_head_it_moves_the_caret_to_the_new_head_location_related_to_the_word_motion_move_and_increases_the_selected_length() {
@@ -74,9 +74,9 @@ fro
         
         let returnedElement = applyMove(on: element, using: element.fileText.beginningOfWORDBackward)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 53)
-        XCTAssertEqual(returnedElement?.selectedLength, 15)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 53)
+        XCTAssertEqual(returnedElement.selectedLength, 15)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_anchor_and_the_head_are_equal_it_does_not_get_blocked() {
@@ -102,9 +102,9 @@ fro
         
         let returnedElement = applyMove(on: element, using: element.fileText.endOfWordBackward)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 16)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 16)
+        XCTAssertEqual(returnedElement.selectedLength, 3)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_goes_to_new_head_location_related_to_the_word_motion_move() {
@@ -135,9 +135,9 @@ line
         
         let returnedElement = applyMove(on: element, using: element.fileText.beginningOfWordBackward)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 26)
-        XCTAssertEqual(returnedElement?.selectedLength, 5)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 26)
+        XCTAssertEqual(returnedElement.selectedLength, 5)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
@@ -170,9 +170,9 @@ extension ASUT_VM_wordMotionBackward_Tests {
         
         let returnedElement = applyMove(on: element, using: element.fileText.endOfWORDBackward)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 6)
-        XCTAssertEqual(returnedElement?.selectedLength, 15)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 6)
+        XCTAssertEqual(returnedElement.selectedLength, 15)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_it_handles_emojis_when_the_head_is_before_the_anchor() {
@@ -198,9 +198,9 @@ extension ASUT_VM_wordMotionBackward_Tests {
         
         let returnedElement = applyMove(on: element, using: element.fileText.endOfWordBackward)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 8)
-        XCTAssertEqual(returnedElement?.selectedLength, 14)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 8)
+        XCTAssertEqual(returnedElement.selectedLength, 14)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }

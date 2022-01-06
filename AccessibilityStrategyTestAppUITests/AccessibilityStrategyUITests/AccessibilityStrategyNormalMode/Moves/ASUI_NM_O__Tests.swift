@@ -5,7 +5,7 @@ import XCTest
 // see ASUT O for blah blah
 class ASUI_NM_O__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         return applyMove { asNormalMode.O(on: $0, VimEngineState(pgR: pgR)) }
     }
     
@@ -27,15 +27,15 @@ still create a line above
         applyMove { asNormalMode.dollarSign(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 
 caret on the first
 line and it should
 still create a line above
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
     }
     
     func test_that_if_keeps_the_indentation_even_if_it_is_on_the_first_line() {
@@ -47,13 +47,13 @@ still create a line above
 
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
    
    now indent on the first line
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
     }
     
 }
@@ -75,7 +75,7 @@ still create a line above
         applyMove { asNormalMode.dollarSign(on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 
 
 caret on the first
@@ -83,9 +83,9 @@ line and it should
 still create a line above
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
     func test_that_in_other_settings_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
@@ -103,7 +103,7 @@ abo😄️ve!
         applyMove { asNormalMode.f(times: 1, to: "d", on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 tha😄️t's a mu😄️ltiline
 tha😄️t's a mu😄️ltiline
 
@@ -112,9 +112,9 @@ create a n😄️ew line
 abo😄️ve!
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 50)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement.caretLocation, 50)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
 }

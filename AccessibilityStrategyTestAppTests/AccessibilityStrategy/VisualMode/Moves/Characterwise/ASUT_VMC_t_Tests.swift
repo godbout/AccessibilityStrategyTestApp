@@ -5,7 +5,7 @@ import XCTest
 // see F for blah blah
 class ASUT_VMC_t_Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.tForVisualStyleCharacterwise(times: count, to: character, on: element)
     }
     
@@ -38,9 +38,9 @@ extension ASUT_VMC_t_Tests {
        
         let returnedElement = applyMoveBeingTested(times: 2, to: "i", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 9)
-        XCTAssertEqual(returnedElement?.selectedLength, 39)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 9)
+        XCTAssertEqual(returnedElement.selectedLength, 39)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_count_is_too_high_and_therefore_character_is_not_found_then_it_does_not_move() {
@@ -66,9 +66,9 @@ extension ASUT_VMC_t_Tests {
        
         let returnedElement = applyMoveBeingTested(times: 69, to: "i", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 9)
-        XCTAssertEqual(returnedElement?.selectedLength, 4)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 9)
+        XCTAssertEqual(returnedElement.selectedLength, 4)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
@@ -100,9 +100,9 @@ extension ASUT_VMC_t_Tests {
        
         let returnedElement = applyMoveBeingTested(to: "i", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 9)
-        XCTAssertEqual(returnedElement?.selectedLength, 33)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 9)
+        XCTAssertEqual(returnedElement.selectedLength, 33)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_new_head_location_is_before_the_Anchor_then_it_selects_from_the_new_head_location_until_the_Anchor() {
@@ -133,9 +133,9 @@ of newHeadLocation needs some... calculation.
         
         let returnedElement = applyMoveBeingTested(to: "s", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 72)
-        XCTAssertEqual(returnedElement?.selectedLength, 22)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 72)
+        XCTAssertEqual(returnedElement.selectedLength, 22)
+        XCTAssertNil(returnedElement.selectedText)
     }
 
     func test_that_if_the_character_is_not_found_then_the_selection_does_not_move() {
@@ -165,9 +165,9 @@ that is not there
         
         let returnedElement = applyMoveBeingTested(to: "z", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 13)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 13)
+        XCTAssertEqual(returnedElement.selectedLength, 3)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_it_is_looking_for_the_character_after_the_head_rather_than_after_the_anchor() {
@@ -193,9 +193,9 @@ that is not there
        
         let returnedElement = applyMoveBeingTested(to: "o", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 2)
-        XCTAssertEqual(returnedElement?.selectedLength, 7)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 2)
+        XCTAssertEqual(returnedElement.selectedLength, 7)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }

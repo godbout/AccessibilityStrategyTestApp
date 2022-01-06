@@ -28,9 +28,9 @@ extension ASUI_NM_i_Tests {
         
         let returnedElement = asNormalMode.i(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 24)    
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 24)    
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertNil(returnedElement.selectedText)
     }    
     
 }
@@ -62,9 +62,9 @@ those💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
         
         let returnedElement = asNormalMode.i(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 44)    
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 44)    
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }

@@ -4,7 +4,7 @@ import AccessibilityStrategy
 
 class ASUT_VMC_h_Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.hForVisualStyleCharacterwise(on: element)
     }
 
@@ -40,9 +40,9 @@ extension ASUT_VMC_h_Tests {
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 27)
-        XCTAssertEqual(returnedElement?.selectedLength, 2)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 27)
+        XCTAssertEqual(returnedElement.selectedLength, 2)
+        XCTAssertNil(returnedElement.selectedText)
     }
      
 }
@@ -74,8 +74,8 @@ extension ASUT_VMC_h_Tests {
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 5)
-        XCTAssertEqual(returnedElement?.selectedLength, 8)
+        XCTAssertEqual(returnedElement.caretLocation, 5)
+        XCTAssertEqual(returnedElement.selectedLength, 8)
     }
     
     func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_before_the_anchor_then_it_goes_towards_the_beginning_of_the_line_and_extends_the_selection_by_one() {
@@ -104,8 +104,8 @@ with head before anchor
 
         let returnedElement = applyMoveBeingTested(on: element)
                 
-        XCTAssertEqual(returnedElement?.caretLocation, 36)
-        XCTAssertEqual(returnedElement?.selectedLength, 9)
+        XCTAssertEqual(returnedElement.caretLocation, 36)
+        XCTAssertEqual(returnedElement.selectedLength, 9)
     }
     
 }
@@ -141,8 +141,8 @@ for VM h
       
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 18)
-        XCTAssertEqual(returnedElement?.selectedLength, 15)
+        XCTAssertEqual(returnedElement.caretLocation, 18)
+        XCTAssertEqual(returnedElement.selectedLength, 15)
     }
     
     func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_after_the_anchor_then_it_goes_towards_the_beginning_of_the_line_and_reduces_the_selection() {
@@ -172,8 +172,8 @@ for VM h and that should
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 28)
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 28)
     }
     
     func test_that_it_stops_at_the_beginning_of_lines_and_does_not_continue_moving_backward_on_the_previous_lines() {
@@ -202,8 +202,8 @@ w askljaslkasdlfjak
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 26)
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 26)
     }
     
 }

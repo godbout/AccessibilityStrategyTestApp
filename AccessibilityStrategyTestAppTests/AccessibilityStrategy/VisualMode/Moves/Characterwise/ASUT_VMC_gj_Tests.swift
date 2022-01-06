@@ -5,7 +5,7 @@ import AccessibilityStrategy
 // only testing that for FT it returns nil. rest of the tests are in UI.
 class ASUT_VMC_gj_Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.gjForVisualStyleCharacterwise(on: element)
     }
 

@@ -4,13 +4,13 @@ import XCTest
 
 class ASUI_NM_dl_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+    private func applyMoveBeingTested() -> AccessibilityTextElement {
         var state = VimEngineState()
         
         return applyMoveBeingTested(&state)
     }
         
-    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return applyMove { asNormalMode.dl(on: $0, &vimEngineState) }
     }
     
@@ -68,9 +68,9 @@ extension ASUI_NM_dl_Tests {
         applyMove { asNormalMode.b(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, "x should delete the right haracter")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.fileText.value, "x should delete the right haracter")
+        XCTAssertEqual(accessibilityElement.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
 }
@@ -91,14 +91,14 @@ that is not an empty line🤡️🤡️
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 so we're on the last
 character of the last line
 that is not an empty line🤡️
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 73)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.caretLocation, 73)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
     func test_that_if_the_caret_is_on_an_empty_line_it_does_not_delete_the_linefeed() {
@@ -114,14 +114,14 @@ but shouldn't be deleted
         applyMove { asNormalMode.gk(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 next line is gonna be empty!
 
 but shouldn't be deleted
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 29)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.caretLocation, 29)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
     func test_that_if_it_deletes_the_last_standing_character_of_a_line_it_does_not_jump_to_the_previous_line() {
@@ -135,13 +135,13 @@ shouldn't jump up on this line!
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 shouldn't jump up on this line!
 
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 32)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.caretLocation, 32)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
     }
     
     func test_that_it_should_not_suck_the_next_line() {
@@ -155,13 +155,13 @@ x
         applyMove { asNormalMode.gg(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 
 x
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
 }
@@ -179,9 +179,9 @@ extension ASUI_NM_dl_Tests {
         var state = VimEngineState(pgR: true)
         let accessibilityElement = applyMoveBeingTested(&state)
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, "x should delete the rightharacter")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 25)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.fileText.value, "x should delete the rightharacter")
+        XCTAssertEqual(accessibilityElement.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
@@ -197,14 +197,14 @@ that is not an empty line🤡️🤡️
         var state = VimEngineState(pgR: true)
         let accessibilityElement = applyMoveBeingTested(&state)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 so we're on the last
 character of the last line
 that is not an empty line
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 72)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.caretLocation, 72)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
 }

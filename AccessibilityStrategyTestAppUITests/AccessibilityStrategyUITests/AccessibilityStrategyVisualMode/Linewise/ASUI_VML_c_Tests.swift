@@ -4,7 +4,7 @@ import XCTest
 
 class ASUI_VML_c_Tests: ASUI_VM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         return applyMove { asVisualMode.cForVisualStyleLinewise(on: $0, pgR: pgR)}
     }
 
@@ -59,15 +59,15 @@ at least if we're not at the end of the text
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 VM c in Linewise
 
 at least if we're not at the end of the text
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 17)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement.caretLocation, 17)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
     } 
     
     func test_that_it_keeps_the_indentation_of_the_first_selected_line_when_it_is_a_blank_line() {
@@ -86,15 +86,15 @@ at least if we're not at the end of the text
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 VM c in Linewise
          
 at least if we're not at the end of the text
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
     } 
     
     func test_that_it_keeps_the_indentation_of_the_first_selected_line_when_it_is_not_a_blank_line() {
@@ -113,15 +113,15 @@ at least if we're not at the end of the text
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 VM c in Linewise
    
 at least if we're not at the end of the text
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 20)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement.caretLocation, 20)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
     } 
 
 }
@@ -146,14 +146,14 @@ at least if we're not at the end of the text
         applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 VM c in Linewise
 at least if we're not at the end of the text
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 16)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement.caretLocation, 16)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
 }

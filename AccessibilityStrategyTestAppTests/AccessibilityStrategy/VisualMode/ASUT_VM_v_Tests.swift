@@ -5,7 +5,7 @@ import AccessibilityStrategy
 // see `V` for blah blah
 class ASUT_VM_v_Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.vForEnteringFromNormalMode(on: element)
     }
     
@@ -38,8 +38,8 @@ and head are nil
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 33)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertEqual(returnedElement.caretLocation, 33)
+        XCTAssertEqual(returnedElement.selectedLength, 3)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 33)
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 33)
     }
@@ -68,8 +68,8 @@ caret out of boundaries
         
         let returnedElement = applyMoveBeingTested(on: element)
        
-        XCTAssertEqual(returnedElement?.caretLocation, 40)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement.caretLocation, 40)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 40)
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 40)
     }

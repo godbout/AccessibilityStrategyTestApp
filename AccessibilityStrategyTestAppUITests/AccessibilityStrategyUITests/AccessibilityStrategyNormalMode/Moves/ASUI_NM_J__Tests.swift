@@ -4,7 +4,7 @@ import XCTest
 
 class ASUI_NM_J__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         return applyMove { asNormalMode.J(on: $0, VimEngineState(pgR: pgR)) }
     }
     
@@ -24,13 +24,13 @@ with line 2
         applyMove { asNormalMode.gg(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 gonna try to fuse line 1 with line 2
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 24)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, " ")
+        XCTAssertEqual(accessibilityElement.caretLocation, 24)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, " ")
     }
     
     func test_that_it_deletes_the_indentation_of_the_next_line() {
@@ -44,13 +44,13 @@ gonna try to fuse line 1
         applyMove { asNormalMode.gg(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 gonna try to fuse line 1 with line 2
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 24)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, " ")
+        XCTAssertEqual(accessibilityElement.caretLocation, 24)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, " ")
     }
     
     func test_that_if_the_next_line_is_an_empty_line_it_does_not_replace_the_linefeed_by_space_but_instead_deletes_it() {
@@ -65,14 +65,14 @@ LMAO
         applyMove { asNormalMode.gg(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 next line is empty and it works differently
 LMAO
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 42)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, "y")
+        XCTAssertEqual(accessibilityElement.caretLocation, 42)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "y")
     }
     
 }
@@ -92,13 +92,13 @@ with line 2
         applyMove { asNormalMode.gg(on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 gonna try to fuse line   with line 2
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 23)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, " ")
+        XCTAssertEqual(accessibilityElement.caretLocation, 23)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, " ")
     }
         
 }

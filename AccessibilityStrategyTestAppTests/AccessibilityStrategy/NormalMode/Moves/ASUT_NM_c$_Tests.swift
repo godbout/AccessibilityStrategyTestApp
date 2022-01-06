@@ -4,13 +4,13 @@ import XCTest
 
 class ASUT_NM_cDollarSign_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: false)
         
         return applyMoveBeingTested(on: element, &state)
     }
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.cDollarSign(on: element, &vimEngineState) 
     }
     
@@ -107,9 +107,9 @@ this time the line will not end with a linefeed so C should delete from the care
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 11)
-        XCTAssertEqual(returnedElement?.selectedLength, 84)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 11)
+        XCTAssertEqual(returnedElement.selectedLength, 84)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
     
 }
@@ -141,9 +141,9 @@ and of course this is in the case there is a linefeed at the end of the line.
         
         let returnedElement = applyMoveBeingTested(on: element)
                 
-        XCTAssertEqual(returnedElement?.caretLocation, 55)
-        XCTAssertEqual(returnedElement?.selectedLength, 43)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 55)
+        XCTAssertEqual(returnedElement.selectedLength, 43)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
     
     func test_that_it_does_not_delete_the_linefeed_even_for_an_empty_line() {
@@ -170,9 +170,9 @@ and not delete that fucking shit
         
         let returnedElement = applyMoveBeingTested(on: element)
                 
-        XCTAssertEqual(returnedElement?.caretLocation, 46)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 46)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertNil(returnedElement.selectedText)
     }
 
 }

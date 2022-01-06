@@ -4,7 +4,7 @@ import AccessibilityStrategy
 
 class ASUT_VML_v_Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.vForVisualStyleLinewise(on: element)
     }
 
@@ -41,8 +41,8 @@ if the head is not after the line end limit
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 62)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement.caretLocation, 62)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 62)
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 62)
     }
@@ -70,8 +70,8 @@ if the head is not after the line end limit
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 2)
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 2)
     }
 
 }

@@ -4,7 +4,7 @@ import AccessibilityStrategy
 
 class ASUT_VML_gk_Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.gkForVisualStyleLinewise(on: element)
     }
 

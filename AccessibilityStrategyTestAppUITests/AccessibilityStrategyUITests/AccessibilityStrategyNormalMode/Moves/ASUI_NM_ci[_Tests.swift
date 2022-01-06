@@ -5,7 +5,7 @@ import XCTest
 // see ci(
 class ASUI_NM_ciLeftBracket_Tests: ASUI_NM_BaseTests {
 
-    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR)
         
         return applyMove { asNormalMode.ciLeftBracket(on: $0, &state) }
@@ -30,14 +30,14 @@ by a linefeed and
         applyMove { asNormalMode.f(times: 2, to: "n", on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 this case is when 
      ] is preceded by a linefeed
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 18)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement.caretLocation, 18)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
 }

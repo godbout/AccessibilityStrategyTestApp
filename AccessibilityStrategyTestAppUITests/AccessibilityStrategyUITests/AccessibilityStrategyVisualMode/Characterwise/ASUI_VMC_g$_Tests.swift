@@ -4,7 +4,7 @@ import AccessibilityStrategy
 
 class ASUI_VMC_g$_Tests: ASUI_VM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+    private func applyMoveBeingTested() -> AccessibilityTextElement {
         return applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0)}
     }
     
@@ -24,8 +24,8 @@ extension ASUI_VMC_g$_Tests {
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 5)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 6)
+        XCTAssertEqual(accessibilityElement.caretLocation, 5)
+        XCTAssertEqual(accessibilityElement.selectedLength, 6)
     }
     
     func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_before_the_anchor_then_it_goes_to_the_end_of_the_line_and_reduces_the_selection_until_the_anchor_and_then_extends_it_after() {
@@ -41,8 +41,8 @@ at the anchor, not at the caret location
         applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 58)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 8)
+        XCTAssertEqual(accessibilityElement.caretLocation, 58)
+        XCTAssertEqual(accessibilityElement.selectedLength, 8)
     }
     
 }
@@ -66,8 +66,8 @@ multiline
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
                 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 12)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.caretLocation, 12)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
     func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_after_the_anchor_then_it_goes_to_the_end_of_the_line_where_the_head_is_located_and_extends_the_selection() {
@@ -86,8 +86,8 @@ g$ not work ⛱️⛱️LOOOL
         applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 36)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 25)
+        XCTAssertEqual(accessibilityElement.caretLocation, 36)
+        XCTAssertEqual(accessibilityElement.selectedLength, 25)
     }
 
     func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_before_the_anchor_then_it_goes_to_the_end_of_the_line_where_the_head_is_located_and_reduces_the_selection() {
@@ -105,8 +105,8 @@ g$ doesn't work LOOOLL
         applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 39)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 23)
+        XCTAssertEqual(accessibilityElement.caretLocation, 39)
+        XCTAssertEqual(accessibilityElement.selectedLength, 23)
     }
     
 }

@@ -4,13 +4,13 @@ import XCTest
 
 class ASUT_NM_cgg_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: false)
         
         return applyMoveBeingTested(on: element, &state)
     }
         
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.cgg(on: element, &vimEngineState)
     }
     
@@ -88,9 +88,9 @@ extension ASUT_NM_cgg_Tests {
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 4)
-        XCTAssertEqual(returnedElement?.selectedLength, 28)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 4)
+        XCTAssertEqual(returnedElement.selectedLength, 28)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
     
 }
@@ -126,9 +126,9 @@ those faces 🥺️☹️😂️
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 2)
-        XCTAssertEqual(returnedElement?.selectedLength, 38)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 2)
+        XCTAssertEqual(returnedElement.selectedLength, 38)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
     
 }

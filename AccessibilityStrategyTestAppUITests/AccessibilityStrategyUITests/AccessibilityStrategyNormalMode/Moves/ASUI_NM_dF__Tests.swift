@@ -6,7 +6,7 @@ import XCTest
 // the block cursor is repositioned correctly when we found the character.
 class ASUI_NM_dF__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR)
         
         return applyMove { asNormalMode.dF(times: count, to: character, on: $0, &state) }
@@ -28,10 +28,10 @@ extension ASUI_NM_dF__Tests {
         applyMove { asNormalMode.ge(on: $0) }
         let accessibilityElement = applyMoveBeingTested(times: 2, with: "e")
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "here we gonna de up to 🕑️ characters rather than 🦴️!")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 15)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, "e")
+        XCTAssertEqual(accessibilityElement.fileText.value, "here we gonna de up to 🕑️ characters rather than 🦴️!")
+        XCTAssertEqual(accessibilityElement.caretLocation, 15)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "e")
     }
     
 }
@@ -51,14 +51,14 @@ on a lin😂️
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "o")
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 dF on a multiline
 should work
 😂️
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.caretLocation, 30)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
    
 }
@@ -79,13 +79,13 @@ on a lin😂️
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "o", pgR: true)
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 dF on a multiline
 should work😂️
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 29)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.caretLocation, 29)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
 }

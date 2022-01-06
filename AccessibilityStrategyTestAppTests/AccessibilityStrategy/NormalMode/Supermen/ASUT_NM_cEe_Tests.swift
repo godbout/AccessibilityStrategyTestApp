@@ -6,13 +6,13 @@ import XCTest
 // here we just test what's specific to ce.
 class ASUT_NM_cEe_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement?, using motion: (Int?, AccessibilityTextElement?) -> AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement, using motion: (Int?, AccessibilityTextElement) -> AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: false)
         
         return applyMoveBeingTested(times: count, on: element, using: motion, &state)
     }
     
-    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement?, using motion: (Int?, AccessibilityTextElement?) -> AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement, using motion: (Int?, AccessibilityTextElement) -> AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.cEe(times: count, on: element, using: motion, &vimEngineState)
     }
     
@@ -75,9 +75,9 @@ extension ASUT_NM_cEe_Tests {
         
         let returnedElement = applyMoveBeingTested(times: 4, on: element, using: asNormalMode.E)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 3)
-        XCTAssertEqual(returnedElement?.selectedLength, 30)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 3)
+        XCTAssertEqual(returnedElement.selectedLength, 30)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
     
 }
@@ -106,9 +106,9 @@ extension ASUT_NM_cEe_Tests {
         
         let returnedElement = applyMoveBeingTested(on: element, using: asNormalMode.e)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 3)
-        XCTAssertEqual(returnedElement?.selectedLength, 9)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 3)
+        XCTAssertEqual(returnedElement.selectedLength, 9)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
    
 }

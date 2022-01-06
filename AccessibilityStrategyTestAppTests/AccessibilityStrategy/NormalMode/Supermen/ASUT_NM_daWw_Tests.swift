@@ -5,8 +5,8 @@ import XCTest
 // see caWw
 class ASUT_NM_daWw_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
-        return asNormalMode.daWw(on: element, using: element!.fileText.aWord, &vimEngineState)
+    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        return asNormalMode.daWw(on: element, using: element.fileText.aWord, &vimEngineState)
     }
     
 }

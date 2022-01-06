@@ -4,13 +4,13 @@ import XCTest
 
 class ASUT_NM_cc_Tests: ASUT_NM_BaseTests {
 
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: false)
         
         return asNormalMode.cc(on: element, &state)
     }
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState ) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState ) -> AccessibilityTextElement {
         return asNormalMode.cc(on: element, &vimEngineState)
     }
     
@@ -79,9 +79,9 @@ but actually it's only 21.43 LMAOOOOOOOO
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 54)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 54)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
     
     func test_that_if_a_file_line_does_not_end_with_a_linefeed_it_deletes_up_to_the_end() {
@@ -104,9 +104,9 @@ but actually it's only 21.43 LMAOOOOOOOO
                 
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 94)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 94)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
     
     func test_that_it_should_keep_the_indentation_of_the_current_line() {
@@ -133,9 +133,9 @@ be kept
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 25)
-        XCTAssertEqual(returnedElement?.selectedLength, 15)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 25)
+        XCTAssertEqual(returnedElement.selectedLength, 15)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
 
     func test_that_if_a_file_line_is_a_blank_line_it_does_not_delete_anything_and_goes_at_the_end_of_the_line_before_the_linefeed() {
@@ -162,9 +162,9 @@ something
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 22)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 22)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertEqual(returnedElement.selectedText, "")
     }
     
 }

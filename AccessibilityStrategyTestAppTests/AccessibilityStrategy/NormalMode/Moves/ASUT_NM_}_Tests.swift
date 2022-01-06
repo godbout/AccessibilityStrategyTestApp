@@ -5,7 +5,7 @@ import XCTest
 // see [( for blah blah blah
 class ASUT_NM_RightBrace_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.rightBrace(on: element) 
     }
     
@@ -41,8 +41,8 @@ itself d🤨️🤨️🤨️oes
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 54)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement.caretLocation, 54)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
     }
     
 }

@@ -7,7 +7,7 @@ import XCTest
 // the caretLocation, selectedLength and selectedText are the same, hence the wordMotionForward function.
 class ASUT_VM_wordMotionForward_Tests: ASVM_BaseTests {
 
-    private func applyMove(on element: AccessibilityTextElement?, using wordMotionForwardFunction: (Int) -> Int?) -> AccessibilityTextElement? {
+    private func applyMove(on element: AccessibilityTextElement, using wordMotionForwardFunction: (Int) -> Int?) -> AccessibilityTextElement {
         return asVisualMode.wOrDMotionForward(on: element, using: wordMotionForwardFunction)
     }
     
@@ -40,9 +40,9 @@ extension ASUT_VM_wordMotionForward_Tests {
         
         let returnedElement = applyMove(on: element, using: element.fileText.beginningOfWordForward)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 14)
-        XCTAssertEqual(returnedElement?.selectedLength, 15)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 14)
+        XCTAssertEqual(returnedElement.selectedLength, 15)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_head_is_before_the_anchor_it_reduces_the_selected_length_to_the_new_head_location_related_to_the_word_motion_move() {
@@ -68,9 +68,9 @@ extension ASUT_VM_wordMotionForward_Tests {
 
         let returnedElement = applyMove(on: element, using: element.fileText.beginningOfWORDForward)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 10)
-        XCTAssertEqual(returnedElement?.selectedLength, 5)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 10)
+        XCTAssertEqual(returnedElement.selectedLength, 5)
+        XCTAssertNil(returnedElement.selectedText)
     }
 
     func test_that_if_the_head_and_the_anchor_are_equal_it_does_not_get_blocked() {
@@ -96,9 +96,9 @@ extension ASUT_VM_wordMotionForward_Tests {
 
         let returnedElement = applyMove(on: element, using: element.fileText.endOfWordForward)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 26)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 26)
+        XCTAssertEqual(returnedElement.selectedLength, 3)
+        XCTAssertNil(returnedElement.selectedText)
     }
 
 }
@@ -130,9 +130,9 @@ extension ASUT_VM_wordMotionForward_Tests {
 
         let returnedElement = applyMove(on: element, using: element.fileText.endOfWORDForward)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 19)
-        XCTAssertEqual(returnedElement?.selectedLength, 10)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 19)
+        XCTAssertEqual(returnedElement.selectedLength, 10)
+        XCTAssertNil(returnedElement.selectedText)
     }
 
     func test_that_it_handles_emojis_when_the_head_is_before_the_anchor_and_will_stay_before_even_after_the_move_is_done() {
@@ -158,9 +158,9 @@ extension ASUT_VM_wordMotionForward_Tests {
 
         let returnedElement = applyMove(on: element, using: element.fileText.beginningOfWordForward)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 10)
-        XCTAssertEqual(returnedElement?.selectedLength, 12)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 10)
+        XCTAssertEqual(returnedElement.selectedLength, 12)
+        XCTAssertNil(returnedElement.selectedText)
     }
 
     func test_that_it_handles_emojis_when_the_head_is_before_the_anchor_and_goes_after_the_anchor_after_the_move_is_done() {
@@ -186,9 +186,9 @@ extension ASUT_VM_wordMotionForward_Tests {
 
         let returnedElement = applyMove(on: element, using: element.fileText.beginningOfWORDForward)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 16)
-        XCTAssertEqual(returnedElement?.selectedLength, 14)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 16)
+        XCTAssertEqual(returnedElement.selectedLength, 14)
+        XCTAssertNil(returnedElement.selectedText)
     }
 
     func test_that_it_handles_emojis_by_not_getting_stuck_in_front_of_them_sacrebleu() {
@@ -214,9 +214,9 @@ extension ASUT_VM_wordMotionForward_Tests {
 
         let returnedElement = applyMove(on: element, using: element.fileText.endOfWORDForward)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 4)
-        XCTAssertEqual(returnedElement?.selectedLength, 21)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 4)
+        XCTAssertEqual(returnedElement.selectedLength, 21)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }

@@ -5,7 +5,7 @@ import XCTest
 // there's no way to test PGR for this move. if you can't remember why think harder.
 class ASUI_NM_dgg_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         return applyMove { asNormalMode.dgg(on: $0, pgR: pgR) }
     }
     
@@ -23,9 +23,9 @@ extension ASUI_NM_dgg_Tests {
         applyMove { asNormalMode.b(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "")        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.fileText.value, "")        
+        XCTAssertEqual(accessibilityElement.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
     }
     
 }
@@ -49,9 +49,9 @@ first non blank limit
         applyMove { asNormalMode.b(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "    😂️f the next line (which means this one)")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 4)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.fileText.value, "    😂️f the next line (which means this one)")
+        XCTAssertEqual(accessibilityElement.caretLocation, 4)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
         
     }
     

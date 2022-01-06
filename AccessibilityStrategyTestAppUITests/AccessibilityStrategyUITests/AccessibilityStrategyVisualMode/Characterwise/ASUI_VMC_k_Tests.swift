@@ -4,7 +4,7 @@ import AccessibilityStrategy
 
 class ASUI_VMC_k_Tests: ASUI_VM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+    private func applyMoveBeingTested() -> AccessibilityTextElement {
         return applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0)}
     }
 
@@ -30,24 +30,24 @@ globalColumnNumber is nil
         applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 74)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 21)
+        XCTAssertEqual(accessibilityElement.caretLocation, 74)
+        XCTAssertEqual(accessibilityElement.selectedLength, 21)
         
         let secondPass = applyMoveBeingTested()
                 
-        XCTAssertEqual(secondPass?.caretLocation, 42)
-        XCTAssertEqual(secondPass?.selectedLength, 53)
+        XCTAssertEqual(secondPass.caretLocation, 42)
+        XCTAssertEqual(secondPass.selectedLength, 53)
         
         // see VMC j Tests for blah blah
         let applyJ = applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
         
-        XCTAssertEqual(applyJ?.caretLocation, 74)
-        XCTAssertEqual(applyJ?.selectedLength, 21)
+        XCTAssertEqual(applyJ.caretLocation, 74)
+        XCTAssertEqual(applyJ.selectedLength, 21)
 
         let applyKAgain = applyMoveBeingTested()
         
-        XCTAssertEqual(applyKAgain?.caretLocation, 42)
-        XCTAssertEqual(applyKAgain?.selectedLength, 53)
+        XCTAssertEqual(applyKAgain.caretLocation, 42)
+        XCTAssertEqual(applyKAgain.selectedLength, 53)
     }
        
 }

@@ -5,7 +5,7 @@ import XCTest
 // see dF for blah blah
 class ASUT_NM_dt_Tests: ASUT_NM_BaseTests {
     
-    private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMove(to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: false)
         
         return asNormalMode.dt(to: character, on: element, &state)
@@ -41,9 +41,9 @@ that is not there
         
         let returnedElement = applyMove(to: "z", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 14)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 14)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }

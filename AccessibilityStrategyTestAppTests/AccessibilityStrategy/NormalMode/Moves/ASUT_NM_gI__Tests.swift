@@ -7,7 +7,7 @@ import XCTest
 // as it stays in NM, while gI will switch to IM so selectedLength is gonna be different.
 class ASUT_NM_gI_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.gI(on: element)
     }
     
@@ -41,9 +41,9 @@ so that we make sure everything works properly!
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 29)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertEqual(returnedElement?.selectedText, nil)
+        XCTAssertEqual(returnedElement.caretLocation, 29)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertEqual(returnedElement.selectedText, nil)
     }
     
 }

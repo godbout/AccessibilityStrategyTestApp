@@ -4,7 +4,7 @@ import AccessibilityStrategy
 
 class ASUT_VMC_V__Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.VForVisualStyleCharacterwise(on: element)
     }
 
@@ -38,8 +38,8 @@ and head are nil
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 46)
-        XCTAssertEqual(returnedElement?.selectedLength, 16)
+        XCTAssertEqual(returnedElement.caretLocation, 46)
+        XCTAssertEqual(returnedElement.selectedLength, 16)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 46)
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 61)
     }

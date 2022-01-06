@@ -4,11 +4,11 @@ import XCTest
 
 class ASUI_NM_dh_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return applyMove { asNormalMode.dh(on: $0, &vimEngineState) }
     }
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR)
         
         return applyMoveBeingTested(&state)
@@ -72,9 +72,9 @@ extension ASUI_NM_dh_Tests {
         applyMove { asNormalMode.b(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, "X should delete the right characte😂️😂️😂️😂️")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 34)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.fileText.value, "X should delete the right characte😂️😂️😂️😂️")
+        XCTAssertEqual(accessibilityElement.caretLocation, 34)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
 }
@@ -96,14 +96,14 @@ we should stay there
         applyMove { asNormalMode.zero(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 so we're at the start of the second line
 and a shouldn't get deleted and
 we should stay there
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 41)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.caretLocation, 41)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
 }
@@ -120,9 +120,9 @@ extension ASUI_NM_dh_Tests {
         applyMove { asNormalMode.b(on: $0) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, "X should delete the right charact😂️😂️😂️😂️")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 33)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.fileText.value, "X should delete the right charact😂️😂️😂️😂️")
+        XCTAssertEqual(accessibilityElement.caretLocation, 33)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
 }

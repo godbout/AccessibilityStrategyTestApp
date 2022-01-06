@@ -5,7 +5,7 @@ import AccessibilityStrategy
 // see the other VM escape for explanation
 class ASUT_VML_escape_Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.escape(on: element)
     }
 
@@ -38,8 +38,8 @@ extension ASUT_VML_escape_Tests {
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 30)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement.caretLocation, 30)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
     }
     
 }
@@ -74,8 +74,8 @@ over multiple lines
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 2)
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 2)
 
     }
     
@@ -105,8 +105,8 @@ gonna go after
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 35)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement.caretLocation, 35)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
     }
     
 }

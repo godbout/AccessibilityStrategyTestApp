@@ -4,7 +4,7 @@ import AccessibilityStrategy
 
 class ASUT_VMC_v_Tests: ASVM_BaseTests {
 
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.vForVisualStyleCharacterwise(on: element)
     }
 
@@ -42,8 +42,8 @@ if the head is not after the line end limit
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 50)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement.caretLocation, 50)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
     }
 
     func test_that_the_caret_goes_to_the_head_location_even_the_head_is_on_a_different_line_than_the_caret() {
@@ -73,8 +73,8 @@ multiple lines
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 21)
-        XCTAssertEqual(returnedElement?.selectedLength, 2)
+        XCTAssertEqual(returnedElement.caretLocation, 21)
+        XCTAssertEqual(returnedElement.selectedLength, 2)
     }
     
 }

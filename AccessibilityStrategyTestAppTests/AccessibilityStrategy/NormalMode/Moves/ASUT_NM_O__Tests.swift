@@ -7,7 +7,7 @@ import XCTest
 // all the other moves are tested here.
 class ASUT_NM_O__Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.O(on: element, VimEngineState(pgR: false))
     }
     
@@ -37,7 +37,7 @@ extension ASUT_NM_O__Tests {
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_in_normal_setting_it_creates_a_new_line_above_the_current_one() {
@@ -65,9 +65,9 @@ abo😄️ve!
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 24)
-        XCTAssertEqual(returnedElement?.selectedText, "tha😄️t's a mu😄️ltiline\n")
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 24)
+        XCTAssertEqual(returnedElement.selectedText, "tha😄️t's a mu😄️ltiline\n")
     }
     
     func test_that_if_on_an_empty_line_it_will_still_create_a_line_above() {
@@ -94,9 +94,9 @@ an empty line
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 12)
-        XCTAssertEqual(returnedElement?.selectedText, "there is now\n")
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 12)
+        XCTAssertEqual(returnedElement.selectedText, "there is now\n")
     }
     
     func test_that_if_on_the_last_empty_line_it_creates_a_line_above_and_the_caret_goes_on_that_line() {
@@ -124,9 +124,9 @@ the last empty line
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 25)
-        XCTAssertEqual(returnedElement?.selectedLength, 19)
-        XCTAssertEqual(returnedElement?.selectedText, "the last empty line\n")
+        XCTAssertEqual(returnedElement.caretLocation, 25)
+        XCTAssertEqual(returnedElement.selectedLength, 19)
+        XCTAssertEqual(returnedElement.selectedText, "the last empty line\n")
     }
     
     func test_that_if_on_the_last_non_empty_line_it_creates_a_line_above_and_the_caret_goes_on_that_line() {
@@ -153,9 +153,9 @@ the last empty line
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 14)
-        XCTAssertEqual(returnedElement?.selectedLength, 10)
-        XCTAssertEqual(returnedElement?.selectedText, "will be on\n")
+        XCTAssertEqual(returnedElement.caretLocation, 14)
+        XCTAssertEqual(returnedElement.selectedLength, 10)
+        XCTAssertEqual(returnedElement.selectedText, "will be on\n")
     }
     
     func test_that_it_creates_a_line_above_and_goes_to_the_same_indentation_as_the_current_line() {
@@ -182,9 +182,9 @@ but it should work
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 11)
-        XCTAssertEqual(returnedElement?.selectedText, "now there's\n    ")
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 11)
+        XCTAssertEqual(returnedElement.selectedText, "now there's\n    ")
     }
     
 }

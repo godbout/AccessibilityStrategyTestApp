@@ -68,7 +68,7 @@ extension FT_endOfWordForward_Tests {
     }
 
     func test_that_it_does_not_stop_at_spaces_after_symbols() {
-        let text = "func e(on element: AccessibilityTextelement?) -> AccessibilityTextElement? {"
+        let text = "func e(on element: AccessibilityTextElement) -> AccessibilityTextElement {"
 
         let fileText = FileText(end: text.utf16.count, value: text)
         let endOfWordForwardLocation = fileText.endOfWordForward(startingAt: 44)

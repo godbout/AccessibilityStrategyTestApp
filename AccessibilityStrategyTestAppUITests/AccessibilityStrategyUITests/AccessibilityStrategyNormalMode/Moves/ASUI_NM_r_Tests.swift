@@ -4,7 +4,7 @@ import XCTest
 
 class ASUI_NM_r_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement {
         return applyMove { asNormalMode.r(times: count, with: character, on: $0, VimEngineState(pgR: pgR)) }
     }
     
@@ -23,10 +23,10 @@ extension ASUI_NM_r_Tests {
         applyMove { asNormalMode.F(to: "g", on: $0) }
         let accessibilityElement = applyMoveBeingTested(times: 10, with: "z")
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, "we zzzzzzzzzz in tHere with count 🈹️ awww")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 12)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, "z")
+        XCTAssertEqual(accessibilityElement.fileText.value, "we zzzzzzzzzz in tHere with count 🈹️ awww")
+        XCTAssertEqual(accessibilityElement.caretLocation, 12)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "z")
     }
     
     // if replacement is a linefeed, count is ignored in Vim. but still, the move shouldn't work. count has precedence
@@ -43,14 +43,14 @@ and one more line
         applyMove { asNormalMode.w(on: $0) }
         let accessibilityElement = applyMoveBeingTested(times: 36, with: "\n")
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 we goNNa moVe in tHere with count awww
 and one more line
 """
 )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, "g")
+        XCTAssertEqual(accessibilityElement.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "g")
     }
     
 }
@@ -69,9 +69,9 @@ extension ASUI_NM_r_Tests {
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "a")
       
-        XCTAssertEqual(accessibilityElement?.fileText.value, "gonna replace one of thosa letters...")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 25)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.fileText.value, "gonna replace one of thosa letters...")
+        XCTAssertEqual(accessibilityElement.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
 
     func test_that_it_can_replace_a_letter_by_a_space() {
@@ -82,9 +82,9 @@ extension ASUI_NM_r_Tests {
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "\u{0020}")
        
-        XCTAssertEqual(accessibilityElement?.fileText.value, "i need more space ")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 17)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.fileText.value, "i need more space ")
+        XCTAssertEqual(accessibilityElement.caretLocation, 17)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
 }
@@ -107,15 +107,15 @@ a new line
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "\u{000A}")
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 gonna replace something
 b
 😀️
 a new line
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
     func test_that_cancelling_the_replacement_by_giving_escape_does_not_move_the_caret_backwards() {
@@ -130,14 +130,14 @@ escape
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "\u{001B}")
 
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 now we gonna start the replacement
 move but cancel it with
 escape
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 64)        
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.caretLocation, 64)        
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
 }
@@ -156,10 +156,10 @@ extension ASUI_NM_r_Tests {
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "a", pgR: true)
       
-        XCTAssertEqual(accessibilityElement?.fileText.value, "gonna replace one of thosa letters...")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 25)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement?.selectedText, "a")
+        XCTAssertEqual(accessibilityElement.fileText.value, "gonna replace one of thosa letters...")
+        XCTAssertEqual(accessibilityElement.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "a")
     }
     
 }

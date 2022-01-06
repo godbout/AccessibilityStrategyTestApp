@@ -5,7 +5,7 @@ import AccessibilityStrategy
 // this is `V` when entering from NM
 class ASUT_VM_V__Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.VForEnteringFromNormalMode(on: element)
     }
     
@@ -35,8 +35,8 @@ extension ASUT_VM_V__Tests {
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 29)
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 29)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 28)
     }
@@ -71,8 +71,8 @@ a linefeed at the end
                 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 20)
-        XCTAssertEqual(returnedElement?.selectedLength, 22)
+        XCTAssertEqual(returnedElement.caretLocation, 20)
+        XCTAssertEqual(returnedElement.selectedLength, 22)
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 20)
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 41)
     }

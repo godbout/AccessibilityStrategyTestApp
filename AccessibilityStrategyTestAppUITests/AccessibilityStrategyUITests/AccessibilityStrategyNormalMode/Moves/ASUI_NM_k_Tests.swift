@@ -5,7 +5,7 @@ import AccessibilityStrategy
 // check j for all the blah blah
 class ASUI_NM_k_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement? {
+    private func applyMoveBeingTested() -> AccessibilityTextElement {
         return applyMove { asNormalMode.k(on: $0) }
     }
     
@@ -29,16 +29,16 @@ another quite long line
         applyMove { asNormalMode.h(on: $0) }
                 
         let firstK = applyMoveBeingTested()
-        XCTAssertEqual(firstK?.caretLocation, 81)
-        XCTAssertEqual(firstK?.selectedLength, 1)
+        XCTAssertEqual(firstK.caretLocation, 81)
+        XCTAssertEqual(firstK.selectedLength, 1)
 
         let secondK = applyMoveBeingTested()
-        XCTAssertEqual(secondK?.caretLocation, 51)
-        XCTAssertEqual(secondK?.selectedLength, 1)
+        XCTAssertEqual(secondK.caretLocation, 51)
+        XCTAssertEqual(secondK.selectedLength, 1)
 
         let thirdK = applyMoveBeingTested()
-        XCTAssertEqual(thirdK?.caretLocation, 18)
-        XCTAssertEqual(thirdK?.selectedLength, 1)
+        XCTAssertEqual(thirdK.caretLocation, 18)
+        XCTAssertEqual(thirdK.selectedLength, 1)
     }
     
 }

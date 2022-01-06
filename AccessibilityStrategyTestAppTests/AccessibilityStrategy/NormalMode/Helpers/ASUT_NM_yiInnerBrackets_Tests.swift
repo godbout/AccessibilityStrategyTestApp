@@ -10,7 +10,7 @@ import XCTest
 class ASUT_NM_yiInnerBrackets_Tests: ASUT_NM_BaseTests {
     
     // TODO: applyMoveBeingTested
-    private func applyMove(using bracket: Character, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    private func applyMove(using bracket: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.yiInnerBrackets(using: bracket, on: element, &vimEngineState) 
     }
     
@@ -103,9 +103,9 @@ extension ASUT_NM_yiInnerBrackets_Tests {
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)        
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️ has some nice ")
-        XCTAssertEqual(returnedElement?.caretLocation, 16)  
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 16)  
+        XCTAssertEqual(returnedElement.selectedLength, 3)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
@@ -147,9 +147,9 @@ by a linefeed
 and 
 """
         )
-        XCTAssertEqual(returnedElement?.caretLocation, 19)  
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 19)  
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_the_linefeed_is_not_copied_and_that_the_LastYankStyle_is_set_to_Characterwise() {
@@ -183,9 +183,9 @@ is followed by a linefeed
 and 
 """
         )
-        XCTAssertEqual(returnedElement?.caretLocation, 17)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 17)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_closing_bracket_is_preceded_only_by_whitespaces_up_to_the_beginning_of_the_line_then_the_previous_line_linefeed_is_not_copied_and_that_the_LastYankStyle_is_set_to_Characterwise() {
@@ -219,9 +219,9 @@ by a linefeed and
 by a linefeed and
 """
         )
-        XCTAssertEqual(returnedElement?.caretLocation, 19)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 19)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_and_the_closing_bracket_is_immediately_preceded_by_a_linefeed_then_the_move_keeps_an_empty_line_between_the_brackets_and_that_the_LastYankStyle_is_set_to_Linewise() {
@@ -251,9 +251,9 @@ is followed by a linefeed and
         
         XCTAssertEqual(state.lastYankStyle, .linewise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "is followed by a linefeed and")
-        XCTAssertEqual(returnedElement?.caretLocation, 20)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 20)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }

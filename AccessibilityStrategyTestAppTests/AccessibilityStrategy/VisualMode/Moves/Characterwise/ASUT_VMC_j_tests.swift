@@ -8,7 +8,7 @@ import AccessibilityStrategy
 // do have to set CNs and Head and Anchor, so there's a bigger test in UI still, just in case.
 class ASUT_VMC_j_Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.jForVisualStyleCharacterwise(on: element)
     }
 
@@ -80,8 +80,8 @@ the wrapped lines and shit is understood
         
         let returnedElement = applyMoveBeingTested(on: element)
                
-        XCTAssertEqual(returnedElement?.caretLocation, 41)
-        XCTAssertEqual(returnedElement?.selectedLength, 41)
+        XCTAssertEqual(returnedElement.caretLocation, 41)
+        XCTAssertEqual(returnedElement.selectedLength, 41)
     }
     
     func test_that_if_the_head_is_before_the_anchor_and_both_are_on_the_same_line_then_it_goes_to_the_line_below_the_head_on_the_same_column_number_and_selects_from_the_anchor_to_that_new_head_location() {
@@ -114,8 +114,8 @@ the wrapped lines and shit is understood
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 74)
-        XCTAssertEqual(returnedElement?.selectedLength, 39)
+        XCTAssertEqual(returnedElement.caretLocation, 74)
+        XCTAssertEqual(returnedElement.selectedLength, 39)
     }
     
     func test_that_if_the_head_is_before_the_anchor_and_both_are_not_on_the_same_line_and_the_new_head_location_is_before_the_anchor_then_it_goes_to_the_line_below_the_head_on_the_same_column_number_and_selects_from_that_new_head_location_to_the_anchor() {
@@ -149,8 +149,8 @@ the wrapped lines and shit is understood
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 74)
-        XCTAssertEqual(returnedElement?.selectedLength, 4)
+        XCTAssertEqual(returnedElement.caretLocation, 74)
+        XCTAssertEqual(returnedElement.selectedLength, 4)
     }
         
     func test_that_if_the_line_below_the_head_line_is_shorter_then_it_goes_to_the_end_of_that_line_and_does_not_spill_over_the_next_next_line() {
@@ -183,8 +183,8 @@ a bit more
         
         let returnedElement = applyMoveBeingTested(on: element)
       
-        XCTAssertEqual(returnedElement?.caretLocation, 13)
-        XCTAssertEqual(returnedElement?.selectedLength, 45)
+        XCTAssertEqual(returnedElement.caretLocation, 13)
+        XCTAssertEqual(returnedElement.selectedLength, 45)
     }
     
     func test_that_it_keeps_track_of_the_column_number() {
@@ -222,8 +222,8 @@ ass o
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 4)
-        XCTAssertEqual(returnedElement?.selectedLength, 42)
+        XCTAssertEqual(returnedElement.caretLocation, 4)
+        XCTAssertEqual(returnedElement.selectedLength, 42)
     }
     
     func test_that_it_can_go_back_to_the_last_empty_line_if_the_Visual_Mode_started_from_there_which_means_if_the_anchor_is_there() {
@@ -257,8 +257,8 @@ own empty
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 35)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertEqual(returnedElement.caretLocation, 35)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
     }
     
     func test_that_it_does_not_go_back_to_the_last_empty_line_if_the_Visual_Mode_did_not_start_from_there_and_instead_selects_till_the_end_of_the_line() {
@@ -293,8 +293,8 @@ own empty
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertNotEqual(returnedElement?.caretLocation, 35)
-        XCTAssertNotEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNotEqual(returnedElement.caretLocation, 35)
+        XCTAssertNotEqual(returnedElement.selectedLength, 0)
     }
     
 }

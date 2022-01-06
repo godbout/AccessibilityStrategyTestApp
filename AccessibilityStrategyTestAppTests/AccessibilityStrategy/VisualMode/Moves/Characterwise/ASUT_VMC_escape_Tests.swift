@@ -10,7 +10,7 @@ import AccessibilityStrategy
 // and responsibility of concerns has to be separate correctly. choices.
 class ASUT_VMC_escape_Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.escape(on: element)
     }
 
@@ -43,8 +43,8 @@ extension ASUT_VMC_escape_Tests {
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 23)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement.caretLocation, 23)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
     }
     
 }
@@ -79,8 +79,8 @@ let's try with selecting
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 31)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertEqual(returnedElement.caretLocation, 31)
+        XCTAssertEqual(returnedElement.selectedLength, 3)
     }
     
     func test_that_if_the_head_is_above_line_end_limit_then_the_caret_goes_to_the_end_limit() {
@@ -109,8 +109,8 @@ gonna go after
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 35)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement.caretLocation, 35)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
     }
     
 }

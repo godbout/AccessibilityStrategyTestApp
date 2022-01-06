@@ -4,7 +4,7 @@ import AccessibilityStrategy
 
 class ASUT_VML_G__Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.GForVisualStyleLinewise(on: element)
     }
 
@@ -37,8 +37,8 @@ extension ASUT_VML_G__Tests {
 
         let accessibilityElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 32)
+        XCTAssertEqual(accessibilityElement.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement.selectedLength, 32)
     }
     
 }
@@ -76,8 +76,8 @@ the end
 
         let accessibilityElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 21)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 56)
+        XCTAssertEqual(accessibilityElement.caretLocation, 21)
+        XCTAssertEqual(accessibilityElement.selectedLength, 56)
     }
     
     func test_that_if_the_head_is_before_the_line_of_the_anchor_then_it_selects_from_the_anchor_to_the_end_of_the_text() {
@@ -109,8 +109,8 @@ the end
 
         let accessibilityElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 41)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 36)
+        XCTAssertEqual(accessibilityElement.caretLocation, 41)
+        XCTAssertEqual(accessibilityElement.selectedLength, 36)
     }
     
 }

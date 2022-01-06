@@ -5,7 +5,7 @@ import XCTest
 // see F for blah blah
 class ASUT_NM_f_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.f(times: count, to: character, on: element) 
     }
     
@@ -35,9 +35,9 @@ extension ASUT_NM_f_Tests {
         
         let returnedElement = applyMoveBeingTested(times: 3, to: "e", on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 47)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 47)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_count_is_too_high_and_therefore_character_is_not_found_then_it_does_not_move() {
@@ -60,9 +60,9 @@ extension ASUT_NM_f_Tests {
         
         let returnedElement = applyMoveBeingTested(times: 69, to: "i", on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 47)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 47)
+        XCTAssertEqual(returnedElement.selectedLength, 3)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
@@ -94,9 +94,9 @@ them like nothing happened. that's how special it is.
         
         let returnedElement = applyMoveBeingTested(to: "y", on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 60)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 60)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
      
 }
@@ -126,9 +126,9 @@ extension ASUT_NM_f_Tests {
         
         let returnedElement = applyMoveBeingTested(to: "i", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 26)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 26)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_character_is_not_found_then_the_caret_does_not_move() {
@@ -154,9 +154,9 @@ and the caret shouldn't move else pan pan cul cul
         
         let returnedElement = applyMoveBeingTested(to: "z", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 22)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 22)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_it_is_on_a_character_and_we_look_for_the_same_character_it_moves_to_that_next_occurrence() {
@@ -181,9 +181,9 @@ it you're already on a z for example and wanna go to the next z it should work
         
         let returnedElement = applyMoveBeingTested(to: "z", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 62)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 62)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }

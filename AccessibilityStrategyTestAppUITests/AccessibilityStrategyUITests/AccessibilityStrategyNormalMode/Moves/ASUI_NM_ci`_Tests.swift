@@ -5,7 +5,7 @@ import XCTest
 // see ci'
 class ASUI_NM_ciBacktick_Tests: ASUI_NM_BaseTests {
 
-    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR)
         
         return applyMove { asNormalMode.ciInnerQuotedString(using: "`", on: $0, &state) }
@@ -27,13 +27,13 @@ finally dealing with the `real stuff`!
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
         
-        XCTAssertEqual(accessibilityElement?.fileText.value, """
+        XCTAssertEqual(accessibilityElement.fileText.value, """
 finally dealing with the `!
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 25)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
 }

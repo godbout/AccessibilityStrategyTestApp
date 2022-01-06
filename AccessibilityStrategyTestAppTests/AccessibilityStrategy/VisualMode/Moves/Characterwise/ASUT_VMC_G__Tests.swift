@@ -4,7 +4,7 @@ import AccessibilityStrategy
 
 class ASUT_VMC_G__Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.GForVisualStyleCharacterwise(on: element)
     }
 
@@ -38,8 +38,8 @@ extension ASUT_VMC_G__Tests {
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 8)
-        XCTAssertEqual(returnedElement?.selectedLength, 29)
+        XCTAssertEqual(returnedElement.caretLocation, 8)
+        XCTAssertEqual(returnedElement.selectedLength, 29)
     }
 
 }
@@ -76,8 +76,8 @@ the move and it should
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 46)
-        XCTAssertEqual(returnedElement?.selectedLength, 31)
+        XCTAssertEqual(returnedElement.caretLocation, 46)
+        XCTAssertEqual(returnedElement.selectedLength, 31)
     }
     
 }

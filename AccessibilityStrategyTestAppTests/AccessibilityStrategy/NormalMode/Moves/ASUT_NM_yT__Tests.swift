@@ -5,7 +5,7 @@ import XCTest
 // see other yt/f blah blah
 class ASUT_NM_yT__Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, with character: Character, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    private func applyMoveBeingTested(times count: Int = 1, with character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.yT(times: count, to: character, on: element, &vimEngineState) 
     }
     
@@ -100,9 +100,9 @@ extension ASUT_NM_yT__Tests {
         let returnedElement = applyMoveBeingTested(times: 3, with: "e", on: element, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "tter 💌️💌️💌️ rather tha")
-        XCTAssertEqual(returnedElement?.caretLocation, 28)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 28)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_if_the_count_is_too_high_and_therefore_character_is_not_found_then_it_does_not_move() {
@@ -128,9 +128,9 @@ extension ASUT_NM_yT__Tests {
         let returnedElement = applyMoveBeingTested(times: 69, with: "i", on: element, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")
-        XCTAssertEqual(returnedElement?.caretLocation, 47)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 47)
+        XCTAssertEqual(returnedElement.selectedLength, 3)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
@@ -164,9 +164,9 @@ them like nothin🇫🇷️ happened. that's how special it is.
         let returnedElement = applyMoveBeingTested(with: "k", on: element, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "e nothin🇫🇷️ happened. that's how special it ")
-        XCTAssertEqual(returnedElement?.caretLocation, 70)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 70)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
      
 }
@@ -196,9 +196,9 @@ extension ASUT_NM_yT__Tests {
         var state = VimEngineState()
         let returnedElement = applyMoveBeingTested(with: "T", on: element, &state)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 12)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 12)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
     func test_that_when_it_does_not_find_the_stuff_it_does_not_move() {
@@ -226,9 +226,9 @@ that is not there
         var state = VimEngineState()
         let returnedElement = applyMoveBeingTested(with: "z", on: element, &state)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 14)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 14)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
@@ -264,9 +264,9 @@ on a line
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "T on a 📏️📏️📏️ multili")
-        XCTAssertEqual(returnedElement?.caretLocation, 1)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement.caretLocation, 1)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
