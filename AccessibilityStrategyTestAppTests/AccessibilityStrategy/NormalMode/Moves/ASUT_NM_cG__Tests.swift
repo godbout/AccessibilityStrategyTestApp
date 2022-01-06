@@ -20,7 +20,35 @@ class ASUT_NM_cG__Tests: ASUT_NM_BaseTests {
 // Bip, copy deletion and LYS
 extension ASUT_NM_cG__Tests {
     
-    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion() {
+    // TODO: difference between empty file text and empty line
+    func test_that_when_it_is_on_an_empty_line_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_an_empty_string() {
+        let text = ""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 0,
+            caretLocation: 0,
+            selectedLength: 0,
+            selectedText: "",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 0,
+                number: 1,
+                start: 0,
+                end: 0
+            )!
+        )
+        
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        _ = applyMoveBeingTested(on: element, &state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(state.lastMoveBipped)
+    }
+    
+    func test_that_when_it_is_not_on_an_empty_line_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
         let text = """
 blah blah some line
 some more
@@ -45,11 +73,6 @@ those faces 🥺️☹️😂️
             )!
         )
         
-        _ = applyMoveBeingTested(on: element)
-        
-        
-        
-        
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastYankStyle: .characterwise, lastMoveBipped: true)
         _ = applyMoveBeingTested(on: element, &state)
@@ -64,7 +87,7 @@ those faces 🥺️☹️😂️
         XCTAssertEqual(state.lastYankStyle, .linewise)
         XCTAssertFalse(state.lastMoveBipped)
     }
-    
+
 }
 
 

@@ -20,6 +20,7 @@ class ASUT_NM_cgg_Tests: ASUT_NM_BaseTests {
 // Bip, copy deletion and LYS
 extension ASUT_NM_cgg_Tests {
     
+    // TODO: this needs to be updated. see cG. file text empty vs line empty
     func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion() {
         let text = """
 blah blah some line

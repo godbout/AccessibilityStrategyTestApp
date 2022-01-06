@@ -20,6 +20,8 @@ class ASUT_NM_C__Tests: ASUT_NM_BaseTests {
 // Bip, copy deletion and LYS
 extension ASUT_NM_C__Tests {
     
+    // TODO: this is worng. it's not an empty line, it's an empty fileText.
+    // empty line would copy an empty string.
     func test_that_when_it_is_on_an_empty_line_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_an_empty_string() {
         let text = ""
         let element = AccessibilityTextElement(
