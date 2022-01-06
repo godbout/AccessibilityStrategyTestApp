@@ -2,6 +2,5 @@
 import XCTest
 
 
-// calling the `c` sister move. all the Unit Tests are there.
-// for caret repositioning after deletion, tests done in UI Tests.
+// D is synonym of d$. see d$
 class ASUT_NM_D__Tests: ASUT_NM_BaseTests {}
