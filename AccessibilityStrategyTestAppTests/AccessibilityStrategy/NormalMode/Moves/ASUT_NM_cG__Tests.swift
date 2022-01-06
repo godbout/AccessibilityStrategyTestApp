@@ -68,6 +68,14 @@ those faces 🥺️☹️😂️
 }
 
 
+// count
+// tried count but more complicated than expected, because the element
+// returned by G can be below the current caretLocation (good) but also
+// above (not good). like you're on line 3 but you do a c1G. we can't then use
+// the caretLocation and selectedLength to delete. we have to recalculate the whole
+// thing. basically it's like VisualMode instead. so for later.
+
+
 // Both
 extension ASUT_NM_cG__Tests {
     
