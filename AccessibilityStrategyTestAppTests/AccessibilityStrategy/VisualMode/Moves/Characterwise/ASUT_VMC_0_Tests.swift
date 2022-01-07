@@ -1,11 +1,14 @@
 import XCTest
 import AccessibilityStrategy
+import VimEngineState
 
 
 class ASUT_VMC_0_Tests: ASVM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        return asVisualMode.zeroForVisualStyleCharacterwise(on: element)
+        let state = VimEngineState(visualModeStyle: .characterwise)
+        
+        return asVisualMode.zero(on: element, state)
     }
    
 }

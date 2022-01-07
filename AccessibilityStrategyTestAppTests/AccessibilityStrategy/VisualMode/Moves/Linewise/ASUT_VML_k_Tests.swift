@@ -1,5 +1,5 @@
 import XCTest
-import AccessibilityStrategy
+@testable import AccessibilityStrategy
 
 
 class ASUT_VML_k_Tests: ASVM_BaseTests {

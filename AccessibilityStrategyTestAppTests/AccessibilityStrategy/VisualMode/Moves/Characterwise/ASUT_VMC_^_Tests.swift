@@ -1,12 +1,15 @@
 import XCTest
 import AccessibilityStrategy
+import VimEngineState
 
 
+// TODO: maybe we need to make sure somehow that VML_caret returns the same elment?
 class ASUT_VMC_caret_Tests: ASVM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        // TODO: change all moves to remove the style
-        return asVisualMode.caretForVisualStyleCharacterwise(on: element)
+        let state = VimEngineState(visualModeStyle: .characterwise)
+        
+        return asVisualMode.caret(on: element, state)
     }
    
 }

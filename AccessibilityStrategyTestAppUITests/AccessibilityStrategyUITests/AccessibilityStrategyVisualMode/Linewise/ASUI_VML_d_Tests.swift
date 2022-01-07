@@ -4,6 +4,9 @@ import VimEngineState
 
 
 class ASUI_VML_d_Tests: ASUI_VM_BaseTests {
+
+    var state = VimEngineState(visualModeStyle: .linewise)
+    
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR, visualModeStyle: .linewise)
@@ -31,7 +34,7 @@ one extra line in between!
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.j(on: $0, state) }
         copyToClipboard(text: "some fake shit")
         _ = applyMoveBeingTested()
         
@@ -61,7 +64,7 @@ one extra line in between!
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.j(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
                      
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -89,7 +92,7 @@ some more
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.gjForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.gj(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -117,7 +120,7 @@ another line agan
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.j(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -142,7 +145,7 @@ and it would be beautiful
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.j(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -164,7 +167,7 @@ and it would be beautiful
              
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.kForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.k(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -210,9 +213,9 @@ t
                
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.gkForVisualStyleLinewise(on: $0) }
-        applyMove { asVisualMode.gkForVisualStyleLinewise(on: $0) }
-        applyMove { asVisualMode.gkForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.gk(on: $0, state) }
+        applyMove { asVisualMode.gk(on: $0, state) }
+        applyMove { asVisualMode.gk(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, "")
@@ -241,7 +244,7 @@ one extra line in between!
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.j(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
                      
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -265,7 +268,7 @@ and it would be beautiful
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.j(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """

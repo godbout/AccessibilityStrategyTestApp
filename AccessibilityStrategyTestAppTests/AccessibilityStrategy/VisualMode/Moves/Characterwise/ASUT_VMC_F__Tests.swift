@@ -1,5 +1,6 @@
-@testable import AccessibilityStrategy
 import XCTest
+import AccessibilityStrategy
+import VimEngineState
 
 
 // using TextEngine moves, that are already tested.
@@ -8,7 +9,9 @@ import XCTest
 class ASUT_VMC_F__Tests: ASVM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        return asVisualMode.FForVisualStyleCharacterwise(times: count, to: character, on: element)
+        let state = VimEngineState(visualModeStyle: .characterwise)
+                
+        return asVisualMode.F(times: count, to: character, on: element, state)
     }
     
 }

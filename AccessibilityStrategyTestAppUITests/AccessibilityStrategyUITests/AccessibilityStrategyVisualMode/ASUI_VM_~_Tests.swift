@@ -4,9 +4,13 @@ import VimEngineState
 
 
 class ASUI_VM_tilde_Tests: ASUI_VM_BaseTests {
+    
+    var state = VimEngineState(visualModeStyle: .characterwise)
 
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        return applyMove { asVisualMode.tilde(on: $0, VimEngineState(pgR: pgR))}
+        state.pgR = pgR
+        
+        return applyMove { asVisualMode.tilde(on: $0, state) }
     }
 
 }
@@ -27,9 +31,9 @@ the selection!
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(times: 4, on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.b(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -61,9 +65,9 @@ the selection!
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(times: 4, on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.b(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """

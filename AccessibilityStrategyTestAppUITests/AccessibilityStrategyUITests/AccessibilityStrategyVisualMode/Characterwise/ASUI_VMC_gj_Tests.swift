@@ -1,12 +1,16 @@
 import XCTest
 import AccessibilityStrategy
+import VimEngineState
 
 
 // test about returning nil for TF is done in UT.
 class ASUI_VMC_gj_Tests: ASUI_VM_BaseTests {
     
+    let state = VimEngineState(visualModeStyle: .characterwise)
+    
+    
     private func applyMoveBeingTested() -> AccessibilityTextElement {
-        return applyMove { asVisualMode.gjForVisualStyleCharacterwise(on: $0)}
+        return applyMove { asVisualMode.gj(on: $0, state)}
     }
 
 }
@@ -28,7 +32,7 @@ the wrapped lines and shit is understood
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.e(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
                
         XCTAssertEqual(accessibilityElement.caretLocation, 79)
@@ -47,7 +51,7 @@ the wrapped lines and shit is understood
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.b(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
                
         XCTAssertEqual(accessibilityElement.caretLocation, 77)
@@ -66,8 +70,8 @@ the wrapped lines and shit is understood
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gk(on: $0, state) }
+        applyMove { asVisualMode.b(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 90)
@@ -86,7 +90,7 @@ definitely
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gDollarSign(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
       
         XCTAssertEqual(accessibilityElement.caretLocation, 9)
@@ -106,8 +110,8 @@ extra long one here
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.gjForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.gjForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gj(on: $0, state) }
+        applyMove { asVisualMode.gj(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 4)
@@ -126,7 +130,7 @@ own empty
               
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gk(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 35)
@@ -166,7 +170,7 @@ and also to the end of the next next line!
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.dollarSign(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 19)
@@ -180,7 +184,7 @@ and also to the end of the next next line!
         // here we're actually testing that k works in this configuration (mix of j and k). probably would have been better
         // to have its own test cases but would double the number of tests (it's like the tests we have for
         // k but now with GCN being nil) and UI Tests are expensive and it's Sunday and that's enough.
-        let applyK = applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
+        let applyK = applyMove { asVisualMode.gk(on: $0, state) }
         
         XCTAssertEqual(applyK.caretLocation, 19)
         XCTAssertEqual(applyK.selectedLength, 31)

@@ -1,11 +1,15 @@
 import XCTest
 import AccessibilityStrategy
+import VimEngineState
 
 
 class ASUI_VMC_g0_Tests: ASUI_VM_BaseTests {
     
+    let state = VimEngineState(visualModeStyle: .characterwise)
+    
+    
     private func applyMoveBeingTested() -> AccessibilityTextElement {
-        return applyMove { asVisualMode.gZeroForVisualStyleCharacterwise(on: $0)}
+        return applyMove { asVisualMode.gZero(on: $0, state) }
     }
     
 }
@@ -38,7 +42,7 @@ at the anchor, not at the caret location
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.e(on: $0, state) }
 
         let returnedElement = applyMoveBeingTested()
        
@@ -63,7 +67,7 @@ over ⛱️⛱️ multiple lines coz
 
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.k(on: $0, state) }
         let returnedElement = applyMoveBeingTested()
        
         XCTAssertEqual(returnedElement.caretLocation, 36)
@@ -82,8 +86,8 @@ start of the line
 
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.wForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.w(on: $0, state) }
         let returnedElement = applyMoveBeingTested()
 
         XCTAssertEqual(returnedElement.caretLocation, 0)

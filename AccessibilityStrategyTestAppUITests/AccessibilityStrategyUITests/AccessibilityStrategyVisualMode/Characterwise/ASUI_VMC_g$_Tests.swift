@@ -1,11 +1,15 @@
 import XCTest
 import AccessibilityStrategy
+import VimEngineState
 
 
 class ASUI_VMC_g$_Tests: ASUI_VM_BaseTests {
+
+    let state = VimEngineState(visualModeStyle: .characterwise)
+    
     
     private func applyMoveBeingTested() -> AccessibilityTextElement {
-        return applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0)}
+        return applyMove { asVisualMode.gDollarSign(on: $0, state) }
     }
     
 }
@@ -38,7 +42,7 @@ at the anchor, not at the caret location
        
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.b(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 58)
@@ -82,8 +86,8 @@ g$ not work ⛱️⛱️LOOOL
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.e(on: $0, state) }
+        applyMove { asVisualMode.e(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 36)
@@ -101,8 +105,8 @@ g$ doesn't work LOOOLL
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.b(on: $0, state) }
+        applyMove { asVisualMode.gk(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 39)

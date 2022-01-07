@@ -1,5 +1,6 @@
 import XCTest
 import AccessibilityStrategy
+import VimEngineState
 
 
 // for VMC we need to set the CNs else they're nil by default and the move will
@@ -9,7 +10,9 @@ import AccessibilityStrategy
 class ASUT_VMC_j_Tests: ASVM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        return asVisualMode.jForVisualStyleCharacterwise(on: element)
+        let state = VimEngineState(visualModeStyle: .characterwise)
+                
+        return asVisualMode.j(on: element, state)
     }
 
 }

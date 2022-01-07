@@ -5,6 +5,9 @@ import VimEngineState
 
 class ASUI_VMC_c_Tests: ASUI_VM_BaseTests {
     
+    let state = VimEngineState(visualModeStyle: .characterwise)
+    
+    
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR, visualModeStyle: .characterwise)
         
@@ -30,8 +33,8 @@ lines because
         applyMove { asNormalMode.e(on: $0) }
         applyMove { asNormalMode.e(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, state) }
         copyToClipboard(text: "some fake shit")
         _ = applyMoveBeingTested()
         
@@ -56,7 +59,7 @@ extension ASUI_VMC_c_Tests {
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.f(times: 2, to: "h", on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.fForVisualStyleCharacterwise(to: "i", on: $0) }
+        applyMove { asVisualMode.f(to: "i", on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, "ok so VM c (hangle line")
@@ -78,8 +81,8 @@ lines because
         applyMove { asNormalMode.e(on: $0) }
         applyMove { asNormalMode.e(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -105,7 +108,7 @@ extension ASUI_VMC_c_Tests {
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.f(times: 2, to: "h", on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.fForVisualStyleCharacterwise(to: "i", on: $0) }
+        applyMove { asVisualMode.f(to: "i", on: $0, state) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "ok so VM c (hngle line")

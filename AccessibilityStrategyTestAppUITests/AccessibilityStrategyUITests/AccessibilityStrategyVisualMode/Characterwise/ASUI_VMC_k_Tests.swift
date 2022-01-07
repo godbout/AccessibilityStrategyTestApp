@@ -1,11 +1,15 @@
 import XCTest
 import AccessibilityStrategy
+import VimEngineState
 
 
 class ASUI_VMC_k_Tests: ASUI_VM_BaseTests {
+
+    let state = VimEngineState(visualModeStyle: .characterwise)
+    
     
     private func applyMoveBeingTested() -> AccessibilityTextElement {
-        return applyMove { asVisualMode.kForVisualStyleCharacterwise(on: $0)}
+        return applyMove { asVisualMode.k(on: $0, state) }
     }
 
 }
@@ -27,7 +31,7 @@ globalColumnNumber is nil
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.dollarSign(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 74)
@@ -39,7 +43,7 @@ globalColumnNumber is nil
         XCTAssertEqual(secondPass.selectedLength, 53)
         
         // see VMC j Tests for blah blah
-        let applyJ = applyMove { asVisualMode.jForVisualStyleCharacterwise(on: $0) }
+        let applyJ = applyMove { asVisualMode.j(on: $0, state) }
         
         XCTAssertEqual(applyJ.caretLocation, 74)
         XCTAssertEqual(applyJ.selectedLength, 21)

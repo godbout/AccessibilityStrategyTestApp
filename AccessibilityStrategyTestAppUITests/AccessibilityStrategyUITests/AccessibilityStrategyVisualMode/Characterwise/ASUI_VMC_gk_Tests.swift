@@ -1,12 +1,16 @@
 import XCTest
 import AccessibilityStrategy
+import VimEngineState
 
 
 // see gj for blah blah
 class ASUI_VMC_gk_Tests: ASUI_VM_BaseTests {
     
+    let state = VimEngineState(visualModeStyle: .characterwise)
+    
+    
     private func applyMoveBeingTested() -> AccessibilityTextElement {
-        return applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0)}
+        return applyMove { asVisualMode.gk(on: $0, state)}
     }
 
 }
@@ -44,7 +48,7 @@ the wrapped lines and shit is understood
        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.e(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 65)
@@ -62,9 +66,9 @@ the wrapped lines and shit is understood
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.gjForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.e(on: $0, state) }
+        applyMove { asVisualMode.gj(on: $0, state) }
+        applyMove { asVisualMode.e(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
        
         XCTAssertEqual(accessibilityElement.caretLocation, 79)
@@ -83,8 +87,8 @@ the wrapped lines and shit is understood
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.gDollarSignForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.eForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gDollarSign(on: $0, state) }
+        applyMove { asVisualMode.e(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 82)
@@ -104,9 +108,9 @@ wow that one is
               
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.b(on: $0, state) }
+        applyMove { asVisualMode.gk(on: $0, state) }
+        applyMove { asVisualMode.gk(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 13)
@@ -126,7 +130,7 @@ own empty
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
-        applyMove { asVisualMode.gkForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gk(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         // same test as NM k:
@@ -148,7 +152,7 @@ globalColumnNumber is nil
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.dollarSignForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.dollarSign(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 75)
@@ -160,7 +164,7 @@ globalColumnNumber is nil
         XCTAssertEqual(secondPass.selectedLength, 2)
         
         // see VMC j Tests for blah blah
-        let applyJ = applyMove { asVisualMode.gjForVisualStyleCharacterwise(on: $0) }
+        let applyJ = applyMove { asVisualMode.gj(on: $0, state) }
         
         XCTAssertEqual(applyJ.caretLocation, 75)
         XCTAssertEqual(applyJ.selectedLength, 19)

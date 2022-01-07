@@ -1,12 +1,15 @@
-@testable import AccessibilityStrategy
+import AccessibilityStrategy
 import XCTest
+import VimEngineState
 
 
 // rest of tests in UI because this is a ScreenLine move!
 class ASUT_VMC_g$_Tests: ASVM_BaseTests {
         
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        return asVisualMode.gDollarSignForVisualStyleCharacterwise(on: element)
+        let state = VimEngineState(visualModeStyle: .characterwise)
+                
+        return asVisualMode.gDollarSign(on: element, state)
     }
     
 }

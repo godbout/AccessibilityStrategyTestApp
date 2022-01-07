@@ -4,10 +4,11 @@ import VimEngineState
 
 
 class ASUI_VMC_d_Tests: ASUI_VM_BaseTests {
+
+    var state = VimEngineState(visualModeStyle: .characterwise)
+    
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR, visualModeStyle:  .characterwise)
-        
         return applyMove { asVisualMode.d(on: $0, &state) }
     }
 
@@ -29,8 +30,8 @@ the selection!
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.zero(on: $0, state) }
+        applyMove { asVisualMode.b(on: $0, state) }
         copyToClipboard(text: "some fake shit")
         _ = applyMoveBeingTested()
         
@@ -57,8 +58,8 @@ the selection!
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.zero(on: $0, state) }
+        applyMove { asVisualMode.b(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -130,7 +131,7 @@ should go back to line end limit
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.e(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.b(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -156,7 +157,7 @@ lines this time
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.gjForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.gj(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -180,7 +181,7 @@ own empty
        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.lForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.l(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -212,8 +213,8 @@ the selection!
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.zeroForVisualStyleCharacterwise(on: $0) }
-        applyMove { asVisualMode.bForVisualStyleCharacterwise(on: $0) }
+        applyMove { asVisualMode.zero(on: $0, state) }
+        applyMove { asVisualMode.b(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
