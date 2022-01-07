@@ -56,7 +56,7 @@ those faces 🥺️☹️😂️
         applyMove { asNormalMode.j(on: $0) }
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(&state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
