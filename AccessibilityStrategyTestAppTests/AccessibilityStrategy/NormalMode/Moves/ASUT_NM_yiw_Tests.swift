@@ -21,6 +21,38 @@ class ASUT_NM_yiw_Tests: ASUT_NM_BaseTests {
 }
 
 
+// Bip, copy deletion and LYS
+extension ASUT_NM_yiw_Tests {
+    
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_even_for_an_empty_line() {
+        let text = "some text without any double quote"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 34,
+            caretLocation: 13,
+            selectedLength: 1,
+            selectedText: "h",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 34,
+                number: 1,
+                start: 0,
+                end: 34
+            )!
+        )
+        
+        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        _ = applyMoveBeingTested(on: element, &state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "without")
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(state.lastMoveBipped)
+    }
+    
+}
+
+
 // Both
 extension ASUT_NM_yiw_Tests {
     

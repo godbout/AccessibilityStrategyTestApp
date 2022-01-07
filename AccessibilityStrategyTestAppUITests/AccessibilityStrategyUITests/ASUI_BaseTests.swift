@@ -23,10 +23,10 @@ class ASUI_BaseTests: XCTestCase {
     @discardableResult
     func applyMove(_ move: (_ element: AccessibilityTextElement) -> AccessibilityTextElement) -> AccessibilityTextElement {
         // TODO: currently forcing. not good. need to see how to break the tests properly
+        // need to find a way to fail the tests gracefully
         let focusedElement = accessibilityStrategy.focusedTextElement()!
         let transformedElement = move(focusedElement)
         _ = accessibilityStrategy.push(element: transformedElement)
-        // TODO: same as above
         let latestFocusedElement = accessibilityStrategy.focusedTextElement()!
         
         return latestFocusedElement
