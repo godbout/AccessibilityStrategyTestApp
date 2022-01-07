@@ -1,12 +1,15 @@
 import XCTest
 @testable import AccessibilityStrategy
+import VimEngineState
 
 
 // there's no way to test PGR for this move. if you can't remember why think harder.
 class ASUI_NM_dgg_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.dgg(on: $0, pgR: pgR) }
+        var state = VimEngineState(pgR: pgR)
+        
+        return applyMove { asNormalMode.dgg(on: $0, &state) }
     }
     
 }
