@@ -6,7 +6,13 @@ import VimEngineState
 // see other yt/f blah blah
 class ASUT_NM_yT__Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, with character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int? = 1, with character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var state = VimEngineState(pgR: false)
+        
+        return applyMoveBeingTested(times: count, with: character, on: element, &state)
+    }
+        
+    private func applyMoveBeingTested(times count: Int? = 1, with character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.yT(times: count, to: character, on: element, &vimEngineState) 
     }
     
@@ -97,9 +103,7 @@ extension ASUT_NM_yT__Tests {
             )!
         )
         
-        // TODO: clean
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
-        let returnedElement = applyMoveBeingTested(times: 3, with: "e", on: element, &state)
+        let returnedElement = applyMoveBeingTested(times: 3, with: "e", on: element)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "tter 💌️💌️💌️ rather tha")
         XCTAssertEqual(returnedElement.caretLocation, 28)
@@ -126,8 +130,7 @@ extension ASUT_NM_yT__Tests {
         )
                
         copyToClipboard(text: "404 character not found")
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
-        let returnedElement = applyMoveBeingTested(times: 69, with: "i", on: element, &state)
+        let returnedElement = applyMoveBeingTested(times: 69, with: "i", on: element)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")
         XCTAssertEqual(returnedElement.caretLocation, 47)
@@ -162,8 +165,7 @@ them like nothin🇫🇷️ happened. that's how special it is.
             )!
         )
 
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
-        let returnedElement = applyMoveBeingTested(with: "k", on: element, &state)
+        let returnedElement = applyMoveBeingTested(with: "k", on: element)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "e nothin🇫🇷️ happened. that's how special it ")
         XCTAssertEqual(returnedElement.caretLocation, 70)
@@ -195,8 +197,7 @@ extension ASUT_NM_yT__Tests {
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(with: "T", on: element, &state)
+        let returnedElement = applyMoveBeingTested(with: "T", on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 12)
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -225,8 +226,7 @@ that is not there
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(with: "z", on: element, &state)
+        let returnedElement = applyMoveBeingTested(with: "z", on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 14)
         XCTAssertEqual(returnedElement.selectedLength, 1)
