@@ -19,10 +19,12 @@ class ASUT_NM_cG__Tests: ASUT_NM_BaseTests {
 
 
 // Bip, copy deletion and LYS
+// the copy deletion is more complicated than that for cG and cgg. if the LYS is Characterwise,
+// cG/cgg on an empty test would erase the previous register, but if the LYS is Linewise, it doesn't.
+// currently this is not handled by kV. if the text is empty, it copies, whatever the VMS.
 extension ASUT_NM_cG__Tests {
     
-    // TODO: difference between empty file text and empty line
-    func test_that_when_it_is_on_an_empty_line_it_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_an_empty_string() {
+    func test_that_when_it_is_on_an_empty_text_it_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_an_empty_string() {
         let text = ""
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -49,7 +51,7 @@ extension ASUT_NM_cG__Tests {
         XCTAssertFalse(state.lastMoveBipped)
     }
     
-    func test_that_when_it_is_not_on_an_empty_line_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
+    func test_that_when_it_is_not_on_an_empty_line_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion() {
         let text = """
 blah blah some line
 some more
