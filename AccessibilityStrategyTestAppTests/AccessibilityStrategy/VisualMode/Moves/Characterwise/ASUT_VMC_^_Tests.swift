@@ -5,6 +5,7 @@ import AccessibilityStrategy
 class ASUT_VMC_caret_Tests: ASVM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        // TODO: change all moves to remove the style
         return asVisualMode.caretForVisualStyleCharacterwise(on: element)
     }
    

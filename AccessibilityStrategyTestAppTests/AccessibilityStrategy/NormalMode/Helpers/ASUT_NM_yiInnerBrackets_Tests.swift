@@ -42,7 +42,7 @@ extension ASUT_NM_yiInnerBrackets_Tests {
             )!
         )
         
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
         let returnedElement = applyMoveBeingTested(using: "{", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️ has some nice ")
@@ -82,7 +82,7 @@ and } is not preceded by a linefeed
             )!
         )
         
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
         let returnedElement = applyMoveBeingTested(using: "{", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
@@ -121,7 +121,7 @@ and } is not preceded by a linefeed
             )!
         )
         
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
         let returnedElement = applyMoveBeingTested(using: "{", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
@@ -159,7 +159,7 @@ by a linefeed and
             )!
         )
         
-        var state = VimEngineState(lastYankStyle: .characterwise, lastMoveBipped: false)
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
         let returnedElement = applyMoveBeingTested(using: "{", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
@@ -197,7 +197,7 @@ is followed by a linefeed and
             )!
         )
         
-        var state = VimEngineState(lastYankStyle: .characterwise, lastMoveBipped: false)
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
         let returnedElement = applyMoveBeingTested(using: "{", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "is followed by a linefeed and")

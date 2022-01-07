@@ -33,7 +33,7 @@ but shouldn't be deleted
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         copyToClipboard(text: "nope you don't copy mofo")
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(&state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "nope you don't copy mofo")
@@ -48,7 +48,7 @@ but shouldn't be deleted
 
         applyMove { asNormalMode.b(on: $0) }
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(&state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "c")

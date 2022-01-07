@@ -42,7 +42,7 @@ extension ASUT_NM_yt_Tests {
             )!
         )
         
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(with: "s", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "e yt on thi")
@@ -73,7 +73,7 @@ that is not there
         )
                 
         copyToClipboard(text: "404 character not found")
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(with: "z", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")
@@ -264,7 +264,7 @@ on a line
             )!
         )
         
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
         let returnedElement = applyMoveBeingTested(with: "m", on: element, &state)
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)

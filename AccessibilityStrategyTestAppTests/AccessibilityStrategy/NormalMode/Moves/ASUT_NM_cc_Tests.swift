@@ -43,7 +43,7 @@ but actually it's only 21.43 LMAOOOOOOOO
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastYankStyle: .characterwise, lastMoveBipped: true)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "looks like it's late coz it's getting harder to reason\n")

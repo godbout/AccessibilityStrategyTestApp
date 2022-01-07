@@ -42,7 +42,7 @@ extension ASUT_NM_cDollarSign_Tests {
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
@@ -72,7 +72,7 @@ and of course this is in the case there is a linefeed at the end of the line.
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "te from the caret ☀️ to before the linefeed")

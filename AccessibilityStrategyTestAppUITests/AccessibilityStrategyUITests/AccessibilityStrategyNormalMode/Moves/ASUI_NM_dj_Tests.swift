@@ -33,7 +33,7 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
         applyMove { asNormalMode.gg(on: $0) }
         
         copyToClipboard(text: "nope you don't copy mofo")
-        var state = VimEngineState(lastYankStyle: .characterwise, lastMoveBipped: true)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(&state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
@@ -53,7 +53,7 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next\n
         applyMove { asNormalMode.h(on: $0) }
         
         copyToClipboard(text: "nope you don't copy mofo")
-        var state = VimEngineState(lastYankStyle: .characterwise, lastMoveBipped: false)
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(&state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "nope you don't copy mofo")

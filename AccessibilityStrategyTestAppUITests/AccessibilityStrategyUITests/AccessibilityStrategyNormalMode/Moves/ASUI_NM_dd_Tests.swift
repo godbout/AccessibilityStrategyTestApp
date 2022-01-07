@@ -36,7 +36,7 @@ to stop at the end limit of the line
         applyMove { asNormalMode.ge(on: $0) }
         
         copyToClipboard(text: "nope you don't copy mofo")
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(&state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "then there is no firstNonBlank so we need\n")

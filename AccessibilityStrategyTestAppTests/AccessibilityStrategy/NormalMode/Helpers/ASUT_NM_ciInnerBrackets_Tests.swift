@@ -45,7 +45,7 @@ extension ASUT_NM_ciInnerBrackets_Tests {
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let returnedElement = applyMoveBeingTested(using: "(", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), " some stuff 😄️😄️😄️on the same ")
@@ -86,7 +86,7 @@ and } is not preceded by a linefeed
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let returnedElement = applyMoveBeingTested(using: "{", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
@@ -126,7 +126,7 @@ by a linefeed and
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let returnedElement = applyMoveBeingTested(using: "{", on: element, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
@@ -166,7 +166,7 @@ now that shit will get cleaned (
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastYankStyle: .characterwise, lastMoveBipped: true)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         let returnedElement = applyMoveBeingTested(using: "(", on: element, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
@@ -205,7 +205,7 @@ and ] is not preceded by a linefeed
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let returnedElement = applyMoveBeingTested(using: "[", on: element, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
@@ -244,7 +244,7 @@ is followed by a linefeed and
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastYankStyle: .characterwise, lastMoveBipped: true)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         let returnedElement = applyMoveBeingTested(using: "(", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """

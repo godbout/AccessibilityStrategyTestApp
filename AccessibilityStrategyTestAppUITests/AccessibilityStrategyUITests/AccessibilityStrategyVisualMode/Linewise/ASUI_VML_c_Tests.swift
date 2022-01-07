@@ -1,11 +1,13 @@
 import XCTest
 @testable import AccessibilityStrategy
+import VimEngineState
 
 
 class ASUI_VML_c_Tests: ASUI_VM_BaseTests {
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        return applyMove { asVisualMode.cForVisualStyleLinewise(on: $0, pgR: pgR)}
+        var state = VimEngineState(pgR: pgR, visualModeStyle: .linewise)
+        return applyMove { asVisualMode.c(on: $0, &state) }
     }
 
 }

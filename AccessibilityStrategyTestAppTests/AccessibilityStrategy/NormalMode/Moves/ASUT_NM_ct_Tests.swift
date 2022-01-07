@@ -41,7 +41,7 @@ extension ASUT_NM_ct_Tests {
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: true)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(to: "s", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "e ct on 🛳️🛳️🛳️🛳️🛳️🛳️ thi")
@@ -72,7 +72,7 @@ that is not there
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastYankStyle: .linewise, lastMoveBipped: false)
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(to: "z", on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
