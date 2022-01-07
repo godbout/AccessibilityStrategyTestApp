@@ -7,7 +7,6 @@ import VimEngineState
 // here we just test that we pass the pgR parameter correctly to ciInnerBrackets.
 class ASUI_NM_ciLeftParenthesis_Tests: ASUI_NM_BaseTests {
 
-    // TODO: do we really need all those tests? or on ciInner is ok?
     private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR)
         
