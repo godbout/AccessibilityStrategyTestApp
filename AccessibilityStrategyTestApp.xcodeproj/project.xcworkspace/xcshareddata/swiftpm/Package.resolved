@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "AccessibilityStrategy",
-        "repositoryURL": "git@github.com:godbout/AccessibilityStrategy.git",
-        "state": {
-          "branch": "master",
-          "revision": "e855d0329fc1ee079ad4fa3707f68fa0c7751507",
-          "version": null
-        }
-      },
-      {
         "package": "AXEngine",
         "repositoryURL": "git@github.com:godbout/AXEngine.git",
         "state": {
@@ -35,6 +26,15 @@
           "branch": null,
           "revision": "2fcf7e43a242b183fdea3f2275ebec0d773b65f5",
           "version": "2.2.0"
+        }
+      },
+      {
+        "package": "VimEngineState",
+        "repositoryURL": "git@github.com:godbout/VimEngineState.git",
+        "state": {
+          "branch": "master",
+          "revision": "469c342e3e0299b4b7a2a9ad6bc05398962079b9",
+          "version": null
         }
       }
     ]

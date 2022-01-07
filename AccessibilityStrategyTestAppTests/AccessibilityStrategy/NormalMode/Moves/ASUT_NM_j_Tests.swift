@@ -52,33 +52,7 @@ it eats them like nothing happened. that's how special it is.
 
 
 // TextFields
-extension ASUT_NM_j_Tests {
-    
-    func test_that_for_TextFields_it_returns_nil_coz_we_want_the_KS_to_take_over() {
-        let text = "j on a TextField shouldn't use the AS! think Alfred"
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            length: 51,
-            caretLocation: 23,
-            selectedLength: 1,
-            selectedText: "n",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 51,
-                number: 1,
-                start: 0,
-                end: 51
-            )!
-        )
-        
-        let returnedElement = applyMoveBeingTested(on: element)
-        
-        XCTAssertNil(returnedElement)
-    }
-    
-}
-
+// Alfred style stuff is handled and tested in kVE now
 
 
 // TextViews

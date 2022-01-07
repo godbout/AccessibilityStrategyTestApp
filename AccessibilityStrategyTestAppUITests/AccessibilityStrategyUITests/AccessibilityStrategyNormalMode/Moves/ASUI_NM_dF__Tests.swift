@@ -1,5 +1,6 @@
 import XCTest
 @testable import AccessibilityStrategy
+import VimEngineState
 
 
 // this calls cF which is already tested in UT. here all we need to test is that

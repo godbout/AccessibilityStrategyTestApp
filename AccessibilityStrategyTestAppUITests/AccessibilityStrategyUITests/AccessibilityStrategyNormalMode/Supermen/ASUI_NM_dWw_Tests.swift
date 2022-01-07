@@ -1,5 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
+import VimEngineState
 
 
 // careful. `dW` is NOT `cW` + caret relocation.

@@ -1,5 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
+import VimEngineState
 
 
 // ciWw will be using TE.innerWord and TE.innerWOrd that are both fully tested.

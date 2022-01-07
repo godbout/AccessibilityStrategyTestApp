@@ -1,5 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
+import VimEngineState
 
 
 // calling `ce` that is already tested. as usual with `d` moves we test the caret relocation.

@@ -1,5 +1,6 @@
 import XCTest
 @testable import AccessibilityStrategy
+import VimEngineState
 
 
 // `~` and `r` are two very special cases. so the UIT and PGR may look different

@@ -1,5 +1,6 @@
 import XCTest
 @testable import AccessibilityStrategy
+import VimEngineState
 
 
 // read p for more blah blah

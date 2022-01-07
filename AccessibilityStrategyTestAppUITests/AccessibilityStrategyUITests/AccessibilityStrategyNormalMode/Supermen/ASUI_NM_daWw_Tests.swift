@@ -1,5 +1,6 @@
 import XCTest
 @testable import AccessibilityStrategy
+import VimEngineState
 
 
 // internally calling `caw`. here as usual with `d` moves we gonna test

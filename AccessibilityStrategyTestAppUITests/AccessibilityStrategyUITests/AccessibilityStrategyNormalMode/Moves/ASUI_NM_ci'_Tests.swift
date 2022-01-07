@@ -1,5 +1,6 @@
 import XCTest
 @testable import AccessibilityStrategy
+import VimEngineState
 
 
 // same mindset as ci( and co.

@@ -1,6 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
-
+import VimEngineState
 
 
 // the Vim doc says that if the caret is on a blank, `cw` acts like `ce`: http://vimdoc.sourceforge.net/htmldoc/motion.html#word

@@ -1,5 +1,6 @@
 import XCTest
 @testable import AccessibilityStrategy
+import VimEngineState
 
 
 // yes, only passing `innerWord` here. both `innerWord` and `innerWORD` are heavily

@@ -71,9 +71,9 @@ extension FT_endOfWordForward_Tests {
         let text = "func e(on element: AccessibilityTextElement) -> AccessibilityTextElement {"
 
         let fileText = FileText(end: text.utf16.count, value: text)
-        let endOfWordForwardLocation = fileText.endOfWordForward(startingAt: 44)
+        let endOfWordForwardLocation = fileText.endOfWordForward(startingAt: 43)
 
-        XCTAssertEqual(endOfWordForwardLocation, 47)
+        XCTAssertEqual(endOfWordForwardLocation, 46)
     }
 
     func test_that_it_should_skip_consecutive_whitespaces() {

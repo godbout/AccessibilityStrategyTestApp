@@ -1,5 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
+import VimEngineState
 
 
 // 1. dF is calling cF, and reposition the block cursor. cF uses F. all tested.

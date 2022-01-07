@@ -1,5 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
+import VimEngineState
 
 
 // what we test with those functions like ciWw is that PGR is handled on ciW and ciw.

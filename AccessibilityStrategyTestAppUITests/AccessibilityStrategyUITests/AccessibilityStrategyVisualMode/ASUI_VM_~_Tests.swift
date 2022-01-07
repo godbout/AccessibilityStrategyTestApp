@@ -1,5 +1,6 @@
 import XCTest
 @testable import AccessibilityStrategy
+import VimEngineState
 
 
 class ASUI_VM_tilde_Tests: ASUI_VM_BaseTests {

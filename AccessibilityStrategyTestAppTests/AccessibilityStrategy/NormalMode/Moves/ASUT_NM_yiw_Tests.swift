@@ -1,5 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
+import VimEngineState
 
 
 // so. this move uses a TE func that is already tested.
@@ -7,8 +8,14 @@ import XCTest
 // stuff specific to that move, which is the copying through NSPasteboard
 class ASUT_NM_yiw_Tests: ASUT_NM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        return asNormalMode.yiw(on: element) 
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var state = VimEngineState(pgR: false)
+        
+        return applyMoveBeingTested(on: element, &state)
+    }
+        
+    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        return asNormalMode.yiw(on: element, &vimEngineState)
     }
     
 }
@@ -35,7 +42,7 @@ extension ASUT_NM_yiw_Tests {
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "without")
         XCTAssertEqual(returnedElement.caretLocation, 10)
@@ -70,7 +77,7 @@ th📍️se💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "💨️💨️💨️")
         XCTAssertEqual(returnedElement.caretLocation, 25)
