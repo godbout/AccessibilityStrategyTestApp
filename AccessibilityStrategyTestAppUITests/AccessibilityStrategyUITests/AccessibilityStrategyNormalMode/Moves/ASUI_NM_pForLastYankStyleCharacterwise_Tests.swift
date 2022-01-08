@@ -6,7 +6,7 @@ import VimEngineState
 class ASUI_NM_pForLastYankStyleCharacterwise_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.pForLastYankStyleCharacterwise(on: $0, VimEngineState(pgR: pgR)) }
+        return applyMove { asNormalMode.p(on: $0, VimEngineState(pgR: pgR, lastYankStyle: .characterwise)) }
     }
     
 }
