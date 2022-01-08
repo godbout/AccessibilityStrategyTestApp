@@ -5,8 +5,11 @@ import VimEngineState
 
 class ASUI_VML_c_Tests: ASUI_VM_BaseTests {
     
+    var state = VimEngineState(visualStyle: .linewise)
+    
+       
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR, visualModeStyle: .linewise)
+        state.pgR = pgR
         
         return applyMove { asVisualMode.c(on: $0, &state) }
     }
@@ -29,8 +32,8 @@ at least if we're not at the end of the text
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }
-        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
+        applyMove { asVisualMode.VFromNormalMode(on: $0) }
+        applyMove { asVisualMode.j(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

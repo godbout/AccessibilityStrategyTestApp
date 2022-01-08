@@ -7,13 +7,13 @@ import VimEngineState
 class ASUT_VMC_c_Tests: ASVM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: false, visualModeStyle: .characterwise)
+        var state = VimEngineState(pgR: false, visualStyle: .characterwise)
         
         return applyMoveBeingTested(on: element, &state)
     }
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        vimEngineState.visualModeStyle = .characterwise
+        vimEngineState.visualStyle = .characterwise
         
         return asVisualMode.c(on: element, &vimEngineState)
     }

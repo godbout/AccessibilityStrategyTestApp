@@ -5,7 +5,7 @@ import VimEngineState
 
 class ASUI_VMC_g0_Tests: ASUI_VM_BaseTests {
     
-    let state = VimEngineState(visualModeStyle: .characterwise)
+    var state = VimEngineState(visualStyle: .characterwise)
     
     
     private func applyMoveBeingTested() -> AccessibilityTextElement {
@@ -24,7 +24,7 @@ extension ASUI_VMC_g0_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.b(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         let returnedElement = applyMoveBeingTested()
 
         XCTAssertEqual(returnedElement.caretLocation, 0)
@@ -41,7 +41,7 @@ at the anchor, not at the caret location
         
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(on: $0, state) }
 
         let returnedElement = applyMoveBeingTested()
@@ -66,7 +66,7 @@ over ⛱️⛱️ multiple lines coz
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.l(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.k(on: $0, state) }
         let returnedElement = applyMoveBeingTested()
        
@@ -85,7 +85,7 @@ start of the line
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.gg(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
         applyMove { asVisualMode.w(on: $0, state) }
         let returnedElement = applyMoveBeingTested()

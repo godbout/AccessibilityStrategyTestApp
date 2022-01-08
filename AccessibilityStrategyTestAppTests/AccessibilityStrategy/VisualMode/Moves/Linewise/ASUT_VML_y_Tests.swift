@@ -12,7 +12,7 @@ class ASUT_VML_y_Tests: ASVM_BaseTests {
     }
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        vimEngineState.visualModeStyle = .linewise
+        vimEngineState.visualStyle = .linewise
         
         return asVisualMode.y(on: element, &vimEngineState)
     }

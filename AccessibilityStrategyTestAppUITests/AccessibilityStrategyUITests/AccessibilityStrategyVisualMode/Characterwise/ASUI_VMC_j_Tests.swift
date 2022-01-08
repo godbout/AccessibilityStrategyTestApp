@@ -6,7 +6,7 @@ import VimEngineState
 // most of the tests are in UT as j uses FL, not SL. this one is just to mega confirm.
 class ASUI_VMC_j_Tests: ASUI_VM_BaseTests {
     
-    let state = VimEngineState(visualModeStyle: .characterwise)
+    var state = VimEngineState(visualStyle: .characterwise)
     
     
     private func applyMoveBeingTested() -> AccessibilityTextElement {
@@ -30,7 +30,7 @@ and also to the end of the next next line!
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.dollarSign(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 

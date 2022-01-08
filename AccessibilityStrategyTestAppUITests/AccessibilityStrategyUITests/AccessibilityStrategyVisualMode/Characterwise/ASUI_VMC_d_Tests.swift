@@ -7,7 +7,7 @@ import VimEngineState
 // the reposition the caret after the move.
 class ASUI_VMC_d_Tests: ASUI_VM_BaseTests {
 
-    var state = VimEngineState(visualModeStyle: .characterwise)
+    var state = VimEngineState(visualStyle: .characterwise)
     
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
@@ -32,7 +32,7 @@ the selection!
         
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.zero(on: $0, state) }
         applyMove { asVisualMode.b(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
@@ -57,7 +57,7 @@ should go back to line end limit
 
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -81,7 +81,7 @@ there's gonna be an empty line
       
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -105,7 +105,7 @@ should go back to line end limit
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.e(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.b(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
@@ -131,7 +131,7 @@ lines this time
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.gj(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
@@ -155,7 +155,7 @@ own empty
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
        
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.l(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
@@ -187,7 +187,7 @@ the selection!
         
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.zero(on: $0, state) }
         applyMove { asVisualMode.b(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)

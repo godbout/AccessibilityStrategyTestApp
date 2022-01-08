@@ -5,7 +5,7 @@ import VimEngineState
 
 class ASUI_VMC_g$_Tests: ASUI_VM_BaseTests {
 
-    let state = VimEngineState(visualModeStyle: .characterwise)
+    var state = VimEngineState(visualStyle: .characterwise)
     
     
     private func applyMoveBeingTested() -> AccessibilityTextElement {
@@ -25,7 +25,7 @@ extension ASUI_VMC_g$_Tests {
         
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 5)
@@ -41,7 +41,7 @@ at the anchor, not at the caret location
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
        
         applyMove { asNormalMode.b(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.b(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
@@ -67,7 +67,7 @@ multiline
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
                 
         XCTAssertEqual(accessibilityElement.caretLocation, 12)
@@ -85,7 +85,7 @@ g$ not work ⛱️⛱️LOOOL
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(on: $0, state) }
         applyMove { asVisualMode.e(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
@@ -104,7 +104,7 @@ g$ doesn't work LOOOLL
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.b(on: $0, state) }
         applyMove { asVisualMode.gk(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()

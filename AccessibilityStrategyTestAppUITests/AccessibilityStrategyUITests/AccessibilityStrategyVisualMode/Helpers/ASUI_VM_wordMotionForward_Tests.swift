@@ -4,9 +4,9 @@ import VimEngineState
 
 
 // other tests in Unit Tests. the UI is just to test special cases.
-class UIASVM_wordMotionForward_Tests: ASUI_VM_BaseTests {
+class ASUI_VM_wordMotionForward_Tests: ASUI_VM_BaseTests {
 
-    let state = VimEngineState(visualModeStyle: .characterwise)
+    var state = VimEngineState(visualStyle: .characterwise)
     
     
     func test_that_when_we_reach_the_anchor_and_will_reverse_anchor_and_head_the_move_does_not_block_and_moves_properly() {
@@ -23,7 +23,7 @@ from the caret location
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.b(on: $0, state) }
         let accessibilityElement = applyMove { asVisualMode.w(on: $0, state) }
 
@@ -36,9 +36,9 @@ from the caret location
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
              
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.zero(on: $0, state) }
-        applyMove { asVisualMode.e(on: $0, state) }
+        applyMove { asVisualMode.E(on: $0, state) }
 
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 6)
     }

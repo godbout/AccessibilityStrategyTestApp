@@ -6,7 +6,7 @@ import VimEngineState
 class ASUT_VML_gDollarSign_Tests: ASVM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        let state = VimEngineState(visualModeStyle: .linewise)
+        let state = VimEngineState(visualStyle: .linewise)
         
         return asVisualMode.gDollarSign(on: element, state)
     }

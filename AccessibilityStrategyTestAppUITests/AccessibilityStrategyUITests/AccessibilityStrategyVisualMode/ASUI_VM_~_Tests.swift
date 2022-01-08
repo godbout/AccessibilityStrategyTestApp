@@ -5,7 +5,7 @@ import VimEngineState
 
 class ASUI_VM_tilde_Tests: ASUI_VM_BaseTests {
     
-    var state = VimEngineState(visualModeStyle: .characterwise)
+    var state = VimEngineState(visualStyle: .characterwise)
 
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         state.pgR = pgR
@@ -30,7 +30,7 @@ the selection!
 
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(times: 4, on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
         applyMove { asVisualMode.j(on: $0, state) }
         applyMove { asVisualMode.b(on: $0, state) }
@@ -64,7 +64,7 @@ the selection!
 
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(times: 4, on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
         applyMove { asVisualMode.j(on: $0, state) }
         applyMove { asVisualMode.b(on: $0, state) }

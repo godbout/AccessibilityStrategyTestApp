@@ -6,7 +6,7 @@ import VimEngineState
 // test about returning nil for TF is done in UT.
 class ASUI_VMC_gj_Tests: ASUI_VM_BaseTests {
     
-    let state = VimEngineState(visualModeStyle: .characterwise)
+    var state = VimEngineState(visualStyle: .characterwise)
     
     
     private func applyMoveBeingTested() -> AccessibilityTextElement {
@@ -31,7 +31,7 @@ the wrapped lines and shit is understood
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
                
@@ -50,7 +50,7 @@ the wrapped lines and shit is understood
                 
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.b(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
                
@@ -69,7 +69,7 @@ the wrapped lines and shit is understood
                 
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.gk(on: $0, state) }
         applyMove { asVisualMode.b(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
@@ -89,7 +89,7 @@ definitely
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.gDollarSign(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
       
@@ -109,7 +109,7 @@ extra long one here
               
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.gj(on: $0, state) }
         applyMove { asVisualMode.gj(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
@@ -129,7 +129,7 @@ own empty
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
               
         applyMove { asNormalMode.h(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.gk(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 
@@ -149,7 +149,7 @@ own empty
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
 
         // /!\ NOT EQUAL
@@ -169,7 +169,7 @@ and also to the end of the next next line!
       
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.dollarSign(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 

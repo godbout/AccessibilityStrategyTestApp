@@ -5,7 +5,7 @@ import VimEngineState
 
 class ASUI_VMC_k_Tests: ASUI_VM_BaseTests {
 
-    let state = VimEngineState(visualModeStyle: .characterwise)
+    var state = VimEngineState(visualStyle: .characterwise)
     
     
     private func applyMoveBeingTested() -> AccessibilityTextElement {
@@ -30,7 +30,7 @@ globalColumnNumber is nil
         
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.dollarSign(on: $0, state) }
         let accessibilityElement = applyMoveBeingTested()
 

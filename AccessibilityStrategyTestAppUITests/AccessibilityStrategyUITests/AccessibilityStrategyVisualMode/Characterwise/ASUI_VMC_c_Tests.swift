@@ -5,7 +5,7 @@ import VimEngineState
 
 class ASUI_VMC_c_Tests: ASUI_VM_BaseTests {
     
-    var state = VimEngineState(visualModeStyle: .characterwise)
+    var state = VimEngineState(visualStyle: .characterwise)
     
     
     private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
@@ -27,7 +27,7 @@ extension ASUI_VMC_c_Tests {
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.f(times: 2, to: "h", on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.f(to: "i", on: $0, state) }
         let accessibilityElement = applyMoveBeingTested(pgR: true)
         
