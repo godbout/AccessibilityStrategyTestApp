@@ -3,44 +3,19 @@ import XCTest
 import VimEngineState
 
 
+// `d` moves always need to be tested in UIT because they have to call the AX
+// the reposition the caret after the move.
 class ASUI_VMC_d_Tests: ASUI_VM_BaseTests {
 
     var state = VimEngineState(visualModeStyle: .characterwise)
     
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
+        state.pgR = pgR
+        
         return applyMove { asVisualMode.d(on: $0, &state) }
     }
 
-}
-
-
-// copy deleted text
-extension ASUI_VMC_d_Tests {
-    
-    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
-        let textInAXFocusedElement = """
-all that VM d does
-in characterwi😂️e is deleting
-the selection!
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.l(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
-        applyMove { asVisualMode.vForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.zero(on: $0, state) }
-        applyMove { asVisualMode.b(on: $0, state) }
-        copyToClipboard(text: "some fake shit")
-        _ = applyMoveBeingTested()
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
-does
-in characterwi
-"""
-        )
-    }
 }
 
 
