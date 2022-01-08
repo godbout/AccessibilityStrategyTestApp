@@ -21,23 +21,25 @@ class ASUT_NM_cDollarSign_Tests: ASUT_NM_BaseTests {
 // Bip, copy deletion and LYS
 extension ASUT_NM_cDollarSign_Tests {
     
-    // TODO: this is worng. it's not an empty line, it's an empty fileText.
-    // empty line would copy an empty string.
     func test_that_when_it_is_on_an_empty_line_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_an_empty_string() {
-        let text = ""
+        let text = """
+hehe
+
+hoho
+"""
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 0,
-            caretLocation: 0,
+            length: 10,
+            caretLocation: 5,
             selectedLength: 0,
             selectedText: "",
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 0,
-                number: 1,
-                start: 0,
-                end: 0
+                fullTextLength: 10,
+                number: 2,
+                start: 5,
+                end: 6
             )!
         )
         

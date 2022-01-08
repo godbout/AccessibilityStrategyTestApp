@@ -3,7 +3,6 @@ import AccessibilityStrategy
 import VimEngineState
 
 
-// TODO: maybe we need to make sure somehow that VML_caret returns the same elment?
 class ASUT_VMC_caret_Tests: ASVM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
