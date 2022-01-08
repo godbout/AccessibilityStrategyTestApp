@@ -7,41 +7,14 @@ class ASUI_VML_c_Tests: ASUI_VM_BaseTests {
     
     private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: pgR, visualModeStyle: .linewise)
+        
         return applyMove { asVisualMode.c(on: $0, &state) }
     }
 
 }
 
 
-// copy deleted text
-extension ASUI_VML_c_Tests {
-    
-    func test_that_it_copies_the_deleted_text_in_the_pasteboard() {
-        let textInAXFocusedElement = """
-VM c in Linewise
-will delete the selected lines
-but the below line will not go up
-at least if we're not at the end of the text
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.gg(on: $0) }
-        applyMove { asNormalMode.j(on: $0) }
-        applyMove { asVisualMode.VForEnteringFromNormalMode(on: $0) }
-        applyMove { asVisualMode.jForVisualStyleLinewise(on: $0) }
-        copyToClipboard(text: "some fake shit")
-        _ = applyMoveBeingTested()
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
-will delete the selected lines
-but the below line will not go up\n
-"""
-        )
-    }
-}
-
-
+// TODO: why is this done in UI? why not only the PGR?
 // Both
 extension ASUI_VML_c_Tests {
 
