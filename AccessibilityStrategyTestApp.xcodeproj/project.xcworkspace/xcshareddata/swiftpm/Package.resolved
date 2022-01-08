@@ -6,7 +6,7 @@
         "repositoryURL": "git@github.com:godbout/AccessibilityStrategy.git",
         "state": {
           "branch": "master",
-          "revision": "812b0db1955b047fe40c4ffd3a279696b468b27f",
+          "revision": "f952c9b5b575d960f25bf6a4afbf8674811375d2",
           "version": null
         }
       },
@@ -42,7 +42,7 @@
         "repositoryURL": "git@github.com:godbout/VimEngineState.git",
         "state": {
           "branch": "master",
-          "revision": "67cae38f2e1e3b16f404207622212c35910e17db",
+          "revision": "449dc7940147a668b38790392164fbee1ced55e7",
           "version": null
         }
       }
