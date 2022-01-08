@@ -4,11 +4,58 @@ import VimEngineState
 
 
 class ASUT_VMC_y_Tests: ASVM_BaseTests {
+    
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var state = VimEngineState(pgR: false, visualModeStyle: .characterwise)
         
-    private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(visualModeStyle: .characterwise)
+        return applyMoveBeingTested(on: element, &state)
+    }
+    
+    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        vimEngineState.visualModeStyle = .characterwise
         
-        return asVisualMode.y(on: element, &state)
+        return asVisualMode.y(on: element, &vimEngineState)
+    }
+    
+}
+
+
+// Bip, yank and LYS
+extension ASUT_VMC_y_Tests {
+
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_selected_text_even_for_an_empty_line() {
+        let text = """
+all that VM d does
+in characterwi😂️e is deleting
+the selection!
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 64,
+            caretLocation: 14,
+            selectedLength: 19,
+            selectedText: "does\nin characterwi",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 64,
+                number: 1,
+                start: 0,
+                end: 19
+            )!
+        )
+        
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(on: element, &state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
+does
+in characterwi
+"""
+        )
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(state.lastMoveBipped)
     }
     
 }
@@ -35,7 +82,7 @@ extension ASUT_VMC_y_Tests {
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "then VM y should copy the s")
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -60,7 +107,7 @@ extension ASUT_VMC_y_Tests {
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 8)
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -86,7 +133,7 @@ extension ASUT_VMC_y_Tests {
         )
         
         asVisualMode.copyToClipboard(text: "test 1 for The 3 Cases VM y")
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
         XCTAssertEqual(returnedElement.selectedLength, 0)
@@ -117,7 +164,7 @@ line
         )
         
         asVisualMode.copyToClipboard(text: "test 3 of The 3 Cases VM y")
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
         XCTAssertEqual(returnedElement.selectedLength, 0)
@@ -148,7 +195,7 @@ extension ASUT_VMC_y_Tests {
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 8)
         XCTAssertEqual(returnedElement.selectedLength, 3)

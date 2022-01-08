@@ -5,11 +5,61 @@ import VimEngineState
 
 class ASUT_VML_y_Tests: ASVM_BaseTests {
     
-    // TODO: move like y, need to test the state
-    private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(visualModeStyle: .linewise)
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var state = VimEngineState()
         
-        return asVisualMode.y(on: element, &state)
+        return applyMoveBeingTested(on: element, &state)
+    }
+    
+    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        vimEngineState.visualModeStyle = .linewise
+        
+        return asVisualMode.y(on: element, &vimEngineState)
+    }
+    
+}
+
+
+// Bip, yank and LYS
+extension ASUT_VML_y_Tests {
+
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_selected_text_even_for_an_empty_line() {
+        let text = """
+VM c in Linewise
+will delete the selected lines
+but the below line will not go up
+at least if we're not at the end of the text
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 126,
+            caretLocation: 17,
+            selectedLength: 65,
+            selectedText: """
+will delete the selected lines
+but the below line will not go up\n
+""",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 126,
+                number: 2,
+                start: 17,
+                end: 48
+            )!
+        )      
+        
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
+        _ = applyMoveBeingTested(on: element, &state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
+will delete the selected lines
+but the below line will not go up\n
+"""
+        )
+        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertFalse(state.lastMoveBipped)
     }
     
 }
@@ -36,7 +86,7 @@ extension ASUT_VML_y_Tests {
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "a whole line entirely for VM V and VM y")   
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -76,7 +126,7 @@ i writing this?
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 with VM V over
@@ -114,7 +164,7 @@ the crazy caret location and
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 21)
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -153,7 +203,7 @@ the crazy caret location and
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 21)
         XCTAssertEqual(returnedElement.selectedLength, 3)
