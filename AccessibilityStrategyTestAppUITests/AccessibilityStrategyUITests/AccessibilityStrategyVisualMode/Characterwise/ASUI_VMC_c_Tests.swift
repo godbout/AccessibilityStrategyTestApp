@@ -5,13 +5,11 @@ import VimEngineState
 
 class ASUI_VMC_c_Tests: ASUI_VM_BaseTests {
     
-    
-    // TODO: do we need this that complicated now that we move LYS to ASUT?
-    let state = VimEngineState(visualModeStyle: .characterwise)
+    var state = VimEngineState(visualModeStyle: .characterwise)
     
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR, visualModeStyle: .characterwise)
+    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
+        state.pgR = pgR
         
         return applyMove { asVisualMode.c(on: $0, &state) }
     }
