@@ -3,7 +3,7 @@ import XCTest
 import VimEngineState
 
 
-class ASUT_NM_cgg_Tests: ASUT_NM_BaseTests {
+class ASUT_NM_cl_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(pgR: false)
@@ -12,7 +12,7 @@ class ASUT_NM_cgg_Tests: ASUT_NM_BaseTests {
     }
         
     private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return asNormalMode.cgg(on: element, &vimEngineState)
+        return asNormalMode.cl(on: element, &vimEngineState)
     }
     
 }
@@ -20,9 +20,9 @@ class ASUT_NM_cgg_Tests: ASUT_NM_BaseTests {
 
 // Bip, copy deletion and LYS
 // not totally accurate but good enough for now. see cG for more blah blah.
-extension ASUT_NM_cgg_Tests {
+extension ASUT_NM_cl_Tests {
     
-    func test_that_when_it_is_on_an_empty_text_it_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_an_empty_string() {
+    func test_that_when_it_is_on_an_empty_text_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_an_empty_string() {
         let text = ""
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -41,15 +41,15 @@ extension ASUT_NM_cgg_Tests {
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
-        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
         XCTAssertFalse(state.lastMoveBipped)
     }
     
-    func test_that_when_it_is_not_on_an_empty_line_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion() {
+    func test_that_when_it_is_not_on_an_empty_line_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
         let text = """
 blah blah some line
 some more
@@ -75,16 +75,11 @@ those faces 🥺️☹️😂️
         )
         
         copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
-blah blah some line
-some more
-  haha geh\n
-"""
-        )
-        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "g")
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
         XCTAssertFalse(state.lastMoveBipped)
     }
     
@@ -92,30 +87,30 @@ some more
 
 
 // Both
-extension ASUT_NM_cgg_Tests {
+extension ASUT_NM_cl_Tests {
     
-    func test_that_it_deletes_the_line_up_to_the_firstNonBlankLimit() {
-        let text = "    this is a single line ‼️‼️‼️"
+    func test_that_in_normal_setting_it_the_character_at_caret_location() {
+        let text = " cl to delete a character on the right"
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
-            length: 32,
-            caretLocation: 14,
+            length: 37,
+            caretLocation: 18,
             selectedLength: 1,
-            selectedText: "s",
+            selectedText: "r",
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 32,
+                fullTextLength: 37,
                 number: 1,
                 start: 0,
-                end: 32
+                end: 37
             )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement.caretLocation, 4)
-        XCTAssertEqual(returnedElement.selectedLength, 28)
+        XCTAssertEqual(returnedElement.caretLocation, 18)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertEqual(returnedElement.selectedText, "")
     }
     
@@ -123,38 +118,35 @@ extension ASUT_NM_cgg_Tests {
 
 
 // TextViews
-extension ASUT_NM_cgg_Tests {
+extension ASUT_NM_cl_Tests {
     
-    func test_that_it_deletes_from_the_firstNonBlankLimit_of_the_current_line_to_the_end_of_the_TextView() {
+    func test_that_on_an_empty_line_it_does_not_delete_the_linefeed() {
         let text = """
   blah blah some line
-some more
-haha geh
-need to deal with
-those faces 🥺️☹️😂️
 
+haha geh
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 80,
-            caretLocation: 37,
+            length: 31,
+            caretLocation: 22,
             selectedLength: 1,
-            selectedText: "g",
+            selectedText: "\n",
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 80,
-                number: 3,
-                start: 32,
-                end: 41
+                fullTextLength: 31,
+                number: 2,
+                start: 22,
+                end: 23
             )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement.caretLocation, 2)
-        XCTAssertEqual(returnedElement.selectedLength, 38)
-        XCTAssertEqual(returnedElement.selectedText, "")
+        XCTAssertEqual(returnedElement.caretLocation, 22)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
