@@ -1,8 +1,6 @@
-//
-//  ASUT_NM_dip_Tests.swift
-//  AccessibilityStrategyTestAppTests
-//
-//  Created by Guillaume Leclerc on 17/01/2022.
-//
+@testable import AccessibilityStrategy
+import XCTest
 
-import Foundation
+
+// dip is being done before cip, so currently all tests in UIT
+class ASUT_NM_dip_Tests: ASUT_NM_BaseTests {}
