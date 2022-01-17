@@ -95,4 +95,22 @@ my friend
         XCTAssertEqual(innerParagraphRange.count, 14) 
     }
     
+    func test_that_it_works_also_on_a_paragraph_made_of_empty_lines() {
+        let text = """
+hehe
+well done
+
+
+
+
+
+my friend
+"""
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 18)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 14)
+        XCTAssertEqual(innerParagraphRange.count, 4) 
+    }
+    
 }
