@@ -1,9 +1,19 @@
-//
-//  ASUT_VMC_ip_Tests.swift
-//  AccessibilityStrategyTestAppTests
-//
-//  Created by Guillaume Leclerc on 18/01/2022.
-//
+import AccessibilityStrategy
+import XCTest
+import VimEngineState
 
-import Foundation
-// TODO:
+
+// TODO: this is different from iw at the first time you do ip. seems harder than iw.
+class ASUT_VMC_ip_Tests: ASVM_BaseTests {
+
+    private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        let state = VimEngineState(visualStyle: .characterwise)
+        
+        return asVisualMode.ip(on: element, state)
+    }
+    
+}
+
+
+// Both
+extension ASUT_VMC_ip_Tests {}
