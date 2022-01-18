@@ -8,6 +8,227 @@ import XCTest
 class FT_innerParagraph_Tests: XCTestCase {}
 
 
+// Normal Setting
+extension FT_innerParagraph_Tests {
+    
+    func test_that_for_a_single_line_it_returns_the_whole_line() {
+        let text = "so for innerParagraph blank lines are a boundary. it's an exception."
+        
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 10)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 0)
+        XCTAssertEqual(innerParagraphRange.count, 68) 
+    }
+    
+    func test_that_for_a_single_line_after_an_EmptyLine_it_returns_the_correct_range() {
+        let text = """
+
+so for innerParagraph blank lines are a boundary. it's an exception.
+"""
+        
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 10)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 1)
+        XCTAssertEqual(innerParagraphRange.count, 68) 
+    }
+    
+    func test_that_for_a_single_line_after_two_EmptyLines_it_returns_the_correct_range() {
+        let text = """
+
+
+so for innerParagraph blank lines are a boundary. it's an exception.
+"""
+        
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 10)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 2)
+        XCTAssertEqual(innerParagraphRange.count, 68) 
+    }
+    
+    func test_that_for_a_single_line_before_an_EmptyLine_it_returns_the_correct_range() {
+        let text = """
+so for innerParagraph blank lines are a boundary. it's an exception.
+
+"""
+        
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 10)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 0)
+        XCTAssertEqual(innerParagraphRange.count, 69) 
+    }
+    
+    func test_that_for_a_single_line_before_two_EmptyLines_it_returns_the_correct_range() {
+        let text = """
+so for innerParagraph blank lines are a boundary. it's an exception.
+
+
+"""
+        
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 10)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 0)
+        XCTAssertEqual(innerParagraphRange.count, 69) 
+    }
+    
+    func test_that_for_a_single_line_after_and_before_EmptyLines_it_returns_the_correct_range() {
+        let text = """
+
+so for innerParagraph blank lines are a boundary. it's an exception.
+
+"""
+        
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 10)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 1)
+        XCTAssertEqual(innerParagraphRange.count, 69) 
+    }
+    
+    func test_that_for_a_single_line_surrounded_by_other_lines_it_returns_the_correct_range() {
+        let text = """
+some fucking lines
+
+
+so for innerParagraph blank lines are a boundary. it's an exception.
+
+some more
+hehe
+
+"""
+        
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 49)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 21)
+        XCTAssertEqual(innerParagraphRange.count, 69) 
+    }
+    
+    func test_that_for_multiple_lines_without_any_Empty_or_Blank_Lines_above_and_below_it_returns_the_whole_text() {
+        let text = """
+this text
+is a whole
+paragraph in
+   itself
+"""
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 10)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 0)
+        XCTAssertEqual(innerParagraphRange.count, 43) 
+    }
+    
+    func test_that_for_multiple_lines_before_one_EmptyLine_it_returns_the_correct_range() {
+        let text = """
+
+this text
+is a whole
+paragraph in
+   itself
+"""
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 10)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 1)
+        XCTAssertEqual(innerParagraphRange.count, 43) 
+    }
+    
+    func test_that_for_multiple_lines_before_two_EmptyLines_it_returns_the_correct_range() {
+        let text = """
+
+
+this text
+is a whole
+paragraph in
+   itself
+"""
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 10)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 2)
+        XCTAssertEqual(innerParagraphRange.count, 43) 
+    }
+    
+    func test_that_for_a_multiple_lines_before_one_EmptyLine_it_returns_the_correct_range() {
+        let text = """
+this text
+is a whole
+paragraph in
+   itself
+
+"""
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 10)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 0)
+        XCTAssertEqual(innerParagraphRange.count, 44) 
+    }
+    
+    func test_that_for_a_multiple_lines_before_two_EmptyLines_it_returns_the_correct_range() {
+        let text = """
+this text
+is a whole
+paragraph in
+   itself
+
+
+"""
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 10)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 0)
+        XCTAssertEqual(innerParagraphRange.count, 44) 
+    }
+    
+    func test_that_for_a_multiple_lines_after_and_before_EmptyLines_it_returns_the_correct_range() {
+        let text = """
+
+
+this text
+is a whole
+paragraph in
+   itself
+
+"""
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 10)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 2)
+        XCTAssertEqual(innerParagraphRange.count, 44) 
+    }
+    
+    
+    func test_that_for_multilines_surrounded_by_other_lines_it_returns_the_correct_range() {
+        let text = """
+some fucking lines
+
+
+this text
+is a whole
+paragraph in
+   itself
+
+some more
+hehe
+
+"""
+        
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 47)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 21)
+        XCTAssertEqual(innerParagraphRange.count, 44) 
+    }
+    
+}
+
+// caret on Empty or Blank Line
+
+
 // TextFields with caret on an Empty or Blank Line
 extension FT_innerParagraph_Tests {
     
@@ -38,13 +259,7 @@ extension FT_innerParagraph_Tests {
 extension FT_innerParagraph_Tests {
 
     func test_that_if_there_is_no_blank_or_empty_line_before_and_after_the_caretLocation_then_the_innerParagraph_is_the_whole_content() {
-        let text = "so for innerParagraph blank lines are a boundary. it's an exception."
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let innerParagraphRange = fileText.innerParagraph(startingAt: 10)
-        
-        XCTAssertEqual(innerParagraphRange.lowerBound, 0)
-        XCTAssertEqual(innerParagraphRange.count, 68) 
     }
 
 }
