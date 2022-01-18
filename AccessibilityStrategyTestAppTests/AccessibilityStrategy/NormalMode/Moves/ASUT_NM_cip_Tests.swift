@@ -55,7 +55,7 @@ oh yeah
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 kind of hmm
-inner paragraph
+inner paragraph\n
 """
         )
         XCTAssertEqual(state.lastYankStyle, .linewise)
