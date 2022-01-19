@@ -342,3 +342,24 @@ is a whole
     }
     
 }
+
+
+// mix of Empty and Blank Lines
+// see innerParagraph NormalSetting for more blah blah.
+extension FT_innerParagraph_OnEmptyOrBlankLines_Tests {
+
+    func test_that_if_the_first_line_contains_Blanks_it_returns_the_correct_range() {
+        let text = """
+         
+
+                
+"""
+        
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 18)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 0)
+        XCTAssertEqual(innerParagraphRange.count, 27) 
+    }
+   
+}
