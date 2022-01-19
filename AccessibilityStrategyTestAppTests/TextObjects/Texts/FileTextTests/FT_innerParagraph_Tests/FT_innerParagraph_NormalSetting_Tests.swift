@@ -9,6 +9,7 @@ class FT_innerParagraph_NormalSetting_Tests: XCTestCase {}
 
 
 // surrounded by Empty Lines
+// these tests contain Blanks
 extension FT_innerParagraph_NormalSetting_Tests {
     
     func test_that_for_a_single_line_it_returns_the_whole_line() {
