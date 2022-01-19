@@ -8,7 +8,6 @@ import XCTest
 class FT_innerParagraph_NormalSetting_Tests: XCTestCase {}
 
 
-// Normal Setting
 // surrounded by Empty Lines
 extension FT_innerParagraph_NormalSetting_Tests {
     
@@ -228,7 +227,6 @@ hehe
 }
 
 
-// Normal Setting
 // surrounded by Blank Lines
 // these tests contain Blank Lines. (duh.)
 extension FT_innerParagraph_NormalSetting_Tests {
@@ -422,4 +420,32 @@ hehe
         XCTAssertEqual(innerParagraphRange.count, 44) 
     }
     
+}
+
+
+// mix of Empty and Blank Lines
+// happens that a mix of them still doesn't work sometimes.
+// regexes are hard. here will probably have all the bugs we've encountered
+// while using.
+// these tests contain Blank Lines.
+extension FT_innerParagraph_NormalSetting_Tests {
+
+    func test_that_a_mix_of_EmptyLines_and_BlankLines_above_a_text_returns_the_correct_range() {
+        let text = """
+some fucking lines
+       
+
+       
+some more
+hehe
+       
+"""
+        
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 49)
+        
+        XCTAssertEqual(innerParagraphRange.lowerBound, 36)
+        XCTAssertEqual(innerParagraphRange.count, 15) 
+    }
+
 }
