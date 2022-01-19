@@ -450,7 +450,7 @@ hehe
     }
 
     // there is a space at the end of the second line (which is why the regex failed)
-    func test_that_a_brace_on_its_own_line_plus_two_lines_aove_returns_the_correct_range_WTF() {
+    func test_that_if_a_line_ends_with_blanks_it_returns_the_correct_range() {
         let text = """
     XCTAssertEqual(innerParagraphRange.lowerBound, 0)
     XCTAssertEqual(innerParagraphRange.count, 3)  
@@ -462,6 +462,18 @@ hehe
 
         XCTAssertEqual(innerParagraphRange.lowerBound, 0)
         XCTAssertEqual(innerParagraphRange.count, 106)
+    }
+    
+    func test_that_if_a_whole_text_end_with_blanks_it_returns_the_correct_range() {
+        let text = """
+       OMFG regex                      
+"""
+
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 17)
+
+        XCTAssertEqual(innerParagraphRange.lowerBound, 0)
+        XCTAssertEqual(innerParagraphRange.count, 39)
     }
 
 }
