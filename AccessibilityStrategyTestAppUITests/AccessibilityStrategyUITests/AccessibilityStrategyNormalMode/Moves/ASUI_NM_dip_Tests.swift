@@ -19,6 +19,43 @@ class ASUI_NM_dip_Tests: ASUI_NM_BaseTests {
 }
 
 
+// Bip, copy deletion and LYS
+extension ASUI_NM_dip_Tests {
+    
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion_including_the_last_Linefeed_of_the_paragraph() {
+        let textInAXFocusedElement = """
+this is to check
+that
+
+the block cursor
+ends up in the
+right
+
+place
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.b(times: 2, on: $0) }
+        
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
+        _ = applyMoveBeingTested(&state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
+the block cursor
+ends up in the
+right\n
+"""
+        )
+        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertFalse(state.lastMoveBipped)
+    }
+    
+}
+
+
 extension ASUI_NM_dip_Tests {
     
     func test_that_the_block_cursor_ends_up_at_the_right_place() {
