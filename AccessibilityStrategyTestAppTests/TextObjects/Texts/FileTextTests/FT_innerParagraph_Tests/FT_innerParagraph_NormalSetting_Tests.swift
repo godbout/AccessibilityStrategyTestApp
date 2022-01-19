@@ -453,15 +453,15 @@ hehe
     func test_that_a_brace_on_its_own_line_plus_two_lines_aove_returns_the_correct_range_WTF() {
         let text = """
     XCTAssertEqual(innerParagraphRange.lowerBound, 0)
-    XCTAssertEqual(innerParagraphRange.count, 3)
+    XCTAssertEqual(innerParagraphRange.count, 3)  
 }
 """
 
         let fileText = FileText(end: text.utf16.count, value: text)
-        let innerParagraphRange = fileText.innerParagraph(startingAt: 104)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 105)
 
         XCTAssertEqual(innerParagraphRange.lowerBound, 0)
-        XCTAssertEqual(innerParagraphRange.count, 105)
+        XCTAssertEqual(innerParagraphRange.count, 106)
     }
 
 }
