@@ -449,4 +449,19 @@ hehe
         XCTAssertEqual(innerParagraphRange.count, 17) 
     }
 
+    // there is a space at the end of the second line (which is why the regex failed)
+    func test_that_a_brace_on_its_own_line_plus_two_lines_aove_returns_the_correct_range_WTF() {
+        let text = """
+    XCTAssertEqual(innerParagraphRange.lowerBound, 0)
+    XCTAssertEqual(innerParagraphRange.count, 3)
+}
+"""
+
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let innerParagraphRange = fileText.innerParagraph(startingAt: 104)
+
+        XCTAssertEqual(innerParagraphRange.lowerBound, 0)
+        XCTAssertEqual(innerParagraphRange.count, 105)
+    }
+
 }
