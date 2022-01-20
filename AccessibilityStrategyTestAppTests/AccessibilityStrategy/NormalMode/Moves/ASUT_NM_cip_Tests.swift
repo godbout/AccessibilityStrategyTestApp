@@ -100,4 +100,68 @@ oh yeah
         XCTAssertEqual(returnedElement.selectedText, "")
     }
     
+    func test_that_it_respects_the_indentation_by_setting_the_caretLocation_to_the_firstNonBlank_of_the_first_line_of_the_paragraph_for_NormalSetting() {
+        let text = """
+this is some
+
+    kind of hmm
+inner paragraph
+
+oh yeah
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 54,
+            caretLocation: 38,
+            selectedLength: 1,
+            selectedText: "r",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 54,
+                number: 4,
+                start: 30,
+                end: 46
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 18)
+        XCTAssertEqual(returnedElement.selectedLength, 27)
+        XCTAssertEqual(returnedElement.selectedText, "")
+    }
+    
+    // this test contains Blanks
+    func test_that_it_respects_the_indentation_by_setting_the_caretLocation_to_the_firstNonBlank_of_the_first_line_of_the_paragraph_for_EmptyOrBlankLine() {
+        let text = """
+this is some
+         
+    
+
+oh yeah
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 36,
+            caretLocation: 26,
+            selectedLength: 1,
+            selectedText: " ",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 36,
+                number: 3,
+                start: 23,
+                end: 28
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 22)
+        XCTAssertEqual(returnedElement.selectedLength, 6)
+        XCTAssertEqual(returnedElement.selectedText, "")
+    }
+    
 }
