@@ -7,7 +7,7 @@ import VimEngineState
 class ASUT_NM_ciInnerQuotedString_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(using quote: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: false)
+        var state = VimEngineState(appFamily: .auto)
         
         return applyMoveBeingTested(using: quote, on: element, &state)
     }

@@ -6,8 +6,8 @@ import VimEngineState
 // see dF for blah blah
 class ASUI_NM_dT__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(times count: Int = 1, with character: Character, appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.dT(times: count, to: character, on: $0, &state) }
     }
@@ -81,7 +81,7 @@ on a line
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.dollarSign(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(with: "w", pgR: true)
+        let accessibilityElement = applyMoveBeingTested(with: "w", appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 dT on a multiline

@@ -6,8 +6,8 @@ import VimEngineState
 // read p for more blah blah
 class ASUI_NM_PForLastYankStyleCharacterwise_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.P(on: $0, VimEngineState(pgR: pgR, lastYankStyle: .characterwise)) }
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        return applyMove { asNormalMode.P(on: $0, VimEngineState(appFamily: appFamily, lastYankStyle: .characterwise)) }
     }
     
 }
@@ -194,7 +194,7 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         
         applyMove { asNormalMode.h(on: $0) }
         copyToClipboard(text: "text to pasta 🍕️!!🍔️")
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "🍕️🍕️text to pasta 🍕️!!🍔️text to pasta 🍕️!!🍔️🍕️")
         XCTAssertEqual(accessibilityElement.caretLocation, 47)
@@ -216,7 +216,7 @@ ho ho ho
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
         copyToClipboard(text: "😂️astaing\nmy man!")
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
 time to paste

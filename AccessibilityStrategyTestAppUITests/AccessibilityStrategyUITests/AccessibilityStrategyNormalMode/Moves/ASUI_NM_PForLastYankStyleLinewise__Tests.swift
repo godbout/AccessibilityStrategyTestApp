@@ -6,8 +6,8 @@ import VimEngineState
 // read p for more blah blah
 class ASUI_NM_PForLastYankStyleLinewise_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.P(on: $0, VimEngineState(pgR: pgR, lastYankStyle: .linewise)) }
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        return applyMove { asNormalMode.P(on: $0, VimEngineState(appFamily: appFamily, lastYankStyle: .linewise)) }
     }
     
 }
@@ -145,7 +145,7 @@ extension ASUI_NM_PForLastYankStyleLinewise_Tests {
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
         copyToClipboard(text: "paste me daddy")
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "paste me daddypaste me daddyP linewise for TF is still pasted characterwise!")
         XCTAssertEqual(accessibilityElement.caretLocation, 27)
@@ -168,7 +168,7 @@ pasted at the current line place
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
         copyToClipboard(text: "🤍️hould paste 🤍️ that\n")
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
 so if we use P

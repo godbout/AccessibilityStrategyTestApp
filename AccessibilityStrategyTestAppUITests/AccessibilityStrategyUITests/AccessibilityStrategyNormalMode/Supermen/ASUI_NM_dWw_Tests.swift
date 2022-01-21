@@ -9,8 +9,8 @@ import VimEngineState
 // tested in a related c move.
 class ASUI_NM_dWw_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int? = 1, pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(times count: Int? = 1, appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMoveBeingTested(times: count, &state)
     }
@@ -118,7 +118,7 @@ extension ASUI_NM_dWw_Tests {
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "hehehe gonna use ce on this sentence")
         XCTAssertEqual(accessibilityElement.caretLocation, 0)

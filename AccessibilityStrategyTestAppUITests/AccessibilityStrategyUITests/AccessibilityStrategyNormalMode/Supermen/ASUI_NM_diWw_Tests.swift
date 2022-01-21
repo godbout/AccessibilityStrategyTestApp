@@ -11,8 +11,8 @@ import VimEngineState
 // can see daw for blah blah.
 class ASUI_NM_diWw_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.diWw(on: $0, using: $0.fileText.innerWord, &state) }
     }
@@ -82,7 +82,7 @@ like honestly that one should be
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 like honestly that one should be

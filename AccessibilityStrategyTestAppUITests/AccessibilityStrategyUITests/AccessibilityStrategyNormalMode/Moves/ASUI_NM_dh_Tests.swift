@@ -9,8 +9,8 @@ class ASUI_NM_dh_Tests: ASUI_NM_BaseTests {
         return applyMove { asNormalMode.dh(on: $0, &vimEngineState) }
     }
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMoveBeingTested(&state)
     }
@@ -119,7 +119,7 @@ extension ASUI_NM_dh_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.b(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, "X should delete the right charact😂️😂️😂️😂️")
         XCTAssertEqual(accessibilityElement.caretLocation, 33)

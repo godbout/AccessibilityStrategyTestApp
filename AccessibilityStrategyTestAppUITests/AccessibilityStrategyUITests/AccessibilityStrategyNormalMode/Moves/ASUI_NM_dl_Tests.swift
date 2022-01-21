@@ -177,7 +177,7 @@ extension ASUI_NM_dl_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.b(on: $0) }
-        var state = VimEngineState(pgR: true)
+        var state = VimEngineState(appFamily: .pgR)
         let accessibilityElement = applyMoveBeingTested(&state)
 
         XCTAssertEqual(accessibilityElement.fileText.value, "x should delete the rightharacter")
@@ -195,7 +195,7 @@ that is not an empty line🤡️🤡️
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
       
         applyMove { asNormalMode.h(on: $0) }
-        var state = VimEngineState(pgR: true)
+        var state = VimEngineState(appFamily: .pgR)
         let accessibilityElement = applyMoveBeingTested(&state)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

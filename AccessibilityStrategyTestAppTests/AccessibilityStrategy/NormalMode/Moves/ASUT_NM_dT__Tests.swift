@@ -7,7 +7,7 @@ import VimEngineState
 class ASUT_NM_dT__Tests: ASUT_NM_BaseTests {
     
     private func applyMove(to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: false)
+        var state = VimEngineState(appFamily: .auto)
         
         return asNormalMode.dT(to: character, on: element, &state)
     }

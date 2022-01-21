@@ -6,7 +6,7 @@ import VimEngineState
 class ASUT_NM_cWw_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement, using innerWoRdFunction: (Int) -> Range<Int>) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: false)
+        var state = VimEngineState(appFamily: .auto)
         
         return applyMoveBeingTested(on: element, using: innerWoRdFunction, &state)
     } 

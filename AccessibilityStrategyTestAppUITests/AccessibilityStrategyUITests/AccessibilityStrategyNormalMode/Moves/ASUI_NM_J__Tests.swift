@@ -5,8 +5,8 @@ import VimEngineState
 
 class ASUI_NM_J__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.J(on: $0, VimEngineState(pgR: pgR)) }
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        return applyMove { asNormalMode.J(on: $0, VimEngineState(appFamily: appFamily)) }
     }
     
 }
@@ -91,7 +91,7 @@ with line 2
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
                
         applyMove { asNormalMode.gg(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
 gonna try to fuse line   with line 2

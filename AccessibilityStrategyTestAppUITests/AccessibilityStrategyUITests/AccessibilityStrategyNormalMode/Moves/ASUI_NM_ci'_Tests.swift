@@ -8,8 +8,8 @@ import VimEngineState
 // here we just test that we pass the pgR parameter correctly to cInnerQuoteString.
 class ASUI_NM_ciSingleQuote_Tests: ASUI_NM_BaseTests {
 
-    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.ciInnerQuotedString(using: "'", on: $0, &state) }
     }
@@ -27,7 +27,7 @@ finally dealing with the 'real stuff'!
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.F(to: "l", on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

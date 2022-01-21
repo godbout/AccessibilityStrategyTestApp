@@ -7,7 +7,7 @@ import VimEngineState
 class ASUT_VMC_c_Tests: ASVM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: false, visualStyle: .characterwise)
+        var state = VimEngineState(appFamily: .auto, visualStyle: .characterwise)
         
         return applyMoveBeingTested(on: element, &state)
     }

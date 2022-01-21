@@ -9,8 +9,8 @@ class ASUI_NM_dG__Tests: ASUI_NM_BaseTests {
         return applyMove { asNormalMode.dG(on: $0, &vimEngineState) }
     }
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMoveBeingTested(&state)
     }
@@ -136,7 +136,7 @@ before what was the current one.
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "  😂️k so now we're having multiple line")
         XCTAssertEqual(accessibilityElement.caretLocation, 2)

@@ -5,8 +5,8 @@ import VimEngineState
 
 class ASUI_NM_cB__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.cB(on: $0, &state) }
     }
@@ -23,7 +23,7 @@ extension ASUI_NM_cB__Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.F(to: "u", on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, "so weuse cb here and see 😂️😂️ if it works ⏰️")
         XCTAssertEqual(accessibilityElement.caretLocation, 5)

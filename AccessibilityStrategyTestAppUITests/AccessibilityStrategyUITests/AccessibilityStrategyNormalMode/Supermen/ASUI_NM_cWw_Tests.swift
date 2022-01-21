@@ -8,8 +8,8 @@ import VimEngineState
 // for rest of blah blah blah see ciWw.
 class ASUI_NM_cWw_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.cWw(on: $0, using: $0.fileText.innerWORD, &state) }
     }
@@ -27,7 +27,7 @@ extension ASUI_NM_cWw_Tests {
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, " gonna use cw on this sentence")
         XCTAssertEqual(accessibilityElement.caretLocation, 0)
@@ -43,7 +43,7 @@ extension ASUI_NM_cWw_Tests {
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.E(on: $0) }
         applyMove { asNormalMode.l(times: 4, on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "😂️😂️😂️😂️hehehe  gonna use cw on this sentence")
         XCTAssertEqual(accessibilityElement.caretLocation, 20)

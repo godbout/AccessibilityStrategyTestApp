@@ -8,8 +8,8 @@ class ASUI_VMC_c_Tests: ASUI_VM_BaseTests {
     var state = VimEngineState(visualStyle: .characterwise)
     
     
-    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
-        state.pgR = pgR
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily) -> AccessibilityTextElement {
+        state.appFamily = appFamily
         
         return applyMove { asVisualMode.c(on: $0, &state) }
     }
@@ -29,7 +29,7 @@ extension ASUI_VMC_c_Tests {
         applyMove { asNormalMode.f(times: 2, to: "h", on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.f(to: "i", on: $0, state) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "ok so VM c (hngle line")
         XCTAssertEqual(accessibilityElement.caretLocation, 13)

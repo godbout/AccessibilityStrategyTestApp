@@ -5,8 +5,8 @@ import VimEngineState
 
 class ASUI_NM_pForLastYankStyleLinewise_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.p(on: $0, VimEngineState(pgR: pgR, lastYankStyle: .linewise)) }
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        return applyMove { asNormalMode.p(on: $0, VimEngineState(appFamily: appFamily, lastYankStyle: .linewise)) }
     }
     
 }
@@ -195,7 +195,7 @@ extension ASUI_NM_pForLastYankStyleLinewise_Tests {
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
         copyToClipboard(text: "text to pasta")
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, "ltext to pastatext to pastainewise for TF is still pasted characterwise!")
         XCTAssertEqual(accessibilityElement.caretLocation, 26)
@@ -217,7 +217,7 @@ a linefeed at the end of the line
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         copyToClipboard(text: "should paste that somewhere\n")
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 we gonna linewise paste

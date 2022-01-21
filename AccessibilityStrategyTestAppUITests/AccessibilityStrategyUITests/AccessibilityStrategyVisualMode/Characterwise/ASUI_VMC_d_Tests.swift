@@ -10,8 +10,8 @@ class ASUI_VMC_d_Tests: ASUI_VM_BaseTests {
     var state = VimEngineState(visualStyle: .characterwise)
     
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        state.pgR = pgR
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        state.appFamily = appFamily
         
         return applyMove { asVisualMode.d(on: $0, &state) }
     }
@@ -190,7 +190,7 @@ the selection!
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.zero(on: $0, state) }
         applyMove { asVisualMode.b(on: $0, state) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
 all that VM d😂️e is deleting

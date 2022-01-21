@@ -8,8 +8,8 @@ import VimEngineState
 // 1) it's the same func 2) we're testing that we're passing the right func in UT.
 class ASUI_NM_dEe_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.dEe(on: $0, using: asNormalMode.e, &state) }
     }
@@ -63,7 +63,7 @@ extension ASUI_NM_dEe_Tests {
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, " gonna use ce on this sentence")
         XCTAssertEqual(accessibilityElement.caretLocation, 0)

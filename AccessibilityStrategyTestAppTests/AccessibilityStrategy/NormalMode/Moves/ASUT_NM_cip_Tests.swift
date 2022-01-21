@@ -9,7 +9,7 @@ import VimEngineState
 class ASUT_NM_cip_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: false)
+        var state = VimEngineState(appFamily: .auto)
         
         return applyMoveBeingTested(on: element, &state)
     } 

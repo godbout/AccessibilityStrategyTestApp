@@ -5,8 +5,8 @@ import VimEngineState
 
 class ASUI_NM_o_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.o(on: $0, VimEngineState(pgR: pgR)) }
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        return applyMove { asNormalMode.o(on: $0, VimEngineState(appFamily: appFamily)) }
     }
     
 }
@@ -24,7 +24,7 @@ caret on empty last line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.l(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 caret on empty last line
@@ -48,7 +48,7 @@ between the first file line and the second file line
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.f(times: 1, to: "i", on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 that's a multiline and o will create a new line

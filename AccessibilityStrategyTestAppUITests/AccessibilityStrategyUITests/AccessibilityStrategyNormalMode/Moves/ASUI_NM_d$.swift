@@ -62,7 +62,7 @@ which😂️means it will not up one line and this is tested in the endLimit!
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
-        var state = VimEngineState(pgR: true)
+        var state = VimEngineState(appFamily: .pgR)
         let accessibilityElement = applyMoveBeingTested(&state)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

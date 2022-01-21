@@ -9,8 +9,8 @@ class ASUI_NM_dk_Tests: ASUI_NM_BaseTests {
         return applyMove { asNormalMode.dk(on: $0, &vimEngineState) }
     }
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMoveBeingTested(&state)
     }
@@ -159,7 +159,7 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
        
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
    😚️ow 🤡️🤡️this is🤡️ get🤡️🤡️ting coo

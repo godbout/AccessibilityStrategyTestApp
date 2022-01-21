@@ -5,8 +5,8 @@ import VimEngineState
 
 class ASUI_NM_caWw_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.caWw(on: $0, using: $0.fileText.aWord, &state) }
     }
@@ -26,7 +26,7 @@ extension ASUI_NM_caWw_Tests {
         applyMove { asNormalMode.F(to: "c", on: $0) }
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
            
         XCTAssertEqual(accessibilityElement.fileText.value, "that's sometext in here don't you think?")
         XCTAssertEqual(accessibilityElement.caretLocation, 11)

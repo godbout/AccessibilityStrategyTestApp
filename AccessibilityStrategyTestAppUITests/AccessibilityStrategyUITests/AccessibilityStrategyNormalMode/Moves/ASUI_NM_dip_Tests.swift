@@ -10,8 +10,8 @@ class ASUI_NM_dip_Tests: ASUI_NM_BaseTests {
         return applyMove { asNormalMode.dip(on: $0, &vimEngineState) }
     }
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMoveBeingTested(&state)
     }
@@ -112,7 +112,7 @@ place
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 this is to check

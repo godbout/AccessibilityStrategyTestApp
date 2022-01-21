@@ -8,8 +8,8 @@ class ASUI_VML_d_Tests: ASUI_VM_BaseTests {
     var state = VimEngineState(visualStyle: .linewise)
     
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR, visualStyle: .linewise)
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily, visualStyle: .linewise)
         
         return applyMove { asVisualMode.d(on: $0, &state) }
     }
@@ -215,7 +215,7 @@ one extra line in between!
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
                      
         XCTAssertEqual(accessibilityElement.fileText.value, """
 we gonna use VM      ⛱️o go to non blank of the line
@@ -239,7 +239,7 @@ and it would be beautiful
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
    ⛱️e gonna remove the las

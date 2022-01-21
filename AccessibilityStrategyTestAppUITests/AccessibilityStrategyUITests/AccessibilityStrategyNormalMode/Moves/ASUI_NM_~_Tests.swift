@@ -8,8 +8,8 @@ import VimEngineState
 // implementation is also rock n roll and has a comment about it else crying ensues.
 class ASUI_NM_tilde_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, pgR: Bool = false) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.tilde(times: count, on: $0, VimEngineState(pgR: pgR)) }
+    private func applyMoveBeingTested(times count: Int = 1, appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        return applyMove { asNormalMode.tilde(times: count, on: $0, VimEngineState(appFamily: appFamily)) }
     }
     
 }
@@ -101,7 +101,7 @@ extension ASUI_NM_tilde_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.B(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(times: 5, pgR: true)
+        let accessibilityElement = applyMoveBeingTested(times: 5, appFamily: .pgR)
       
         XCTAssertEqual(accessibilityElement.fileText.value, "gonna replace one of THoSTHoSE😂️letters...")
         XCTAssertEqual(accessibilityElement.caretLocation, 30)

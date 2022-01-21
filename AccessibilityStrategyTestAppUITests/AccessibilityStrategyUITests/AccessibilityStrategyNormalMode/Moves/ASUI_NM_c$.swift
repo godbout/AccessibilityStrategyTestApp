@@ -6,7 +6,7 @@ import VimEngineState
 class ASUI_NM_cDollarSign_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: true)
+        var state = VimEngineState(appFamily: .pgR)
         
         return applyMove { asNormalMode.cDollarSign(on: $0, &state) }
     }

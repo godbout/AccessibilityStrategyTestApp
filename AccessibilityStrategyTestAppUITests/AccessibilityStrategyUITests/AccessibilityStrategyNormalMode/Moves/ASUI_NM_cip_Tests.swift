@@ -5,8 +5,8 @@ import VimEngineState
 
 class ASUI_NM_cip_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR) 
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily) 
         
         return applyMove { asNormalMode.cip(on: $0, &state) }
     }
@@ -33,7 +33,7 @@ shit in PGR
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 this is some text

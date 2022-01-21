@@ -7,8 +7,8 @@ import VimEngineState
 // here we just test that we pass the pgR parameter correctly to ciInnerBrackets.
 class ASUI_NM_ciLeftParenthesis_Tests: ASUI_NM_BaseTests {
 
-    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.ciLeftParenthesis(on: $0, &state) }
     }
@@ -30,7 +30,7 @@ by a linefeed and
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.f(times: 2, to: "n", on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 this case is when 

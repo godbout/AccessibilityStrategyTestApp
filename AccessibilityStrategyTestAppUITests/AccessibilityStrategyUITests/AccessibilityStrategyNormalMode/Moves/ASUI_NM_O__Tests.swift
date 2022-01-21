@@ -6,8 +6,8 @@ import VimEngineState
 // see ASUT O for blah blah
 class ASUI_NM_O__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.O(on: $0, VimEngineState(pgR: pgR)) }
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        return applyMove { asNormalMode.O(on: $0, VimEngineState(appFamily: appFamily)) }
     }
     
 }
@@ -74,7 +74,7 @@ still create a line above
                
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.dollarSign(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
 
@@ -102,7 +102,7 @@ abo😄️ve!
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }
         applyMove { asNormalMode.f(times: 1, to: "d", on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
 tha😄️t's a mu😄️ltiline

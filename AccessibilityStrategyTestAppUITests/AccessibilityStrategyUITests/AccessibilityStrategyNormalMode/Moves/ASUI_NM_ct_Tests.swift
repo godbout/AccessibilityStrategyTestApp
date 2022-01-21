@@ -5,8 +5,8 @@ import VimEngineState
 
 class ASUI_NM_ct_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, to character: Character, pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(times count: Int = 1, to character: Character, appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.ct(times: count, to: character, on: $0, &state) }
     }
@@ -29,7 +29,7 @@ on a line
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(to: "w", pgR: true)
+        let accessibilityElement = applyMoveBeingTested(to: "w", appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 ct on a multiline

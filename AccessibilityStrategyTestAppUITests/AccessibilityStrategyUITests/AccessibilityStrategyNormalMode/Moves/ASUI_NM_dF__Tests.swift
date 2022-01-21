@@ -7,8 +7,8 @@ import VimEngineState
 // the block cursor is repositioned correctly when we found the character.
 class ASUI_NM_dF__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(times count: Int = 1, with character: Character, appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.dF(times: count, to: character, on: $0, &state) }
     }
@@ -65,6 +65,7 @@ should work
 }
 
 
+// TODO: add Electron
 // PGR
 extension ASUI_NM_dF__Tests {
     
@@ -78,7 +79,7 @@ on a lin😂️
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(with: "o", pgR: true)
+        let accessibilityElement = applyMoveBeingTested(with: "o", appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 dF on a multiline

@@ -6,8 +6,8 @@ import VimEngineState
 // no blah blah :D
 class ASUI_NM_cEe_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.cEe(on: $0, using: asNormalMode.e, &state) }
     }
@@ -25,7 +25,7 @@ extension ASUI_NM_cEe_Tests {
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, " gonna use ce on this sentence")
         XCTAssertEqual(accessibilityElement.caretLocation, 0)

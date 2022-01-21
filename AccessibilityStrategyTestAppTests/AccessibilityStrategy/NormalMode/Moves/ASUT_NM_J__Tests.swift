@@ -7,7 +7,7 @@ import VimEngineState
 class ASUT_NM_J__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        return asNormalMode.J(on: element, VimEngineState(pgR: false))
+        return asNormalMode.J(on: element, VimEngineState(appFamily: .auto))
     }
     
 }

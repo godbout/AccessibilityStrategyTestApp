@@ -9,7 +9,7 @@ import VimEngineState
 class ASUT_NM_O__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        return asNormalMode.O(on: element, VimEngineState(pgR: false))
+        return asNormalMode.O(on: element, VimEngineState(appFamily: .auto))
     }
     
 }

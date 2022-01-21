@@ -5,8 +5,8 @@ import VimEngineState
 
 class ASUI_NM_cgg_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.cgg(on: $0, &state) }
     }
@@ -33,7 +33,7 @@ those faces 🥺️☹️😂️
         applyMove { asNormalMode.gj(on: $0) }
         applyMove { asNormalMode.gj(on: $0) }
         applyMove { asNormalMode.f(to: "g", on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
  

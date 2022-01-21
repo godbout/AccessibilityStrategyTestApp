@@ -7,8 +7,8 @@ class ASUI_VM_tilde_Tests: ASUI_VM_BaseTests {
     
     var state = VimEngineState(visualStyle: .characterwise)
 
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        state.pgR = pgR
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        state.appFamily = appFamily
         
         return applyMove { asVisualMode.tilde(on: $0, state) }
     }
@@ -68,7 +68,7 @@ the selection!
         applyMove { asVisualMode.j(on: $0, state) }
         applyMove { asVisualMode.j(on: $0, state) }
         applyMove { asVisualMode.b(on: $0, state) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
 all that VM d DOES

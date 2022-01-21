@@ -5,8 +5,8 @@ import VimEngineState
 
 class ASUI_NM_cF__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, to character: Character, pgR: Bool) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(times count: Int = 1, to character: Character, appFamily: VimEngineAppFamily) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.cF(times: count, to: character, on: $0, &state) }
     }
@@ -27,7 +27,7 @@ on a 📏️📏️ line
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.l(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(to: "o", pgR: true)
+        let accessibilityElement = applyMoveBeingTested(to: "o", appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 cF on a multiline

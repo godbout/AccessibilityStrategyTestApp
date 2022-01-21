@@ -5,8 +5,8 @@ import VimEngineState
 
 class ASUI_NM_rightChevronRightChevron_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.rightChevronRightChevron(on: $0, VimEngineState(pgR: pgR)) }
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        return applyMove { asNormalMode.rightChevronRightChevron(on: $0, VimEngineState(appFamily: appFamily)) }
     }
     
 }
@@ -73,7 +73,7 @@ seems that even the normal
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
        
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
             
         XCTAssertEqual(accessibilityElement.fileText.value, """
 seems that even the normal

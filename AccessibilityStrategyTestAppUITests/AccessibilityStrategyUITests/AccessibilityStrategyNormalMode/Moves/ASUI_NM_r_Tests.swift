@@ -5,8 +5,8 @@ import VimEngineState
 
 class ASUI_NM_r_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.r(times: count, with: character, on: $0, VimEngineState(pgR: pgR)) }
+    private func applyMoveBeingTested(times count: Int = 1, with character: Character, appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        return applyMove { asNormalMode.r(times: count, with: character, on: $0, VimEngineState(appFamily: appFamily)) }
     }
     
 }
@@ -155,7 +155,7 @@ extension ASUI_NM_r_Tests {
         applyMove { asNormalMode.B(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(with: "a", pgR: true)
+        let accessibilityElement = applyMoveBeingTested(with: "a", appFamily: .pgR)
       
         XCTAssertEqual(accessibilityElement.fileText.value, "gonna replace one of thosa letters...")
         XCTAssertEqual(accessibilityElement.caretLocation, 25)

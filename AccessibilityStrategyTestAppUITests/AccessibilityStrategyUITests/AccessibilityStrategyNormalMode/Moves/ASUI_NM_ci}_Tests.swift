@@ -6,8 +6,8 @@ import VimEngineState
 // see ci(
 class ASUI_NM_ciRightBrace_Tests: ASUI_NM_BaseTests {
 
-    private func applyMoveBeingTested(pgR: Bool) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.ciRightBrace(on: $0, &state) }
     }
@@ -29,7 +29,7 @@ by a linefeed and
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.f(times: 2, to: "n", on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 this case is when 

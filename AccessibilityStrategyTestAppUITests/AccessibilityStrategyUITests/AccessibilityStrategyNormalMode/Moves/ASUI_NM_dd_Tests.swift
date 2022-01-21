@@ -9,8 +9,8 @@ class ASUI_NM_dd_Tests: ASUI_NM_BaseTests {
         return applyMove { asNormalMode.dd(on: $0, &vimEngineState) }
     }
     
-    private func applyMoveBeingTested(pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMoveBeingTested(&state)
     }
@@ -257,7 +257,7 @@ after the two spaces
 
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -280,7 +280,7 @@ one
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.l(on: $0) }
-        let accessibilityElement = applyMoveBeingTested(pgR: true)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
 this one

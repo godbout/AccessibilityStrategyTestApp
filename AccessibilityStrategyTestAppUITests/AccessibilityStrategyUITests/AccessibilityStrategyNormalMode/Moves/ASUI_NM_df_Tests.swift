@@ -6,8 +6,8 @@ import VimEngineState
 // see dF for blah blah
 class ASUI_NM_df_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, with character: Character, pgR: Bool = false) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: pgR)
+    private func applyMoveBeingTested(times count: Int = 1, with character: Character, appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.df(times: count, to: character, on: $0, &state) }
     }
@@ -68,7 +68,7 @@ extension ASUI_NM_df_Tests {
         applyMove { asNormalMode.gZero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
        
-        let accessibilityElement = applyMoveBeingTested(with: "s", pgR: true)
+        let accessibilityElement = applyMoveBeingTested(with: "s", appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "⛱️ df on this sentence")
         XCTAssertEqual(accessibilityElement.caretLocation, 0)

@@ -8,7 +8,7 @@ import VimEngineState
 class ASUT_NM_cEe_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement, using motion: (Int?, AccessibilityTextElement) -> AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(pgR: false)
+        var state = VimEngineState(appFamily: .auto)
         
         return applyMoveBeingTested(times: count, on: element, using: motion, &state)
     }
