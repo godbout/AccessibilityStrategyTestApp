@@ -241,7 +241,7 @@ own empty
 }
 
 
-// PGR
+// PGR and Electron
 // there's one other "case" where PGR is called but that one can't be tested.
 // see NM dd implementation. will be clear.
 extension ASUI_NM_dd_Tests {

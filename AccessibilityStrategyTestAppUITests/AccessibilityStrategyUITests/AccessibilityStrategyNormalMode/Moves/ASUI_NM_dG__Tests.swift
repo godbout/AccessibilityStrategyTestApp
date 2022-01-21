@@ -120,7 +120,7 @@ before what was the current one.
 }
  
 
-// PGR
+// PGR and Electron
 extension ASUI_NM_dG__Tests {
 
     func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {

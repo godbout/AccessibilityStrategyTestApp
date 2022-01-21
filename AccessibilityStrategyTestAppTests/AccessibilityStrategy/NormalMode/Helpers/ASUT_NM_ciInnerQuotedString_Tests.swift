@@ -3,7 +3,7 @@ import XCTest
 import VimEngineState
 
 
-// PGR in UIT
+// PGR and Electron in UIT
 class ASUT_NM_ciInnerQuotedString_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(using quote: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {

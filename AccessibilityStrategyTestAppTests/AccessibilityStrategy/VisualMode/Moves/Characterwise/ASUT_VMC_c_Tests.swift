@@ -3,7 +3,7 @@ import XCTest
 import VimEngineState
 
 
-// PGR in UIT.
+// PGR and Electron in UIT.
 class ASUT_VMC_c_Tests: ASVM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {

@@ -5,7 +5,7 @@ import VimEngineState
 
 // ciWw will be using TE.innerWord and TE.innerWOrd that are both fully tested.
 // contrary to TE.aWORD/word, innerWORD/word never returns nil because Vim always finds an innerWORD/word.
-// PGR in UIT.
+// PGR and Electron in UIT.
 class ASUT_NM_ciWw_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {

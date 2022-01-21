@@ -196,7 +196,7 @@ t
 }
 
 
-// PGR
+// PGR and Electron
 // yes, one case cannot be tested here.
 extension ASUI_VML_d_Tests {
     

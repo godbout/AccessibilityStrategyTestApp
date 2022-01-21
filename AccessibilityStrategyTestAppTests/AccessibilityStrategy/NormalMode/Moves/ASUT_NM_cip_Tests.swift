@@ -5,7 +5,7 @@ import VimEngineState
 
 // cip uses FT.innerParagraph that is already tested. here as usual we check stuff that are specific
 // to cip, which is caret ending up at the right place, text deleted etc.
-// PGR in UIT.
+// PGR and Electron in UIT.
 class ASUT_NM_cip_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
