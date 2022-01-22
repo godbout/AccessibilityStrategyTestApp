@@ -1,6 +1,6 @@
 import XCTest
 import AccessibilityStrategy
-import VimEngineState
+import Common
 
 
 // other tests in Unit Tests. the UI is just to test special cases.

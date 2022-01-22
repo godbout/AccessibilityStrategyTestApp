@@ -1,6 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
-import VimEngineState
+import Common
 
 
 // using the move f internally, so just a few tests needed here

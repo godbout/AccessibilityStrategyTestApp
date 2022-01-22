@@ -1,6 +1,6 @@
 import XCTest
 @testable import AccessibilityStrategy
-import VimEngineState
+import Common
 
 
 // see wordMotionForward for blah blah

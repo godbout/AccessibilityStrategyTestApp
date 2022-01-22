@@ -1,13 +1,13 @@
 import XCTest
 @testable import AccessibilityStrategy
-import VimEngineState
+import Common
 
 
 // internally calling `caw`. here as usual with `d` moves we gonna test
 // the caret repositioning.
 class ASUI_NM_daWw_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.daWw(on: $0, using: $0.fileText.aWord, &state) }

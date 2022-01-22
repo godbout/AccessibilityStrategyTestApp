@@ -1,6 +1,6 @@
 import XCTest
 @testable import AccessibilityStrategy
-import VimEngineState
+import Common
 
 
 class ASUI_NM_cl_Tests: ASUI_NM_BaseTests {

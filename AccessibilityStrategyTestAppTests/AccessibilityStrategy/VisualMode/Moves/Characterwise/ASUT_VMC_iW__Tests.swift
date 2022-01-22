@@ -1,6 +1,6 @@
 import AccessibilityStrategy
 import XCTest
-import VimEngineState
+import Common
 
 
 class ASUT_VMC_iW__Tests: ASVM_BaseTests {

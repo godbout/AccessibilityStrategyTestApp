@@ -1,6 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
-import VimEngineState
+import Common
 
 
 // the Vim doc says that if the caret is on a blank, `cw` acts like `ce`: http://vimdoc.sourceforge.net/htmldoc/motion.html#word
@@ -8,7 +8,7 @@ import VimEngineState
 // for rest of blah blah blah see ciWw.
 class ASUI_NM_cWw_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(appFamily: VimEngineAppFamily) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(appFamily: AppFamily) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.cWw(on: $0, using: $0.fileText.innerWORD, &state) }

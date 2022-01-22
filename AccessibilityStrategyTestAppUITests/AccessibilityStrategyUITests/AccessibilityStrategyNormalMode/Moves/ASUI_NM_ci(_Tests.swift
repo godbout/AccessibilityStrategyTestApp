@@ -1,13 +1,13 @@
 import XCTest
 @testable import AccessibilityStrategy
-import VimEngineState
+import Common
 
 
 // this is calling ciInnerBrackets so all the tests are there.
 // here we just test that we pass the pgR parameter correctly to ciInnerBrackets.
 class ASUI_NM_ciLeftParenthesis_Tests: ASUI_NM_BaseTests {
 
-    private func applyMoveBeingTested(appFamily: VimEngineAppFamily) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(appFamily: AppFamily) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.ciLeftParenthesis(on: $0, &state) }

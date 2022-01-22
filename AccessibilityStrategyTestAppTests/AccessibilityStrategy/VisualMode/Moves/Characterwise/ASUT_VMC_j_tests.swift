@@ -1,6 +1,6 @@
 import XCTest
 import AccessibilityStrategy
-import VimEngineState
+import Common
 
 
 // for VMC we need to set the CNs else they're nil by default and the move will

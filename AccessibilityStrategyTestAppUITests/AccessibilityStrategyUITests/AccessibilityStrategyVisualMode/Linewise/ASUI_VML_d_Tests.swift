@@ -1,6 +1,6 @@
 import XCTest
 @testable import AccessibilityStrategy
-import VimEngineState
+import Common
 
 
 class ASUI_VML_d_Tests: ASUI_VM_BaseTests {
@@ -8,7 +8,7 @@ class ASUI_VML_d_Tests: ASUI_VM_BaseTests {
     var state = VimEngineState(visualStyle: .linewise)
     
     
-    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily, visualStyle: .linewise)
         
         return applyMove { asVisualMode.d(on: $0, &state) }

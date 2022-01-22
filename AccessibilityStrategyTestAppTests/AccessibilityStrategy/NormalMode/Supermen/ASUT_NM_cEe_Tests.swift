@@ -1,6 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
-import VimEngineState
+import Common
 
 
 // `ce` uses `e` that uses `FileText.endOfWordForward` that are heavily tested.

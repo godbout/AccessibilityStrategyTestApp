@@ -1,11 +1,11 @@
 import XCTest
 @testable import AccessibilityStrategy
-import VimEngineState
+import Common
 
 
 class ASUI_NM_J__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         return applyMove { asNormalMode.J(on: $0, VimEngineState(appFamily: appFamily)) }
     }
     

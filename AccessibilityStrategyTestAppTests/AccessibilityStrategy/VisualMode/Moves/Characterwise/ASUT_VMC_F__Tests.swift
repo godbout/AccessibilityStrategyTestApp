@@ -1,6 +1,6 @@
 import XCTest
 import AccessibilityStrategy
-import VimEngineState
+import Common
 
 
 // using TextEngine moves, that are already tested.

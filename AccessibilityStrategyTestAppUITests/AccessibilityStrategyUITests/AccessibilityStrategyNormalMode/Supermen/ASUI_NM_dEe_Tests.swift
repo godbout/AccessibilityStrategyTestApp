@@ -1,6 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
-import VimEngineState
+import Common
 
 
 // calling `ce` that is already tested. as usual with `d` moves we test the caret relocation.
@@ -8,7 +8,7 @@ import VimEngineState
 // 1) it's the same func 2) we're testing that we're passing the right func in UT.
 class ASUI_NM_dEe_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.dEe(on: $0, using: asNormalMode.e, &state) }

@@ -1,6 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
-import VimEngineState
+import Common
 
 
 // what we test with those functions like ciWw is that PGR is handled on ciW and ciw.
@@ -8,7 +8,7 @@ import VimEngineState
 // are tested independently.
 class ASUI_NM_ciWw__Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(appFamily: VimEngineAppFamily) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(appFamily: AppFamily) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily) 
         
         return applyMove { asNormalMode.ciWw(on: $0, using: $0.fileText.innerWORD, &state) }

@@ -1,6 +1,6 @@
 import XCTest
 @testable import AccessibilityStrategy
-import VimEngineState
+import Common
 
 
 // there's no way to test PGR for this move. if you can't remember why think harder.
@@ -10,7 +10,7 @@ class ASUI_NM_dgg_Tests: ASUI_NM_BaseTests {
         return applyMove { asNormalMode.dgg(on: $0, &vimEngineState) }
     }
     
-    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
         return applyMoveBeingTested(&state)

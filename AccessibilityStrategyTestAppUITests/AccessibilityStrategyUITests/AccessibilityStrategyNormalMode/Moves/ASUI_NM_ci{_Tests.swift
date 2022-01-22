@@ -1,12 +1,12 @@
 import XCTest
 @testable import AccessibilityStrategy
-import VimEngineState
+import Common
 
 
 // see ci(
 class ASUI_NM_ciLeftBrace_Tests: ASUI_NM_BaseTests {
 
-    private func applyMoveBeingTested(appFamily: VimEngineAppFamily) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(appFamily: AppFamily) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.ciLeftBrace(on: $0, &state) }

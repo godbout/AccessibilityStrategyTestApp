@@ -1,6 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
-import VimEngineState
+import Common
 
 
 // only PGR and tests when on the first line needs to be done in UIT. on the first line

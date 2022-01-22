@@ -1,13 +1,13 @@
 import XCTest
 @testable import AccessibilityStrategy
-import VimEngineState
+import Common
 
 
 class ASUI_VM_tilde_Tests: ASUI_VM_BaseTests {
     
     var state = VimEngineState(visualStyle: .characterwise)
 
-    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         state.appFamily = appFamily
         
         return applyMove { asVisualMode.tilde(on: $0, state) }

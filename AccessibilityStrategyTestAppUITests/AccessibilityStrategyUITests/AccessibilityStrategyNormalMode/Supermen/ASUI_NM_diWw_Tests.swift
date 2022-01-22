@@ -1,6 +1,6 @@
 import XCTest
 @testable import AccessibilityStrategy
-import VimEngineState
+import Common
 
 
 // yes, only passing `innerWord` here. both `innerWord` and `innerWORD` are heavily
@@ -11,7 +11,7 @@ import VimEngineState
 // can see daw for blah blah.
 class ASUI_NM_diWw_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.diWw(on: $0, using: $0.fileText.innerWord, &state) }

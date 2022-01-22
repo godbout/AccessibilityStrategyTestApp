@@ -1,6 +1,6 @@
 import XCTest
 @testable import AccessibilityStrategy
-import VimEngineState
+import Common
 
 
 // `~` and `r` are two very special cases. so the UIT and PGR may look different
@@ -8,7 +8,7 @@ import VimEngineState
 // implementation is also rock n roll and has a comment about it else crying ensues.
 class ASUI_NM_tilde_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int = 1, appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         return applyMove { asNormalMode.tilde(times: count, on: $0, VimEngineState(appFamily: appFamily)) }
     }
     

@@ -1,6 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
-import VimEngineState
+import Common
 
 
 // cip uses FT.innerParagraph that is already tested. here as usual we check stuff that are specific

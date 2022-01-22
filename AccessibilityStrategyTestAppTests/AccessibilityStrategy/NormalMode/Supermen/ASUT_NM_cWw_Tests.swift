@@ -1,6 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
-import VimEngineState
+import Common
 
 
 class ASUT_NM_cWw_Tests: ASUT_NM_BaseTests {

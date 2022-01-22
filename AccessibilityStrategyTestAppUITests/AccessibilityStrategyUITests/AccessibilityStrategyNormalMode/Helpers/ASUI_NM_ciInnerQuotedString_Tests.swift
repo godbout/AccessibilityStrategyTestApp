@@ -1,12 +1,12 @@
 @testable import AccessibilityStrategy
 import XCTest
-import VimEngineState
+import Common
 
 
 // see ASUT ciInnerQuotedString for blah blah
 class ASUI_NM_ciInnerQuotedString_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(using quote: Character, appFamily: VimEngineAppFamily) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(using quote: Character, appFamily: AppFamily) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.ciInnerQuotedString(using: quote, on: $0, &state) }

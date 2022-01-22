@@ -1,6 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
-import VimEngineState
+import Common
 
 
 class ASUI_NM_cDollarSign_Tests: ASUI_NM_BaseTests {

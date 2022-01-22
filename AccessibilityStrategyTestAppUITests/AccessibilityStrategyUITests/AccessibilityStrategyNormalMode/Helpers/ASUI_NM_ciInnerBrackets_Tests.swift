@@ -1,11 +1,11 @@
 @testable import AccessibilityStrategy
 import XCTest
-import VimEngineState
+import Common
 
 
 class ASUI_NM_ciInnerBrackets_Tests: ASUI_NM_BaseTests {
        
-    private func applyMoveBeingTested(using bracket: Character, appFamily: VimEngineAppFamily) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(using bracket: Character, appFamily: AppFamily) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.ciInnerBrackets(using: bracket, on: $0, &state) }

@@ -1,6 +1,6 @@
 import AccessibilityStrategy
 import XCTest
-import VimEngineState
+import Common
 
 
 // rest of tests in UI because this is a ScreenLine move!

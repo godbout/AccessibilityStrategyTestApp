@@ -1,6 +1,6 @@
 import XCTest
 @testable import AccessibilityStrategy
-import VimEngineState
+import Common
 
 
 // `d` moves always need to be tested in UIT because they have to call the AX
@@ -10,7 +10,7 @@ class ASUI_VMC_d_Tests: ASUI_VM_BaseTests {
     var state = VimEngineState(visualStyle: .characterwise)
     
     
-    private func applyMoveBeingTested(appFamily: VimEngineAppFamily = .auto) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         state.appFamily = appFamily
         
         return applyMove { asVisualMode.d(on: $0, &state) }
