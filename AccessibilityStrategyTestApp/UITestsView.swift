@@ -27,6 +27,7 @@ struct UITestsView: View {
 
     @State var textFieldValue = ""
     @State var textViewValue = ""
+    @State var toggle = false
 
     var body: some View {
         VStack {
@@ -38,7 +39,8 @@ struct UITestsView: View {
                 .focusable(false)
                 .disableAutocorrection(true)
 
-            Button("wo'hevah", action: {})
+            Toggle("wot", isOn: $toggle)
+            Button("wo'hevah", action: { NSApp.keyWindow?.makeFirstResponder(nil)})
         }
         .font(.system(size: 16, weight: .regular, design: .monospaced))
         .frame(width: 250, height: 300, alignment: .leading)
