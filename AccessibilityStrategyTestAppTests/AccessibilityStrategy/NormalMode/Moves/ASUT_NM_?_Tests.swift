@@ -2,27 +2,27 @@
 import XCTest
 
 
-class ASUT_NM_slash_Tests: ASUT_NM_BaseTests {
+class ASUT_NM_interrogationMark_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int? = 1, to searchString: String, on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        return asNormalMode.slash(times: count, to: searchString, on: element) 
+        return asNormalMode.interrogationMark(times: count, to: searchString, on: element) 
     }
     
 }
 
 
 // count
-extension ASUT_NM_slash_Tests {
+extension ASUT_NM_interrogationMark_Tests {
     
     func test_that_it_implements_the_count_system() {
         let text = "hehe count is cool yeah count is cool"
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
             length: 37,
-            caretLocation: 8,
+            caretLocation: 33,
             selectedLength: 1,
-            selectedText: "n",
+            selectedText: "c",
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
@@ -32,9 +32,9 @@ extension ASUT_NM_slash_Tests {
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(times: 2, to: "cool", on: element)
+        let returnedElement = applyMoveBeingTested(times: 2, to: "count", on: element)
 
-        XCTAssertEqual(returnedElement.caretLocation, 33)
+        XCTAssertEqual(returnedElement.caretLocation, 5)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
     }
@@ -68,17 +68,17 @@ extension ASUT_NM_slash_Tests {
 
 
 // Both
-extension ASUT_NM_slash_Tests {
+extension ASUT_NM_interrogationMark_Tests {
     
-    func test_that_in_normal_setting_it_moves_the_caret_to_the_first_occurence_of_the_pattern_found_to_the_right() {
+    func test_that_in_normal_setting_it_moves_the_caret_to_the_first_occurence_of_the_pattern_found_to_the_left() {
         let text = "hehe now it's real regex my man not some pussy pussy stuff like before"
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
             length: 70,
-            caretLocation: 25,
+            caretLocation: 59,
             selectedLength: 1,
-            selectedText: "m",
+            selectedText: "l",
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 70,
@@ -90,7 +90,7 @@ extension ASUT_NM_slash_Tests {
         
         let returnedElement = applyMoveBeingTested(to: "pussy", on: element)
         
-        XCTAssertEqual(returnedElement.caretLocation, 41)
+        XCTAssertEqual(returnedElement.caretLocation, 47)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
     }
@@ -179,7 +179,7 @@ and the caret shouldn't move else pan pan cul cul
             role: .textField,
             value: text,
             length: 53,
-            caretLocation: 20,
+            caretLocation: 49,
             selectedLength: 1,
             selectedText: "s",
             currentScreenLine: ScreenLine(
@@ -198,7 +198,7 @@ and the caret shouldn't move else pan pan cul cul
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_we_are_already_located_at_the_first_character_of_the_searchPattern_then_it_goes_to_the_next_found_and_does_not_get_stuck_at_the_current_one() {
+    func test_that_if_we_are_already_located_at_the_first_character_of_the_searchPattern_then_it_goes_to_the_previous_found_and_does_not_get_stuck_at_the_current_one() {
         let text = """
 ok time to play
 with multilines and play
@@ -209,21 +209,111 @@ blocked haha. play
             role: .textArea,
             value: text,
             length: 87,
-            caretLocation: 11,
+            caretLocation: 36,
             selectedLength: 1,
             selectedText: "p",
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 87,
-                number: 1,
-                start: 0,
-                end: 16
+                number: 2,
+                start: 16,
+                end: 41
             )!
         )
-            
+        
+        let returnedElement = applyMoveBeingTested(to: "play", on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 11)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
+    func test_the_same_as_above_but_with_the_searchPattern_at_the_end_of_the_text() {
+        let text = """
+ok time to play
+with multilines and play
+also with the caret getting
+blocked haha. play
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 87,
+            caretLocation: 83,
+            selectedLength: 1,
+            selectedText: "p",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 87,
+                number: 2,
+                start: 16,
+                end: 41
+            )!
+        )
+        
         let returnedElement = applyMoveBeingTested(to: "play", on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 36)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
+    func test_that_if_we_are_located_after_the_first_character_of_the_searchPattern_but_still_within_the_searchPattern_then_it_finds_that_current_searchPattern() {
+        let text = """
+ok time to play
+with multilines and play
+also with the caret getting
+blocked haha. play
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 87,
+            caretLocation: 37,
+            selectedLength: 1,
+            selectedText: "p",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 87,
+                number: 2,
+                start: 16,
+                end: 41
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(to: "play", on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 36)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
+    func test_the_same_as_above_but_with_the_searchPattern_at_the_end_of_the_text_bis() {
+        let text = """
+ok time to play
+with multilines and play
+also with the caret getting
+blocked haha. play
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 87,
+            caretLocation: 84,
+            selectedLength: 1,
+            selectedText: "l",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 87,
+                number: 4,
+                start: 69,
+                end: 87
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(to: "play", on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 83)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
     }
