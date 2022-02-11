@@ -39,7 +39,8 @@ extension ASUT_NM_interrogationMark_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_the_count_is_too_high_and_therefore_string_is_not_found_then_it_does_not_move() {
+    // TODO: see /
+    func test_that_if_the_count_is_too_high_it_loops_back_and_finds_the_first_occurence_in_the_whole_tex() {
         let text = "hehe count is cool yeah count is cool"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -59,7 +60,7 @@ extension ASUT_NM_interrogationMark_Tests {
         
         let returnedElement = applyMoveBeingTested(times: 69, to: "cool", on: element)
 
-        XCTAssertEqual(returnedElement.caretLocation, 8)
+        XCTAssertEqual(returnedElement.caretLocation, 33)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
     }
@@ -314,6 +315,36 @@ blocked haha. play
         let returnedElement = applyMoveBeingTested(to: "play", on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 83)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
+    func test_that_if_there_is_no_searchPattern_found_on_the_left_but_there_are_on_the_right_in_the_whole_text_then_it_loops_around_and_finds_the_last_in_the_whole_text() {
+        let text = """
+so now we're gonna have some text
+and we're gonna look for the next one
+but they'll be none so it's gonna
+loop around search back from the beginning
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 148,
+            caretLocation: 3,
+            selectedLength: 1,
+            selectedText: "c",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 148,
+                number: 4,
+                start: 106,
+                end: 148
+            )!
+        )
+            
+        let returnedElement = applyMoveBeingTested(to: "gonna", on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 100)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
     }

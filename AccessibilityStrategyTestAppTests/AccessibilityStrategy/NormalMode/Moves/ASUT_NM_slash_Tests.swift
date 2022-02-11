@@ -39,7 +39,9 @@ extension ASUT_NM_slash_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_the_count_is_too_high_and_therefore_string_is_not_found_then_it_does_not_move() {
+    // TODO: this test and the description (func name) are wrong
+    // it should loop back through the text, and actually count the pattern skipped
+    func test_that_if_the_count_is_too_high_it_loops_back_and_finds_the_first_occurence_in_the_whole_tex() {
         let text = "hehe count is cool yeah count is cool"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -59,7 +61,7 @@ extension ASUT_NM_slash_Tests {
         
         let returnedElement = applyMoveBeingTested(times: 69, to: "cool", on: element)
 
-        XCTAssertEqual(returnedElement.caretLocation, 8)
+        XCTAssertEqual(returnedElement.caretLocation, 14)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
     }
@@ -224,6 +226,36 @@ blocked haha. play
         let returnedElement = applyMoveBeingTested(to: "play", on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 36)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
+    func test_that_if_there_is_no_searchPattern_found_on_the_right_but_there_are_on_the_left_in_the_whole_text_then_it_loops_around_and_finds_the_first_in_the_whole_text() {
+        let text = """
+so now we're gonna have some text
+and we're gonna look for the next one
+but they'll be none so it's gonna
+loop around search back from the beginning
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 148,
+            caretLocation: 127,
+            selectedLength: 1,
+            selectedText: "c",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 148,
+                number: 4,
+                start: 106,
+                end: 148
+            )!
+        )
+            
+        let returnedElement = applyMoveBeingTested(to: "gonna", on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 13)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
     }
