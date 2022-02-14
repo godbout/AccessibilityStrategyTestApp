@@ -5,12 +5,79 @@ import Common
 
 class ASUT_VMC_h_Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int? = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         let state = VimEngineState(visualStyle: .characterwise)
                 
-        return asVisualMode.h(on: element, state)
+        return asVisualMode.h(times: count, on: element, state)
     }
 
+}
+
+
+// count
+// TODO: tests are good, but impl not implemented yet
+extension ASUT_VMC_h_Tests {
+    
+//    func test_that_it_implements_the_count_system() {
+//        
+//        let text = "we gonna move in there with count 🈹️ awww"
+//        let element = AccessibilityTextElement(
+//            role: .textField,
+//            value: text,
+//            length: 42,
+//            caretLocation: 17,
+//            selectedLength: 10,
+//            selectedText: "there with",
+//            currentScreenLine: ScreenLine(
+//                fullTextValue: text,
+//                fullTextLength: 42,
+//                number: 1,
+//                start: 0,
+//                end: 42
+//            )!
+//        )
+//        
+//        AccessibilityStrategyVisualMode.anchor = 26
+//        AccessibilityStrategyVisualMode.head = 17
+//                
+//        let returnedElement = applyMoveBeingTested(times: 8, on: element)
+//
+//        XCTAssertEqual(returnedElement.caretLocation, 9)
+//        XCTAssertEqual(returnedElement.selectedLength, 18)
+//        XCTAssertNil(returnedElement.selectedText)
+//    }
+//    
+//    func test_that_it_stops_at_the_start_limit_if_the_count_goes_above_it() {
+//        let text = """
+//we gonna move
+//in there with
+//count 🈹️ awww
+//"""
+//        let element = AccessibilityTextElement(
+//            role: .textArea,
+//            value: text,
+//            length: 42,
+//            caretLocation: 19,
+//            selectedLength: 5,
+//            selectedText: "ere w",
+//            currentScreenLine: ScreenLine(
+//                fullTextValue: text,
+//                fullTextLength: 42,
+//                number: 2,
+//                start: 14,
+//                end: 28
+//            )!
+//        )
+//        
+//        AccessibilityStrategyVisualMode.anchor = 19
+//        AccessibilityStrategyVisualMode.head = 23
+//                
+//        let returnedElement = applyMoveBeingTested(times: 69, on: element)
+//
+//        XCTAssertEqual(returnedElement.caretLocation, 14)
+//        XCTAssertEqual(returnedElement.selectedLength, 6)
+//        XCTAssertNil(returnedElement.selectedText)
+//    }
 }
 
 
