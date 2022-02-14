@@ -42,14 +42,14 @@ extension ASUT_NM_h_Tests {
     func test_that_it_stops_at_the_start_limit_if_the_count_goes_above_it() {
         let text = """
 we gonna move
-in there with
-count 🈹️ awww
+🈹️ in there with
+count awww
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
             length: 42,
-            caretLocation: 19,
+            caretLocation: 25,
             selectedLength: 1,
             selectedText: "e",
             currentScreenLine: ScreenLine(
@@ -57,14 +57,14 @@ count 🈹️ awww
                 fullTextLength: 42,
                 number: 2,
                 start: 14,
-                end: 28
+                end: 32
             )!
         )
         
         let returnedElement = applyMoveBeingTested(times: 69, on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 14)
-        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertEqual(returnedElement.selectedLength, 3)
         XCTAssertNil(returnedElement.selectedText)
     }
 }
