@@ -96,6 +96,31 @@ extension ASUT_NM_interrogationMark_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
+    func test_that_it_considers_the_searchString_as_a_literal_string_by_escaping_the_metacharacters() {
+        let text = "ok now we're gonna go harder asNormalMode.h(times: count) alright?"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 66,
+            caretLocation: 58,
+            selectedLength: 1,
+            selectedText: "a",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 66,
+                number: 1,
+                start: 0,
+                end: 66
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(to: ".h(", on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 41)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
     func test_that_it_does_not_crash_if_the_searchString_is_empty() {
         let text = "there's a difference between try! and try?"
         let element = AccessibilityTextElement(
