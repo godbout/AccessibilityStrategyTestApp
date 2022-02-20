@@ -6,7 +6,7 @@ import Common
 // see ; for blah blah
 class ASUT_NM_command_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int?, lastLeftRightSearch: LastLeftRightSearch, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int? = 1, lastLeftRightSearch: LastLeftRightSearch, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.comma(times: count, lastLeftRightSearch: lastLeftRightSearch, on: element)
     }
     

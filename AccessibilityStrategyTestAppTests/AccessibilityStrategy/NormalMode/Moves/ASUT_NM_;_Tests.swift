@@ -11,7 +11,7 @@ import Common
 // we are searching for, ; acts like with a count of 2. 
 class ASUT_NM_semicolon_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int?, lastLeftRightSearch: LastLeftRightSearch, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int? = 1, lastLeftRightSearch: LastLeftRightSearch, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.semicolon(times: count, lastLeftRightSearch: lastLeftRightSearch, on: element)
     }
     
