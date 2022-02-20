@@ -4,7 +4,7 @@ import Common
 
 
 // see ; for blah blah
-class ASUT_NM_command_Tests: ASUT_NM_BaseTests {
+class ASUT_NM_comma_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int? = 1, lastLeftRightSearch: LastLeftRightSearch, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.comma(times: count, lastLeftRightSearch: lastLeftRightSearch, on: element)
@@ -14,7 +14,7 @@ class ASUT_NM_command_Tests: ASUT_NM_BaseTests {
 
 
 // see ; for blah blah
-extension ASUT_NM_command_Tests {
+extension ASUT_NM_comma_Tests {
     
     func test_that_if_lastLeftRightSearch_is_F_it_simply_forward_parameters_to_the_f_move() {
         let text = "we gonna use the same sentence to do 💩️💩️💩️ several tests with different LastLeftRightSearch params"
@@ -70,7 +70,7 @@ extension ASUT_NM_command_Tests {
 
 
 // and see ; for blah blah
-extension ASUT_NM_command_Tests {
+extension ASUT_NM_comma_Tests {
     
     func test_that_if_lastLeftRightSearch_is_T_and_the_caret_is_right_before_the_character_we_are_searching_for_and_the_count_is_nil_then_the_count_becomes_2_so_that_the_caret_can_move_using_t() {
         let text = "we gonna use the same sentence to do 💩️💩️💩️ several tests with different LastLeftRightSearch params"
@@ -78,7 +78,7 @@ extension ASUT_NM_command_Tests {
             role: .textField,
             value: text,
             length: 102,
-            caretLocation: 71,
+            caretLocation: 69,
             selectedLength: 1,
             selectedText: "n",
             currentScreenLine: ScreenLine(
@@ -92,7 +92,7 @@ extension ASUT_NM_command_Tests {
         
         let returnedElement = applyMoveBeingTested(times: nil, lastLeftRightSearch: LastLeftRightSearch(motion: .T, character: "e"), on: element)
 
-        XCTAssertEqual(returnedElement.caretLocation, 80)
+        XCTAssertEqual(returnedElement.caretLocation, 71)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
     }
@@ -103,7 +103,7 @@ extension ASUT_NM_command_Tests {
             role: .textField,
             value: text,
             length: 102,
-            caretLocation: 71,
+            caretLocation: 69,
             selectedLength: 1,
             selectedText: "n",
             currentScreenLine: ScreenLine(
@@ -117,7 +117,7 @@ extension ASUT_NM_command_Tests {
         
         let returnedElement = applyMoveBeingTested(times: 1, lastLeftRightSearch: LastLeftRightSearch(motion: .T, character: "e"), on: element)
 
-        XCTAssertEqual(returnedElement.caretLocation, 80)
+        XCTAssertEqual(returnedElement.caretLocation, 71)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
     }

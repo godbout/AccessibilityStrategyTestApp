@@ -52,7 +52,7 @@ extension ASUT_NM_semicolon_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
-            length: 29,
+            length: 102,
             caretLocation: 4,
             selectedLength: 1,
             selectedText: "L",
