@@ -54,7 +54,7 @@ we should stay there
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(&state)
         
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️")
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "r")
         XCTAssertEqual(state.lastYankStyle, .characterwise)
         XCTAssertFalse(state.lastMoveBipped)
     }
