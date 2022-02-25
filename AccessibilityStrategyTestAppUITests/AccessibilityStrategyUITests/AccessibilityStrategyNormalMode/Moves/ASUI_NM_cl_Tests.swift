@@ -5,12 +5,6 @@ import Common
 
 class ASUI_NM_cl_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement {
-        var state = VimEngineState()
-        
-        return applyMoveBeingTested(&state)
-    }
-        
     private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return applyMove { asNormalMode.cl(on: $0, &vimEngineState) }
     }

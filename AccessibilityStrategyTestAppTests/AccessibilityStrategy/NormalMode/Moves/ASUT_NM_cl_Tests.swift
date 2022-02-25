@@ -88,7 +88,7 @@ those faces 🥺️☹️😂️
 // Both
 extension ASUT_NM_cl_Tests {
     
-    func test_that_in_normal_setting_it_the_character_at_caret_location() {
+    func test_that_in_normal_setting_it_deletes_the_character_at_caret_location() {
         let text = " cl to delete a character on the right"
         let element = AccessibilityTextElement(
             role: .textArea,
