@@ -117,7 +117,7 @@ extension ASUT_NM_ch_Tests {
 // TextViews
 extension ASUT_NM_ch_Tests {
     
-    func test_that_if_the_caret_is_at_the_start_of_the_file_line_it_does_not_delete_nor_move() {
+    func test_that_if_the_caret_is_at_the_start_of_the_file_line_it_does_not_delete_nor_move_and_deselects_text() {
         let text = """
 so we're at the start of the second line
 and a shouldn't get deleted and
@@ -142,7 +142,7 @@ we should stay there
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 41)
-        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
         XCTAssertNil(returnedElement.selectedText)
     }
         
