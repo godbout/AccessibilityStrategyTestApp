@@ -119,7 +119,7 @@ extension ASUT_NM_cl_Tests {
 // TextViews
 extension ASUT_NM_cl_Tests {
     
-    func test_that_on_an_empty_line_it_does_not_delete_the_linefeed() {
+    func test_that_on_an_empty_line_it_does_not_delete_the_linefeed_and_deselects_the_linefeed() {
         let text = """
   blah blah some line
 
@@ -144,7 +144,7 @@ haha geh
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 22)
-        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
         XCTAssertNil(returnedElement.selectedText)
     }
     
