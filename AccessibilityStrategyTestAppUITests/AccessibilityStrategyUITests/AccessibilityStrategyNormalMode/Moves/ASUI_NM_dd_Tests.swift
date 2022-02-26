@@ -261,11 +261,11 @@ after the two spaces
         
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
-    🇫🇷️t should stop
+ 🇫🇷️t should stop
 after the two spaces
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 4)
+        XCTAssertEqual(accessibilityElement.caretLocation, 1)
         XCTAssertEqual(accessibilityElement.selectedLength, 5)
         XCTAssertEqual(accessibilityElement.selectedText, "🇫🇷️")
     }
