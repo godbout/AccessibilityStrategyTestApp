@@ -81,16 +81,16 @@ the wrapped lines and shit is understood
             )!
         )
         
-        AccessibilityStrategyVisualMode.anchor = 74
-        AccessibilityStrategyVisualMode.head = 77
+        AccessibilityStrategyVisualMode.anchor = 77
+        AccessibilityStrategyVisualMode.head = 74
         
         AccessibilityTextElement.fileLineColumnNumber = 34
         AccessibilityTextElement.screenLineColumnNumber = 1
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement.caretLocation, 74)
-        XCTAssertEqual(returnedElement.selectedLength, 39)
+        XCTAssertEqual(returnedElement.caretLocation, 77)
+        XCTAssertEqual(returnedElement.selectedLength, 36)
     }
     
     func test_that_if_the_head_is_before_the_anchor_and_both_are_not_on_the_same_line_and_the_new_head_location_is_before_the_anchor_then_it_goes_to_the_line_below_the_head_on_the_same_column_number_and_selects_from_that_new_head_location_to_the_anchor() {
