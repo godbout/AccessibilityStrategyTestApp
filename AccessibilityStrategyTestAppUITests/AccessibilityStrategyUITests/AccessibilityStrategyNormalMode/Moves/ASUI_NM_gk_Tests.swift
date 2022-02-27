@@ -5,8 +5,54 @@ import AccessibilityStrategy
 // check j for all the blah blah
 class ASUI_NM_gk_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement {
-        return applyMove { asNormalMode.gk(on: $0) }
+    private func applyMoveBeingTested(times count: Int = 1) -> AccessibilityTextElement {
+        return applyMove { asNormalMode.gk(times: count, on: $0) }
+    }
+    
+}
+
+
+// count
+extension ASUI_NM_gk_Tests {
+
+    func test_that_it_implements_the_count_system() {
+        let textInAXFocusedElement = """
+so we're gonna have
+a 😂️ice couple
+of lines and see
+what that shit
+does
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.dollarSign(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(times: 3)
+        
+        XCTAssertEqual(accessibilityElement.caretLocation, 22)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.selectedText, "😂️")
+    }
+    
+    func test_that_if_the_count_is_too_high_it_ends_up_on_the_first_line() {
+        let textInAXFocusedElement = """
+so we're gonna have
+a nice couple
+of lines and see
+what that shit
+doe😂️
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.dollarSign(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(times: 69)
+        
+        XCTAssertEqual(accessibilityElement.caretLocation, 2)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, " ")
     }
     
 }
