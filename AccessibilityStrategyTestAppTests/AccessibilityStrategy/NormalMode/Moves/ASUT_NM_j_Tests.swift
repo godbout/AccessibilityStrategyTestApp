@@ -8,8 +8,78 @@ import AccessibilityStrategy
 // coz else, those tests will pass whether the move is using ScreenLines or FileLines LMAO
 class ASUT_NM_j_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        return asNormalMode.j(on: element) 
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        return asNormalMode.j(times: count, on: element) 
+    }
+    
+}
+
+
+// count
+extension ASUT_NM_j_Tests {
+    
+    func test_that_it_implements_the_count_system() {
+        let text = """
+ok so this is j which means it's gonna work with file lines and not screen lines
+which means we better have long lines here
+else it's gonna sc😂️ew up the tests etc etc etc etc 
+etc etc etc etc etc etc etc etc etc etc etc etc
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 225,
+            caretLocation: 78,
+            selectedLength: 1,
+            selectedText: "e",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 225,
+                number: 2,
+                start: 60,
+                end: 81
+            )!
+        )
+        
+        AccessibilityTextElement.fileLineColumnNumber = 19
+                
+        let returnedElement = applyMoveBeingTested(times: 2, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 142)
+        XCTAssertEqual(returnedElement.selectedLength, 3)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
+    func test_that_if_the_count_is_too_high_it_ends_up_on_the_last_line() {
+        let text = """
+ok so this is j which means it's gonna work with file lines and not screen lines
+which means we better have long lines here
+else it's gonna sc😂️ew up the tests etc etc etc etc 
+etc etc etc etc etc etc etc etc etc etc etc etc
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 225,
+            caretLocation: 78,
+            selectedLength: 1,
+            selectedText: "e",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 225,
+                number: 2,
+                start: 60,
+                end: 81
+            )!
+        )
+        
+        AccessibilityTextElement.fileLineColumnNumber = 19
+                
+        let returnedElement = applyMoveBeingTested(times: 69, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 196)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
@@ -142,7 +212,7 @@ nothing else AR💣️H
             )!
         )
         
-        AccessibilityTextElement.fileLineColumnNumber = 4
+        AccessibilityTextElement.fileLineColumnNumber = 16
 
         let returnedElement = applyMoveBeingTested(on: element)
 
