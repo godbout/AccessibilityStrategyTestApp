@@ -2,9 +2,7 @@ import XCTest
 @testable import AccessibilityStrategy
 
 
-// this moves uses a FileLine func. tested in FileLine.
-// here so more to be extra sure. cheap UT aww.
-// and also the count.
+// see ^ for blah blah
 class ASUT_NM___Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
