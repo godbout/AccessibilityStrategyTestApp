@@ -20,7 +20,7 @@ class ASUI_NM_dh_Tests: ASUI_NM_BaseTests {
 }
 
 
-// Bip, copy deletion and LYS, and count
+// Bip, copy deletion and LYS, AND count
 extension ASUI_NM_dh_Tests {
     
     // this case includes empty lines
