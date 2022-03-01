@@ -3,22 +3,24 @@ import XCTest
 import Common
 
 
+// dh calls ch so usually we would need to only test the caret repositioning after the c move
+// but we may have started with dh before ch here. hence more tests.
 class ASUI_NM_dh_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.dh(on: $0, &vimEngineState) }
+    private func applyMoveBeingTested(times count: Int = 1, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        return applyMove { asNormalMode.dh(times: count, on: $0, &vimEngineState) }
     }
     
-    private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int = 1, appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
-        return applyMoveBeingTested(&state)
+        return applyMoveBeingTested(times: count, &state)
     }
     
 }
 
 
-// Bip, copy deletion and LYS
+// Bip, copy deletion and LYS, and count
 extension ASUI_NM_dh_Tests {
     
     // this case includes empty lines
@@ -43,7 +45,7 @@ we should stay there
         XCTAssertFalse(state.lastMoveBipped)
     }
     
-    func test_that_else_it_also_does_not_Bip_but_change_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
+    func test_that_if_the_newCaretLocation_after_the_move_ends_up_at_the_start_of_the_line_then_it_does_not_Bip_but_change_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_up_to_the_start_of_the_line() {
         let textInAXFocusedElement = "X should delete the right character😂️😂️😂️😂️"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -52,9 +54,25 @@ we should stay there
         
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(&state)
+        _ = applyMoveBeingTested(times: 5, &state)
         
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "r")
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "acter")
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(state.lastMoveBipped)
+    }
+    
+    func test_that_if_the_newCaretLocation_after_the_move_ends_up_after_the_start_of_the_line_then_it_does_not_Bip_but_change_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_up_to_the_newCaretLocation() {
+        let textInAXFocusedElement = "X should delete the right character😂️😂️😂️😂️"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+
+        applyMove { asNormalMode.b(on: $0) }
+        
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(times: 128, &state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "X should delete the right character")
         XCTAssertEqual(state.lastYankStyle, .characterwise)
         XCTAssertFalse(state.lastMoveBipped)
     }
