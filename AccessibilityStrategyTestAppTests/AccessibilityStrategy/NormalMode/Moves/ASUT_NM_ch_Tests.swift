@@ -5,20 +5,87 @@ import Common
 
 class ASUT_NM_ch_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: .auto)
         
-        return applyMoveBeingTested(on: element, &state)
+        return applyMoveBeingTested(times: count, on: element, &state)
     }
         
-    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return asNormalMode.ch(on: element, &vimEngineState)
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        return asNormalMode.ch(times: count, on: element, &vimEngineState)
     }
     
 }
 
 
-// Bip, copy deletion and LYS
+// count
+extension ASUT_NM_ch_Tests {
+    
+    func test_that_it_implements_the_count_system() {
+        let text = """
+testing with count
+should be awesome to use
+  😂️ctually nobody uses counts
+LMAO
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 80,
+            caretLocation: 15,
+            selectedLength: 1,
+            selectedText: "u",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 80,
+                number: 1,
+                start: 0,
+                end: 19
+            )!
+        )
+                
+        let returnedElement = applyMoveBeingTested(times: 4, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 11)
+        XCTAssertEqual(returnedElement.selectedLength, 4)
+        XCTAssertEqual(returnedElement.selectedText, "")
+    }
+    
+    func test_that_if_the_count_is_too_high_it_stops_at_the_start_of_the_line() {
+        let text = """
+testing with count
+should be awesome to use
+  😂️ctually nobody uses counts
+LMAO
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 80,
+            caretLocation: 51,
+            selectedLength: 1,
+            selectedText: "u",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 80,
+                number: 3,
+                start: 44,
+                end: 76
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(times: 69, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 44)
+        XCTAssertEqual(returnedElement.selectedLength, 7)
+        XCTAssertEqual(returnedElement.selectedText, "")
+    }
+    
+}
+
+
+// Bip, copy deletion and LYS, AND count
+// count is included now in moves that copy deletion because it will affect what is copied.
 extension ASUT_NM_ch_Tests {
     
     // this case includes empty lines
@@ -53,7 +120,7 @@ we should stay there
         XCTAssertFalse(state.lastMoveBipped)
     }
     
-    func test_that_else_it_also_does_not_Bip_but_change_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
+    func test_that_if_the_newCaretLocation_after_the_move_ends_up_at_the_start_of_the_line_then_it_does_not_Bip_but_change_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_up_to_the_start_of_the_line() {
         let text = "ch should delete the correct character😂️😂️😂️😂️"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -73,11 +140,38 @@ we should stay there
         
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(on: element, &state)
+        _ = applyMoveBeingTested(times: 5, on: element, &state)
         
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "r")
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "acter")
         XCTAssertEqual(state.lastYankStyle, .characterwise)
         XCTAssertFalse(state.lastMoveBipped)
+    }
+    
+    func test_that_if_the_newCaretLocation_after_the_move_ends_up_after_the_start_of_the_line_then_it_does_not_Bip_but_change_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_up_to_the_newCaretLocation() {
+        let text = "ch should delete the correct character😂️😂️😂️😂️"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 50,
+            caretLocation: 38,
+            selectedLength: 3,
+            selectedText: "😂️",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 50,
+                number: 1,
+                start: 0,
+                end: 50
+            )!
+        )
+        
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(times: 128, on: element, &state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "ch should delete the correct character")
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(state.lastMoveBipped)        
     }
     
 }
