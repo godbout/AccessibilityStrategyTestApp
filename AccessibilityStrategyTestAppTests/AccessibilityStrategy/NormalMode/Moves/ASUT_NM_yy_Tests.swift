@@ -7,23 +7,50 @@ import Common
 // the line into the NSPasteBoard.
 class ASUT_NM_yy_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: .auto)
         
-        return applyMoveBeingTested(on: element, &state)
+        return applyMoveBeingTested(times: count, on: element, &state)
     }
         
-    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return asNormalMode.yy(on: element, &vimEngineState)
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        return asNormalMode.yy(times: count, on: element, &vimEngineState)
     }
     
 }
 
 
-// Bip, copy deletion and LYS
+// Bip, copy and LYS, AND count
 extension ASUT_NM_yy_Tests {
     
-    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion_even_for_an_empty_line() {
+    func test_that_for_an_empty_line_it_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_emptiness() {
+        let text = ""
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 0,
+            caretLocation: 0,
+            selectedLength: 0,
+            selectedText: "",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 0,
+                number: 1,
+                start: 0,
+                end: 0
+            )!
+        )
+        
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
+        _ = applyMoveBeingTested(on: element, &state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
+        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertFalse(state.lastMoveBipped)
+    }
+    
+    func test_that_without_a_count_it_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_one_line() {
         let text = """
 looks like it's late coz it's getting harder to reason
 but actually it's only 21.43 LMAOOOOOOOO
@@ -44,6 +71,7 @@ but actually it's only 21.43 LMAOOOOOOOO
             )!
         )
         
+        copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(on: element, &state)
         
@@ -52,6 +80,86 @@ but actually it's only 21.43 LMAOOOOOOOO
         XCTAssertFalse(state.lastMoveBipped)
     }
     
+    func test_that_with_a_count_that_is_not_too_high_it_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_lines() {
+        let text = """
+ok now we gonna copy
+a couple of lines
+and everybody will
+        be happy
+until the end
+of days.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 97,
+            caretLocation: 27,
+            selectedLength: 1,
+            selectedText: "l",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 97,
+                number: 2,
+                start: 21,
+                end: 39
+            )!
+        )
+        
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
+        _ = applyMoveBeingTested(times: 3, on: element, &state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
+a couple of lines
+and everybody will
+        be happy\n
+"""
+        )
+        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertFalse(state.lastMoveBipped)
+    }
+    
+    func test_that_with_a_count_that_is_too_high_it_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_lines_until_the_end_of_the_text() {
+        let text = """
+ok now we gonna copy
+a couple of lines
+and everybody will
+        be happy
+until the end
+of days.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 97,
+            caretLocation: 27,
+            selectedLength: 1,
+            selectedText: "l",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 97,
+                number: 2,
+                start: 21,
+                end: 39
+            )!
+        )
+        
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
+        _ = applyMoveBeingTested(times: 69, on: element, &state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
+a couple of lines
+and everybody will
+        be happy
+until the end
+of days.
+"""
+        )
+        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertFalse(state.lastMoveBipped)
+    }
+        
 }
 
 
@@ -160,16 +268,16 @@ my friend
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 135,
+            length: 134,
             caretLocation: 95,
             selectedLength: 3,
             selectedText: "😂️",
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 135,
-                number: 5,
-                start: 95,
-                end: 120
+                fullTextLength: 134,
+                number: 2,
+                start: 68,
+                end: 125
             )!
         )
         
