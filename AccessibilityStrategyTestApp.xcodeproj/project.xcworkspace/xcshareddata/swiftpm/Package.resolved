@@ -2,11 +2,20 @@
   "object": {
     "pins": [
       {
+        "package": "AccessibilityStrategy",
+        "repositoryURL": "git@github.com:godbout/AccessibilityStrategy.git",
+        "state": {
+          "branch": "master",
+          "revision": "5365e2b60511d75fc363c3ebeae71388999f6a5a",
+          "version": null
+        }
+      },
+      {
         "package": "AXEngine",
         "repositoryURL": "git@github.com:godbout/AXEngine.git",
         "state": {
           "branch": "master",
-          "revision": "2a4cbf94d842dc6ff43a98e298f33eb7e410f56f",
+          "revision": "e96617832790e147ab8a5a90efa355be1c216af4",
           "version": null
         }
       },
@@ -15,7 +24,7 @@
         "repositoryURL": "git@github.com:godbout/Common.git",
         "state": {
           "branch": "master",
-          "revision": "a0dda821083759a52d5428979a945aa0689a5e08",
+          "revision": "fa92b68268d17512cc4aca70d3aad944b83265ce",
           "version": null
         }
       },
@@ -24,7 +33,7 @@
         "repositoryURL": "git@github.com:godbout/KeyCombination.git",
         "state": {
           "branch": "master",
-          "revision": "8c03e438e6460611a8b00fd701637609b1b319d9",
+          "revision": "054b1770bad732b1d29a0cfe2199ed5da9691171",
           "version": null
         }
       },
