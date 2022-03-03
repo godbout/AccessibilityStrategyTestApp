@@ -2,7 +2,7 @@ import XCTest
 import AccessibilityStrategy
 
 
-// count does not exist for this move
+// see g^ for blah blah
 class ASUI_NM_g0_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement {
