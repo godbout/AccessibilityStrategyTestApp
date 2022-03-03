@@ -5,8 +5,74 @@ import XCTest
 // see ^ for blah blah
 class ASUT_NM_g__Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        return asNormalMode.gUnderscore(on: element) 
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        return asNormalMode.gUnderscore(times: count, on: element) 
+    }
+    
+}
+
+
+// count
+extension ASUT_NM_g__Tests {
+    
+    func test_that_it_implements_the_count_system() {
+        let text = """
+testing with count
+should be awesome to use
+  😂️ctually nobody uses counts
+LMAO
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 80,
+            caretLocation: 15,
+            selectedLength: 1,
+            selectedText: "u",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 80,
+                number: 1,
+                start: 0,
+                end: 19
+            )!
+        )
+                
+        let returnedElement = applyMoveBeingTested(times: 3, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 74)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
+    func test_that_if_the_count_is_too_high_it_ends_up_on_the_last_line() {
+        let text = """
+testing with count
+should be awesome to use
+  😂️ctually nobody uses counts
+LMAO
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 80,
+            caretLocation: 15,
+            selectedLength: 1,
+            selectedText: "u",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 80,
+                number: 1,
+                start: 0,
+                end: 19
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(times: 69, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 79)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
