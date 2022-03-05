@@ -1,7 +1,6 @@
 @testable import AccessibilityStrategy
 import XCTest
 import Common
-@testable import AccessibilityStrategyVisualModeUITests
 
 
 class ASUT_NM_cj_Tests: ASUT_NM_BaseTests {
@@ -22,7 +21,7 @@ class ASUT_NM_cj_Tests: ASUT_NM_BaseTests {
 // Bip, copy deletion and LYS
 extension ASUT_NM_cj_Tests {
 
-    func test_that_if_the_caret_is_on_the_last_line_it_Bips_and_does_not_change_the_LastYankingStyle_and_does_not_copy_anything() {
+    func test_that_if_the_caret_is_on_the_lastLine_it_Bips_and_does_not_change_the_LastYankingStyle_and_does_not_copy_anything() {
         let text = """
 well this move will Bip if
 the caret is on the last line
@@ -52,7 +51,7 @@ the caret is on the last line
         XCTAssertTrue(state.lastMoveBipped)
     }
     
-    func test_that_in_other_cases_it_does_not_Bip_and_sets_the_LastYankingStyle_to_Linewise_and_copies_the_deletion_plus_the_last_linefeed_if_any() {
+    func test_that_in_other_cases_it_does_not_Bip_and_sets_the_LastYankingStyle_to_Linewise_and_copies_the_deletion_plus_the_lastLinefeed_if_any() {
         let text = """
 ok now let's check
 when the deleting
@@ -93,7 +92,7 @@ when the deleting\n
 // both
 extension ASUT_NM_cj_Tests {
     
-    func test_that_if_the_caret_is_on_the_last_line_it_does_not_move() {
+    func test_that_if_the_caret_is_on_the_lastLine_it_does_not_move() {
         let text = "the caret is on the  😂️ last line"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -124,7 +123,7 @@ extension ASUT_NM_cj_Tests {
 // TextViews
 extension ASUT_NM_cj_Tests {
     
-    func test_that_in_normal_setting_it_can_delete_two_lines_but_excludes_the_linefeed_of_the_second_line_if_any() {
+    func test_that_in_normal_setting_it_can_delete_the_currentFileLine_and_the_line_below_but_excludes_the_linefeed_of_the_second_line_if_any() {
         let text = """
 ok real shit now
 come on cj is useful
@@ -274,6 +273,3 @@ but to the first non blank
     }
    
 }
-
-
-// TODO: test the lines made of blanks
