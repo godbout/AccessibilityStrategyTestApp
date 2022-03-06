@@ -1,6 +1,10 @@
 @testable import AccessibilityStrategy
 import XCTest
 
+// reminder: in VM we don't test those motions independently because they all call the wOrDMotionForward/Backward
+// so it is NOT tested that we call the wOrD funcs properly, including pass the count. this is hard to fuck up
+// (with Swift strict check and protocols) but it's good to be aware of it. testing each move independently would be great
+// but it's a LOT of (quite unnecessary) work.
 
 // this is used by VMC w, W, e, E.
 // they all call their own TextEngine func but the VM part of testing the Anchor, Head, and set
