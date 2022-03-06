@@ -49,29 +49,5 @@ which😂️
 
 
 // PGR and Electron
-extension ASUI_NM_dDollarSign_Tests {
-    
-    func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
-        let textInAXFocusedElement = """
-D will delete till the end of line but not the linefeed (tested in C) and will go to the end limit even if the line is empty
-which😂️means it will not up one line and this is tested in the endLimit!
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.zero(on: $0) }
-        applyMove { asNormalMode.w(on: $0) }
-        applyMove { asNormalMode.l(on: $0) }
-        var state = VimEngineState(appFamily: .pgR)
-        let accessibilityElement = applyMoveBeingTested(&state)
-        
-        XCTAssertEqual(accessibilityElement.fileText.value, """
-D will delete till the end of line but not the linefeed (tested in C) and will go to the end limit even if the line is empty
-which
-"""
-        )
-        XCTAssertEqual(accessibilityElement.caretLocation, 129)
-        XCTAssertEqual(accessibilityElement.selectedLength, 1)
-    }
-    
-}
+// already tested in c$
+extension ASUI_NM_dDollarSign_Tests {}
