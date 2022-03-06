@@ -6,11 +6,74 @@ import XCTest
 // wordMotionBackward called by b, B, ge, gE.
 class ASUT_VM_wordMotionBackward_Tests: ASVM_BaseTests {
 
-    private func applyMove(on element: AccessibilityTextElement, using wordMotionBackwardFunction: (Int) -> Int?) -> AccessibilityTextElement {
-        return asVisualMode.wOrDMotionBackward(on: element, using: wordMotionBackwardFunction)
+    private func applyMove(times count: Int = 1, on element: AccessibilityTextElement, using wordMotionBackwardFunction: (Int) -> Int?) -> AccessibilityTextElement {
+        return asVisualMode.wOrDMotionBackward(times: count, on: element, using: wordMotionBackwardFunction)
     }
     
 }
+
+
+// count
+extension ASUT_VM_wordMotionBackward_Tests {
+    
+    func test_that_it_implements_the_count_system_for_when_the_Head_is_before_the_Anchor() {
+        let text = "gonna start with text moves in Visual Mode"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 42,
+            caretLocation: 10,
+            selectedLength: 25,
+            selectedText: "t with text moves in Visu",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 42,
+                number: 1,
+                start: 0,
+                end: 42
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 10
+        AccessibilityStrategyVisualMode.head = 34
+        
+        let returnedElement = applyMove(times: 6, on: element, using: element.fileText.beginningOfWordBackward)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 6)
+        XCTAssertEqual(returnedElement.selectedLength, 5)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
+    func test_that_it_implements_the_count_system_for_when_the_Anchor_is_before_the_Head() {
+        let text = "gonna start with text moves in Visual Mode"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 42,
+            caretLocation: 22,
+            selectedLength: 14,
+            selectedText: "moves in Visua",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 42,
+                number: 1,
+                start: 0,
+                end: 42
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 35
+        AccessibilityStrategyVisualMode.head = 22
+        
+        let returnedElement = applyMove(times: 3, on: element, using: element.fileText.beginningOfWordBackward)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 6)
+        XCTAssertEqual(returnedElement.selectedLength, 30)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
+}
+
 
 
 // Both
