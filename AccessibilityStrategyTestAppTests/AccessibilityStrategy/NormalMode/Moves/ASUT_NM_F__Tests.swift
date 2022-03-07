@@ -16,6 +16,40 @@ class ASUT_NM_F__Tests: ASUT_NM_BaseTests {
 }
 
 
+// line
+extension ASUT_NM_F__Tests {
+    
+    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
+        let text = """
+this move does not stop at screen lines. it will just pass by
+them like nothing happened. that's how special it is.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 115,
+            caretLocation: 106,
+            selectedLength: 1,
+            selectedText: "a",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 115,
+                number: 7,
+                start: 97,
+                end: 115
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(to: "k", on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 69)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+     
+}
+
+
 // count
 extension ASUT_NM_F__Tests {
     
@@ -69,40 +103,6 @@ extension ASUT_NM_F__Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-}
-
-
-// line
-extension ASUT_NM_F__Tests {
-    
-    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
-        let text = """
-this move does not stop at screen lines. it will just pass by
-them like nothing happened. that's how special it is.
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 115,
-            caretLocation: 106,
-            selectedLength: 1,
-            selectedText: "a",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 115,
-                number: 7,
-                start: 97,
-                end: 115
-            )!
-        )
-        
-        let returnedElement = applyMoveBeingTested(to: "k", on: element)
-
-        XCTAssertEqual(returnedElement.caretLocation, 69)
-        XCTAssertEqual(returnedElement.selectedLength, 1)
-        XCTAssertNil(returnedElement.selectedText)
-    }
-     
 }
 
 

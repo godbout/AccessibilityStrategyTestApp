@@ -13,6 +13,42 @@ class ASUT_NM_yf_Tests: ASUT_NM_BaseTests {
 }
 
 
+// line
+extension ASUT_NM_yf_Tests {
+    
+    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
+        let text = """
+this move does not stop at screen lines. it will just pass by
+them like nothin🇫🇷️ happened. that's how special it is.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 119,
+            caretLocation: 78,
+            selectedLength: 26,
+            selectedText: "🇫🇷️ happened. that's how",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 119,
+                number: 3,
+                start: 62,
+                end: 119
+            )!
+        )
+        
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(with: "w", on: element, &state)
+
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "🇫🇷️ happened. that's how")
+        XCTAssertEqual(returnedElement.caretLocation, 78)
+        XCTAssertEqual(returnedElement.selectedLength, 5)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+     
+}
+
+
 // Bip, copy deletion and LYS
 extension ASUT_NM_yf_Tests {
     
@@ -134,42 +170,6 @@ extension ASUT_NM_yf_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-}
-
-
-// line
-extension ASUT_NM_yf_Tests {
-    
-    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
-        let text = """
-this move does not stop at screen lines. it will just pass by
-them like nothin🇫🇷️ happened. that's how special it is.
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 119,
-            caretLocation: 78,
-            selectedLength: 26,
-            selectedText: "🇫🇷️ happened. that's how",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 119,
-                number: 3,
-                start: 62,
-                end: 119
-            )!
-        )
-        
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(with: "w", on: element, &state)
-
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "🇫🇷️ happened. that's how")
-        XCTAssertEqual(returnedElement.caretLocation, 78)
-        XCTAssertEqual(returnedElement.selectedLength, 5)
-        XCTAssertNil(returnedElement.selectedText)
-    }
-     
 }
 
 

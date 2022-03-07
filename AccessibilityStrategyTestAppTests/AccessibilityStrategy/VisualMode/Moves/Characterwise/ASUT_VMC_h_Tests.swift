@@ -14,6 +14,43 @@ class ASUT_VMC_h_Tests: ASUT_VM_BaseTests {
 }
 
 
+// line
+extension ASUT_VMC_h_Tests {
+    
+    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
+        let text = """
+  this move stops at screen lines, which         🇧🇶️eans it will
+  stop even without a linefeed. that's         how special it is.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 132,
+            caretLocation: 28,
+            selectedLength: 1,
+            selectedText: "l",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 132,
+                number: 4,
+                start: 28,
+                end: 49
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 28
+        AccessibilityStrategyVisualMode.head = 28
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 27)
+        XCTAssertEqual(returnedElement.selectedLength, 2)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+     
+}
+
+
 // count
 extension ASUT_VMC_h_Tests {
     
@@ -106,43 +143,6 @@ count 🈹️ awww
     }
 }
 
-
-// line
-extension ASUT_VMC_h_Tests {
-    
-    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
-        let text = """
-  this move stops at screen lines, which         🇧🇶️eans it will
-  stop even without a linefeed. that's         how special it is.
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 132,
-            caretLocation: 28,
-            selectedLength: 1,
-            selectedText: "l",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 132,
-                number: 4,
-                start: 28,
-                end: 49
-            )!
-        )
-        
-        AccessibilityStrategyVisualMode.anchor = 28
-        AccessibilityStrategyVisualMode.head = 28
-        
-        let returnedElement = applyMoveBeingTested(on: element)
-
-        XCTAssertEqual(returnedElement.caretLocation, 27)
-        XCTAssertEqual(returnedElement.selectedLength, 2)
-        XCTAssertNil(returnedElement.selectedText)
-    }
-     
-}
-    
 
 // Both
 extension ASUT_VMC_h_Tests {

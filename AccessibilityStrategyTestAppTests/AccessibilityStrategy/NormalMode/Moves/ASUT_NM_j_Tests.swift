@@ -15,6 +15,42 @@ class ASUT_NM_j_Tests: ASUT_NM_BaseTests {
 }
 
 
+// line
+extension ASUT_NM_j_Tests {
+    
+    func test_conspicuously_that_it_works_with_FileLines() {
+        let text = """
+this move works with FileLiens, not ScreenLines.
+it eats them like nothing happened. that's how special it is.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 110,
+            caretLocation: 13,
+            selectedLength: 1,
+            selectedText: "k",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 110,
+                number: 2,
+                start: 10,
+                end: 21
+            )!
+        )
+        
+        AccessibilityTextElement.fileLineColumnNumber = 14
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 62)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+     
+}
+
+
 // count
 extension ASUT_NM_j_Tests {
     
@@ -82,42 +118,6 @@ etc etc etc etc etc etc etc etc etc etc etc etc
         XCTAssertNil(returnedElement.selectedText)
     }
     
-}
-
-
-// line
-extension ASUT_NM_j_Tests {
-    
-    func test_conspicuously_that_it_works_with_FileLines() {
-        let text = """
-this move works with FileLiens, not ScreenLines.
-it eats them like nothing happened. that's how special it is.
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 110,
-            caretLocation: 13,
-            selectedLength: 1,
-            selectedText: "k",
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 110,
-                number: 2,
-                start: 10,
-                end: 21
-            )!
-        )
-        
-        AccessibilityTextElement.fileLineColumnNumber = 14
-        
-        let returnedElement = applyMoveBeingTested(on: element)
-
-        XCTAssertEqual(returnedElement.caretLocation, 62)
-        XCTAssertEqual(returnedElement.selectedLength, 1)
-        XCTAssertNil(returnedElement.selectedText)
-    }
-     
 }
 
 
