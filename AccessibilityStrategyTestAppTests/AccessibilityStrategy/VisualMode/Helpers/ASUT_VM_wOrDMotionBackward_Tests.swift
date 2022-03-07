@@ -72,6 +72,39 @@ extension ASUT_VM_wordMotionBackward_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
+    func test_that_if_the_count_is_too_high_it_selects_until_the_beginning_of_the_text() {
+        let text = """
+long ass text there
+and if the count is too high
+then something magical
+will happen
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 83,
+            caretLocation: 53,
+            selectedLength: 1,
+            selectedText: " ",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 83,
+                number: 3,
+                start: 49,
+                end: 72
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 53
+        AccessibilityStrategyVisualMode.head = 53
+        
+        let returnedElement = applyMove(times: 69, on: element, using: element.fileText.endOfWordBackward)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 54)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
 }
 
 
