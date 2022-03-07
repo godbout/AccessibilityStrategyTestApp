@@ -11,8 +11,103 @@ import XCTest
 // the caretLocation, selectedLength and selectedText are the same, hence the wordMotionForward function.
 class ASUT_VM_wordMotionForward_Tests: ASVM_BaseTests {
 
-    private func applyMove(on element: AccessibilityTextElement, using wordMotionForwardFunction: (Int) -> Int?) -> AccessibilityTextElement {
-        return asVisualMode.wOrDMotionForward(on: element, using: wordMotionForwardFunction)
+    private func applyMove(times count: Int = 1, on element: AccessibilityTextElement, using wordMotionForwardFunction: (Int) -> Int?) -> AccessibilityTextElement {
+        return asVisualMode.wOrDMotionForward(times: count, on: element, using: wordMotionForwardFunction)
+    }
+    
+}
+
+
+// count
+extension ASUT_VM_wordMotionForward_Tests {
+    
+    func test_that_it_implements_the_count_system_for_when_the_Head_is_after_or_equal_to_the_Anchor() {
+        let text = "gonna start with text moves in Visual Mode"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 42,
+            caretLocation: 2,
+            selectedLength: 6,
+            selectedText: "nna st",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 42,
+                number: 1,
+                start: 0,
+                end: 42
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 2
+        AccessibilityStrategyVisualMode.head = 7
+        
+        let returnedElement = applyMove(times: 5, on: element, using: element.fileText.beginningOfWordForward)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 2)
+        XCTAssertEqual(returnedElement.selectedLength, 30)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
+    func test_that_it_implements_the_count_system_for_when_the_Head_is_before_the_Anchor() {
+        let text = "gonna start with text moves in Visual Mode"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 42,
+            caretLocation: 2,
+            selectedLength: 6,
+            selectedText: "nna st",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 42,
+                number: 1,
+                start: 0,
+                end: 42
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 7
+        AccessibilityStrategyVisualMode.head = 2
+        
+        let returnedElement = applyMove(times: 6, on: element, using: element.fileText.endOfWordForward)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 7)
+        XCTAssertEqual(returnedElement.selectedLength, 23)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
+    func test_that_if_the_count_is_too_high_it_selects_until_the_end_of_the_text() {
+        let text = """
+long ass text there
+and if the count is too high
+then something magical
+will happen
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 83,
+            caretLocation: 53,
+            selectedLength: 1,
+            selectedText: " ",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 83,
+                number: 3,
+                start: 49,
+                end: 72
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 53
+        AccessibilityStrategyVisualMode.head = 53
+        
+        let returnedElement = applyMove(times: 69, on: element, using: element.fileText.endOfWordBackward)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 53)
+        XCTAssertEqual(returnedElement.selectedLength, 30)
+        XCTAssertNil(returnedElement.selectedText)
     }
     
 }
