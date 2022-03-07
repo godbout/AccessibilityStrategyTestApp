@@ -35,13 +35,13 @@ extension ASUT_VMC_h_Tests {
             )!
         )
         
-        AccessibilityStrategyVisualMode.anchor = 26
-        AccessibilityStrategyVisualMode.head = 17
+        AccessibilityStrategyVisualMode.anchor = 17
+        AccessibilityStrategyVisualMode.head = 26
                 
-        let returnedElement = applyMoveBeingTested(times: 8, on: element)
+        let returnedElement = applyMoveBeingTested(times: 15, on: element)
 
-        XCTAssertEqual(returnedElement.caretLocation, 9)
-        XCTAssertEqual(returnedElement.selectedLength, 18)
+        XCTAssertEqual(returnedElement.caretLocation, 11)
+        XCTAssertEqual(returnedElement.selectedLength, 7)
         XCTAssertNil(returnedElement.selectedText)
     }
         
