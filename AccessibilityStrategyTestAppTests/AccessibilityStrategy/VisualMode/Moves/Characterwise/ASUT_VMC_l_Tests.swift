@@ -5,10 +5,10 @@ import Common
 
 class ASUT_VMC_l_Tests: ASVM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         let state = VimEngineState(visualStyle: .characterwise)
         
-        return asVisualMode.l(on: element, state)
+        return asVisualMode.l(times: count, on: element, state)
     }
 
 }
@@ -48,6 +48,99 @@ extension ASUT_VMC_l_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
      
+}
+
+
+// count
+extension ASUT_VMC_l_Tests {
+    
+    func test_that_it_implements_the_count_system_for_when_the_Head_is_after_or_equal_to_the_Anchor() {
+        let text = "we gonna move in there with count 🈹️ awww"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 42,
+            caretLocation: 17,
+            selectedLength: 10,
+            selectedText: "there with",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 42,
+                number: 1,
+                start: 0,
+                end: 42
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 17
+        AccessibilityStrategyVisualMode.head = 26
+                
+        let returnedElement = applyMoveBeingTested(times: 8, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 17)
+        XCTAssertEqual(returnedElement.selectedLength, 20)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+        
+    func test_that_it_implements_the_count_system_for_when_the_Head_is_before_the_Anchor() {
+        let text = "we gonna move in there with count 🈹️ awww"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 42,
+            caretLocation: 17,
+            selectedLength: 10,
+            selectedText: "there with",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 42,
+                number: 1,
+                start: 0,
+                end: 42
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 26
+        AccessibilityStrategyVisualMode.head = 17
+                
+        let returnedElement = applyMoveBeingTested(times: 8, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 25)
+        XCTAssertEqual(returnedElement.selectedLength, 2)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
+    func test_that_if_the_count_is_too_high_it_stops_after_the_linefeed() {
+        let text = """
+we gonna move
+in there with
+count 🈹️ awww
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 42,
+            caretLocation: 19,
+            selectedLength: 5,
+            selectedText: "ere w",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 42,
+                number: 2,
+                start: 14,
+                end: 28
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 19
+        AccessibilityStrategyVisualMode.head = 23
+                
+        let returnedElement = applyMoveBeingTested(times: 69, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 19)
+        XCTAssertEqual(returnedElement.selectedLength, 9)
+        XCTAssertNil(returnedElement.selectedText)
+    }
 }
 
 
