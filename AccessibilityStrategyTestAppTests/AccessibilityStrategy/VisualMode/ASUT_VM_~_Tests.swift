@@ -3,4 +3,4 @@ import XCTest
 
 
 // UIT
-class ASUT_VM_tilde_Tests: ASVM_BaseTests {}
+class ASUT_VM_tilde_Tests: ASUT_VM_BaseTests {}

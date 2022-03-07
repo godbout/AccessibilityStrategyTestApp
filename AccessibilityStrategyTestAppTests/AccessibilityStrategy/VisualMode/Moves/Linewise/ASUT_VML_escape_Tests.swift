@@ -3,7 +3,7 @@ import AccessibilityStrategy
 
 
 // see the other VM escape for explanation
-class ASUT_VML_escape_Tests: ASVM_BaseTests {
+class ASUT_VML_escape_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.escape(on: element)

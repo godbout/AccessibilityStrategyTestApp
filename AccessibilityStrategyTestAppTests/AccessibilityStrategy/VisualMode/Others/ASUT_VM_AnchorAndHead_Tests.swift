@@ -2,7 +2,7 @@
 import XCTest
 
 
-class ASVM_AnchorAndHead_Tests: ASVM_BaseTests {}
+class ASVM_AnchorAndHead_Tests: ASUT_VM_BaseTests {}
 
 
 // head

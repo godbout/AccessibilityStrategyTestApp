@@ -9,7 +9,7 @@ import XCTest
 // this is used by VMC w, W, e, E.
 // they all call their own TextEngine func but the VM part of testing the Anchor, Head, and set
 // the caretLocation, selectedLength and selectedText are the same, hence the wordMotionForward function.
-class ASUT_VM_wordMotionForward_Tests: ASVM_BaseTests {
+class ASUT_VM_wordMotionForward_Tests: ASUT_VM_BaseTests {
 
     private func applyMove(times count: Int = 1, on element: AccessibilityTextElement, using wordMotionForwardFunction: (Int) -> Int?) -> AccessibilityTextElement {
         return asVisualMode.wOrDMotionForward(times: count, on: element, using: wordMotionForwardFunction)

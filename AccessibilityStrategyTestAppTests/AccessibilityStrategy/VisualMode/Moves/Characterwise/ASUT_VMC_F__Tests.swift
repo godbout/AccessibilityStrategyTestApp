@@ -6,7 +6,7 @@ import Common
 // using TextEngine moves, that are already tested.
 // here we just have to text that the caretLocation and selectedLength
 // are correct when character is found and not found.
-class ASUT_VMC_F__Tests: ASVM_BaseTests {
+class ASUT_VMC_F__Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         let state = VimEngineState(visualStyle: .characterwise)

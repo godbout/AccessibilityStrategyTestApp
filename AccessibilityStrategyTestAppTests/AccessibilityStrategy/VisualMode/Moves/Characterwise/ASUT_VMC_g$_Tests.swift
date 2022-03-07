@@ -4,7 +4,7 @@ import Common
 
 
 // rest of tests in UI because this is a ScreenLine move!
-class ASUT_VMC_g$_Tests: ASVM_BaseTests {
+class ASUT_VMC_g$_Tests: ASUT_VM_BaseTests {
         
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         let state = VimEngineState(visualStyle: .characterwise)

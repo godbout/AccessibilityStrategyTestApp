@@ -2,7 +2,7 @@ import XCTest
 @testable import AccessibilityStrategy
 
 
-class ASUT_VML_k_Tests: ASVM_BaseTests {
+class ASUT_VML_k_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.kForVisualStyleLinewise(on: element)

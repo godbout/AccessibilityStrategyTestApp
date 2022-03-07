@@ -4,7 +4,7 @@ import Common
 
 
 // see `V` for blah blah
-class ASUT_VM_v_Tests: ASVM_BaseTests {
+class ASUT_VM_v_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.vFromNormalMode(on: element)

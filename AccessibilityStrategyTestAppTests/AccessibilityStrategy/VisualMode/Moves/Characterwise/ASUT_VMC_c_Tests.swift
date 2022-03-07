@@ -4,7 +4,7 @@ import Common
 
 
 // PGR and Electron in UIT.
-class ASUT_VMC_c_Tests: ASVM_BaseTests {
+class ASUT_VMC_c_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: .auto, visualStyle: .characterwise)

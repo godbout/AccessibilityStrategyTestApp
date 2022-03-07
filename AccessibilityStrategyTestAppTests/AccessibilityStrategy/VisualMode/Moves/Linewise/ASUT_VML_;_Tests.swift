@@ -3,4 +3,4 @@ import AccessibilityStrategy
 
 
 // see VML ,
-class ASUT_VML_semicolon_Tests: ASVM_BaseTests {}
+class ASUT_VML_semicolon_Tests: ASUT_VM_BaseTests {}

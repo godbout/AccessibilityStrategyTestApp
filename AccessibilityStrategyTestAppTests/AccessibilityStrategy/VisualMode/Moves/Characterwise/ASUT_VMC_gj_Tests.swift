@@ -3,4 +3,4 @@ import AccessibilityStrategy
 
 
 // UIT
-class ASUT_VMC_gj_Tests: ASVM_BaseTests {}
+class ASUT_VMC_gj_Tests: ASUT_VM_BaseTests {}

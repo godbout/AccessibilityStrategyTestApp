@@ -3,7 +3,7 @@ import XCTest
 import Common
 
 
-class ASUT_VML_return_Tests: ASVM_BaseTests {
+class ASUT_VML_return_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(visualStyle: .linewise)

@@ -8,7 +8,7 @@ import AccessibilityStrategy
 // (at least at first) so that we can comment or indent multiple lines easily.
 // before, there was no separation of tests between AS and KVE, but now there is
 // and responsibility of concerns has to be separate correctly. choices.
-class ASUT_VMC_escape_Tests: ASVM_BaseTests {
+class ASUT_VMC_escape_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.escape(on: element)

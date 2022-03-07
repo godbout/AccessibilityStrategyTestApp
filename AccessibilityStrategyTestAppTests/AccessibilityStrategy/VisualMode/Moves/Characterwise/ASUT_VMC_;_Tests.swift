@@ -4,7 +4,7 @@ import Common
 
 
 // see NM ; for blah blah
-class ASUT_VM_semicolon_Tests: ASVM_BaseTests {
+class ASUT_VM_semicolon_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int? = 1, lastLeftRightSearch: LastLeftRightSearch, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         let state = VimEngineState(visualStyle: .characterwise)

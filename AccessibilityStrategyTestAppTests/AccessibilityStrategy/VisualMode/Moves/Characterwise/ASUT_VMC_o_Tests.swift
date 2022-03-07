@@ -2,7 +2,7 @@
 import XCTest
 
 
-class ASUT_VMC_o_Tests: ASVM_BaseTests {
+class ASUT_VMC_o_Tests: ASUT_VM_BaseTests {
     
     override func setUp() {
         super.setUp()

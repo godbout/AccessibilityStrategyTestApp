@@ -3,7 +3,7 @@ import AccessibilityStrategy
 import Common
 
 
-class ASUT_VMC_h_Tests: ASVM_BaseTests {
+class ASUT_VMC_h_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int? = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         let state = VimEngineState(visualStyle: .characterwise)

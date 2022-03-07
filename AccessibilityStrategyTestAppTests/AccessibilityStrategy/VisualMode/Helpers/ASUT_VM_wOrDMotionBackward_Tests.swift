@@ -4,7 +4,7 @@ import XCTest
 
 // see wordMotionForward for blah blah
 // wordMotionBackward called by b, B, ge, gE.
-class ASUT_VM_wordMotionBackward_Tests: ASVM_BaseTests {
+class ASUT_VM_wordMotionBackward_Tests: ASUT_VM_BaseTests {
 
     private func applyMove(times count: Int = 1, on element: AccessibilityTextElement, using wordMotionBackwardFunction: (Int) -> Int?) -> AccessibilityTextElement {
         return asVisualMode.wOrDMotionBackward(times: count, on: element, using: wordMotionBackwardFunction)

@@ -7,7 +7,7 @@ import Common
 // go to the endLimit of the lines. this is not needed for VML as VML takes the whole line.
 // we do the tests here in UT coz we don't really need UI as we don't call any AX here, but we
 // do have to set CNs and Head and Anchor, so there's a bigger test in UI still, just in case.
-class ASUT_VMC_j_Tests: ASVM_BaseTests {
+class ASUT_VMC_j_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         let state = VimEngineState(visualStyle: .characterwise)

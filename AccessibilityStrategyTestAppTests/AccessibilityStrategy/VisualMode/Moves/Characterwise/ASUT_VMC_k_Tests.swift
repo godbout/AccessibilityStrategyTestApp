@@ -4,7 +4,7 @@ import Common
 
 
 // see j for blah blah
-class ASUT_VMC_k_Tests: ASVM_BaseTests {
+class ASUT_VMC_k_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         let state = VimEngineState(visualStyle: .characterwise)

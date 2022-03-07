@@ -5,7 +5,7 @@ import Common
 
 // here we test the Bip, LYS and copy selected text
 // rest in UIT coz repositioning cursor and now also PGR
-class ASUT_VMC_d_Tests: ASVM_BaseTests {
+class ASUT_VMC_d_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: .auto, visualStyle: .characterwise)

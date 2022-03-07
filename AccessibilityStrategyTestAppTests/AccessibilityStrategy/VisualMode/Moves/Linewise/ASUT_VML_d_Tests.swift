@@ -4,7 +4,7 @@ import Common
 
 
 // see VMC `d`
-class ASUT_VML_d_Tests: ASVM_BaseTests {
+class ASUT_VML_d_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         vimEngineState.visualStyle = .linewise

@@ -1,2 +1,2 @@
 // see e for blah blah
-class ASUT_VMC_E__Tests: ASVM_BaseTests {}
+class ASUT_VMC_E__Tests: ASUT_VM_BaseTests {}
