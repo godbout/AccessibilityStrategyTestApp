@@ -65,6 +65,7 @@ we gonna need several lines here
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
+        applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         copyToClipboard(text: "some fake shit")
