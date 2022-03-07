@@ -16,7 +16,7 @@ class ASUT_VM_wordMotionBackward_Tests: ASVM_BaseTests {
 // count
 extension ASUT_VM_wordMotionBackward_Tests {
     
-    func test_that_it_implements_the_count_system_for_when_the_Head_is_before_the_Anchor() {
+    func test_that_it_implements_the_count_system_for_when_the_Head_is_after_or_equal_to_the_Anchor() {
         let text = "gonna start with text moves in Visual Mode"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -44,7 +44,7 @@ extension ASUT_VM_wordMotionBackward_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_it_implements_the_count_system_for_when_the_Anchor_is_before_the_Head() {
+    func test_that_it_implements_the_count_system_for_when_the_Head_is_before_the_Anchor() {
         let text = "gonna start with text moves in Visual Mode"
         let element = AccessibilityTextElement(
             role: .textField,
