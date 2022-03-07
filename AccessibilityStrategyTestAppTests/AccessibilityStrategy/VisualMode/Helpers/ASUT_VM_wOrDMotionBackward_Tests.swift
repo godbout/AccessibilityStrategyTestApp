@@ -131,12 +131,12 @@ extension ASUT_VM_wordMotionBackward_Tests {
         )
         
         AccessibilityStrategyVisualMode.anchor = 10
-        AccessibilityStrategyVisualMode.head = 35
+        AccessibilityStrategyVisualMode.head = 34
         
         let returnedElement = applyMove(on: element, using: element.fileText.beginningOfWordBackward)
         
         XCTAssertEqual(returnedElement.caretLocation, 10)
-        XCTAssertEqual(returnedElement.selectedLength, 21)
+        XCTAssertEqual(returnedElement.selectedLength, 22)
         XCTAssertNil(returnedElement.selectedText)
     }
     
