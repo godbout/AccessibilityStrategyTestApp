@@ -4,10 +4,132 @@ import XCTest
 
 class ASUT_VML_k_Tests: ASUT_VM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        return asVisualMode.kForVisualStyleLinewise(on: element)
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        return asVisualMode.kForVisualStyleLinewise(times: count, on: element)
     }
 
+}
+
+
+// count
+extension ASUT_VML_k_Tests {
+    
+    func test_it_implements_the_count_system_for_when_the_newHead_is_after_or_equal_to_the_Anchor() {
+        let text = """
+ok so now we're going
+to test that move on
+multiline and this
+is something for VisualMode
+so it's probably gonna
+select some stuff and all
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 138,
+            caretLocation: 0,
+            selectedLength: 113,
+            selectedText: """
+ok so now we're going
+to test that move on
+multiline and this
+is something for VisualMode
+so it's probably gonna
+""",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 138,
+                number: 1,
+                start: 0,
+                end: 22
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 0
+        AccessibilityStrategyVisualMode.head = 112
+        
+        let returnedElement = applyMoveBeingTested(times: 2, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 62)
+    }
+        
+    func test_that_it_implements_the_count_system_for_when_the_newHead_is_before_the_Anchor() {
+        let text = """
+ok so now we're going
+to test that move on
+multiline and this
+is something for VisualMode
+so it's probably gonna
+select some stuff and all
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 138,
+            caretLocation: 62,
+            selectedLength: 76,
+            selectedText: """
+is something for VisualMode
+so it's probably gonna
+select some stuff and all
+""",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 138,
+                number: 4,
+                start: 62,
+                end: 90
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 62
+        AccessibilityStrategyVisualMode.head = 137
+        
+        let returnedElement = applyMoveBeingTested(times: 4, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 22)
+        XCTAssertEqual(returnedElement.selectedLength, 68)
+    }
+        
+    func test_that_if_the_count_is_too_high_it_selects_until_the_beginning_of_the_text() {
+        let text = """
+ok so now we're going
+to test that move on
+multiline and this
+is something for VisualMode
+so it's probably gonna
+select some stuff and all
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 138,
+            caretLocation: 62,
+            selectedLength: 76,
+            selectedText: """
+is something for VisualMode
+so it's probably gonna
+select some stuff and all
+""",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 138,
+                number: 4,
+                start: 62,
+                end: 90
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 62
+        AccessibilityStrategyVisualMode.head = 137
+        
+        let returnedElement = applyMoveBeingTested(times: 69, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 90)
+    }
+    
 }
 
 
