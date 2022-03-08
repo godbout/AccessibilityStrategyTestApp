@@ -101,7 +101,7 @@ when the head i
         XCTAssertEqual(returnedElement.selectedLength, 25)
     }
         
-    func test_that_if_the_count_is_too_high_it_selects_until_the_end_of_the_text() {
+    func test_that_if_the_count_is_too_high_it_selects_until_the_lastFileLine_of_the_text_and_still_respects_the_globalColumnNumber() {
         let text = """
 so pressing j in
 Visual Mode is gonna be
