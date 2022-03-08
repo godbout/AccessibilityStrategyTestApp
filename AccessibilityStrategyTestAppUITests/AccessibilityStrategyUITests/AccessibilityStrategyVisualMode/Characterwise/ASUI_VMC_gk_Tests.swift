@@ -9,10 +9,35 @@ class ASUI_VMC_gk_Tests: ASUI_VM_BaseTests {
     var state = VimEngineState(visualStyle: .characterwise)
     
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement {
-        return applyMove { asVisualMode.gk(on: $0, state)}
+    private func applyMoveBeingTested(times count: Int = 1) -> AccessibilityTextElement {
+        return applyMove { asVisualMode.gk(times: count, on: $0, state)}
     }
 
+}
+
+
+// count
+// see VMC gj for blah blah
+extension ASUI_VMC_gk_Tests {
+    
+    func test_that_count_is_implemented() {
+        let textInAXFocusedElement = """
+wow that one is gonna rip my ass off lol
+and it's getting even harder now that
+the wrapped lines and shit is understood
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+                
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
+        applyMove { asNormalMode.e(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(times: 3)
+               
+        XCTAssertEqual(accessibilityElement.caretLocation, 24)
+        XCTAssertEqual(accessibilityElement.selectedLength, 56)
+    }
+    
 }
 
 
