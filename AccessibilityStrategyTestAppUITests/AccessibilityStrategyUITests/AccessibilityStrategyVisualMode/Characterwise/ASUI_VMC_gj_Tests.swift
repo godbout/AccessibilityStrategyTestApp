@@ -3,16 +3,44 @@ import AccessibilityStrategy
 import Common
 
 
-// test about returning nil for TF is done in UT.
 class ASUI_VMC_gj_Tests: ASUI_VM_BaseTests {
     
     var state = VimEngineState(visualStyle: .characterwise)
     
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement {
-        return applyMove { asVisualMode.gj(on: $0, state)}
+    private func applyMoveBeingTested(times count: Int = 1) -> AccessibilityTextElement {
+        return applyMove { asVisualMode.gj(times: count, on: $0, state)}
     }
 
+}
+
+
+// count
+// usually for VM we test with Head before Anchor, Head after Anchor etc...
+// for UI, i just test one case. whether there's count or not, the code actually doesn't change
+// so it's pretty straightforward. we only need to know that the count is passed in the func and we're good.
+extension ASUI_VMC_gj_Tests {
+    
+    func test_that_count_is_implemented() {
+        let textInAXFocusedElement = """
+wow that one is gonna rip my ass off lol
+and it's getting even harder now that
+the wrapped lines and shit is understood
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+                
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.gk(times: 2, on: $0) }
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
+        applyMove { asVisualMode.e(on: $0, state) }
+        let accessibilityElement = applyMoveBeingTested(times: 2)
+               
+        XCTAssertEqual(accessibilityElement.caretLocation, 41)
+        XCTAssertEqual(accessibilityElement.selectedLength, 41)
+    }
+    
 }
 
 
