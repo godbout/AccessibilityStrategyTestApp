@@ -4,10 +4,127 @@ import XCTest
 
 class ASUT_VML_j_Tests: ASUT_VM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        return asVisualMode.jForVisualStyleLinewise(on: element)
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        return asVisualMode.jForVisualStyleLinewise(times: count, on: element)
     }
 
+}
+
+
+// count
+extension ASUT_VML_j_Tests {
+    
+    func test_it_implements_the_count_system_for_when_the_newHead_is_after_or_equal_to_the_Anchor() {
+        let text = """
+so pressing j in
+Visual Mode is gonna be
+cool because it will extend
+the selection
+when the head is after the anchor
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 116,
+            caretLocation: 0,
+            selectedLength: 41,
+            selectedText: """
+so pressing j in
+Visual Mode is gonna be
+"""
+            ,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 116,
+                number: 1,
+                start: 0,
+                end: 17
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 0
+        AccessibilityStrategyVisualMode.head = 40
+        
+        let returnedElement = applyMoveBeingTested(times: 2, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 83)
+    }
+        
+    func test_that_it_implements_the_count_system_for_when_the_newHead_is_before_the_Anchor() {
+        let text = """
+so pressing j in
+Visual Mode is gonna be
+cool because it will extend
+the selection
+when the head is after the anchor
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 116,
+            caretLocation: 0,
+            selectedLength: 41,
+            selectedText: """
+so pressing j in
+Visual Mode is gonna be
+"""
+            ,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 116,
+                number: 1,
+                start: 0,
+                end: 17
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 40
+        AccessibilityStrategyVisualMode.head = 0
+        
+        let returnedElement = applyMoveBeingTested(times: 3, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 17)
+        XCTAssertEqual(returnedElement.selectedLength, 66)
+    }
+        
+    func test_that_if_the_count_is_too_high_it_selects_until_the_end_of_the_text() {
+        let text = """
+so pressing j in
+Visual Mode is gonna be
+cool because it will extend
+the selection
+when the head is after the anchor
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 116,
+            caretLocation: 0,
+            selectedLength: 41,
+            selectedText: """
+so pressing j in
+Visual Mode is gonna be
+"""
+            ,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 116,
+                number: 1,
+                start: 0,
+                end: 17
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 40
+        AccessibilityStrategyVisualMode.head = 0
+        
+        let returnedElement = applyMoveBeingTested(times: 69, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 17)
+        XCTAssertEqual(returnedElement.selectedLength, 99)
+    }
+    
 }
 
 
