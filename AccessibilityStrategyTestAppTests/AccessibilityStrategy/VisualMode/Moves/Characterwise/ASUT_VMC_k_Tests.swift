@@ -6,12 +6,138 @@ import Common
 // see j for blah blah
 class ASUT_VMC_k_Tests: ASUT_VM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         let state = VimEngineState(visualStyle: .characterwise)
                 
-        return asVisualMode.k(on: element, state)
+        return asVisualMode.k(times: count, on: element, state)
     }
 
+}
+
+
+// count
+extension ASUT_VMC_k_Tests {
+    
+    func test_it_implements_the_count_system_for_when_the_newHead_is_after_or_equal_to_the_Anchor() {
+        let text = """
+so pressing k in
+Visual Mode is gonna be
+cool because it will extend
+the selection
+when the head is after the anchor
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 116,
+            caretLocation: 18,
+            selectedLength: 73,
+            selectedText: """
+isual Mode is gonna be
+cool because it will extend
+the selection
+when the
+""",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 116,
+                number: 2,
+                start: 17,
+                end: 41
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 18
+        AccessibilityStrategyVisualMode.head = 90
+        
+        AccessibilityTextElement.fileLineColumnNumber = 7
+        AccessibilityTextElement.screenLineColumnNumber = 7
+        
+        let returnedElement = applyMoveBeingTested(times: 3, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 18)
+        XCTAssertEqual(returnedElement.selectedLength, 6)
+    }
+        
+    func test_that_it_implements_the_count_system_for_when_the_newHead_is_before_the_Anchor() {
+        let text = """
+so pressing k in
+Visual Mode is gonna be
+cool because it will extend
+the selection
+when the head is after the anchor
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 116,
+            caretLocation: 44,
+            selectedLength: 49,
+            selectedText: """
+l because it will extend
+the selection
+when the h
+""",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 116,
+                number: 3,
+                start: 41,
+                end: 69
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 92
+        AccessibilityStrategyVisualMode.head = 44
+        
+        AccessibilityTextElement.fileLineColumnNumber = 4
+        AccessibilityTextElement.screenLineColumnNumber = 4
+        
+        let returnedElement = applyMoveBeingTested(times: 2, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 3)
+        XCTAssertEqual(returnedElement.selectedLength, 90)
+    }
+        
+    func test_that_if_the_count_is_too_high_it_selects_until_the_firstFileLine_of_the_text_and_still_respects_the_globalColumnNumber() {
+        let text = """
+so pressing k in
+Visual Mode is gonna be
+cool because it will extend
+the selection
+when the head is after the anchor
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 116,
+            caretLocation: 21,
+            selectedLength: 38,
+            selectedText: """
+al Mode is gonna be
+cool because it wi
+""",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 116,
+                number: 2,
+                start: 17,
+                end: 41
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 21
+        AccessibilityStrategyVisualMode.head = 58
+        
+        AccessibilityTextElement.fileLineColumnNumber = 18
+        AccessibilityTextElement.screenLineColumnNumber = 18
+        
+        let returnedElement = applyMoveBeingTested(times: 69, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 16)
+        XCTAssertEqual(returnedElement.selectedLength, 6)
+    }
+    
 }
     
 
