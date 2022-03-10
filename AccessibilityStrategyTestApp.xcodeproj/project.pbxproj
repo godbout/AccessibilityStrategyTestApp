@@ -458,6 +458,7 @@
 		91152A6827D10F7500222EC1 /* ASUI_NM_g0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_g0_Tests.swift; sourceTree = "<group>"; };
 		91152A6A27D1120F00222EC1 /* ASUI_NM_g^_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUI_NM_g^_Tests.swift"; sourceTree = "<group>"; };
 		9115324D2721BAB0006EE863 /* ASUT_VMC_gI__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_VMC_gI__Tests.swift; sourceTree = "<group>"; };
+		911B254627D760490096FE48 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		911C027B27154B4A00092ED9 /* FL_next_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FL_next_Tests.swift; sourceTree = "<group>"; };
 		911C027D27154B6500092ED9 /* FL_previous_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FL_previous_Tests.swift; sourceTree = "<group>"; };
 		911C027F27154B8400092ED9 /* FT_next_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT_next_Tests.swift; sourceTree = "<group>"; };
@@ -1116,9 +1117,9 @@
 				91AF718C26E151B7007C2D2E /* _ASUI_VM_BaseTests.swift */,
 				91BD8DCA2782D5FE0009D107 /* ASUI_VM_~_Tests.swift */,
 				91AF718D26E151B8007C2D2E /* Characterwise */,
+				91AF719A26E151B8007C2D2E /* Linewise */,
 				91A3018726F0E202001BFD23 /* Helpers */,
 				91AF718426E15140007C2D2E /* Info.plist */,
-				91AF719A26E151B8007C2D2E /* Linewise */,
 			);
 			path = AccessibilityStrategyVisualMode;
 			sourceTree = "<group>";
@@ -1205,6 +1206,7 @@
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
+				911B254627D760490096FE48 /* AccessibilityStrategy */,
 				91F951B326DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,

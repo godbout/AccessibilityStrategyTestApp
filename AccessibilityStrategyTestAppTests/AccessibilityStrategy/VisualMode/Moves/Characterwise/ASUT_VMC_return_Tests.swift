@@ -5,17 +5,16 @@ import Common
 
 class ASUT_VMC_return_Tests: ASUT_VM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(visualStyle: .characterwise)
             
-        return applyMoveBeingTested(on: element, &state)
-                
+        return applyMoveBeingTested(times: count, on: element, &state)
     }
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         vimEngineState.visualStyle = .characterwise
         
-        return asVisualMode.`return`(on: element, &vimEngineState)
+        return asVisualMode.`return`(times: count, on: element, &vimEngineState)
     }
 
 }
@@ -59,6 +58,109 @@ or a TF same same
         XCTAssertTrue(state.lastMoveBipped)
     }
 
+}
+
+
+// count
+extension ASUT_VMC_return_Tests {
+    
+    func test_it_implements_the_count_system_for_when_the_newHead_is_after_or_equal_to_the_Anchor() {
+        let text = """
+wow that one is gonna rip my ass off lol
+and it's getting even harder now that
+  🍅️he wrapped lines and shit is understood
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 123,
+            caretLocation: 6,
+            selectedLength: 14,
+            selectedText: "at one is gonn",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 123,
+                number: 1,
+                start: 0,
+                end: 41
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 19
+        AccessibilityStrategyVisualMode.head = 6
+        
+        let returnedElement = applyMoveBeingTested(times: 2, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 19)
+        XCTAssertEqual(returnedElement.selectedLength, 65)
+    }
+        
+    func test_that_it_implements_the_count_system_for_when_the_newHead_is_before_the_Anchor() {
+        let text = """
+wow that one is gonna rip my ass off lol
+and it's getting even harder now that
+  🍅️he wrapped lines and shit is understood
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 123,
+            caretLocation: 9,
+            selectedLength: 91,
+            selectedText: """
+one is gonna rip my ass off lol
+and it's getting even harder now that
+  🍅️he wrapped lines
+""",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 123,
+                number: 1,
+                start: 0,
+                end: 41
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 99
+        AccessibilityStrategyVisualMode.head = 9
+        
+        let returnedElement = applyMoveBeingTested(times: 2, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 81)
+        XCTAssertEqual(returnedElement.selectedLength, 19)
+    }
+        
+    func test_that_if_the_count_is_too_high_it_selects_until_the_lastFileLine_of_the_text_and_still_respects_the_globalColumnNumber() {
+        let text = """
+wow that one is gonna rip my ass off lol
+and it's getting even harder now that
+  🍅️he wrapped lines and shit is understood
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 123,
+            caretLocation: 6,
+            selectedLength: 25,
+            selectedText: "at one is gonna rip my as",
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 123,
+                number: 1,
+                start: 0,
+                end: 41
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 6
+        AccessibilityStrategyVisualMode.head = 30
+        
+        let returnedElement = applyMoveBeingTested(times: 69, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 6)
+        XCTAssertEqual(returnedElement.selectedLength, 78)
+    }
+    
 }
 
 
