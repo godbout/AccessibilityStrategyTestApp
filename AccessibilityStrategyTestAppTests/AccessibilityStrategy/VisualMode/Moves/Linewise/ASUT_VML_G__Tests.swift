@@ -5,12 +5,166 @@ import Common
 
 class ASUT_VML_G__Tests: ASUT_VM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int? = nil, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         let state = VimEngineState(visualStyle: .linewise)
         
-        return asVisualMode.G(on: element, state)
+        return asVisualMode.G(times: count, on: element, state)
     }
 
+}
+
+
+// count
+extension ASUT_VML_G__Tests {
+    
+    func test_it_implements_the_count_system_for_when_the_newHead_is_after_or_equal_to_the_Anchor() {
+        let text = """
+so pressing G in
+Visual Mode is gonna be
+cool because it will extend
+the selection
+when the head is after the anchor
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 116,
+            caretLocation: 0,
+            selectedLength: 41,
+            selectedText: """
+so pressing G in
+Visual Mode is gonna be
+"""
+            ,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 116,
+                number: 1,
+                start: 0,
+                end: 17
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 0
+        AccessibilityStrategyVisualMode.head = 40
+        
+        let returnedElement = applyMoveBeingTested(times: 4, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 83)
+    }
+        
+    func test_that_it_implements_the_count_system_for_when_the_newHead_is_before_the_Anchor() {
+        let text = """
+so pressing G in
+Visual Mode is gonna be
+cool because it will extend
+the selection
+when the head is after the anchor
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 116,
+            caretLocation: 0,
+            selectedLength: 41,
+            selectedText: """
+so pressing G in
+Visual Mode is gonna be
+"""
+            ,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 116,
+                number: 1,
+                start: 0,
+                end: 17
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 0
+        AccessibilityStrategyVisualMode.head = 40
+        
+        let returnedElement = applyMoveBeingTested(times: 1, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 17)
+    }
+    
+    func test_that_if_the_count_is_nil_it_selects_until_the_end_of_the_text() {
+        let text = """
+so pressing G in
+Visual Mode is gonna be
+cool because it will extend
+the selection
+when the head is after the anchor
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 116,
+            caretLocation: 0,
+            selectedLength: 41,
+            selectedText: """
+so pressing G in
+Visual Mode is gonna be
+"""
+            ,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 116,
+                number: 1,
+                start: 0,
+                end: 17
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 40
+        AccessibilityStrategyVisualMode.head = 0
+        
+        let returnedElement = applyMoveBeingTested(times: nil, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 17)
+        XCTAssertEqual(returnedElement.selectedLength, 99)
+    }
+        
+    func test_that_if_the_count_is_too_high_it_selects_until_the_end_of_the_text() {
+        let text = """
+so pressing G in
+Visual Mode is gonna be
+cool because it will extend
+the selection
+when the head is after the anchor
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 116,
+            caretLocation: 0,
+            selectedLength: 41,
+            selectedText: """
+so pressing G in
+Visual Mode is gonna be
+"""
+            ,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 116,
+                number: 1,
+                start: 0,
+                end: 17
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 40
+        AccessibilityStrategyVisualMode.head = 0
+        
+        let returnedElement = applyMoveBeingTested(times: 69, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 17)
+        XCTAssertEqual(returnedElement.selectedLength, 99)
+    }
+    
 }
 
 
