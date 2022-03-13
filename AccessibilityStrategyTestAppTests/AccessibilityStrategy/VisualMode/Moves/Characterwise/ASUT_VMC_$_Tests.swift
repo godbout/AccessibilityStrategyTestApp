@@ -5,10 +5,10 @@ import Common
 
 class ASUT_VMC_$_Tests: ASUT_VM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         let state = VimEngineState(visualStyle: .characterwise)
         
-        return asVisualMode.dollarSign(on: element, state)
+        return asVisualMode.dollarSign(times: count, on: element, state)
     }
     
 }
@@ -48,6 +48,126 @@ them like nothing happened. that's how special it is.
         XCTAssertNil(returnedElement.selectedText)
     }
      
+}
+
+
+// count
+extension ASUT_VMC_$_Tests {
+    
+    func test_it_implements_the_count_system_for_when_the_newHead_is_after_or_equal_to_the_Anchor() {
+        let text = """
+ok so now we're going
+to test that move on
+multiline and this
+is something for VisualMode
+so it's probably gonna
+    select some stuff and all
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 142,
+            caretLocation: 26,
+            selectedLength: 28,
+            selectedText: """
+        est that move on
+        multiline a
+        """,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 142,
+                number: 2,
+                start: 22,
+                end: 43
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 53
+        AccessibilityStrategyVisualMode.head = 26
+        
+        let returnedElement = applyMoveBeingTested(times: 4, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 53)
+        XCTAssertEqual(returnedElement.selectedLength, 60)
+    }
+        
+    func test_that_it_implements_the_count_system_for_when_the_newHead_is_before_the_Anchor() {
+        let text = """
+ok so now we're going
+to test that move on
+multiline and this
+is something for VisualMode
+so it's probably gonna
+select some stuff and all
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 138,
+            caretLocation: 25,
+            selectedLength: 102,
+            selectedText: """
+        test that move on
+        multiline and this
+        is something for VisualMode
+        so it's probably gonna
+        select some st
+        """,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 138,
+                number: 2,
+                start: 22,
+                end: 43
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 126
+        AccessibilityStrategyVisualMode.head = 25
+        
+        let returnedElement = applyMoveBeingTested(times: 5, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 126)
+        XCTAssertEqual(returnedElement.selectedLength, 12)
+    }
+    
+    func test_that_if_the_count_is_too_high_it_selects_until_the_firstNonBlank_of_the_lastLine() {
+        let text = """
+ok so now we're going
+to test that move on
+multiline and this
+is something for VisualMode
+so it's probably gonna
+select some stuff and all
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 138,
+            caretLocation: 4,
+            selectedLength: 29,
+            selectedText: """
+        o now we're going
+        to test tha
+        """,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 138,
+                number: 1,
+                start: 0,
+                end: 22
+            )!
+        )
+                
+        AccessibilityStrategyVisualMode.anchor = 4
+        AccessibilityStrategyVisualMode.head = 32
+        
+        let returnedElement = applyMoveBeingTested(times: 69, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 4)
+        XCTAssertEqual(returnedElement.selectedLength, 134)
+    }
+    
 }
 
 
