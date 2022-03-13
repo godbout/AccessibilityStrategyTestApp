@@ -108,6 +108,12 @@ extension ASUT_VMC_t_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
+}
+
+
+// TextViews
+extension ASUT_VMC_t_Tests {
+    
     func test_that_if_the_new_head_location_is_before_the_Anchor_then_it_selects_from_the_new_head_location_until_the_Anchor() {
         let text = """
 check if the move can 🍃️🍃️🍃️🍃️🍃️🍃️ find shit!
@@ -138,6 +144,42 @@ of newHeadLocation needs some... calculation.
         
         XCTAssertEqual(returnedElement.caretLocation, 72)
         XCTAssertEqual(returnedElement.selectedLength, 22)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
+    func test_that_it_searches_from_the_lineAtHead_and_not_from_the_currentFileLine_that_is_the_line_from_the_caretLocation() {
+        let text = """
+check if f can 🍃️🍃️🍃️🍃️🍃️🍃️ find shit!
+also on multiple lines 🌬️ because the calculation
+of newHeadLocation needs some... calculation.
+"""
+
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 141,
+            caretLocation: 53,
+            selectedLength: 53,
+            selectedText: """
+        multiple lines 🌬️ because the calculation
+        of newHead
+        """,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 141,
+                number: 2,
+                start: 45,
+                end: 96
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 53
+        AccessibilityStrategyVisualMode.head = 105
+
+        let returnedElement = applyMoveBeingTested(to: "s", on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 53)
+        XCTAssertEqual(returnedElement.selectedLength, 66)
         XCTAssertNil(returnedElement.selectedText)
     }
 
