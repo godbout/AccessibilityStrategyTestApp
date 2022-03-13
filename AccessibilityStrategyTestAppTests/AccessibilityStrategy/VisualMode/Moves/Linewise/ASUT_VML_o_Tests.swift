@@ -4,12 +4,6 @@ import XCTest
 
 class ASUT_VML_o_Tests: ASUT_VM_BaseTests {
     
-    override func setUp() {
-        super.setUp()
-        
-//        KindaVimEngine.shared.visualStyle = .linewise
-    }
-    
     private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.o(on: element) 
     }
