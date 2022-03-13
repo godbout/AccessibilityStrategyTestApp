@@ -8,8 +8,32 @@ class ASUI_VMC_g$_Tests: ASUI_VM_BaseTests {
     var state = VimEngineState(visualStyle: .characterwise)
     
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement {
-        return applyMove { asVisualMode.gDollarSign(on: $0, state) }
+    private func applyMoveBeingTested(times count: Int = 1) -> AccessibilityTextElement {
+        return applyMove { asVisualMode.gDollarSign(times: count, on: $0, state) }
+    }
+    
+}
+
+
+// count
+extension ASUI_VMC_g$_Tests {
+    
+    func test_that_the_count_is_implemented() {
+        let textInAXFocusedElement = """
+g$ for visual mode starts
+at the anchor, not at the caret location
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+       
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.W(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
+        applyMove { asVisualMode.w(on: $0, state) }
+        let accessibilityElement = applyMoveBeingTested(times: 3)
+
+        XCTAssertEqual(accessibilityElement.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement.selectedLength, 45)
     }
     
 }
