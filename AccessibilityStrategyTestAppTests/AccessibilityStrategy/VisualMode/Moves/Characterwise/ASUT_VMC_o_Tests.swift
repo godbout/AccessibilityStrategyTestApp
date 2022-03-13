@@ -4,12 +4,6 @@ import XCTest
 
 class ASUT_VMC_o_Tests: ASUT_VM_BaseTests {
     
-    override func setUp() {
-        super.setUp()
-        
-//        KindaVimEngine.shared.visualStyle = .characterwise
-    }
-    
     private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.o(on: element) 
     }
@@ -27,8 +21,10 @@ extension ASUT_VMC_o_Tests {
             value: text,
             length: 34,
             caretLocation: 10,
-            selectedLength: 1,
-            selectedText: " ",
+            selectedLength: 4,
+            selectedText: """
+         wit
+        """,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
@@ -59,8 +55,11 @@ tricky
             value: text,
             length: 59,
             caretLocation: 19,
-            selectedLength: 1,
-            selectedText: "m",
+            selectedLength: 22,
+            selectedText: """
+        me like a little
+        longe
+        """,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 59,
