@@ -237,4 +237,43 @@ ass off lol
         XCTAssertEqual(returnedElement.selectedLength, 17)
     }
     
+    // this is intrinsic to Linewise, Anchor/Head and the `j` move with a count of 1.
+    // when only one line is highlighted and we go down with `j`, we may have to swap the Anchor and Head position. this can't be done
+    // in ATE and didSet of selectedLength, because we can only know where is the Anchor and where is the Head if we know from which move
+    // it's coming, in this particular case. (not even `k`, in `k` because it goes up not down, the calculations are always correct.)
+    func test_that_if_the_Anchor_and_the_Head_are_on_the_same_line_and_the_Head_is_before_the_Anchor_then_the_Head_and_the_Anchor_get_swapped_and_the_move_works() {
+        let text = """
+so pressing j in
+Visual Mode is gonna be
+cool because it will reduce
+the selection when the
+head if before the anchor
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 117,
+            caretLocation: 41,
+            selectedLength: 28,
+            selectedText: """
+        cool because it will reduce\n
+        """,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 117,
+                number: 3,
+                start: 41,
+                end: 69
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 68
+        AccessibilityStrategyVisualMode.head = 41
+        
+        _ = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 41)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 91)
+    }
+    
 }
