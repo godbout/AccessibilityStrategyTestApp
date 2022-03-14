@@ -66,7 +66,7 @@ there's 5 spaces at the end of this line
 }
 
 
-// caretLocation not on whitespace
+// caretLocation not on whitespace (in Vim Linefeed is not a whitespace :()
 extension FT_aWORD__Tests {
 
     func test_that_if_the_text_is_empty_it_returns_nil() {
@@ -198,6 +198,21 @@ this line ends with 3 spaces
 
         XCTAssertEqual(WORDRange?.lowerBound, 34)
         XCTAssertEqual(WORDRange?.count, 3)
+    }
+    
+    // this test contains blanks
+    func test_that_if_it_is_on_a_Linefeed_it_does_not_delete_too_much() {
+        let text = """
+this line ends with 3 spaces   
+
+  and   this is something
+"""
+
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let wordRange = fileText.aWord(startingAt: 32)
+
+        XCTAssertEqual(wordRange?.lowerBound, 32)
+        XCTAssertEqual(wordRange?.count, 6)
     }
 
     func test_that_it_knows_how_to_handle_ugly_emojis() {
