@@ -107,6 +107,20 @@ spill also
         XCTAssertEqual(wordrange.count, 4)
     }
     
+    func test_that_innerWord_stops_at_Linefeeds_both_at_beginning_and_end_of_lines_that_is_on_empty_lines() {
+        let text = """
+this shouldn't
+
+    backwards
+"""
+        
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let wordrange = fileText.innerWord(startingAt: 15)
+        
+        XCTAssertEqual(wordrange.lowerBound, 15)
+        XCTAssertEqual(wordrange.count, 0)
+    }
+    
 }
 
 
