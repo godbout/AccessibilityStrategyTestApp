@@ -5,8 +5,34 @@ import Common
 
 class ASUI_NM_rightChevronRightChevron_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.rightChevronRightChevron(on: $0, VimEngineState(appFamily: appFamily)) }
+    private func applyMoveBeingTested(times count: Int = 1, appFamily: AppFamily = .auto) -> AccessibilityTextElement {
+        return applyMove { asNormalMode.rightChevronRightChevron(times: count, on: $0, VimEngineState(appFamily: appFamily)) }
+    }
+    
+}
+
+
+// count
+extension ASUI_NM_rightChevronRightChevron_Tests {
+
+    func test_that_the_count_is_implemented() {
+        let textInAXFocusedElement = """
+seems that even the normal
+🖕️ase fails LMAO
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+       
+        let accessibilityElement = applyMoveBeingTested(times: 3)
+            
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+seems that even the normal
+            🖕️ase fails LMAO
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 39)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.selectedText, "🖕️")
     }
     
 }
