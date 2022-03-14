@@ -21,14 +21,13 @@ extension ASUI_VML_o_Tests {
     func test_that_the_globalColumnNumbers_get_updated() {
         let textInAXFocusedElement = """
 when using o whether in Characterwise or Linewise
-the globalColumnNunbers have to get recalculated!
+the globalColumnNumbers have to get recalculated!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
                
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
-        applyMove { asVisualMode.b(on: $0, state) }
         
         let fileLineColumnNumber = AccessibilityTextElement.fileLineColumnNumber
         let screenLineColumnNumber = AccessibilityTextElement.screenLineColumnNumber
