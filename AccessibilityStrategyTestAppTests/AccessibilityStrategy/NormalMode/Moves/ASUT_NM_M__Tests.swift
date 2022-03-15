@@ -1,8 +1,6 @@
-//
-//  ASUT_NM_M__Tests.swift
-//  AccessibilityStrategyTestAppTests
-//
-//  Created by Guillaume Leclerc on 15/03/2022.
-//
+@testable import AccessibilityStrategy
+import XCTest
 
-import Foundation
+
+// definitely UIT
+class ASUT_NM_M__Tests: ASUT_NM_BaseTests {}
