@@ -30,6 +30,7 @@ it eats them like nothing happened. that's how special it is.
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "k",
+            visibleCharacterRange: 0..<110,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 110,
@@ -68,6 +69,7 @@ etc etc etc etc etc etc etc etc etc etc etc etc
             caretLocation: 78,
             selectedLength: 1,
             selectedText: "e",
+            visibleCharacterRange: 0..<225,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 225,
@@ -100,6 +102,7 @@ etc etc etc etc etc etc etc etc etc etc etc etc
             caretLocation: 78,
             selectedLength: 1,
             selectedText: "e",
+            visibleCharacterRange: 0..<225,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 225,
@@ -142,6 +145,7 @@ than ScreenLines
             caretLocation: 31,
             selectedLength: 1,
             selectedText: "j",
+            visibleCharacterRange: 0..<81,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 81,
@@ -173,6 +177,7 @@ let's see
             caretLocation: 31,
             selectedLength: 1,
             selectedText: "g",
+            visibleCharacterRange: 0..<65,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 65,
@@ -203,6 +208,7 @@ nothing else AR💣️H
             caretLocation: 67,
             selectedLength: 3,
             selectedText: "💣️",
+            visibleCharacterRange: 0..<71,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 71,
@@ -234,6 +240,7 @@ hehe hehe
             caretLocation: 38,
             selectedLength: 1,
             selectedText: " ",
+            visibleCharacterRange: 0..<69,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 69,
@@ -264,6 +271,7 @@ edge case
             caretLocation: 19,
             selectedLength: 1,
             selectedText: "e",
+            visibleCharacterRange: 0..<26,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 26,
@@ -294,6 +302,7 @@ and also to the end of the next next line!
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "l",
+            visibleCharacterRange: 0..<100,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 100,

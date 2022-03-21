@@ -35,6 +35,7 @@ when the head is after the anchor
 sing G in
 Visual Mode i
 """,
+            visibleCharacterRange: 0..<119,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
@@ -73,6 +74,7 @@ cool because it will extend
 the selection
 when the head i
 """,
+            visibleCharacterRange: 0..<116,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 116,
@@ -109,6 +111,7 @@ the selection
 al Mode is gonna be
 cool because it wi
 """,
+            visibleCharacterRange: 0..<119,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
@@ -145,6 +148,7 @@ the selection
 al Mode is gonna be
 cool because it wi
 """,
+            visibleCharacterRange: 0..<119,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
@@ -179,6 +183,7 @@ extension ASUT_VMC_G__Tests {
             caretLocation: 31,
             selectedLength: 6,
             selectedText: "test v",
+            visibleCharacterRange: 0..<38,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 38,
@@ -217,6 +222,7 @@ the move and it should
             caretLocation: 17,
             selectedLength: 30,
             selectedText: "caret before\nthe anchor and do",
+            visibleCharacterRange: 0..<89,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 89,

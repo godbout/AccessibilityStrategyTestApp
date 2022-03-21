@@ -30,6 +30,7 @@ so that we make sure everything works properly!
             caretLocation: 79,
             selectedLength: 1,
             selectedText: "i",
+            visibleCharacterRange: 0..<129,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 129,

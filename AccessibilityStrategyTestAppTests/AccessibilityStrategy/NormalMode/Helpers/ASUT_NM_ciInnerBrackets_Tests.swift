@@ -35,6 +35,7 @@ extension ASUT_NM_ciInnerBrackets_Tests {
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "o",
+            visibleCharacterRange: 0..<58,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 58,
@@ -76,6 +77,7 @@ and } is not preceded by a linefeed
             caretLocation: 25,
             selectedLength: 1,
             selectedText: "t",
+            visibleCharacterRange: 0..<85,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 85,
@@ -116,6 +118,7 @@ by a linefeed and
             caretLocation: 23,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<86,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 86,
@@ -156,6 +159,7 @@ now that shit will get cleaned (
             caretLocation: 55,
             selectedLength: 1,
             selectedText: " ",
+            visibleCharacterRange: 0..<77,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 77,
@@ -195,6 +199,7 @@ and ] is not preceded by a linefeed
             caretLocation: 41,
             selectedLength: 1,
             selectedText: "d",
+            visibleCharacterRange: 0..<78,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 78,
@@ -234,6 +239,7 @@ is followed by a linefeed and
             caretLocation: 46,
             selectedLength: 1,
             selectedText: "a",
+            visibleCharacterRange: 0..<77,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 77,

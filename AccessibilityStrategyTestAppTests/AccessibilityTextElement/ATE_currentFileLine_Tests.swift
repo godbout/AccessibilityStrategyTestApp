@@ -21,6 +21,7 @@ extension ATE_currentFileLine_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<0,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
@@ -57,6 +58,7 @@ line
             caretLocation: 31,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<31,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
@@ -98,6 +100,7 @@ fucking hell
             caretLocation: 21,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<28,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 28,
@@ -132,6 +135,7 @@ a linefeed
             caretLocation: 5,
             selectedLength: 7,
             selectedText: "'m a li",
+            visibleCharacterRange: 0..<30,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 30,
@@ -167,6 +171,7 @@ wrapped lines. testing on the linefeed is not enough. there's some more involved
             caretLocation: 83,
             selectedLength: 1,
             selectedText: "e",
+            visibleCharacterRange: 0..<131,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 131,
@@ -204,6 +209,7 @@ after updating to the new isTheLastLine :D
             caretLocation: 110,
             selectedLength: 1,
             selectedText: "o",
+            visibleCharacterRange: 0..<137,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 137,
@@ -239,6 +245,7 @@ and there's that one line after
             caretLocation: 28,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<60,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 60,
@@ -288,6 +295,7 @@ line 🌻️
             caretLocation: 35,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<35,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
@@ -330,6 +338,7 @@ fucking hell 🇸🇨️
             caretLocation: 10,
             selectedLength: 2,
             selectedText: " b",
+            visibleCharacterRange: 0..<48,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 48,
@@ -361,6 +370,7 @@ fucking hell 🇸🇨️
             caretLocation: 19,
             selectedLength: 2,
             selectedText: "li",
+            visibleCharacterRange: 0..<31,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
@@ -395,6 +405,7 @@ a linefeed
             caretLocation: 12,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<36,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 36,
@@ -430,6 +441,7 @@ wrapped lines. testing on the linefeed is not 😂️nough. there's some more in
             caretLocation: 78,
             selectedLength: 21,
             selectedText: "e linefeed is not 😂️",
+            visibleCharacterRange: 0..<133,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 133,
@@ -467,6 +479,7 @@ after updating 😂️😂️😂️ the new isTheLastLine :D
             caretLocation: 106,
             selectedLength: 20,
             selectedText: "ng 😂️😂️😂️ the new",
+            visibleCharacterRange: 0..<144,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 144,

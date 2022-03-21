@@ -35,6 +35,7 @@ LMAO
             caretLocation: 15,
             selectedLength: 1,
             selectedText: "u",
+            visibleCharacterRange: 0..<80,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 80,
@@ -65,6 +66,7 @@ LMAO
             caretLocation: 51,
             selectedLength: 1,
             selectedText: "u",
+            visibleCharacterRange: 0..<80,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 80,
@@ -102,6 +104,7 @@ we should stay there
             caretLocation: 41,
             selectedLength: 1,
             selectedText: "a",
+            visibleCharacterRange: 0..<93,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 93,
@@ -129,6 +132,7 @@ we should stay there
             caretLocation: 38,
             selectedLength: 3,
             selectedText: "😂️",
+            visibleCharacterRange: 0..<50,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 50,
@@ -156,6 +160,7 @@ we should stay there
             caretLocation: 38,
             selectedLength: 3,
             selectedText: "😂️",
+            visibleCharacterRange: 0..<50,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 50,
@@ -189,6 +194,7 @@ extension ASUT_NM_ch_Tests {
             caretLocation: 23,
             selectedLength: 1,
             selectedText: "c",
+            visibleCharacterRange: 0..<39,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 39,
@@ -224,6 +230,7 @@ we should stay there
             caretLocation: 41,
             selectedLength: 1,
             selectedText: "a",
+            visibleCharacterRange: 0..<93,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 93,

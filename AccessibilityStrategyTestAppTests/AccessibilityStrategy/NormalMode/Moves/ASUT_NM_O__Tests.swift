@@ -27,6 +27,7 @@ extension ASUT_NM_O__Tests {
             caretLocation: 23,
             selectedLength: 1,
             selectedText: " ",
+            visibleCharacterRange: 0..<39,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 39,
@@ -55,6 +56,7 @@ abo😄️ve!
             caretLocation: 33,
             selectedLength: 1,
             selectedText: "d",
+            visibleCharacterRange: 0..<72,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 72,
@@ -84,6 +86,7 @@ an empty line
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "\n",
+            visibleCharacterRange: 0..<27,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 27,
@@ -114,6 +117,7 @@ the last empty line
             caretLocation: 45,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<45,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 45,
@@ -143,6 +147,7 @@ the last empty line
             caretLocation: 43,
             selectedLength: 1,
             selectedText: "e",
+            visibleCharacterRange: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -172,6 +177,7 @@ but it should work
             caretLocation: 26,
             selectedLength: 1,
             selectedText: "t",
+            visibleCharacterRange: 0..<46,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 46,

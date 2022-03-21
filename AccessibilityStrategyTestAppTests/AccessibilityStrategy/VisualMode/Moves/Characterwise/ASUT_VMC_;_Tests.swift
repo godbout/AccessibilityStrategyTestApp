@@ -27,6 +27,7 @@ extension ASUT_VM_semicolon_Tests {
             caretLocation: 80,
             selectedLength: 13,
             selectedText: "LeftRightSear",
+            visibleCharacterRange: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
@@ -55,6 +56,7 @@ extension ASUT_VM_semicolon_Tests {
             caretLocation: 1,
             selectedLength: 4,
             selectedText: "e go",
+            visibleCharacterRange: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
@@ -89,6 +91,7 @@ extension ASUT_VM_semicolon_Tests {
             caretLocation: 69,
             selectedLength: 14,
             selectedText: "ferent LastLef",
+            visibleCharacterRange: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
@@ -117,6 +120,7 @@ extension ASUT_VM_semicolon_Tests {
             caretLocation: 69,
             selectedLength: 14,
             selectedText: "ferent LastLef",
+            visibleCharacterRange: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
@@ -145,6 +149,7 @@ extension ASUT_VM_semicolon_Tests {
             caretLocation: 2,
             selectedLength: 8,
             selectedText: " gonna u",
+            visibleCharacterRange: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
@@ -173,6 +178,7 @@ extension ASUT_VM_semicolon_Tests {
             caretLocation: 2,
             selectedLength: 8,
             selectedText: " gonna u",
+            visibleCharacterRange: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,

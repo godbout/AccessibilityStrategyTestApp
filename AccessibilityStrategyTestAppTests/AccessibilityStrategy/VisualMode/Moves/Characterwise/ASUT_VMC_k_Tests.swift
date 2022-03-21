@@ -38,6 +38,7 @@ cool because it will extend
 the selection
 when the
 """,
+            visibleCharacterRange: 0..<116,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 116,
@@ -78,6 +79,7 @@ l because it will extend
 the selection
 when the h
 """,
+            visibleCharacterRange: 0..<116,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 116,
@@ -117,6 +119,7 @@ when the head is after the anchor
 al Mode is gonna be
 cool because it wi
 """,
+            visibleCharacterRange: 0..<116,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 116,
@@ -161,6 +164,7 @@ the wrapped lines and shit is understood
             caretLocation: 74,
             selectedLength: 4,
             selectedText: "that",
+            visibleCharacterRange: 0..<119,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
@@ -195,6 +199,7 @@ the wrapped lines and shit is understood
             caretLocation: 79,
             selectedLength: 3,
             selectedText: "the",
+            visibleCharacterRange: 0..<119,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
@@ -229,6 +234,7 @@ the wrapped lines and shit is understood
             caretLocation: 41,
             selectedLength: 49,
             selectedText: "and it's getting even harder now that\nthe wrapped",
+            visibleCharacterRange: 0..<119,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
@@ -263,6 +269,7 @@ the wrapped lines and shit is understood
             caretLocation: 77,
             selectedLength: 5,
             selectedText: "t\nthe",
+            visibleCharacterRange: 0..<119,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
@@ -302,6 +309,7 @@ wow that one is
 gonna rip my
 wow that one is
 """,
+            visibleCharacterRange: 0..<60,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 60,
@@ -337,6 +345,7 @@ own empty
             caretLocation: 35,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<35,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,

@@ -26,6 +26,7 @@ extension ASUT_VMC_iW__Tests {
             caretLocation: 20,
             selectedLength: 20,
             selectedText: "hor position are imp",
+            visibleCharacterRange: 0..<91,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 91,

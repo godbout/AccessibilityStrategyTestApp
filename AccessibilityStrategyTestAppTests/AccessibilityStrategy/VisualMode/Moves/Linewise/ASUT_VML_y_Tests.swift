@@ -40,6 +40,7 @@ at least if we're not at the end of the text
 will delete the selected lines
 but the below line will not go up\n
 """,
+            visibleCharacterRange: 0..<126,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 126,
@@ -77,6 +78,7 @@ extension ASUT_VML_y_Tests {
             caretLocation: 0,
             selectedLength: 39,
             selectedText: "a whole line entirely for VM V and VM y",
+            visibleCharacterRange: 0..<39,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 39,
@@ -117,6 +119,7 @@ with VM V over
 why the fuck am
 i writing this?
 """,
+            visibleCharacterRange: 0..<63,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 63,
@@ -155,6 +158,7 @@ not the anchor!
 it goes back to
 the crazy caret location and
 """,
+            visibleCharacterRange: 0..<81,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 81,
@@ -194,6 +198,7 @@ not the anchor!
 🔥️t goes back to
 the crazy caret location and
 """,
+            visibleCharacterRange: 0..<83,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 83,
