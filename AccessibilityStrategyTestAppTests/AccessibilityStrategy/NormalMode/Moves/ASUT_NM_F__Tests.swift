@@ -31,6 +31,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 106,
             selectedLength: 1,
             selectedText: "a",
+            visibleCharacterRange: 0..<115,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
@@ -62,6 +63,7 @@ extension ASUT_NM_F__Tests {
             caretLocation: 53,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<66,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 66,
@@ -87,6 +89,7 @@ extension ASUT_NM_F__Tests {
             caretLocation: 47,
             selectedLength: 3,
             selectedText: "🍔️",
+            visibleCharacterRange: 0..<83,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 83,
@@ -118,6 +121,7 @@ extension ASUT_NM_F__Tests {
             caretLocation: 19,
             selectedLength: 1,
             selectedText: "F",
+            visibleCharacterRange: 0..<35,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
@@ -147,6 +151,7 @@ that is not there
             caretLocation: 22,
             selectedLength: 1,
             selectedText: "c",
+            visibleCharacterRange: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -183,6 +188,7 @@ yeah
             caretLocation: 51,
             selectedLength: 1,
             selectedText: "h",
+            visibleCharacterRange: 0..<52,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 52,

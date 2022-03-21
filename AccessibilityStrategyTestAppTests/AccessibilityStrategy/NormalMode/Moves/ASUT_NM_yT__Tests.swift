@@ -34,6 +34,7 @@ them like nothin🇫🇷️ happened. that's how special it is.
             caretLocation: 116,
             selectedLength: 1,
             selectedText: "i",
+            visibleCharacterRange: 0..<119,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
@@ -66,6 +67,7 @@ extension ASUT_NM_yT__Tests {
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "t",
+            visibleCharacterRange: 0..<29,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 29,
@@ -96,6 +98,7 @@ that is not there
             caretLocation: 14,
             selectedLength: 1,
             selectedText: " ",
+            visibleCharacterRange: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -129,6 +132,7 @@ extension ASUT_NM_yT__Tests {
             caretLocation: 53,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<66,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 66,
@@ -155,6 +159,7 @@ extension ASUT_NM_yT__Tests {
             caretLocation: 47,
             selectedLength: 3,
             selectedText: "🍔️",
+            visibleCharacterRange: 0..<83,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 83,
@@ -188,6 +193,7 @@ extension ASUT_NM_yT__Tests {
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "t",
+            visibleCharacterRange: 0..<29,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 29,
@@ -217,6 +223,7 @@ that is not there
             caretLocation: 14,
             selectedLength: 1,
             selectedText: " ",
+            visibleCharacterRange: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -252,6 +259,7 @@ on a line
             caretLocation: 25,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<51,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 51,

@@ -27,6 +27,7 @@ itself d🤨️}🤨️🤨️oes
             caretLocation: 19,
             selectedLength: 3,
             selectedText: "🤨️",
+            visibleCharacterRange: 0..<127,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 127,

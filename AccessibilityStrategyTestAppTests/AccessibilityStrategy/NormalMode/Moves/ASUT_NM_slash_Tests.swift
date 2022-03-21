@@ -23,6 +23,7 @@ extension ASUT_NM_slash_Tests {
             caretLocation: 8,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<37,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
@@ -50,6 +51,7 @@ extension ASUT_NM_slash_Tests {
             caretLocation: 8,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<37,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
@@ -81,6 +83,7 @@ extension ASUT_NM_slash_Tests {
             caretLocation: 25,
             selectedLength: 1,
             selectedText: "m",
+            visibleCharacterRange: 0..<70,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 70,
@@ -106,6 +109,7 @@ extension ASUT_NM_slash_Tests {
             caretLocation: 29,
             selectedLength: 1,
             selectedText: "a",
+            visibleCharacterRange: 0..<66,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 66,
@@ -131,6 +135,7 @@ extension ASUT_NM_slash_Tests {
             caretLocation: 12,
             selectedLength: 1,
             selectedText: "f",
+            visibleCharacterRange: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -156,6 +161,7 @@ extension ASUT_NM_slash_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<0,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
@@ -184,6 +190,7 @@ and the caret shouldn't move else pan pan cul cul
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "p",
+            visibleCharacterRange: 0..<99,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 99,
@@ -209,6 +216,7 @@ and the caret shouldn't move else pan pan cul cul
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "s",
+            visibleCharacterRange: 0..<53,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 53,
@@ -239,6 +247,7 @@ blocked haha. play
             caretLocation: 11,
             selectedLength: 1,
             selectedText: "p",
+            visibleCharacterRange: 0..<87,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 87,
@@ -269,6 +278,7 @@ loop around search back from the beginning
             caretLocation: 127,
             selectedLength: 1,
             selectedText: "c",
+            visibleCharacterRange: 0..<148,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 148,

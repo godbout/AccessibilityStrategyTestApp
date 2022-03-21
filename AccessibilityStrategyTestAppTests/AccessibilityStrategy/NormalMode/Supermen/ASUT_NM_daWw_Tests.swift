@@ -25,6 +25,7 @@ extension ASUT_NM_daWw_Tests {
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "u",
+            visibleCharacterRange: 0..<51,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 51,
@@ -53,6 +54,7 @@ and also a lot of spaces at the end of this line
             caretLocation: 60,
             selectedLength: 1,
             selectedText: " ",
+            visibleCharacterRange: 0..<66,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 66,

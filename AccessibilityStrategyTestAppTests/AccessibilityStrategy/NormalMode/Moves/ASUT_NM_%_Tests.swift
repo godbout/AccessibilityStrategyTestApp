@@ -26,6 +26,7 @@ them like nothin🇫🇷️ happened. (that's how special) it is.
             caretLocation: 78,
             selectedLength: 5,
             selectedText: "🇫🇷️",
+            visibleCharacterRange: 0..<121,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 121,
@@ -57,6 +58,7 @@ extension ASUT_NM_percent_Tests {
             caretLocation: 4,
             selectedLength: 1,
             selectedText: "t",
+            visibleCharacterRange: 0..<28,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 28,
@@ -85,6 +87,7 @@ and a ( nice pair line ) :))
             caretLocation: 30,
             selectedLength: 1,
             selectedText: "d",
+            visibleCharacterRange: 0..<56,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 56,
@@ -110,6 +113,7 @@ and a ( nice pair line ) :))
             caretLocation: 34,
             selectedLength: 1,
             selectedText: "e",
+            visibleCharacterRange: 0..<56,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 56,
@@ -135,6 +139,7 @@ and a ( nice pair line ) :))
             caretLocation: 14,
             selectedLength: 1,
             selectedText: "a",
+            visibleCharacterRange: 0..<70,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 70,
@@ -170,6 +175,7 @@ func someBull() {
             caretLocation: 39,
             selectedLength: 1,
             selectedText: "}",
+            visibleCharacterRange: 0..<40,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 40,
@@ -204,6 +210,7 @@ those faces 🥺️☹️ } 😂️
             caretLocation: 3,
             selectedLength: 1,
             selectedText: "d",
+            visibleCharacterRange: 0..<53,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 53,

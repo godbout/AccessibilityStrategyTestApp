@@ -25,6 +25,7 @@ extension ASUT_NM_o_Tests {
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "i",
+            visibleCharacterRange: 0..<39,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 39,
@@ -51,6 +52,7 @@ between the first file line and the second file line
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "i",
+            visibleCharacterRange: 0..<100,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 100,
@@ -79,6 +81,7 @@ that doesn't end with a linefeed and it's still gonna work coz 🪄️🪄️�
             caretLocation: 110,
             selectedLength: 1,
             selectedText: "d",
+            visibleCharacterRange: 0..<160,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 160,
@@ -108,6 +111,7 @@ and i'm doing this not because i'm a genius but because i'm pretty dumb LMAO
             caretLocation: 60,
             selectedLength: 1,
             selectedText: "\n",
+            visibleCharacterRange: 0..<137,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 137,
@@ -137,6 +141,7 @@ so the new line follows that
             caretLocation: 22,
             selectedLength: 1,
             selectedText: "s",
+            visibleCharacterRange: 0..<58,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 58,
@@ -165,6 +170,7 @@ caret on empty last line
             caretLocation: 25,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<25,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 25,

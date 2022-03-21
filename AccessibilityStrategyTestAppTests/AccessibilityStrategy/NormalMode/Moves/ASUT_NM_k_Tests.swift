@@ -27,6 +27,7 @@ it eats them like nothing happened. that's how special it is.
             caretLocation: 90,
             selectedLength: 1,
             selectedText: "s",
+            visibleCharacterRange: 0..<110,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 110,
@@ -65,6 +66,7 @@ etc etc etc etc etc etc etc etc etc etc etc etc
             caretLocation: 190,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<225,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 225,
@@ -97,6 +99,7 @@ etc etc etc etc etc etc etc etc etc etc etc etc
             caretLocation: 78,
             selectedLength: 1,
             selectedText: "e",
+            visibleCharacterRange: 0..<225,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 225,
@@ -139,6 +142,7 @@ to the same column
             caretLocation: 55,
             selectedLength: 1,
             selectedText: "c",
+            visibleCharacterRange: 0..<61,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 61,
@@ -170,6 +174,7 @@ than the previous shorter than...
             caretLocation: 71,
             selectedLength: 1,
             selectedText: ".",
+            visibleCharacterRange: 0..<74,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 74,
@@ -200,6 +205,7 @@ nothing ankulay
             caretLocation: 0,
             selectedLength: 1,
             selectedText: "a",
+            visibleCharacterRange: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -231,6 +237,7 @@ to previ ous line length
             caretLocation: 51,
             selectedLength: 1,
             selectedText: "i",
+            visibleCharacterRange: 0..<68,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 68,
@@ -262,6 +269,7 @@ empty
             caretLocation: 38,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<38,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 38,
@@ -292,6 +300,7 @@ globalColumnNumber is nil
             caretLocation: 99,
             selectedLength: 1,
             selectedText: "l",
+            visibleCharacterRange: 0..<100,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 100,

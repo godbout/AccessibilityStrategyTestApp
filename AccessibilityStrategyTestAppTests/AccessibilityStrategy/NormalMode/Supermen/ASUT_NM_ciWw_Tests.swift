@@ -33,6 +33,7 @@ extension ASUT_NM_ciWw_Tests {
             caretLocation: 14,
             selectedLength: 1,
             selectedText: "t",
+            visibleCharacterRange: 0..<59,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 59,
@@ -66,6 +67,7 @@ extension ASUT_NM_ciWw_Tests {
             caretLocation: 14,
             selectedLength: 1,
             selectedText: "t",
+            visibleCharacterRange: 0..<59,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 59,

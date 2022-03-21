@@ -29,6 +29,7 @@ extension ASUT_VMC_l_Tests {
             caretLocation: 27,
             selectedLength: 1,
             selectedText: " ",
+            visibleCharacterRange: 0..<132,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 132,
@@ -63,6 +64,7 @@ extension ASUT_VMC_l_Tests {
             caretLocation: 17,
             selectedLength: 10,
             selectedText: "there with",
+            visibleCharacterRange: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -91,6 +93,7 @@ extension ASUT_VMC_l_Tests {
             caretLocation: 17,
             selectedLength: 10,
             selectedText: "there with",
+            visibleCharacterRange: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -123,6 +126,7 @@ count 🈹️ awww
             caretLocation: 19,
             selectedLength: 5,
             selectedText: "ere w",
+            visibleCharacterRange: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -156,6 +160,7 @@ extension ASUT_VMC_l_Tests {
             caretLocation: 0,
             selectedLength: 5,
             selectedText: "hello",
+            visibleCharacterRange: 0..<14,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 14,
@@ -186,6 +191,7 @@ with head before anchor
             caretLocation: 37,
             selectedLength: 8,
             selectedText: "before a",
+            visibleCharacterRange: 0..<50,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 50,
@@ -223,6 +229,7 @@ for VM l
             caretLocation: 0,
             selectedLength: 29,
             selectedText: "span over multiple lines\nwith",
+            visibleCharacterRange: 0..<56,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 56,
@@ -255,6 +262,7 @@ for VM l and that should
             caretLocation: 19,
             selectedLength: 29,
             selectedText: "lines\nwith head before anchor",
+            visibleCharacterRange: 0..<73,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 73,
@@ -285,6 +293,7 @@ w askljaslkasdlfjak
             caretLocation: 24,
             selectedLength: 20,
             selectedText: "\nw askljaslkasdlfjak",
+            visibleCharacterRange: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,

@@ -23,6 +23,7 @@ extension ASUT_VML_o_Tests {
             caretLocation: 0,
             selectedLength: 1,
             selectedText: "a",
+            visibleCharacterRange: 0..<34,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
@@ -55,6 +56,7 @@ tricky
             caretLocation: 17,
             selectedLength: 19,
             selectedText: "some like a little\n",
+            visibleCharacterRange: 0..<59,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 59,

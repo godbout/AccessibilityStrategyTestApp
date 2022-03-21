@@ -23,6 +23,7 @@ extension ASUT_NM_interrogationMark_Tests {
             caretLocation: 33,
             selectedLength: 1,
             selectedText: "c",
+            visibleCharacterRange: 0..<37,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
@@ -49,6 +50,7 @@ extension ASUT_NM_interrogationMark_Tests {
             caretLocation: 8,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<37,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
@@ -80,6 +82,7 @@ extension ASUT_NM_interrogationMark_Tests {
             caretLocation: 59,
             selectedLength: 1,
             selectedText: "l",
+            visibleCharacterRange: 0..<70,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 70,
@@ -105,6 +108,7 @@ extension ASUT_NM_interrogationMark_Tests {
             caretLocation: 58,
             selectedLength: 1,
             selectedText: "a",
+            visibleCharacterRange: 0..<66,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 66,
@@ -130,6 +134,7 @@ extension ASUT_NM_interrogationMark_Tests {
             caretLocation: 12,
             selectedLength: 1,
             selectedText: "f",
+            visibleCharacterRange: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -155,6 +160,7 @@ extension ASUT_NM_interrogationMark_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<0,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
@@ -183,6 +189,7 @@ and the caret shouldn't move else pan pan cul cul
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "p",
+            visibleCharacterRange: 0..<99,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 99,
@@ -208,6 +215,7 @@ and the caret shouldn't move else pan pan cul cul
             caretLocation: 49,
             selectedLength: 1,
             selectedText: "s",
+            visibleCharacterRange: 0..<53,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 53,
@@ -238,6 +246,7 @@ blocked haha. play
             caretLocation: 36,
             selectedLength: 1,
             selectedText: "p",
+            visibleCharacterRange: 0..<87,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 87,
@@ -268,6 +277,7 @@ blocked haha. play
             caretLocation: 83,
             selectedLength: 1,
             selectedText: "p",
+            visibleCharacterRange: 0..<87,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 87,
@@ -298,6 +308,7 @@ blocked haha. play
             caretLocation: 37,
             selectedLength: 1,
             selectedText: "p",
+            visibleCharacterRange: 0..<87,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 87,
@@ -328,6 +339,7 @@ blocked haha. play
             caretLocation: 84,
             selectedLength: 1,
             selectedText: "l",
+            visibleCharacterRange: 0..<87,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 87,
@@ -358,6 +370,7 @@ loop around search back from the beginning
             caretLocation: 3,
             selectedLength: 1,
             selectedText: "c",
+            visibleCharacterRange: 0..<148,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 148,

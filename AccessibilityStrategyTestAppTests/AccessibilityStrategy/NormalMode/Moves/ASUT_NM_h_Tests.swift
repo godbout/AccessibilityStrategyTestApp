@@ -26,6 +26,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 39,
             selectedLength: 1,
             selectedText: "i",
+            visibleCharacterRange: 0..<119,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
@@ -57,6 +58,7 @@ extension ASUT_NM_h_Tests {
             caretLocation: 28,
             selectedLength: 1,
             selectedText: "c",
+            visibleCharacterRange: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -86,6 +88,7 @@ count awww
             caretLocation: 25,
             selectedLength: 1,
             selectedText: "e",
+            visibleCharacterRange: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -116,6 +119,7 @@ extension ASUT_NM_h_Tests {
             caretLocation: 62,
             selectedLength: 3,
             selectedText: "💣️",
+            visibleCharacterRange: 0..<96,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 96,
@@ -144,6 +148,7 @@ definitely not going to go more up my friend
             caretLocation: 80,
             selectedLength: 1,
             selectedText: "d",
+            visibleCharacterRange: 0..<125,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 125,

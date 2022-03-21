@@ -28,6 +28,7 @@ anchor
             caretLocation: 14,
             selectedLength: 24,
             selectedText: "switch the head and the\n",
+            visibleCharacterRange: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -59,6 +60,7 @@ anchor
             caretLocation: 14,
             selectedLength: 24,
             selectedText: "switch the head and the\n",
+            visibleCharacterRange: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -90,6 +92,7 @@ multiple lines
             caretLocation: 0,
             selectedLength: 45,
             selectedText: "now we gonna have\nthe selection spread ove⛱️\n",
+            visibleCharacterRange: 0..<59,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 59,
@@ -126,6 +129,7 @@ really
             caretLocation: 20,
             selectedLength: 6,
             selectedText: "really",
+            visibleCharacterRange: 0..<26,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 26,

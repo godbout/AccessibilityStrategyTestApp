@@ -29,6 +29,7 @@ extension ATE_SimpleComputedProperties_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<0,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
@@ -64,6 +65,7 @@ line
             caretLocation: 31,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<31,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
@@ -101,6 +103,7 @@ extension ATE_SimpleComputedProperties_Tests {
             caretLocation: 8,
             selectedLength: 1,
             selectedText: "o",
+            visibleCharacterRange: 0..<20,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 20,
@@ -149,6 +152,7 @@ line 🌻️
             caretLocation: 35,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<35,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
@@ -184,6 +188,7 @@ extension ATE_SimpleComputedProperties_Tests {
             caretLocation: 13,
             selectedLength: 3,
             selectedText: "😂️",
+            visibleCharacterRange: 0..<29,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 29,

@@ -30,6 +30,7 @@ extension ASUT_NM_cBb_Tests {
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "u",
+            visibleCharacterRange: 0..<61,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 61,
@@ -57,6 +58,7 @@ extension ASUT_NM_cBb_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<0,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
@@ -90,6 +92,7 @@ extension ASUT_NM_cBb_Tests {
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "u",
+            visibleCharacterRange: 0..<61,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 61,
