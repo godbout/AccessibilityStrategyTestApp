@@ -13,6 +13,7 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
             caretLocation: 0,
             selectedLength: 4,
             selectedText: nil,
+            visibleCharacterRange: 0..<14,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 14,
@@ -42,6 +43,7 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
             caretLocation: 4,
             selectedLength: 1,
             selectedText: nil,
+            visibleCharacterRange: 0..<9,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 9,
@@ -71,6 +73,7 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
             caretLocation: 17,
             selectedLength: 1,
             selectedText: nil,
+            visibleCharacterRange: 0..<17,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 17,

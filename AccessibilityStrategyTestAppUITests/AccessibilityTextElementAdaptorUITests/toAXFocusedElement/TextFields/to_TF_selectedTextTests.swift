@@ -13,6 +13,7 @@ class to_TF_selectedTextTests: ATEA_BaseTests {
             caretLocation: 6,
             selectedLength: 0,
             selectedText: "banana 🍌️ ",
+            visibleCharacterRange: 0..<34,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,

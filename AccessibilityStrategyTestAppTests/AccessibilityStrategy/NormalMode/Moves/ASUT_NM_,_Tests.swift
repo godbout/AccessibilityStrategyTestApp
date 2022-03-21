@@ -25,6 +25,7 @@ extension ASUT_NM_comma_Tests {
             caretLocation: 80,
             selectedLength: 1,
             selectedText: "L",
+            visibleCharacterRange: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
@@ -50,6 +51,7 @@ extension ASUT_NM_comma_Tests {
             caretLocation: 49,
             selectedLength: 1,
             selectedText: "L",
+            visibleCharacterRange: 0..<29,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
@@ -81,6 +83,7 @@ extension ASUT_NM_comma_Tests {
             caretLocation: 69,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
@@ -106,6 +109,7 @@ extension ASUT_NM_comma_Tests {
             caretLocation: 69,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
@@ -131,6 +135,7 @@ extension ASUT_NM_comma_Tests {
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
@@ -156,6 +161,7 @@ extension ASUT_NM_comma_Tests {
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,

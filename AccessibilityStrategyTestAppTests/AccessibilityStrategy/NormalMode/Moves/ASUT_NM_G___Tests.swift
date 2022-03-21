@@ -62,6 +62,7 @@ but hey surprise mofo
             caretLocation: 112,
             selectedLength: 1,
             selectedText: "o",
+            visibleCharacterRange: 0..<113,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 113,
@@ -92,6 +93,7 @@ but hey surprise mofo
             caretLocation: 112,
             selectedLength: 1,
             selectedText: "o",
+            visibleCharacterRange: 0..<113,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 113,
@@ -122,6 +124,7 @@ but hey surprise mofo
             caretLocation: 112,
             selectedLength: 1,
             selectedText: "o",
+            visibleCharacterRange: 0..<113,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 113,
@@ -152,6 +155,7 @@ but hey surprise mofo
             caretLocation: 112,
             selectedLength: 1,
             selectedText: "o",
+            visibleCharacterRange: 0..<113,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 113,
@@ -183,6 +187,7 @@ extension ASUT_NM_G__Tests {
             caretLocation: 14,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<23,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 23,
@@ -207,6 +212,7 @@ extension ASUT_NM_G__Tests {
             caretLocation: 16,
             selectedLength: 1,
             selectedText: " ",
+            visibleCharacterRange: 0..<31,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
@@ -231,6 +237,7 @@ extension ASUT_NM_G__Tests {
             caretLocation: 6,
             selectedLength: 1,
             selectedText: " ",
+            visibleCharacterRange: 0..<9,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 9,
@@ -265,6 +272,7 @@ do you want to
             caretLocation: 30,
             selectedLength: 1,
             selectedText: "x",
+            visibleCharacterRange: 0..<32,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
@@ -293,6 +301,7 @@ story bro
             caretLocation: 4,
             selectedLength: 1,
             selectedText: "t",
+            visibleCharacterRange: 0..<46,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 46,
@@ -321,6 +330,7 @@ completely empty
             caretLocation: 6,
             selectedLength: 1,
             selectedText: "i",
+            visibleCharacterRange: 0..<30,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 30,
@@ -349,6 +359,7 @@ again at the last line
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "c",
+            visibleCharacterRange: 0..<60,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 60,
@@ -377,6 +388,7 @@ why
             caretLocation: 4,
             selectedLength: 1,
             selectedText: "t",
+            visibleCharacterRange: 0..<39,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 39,

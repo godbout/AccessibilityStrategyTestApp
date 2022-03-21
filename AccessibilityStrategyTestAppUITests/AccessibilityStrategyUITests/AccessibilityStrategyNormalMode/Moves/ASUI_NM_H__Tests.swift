@@ -11,6 +11,27 @@ class ASUI_NM_H__Tests: ASUI_NM_BaseTests {
 }
 
 
+// scroll
+extension ASUI_NM_H__Tests {
+    
+    func test_that_it_does_not_scroll() {
+        let textInAXFocusedElement = """
+ this definitely can't be tested in UT coz it would return nil coz visible character range
+"""
+
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.l(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(times: 3)
+
+        print(accessibilityElement.shouldScroll)
+        XCTAssertFalse(accessibilityElement.shouldScroll)
+    }
+
+}
+
+
 // count
 extension ASUI_NM_H__Tests {
 

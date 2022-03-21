@@ -29,6 +29,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 11,
             selectedLength: 9,
             selectedText: "oes not s",
+            visibleCharacterRange: 0..<115,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
@@ -73,6 +74,7 @@ so it's probably gonna
         est that move on
         multiline a
         """,
+            visibleCharacterRange: 0..<142,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 142,
@@ -113,6 +115,7 @@ select some stuff and all
         so it's probably gonna
         select some st
         """,
+            visibleCharacterRange: 0..<138,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 138,
@@ -150,6 +153,7 @@ select some stuff and all
         o now we're going
         to test tha
         """,
+            visibleCharacterRange: 0..<138,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 138,
@@ -183,6 +187,7 @@ extension ASUT_VMC_$_Tests {
             caretLocation: 5,
             selectedLength: 1,
             selectedText: " ",
+            visibleCharacterRange: 0..<11,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 11,
@@ -213,6 +218,7 @@ at the anchor, not at the caret location
             caretLocation: 51,
             selectedLength: 7,
             selectedText: "caret l",
+            visibleCharacterRange: 0..<65,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 65,
@@ -245,6 +251,7 @@ j or k will go to the line endLimit
             caretLocation: 18,
             selectedLength: 34,
             selectedText: "lobalColumnNumber\nis set to nil so",
+            visibleCharacterRange: 0..<98,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 98,
@@ -285,6 +292,7 @@ multiline
             caretLocation: 12,
             selectedLength: 1,
             selectedText: "i",
+            visibleCharacterRange: 0..<24,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 24,
@@ -316,6 +324,7 @@ $ not work ⛱️⛱️LOOOL
             caretLocation: 35,
             selectedLength: 6,
             selectedText: " coz\n$",
+            visibleCharacterRange: 0..<60,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 60,
@@ -347,6 +356,7 @@ $ doesn't work LOOOLL
             caretLocation: 31,
             selectedLength: 30,
             selectedText: "ines coz\n$ doesn't work LOOOLL",
+            visibleCharacterRange: 0..<61,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 61,

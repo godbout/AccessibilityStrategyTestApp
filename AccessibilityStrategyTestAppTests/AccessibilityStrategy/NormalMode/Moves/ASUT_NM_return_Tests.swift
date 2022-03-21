@@ -33,6 +33,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "s",
+            visibleCharacterRange: 0..<115,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
@@ -64,6 +65,7 @@ extension ASUT_NM_return_Tests {
             caretLocation: 21,
             selectedLength: 3,
             selectedText: "🍍️",
+            visibleCharacterRange: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -100,6 +102,7 @@ ok.
             caretLocation: 10,
             selectedLength: 1,
             selectedText: "o",
+            visibleCharacterRange: 0..<61,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 61,
@@ -131,6 +134,7 @@ ok.
             caretLocation: 10,
             selectedLength: 1,
             selectedText: "o",
+            visibleCharacterRange: 0..<61,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 61,
@@ -162,6 +166,7 @@ extension ASUT_NM_return_Tests {
             caretLocation: 25,
             selectedLength: 3,
             selectedText: "🍎️",
+            visibleCharacterRange: 0..<41,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 41,
@@ -197,6 +202,7 @@ do you want to
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "x",
+            visibleCharacterRange: 0..<32,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
@@ -227,6 +233,7 @@ non blank of next line
             caretLocation: 32,
             selectedLength: 1,
             selectedText: "l",
+            visibleCharacterRange: 0..<82,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 82,
@@ -257,6 +264,7 @@ hehe
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "e",
+            visibleCharacterRange: 0..<33,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 33,
@@ -287,6 +295,7 @@ that we can't see
             caretLocation: 12,
             selectedLength: 1,
             selectedText: "s",
+            visibleCharacterRange: 0..<55,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 55,

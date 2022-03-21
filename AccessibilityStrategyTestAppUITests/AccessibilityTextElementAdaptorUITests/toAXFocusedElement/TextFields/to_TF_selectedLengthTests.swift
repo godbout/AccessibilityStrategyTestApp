@@ -13,6 +13,7 @@ class to_TF_selectedLengthTests: ATEA_BaseTests {
             caretLocation: 10,
             selectedLength: 8,
             selectedText: nil,
+            visibleCharacterRange: 0..<18,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 18,

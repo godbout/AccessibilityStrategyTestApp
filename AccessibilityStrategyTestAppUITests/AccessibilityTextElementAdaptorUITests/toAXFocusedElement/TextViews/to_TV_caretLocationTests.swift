@@ -17,6 +17,7 @@ coz like come on there's so me shits inside.
             caretLocation: 0,
             selectedLength: 1,
             selectedText: nil,
+            visibleCharacterRange: 0..<93,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 93,
@@ -50,6 +51,7 @@ hallelujah
             caretLocation: 30,
             selectedLength: 1,
             selectedText: nil,
+            visibleCharacterRange: 0..<78,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 78,
@@ -85,6 +87,7 @@ that long.
             caretLocation: 22,
             selectedLength: 1,
             selectedText: "l",
+            visibleCharacterRange: 0..<38,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 38,

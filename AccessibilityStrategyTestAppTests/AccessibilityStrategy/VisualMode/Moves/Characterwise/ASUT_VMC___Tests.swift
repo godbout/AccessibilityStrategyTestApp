@@ -36,6 +36,7 @@ so it's probably gonna
         est that move on
         multiline a
         """,
+            visibleCharacterRange: 0..<142,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 142,
@@ -76,6 +77,7 @@ select some stuff and all
         so it's probably gonna
         select some st
         """,
+            visibleCharacterRange: 0..<138,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 138,
@@ -113,6 +115,7 @@ select some stuff and all
         o now we're going
         to test tha
         """,
+            visibleCharacterRange: 0..<138,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 138,
@@ -146,6 +149,7 @@ extension ASUT_VMC___Tests {
             caretLocation: 17,
             selectedLength: 15,
             selectedText: "e nice text in ",
+            visibleCharacterRange: 0..<41,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 41,
@@ -176,6 +180,7 @@ extension ASUT_VMC___Tests {
             caretLocation: 55,
             selectedLength: 5,
             selectedText: "caret",
+            visibleCharacterRange: 0..<69,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 69,
@@ -213,6 +218,7 @@ over ⛱️⛱️ multiple lines coz
             caretLocation: 12,
             selectedLength: 28,
             selectedText: "select\nover ⛱️⛱️ multiple li",
+            visibleCharacterRange: 0..<69,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 69,
@@ -246,6 +252,7 @@ start of the line
             caretLocation: 0,
             selectedLength: 44,
             selectedText: "   we gonna select from top to bottom\nover",
+            visibleCharacterRange: 0..<126,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 126,

@@ -30,6 +30,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 11,
             selectedLength: 9,
             selectedText: "oes not s",
+            visibleCharacterRange: 0..<115,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
@@ -74,6 +75,7 @@ so it's probably gonna
         est that move on
         multiline a
         """,
+            visibleCharacterRange: 0..<144,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 144,
@@ -114,6 +116,7 @@ select some stuff and all
         so it's probably gonna
         select some st
         """,
+            visibleCharacterRange: 0..<138,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 141,
@@ -151,6 +154,7 @@ select some stuff and all
         o now we're going
         to test tha
         """,
+            visibleCharacterRange: 0..<138,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 141,
@@ -186,6 +190,7 @@ extension ASUT_VMC_g__Tests {
             selectedText: """
          
         """,
+            visibleCharacterRange: 0..<16,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 16,
@@ -218,6 +223,7 @@ at the anchor, not at the caret location
             selectedText: """
         caret l
         """,
+            visibleCharacterRange: 0..<69,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 69,
@@ -255,6 +261,7 @@ multiline
             caretLocation: 12,
             selectedLength: 1,
             selectedText: "i",
+            visibleCharacterRange: 0..<24,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 24,
@@ -289,6 +296,7 @@ $ not work ⛱️⛱️LOOOL
         coz
         $
         """,
+            visibleCharacterRange: 0..<67,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 67,
@@ -323,6 +331,7 @@ $ doesn't work LOOOLL
         ines coz
         $ doesn't work LOOOLL
         """,
+            visibleCharacterRange: 0..<65,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 65,

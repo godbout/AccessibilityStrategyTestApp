@@ -28,6 +28,7 @@ and head are nil
             caretLocation: 52,
             selectedLength: 6,
             selectedText: "ad are",
+            visibleCharacterRange: 0..<62,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 62,

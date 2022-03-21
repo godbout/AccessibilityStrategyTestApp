@@ -26,6 +26,7 @@ extension ASUT_VMC_0_Tests {
             caretLocation: 25,
             selectedLength: 6,
             selectedText: "here y",
+            visibleCharacterRange: 0..<34,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
@@ -56,6 +57,7 @@ at the anchor, not at the caret location
             caretLocation: 51,
             selectedLength: 5,
             selectedText: "caret",
+            visibleCharacterRange: 0..<65,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 65,
@@ -93,6 +95,7 @@ over ⛱️⛱️ multiple lines coz
             caretLocation: 10,
             selectedLength: 28,
             selectedText: "select\nover ⛱️⛱️ multiple li",
+            visibleCharacterRange: 0..<67,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 67,
@@ -126,6 +129,7 @@ start of the line
             caretLocation: 0,
             selectedLength: 39,
             selectedText: "we gonna select from top to bottom\nover",
+            visibleCharacterRange: 0..<121,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 121,

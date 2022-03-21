@@ -33,6 +33,7 @@ the caret is on the first file line
             caretLocation: 8,
             selectedLength: 1,
             selectedText: "e",
+            visibleCharacterRange: 0..<55,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 55,
@@ -64,6 +65,7 @@ works. should be nice.
             caretLocation: 29,
             selectedLength: 1,
             selectedText: "e",
+            visibleCharacterRange: 0..<60,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 60,
@@ -101,6 +103,7 @@ extension ASUT_NM_ck_Tests {
             caretLocation: 21,
             selectedLength: 3,
             selectedText: "😂️",
+            visibleCharacterRange: 0..<35,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
@@ -137,6 +140,7 @@ no?
             caretLocation: 41,
             selectedLength: 1,
             selectedText: "e",
+            visibleCharacterRange: 0..<51,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 51,
@@ -166,6 +170,7 @@ but to the first non blank
             caretLocation: 82,
             selectedLength: 1,
             selectedText: "o",
+            visibleCharacterRange: 0..<90,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 90,
@@ -196,6 +201,7 @@ but to the first non blank
             caretLocation: 70,
             selectedLength: 1,
             selectedText: "t",
+            visibleCharacterRange: 0..<81,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 81,

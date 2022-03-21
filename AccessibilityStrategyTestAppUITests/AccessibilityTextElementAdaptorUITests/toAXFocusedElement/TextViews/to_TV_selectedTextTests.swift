@@ -16,6 +16,7 @@ this time
             caretLocation: 21,
             selectedLength: 0,
             selectedText: "\nbanana banana 🍌️🍌️🍌️ banana",
+            visibleCharacterRange: 0..<31,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,

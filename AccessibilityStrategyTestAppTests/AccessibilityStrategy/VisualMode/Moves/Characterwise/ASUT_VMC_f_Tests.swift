@@ -27,6 +27,7 @@ extension ASUT_VMC_f_Tests {
             caretLocation: 9,
             selectedLength: 4,
             selectedText: "f ca",
+            visibleCharacterRange: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -55,6 +56,7 @@ extension ASUT_VMC_f_Tests {
             caretLocation: 9,
             selectedLength: 4,
             selectedText: "f ca",
+            visibleCharacterRange: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -89,6 +91,7 @@ extension ASUT_VMC_f_Tests {
             caretLocation: 9,
             selectedLength: 4,
             selectedText: "f ca",
+            visibleCharacterRange: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -128,6 +131,7 @@ of newHeadLocation needs some... calculation.
             caretLocation: 60,
             selectedLength: 15,
             selectedText: "e lines 🌬️ bec",
+            visibleCharacterRange: 0..<141,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 141,
@@ -164,6 +168,7 @@ of newHeadLocation needs some... calculation.
         multiple lines 🌬️ because the calculation
         of newHead
         """,
+            visibleCharacterRange: 0..<53,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 141,
@@ -196,6 +201,7 @@ that is not there
             caretLocation: 13,
             selectedLength: 3,
             selectedText: "r a",
+            visibleCharacterRange: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -224,6 +230,7 @@ that is not there
             caretLocation: 2,
             selectedLength: 7,
             selectedText: "und som",
+            visibleCharacterRange: 0..<19,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 19,
