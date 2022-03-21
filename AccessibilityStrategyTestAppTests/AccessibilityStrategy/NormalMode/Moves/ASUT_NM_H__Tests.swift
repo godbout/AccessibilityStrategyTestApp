@@ -70,26 +70,26 @@ properly!
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 107,
-            caretLocation: 80,
+            length: 106,
+            caretLocation: 75,
             selectedLength: 1,
             selectedText: """
-        L
+        a
         """,
-            visibleCharacterRange: 58..<107,
+            visibleCharacterRange: 27..<82,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 107,
-                number: 13,
-                start: 80,
-                end: 82
+                fullTextLength: 106,
+                number: 12,
+                start: 75,
+                end: 79
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(times: 3, on: element)
+        let returnedElement = applyMoveBeingTested(times: 5, on: element)
 
-        XCTAssertEqual(returnedElement.caretLocation, 72)
-        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertEqual(returnedElement.caretLocation, 60)
+        XCTAssertEqual(returnedElement.selectedLength, 2)
     }
 
     func test_that_if_the_count_is_too_high_it_ends_up_on_the_firstNonBlank_of_the_lowest_screenLine() {
@@ -116,25 +116,25 @@ properly!
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 107,
-            caretLocation: 80,
+            length: 106,
+            caretLocation: 72,
             selectedLength: 1,
             selectedText: """
-        L
+        M
         """,
-            visibleCharacterRange: 58..<107,
+            visibleCharacterRange: 27..<82,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 107,
-                number: 13,
-                start: 80,
-                end: 82
+                fullTextLength: 106,
+                number: 10,
+                start: 72,
+                end: 74
             )!
         )
-
+        
         let returnedElement = applyMoveBeingTested(times: 69, on: element)
 
-        XCTAssertEqual(returnedElement.caretLocation, 98)
+        XCTAssertEqual(returnedElement.caretLocation, 82)
         XCTAssertEqual(returnedElement.selectedLength, 1)
     }
 
@@ -168,26 +168,26 @@ properly!
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 107,
-            caretLocation: 76,
+            length: 106,
+            caretLocation: 75,
             selectedLength: 1,
             selectedText: """
         a
         """,
-            visibleCharacterRange: 58..<107,
+            visibleCharacterRange: 27..<82,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 107,
+                fullTextLength: 106,
                 number: 12,
-                start: 76,
-                end: 80
+                start: 75,
+                end: 79
             )!
         )
 
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement.caretLocation, 61)
-        XCTAssertEqual(returnedElement.selectedLength, 2)
+        XCTAssertEqual(returnedElement.caretLocation, 27)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
     }
 
 }
