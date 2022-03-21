@@ -27,6 +27,7 @@ extension ASUT_NM_g__Tests {
             caretLocation: 83,
             selectedLength: 1,
             selectedText: "o",
+            visibleCharacterRange: 0..<134,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 134,
@@ -63,6 +64,7 @@ LMAO
             caretLocation: 15,
             selectedLength: 1,
             selectedText: "u",
+            visibleCharacterRange: 0..<80,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 80,
@@ -93,6 +95,7 @@ LMAO
             caretLocation: 15,
             selectedLength: 1,
             selectedText: "u",
+            visibleCharacterRange: 0..<80,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 80,
@@ -128,6 +131,7 @@ is an empty one.
             caretLocation: 25,
             selectedLength: 1,
             selectedText: "\n",
+            visibleCharacterRange: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,

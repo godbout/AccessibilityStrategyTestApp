@@ -35,6 +35,7 @@ when the head is after the anchor
 sing gg in
 Visual Mode 
 """,
+            visibleCharacterRange: 0..<120,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 120,
@@ -73,6 +74,7 @@ cool because it will extend
 the selection
 when the head 
 """,
+            visibleCharacterRange: 0..<117,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 117,
@@ -109,6 +111,7 @@ the selection
 Visual Mode is gonna be
 cool because i
 """,
+            visibleCharacterRange: 0..<123,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 123,
@@ -145,6 +148,7 @@ the selection
 Visual Mode is gonna be
 cool because i
 """,
+            visibleCharacterRange: 0..<123,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 123,
@@ -179,6 +183,7 @@ extension ASUT_VMC_gg_Tests {
             caretLocation: 1,
             selectedLength: 1,
             selectedText: " ",
+            visibleCharacterRange: 0..<33,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 33,
@@ -216,6 +221,7 @@ and it's gonna run smooooooooooooth
             caretLocation: 46,
             selectedLength: 1,
             selectedText: "h",
+            visibleCharacterRange: 0..<95,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 95,

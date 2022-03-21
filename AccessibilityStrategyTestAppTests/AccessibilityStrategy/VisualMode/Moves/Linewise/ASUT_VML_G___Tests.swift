@@ -34,8 +34,8 @@ when the head is after the anchor
             selectedText: """
 so pressing G in
 Visual Mode is gonna be
-"""
-            ,
+""",
+            visibleCharacterRange: 0..<116,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 116,
@@ -71,8 +71,8 @@ when the head is after the anchor
             selectedText: """
 so pressing G in
 Visual Mode is gonna be
-"""
-            ,
+""",
+            visibleCharacterRange: 0..<116,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 116,
@@ -108,8 +108,8 @@ when the head is after the anchor
             selectedText: """
 so pressing G in
 Visual Mode is gonna be
-"""
-            ,
+""",
+            visibleCharacterRange: 0..<116,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 116,
@@ -145,8 +145,8 @@ when the head is after the anchor
             selectedText: """
 so pressing G in
 Visual Mode is gonna be
-"""
-            ,
+""",
+            visibleCharacterRange: 0..<116,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 116,
@@ -180,6 +180,7 @@ extension ASUT_VML_G__Tests {
             caretLocation: 0,
             selectedLength: 32,
             selectedText: "        so here we gonna test VG",
+            visibleCharacterRange: 0..<32,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
@@ -219,6 +220,7 @@ the end
             caretLocation: 21,
             selectedLength: 20,
             selectedText: "😂️ be a longer one\n",
+            visibleCharacterRange: 0..<77,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 77,
@@ -252,6 +254,7 @@ the end
             caretLocation: 21,
             selectedLength: 36,
             selectedText: "😂️ be a longer one\nand we're gonna\n",
+            visibleCharacterRange: 0..<77,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 77,

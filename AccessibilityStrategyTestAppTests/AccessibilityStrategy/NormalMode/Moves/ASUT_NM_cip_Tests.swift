@@ -40,6 +40,7 @@ oh yeah
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "f",
+            visibleCharacterRange: 0..<50,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 50,
@@ -84,6 +85,7 @@ oh yeah
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "f",
+            visibleCharacterRange: 0..<50,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 50,
@@ -116,6 +118,7 @@ oh yeah
             caretLocation: 38,
             selectedLength: 1,
             selectedText: "r",
+            visibleCharacterRange: 0..<54,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 54,
@@ -148,6 +151,7 @@ oh yeah
             caretLocation: 26,
             selectedLength: 1,
             selectedText: " ",
+            visibleCharacterRange: 0..<36,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 36,

@@ -28,6 +28,7 @@ if the head is not after the line end limit
             caretLocation: 42,
             selectedLength: 22,
             selectedText: "the caret to the head\n",
+            visibleCharacterRange: 0..<107,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 107,
@@ -57,6 +58,7 @@ if the head is not after the line end limit
             caretLocation: 0,
             selectedLength: 14,
             selectedText: "⛱️ v after a V",
+            visibleCharacterRange: 0..<14,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 14,

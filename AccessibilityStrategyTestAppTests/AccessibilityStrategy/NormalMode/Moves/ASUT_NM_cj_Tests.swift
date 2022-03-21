@@ -33,6 +33,7 @@ the caret is on the last line
             caretLocation: 41,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<56,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 56,
@@ -64,6 +65,7 @@ works. should be nice.
             caretLocation: 5,
             selectedLength: 1,
             selectedText: "w",
+            visibleCharacterRange: 0..<59,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 59,
@@ -101,6 +103,7 @@ extension ASUT_NM_cj_Tests {
             caretLocation: 21,
             selectedLength: 3,
             selectedText: "😂️",
+            visibleCharacterRange: 0..<34,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
@@ -137,6 +140,7 @@ no?
             caretLocation: 23,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<51,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 51,
@@ -167,6 +171,7 @@ no?
             caretLocation: 38,
             selectedLength: 3,
             selectedText: "😂️",
+            visibleCharacterRange: 0..<53,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 53,
@@ -196,6 +201,7 @@ but to the first non blank
             caretLocation: 35,
             selectedLength: 1,
             selectedText: "g",
+            visibleCharacterRange: 0..<90,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 90,
@@ -226,6 +232,7 @@ but to the first non blank
             caretLocation: 44,
             selectedLength: 1,
             selectedText: " ",
+            visibleCharacterRange: 0..<81,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 81,
@@ -256,6 +263,7 @@ but to the first non blank
             caretLocation: 44,
             selectedLength: 1,
             selectedText: " ",
+            visibleCharacterRange: 0..<81,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 81,

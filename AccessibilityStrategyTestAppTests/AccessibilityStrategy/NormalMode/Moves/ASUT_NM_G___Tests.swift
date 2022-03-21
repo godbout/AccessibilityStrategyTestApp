@@ -26,6 +26,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "s",
+            visibleCharacterRange: 0..<115,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,

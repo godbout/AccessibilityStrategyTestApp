@@ -25,6 +25,7 @@ extension ASNM_a_Tests {
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<38,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 38,
@@ -60,6 +61,7 @@ a should not move
             caretLocation: 17,
             selectedLength: 1,
             selectedText: "\n",
+            visibleCharacterRange: 0..<35,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
@@ -94,6 +96,7 @@ those 🥺️☹️😂️ faces
             caretLocation: 27,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<38,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 38,

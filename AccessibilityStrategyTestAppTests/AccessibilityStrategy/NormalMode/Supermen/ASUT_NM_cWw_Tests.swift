@@ -30,6 +30,7 @@ extension ASUT_NM_cWw_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<0,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
@@ -58,6 +59,7 @@ extension ASUT_NM_cWw_Tests {
             caretLocation: 3,
             selectedLength: 3,
             selectedText: "😂️",
+            visibleCharacterRange: 0..<48,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 48,
@@ -93,6 +95,7 @@ extension ASUT_NM_cWw_Tests {
             caretLocation: 3,
             selectedLength: 3,
             selectedText: "😂️",
+            visibleCharacterRange: 0..<48,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 48,
@@ -118,6 +121,7 @@ extension ASUT_NM_cWw_Tests {
             caretLocation: 21,
             selectedLength: 1,
             selectedText: " ",
+            visibleCharacterRange: 0..<66,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 66,
@@ -143,6 +147,7 @@ extension ASUT_NM_cWw_Tests {
             caretLocation: 27,
             selectedLength: 1,
             selectedText: "-",
+            visibleCharacterRange: 0..<70,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 70,
@@ -172,6 +177,7 @@ it does not suck the line below
             caretLocation: 36,
             selectedLength: 1,
             selectedText: "\n",
+            visibleCharacterRange: 0..<68,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 68,

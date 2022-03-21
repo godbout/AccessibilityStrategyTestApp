@@ -26,6 +26,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 29,
             selectedLength: 1,
             selectedText: "r",
+            visibleCharacterRange: 0..<115,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
@@ -60,6 +61,7 @@ LMAO what a dumbass i am
             caretLocation: 60,
             selectedLength: 1,
             selectedText: "n",
+            visibleCharacterRange: 0..<140,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 140,
@@ -85,6 +87,7 @@ LMAO what a dumbass i am
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "t",
+            visibleCharacterRange: 0..<93,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 93,
@@ -114,6 +117,7 @@ and i'm doing this not because i'm a genius but because i'm pretty dumb LMAO
             caretLocation: 60,
             selectedLength: 1,
             selectedText: "",
+            visibleCharacterRange: 0..<137,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 137,

@@ -36,6 +36,7 @@ the selection!
             caretLocation: 14,
             selectedLength: 19,
             selectedText: "does\nin characterwi",
+            visibleCharacterRange: 0..<64,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 64,
@@ -73,6 +74,7 @@ extension ASUT_VMC_y_Tests {
             caretLocation: 15,
             selectedLength: 27,
             selectedText: "then VM y should copy the s",
+            visibleCharacterRange: 0..<55,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 55,
@@ -98,6 +100,7 @@ extension ASUT_VMC_y_Tests {
             caretLocation: 8,
             selectedLength: 31,
             selectedText: "nking you go back to caret you ",
+            visibleCharacterRange: 0..<47,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 47,
@@ -123,6 +126,7 @@ extension ASUT_VMC_y_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<0,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
@@ -154,6 +158,7 @@ line
             caretLocation: 31,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<31,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
@@ -186,6 +191,7 @@ extension ASUT_VMC_y_Tests {
             caretLocation: 8,
             selectedLength: 33,
             selectedText: "🍦️king you go back to caret you ",
+            visibleCharacterRange: 0..<49,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 49,

@@ -36,6 +36,7 @@ multiline and this
 is something for VisualMode
 so it's probably gonna
 """,
+            visibleCharacterRange: 0..<138,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 138,
@@ -74,6 +75,7 @@ is something for VisualMode
 so it's probably gonna
 select some stuff and all
 """,
+            visibleCharacterRange: 0..<138,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 138,
@@ -112,6 +114,7 @@ is something for VisualMode
 so it's probably gonna
 select some stuff and all
 """,
+            visibleCharacterRange: 0..<138,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 138,
@@ -156,6 +159,7 @@ the line above nice
             caretLocation: 76,
             selectedLength: 19,
             selectedText: "the line above nice",
+            visibleCharacterRange: 0..<95,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 95,
@@ -193,6 +197,7 @@ is after the anchor will
 reduce the selection to
 the line above nice
 """,
+            visibleCharacterRange: 0..<94,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 94,
@@ -224,6 +229,7 @@ caret at the last empty line
             caretLocation: 48,
             selectedLength: 0,
             selectedText: "",
+            visibleCharacterRange: 0..<48,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 48,

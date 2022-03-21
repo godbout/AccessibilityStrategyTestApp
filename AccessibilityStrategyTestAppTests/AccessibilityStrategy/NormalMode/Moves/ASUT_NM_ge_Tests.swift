@@ -24,6 +24,7 @@ extension ASUT_NM_ge_Tests {
             caretLocation: 30,
             selectedLength: 1,
             selectedText: "u",
+            visibleCharacterRange: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -49,6 +50,7 @@ extension ASUT_NM_ge_Tests {
             caretLocation: 32,
             selectedLength: 1,
             selectedText: "u",
+            visibleCharacterRange: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -79,6 +81,7 @@ extension ASUT_NM_ge_Tests {
             caretLocation: 0,
             selectedLength: 3,
             selectedText: "🚔️",
+            visibleCharacterRange: 0..<50,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 50,
@@ -107,6 +110,7 @@ you little mf
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "t",
+            visibleCharacterRange: 0..<31,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
