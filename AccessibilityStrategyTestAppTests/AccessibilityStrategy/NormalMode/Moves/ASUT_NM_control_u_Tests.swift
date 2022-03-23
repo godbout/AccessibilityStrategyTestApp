@@ -1,0 +1,171 @@
+import XCTest
+import AccessibilityStrategy
+import Common
+
+
+class ASUT_NM_control_u_Tests: ASUT_NM_BaseTests {
+
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: .auto)
+        
+        return applyMoveBeingTested(on: element, &state)
+    }
+        
+    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEnginestate: inout VimEngineState) -> AccessibilityTextElement {
+        return asNormalMode.controlU(on: element, &vimEnginestate)
+    }
+    
+}
+
+
+// Bip
+extension ASUT_NM_control_u_Tests {
+    
+    func test_that_if_it_is_on_the_firstFileLine_then_it_Bips_and_does_not_move() {
+        let text = """
+ 😂k so now we're
+going to
+have very
+
+long lines
+so that 
+   😂he H
+and
+
+M
+
+  😂and
+L
+
+can be
+tested
+
+  🐍roperly!
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 114,
+            caretLocation: 1,
+            selectedLength: 2,
+            selectedText: """
+        😂
+        """,
+            visibleCharacterRange: 0..<84,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 114,
+                number: 1,
+                start: 0,
+                end: 18
+            )!
+        )
+        
+        var state = VimEngineState(lastMoveBipped: false)
+        let returnedElement = applyMoveBeingTested(on: element, &state)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 1)
+        XCTAssertEqual(returnedElement.selectedLength, 2)
+        
+        XCTAssertEqual(state.lastMoveBipped, true)   
+    }
+    
+}
+
+
+// Both
+extension ASUT_NM_control_u_Tests {
+
+    func test_that_it_goes_to_the_firstNonBlank_of_the_line_that_is_half_a_page_up_the_current_one() {
+        let text = """
+ 😂k so now we're
+going to
+have very
+
+long lines
+so that 
+   😂he H
+and
+
+M
+
+  😂and
+L
+
+can be
+tested
+
+  🐍roperly!
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 114,
+            caretLocation: 78,
+            selectedLength: 2,
+            selectedText: """
+        😂
+        """,
+            visibleCharacterRange: 0..<101,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 114,
+                number: 12,
+                start: 76,
+                end: 84
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 37)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+    }
+    
+    func test_that_if_adding_the_half_page_up_is_too_much_and_goes_before_the_beginning_of_the_text_then_it_goes_to_the_firstNonBlank_of_the_firstFileLine() {
+        let text = """
+ 😂k so now we're
+going to
+have very
+
+long lines
+so that 
+   😂he H
+and
+
+M
+
+  😂and
+L
+
+can be
+tested
+
+  🐍roperly!
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 114,
+            caretLocation: 32,
+            selectedLength: 1,
+            selectedText: """
+        v
+        """,
+            visibleCharacterRange: 0..<101,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 114,
+                number: 3,
+                start: 27,
+                end: 37
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 1)
+        XCTAssertEqual(returnedElement.selectedLength, 2)
+    }
+    
+}
