@@ -218,4 +218,35 @@ tested
         XCTAssertEqual(returnedElement.selectedLength, 2)
     }
     
+    // this test because there was a bug
+    func test_that_if_a_FileLine_fills_the_whole_input_it_can_still_go_half_a_page_down() {
+        let text = """
+this is gonna be one big long ass line but that is gonna fill the whole input and after that there's gonna be an other line.
+ok here we go now.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 143,
+            caretLocation: 125,
+            selectedLength: 1,
+            selectedText: """
+        o
+        """,
+            visibleCharacterRange: 51..<143,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 143,
+                number: 17,
+                start: 125,
+                end: 133
+            )!
+        )
+
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+    }
+    
 }
