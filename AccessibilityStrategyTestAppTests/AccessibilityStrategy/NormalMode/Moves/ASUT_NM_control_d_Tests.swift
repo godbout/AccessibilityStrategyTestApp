@@ -70,6 +70,56 @@ tested
         XCTAssertEqual(state.lastMoveBipped, true)   
     }
     
+    // this test because there was a bug
+    func test_that_if_it_is_on_the_lastScreenLine_it_does_not_Bip_if_it_is_not_the_lastFileLine_also() {
+        let text = """
+ 😂k so now we're
+going to
+have very
+
+long lines
+so that 
+   😂he H
+and
+
+M
+
+  😂and
+L
+
+can be
+tested
+
+  🐍roperly!
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 114,
+            caretLocation: 84,
+            selectedLength: 1,
+            selectedText: """
+        L
+        """,
+            visibleCharacterRange: 0..<84,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 114,
+                number: 13,
+                start: 84,
+                end: 86
+            )!
+        )
+        
+        var state = VimEngineState(lastMoveBipped: false)
+        let returnedElement = applyMoveBeingTested(on: element, &state)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 104)
+        XCTAssertEqual(returnedElement.selectedLength, 2)
+        
+        XCTAssertEqual(state.lastMoveBipped, false)  
+    }
+    
 }
 
 
