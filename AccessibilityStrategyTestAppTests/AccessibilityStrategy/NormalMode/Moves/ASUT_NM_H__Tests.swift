@@ -25,7 +25,7 @@ extension ASUT_NM_H__Tests {
             selectedText: """
 
         """,
-            visibleCharacterRange: 0..<0,
+            fullyVisibleArea: 0..<0,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
@@ -76,7 +76,7 @@ properly!
             selectedText: """
         a
         """,
-            visibleCharacterRange: 27..<82,
+            fullyVisibleArea: 27..<82,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 106,
@@ -122,7 +122,7 @@ properly!
             selectedText: """
         M
         """,
-            visibleCharacterRange: 27..<82,
+            fullyVisibleArea: 27..<82,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 106,
@@ -134,7 +134,7 @@ properly!
         
         let returnedElement = applyMoveBeingTested(times: 69, on: element)
 
-        XCTAssertEqual(returnedElement.caretLocation, 82)
+        XCTAssertEqual(returnedElement.caretLocation, 81)
         XCTAssertEqual(returnedElement.selectedLength, 1)
     }
 
@@ -143,6 +143,52 @@ properly!
 
 // TextViews
 extension ASUT_NM_H__Tests {
+    
+    func test_that_if_the_text_is_scrolled_to_the_top_then_it_goes_to_the_firstNonBlank_of_the_first_line() {
+        let text = """
+ 😂k so now we're
+going to
+have very
+
+long lines
+so that
+   😂he H
+and
+
+M
+
+and
+L
+
+can be
+tested
+
+properly!
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 106,
+            caretLocation: 68,
+            selectedLength: 1,
+            selectedText: """
+        n
+        """,
+            fullyVisibleArea: 0..<79,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 106,
+                number: 8,
+                start: 67,
+                end: 71
+            )!
+        )
+
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 1)
+        XCTAssertEqual(returnedElement.selectedLength, 2)
+    }
 
     func test_that_in_normal_setting_it_goes_to_the_firstNonBlank_of_the_highest_screenLine() {
         let text = """
@@ -174,7 +220,7 @@ properly!
             selectedText: """
         a
         """,
-            visibleCharacterRange: 27..<82,
+            fullyVisibleArea: 27..<82,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 106,

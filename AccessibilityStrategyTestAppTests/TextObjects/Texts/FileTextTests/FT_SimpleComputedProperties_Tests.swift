@@ -21,7 +21,7 @@ extension FT_SimpleComputedProperties_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            visibleCharacterRange: 0..<0,
+            fullyVisibleArea: 0..<0,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
@@ -51,7 +51,7 @@ line
             caretLocation: 35,
             selectedLength: 0,
             selectedText: "",
-            visibleCharacterRange: 0..<35,
+            fullyVisibleArea: 0..<35,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
@@ -91,7 +91,7 @@ a linefeed 🤱️
             caretLocation: 27,
             selectedLength: 2,
             selectedText: "th",
-            visibleCharacterRange: 0..<48,
+            fullyVisibleArea: 0..<48,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 48,
@@ -123,7 +123,7 @@ fucking 🔥️🔥️🔥️ hell
             caretLocation: 29,
             selectedLength: 2,
             selectedText: "ki",
-            visibleCharacterRange: 0..<48,
+            fullyVisibleArea: 0..<48,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 48,
@@ -157,7 +157,7 @@ and there's that one 🤌🏼️ line after
             caretLocation: 32,
             selectedLength: 1,
             selectedText: "\n",
-            visibleCharacterRange: 0..<70,
+            fullyVisibleArea: 0..<70,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 70,
@@ -192,7 +192,7 @@ so careful that Xcode doesn't remove the fucking blanks.
             caretLocation: 58,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<130,
+            fullyVisibleArea: 0..<130,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 130,

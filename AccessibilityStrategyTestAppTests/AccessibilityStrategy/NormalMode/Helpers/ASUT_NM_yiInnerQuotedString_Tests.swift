@@ -30,7 +30,7 @@ and now `hohohohoho`
             caretLocation: 37,
             selectedLength: 1,
             selectedText: "h",
-            visibleCharacterRange: 0..<37,
+            fullyVisibleArea: 0..<37,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -57,7 +57,7 @@ and now `hohohohoho`
             caretLocation: 23,
             selectedLength: 1,
             selectedText: "o",
-            visibleCharacterRange: 0..<34,
+            fullyVisibleArea: 0..<34,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
@@ -91,7 +91,7 @@ extension ASUT_NM_yiInnerQuotedString_Tests {
             caretLocation: 23,
             selectedLength: 1,
             selectedText: "o",
-            visibleCharacterRange: 0..<34,
+            fullyVisibleArea: 0..<34,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
@@ -123,7 +123,7 @@ now there's one " double quote
             caretLocation: 12,
             selectedLength: 1,
             selectedText: "o",
-            visibleCharacterRange: 0..<30,
+            fullyVisibleArea: 0..<30,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 30,
@@ -156,7 +156,7 @@ two 'simple quotes' on the second line
             caretLocation: 14,
             selectedLength: 1,
             selectedText: "o",
-            visibleCharacterRange: 0..<50,
+            fullyVisibleArea: 0..<50,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 50,
@@ -189,7 +189,7 @@ and now `hohohohoho`
             caretLocation: 37,
             selectedLength: 1,
             selectedText: "h",
-            visibleCharacterRange: 0..<42,
+            fullyVisibleArea: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -220,7 +220,7 @@ double "quotes" before the caret
             caretLocation: 26,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<32,
+            fullyVisibleArea: 0..<32,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
@@ -253,7 +253,7 @@ heheheheh
             caretLocation: 30,
             selectedLength: 1,
             selectedText: "e",
-            visibleCharacterRange: 0..<41,
+            fullyVisibleArea: 0..<41,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 41,
@@ -285,7 +285,7 @@ now there's gonna
             caretLocation: 27,
             selectedLength: 1,
             selectedText: "`",
-            visibleCharacterRange: 0..<39,
+            fullyVisibleArea: 0..<39,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 39,
@@ -323,7 +323,7 @@ those💨️💨️💨️ fac"🍵️s 🥺️☹️😂️ h😀️ha👅️" 
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "o",
-            visibleCharacterRange: 0..<73,
+            fullyVisibleArea: 0..<73,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 73,

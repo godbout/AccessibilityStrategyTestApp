@@ -36,7 +36,7 @@ them like nothin🇫🇷️ happened. that's how special it is.
             caretLocation: 78,
             selectedLength: 26,
             selectedText: "🇫🇷️ happened. that's how",
-            visibleCharacterRange: 0..<119,
+            fullyVisibleArea: 0..<119,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
@@ -69,7 +69,7 @@ extension ASUT_NM_yt_Tests {
             caretLocation: 8,
             selectedLength: 1,
             selectedText: "e",
-            visibleCharacterRange: 0..<29,
+            fullyVisibleArea: 0..<29,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 29,
@@ -100,7 +100,7 @@ that is not there
             caretLocation: 14,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<44,
+            fullyVisibleArea: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -134,7 +134,7 @@ extension ASUT_NM_yt_Tests {
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "d",
-            visibleCharacterRange: 0..<66,
+            fullyVisibleArea: 0..<66,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 66,
@@ -161,7 +161,7 @@ extension ASUT_NM_yt_Tests {
             caretLocation: 47,
             selectedLength: 3,
             selectedText: "🍔️",
-            visibleCharacterRange: 0..<83,
+            fullyVisibleArea: 0..<83,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 83,
@@ -196,7 +196,7 @@ extension ASUT_NM_yt_Tests {
             caretLocation: 8,
             selectedLength: 1,
             selectedText: "e",
-            visibleCharacterRange: 0..<29,
+            fullyVisibleArea: 0..<29,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 29,
@@ -226,7 +226,7 @@ that is not there
             caretLocation: 14,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<44,
+            fullyVisibleArea: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -262,7 +262,7 @@ on a line
             caretLocation: 4,
             selectedLength: 1,
             selectedText: "n",
-            visibleCharacterRange: 0..<44,
+            fullyVisibleArea: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,

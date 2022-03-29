@@ -17,7 +17,7 @@ extension ASUI_NM_i_Tests {
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "o",
-            visibleCharacterRange: 0..<35,
+            fullyVisibleArea: 0..<35,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
@@ -52,7 +52,7 @@ those💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
             caretLocation: 44,
             selectedLength: 3,
             selectedText: "😂️",
-            visibleCharacterRange: 0..<54,
+            fullyVisibleArea: 0..<54,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 54,

@@ -26,7 +26,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 86,
             selectedLength: 1,
             selectedText: "e",
-            visibleCharacterRange: 0..<115,
+            fullyVisibleArea: 0..<115,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
@@ -63,7 +63,7 @@ but hey surprise mofo
             caretLocation: 112,
             selectedLength: 1,
             selectedText: "o",
-            visibleCharacterRange: 0..<113,
+            fullyVisibleArea: 0..<113,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 113,
@@ -94,7 +94,7 @@ but hey surprise mofo
             caretLocation: 112,
             selectedLength: 1,
             selectedText: "o",
-            visibleCharacterRange: 0..<113,
+            fullyVisibleArea: 0..<113,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 113,
@@ -125,7 +125,7 @@ but hey surprise mofo
             caretLocation: 112,
             selectedLength: 1,
             selectedText: "o",
-            visibleCharacterRange: 0..<113,
+            fullyVisibleArea: 0..<113,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 113,
@@ -156,7 +156,7 @@ but hey surprise mofo
             caretLocation: 112,
             selectedLength: 1,
             selectedText: "o",
-            visibleCharacterRange: 0..<113,
+            fullyVisibleArea: 0..<113,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 113,
@@ -188,7 +188,7 @@ extension ASUT_NM_gg_Tests {
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "e",
-            visibleCharacterRange: 0..<17,
+            fullyVisibleArea: 0..<17,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 17,
@@ -213,7 +213,7 @@ extension ASUT_NM_gg_Tests {
             caretLocation: 24,
             selectedLength: 3,
             selectedText: "😀️",
-            visibleCharacterRange: 0..<27,
+            fullyVisibleArea: 0..<27,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 27,
@@ -238,7 +238,7 @@ extension ASUT_NM_gg_Tests {
             caretLocation: 5,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<9,
+            fullyVisibleArea: 0..<9,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 9,
@@ -273,7 +273,7 @@ here
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "h",
-            visibleCharacterRange: 0..<27,
+            fullyVisibleArea: 0..<27,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 27,
@@ -303,7 +303,7 @@ bullshit
             caretLocation: 38,
             selectedLength: 1,
             selectedText: "f",
-            visibleCharacterRange: 0..<48,
+            fullyVisibleArea: 0..<48,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 48,
@@ -332,7 +332,7 @@ completely empty
             caretLocation: 30,
             selectedLength: 1,
             selectedText: "y",
-            visibleCharacterRange: 0..<31,
+            fullyVisibleArea: 0..<31,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
@@ -361,7 +361,7 @@ again only
             caretLocation: 13,
             selectedLength: 1,
             selectedText: "l",
-            visibleCharacterRange: 0..<38,
+            fullyVisibleArea: 0..<38,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 38,

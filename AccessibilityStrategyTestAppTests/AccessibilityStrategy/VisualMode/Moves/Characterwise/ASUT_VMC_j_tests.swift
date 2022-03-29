@@ -39,7 +39,7 @@ when the head is after the anchor
 sing j in
 Visual Mode i
 """,
-            visibleCharacterRange: 0..<116,
+            fullyVisibleArea: 0..<116,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 116,
@@ -81,7 +81,7 @@ cool because it will extend
 the selection
 when the head i
 """,
-            visibleCharacterRange: 0..<116,
+            fullyVisibleArea: 0..<116,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 116,
@@ -121,7 +121,7 @@ when the head is after the anchor
 al Mode is gonna be
 cool because it wi
 """,
-            visibleCharacterRange: 0..<116,
+            fullyVisibleArea: 0..<116,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 116,
@@ -166,7 +166,7 @@ the wrapped lines and shit is understood
             caretLocation: 41,
             selectedLength: 3,
             selectedText: "and",
-            visibleCharacterRange: 0..<119,
+            fullyVisibleArea: 0..<119,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
@@ -201,7 +201,7 @@ the wrapped lines and shit is understood
             caretLocation: 74,
             selectedLength: 4,
             selectedText: "that",
-            visibleCharacterRange: 0..<119,
+            fullyVisibleArea: 0..<119,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
@@ -236,7 +236,7 @@ the wrapped lines and shit is understood
             caretLocation: 33,
             selectedLength: 45,
             selectedText: "off lol\nand it's getting even harder now that",
-            visibleCharacterRange: 0..<119,
+            fullyVisibleArea: 0..<119,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
@@ -271,7 +271,7 @@ a bit more
             caretLocation: 13,
             selectedLength: 24,
             selectedText: "is gonna rip my ass off\n",
-            visibleCharacterRange: 0..<68,
+            fullyVisibleArea: 0..<68,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 68,
@@ -311,7 +311,7 @@ that one is
 gonna rip my
 ass o
 """,
-            visibleCharacterRange: 0..<60,
+            fullyVisibleArea: 0..<60,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 60,
@@ -347,7 +347,7 @@ own empty
             caretLocation: 26,
             selectedLength: 9,
             selectedText: "    line\n",
-            visibleCharacterRange: 0..<35,
+            fullyVisibleArea: 0..<35,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
@@ -383,7 +383,7 @@ own empty
             caretLocation: 26,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<35,
+            fullyVisibleArea: 0..<35,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,

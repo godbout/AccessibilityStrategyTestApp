@@ -28,7 +28,7 @@ extension ASUT_NM_caret_Tests {
             caretLocation: 29,
             selectedLength: 1,
             selectedText: "r",
-            visibleCharacterRange: 0..<115,
+            fullyVisibleArea: 0..<115,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
@@ -60,7 +60,7 @@ extension ASUT_NM_caret_Tests {
             caretLocation: 11,
             selectedLength: 1,
             selectedText: "k",
-            visibleCharacterRange: 0..<16,
+            fullyVisibleArea: 0..<16,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 16,
@@ -91,7 +91,7 @@ without a linefeed but with spaces
             caretLocation: 68,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<86,
+            fullyVisibleArea: 0..<86,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 86,
@@ -128,7 +128,7 @@ empty line has a linefeed
             caretLocation: 45,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<67,
+            fullyVisibleArea: 0..<67,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 67,

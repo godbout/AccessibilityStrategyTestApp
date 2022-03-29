@@ -27,7 +27,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 29,
             selectedLength: 1,
             selectedText: "r",
-            visibleCharacterRange: 0..<115,
+            fullyVisibleArea: 0..<115,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
@@ -64,7 +64,7 @@ LMAO
             caretLocation: 15,
             selectedLength: 1,
             selectedText: "u",
-            visibleCharacterRange: 0..<80,
+            fullyVisibleArea: 0..<80,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 80,
@@ -95,7 +95,7 @@ LMAO
             caretLocation: 15,
             selectedLength: 1,
             selectedText: "u",
-            visibleCharacterRange: 0..<80,
+            fullyVisibleArea: 0..<80,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 80,
@@ -127,7 +127,7 @@ extension ASUT_NM_$_Tests {
             caretLocation: 36,
             selectedLength: 1,
             selectedText: "a",
-            visibleCharacterRange: 0..<56,
+            fullyVisibleArea: 0..<56,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 56,
@@ -158,7 +158,7 @@ j or k will go to the line endLimit
             caretLocation: 49,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<102,
+            fullyVisibleArea: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
@@ -196,7 +196,7 @@ gonna be wrapped
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "u",
-            visibleCharacterRange: 0..<70,
+            fullyVisibleArea: 0..<70,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 70,
@@ -226,7 +226,7 @@ it's a bug! my friend hehehehe
             caretLocation: 27,
             selectedLength: 0,
             selectedText: "",
-            visibleCharacterRange: 0..<58,
+            fullyVisibleArea: 0..<58,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 58,

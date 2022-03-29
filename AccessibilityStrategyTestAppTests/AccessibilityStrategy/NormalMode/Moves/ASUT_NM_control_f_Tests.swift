@@ -50,7 +50,7 @@ gonna test very well
 
 
         """,
-            visibleCharacterRange: 0..<101,
+            fullyVisibleArea: 0..<101,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 114,
@@ -100,7 +100,7 @@ gonna test very well
             selectedText: """
         😂
         """,
-            visibleCharacterRange: 58..<180,
+            fullyVisibleArea: 58..<180,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 180,

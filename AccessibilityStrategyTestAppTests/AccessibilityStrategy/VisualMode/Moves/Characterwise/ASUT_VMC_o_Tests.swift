@@ -25,7 +25,7 @@ extension ASUT_VMC_o_Tests {
             selectedText: """
          wit
         """,
-            visibleCharacterRange: 0..<34,
+            fullyVisibleArea: 0..<34,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
@@ -61,7 +61,7 @@ tricky
         me like a little
         longe
         """,
-            visibleCharacterRange: 0..<59,
+            fullyVisibleArea: 0..<59,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 59,
@@ -92,7 +92,7 @@ my friend
             caretLocation: 15,
             selectedLength: 1,
             selectedText: "f",
-            visibleCharacterRange: 0..<21,
+            fullyVisibleArea: 0..<21,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 21,

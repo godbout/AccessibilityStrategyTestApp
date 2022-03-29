@@ -33,7 +33,7 @@ extension ASUT_NM_r_Tests {
             caretLocation: 15,
             selectedLength: 1,
             selectedText: "c",
-            visibleCharacterRange: 0..<41,
+            fullyVisibleArea: 0..<41,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 41,
@@ -67,7 +67,7 @@ linefeed
             caretLocation: 15,
             selectedLength: 1,
             selectedText: "\n",
-            visibleCharacterRange: 0..<24,
+            fullyVisibleArea: 0..<24,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 24,

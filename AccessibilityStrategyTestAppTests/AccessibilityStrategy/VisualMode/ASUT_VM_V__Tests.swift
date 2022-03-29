@@ -25,7 +25,7 @@ extension ASUT_VM_V__Tests {
             caretLocation: 28,
             selectedLength: 1,
             selectedText: "d",
-            visibleCharacterRange: 0..<29,
+            fullyVisibleArea: 0..<29,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 29,
@@ -62,7 +62,7 @@ a linefeed at the end
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "a",
-            visibleCharacterRange: 0..<43,
+            fullyVisibleArea: 0..<43,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 43,

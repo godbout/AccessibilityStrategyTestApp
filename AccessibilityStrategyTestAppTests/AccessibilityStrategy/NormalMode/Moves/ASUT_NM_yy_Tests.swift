@@ -35,7 +35,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 40,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<115,
+            fullyVisibleArea: 0..<115,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
@@ -68,7 +68,7 @@ extension ASUT_NM_yy_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            visibleCharacterRange: 0..<0,
+            fullyVisibleArea: 0..<0,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
@@ -99,7 +99,7 @@ but actually it's only 21.43 LMAOOOOOOOO
             caretLocation: 38,
             selectedLength: 1,
             selectedText: "h",
-            visibleCharacterRange: 0..<95,
+            fullyVisibleArea: 0..<95,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 95,
@@ -134,7 +134,7 @@ of days.
             caretLocation: 27,
             selectedLength: 1,
             selectedText: "l",
-            visibleCharacterRange: 0..<97,
+            fullyVisibleArea: 0..<97,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 97,
@@ -174,7 +174,7 @@ of days.
             caretLocation: 27,
             selectedLength: 1,
             selectedText: "l",
-            visibleCharacterRange: 0..<97,
+            fullyVisibleArea: 0..<97,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 97,
@@ -215,7 +215,7 @@ extension ASUT_NM_yy_Tests {
             caretLocation: 12,
             selectedLength: 1,
             selectedText: "a",
-            visibleCharacterRange: 0..<24,
+            fullyVisibleArea: 0..<24,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 24,
@@ -246,7 +246,7 @@ workd properly my friend
             caretLocation: 39,
             selectedLength: 1,
             selectedText: "e",
-            visibleCharacterRange: 0..<78,
+            fullyVisibleArea: 0..<78,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 78,
@@ -278,7 +278,7 @@ my friend
             caretLocation: 95,
             selectedLength: 3,
             selectedText: "😂️",
-            visibleCharacterRange: 0..<134,
+            fullyVisibleArea: 0..<134,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 134,
@@ -305,7 +305,7 @@ my friend
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            visibleCharacterRange: 0..<0,
+            fullyVisibleArea: 0..<0,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
@@ -338,7 +338,7 @@ line
             caretLocation: 31,
             selectedLength: 0,
             selectedText: "",
-            visibleCharacterRange: 0..<31,
+            fullyVisibleArea: 0..<31,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,

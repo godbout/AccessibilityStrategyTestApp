@@ -28,7 +28,7 @@ if the head is not after the line end limit
             caretLocation: 42,
             selectedLength: 9,
             selectedText: "the caret",
-            visibleCharacterRange: 0..<107,
+            fullyVisibleArea: 0..<107,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 107,
@@ -61,7 +61,7 @@ multiple lines
             caretLocation: 13,
             selectedLength: 10,
             selectedText: "have\nthe⛱️",
-            visibleCharacterRange: 0..<60,
+            fullyVisibleArea: 0..<60,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 60,
@@ -95,7 +95,7 @@ extension ASUT_VMC_v_Tests {
             caretLocation: 14,
             selectedLength: 6,
             selectedText: "really",
-            visibleCharacterRange: 0..<20,
+            fullyVisibleArea: 0..<20,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 20,

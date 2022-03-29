@@ -27,7 +27,7 @@ extension ASUT_VM_comma_Tests {
             caretLocation: 7,
             selectedLength: 19,
             selectedText: "a use the same sent",
-            visibleCharacterRange: 0..<102,
+            fullyVisibleArea: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
@@ -56,7 +56,7 @@ extension ASUT_VM_comma_Tests {
             caretLocation: 96,
             selectedLength: 5,
             selectedText: "param",
-            visibleCharacterRange: 0..<102,
+            fullyVisibleArea: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
@@ -91,7 +91,7 @@ extension ASUT_VM_comma_Tests {
             caretLocation: 6,
             selectedLength: 14,
             selectedText: "na use the sam",
-            visibleCharacterRange: 0..<102,
+            fullyVisibleArea: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
@@ -120,7 +120,7 @@ extension ASUT_VM_comma_Tests {
             caretLocation: 6,
             selectedLength: 14,
             selectedText: "na use the sam",
-            visibleCharacterRange: 0..<102,
+            fullyVisibleArea: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
@@ -149,7 +149,7 @@ extension ASUT_VM_comma_Tests {
             caretLocation: 69,
             selectedLength: 11,
             selectedText: "ferent Last",
-            visibleCharacterRange: 0..<102,
+            fullyVisibleArea: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,
@@ -178,7 +178,7 @@ extension ASUT_VM_comma_Tests {
             caretLocation: 69,
             selectedLength: 11,
             selectedText: "ferent Last",
-            visibleCharacterRange: 0..<102,
+            fullyVisibleArea: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,

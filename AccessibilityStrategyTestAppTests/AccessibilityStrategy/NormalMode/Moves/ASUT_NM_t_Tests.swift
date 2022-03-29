@@ -27,7 +27,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 7,
             selectedLength: 1,
             selectedText: "v",
-            visibleCharacterRange: 0..<115,
+            fullyVisibleArea: 0..<115,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
@@ -59,7 +59,7 @@ extension ASUT_NM_t_Tests {
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "d",
-            visibleCharacterRange: 0..<66,
+            fullyVisibleArea: 0..<66,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 66,
@@ -85,7 +85,7 @@ extension ASUT_NM_t_Tests {
             caretLocation: 47,
             selectedLength: 3,
             selectedText: "🍔️",
-            visibleCharacterRange: 0..<83,
+            fullyVisibleArea: 0..<83,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 83,
@@ -117,7 +117,7 @@ extension ASUT_NM_t_Tests {
             caretLocation: 10,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<25,
+            fullyVisibleArea: 0..<25,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 25,
@@ -147,7 +147,7 @@ that is not there
             caretLocation: 22,
             selectedLength: 1,
             selectedText: "c",
-            visibleCharacterRange: 0..<44,
+            fullyVisibleArea: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -184,7 +184,7 @@ yeah
             caretLocation: 31,
             selectedLength: 1,
             selectedText: "w",
-            visibleCharacterRange: 0..<52,
+            fullyVisibleArea: 0..<52,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 52,

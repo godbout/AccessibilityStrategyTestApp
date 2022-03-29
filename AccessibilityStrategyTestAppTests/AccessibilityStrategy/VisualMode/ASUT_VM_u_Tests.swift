@@ -32,7 +32,7 @@ or Linewise style.
 goes back to caretLocation whether in Characterwise
 or Linewis
 """,
-            visibleCharacterRange: 0..<142,
+            fullyVisibleArea: 0..<142,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 142,

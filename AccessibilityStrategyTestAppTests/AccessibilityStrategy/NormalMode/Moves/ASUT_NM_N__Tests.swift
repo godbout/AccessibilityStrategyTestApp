@@ -23,7 +23,7 @@ extension ASUT_NM_N__Tests {
             caretLocation: 3,
             selectedLength: 1,
             selectedText: "t",
-            visibleCharacterRange: 0..<88,
+            fullyVisibleArea: 0..<88,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 88,
@@ -49,7 +49,7 @@ extension ASUT_NM_N__Tests {
             caretLocation: 86,
             selectedLength: 1,
             selectedText: "t",
-            visibleCharacterRange: 0..<88,
+            fullyVisibleArea: 0..<88,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 88,

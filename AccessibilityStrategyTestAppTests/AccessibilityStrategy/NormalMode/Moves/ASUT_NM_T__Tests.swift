@@ -27,7 +27,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 106,
             selectedLength: 1,
             selectedText: "a",
-            visibleCharacterRange: 0..<115,
+            fullyVisibleArea: 0..<115,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
@@ -59,7 +59,7 @@ extension ASUT_NM_T__Tests {
             caretLocation: 53,
             selectedLength: 1,
             selectedText: "n",
-            visibleCharacterRange: 0..<66,
+            fullyVisibleArea: 0..<66,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 66,
@@ -85,7 +85,7 @@ extension ASUT_NM_T__Tests {
             caretLocation: 47,
             selectedLength: 3,
             selectedText: "🍔️",
-            visibleCharacterRange: 0..<83,
+            fullyVisibleArea: 0..<83,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 83,
@@ -117,7 +117,7 @@ extension ASUT_NM_T__Tests {
             caretLocation: 10,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<25,
+            fullyVisibleArea: 0..<25,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 25,
@@ -147,7 +147,7 @@ that is not there
             caretLocation: 22,
             selectedLength: 1,
             selectedText: "c",
-            visibleCharacterRange: 0..<44,
+            fullyVisibleArea: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -184,7 +184,7 @@ yeah
             caretLocation: 58,
             selectedLength: 1,
             selectedText: "g",
-            visibleCharacterRange: 0..<64,
+            fullyVisibleArea: 0..<64,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 64,

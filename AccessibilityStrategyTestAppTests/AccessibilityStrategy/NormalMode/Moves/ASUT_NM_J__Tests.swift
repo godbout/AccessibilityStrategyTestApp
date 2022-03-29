@@ -27,7 +27,7 @@ hehe no linefeed here mofo
             caretLocation: 15,
             selectedLength: 1,
             selectedText: "d",
-            visibleCharacterRange: 0..<26,
+            fullyVisibleArea: 0..<26,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 26,

@@ -26,7 +26,7 @@ extension ASUT_VML_gE__Tests {
             caretLocation: 17,
             selectedLength: 15,
             selectedText: "e nice text in ",
-            visibleCharacterRange: 0..<41,
+            fullyVisibleArea: 0..<41,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 41,

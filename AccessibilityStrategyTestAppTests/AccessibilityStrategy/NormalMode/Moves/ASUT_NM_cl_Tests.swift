@@ -35,7 +35,7 @@ LMAO
             caretLocation: 1,
             selectedLength: 1,
             selectedText: "w",
-            visibleCharacterRange: 0..<80,
+            fullyVisibleArea: 0..<80,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 80,
@@ -66,7 +66,7 @@ LMAO
             caretLocation: 37,
             selectedLength: 1,
             selectedText: "t",
-            visibleCharacterRange: 0..<80,
+            fullyVisibleArea: 0..<80,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 80,
@@ -98,7 +98,7 @@ extension ASUT_NM_cl_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            visibleCharacterRange: 0..<0,
+            fullyVisibleArea: 0..<0,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
@@ -133,7 +133,7 @@ those faces 🥺️☹️😂️
             caretLocation: 37,
             selectedLength: 1,
             selectedText: "g",
-            visibleCharacterRange: 0..<80,
+            fullyVisibleArea: 0..<80,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 80,
@@ -168,7 +168,7 @@ those faces 🥺️☹️😂️
             caretLocation: 49,
             selectedLength: 1,
             selectedText: "d",
-            visibleCharacterRange: 0..<80,
+            fullyVisibleArea: 0..<80,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 80,
@@ -202,7 +202,7 @@ extension ASUT_NM_cl_Tests {
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "r",
-            visibleCharacterRange: 0..<37,
+            fullyVisibleArea: 0..<37,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
@@ -238,7 +238,7 @@ haha geh
             caretLocation: 22,
             selectedLength: 1,
             selectedText: "\n",
-            visibleCharacterRange: 0..<31,
+            fullyVisibleArea: 0..<31,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,

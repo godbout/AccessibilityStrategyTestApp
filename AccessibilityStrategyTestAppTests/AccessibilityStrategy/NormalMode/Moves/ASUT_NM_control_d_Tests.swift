@@ -51,7 +51,7 @@ tested
             selectedText: """
         🐍
         """,
-            visibleCharacterRange: 27..<114,
+            fullyVisibleArea: 27..<114,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 114,
@@ -101,7 +101,7 @@ tested
             selectedText: """
         L
         """,
-            visibleCharacterRange: 0..<84,
+            fullyVisibleArea: 0..<84,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 114,
@@ -157,7 +157,7 @@ tested
 
 
         """,
-            visibleCharacterRange: 0..<101,
+            fullyVisibleArea: 0..<101,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 114,
@@ -203,7 +203,7 @@ tested
             selectedText: """
         c
         """,
-            visibleCharacterRange: 27..<114,
+            fullyVisibleArea: 27..<114,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 114,
@@ -234,7 +234,7 @@ ok here we go now.
             selectedText: """
         t
         """,
-            visibleCharacterRange: 0..<93,
+            fullyVisibleArea: 0..<93,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 143,

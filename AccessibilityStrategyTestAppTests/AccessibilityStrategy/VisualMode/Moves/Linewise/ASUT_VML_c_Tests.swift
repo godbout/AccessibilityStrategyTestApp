@@ -43,7 +43,7 @@ at least if we're not at the end of the text
 will delete the selected lines
 but the below line will not go up\n
 """,
-            visibleCharacterRange: 0..<126,
+            fullyVisibleArea: 0..<126,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 126,
@@ -89,7 +89,7 @@ at least if we're not at the end of the text
 will delete the selected lines
 but the below line will not go up\n
 """,
-            visibleCharacterRange: 0..<126,
+            fullyVisibleArea: 0..<126,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 126,
@@ -123,7 +123,7 @@ at least if we're not at the end of the text
          
 but the below line will not go up
 """,
-            visibleCharacterRange: 0..<105,
+            fullyVisibleArea: 0..<105,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 105,
@@ -157,7 +157,7 @@ at least if we're not at the end of the text
    will delete the selected lines
 but the below line will not go up\n
 """,
-            visibleCharacterRange: 0..<129,
+            fullyVisibleArea: 0..<129,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 129,

@@ -27,7 +27,7 @@ this move does not stop at screen lines. it will just pass by
             caretLocation: 101,
             selectedLength: 1,
             selectedText: "w",
-            visibleCharacterRange: 0..<117,
+            fullyVisibleArea: 0..<117,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 117,
@@ -59,7 +59,7 @@ extension ASUT_NM_0_Tests {
             caretLocation: 36,
             selectedLength: 1,
             selectedText: "a",
-            visibleCharacterRange: 0..<56,
+            fullyVisibleArea: 0..<56,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 56,
@@ -95,7 +95,7 @@ gonna be wrapped
             caretLocation: 47,
             selectedLength: 1,
             selectedText: "e",
-            visibleCharacterRange: 0..<70,
+            fullyVisibleArea: 0..<70,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 70,
@@ -125,7 +125,7 @@ it's a bug! my friend hehehehe
             caretLocation: 27,
             selectedLength: 0,
             selectedText: "",
-            visibleCharacterRange: 0..<58,
+            fullyVisibleArea: 0..<58,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 58,

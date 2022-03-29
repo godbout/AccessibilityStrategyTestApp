@@ -1,6 +1,8 @@
 import XCTest
 @testable import AccessibilityStrategy
 
+// TODO: we have to add tests to check that the fullyVisibleArea is correct. like top, bottom and middle
+
 
 // here we test what we really receive or calculate from the Adaptor,
 // we don't test the computed properties. those are tested in Unit Tests,
@@ -25,6 +27,7 @@ extension The2CasesTests {
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement?.fullyVisibleArea, 0..<0)
         XCTAssertEqual(accessibilityElement?.currentScreenLine.value, "")
         XCTAssertEqual(accessibilityElement?.currentScreenLine.number, 1)
         XCTAssertEqual(accessibilityElement?.currentScreenLine.start, 0)
@@ -50,6 +53,7 @@ extension The2CasesTests {
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement?.fullyVisibleArea, 0..<0)
         XCTAssertEqual(accessibilityElement?.currentScreenLine.value, "")
         XCTAssertEqual(accessibilityElement?.currentScreenLine.number, 1)
         XCTAssertEqual(accessibilityElement?.currentScreenLine.start, 0)
@@ -80,6 +84,7 @@ and i'm still having fun
         XCTAssertEqual(accessibilityElement?.caretLocation, 47)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
+        XCTAssertEqual(accessibilityElement?.fullyVisibleArea, 0..<47)
         XCTAssertEqual(accessibilityElement?.currentScreenLine.value, "")
         XCTAssertEqual(accessibilityElement?.currentScreenLine.number, 4)
         XCTAssertEqual(accessibilityElement?.currentScreenLine.start, 47)

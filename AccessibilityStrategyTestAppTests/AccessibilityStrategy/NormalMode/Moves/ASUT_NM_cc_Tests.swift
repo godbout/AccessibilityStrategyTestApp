@@ -33,7 +33,7 @@ but actually it's only 21.43 LMAOOOOOOOO
             caretLocation: 38,
             selectedLength: 1,
             selectedText: "h",
-            visibleCharacterRange: 0..<95,
+            fullyVisibleArea: 0..<95,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 95,
@@ -70,7 +70,7 @@ but actually it's only 21.43 LMAOOOOOOOO
             caretLocation: 38,
             selectedLength: 1,
             selectedText: "h",
-            visibleCharacterRange: 0..<95,
+            fullyVisibleArea: 0..<95,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 95,
@@ -96,7 +96,7 @@ but actually it's only 21.43 LMAOOOOOOOO
             caretLocation: 43,
             selectedLength: 3,
             selectedText: "🌻️",
-            visibleCharacterRange: 0..<94,
+            fullyVisibleArea: 0..<94,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 94,
@@ -126,7 +126,7 @@ be kept
             caretLocation: 28,
             selectedLength: 1,
             selectedText: "e",
-            visibleCharacterRange: 0..<48,
+            fullyVisibleArea: 0..<48,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 48,
@@ -156,7 +156,7 @@ something
             caretLocation: 21,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<39,
+            fullyVisibleArea: 0..<39,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 39,

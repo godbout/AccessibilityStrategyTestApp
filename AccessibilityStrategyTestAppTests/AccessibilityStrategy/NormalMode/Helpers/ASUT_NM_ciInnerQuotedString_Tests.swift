@@ -33,7 +33,7 @@ finally dealing with the "real stuff"!
             caretLocation: 16,
             selectedLength: 1,
             selectedText: "w",
-            visibleCharacterRange: 0..<38,
+            fullyVisibleArea: 0..<38,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 38,
@@ -63,7 +63,7 @@ finally dealing with the "real stuff!
             caretLocation: 15,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<37,
+            fullyVisibleArea: 0..<37,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
@@ -98,7 +98,7 @@ finally dealing with the "real stuff"!
             caretLocation: 29,
             selectedLength: 1,
             selectedText: "l",
-            visibleCharacterRange: 0..<38,
+            fullyVisibleArea: 0..<38,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 38,
@@ -126,7 +126,7 @@ now the caret 💨️💨️💨️ is before the ` shit with 🥺️☹️😂�
             caretLocation: 31,
             selectedLength: 1,
             selectedText: "r",
-            visibleCharacterRange: 0..<98,
+            fullyVisibleArea: 0..<98,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 98,
@@ -154,7 +154,7 @@ that's ' three quotes ' in there
             caretLocation: 17,
             selectedLength: 1,
             selectedText: "o",
-            visibleCharacterRange: 0..<32,
+            fullyVisibleArea: 0..<32,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
@@ -182,7 +182,7 @@ that's " four quotes " in " there "
             caretLocation: 26,
             selectedLength: 1,
             selectedText: "\"",
-            visibleCharacterRange: 0..<35,
+            fullyVisibleArea: 0..<35,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
@@ -210,7 +210,7 @@ a text with only one quote ' lol
             caretLocation: 17,
             selectedLength: 1,
             selectedText: "o",
-            visibleCharacterRange: 0..<32,
+            fullyVisibleArea: 0..<32,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
@@ -234,7 +234,7 @@ a text with only one quote ' lol
             caretLocation: 8,
             selectedLength: 1,
             selectedText: "o",
-            visibleCharacterRange: 0..<26,
+            fullyVisibleArea: 0..<26,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 26,
@@ -262,7 +262,7 @@ now the "caret" is after the quotes
             caretLocation: 85,
             selectedLength: 1,
             selectedText: "e",
-            visibleCharacterRange: 0..<98,
+            fullyVisibleArea: 0..<98,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 98,

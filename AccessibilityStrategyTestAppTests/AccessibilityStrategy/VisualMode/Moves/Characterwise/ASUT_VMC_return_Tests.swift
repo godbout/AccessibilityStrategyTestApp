@@ -40,7 +40,7 @@ or a TF same same
             caretLocation: 18,
             selectedLength: 17,
             selectedText: "TV 🍍️\nor a TF sa",
-            visibleCharacterRange: 0..<42,
+            fullyVisibleArea: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -78,7 +78,7 @@ and it's getting even harder now that
             caretLocation: 6,
             selectedLength: 14,
             selectedText: "at one is gonn",
-            visibleCharacterRange: 0..<123,
+            fullyVisibleArea: 0..<123,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 123,
@@ -114,7 +114,7 @@ one is gonna rip my ass off lol
 and it's getting even harder now that
   🍅️he wrapped lines
 """,
-            visibleCharacterRange: 0..<123,
+            fullyVisibleArea: 0..<123,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 123,
@@ -146,7 +146,7 @@ and it's getting even harder now that
             caretLocation: 6,
             selectedLength: 25,
             selectedText: "at one is gonna rip my as",
-            visibleCharacterRange: 0..<123,
+            fullyVisibleArea: 0..<123,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 123,
@@ -184,7 +184,7 @@ and it's getting even harder now that
             caretLocation: 41,
             selectedLength: 3,
             selectedText: "and",
-            visibleCharacterRange: 0..<123,
+            fullyVisibleArea: 0..<123,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 123,
@@ -216,7 +216,7 @@ and it's getting even harder now that
             caretLocation: 74,
             selectedLength: 4,
             selectedText: "that",
-            visibleCharacterRange: 0..<120,
+            fullyVisibleArea: 0..<120,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 120,
@@ -248,7 +248,7 @@ the wrapped lines and shit is understood
             caretLocation: 33,
             selectedLength: 45,
             selectedText: "off lol\n🥔️nd it's getting even harder now",
-            visibleCharacterRange: 0..<124,
+            fullyVisibleArea: 0..<124,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 124,
@@ -281,7 +281,7 @@ own empty
             caretLocation: 26,
             selectedLength: 9,
             selectedText: "    line\n",
-            visibleCharacterRange: 0..<35,
+            fullyVisibleArea: 0..<35,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
@@ -314,7 +314,7 @@ own empty
             caretLocation: 26,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<35,
+            fullyVisibleArea: 0..<35,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,

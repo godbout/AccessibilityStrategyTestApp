@@ -25,7 +25,7 @@ extension ASUT_NM_M__Tests {
             selectedText: """
 
         """,
-            visibleCharacterRange: 0..<0,
+            fullyVisibleArea: 0..<0,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
@@ -76,7 +76,7 @@ tested
             selectedText: """
         d
         """,
-            visibleCharacterRange: 58..<114,
+            fullyVisibleArea: 58..<114,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 114,

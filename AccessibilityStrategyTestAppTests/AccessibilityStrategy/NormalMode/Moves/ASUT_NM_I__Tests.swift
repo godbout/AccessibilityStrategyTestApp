@@ -26,7 +26,7 @@ extension ASUT_NM_I__Tests {
             caretLocation: 54,
             selectedLength: 1,
             selectedText: "e",
-            visibleCharacterRange: 0..<132,
+            fullyVisibleArea: 0..<132,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 132,
@@ -58,7 +58,7 @@ extension ASUT_NM_I__Tests {
             caretLocation: 68,
             selectedLength: 1,
             selectedText: "n",
-            visibleCharacterRange: 0..<84,
+            fullyVisibleArea: 0..<84,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 84,
@@ -87,7 +87,7 @@ so that's a line, that's for sure
             caretLocation: 74,
             selectedLength: 1,
             selectedText: "g",
-            visibleCharacterRange: 0..<94,
+            fullyVisibleArea: 0..<94,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 94,
@@ -117,7 +117,7 @@ of this previous line
             caretLocation: 69,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<105,
+            fullyVisibleArea: 0..<105,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 105,
@@ -146,7 +146,7 @@ so now we will have a line that is full of spaces but no linefeed
             caretLocation: 72,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<81,
+            fullyVisibleArea: 0..<81,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 81,

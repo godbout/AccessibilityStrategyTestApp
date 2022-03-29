@@ -17,7 +17,7 @@ TextAreas
             caretLocation: 5,
             selectedLength: 38,
             selectedText: nil,
-            visibleCharacterRange: 0..<60,
+            fullyVisibleArea: 0..<60,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 60,
@@ -52,7 +52,7 @@ TextAreas
             caretLocation: 31,
             selectedLength: 24,
             selectedText: nil,
-            visibleCharacterRange: 0..<54,
+            fullyVisibleArea: 0..<54,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 54,

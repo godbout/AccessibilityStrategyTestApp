@@ -27,7 +27,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 11,
             selectedLength: 1,
             selectedText: "o",
-            visibleCharacterRange: 0..<115,
+            fullyVisibleArea: 0..<115,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
@@ -59,7 +59,7 @@ extension ASUT_NM_f_Tests {
             caretLocation: 24,
             selectedLength: 1,
             selectedText: "d",
-            visibleCharacterRange: 0..<66,
+            fullyVisibleArea: 0..<66,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 66,
@@ -85,7 +85,7 @@ extension ASUT_NM_f_Tests {
             caretLocation: 47,
             selectedLength: 3,
             selectedText: "🍔️",
-            visibleCharacterRange: 0..<83,
+            fullyVisibleArea: 0..<83,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 83,
@@ -117,7 +117,7 @@ extension ASUT_NM_f_Tests {
             caretLocation: 10,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<35,
+            fullyVisibleArea: 0..<35,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 35,
@@ -147,7 +147,7 @@ and the caret shouldn't move else pan pan cul cul
             caretLocation: 22,
             selectedLength: 1,
             selectedText: "c",
-            visibleCharacterRange: 0..<94,
+            fullyVisibleArea: 0..<94,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 94,
@@ -175,7 +175,7 @@ it you're already on a z for example and wanna go to the next z it should work
             caretLocation: 23,
             selectedLength: 1,
             selectedText: "z",
-            visibleCharacterRange: 0..<78,
+            fullyVisibleArea: 0..<78,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 78,

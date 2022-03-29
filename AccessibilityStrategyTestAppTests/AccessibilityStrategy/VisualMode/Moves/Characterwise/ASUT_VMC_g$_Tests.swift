@@ -32,7 +32,7 @@ j or k will go to the line endLimit
             caretLocation: 52,
             selectedLength: 1,
             selectedText: "o",
-            visibleCharacterRange: 0..<99,
+            fullyVisibleArea: 0..<99,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 99,

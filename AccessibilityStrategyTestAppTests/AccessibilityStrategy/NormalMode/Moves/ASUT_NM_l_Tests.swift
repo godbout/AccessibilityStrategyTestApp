@@ -26,7 +26,7 @@ them like nothing happened. that's how special it is.
             caretLocation: 34,
             selectedLength: 5,
             selectedText: "🇫🇷️",
-            visibleCharacterRange: 0..<119,
+            fullyVisibleArea: 0..<119,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 119,
@@ -58,7 +58,7 @@ extension ASUT_NM_l_Tests {
             caretLocation: 28,
             selectedLength: 1,
             selectedText: "c",
-            visibleCharacterRange: 0..<42,
+            fullyVisibleArea: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -84,7 +84,7 @@ extension ASUT_NM_l_Tests {
             caretLocation: 28,
             selectedLength: 1,
             selectedText: "c",
-            visibleCharacterRange: 0..<42,
+            fullyVisibleArea: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -115,7 +115,7 @@ extension ASUT_NM_l_Tests {
             caretLocation: 20,
             selectedLength: 1,
             selectedText: "a",
-            visibleCharacterRange: 0..<68,
+            fullyVisibleArea: 0..<68,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 68,
@@ -144,7 +144,7 @@ dumbass.
             caretLocation: 101,
             selectedLength: 1,
             selectedText: ".",
-            visibleCharacterRange: 0..<111,
+            fullyVisibleArea: 0..<111,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 111,

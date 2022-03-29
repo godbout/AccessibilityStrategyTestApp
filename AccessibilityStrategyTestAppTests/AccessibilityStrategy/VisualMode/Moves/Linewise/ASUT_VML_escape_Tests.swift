@@ -24,7 +24,7 @@ extension ASUT_VML_escape_Tests {
             caretLocation: 0,
             selectedLength: 31,
             selectedText: "some plain simple text for once",
-            visibleCharacterRange: 0..<31,
+            fullyVisibleArea: 0..<31,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
@@ -61,7 +61,7 @@ over multiple lines
             caretLocation: 0,
             selectedLength: 45,
             selectedText: "⛱️et's try with selecting\nover multiple lines",
-            visibleCharacterRange: 0..<45,
+            fullyVisibleArea: 0..<45,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 45,
@@ -93,7 +93,7 @@ gonna go after
             caretLocation: 0,
             selectedLength: 36,
             selectedText: "so this is definitely\ngonna go after",
-            visibleCharacterRange: 0..<36,
+            fullyVisibleArea: 0..<36,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 36,

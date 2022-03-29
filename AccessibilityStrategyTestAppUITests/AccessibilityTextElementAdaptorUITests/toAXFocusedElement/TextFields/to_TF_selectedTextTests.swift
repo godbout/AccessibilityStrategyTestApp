@@ -4,6 +4,7 @@ import XCTest
 
 class to_TF_selectedTextTests: ATEA_BaseTests {
 
+    // TODO: will need to update all fullyVisibleArea values to correct ones
     func test_that_we_can_set_the_selected_text_for_a_TextField() {
         let text = "gonna try to set the selected text"
         let element = AccessibilityTextElement(
@@ -13,7 +14,7 @@ class to_TF_selectedTextTests: ATEA_BaseTests {
             caretLocation: 6,
             selectedLength: 0,
             selectedText: "banana 🍌️ ",
-            visibleCharacterRange: 0..<34,
+            fullyVisibleArea: 0..<34,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,

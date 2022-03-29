@@ -36,7 +36,7 @@ so it's probably gonna
 to test that move on
 multiline and this
 """,
-            visibleCharacterRange: 0..<142,
+            fullyVisibleArea: 0..<142,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 142,
@@ -76,7 +76,7 @@ multiline and this
 is something for VisualMode
 so it's probably gonna
 """,
-            visibleCharacterRange: 0..<138,
+            fullyVisibleArea: 0..<138,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 138,
@@ -114,7 +114,7 @@ select some stuff and all
 to test that move on
 multiline and this
 """,
-            visibleCharacterRange: 0..<138,
+            fullyVisibleArea: 0..<138,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 138,
@@ -148,7 +148,7 @@ extension ASUT_VML___Tests {
             caretLocation: 0,
             selectedLength: 32,
             selectedText: "        so here we gonna test VG",
-            visibleCharacterRange: 0..<32,
+            fullyVisibleArea: 0..<32,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
@@ -192,7 +192,7 @@ the end
 and we're gonna
 select until
 """,
-            visibleCharacterRange: 0..<77,
+            fullyVisibleArea: 0..<77,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 77,

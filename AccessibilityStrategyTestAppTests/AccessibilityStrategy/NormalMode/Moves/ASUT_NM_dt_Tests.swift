@@ -31,7 +31,7 @@ that is not there
             caretLocation: 14,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<14,
+            fullyVisibleArea: 0..<14,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,

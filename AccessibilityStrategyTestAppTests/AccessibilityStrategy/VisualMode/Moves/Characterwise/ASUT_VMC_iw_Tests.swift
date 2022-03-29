@@ -26,7 +26,7 @@ extension ASUT_VMC_iw_Tests {
             caretLocation: 20,
             selectedLength: 20,
             selectedText: "hor position are imp",
-            visibleCharacterRange: 0..<91,
+            fullyVisibleArea: 0..<91,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 91,
@@ -55,7 +55,7 @@ extension ASUT_VMC_iw_Tests {
             caretLocation: 28,
             selectedLength: 21,
             selectedText: "⚓️⚓️ position are imp",
-            visibleCharacterRange: 0..<100,
+            fullyVisibleArea: 0..<100,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 100,
@@ -84,7 +84,7 @@ extension ASUT_VMC_iw_Tests {
             caretLocation: 100,
             selectedLength: 1,
             selectedText: "e",
-            visibleCharacterRange: 0..<115,
+            fullyVisibleArea: 0..<115,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 115,
@@ -121,7 +121,7 @@ in relation to each other
             caretLocation: 61,
             selectedLength: 6,
             selectedText: "ferent",
-            visibleCharacterRange: 0..<147,
+            fullyVisibleArea: 0..<147,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 147,
@@ -155,7 +155,7 @@ in relation to each other
             caretLocation: 58,
             selectedLength: 5,
             selectedText: "diffe",
-            visibleCharacterRange: 0..<147,
+            fullyVisibleArea: 0..<147,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 147,

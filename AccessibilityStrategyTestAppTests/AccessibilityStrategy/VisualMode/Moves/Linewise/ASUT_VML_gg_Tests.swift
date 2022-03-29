@@ -39,7 +39,7 @@ multiline and this
 is something for VisualMode
 so it's probably gonna
 """,
-            visibleCharacterRange: 0..<138,
+            fullyVisibleArea: 0..<138,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 138,
@@ -78,7 +78,7 @@ is something for VisualMode
 so it's probably gonna
 select some stuff and all
 """,
-            visibleCharacterRange: 0..<138,
+            fullyVisibleArea: 0..<138,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 138,
@@ -117,7 +117,7 @@ is something for VisualMode
 so it's probably gonna
 select some stuff and all
 """,
-            visibleCharacterRange: 0..<138,
+            fullyVisibleArea: 0..<138,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 138,
@@ -156,7 +156,7 @@ is something for VisualMode
 so it's probably gonna
 select some stuff and all
 """,
-            visibleCharacterRange: 0..<138,
+            fullyVisibleArea: 0..<138,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 138,
@@ -190,7 +190,7 @@ extension ASUT_VML_gg_Tests {
             caretLocation: 0,
             selectedLength: 33,
             selectedText: "        so here we gonna test Vgg",
-            visibleCharacterRange: 0..<33,
+            fullyVisibleArea: 0..<33,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 33,
@@ -230,7 +230,7 @@ the end
             caretLocation: 41,
             selectedLength: 29,
             selectedText: "and we're gonna\nselect until\n",
-            visibleCharacterRange: 0..<77,
+            fullyVisibleArea: 0..<77,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 77,
@@ -264,7 +264,7 @@ the end
             caretLocation: 41,
             selectedLength: 29,
             selectedText: "and we're gonna\nselect until\n",
-            visibleCharacterRange: 0..<77,
+            fullyVisibleArea: 0..<77,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 77,

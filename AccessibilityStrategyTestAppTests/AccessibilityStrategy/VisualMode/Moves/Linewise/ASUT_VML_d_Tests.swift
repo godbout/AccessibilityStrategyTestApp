@@ -37,7 +37,7 @@ one extra line in between!
 d here and we suppose
 one extra line in between!\n
 """,
-            visibleCharacterRange: 0..<102,
+            fullyVisibleArea: 0..<102,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 102,

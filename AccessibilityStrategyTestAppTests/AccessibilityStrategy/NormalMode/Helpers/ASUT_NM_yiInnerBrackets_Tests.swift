@@ -33,7 +33,7 @@ extension ASUT_NM_yiInnerBrackets_Tests {
             caretLocation: 26,
             selectedLength: 1,
             selectedText: "m",
-            visibleCharacterRange: 0..<42,
+            fullyVisibleArea: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -74,7 +74,7 @@ and } is not preceded by a linefeed
             caretLocation: 25,
             selectedLength: 0,
             selectedText: "",
-            visibleCharacterRange: 0..<85,
+            fullyVisibleArea: 0..<85,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 85,
@@ -114,7 +114,7 @@ and } is not preceded by a linefeed
             caretLocation: 29,
             selectedLength: 1,
             selectedText: "b",
-            visibleCharacterRange: 0..<78,
+            fullyVisibleArea: 0..<78,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 78,
@@ -153,7 +153,7 @@ by a linefeed and
             caretLocation: 23,
             selectedLength: 1,
             selectedText: "n",
-            visibleCharacterRange: 0..<86,
+            fullyVisibleArea: 0..<86,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 86,
@@ -192,7 +192,7 @@ is followed by a linefeed and
             caretLocation: 36,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<77,
+            fullyVisibleArea: 0..<77,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 77,

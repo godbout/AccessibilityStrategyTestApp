@@ -34,7 +34,7 @@ and also some more
             caretLocation: 18,
             selectedLength: 3,
             selectedText: "😂️",
-            visibleCharacterRange: 0..<55,
+            fullyVisibleArea: 0..<55,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 55,
@@ -66,7 +66,7 @@ and also some more
             caretLocation: 32,
             selectedLength: 1,
             selectedText: "t",
-            visibleCharacterRange: 0..<55,
+            fullyVisibleArea: 0..<55,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 55,
@@ -100,7 +100,7 @@ extension ASUT_NM_cZero_Tests {
             caretLocation: 52,
             selectedLength: 1,
             selectedText: "k",
-            visibleCharacterRange: 0..<70,
+            fullyVisibleArea: 0..<70,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 70,
@@ -131,7 +131,7 @@ and also some more
             caretLocation: 37,
             selectedLength: 1,
             selectedText: "a",
-            visibleCharacterRange: 0..<55,
+            fullyVisibleArea: 0..<55,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 55,

@@ -34,7 +34,7 @@ hoho
             caretLocation: 5,
             selectedLength: 0,
             selectedText: "",
-            visibleCharacterRange: 0..<10,
+            fullyVisibleArea: 0..<10,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 10,
@@ -65,7 +65,7 @@ and of course this is in the case there is a linefeed at the end of the line.
             caretLocation: 55,
             selectedLength: 1,
             selectedText: "t",
-            visibleCharacterRange: 0..<176,
+            fullyVisibleArea: 0..<176,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 176,
@@ -101,7 +101,7 @@ this time the line will not end with a linefeed so C should delete from the care
             caretLocation: 11,
             selectedLength: 1,
             selectedText: "h",
-            visibleCharacterRange: 0..<95,
+            fullyVisibleArea: 0..<95,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 95,
@@ -136,7 +136,7 @@ and of course this is in the case there is a linefeed at the end of the line.
             caretLocation: 55,
             selectedLength: 1,
             selectedText: "t",
-            visibleCharacterRange: 0..<176,
+            fullyVisibleArea: 0..<176,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 176,
@@ -166,7 +166,7 @@ and not delete that fucking shit
             caretLocation: 46,
             selectedLength: 0,
             selectedText: "",
-            visibleCharacterRange: 0..<79,
+            fullyVisibleArea: 0..<79,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 79,

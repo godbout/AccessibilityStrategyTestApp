@@ -51,7 +51,7 @@ tested
             selectedText: """
         😂
         """,
-            visibleCharacterRange: 0..<84,
+            fullyVisibleArea: 0..<84,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 114,
@@ -101,7 +101,7 @@ tested
             selectedText: """
         s
         """,
-            visibleCharacterRange: 49..<114,
+            fullyVisibleArea: 49..<114,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 114,
@@ -156,7 +156,7 @@ tested
             selectedText: """
         😂
         """,
-            visibleCharacterRange: 0..<101,
+            fullyVisibleArea: 0..<101,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 114,
@@ -202,7 +202,7 @@ tested
             selectedText: """
         v
         """,
-            visibleCharacterRange: 0..<101,
+            fullyVisibleArea: 0..<101,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 114,
@@ -233,7 +233,7 @@ ok here we go now.
             selectedText: """
         o
         """,
-            visibleCharacterRange: 51..<143,
+            fullyVisibleArea: 51..<143,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 143,

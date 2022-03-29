@@ -32,7 +32,7 @@ extension ASUT_NM_cEe_Tests {
             caretLocation: 3,
             selectedLength: 3,
             selectedText: "😂️",
-            visibleCharacterRange: 0..<42,
+            fullyVisibleArea: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -66,7 +66,7 @@ extension ASUT_NM_cEe_Tests {
             caretLocation: 3,
             selectedLength: 3,
             selectedText: "😂️",
-            visibleCharacterRange: 0..<50,
+            fullyVisibleArea: 0..<50,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 50,
@@ -98,7 +98,7 @@ extension ASUT_NM_cEe_Tests {
             caretLocation: 3,
             selectedLength: 3,
             selectedText: "😂️",
-            visibleCharacterRange: 0..<42,
+            fullyVisibleArea: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,

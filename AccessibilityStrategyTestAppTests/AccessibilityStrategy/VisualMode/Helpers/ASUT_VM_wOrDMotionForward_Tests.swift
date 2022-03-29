@@ -30,7 +30,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             caretLocation: 2,
             selectedLength: 6,
             selectedText: "nna st",
-            visibleCharacterRange: 0..<42,
+            fullyVisibleArea: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -59,7 +59,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             caretLocation: 2,
             selectedLength: 6,
             selectedText: "nna st",
-            visibleCharacterRange: 0..<42,
+            fullyVisibleArea: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -93,7 +93,7 @@ will happen
             caretLocation: 53,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<83,
+            fullyVisibleArea: 0..<83,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 83,
@@ -128,7 +128,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             caretLocation: 14,
             selectedLength: 9,
             selectedText: "th text m",
-            visibleCharacterRange: 0..<42,
+            fullyVisibleArea: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -157,7 +157,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             caretLocation: 3,
             selectedLength: 8,
             selectedText: "lyMove(o",
-            visibleCharacterRange: 0..<64,
+            fullyVisibleArea: 0..<64,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 64,
@@ -186,7 +186,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             caretLocation: 26,
             selectedLength: 1,
             selectedText: "o",
-            visibleCharacterRange: 0..<59,
+            fullyVisibleArea: 0..<59,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 59,
@@ -221,7 +221,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             caretLocation: 19,
             selectedLength: 3,
             selectedText: "🤖️",
-            visibleCharacterRange: 0..<37,
+            fullyVisibleArea: 0..<37,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
@@ -250,7 +250,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             caretLocation: 8,
             selectedLength: 14,
             selectedText: "☀️urrently 🤖️",
-            visibleCharacterRange: 0..<37,
+            fullyVisibleArea: 0..<37,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
@@ -279,7 +279,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             caretLocation: 8,
             selectedLength: 11,
             selectedText: "☀️🤖️🤖️🤖️",
-            visibleCharacterRange: 0..<44,
+            fullyVisibleArea: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -308,7 +308,7 @@ extension ASUT_VM_wordMotionForward_Tests {
             caretLocation: 4,
             selectedLength: 2,
             selectedText: "se",
-            visibleCharacterRange: 0..<41,
+            fullyVisibleArea: 0..<41,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 41,

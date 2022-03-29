@@ -25,7 +25,7 @@ extension ASUT_NM_L__Tests {
             selectedText: """
 
         """,
-            visibleCharacterRange: 0..<0,
+            fullyVisibleArea: 0..<0,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
@@ -76,7 +76,7 @@ properly!
             selectedText: """
         😂
         """,
-            visibleCharacterRange: 27..<83,
+            fullyVisibleArea: 27..<83,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 107,
@@ -89,7 +89,7 @@ properly!
 
         let returnedElement = applyMoveBeingTested(times: 3, on: element)
 
-        XCTAssertEqual(returnedElement.caretLocation, 80)
+        XCTAssertEqual(returnedElement.caretLocation, 76)
         XCTAssertEqual(returnedElement.selectedLength, 1)
     }
     
@@ -123,7 +123,7 @@ properly!
             selectedText: """
         😂
         """,
-            visibleCharacterRange: 27..<83,
+            fullyVisibleArea: 27..<83,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 107,
@@ -176,7 +176,7 @@ tested
             selectedText: """
         n
         """,
-            visibleCharacterRange: 27..<83,
+            fullyVisibleArea: 27..<83,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 110,
@@ -188,7 +188,7 @@ tested
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement.caretLocation, 83)
+        XCTAssertEqual(returnedElement.caretLocation, 82)
         XCTAssertEqual(returnedElement.selectedLength, 1)
     }
     

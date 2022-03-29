@@ -28,7 +28,7 @@ and head are nil
             caretLocation: 33,
             selectedLength: 3,
             selectedText: "😀️",
-            visibleCharacterRange: 0..<64,
+            fullyVisibleArea: 0..<64,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 64,
@@ -59,7 +59,7 @@ caret out of boundaries
             caretLocation: 40,
             selectedLength: 1,
             selectedText: "h",
-            visibleCharacterRange: 0..<65,
+            fullyVisibleArea: 0..<65,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 65,
@@ -92,7 +92,7 @@ should still stay at nil
             caretLocation: 58,
             selectedLength: 1,
             selectedText: "l",
-            visibleCharacterRange: 0..<59,
+            fullyVisibleArea: 0..<59,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 59,

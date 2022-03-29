@@ -40,7 +40,7 @@ the selection!
             caretLocation: 14,
             selectedLength: 19,
             selectedText: "does\nin characterwi",
-            visibleCharacterRange: 0..<64,
+            fullyVisibleArea: 0..<64,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 64,

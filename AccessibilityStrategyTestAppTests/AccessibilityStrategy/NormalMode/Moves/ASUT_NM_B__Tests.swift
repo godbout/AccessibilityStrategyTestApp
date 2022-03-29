@@ -25,7 +25,7 @@ extension ASUT_NM_B__Tests {
             caretLocation: 30,
             selectedLength: 1,
             selectedText: "u",
-            visibleCharacterRange: 0..<42,
+            fullyVisibleArea: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -51,7 +51,7 @@ extension ASUT_NM_B__Tests {
             caretLocation: 32,
             selectedLength: 1,
             selectedText: "u",
-            visibleCharacterRange: 0..<44,
+            fullyVisibleArea: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -87,7 +87,7 @@ itself does
             caretLocation: 64,
             selectedLength: 1,
             selectedText: "t",
-            visibleCharacterRange: 0..<84,
+            fullyVisibleArea: 0..<84,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 84,

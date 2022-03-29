@@ -29,7 +29,7 @@ extension ASUT_VMC_escape_Tests {
             caretLocation: 23,
             selectedLength: 8,
             selectedText: "for once",
-            visibleCharacterRange: 0..<31,
+            fullyVisibleArea: 0..<31,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
@@ -66,7 +66,7 @@ let's try with selecting
             caretLocation: 23,
             selectedLength: 11,
             selectedText: "g\n🥰️🥰️🥰️",
-            visibleCharacterRange: 0..<49,
+            fullyVisibleArea: 0..<49,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 49,
@@ -97,7 +97,7 @@ gonna go after
             caretLocation: 13,
             selectedLength: 23,
             selectedText: "finitely\ngonna go after",
-            visibleCharacterRange: 0..<36,
+            fullyVisibleArea: 0..<36,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 36,

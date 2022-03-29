@@ -31,7 +31,7 @@ extension ASUT_NM_cgg_Tests {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            visibleCharacterRange: 0..<0,
+            fullyVisibleArea: 0..<0,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 0,
@@ -66,7 +66,7 @@ those faces 🥺️☹️😂️
             caretLocation: 37,
             selectedLength: 1,
             selectedText: "g",
-            visibleCharacterRange: 0..<80,
+            fullyVisibleArea: 0..<80,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 80,
@@ -105,7 +105,7 @@ extension ASUT_NM_cgg_Tests {
             caretLocation: 14,
             selectedLength: 1,
             selectedText: "s",
-            visibleCharacterRange: 0..<32,
+            fullyVisibleArea: 0..<32,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 32,
@@ -144,7 +144,7 @@ those faces 🥺️☹️😂️
             caretLocation: 37,
             selectedLength: 1,
             selectedText: "g",
-            visibleCharacterRange: 0..<80,
+            fullyVisibleArea: 0..<80,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 80,

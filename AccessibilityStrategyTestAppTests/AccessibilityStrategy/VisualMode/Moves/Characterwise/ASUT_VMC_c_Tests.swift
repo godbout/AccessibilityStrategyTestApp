@@ -40,7 +40,7 @@ the selection!
             caretLocation: 14,
             selectedLength: 19,
             selectedText: "does\nin characterwi",
-            visibleCharacterRange: 0..<64,
+            fullyVisibleArea: 0..<64,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 64,
@@ -78,7 +78,7 @@ extension ASUT_VMC_c_Tests {
             caretLocation: 14,
             selectedLength: 13,
             selectedText: "haha) on a si",
-            visibleCharacterRange: 0..<36,
+            fullyVisibleArea: 0..<36,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 36,
@@ -108,7 +108,7 @@ lines because
             caretLocation: 8,
             selectedLength: 36,
             selectedText: "e as above\nbut on multiple\nlines bec",
-            visibleCharacterRange: 0..<48,
+            fullyVisibleArea: 0..<48,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 48,

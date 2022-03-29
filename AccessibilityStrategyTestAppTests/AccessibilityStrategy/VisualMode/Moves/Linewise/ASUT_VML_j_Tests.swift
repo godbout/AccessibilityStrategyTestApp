@@ -32,7 +32,7 @@ when the head is after the anchor
 so pressing j in
 Visual Mode is gonna be
 """,
-            visibleCharacterRange: 0..<116,
+            fullyVisibleArea: 0..<116,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 116,
@@ -69,7 +69,7 @@ when the head is after the anchor
 so pressing j in
 Visual Mode is gonna be
 """,
-            visibleCharacterRange: 0..<116,
+            fullyVisibleArea: 0..<116,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 116,
@@ -106,7 +106,7 @@ when the head is after the anchor
 so pressing j in
 Visual Mode is gonna be
 """,
-            visibleCharacterRange: 0..<116,
+            fullyVisibleArea: 0..<116,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 116,
@@ -150,7 +150,7 @@ when the head is after the anchor
             caretLocation: 0,
             selectedLength: 17,
             selectedText: "so pressing j in\n",
-            visibleCharacterRange: 0..<116,
+            fullyVisibleArea: 0..<116,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 116,
@@ -189,7 +189,7 @@ cool because it will reduce
 the selection when the
 head if before the anchor
 """,
-            visibleCharacterRange: 0..<117,
+            fullyVisibleArea: 0..<117,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 117,
@@ -221,7 +221,7 @@ ass off lol
             caretLocation: 0,
             selectedLength: 16,
             selectedText: "wow that one is\n",
-            visibleCharacterRange: 0..<28,
+            fullyVisibleArea: 0..<28,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 28,
@@ -261,7 +261,7 @@ head if before the anchor
             selectedText: """
         cool because it will reduce\n
         """,
-            visibleCharacterRange: 0..<117,
+            fullyVisibleArea: 0..<117,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 117,

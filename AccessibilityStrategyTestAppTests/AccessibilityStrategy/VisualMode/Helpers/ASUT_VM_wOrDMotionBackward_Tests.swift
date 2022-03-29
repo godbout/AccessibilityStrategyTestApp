@@ -25,7 +25,7 @@ extension ASUT_VM_wordMotionBackward_Tests {
             caretLocation: 10,
             selectedLength: 25,
             selectedText: "t with text moves in Visu",
-            visibleCharacterRange: 0..<42,
+            fullyVisibleArea: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -54,7 +54,7 @@ extension ASUT_VM_wordMotionBackward_Tests {
             caretLocation: 22,
             selectedLength: 14,
             selectedText: "moves in Visua",
-            visibleCharacterRange: 0..<42,
+            fullyVisibleArea: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -88,7 +88,7 @@ will happen
             caretLocation: 53,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<83,
+            fullyVisibleArea: 0..<83,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 83,
@@ -124,7 +124,7 @@ extension ASUT_VM_wordMotionBackward_Tests {
             caretLocation: 10,
             selectedLength: 25,
             selectedText: "t with text moves in Visu",
-            visibleCharacterRange: 0..<42,
+            fullyVisibleArea: 0..<42,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 42,
@@ -160,7 +160,7 @@ from the caret location
 or, not
 fro
 """,
-            visibleCharacterRange: 0..<88,
+            fullyVisibleArea: 0..<88,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 88,
@@ -189,7 +189,7 @@ fro
             caretLocation: 18,
             selectedLength: 1,
             selectedText: "i",
-            visibleCharacterRange: 0..<34,
+            fullyVisibleArea: 0..<34,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 34,
@@ -223,7 +223,7 @@ line
             caretLocation: 31,
             selectedLength: 0,
             selectedText: "",
-            visibleCharacterRange: 0..<31,
+            fullyVisibleArea: 0..<31,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 31,
@@ -259,7 +259,7 @@ extension ASUT_VM_wordMotionBackward_Tests {
             caretLocation: 18,
             selectedLength: 3,
             selectedText: "🤖️",
-            visibleCharacterRange: 0..<36,
+            fullyVisibleArea: 0..<36,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 36,
@@ -288,7 +288,7 @@ extension ASUT_VM_wordMotionBackward_Tests {
             caretLocation: 10,
             selectedLength: 12,
             selectedText: "urrently 🤖️",
-            visibleCharacterRange: 0..<37,
+            fullyVisibleArea: 0..<37,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,

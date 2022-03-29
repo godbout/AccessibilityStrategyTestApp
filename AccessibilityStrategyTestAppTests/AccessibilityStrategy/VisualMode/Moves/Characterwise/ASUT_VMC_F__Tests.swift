@@ -29,7 +29,7 @@ extension ASUT_VMC_F__Tests {
             caretLocation: 7,
             selectedLength: 35,
             selectedText: "f F can 🍃️🍃️🍃️🍃️🍃️🍃️ find shi",
-            visibleCharacterRange: 0..<44,
+            fullyVisibleArea: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -58,7 +58,7 @@ extension ASUT_VMC_F__Tests {
             caretLocation: 7,
             selectedLength: 35,
             selectedText: "f F can 🍃️🍃️🍃️🍃️🍃️🍃️ find shi",
-            visibleCharacterRange: 0..<44,
+            fullyVisibleArea: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -93,7 +93,7 @@ extension ASUT_VMC_F__Tests {
             caretLocation: 7,
             selectedLength: 35,
             selectedText: "f F can 🍃️🍃️🍃️🍃️🍃️🍃️ find shi",
-            visibleCharacterRange: 0..<44,
+            fullyVisibleArea: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -133,7 +133,7 @@ of newHeadLocation needs some... calculation.
             caretLocation: 58,
             selectedLength: 36,
             selectedText: "n multiple lines 🌬️ because the cal",
-            visibleCharacterRange: 0..<148,
+            fullyVisibleArea: 0..<148,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 148,
@@ -170,7 +170,7 @@ of newHeadLocation needs some... calculation.
         multiple lines 🌬️ because the calculation
         of newHead
         """,
-            visibleCharacterRange: 0..<141,
+            fullyVisibleArea: 0..<141,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 141,
@@ -203,7 +203,7 @@ that is not there
             caretLocation: 13,
             selectedLength: 3,
             selectedText: "r a",
-            visibleCharacterRange: 0..<44,
+            fullyVisibleArea: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -232,7 +232,7 @@ that is not there
             caretLocation: 4,
             selectedLength: 12,
             selectedText: "d some bug h",
-            visibleCharacterRange: 0..<19,
+            fullyVisibleArea: 0..<19,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 19,

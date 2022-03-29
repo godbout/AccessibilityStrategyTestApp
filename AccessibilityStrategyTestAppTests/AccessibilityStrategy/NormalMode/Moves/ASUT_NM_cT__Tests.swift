@@ -31,7 +31,7 @@ extension ASUT_NM_cT__Tests {
             caretLocation: 25,
             selectedLength: 1,
             selectedText: "e",
-            visibleCharacterRange: 0..<29,
+            fullyVisibleArea: 0..<29,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 29,
@@ -63,7 +63,7 @@ that is not there
             caretLocation: 14,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<44,
+            fullyVisibleArea: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -97,7 +97,7 @@ extension ASUT_NM_cT__Tests {
             caretLocation: 19,
             selectedLength: 1,
             selectedText: "e",
-            visibleCharacterRange: 0..<58,
+            fullyVisibleArea: 0..<58,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 58,
@@ -129,7 +129,7 @@ extension ASUT_NM_cT__Tests {
             caretLocation: 25,
             selectedLength: 1,
             selectedText: "e",
-            visibleCharacterRange: 0..<29,
+            fullyVisibleArea: 0..<29,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 29,
@@ -159,7 +159,7 @@ that is not there
             caretLocation: 14,
             selectedLength: 1,
             selectedText: " ",
-            visibleCharacterRange: 0..<44,
+            fullyVisibleArea: 0..<44,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 44,
@@ -195,7 +195,7 @@ on a line
             caretLocation: 37,
             selectedLength: 1,
             selectedText: "k",
-            visibleCharacterRange: 0..<48,
+            fullyVisibleArea: 0..<48,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 48,
