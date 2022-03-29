@@ -76,7 +76,7 @@ properly!
             selectedText: """
         😂
         """,
-            fullyVisibleArea: 27..<83,
+            fullyVisibleArea: 27..<80,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 107,
@@ -89,7 +89,7 @@ properly!
 
         let returnedElement = applyMoveBeingTested(times: 3, on: element)
 
-        XCTAssertEqual(returnedElement.caretLocation, 76)
+        XCTAssertEqual(returnedElement.caretLocation, 73)
         XCTAssertEqual(returnedElement.selectedLength, 1)
     }
     
@@ -123,7 +123,7 @@ properly!
             selectedText: """
         😂
         """,
-            fullyVisibleArea: 27..<83,
+            fullyVisibleArea: 27..<80,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 107,
@@ -176,7 +176,7 @@ tested
             selectedText: """
         n
         """,
-            fullyVisibleArea: 27..<83,
+            fullyVisibleArea: 27..<80,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 110,
@@ -188,7 +188,7 @@ tested
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(returnedElement.caretLocation, 82)
+        XCTAssertEqual(returnedElement.caretLocation, 76)
         XCTAssertEqual(returnedElement.selectedLength, 1)
     }
     

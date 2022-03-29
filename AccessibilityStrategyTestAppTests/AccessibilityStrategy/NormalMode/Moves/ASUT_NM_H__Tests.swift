@@ -76,7 +76,7 @@ properly!
             selectedText: """
         a
         """,
-            fullyVisibleArea: 27..<82,
+            fullyVisibleArea: 27..<81,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 106,
@@ -117,24 +117,24 @@ properly!
             role: .textArea,
             value: text,
             length: 106,
-            caretLocation: 72,
+            caretLocation: 50,
             selectedLength: 1,
             selectedText: """
-        M
+        o
         """,
-            fullyVisibleArea: 27..<82,
+            fullyVisibleArea: 27..<81,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 106,
-                number: 10,
-                start: 72,
-                end: 74
+                number: 6,
+                start: 49,
+                end: 57
             )!
         )
         
         let returnedElement = applyMoveBeingTested(times: 69, on: element)
 
-        XCTAssertEqual(returnedElement.caretLocation, 81)
+        XCTAssertEqual(returnedElement.caretLocation, 79)
         XCTAssertEqual(returnedElement.selectedLength, 1)
     }
 
