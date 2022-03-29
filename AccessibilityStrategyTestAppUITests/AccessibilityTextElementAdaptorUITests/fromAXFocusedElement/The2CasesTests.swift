@@ -1,8 +1,6 @@
 import XCTest
 @testable import AccessibilityStrategy
 
-// TODO: we have to add tests to check that the fullyVisibleArea is correct. like top, bottom and middle
-
 
 // here we test what we really receive or calculate from the Adaptor,
 // we don't test the computed properties. those are tested in Unit Tests,
