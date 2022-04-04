@@ -3,22 +3,4 @@
    uuid = "0FC428A5-6BAD-4003-A270-824A0D8DB302"
    type = "1"
    version = "2.0">
-   <Breakpoints>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "76CE3664-1B18-49D3-AD0A-972D81F8CFE1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AccessibilityStrategyTestAppUITests/AccessibilityStrategyUITests/AccessibilityStrategyNormalMode/Moves/ASUI_NM_H__Tests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "test_that_it_does_not_scroll()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-   </Breakpoints>
 </Bucket>
