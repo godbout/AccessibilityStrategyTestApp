@@ -1,8 +1,6 @@
-//
-//  ASUT_NM_zb_Tests.swift
-//  AccessibilityStrategyTestAppTests
-//
-//  Created by Guillaume Leclerc on 04/04/2022.
-//
+@testable import AccessibilityStrategy
+import XCTest
 
-import Foundation
+
+// UIT as it's using ScreenLines
+class ASUT_NM_zb_Tests: ASUT_NM_BaseTests {}
