@@ -14,7 +14,7 @@ class ASUI_NM_zb_Tests: ASUI_NM_BaseTests {
 // TextViews
 extension ASUI_NM_zb_Tests {
 
-    func test_that_in_normal_setting_it_sets_the_currentScreenLine_at_the_bottom_of_the_visible_area_and_keeps_the_caretLocation_at_the_same_place() {
+    func test_that_in_normal_setting_it_puts_the_currentScreenLine_at_the_bottom_of_the_visible_area_and_keeps_the_caretLocation_at_the_same_place() {
         let textInAXFocusedElement = """
  😂k so now we're
 going to
