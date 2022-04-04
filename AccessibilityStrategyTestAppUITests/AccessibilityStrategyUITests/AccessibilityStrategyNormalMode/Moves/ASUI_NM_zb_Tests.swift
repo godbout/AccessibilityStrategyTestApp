@@ -39,11 +39,12 @@ properly!
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.interrogationMark(to: "ed", on: $0) }
+        applyMove { asNormalMode.l(on: $0) }
         let accessibilityElement = applyMoveBeingTested()
     
-        XCTAssertEqual(accessibilityElement.caretLocation, 93)
+        XCTAssertEqual(accessibilityElement.caretLocation, 94)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement.selectedText, "e")
+        XCTAssertEqual(accessibilityElement.selectedText, "d")
         XCTAssertEqual(accessibilityElement.fullyVisibleArea, 49..<89)
     }
     
