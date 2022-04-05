@@ -114,5 +114,41 @@ properly!
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "a")
     }
+    
+    func test_that_if_the_text_is_shorter_than_the_input_element_it_still_goes_to_the_lowest_screenLine_that_contains_text() {
+        let textInAXFocusedElement = """
+pretty
+short text
+  here
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
+    
+        XCTAssertEqual(accessibilityElement.caretLocation, 20)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "h")
+    }
+    
+    
+    func test_that_if_the_lowest_screenLine_is_an_empty_line_it_still_goes_there() {
+        let textInAXFocusedElement = """
+that's a lot
+of shits to
+test
+
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
+    
+        XCTAssertEqual(accessibilityElement.caretLocation, 30)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
+    }
 
 }
