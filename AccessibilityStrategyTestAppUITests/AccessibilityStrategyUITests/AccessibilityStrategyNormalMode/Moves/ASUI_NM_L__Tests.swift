@@ -150,5 +150,28 @@ test
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
+    
+    // this one is pretty important. it tests that the screenLine(at:) and screenLine(number:) work correctly
+    // in some weird edge case that combine one of the 3 Cases + the Big Sur Bug. this can't be tested properly in
+    // ATEAdaptor UIT because the Big Sur Bug fails when setting a position through the AX, so we need to pretend a
+    // move. very painful stuff.
+    func test_that_if_the_lowest_screenLine_is_an_empty_line_it_still_goes_there2() {
+        let textInAXFocusedElement = """
+that's a lot
+of shits to
+test
+
+
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
+    
+        XCTAssertEqual(accessibilityElement.caretLocation, 31)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+        XCTAssertEqual(accessibilityElement.selectedText, "")
+    }
 
 }
