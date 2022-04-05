@@ -147,6 +147,7 @@ but shouldn't be deleted
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
+    // this test helps make sure we handle emojis on the last line properly coz it's been crashing a few times :D
     func test_that_if_it_deletes_the_last_standing_character_of_a_line_it_does_not_jump_to_the_previous_line() {
         let textInAXFocusedElement = """
 shouldn't jump up on this line!
