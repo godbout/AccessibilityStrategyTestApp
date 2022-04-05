@@ -73,5 +73,23 @@ It was the White Rabbit, trotting slowly back again, and looking anxiously about
         
         XCTAssertEqual(accessibilityElement?.fullyVisibleArea, 262..<515)
     }
+    
+    func test_that_if_the_TextArea_ends_with_a_line_with_a_single_character_then_the_fullyVisibleArea_is_correct() {
+        let textInAXFocusedElement = """
+there's a bug in the
+calculate of the
+fullVisibleArea
+when the TextArea
+ends with a single
+characte
+r
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.fullyVisibleArea, 0..<101)
+    }
 
 }
