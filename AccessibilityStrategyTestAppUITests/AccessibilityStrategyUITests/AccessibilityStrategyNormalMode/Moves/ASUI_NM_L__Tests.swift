@@ -44,6 +44,7 @@ properly!
         XCTAssertEqual(accessibilityElement.caretLocation, 89)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "t")
+        XCTAssertEqual(accessibilityElement.fullyVisibleArea, 67..<106)
     }
     
     func test_that_if_the_count_is_too_high_it_ends_up_on_the_firstNonBlank_of_the_highest_screenLine() {
@@ -75,6 +76,7 @@ properly!
         XCTAssertEqual(accessibilityElement.caretLocation, 67)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "a")
+        XCTAssertEqual(accessibilityElement.fullyVisibleArea, 67..<106)
     }
 
 }
@@ -113,6 +115,7 @@ properly!
         XCTAssertEqual(accessibilityElement.caretLocation, 75)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "a")
+        XCTAssertEqual(accessibilityElement.fullyVisibleArea, 0..<79)
     }
     
     func test_that_if_the_text_is_shorter_than_the_input_element_it_still_goes_to_the_lowest_screenLine_that_contains_text() {
@@ -130,6 +133,7 @@ short text
         XCTAssertEqual(accessibilityElement.caretLocation, 20)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "h")
+        XCTAssertEqual(accessibilityElement.fullyVisibleArea, 0..<24)
     }
     
     
@@ -149,6 +153,7 @@ test
         XCTAssertEqual(accessibilityElement.caretLocation, 30)
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
         XCTAssertEqual(accessibilityElement.selectedText, "")
+        XCTAssertEqual(accessibilityElement.fullyVisibleArea, 0..<30)
     }
     
     // this one is pretty important. it tests that the screenLine(at:) and screenLine(number:) work correctly
@@ -172,6 +177,7 @@ test
         XCTAssertEqual(accessibilityElement.caretLocation, 31)
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
         XCTAssertEqual(accessibilityElement.selectedText, "")
+        XCTAssertEqual(accessibilityElement.fullyVisibleArea, 0..<31)
     }
 
 }
