@@ -45,6 +45,7 @@ properly!
         XCTAssertEqual(accessibilityElement.caretLocation, 49)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "s")
+        XCTAssertEqual(accessibilityElement.fullyVisibleArea, 0..<79)
     }
 
 }
