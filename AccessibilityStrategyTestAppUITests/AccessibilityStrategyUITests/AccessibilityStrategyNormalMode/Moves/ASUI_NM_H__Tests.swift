@@ -49,6 +49,7 @@ properly!
         XCTAssertEqual(accessibilityElement.caretLocation, 60)
         XCTAssertEqual(accessibilityElement.selectedLength, 2)
         XCTAssertEqual(accessibilityElement.selectedText, "😂")
+        XCTAssertEqual(accessibilityElement.fullyVisibleArea, 0..<75)
     }
     
     func test_that_if_the_count_is_too_high_it_ends_up_on_the_firstNonBlank_of_the_lowest_screenLine() {
@@ -81,6 +82,7 @@ properly!
         XCTAssertEqual(accessibilityElement.caretLocation, 74)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "\n")
+        XCTAssertEqual(accessibilityElement.fullyVisibleArea, 0..<75)
     }
 
 }
@@ -119,6 +121,7 @@ properly!
         XCTAssertEqual(accessibilityElement.caretLocation, 1)
         XCTAssertEqual(accessibilityElement.selectedLength, 2)
         XCTAssertEqual(accessibilityElement.selectedText, "😂")
+        XCTAssertEqual(accessibilityElement.fullyVisibleArea, 0..<75)
     }
 
     func test_that_in_normal_setting_it_goes_to_the_firstNonBlank_of_the_highest_screenLine() {
@@ -150,6 +153,7 @@ properly!
         XCTAssertEqual(accessibilityElement.caretLocation, 67)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "a")
+        XCTAssertEqual(accessibilityElement.fullyVisibleArea, 67..<106)
     }
     
     func test_that_the_text_is_not_scrolled_even_with_FileLines() {
