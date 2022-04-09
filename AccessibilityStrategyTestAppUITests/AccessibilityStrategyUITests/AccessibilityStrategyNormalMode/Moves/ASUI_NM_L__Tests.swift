@@ -179,5 +179,38 @@ test
         XCTAssertEqual(accessibilityElement.selectedText, "")
         XCTAssertEqual(accessibilityElement.fullyVisibleArea, 0..<31)
     }
+        
+    func test_that_the_text_is_not_scrolled_even_when_the_lastScreenLine_is_an_empty_line() {
+        let textInAXFocusedElement = """
+ 😂k so now we're
+going to
+have very
+
+long lines
+so that
+   😂he H
+and
+
+M
+
+and
+L
+
+can be
+tested
+
+properly!
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.G(times: 6, on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
+    
+        XCTAssertEqual(accessibilityElement.caretLocation, 74)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "\n")
+        XCTAssertEqual(accessibilityElement.fullyVisibleArea, 0..<75)
+    }
 
 }
