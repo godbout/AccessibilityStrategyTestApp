@@ -2804,8 +2804,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:godbout/AccessibilityStrategy.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
