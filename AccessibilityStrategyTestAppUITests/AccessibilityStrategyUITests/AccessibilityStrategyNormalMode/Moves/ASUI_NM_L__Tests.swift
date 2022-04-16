@@ -115,7 +115,7 @@ properly!
         XCTAssertEqual(accessibilityElement.caretLocation, 75)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "a")
-        XCTAssertEqual(accessibilityElement.fullyVisibleArea, 0..<79)
+        XCTAssertEqual(accessibilityElement.fullyVisibleArea, 0..<75)
     }
     
     func test_that_if_the_text_is_shorter_than_the_input_element_it_still_goes_to_the_lowest_screenLine_that_contains_text() {
