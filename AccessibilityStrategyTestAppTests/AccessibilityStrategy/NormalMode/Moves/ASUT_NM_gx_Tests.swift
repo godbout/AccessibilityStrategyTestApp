@@ -17,7 +17,7 @@ class ASUT_NM_gx_Tests: ASUT_NM_BaseTests {
 
 extension ASUT_NM_gx_Tests {
     
-    func test_that_passing_a_valid_URL_that_can_be_opened_sets_the_lastMoveBipped_to_false() {
+    func test_that_for_a_valid_URL_that_can_be_opened_it_sets_the_lastMoveBipped_to_false() {
         let text = "that shit contains a valid https://kindavim.app URL"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -44,7 +44,7 @@ extension ASUT_NM_gx_Tests {
         XCTAssertFalse(state.lastMoveBipped)
     }
     
-    func test_that_passing_a_valid_URL_that_cannot_be_opened_sets_the_lastMoveBipped_to_true() {
+    func test_that_for_a_valid_URL_that_cannot_be_opened_it_sets_the_lastMoveBipped_to_true() {
         let text = "that shit contains a valid url file://Users/guill but it cannot be opened! (missing a /)"
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -71,7 +71,7 @@ extension ASUT_NM_gx_Tests {
         XCTAssertTrue(state.lastMoveBipped)
     }
     
-    func test_that_passing_a_non_valid_URL_sets_the_lastMoveBipped_to_true() {
+    func test_that_for_a_non_valid_URL_it_sets_the_lastMoveBipped_to_true() {
         let text = "that shit doesn't not contain a valid URL hehhehhehehhehe"
         let element = AccessibilityTextElement(
             role: .textArea,
