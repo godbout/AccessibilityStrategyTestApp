@@ -214,6 +214,16 @@ this line ends with 3 spaces
         XCTAssertEqual(wordRange?.lowerBound, 32)
         XCTAssertEqual(wordRange?.count, 6)
     }
+    
+    func test_that_if_the_text_is_a_single_character_it_grabs_from_the_beginning_to_the_end_of_the_word() {
+        let text = "a"
+
+        let fileText = FileText(end: text.utf16.count, value: text)
+        let wordRange = fileText.aWORD(startingAt: 0)
+
+        XCTAssertEqual(wordRange?.lowerBound, 0)
+        XCTAssertEqual(wordRange?.count, 1)
+    }
 
     func test_that_it_knows_how_to_handle_ugly_emojis() {
         let text = """
