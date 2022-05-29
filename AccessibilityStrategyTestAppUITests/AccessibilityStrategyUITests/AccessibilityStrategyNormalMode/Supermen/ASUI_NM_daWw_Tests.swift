@@ -83,6 +83,19 @@ the block cursor is important!
         XCTAssertEqual(accessibilityElement.caretLocation, 12)
         XCTAssertEqual(accessibilityElement.selectedLength, 5)
     }
+    
+    func test_that_it_does_not_crash_if_the_text_starts_with_a_single_character_and_we_try_the_move_on_it() {
+        let textInAXFocusedElement = "a"
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.zero(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, "")
+        XCTAssertEqual(accessibilityElement.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+    }
 
 }
 
