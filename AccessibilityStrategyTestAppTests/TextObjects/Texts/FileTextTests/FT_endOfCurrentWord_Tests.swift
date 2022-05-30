@@ -86,12 +86,12 @@ extension FT_endOfCurrentWord_Tests {
         XCTAssertEqual(endOfCurrentWordLocation, 11)
     }
        
-    func test_that_if_the_caretLocation_is_at_the_end_limit_of_the_text_before_applying_the_move_then_it_returns_nil() {
+    func test_that_if_the_caretLocation_is_at_the_end_limit_of_the_text_before_applying_the_move_then_it_returns_this_end_limit() {
         let text = "all those moves are fucking weird"
 
-        let endOfCurrentWordLocation = applyFuncBeingTested(on: text, startingAt: 33)
+        let endOfCurrentWordLocation = applyFuncBeingTested(on: text, startingAt: 32)
 
-        XCTAssertNil(endOfCurrentWordLocation)
+        XCTAssertEqual(endOfCurrentWordLocation, 32)
     }
     
     func test_that_if_the_text_ends_with_whitespaces_which_means_there_is_no_end_of_word_forward_then_it_returns_nil() {
