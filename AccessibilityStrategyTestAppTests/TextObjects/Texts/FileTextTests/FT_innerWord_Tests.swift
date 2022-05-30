@@ -4,12 +4,9 @@ import XCTest
 
 // here we don't need much tests for what is a Vim word
 // as this is already tested in other FileText funcs.
-// innerWord is using beginningOfWordBackward and endOfWordForward
+// innerWord is using beginningOfWordBackward and endOfCurrentWord
 // for its calculation (which are already tested), except for whitespaces
 // which is why it's more important to have the whitespaces tested here
-// update: we cannot use endOfWordForward for a single character that starts
-// at the beginning of a text, because we then go to the next word (that's how `e` works)
-// so we need more tests here.
 class FT_innerWordTests_Tests: XCTestCase {
     
     private func applyFuncBeingTested(on text: String, startingAt caretLocation: Int) -> Range<Int> {
@@ -96,13 +93,13 @@ extension FT_innerWordTests_Tests {
         XCTAssertEqual(wordRange.count, 1)
     }
        
-    func test_that_if_the_text_starts_with_a_single_character_and_the_caretLocation_is_on_this_character_then_it_grabs_from_the_beginning_of_the_text_till_the_beginning_of_the_next_word() {
+    func test_that_if_the_text_starts_with_a_single_character_and_the_caretLocation_is_on_this_character_then_it_finds_the_correct_innerWord() {
         let text = "a word"
 
         let wordRange = applyFuncBeingTested(on: text, startingAt: 0)
 
         XCTAssertEqual(wordRange.lowerBound, 0)
-        XCTAssertEqual(wordRange.count, 2)
+        XCTAssertEqual(wordRange.count, 1)
     }
         
     func test_that_if_the_last_word_of_a_text_is_a_single_character_it_grabs_the_correct_innerWord() {
