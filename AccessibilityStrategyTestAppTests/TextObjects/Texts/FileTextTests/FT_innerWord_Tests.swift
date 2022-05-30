@@ -7,7 +7,18 @@ import XCTest
 // innerWord is using beginningOfWordBackward and endOfWordForward
 // for its calculation (which are already tested), except for whitespaces
 // which is why it's more important to have the whitespaces tested here
-class FT_innerWordTests_Tests: XCTestCase {}
+// update: we cannot use endOfWordForward for a single character that starts
+// at the beginning of a text, because we then go to the next word (that's how `e` works)
+// so we need more tests here.
+class FT_innerWordTests_Tests: XCTestCase {
+    
+    private func applyFuncBeingTested(on text: String, startingAt caretLocation: Int) -> Range<Int> {
+        let fileText = FileText(end: text.utf16.count, value: text)
+        
+        return fileText.innerWord(startingAt: caretLocation)
+    }
+    
+}
 
 
 // Both
@@ -16,19 +27,26 @@ extension FT_innerWordTests_Tests {
     func test_that_if_the_text_is_empty_it_returns_a_range_of_0_to_0() {
         let text = ""
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.innerWord(startingAt: 0)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 0)
         
         XCTAssertEqual(wordRange.lowerBound, 0)
         XCTAssertEqual(wordRange.count, 0)
     }
     
+    func test_that_if_the_text_is_a_single_word_it_grabs_from_the_beginning_to_the_end_of_the_word() {
+        let text = "salut"
+
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 0)
+
+        XCTAssertEqual(wordRange.lowerBound, 0)
+        XCTAssertEqual(wordRange.count, 5)
+    }
+    
     func test_that_if_the_caret_is_on_a_letter_if_finds_the_correct_inner_word() {
         let text = "ok we're gonna-try to get the inner word here"
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.innerWord(startingAt: 10)
-        
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 10)
+
         XCTAssertEqual(wordRange.lowerBound, 9)
         XCTAssertEqual(wordRange.count, 5) 
     }
@@ -36,9 +54,8 @@ extension FT_innerWordTests_Tests {
     func test_that_if_the_caret_is_on_a_space_the_inner_word_is_all_the_consecutive_spaces() {
         let text = "ok so now we have a lot of     --spaces"
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.innerWord(startingAt: 28)
-        
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 28)
+
         XCTAssertEqual(wordRange.lowerBound, 26)
         XCTAssertEqual(wordRange.count, 5)         
     }
@@ -46,9 +63,8 @@ extension FT_innerWordTests_Tests {
     func test_that_if_the_caret_is_on_a_single_space_it_recognizes_it_as_an_inner_word() {
         let text = "a single space is an-- ^^inner word"
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.innerWord(startingAt: 22)
-        
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 22)
+
         XCTAssertEqual(wordRange.lowerBound, 22)
         XCTAssertEqual(wordRange.count, 1) 
     }
@@ -56,9 +72,8 @@ extension FT_innerWordTests_Tests {
     func test_that_if_the_TextField_starts_with_spaces_it_finds_the_correct_inner_word() {
         let text = "     **that's lots of spaces"
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.innerWord(startingAt: 4)
-        
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 4)
+
         XCTAssertEqual(wordRange.lowerBound, 0)
         XCTAssertEqual(wordRange.count, 5) 
     }
@@ -66,11 +81,37 @@ extension FT_innerWordTests_Tests {
     func test_that_if_the_TextField_ends_with_spaces_it_still_gets_the_correct_inner_word() {
         let text = "that's lots of spaces again**       "
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.innerWord(startingAt: 31)
-        
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 31)
+
         XCTAssertEqual(wordRange.lowerBound, 29)
         XCTAssertEqual(wordRange.count, 7) 
+    }
+    
+    func test_that_if_the_text_is_a_single_character_it_grabs_from_the_beginning_to_the_end_of_the_word() {
+        let text = "a"
+
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 0)
+
+        XCTAssertEqual(wordRange.lowerBound, 0)
+        XCTAssertEqual(wordRange.count, 1)
+    }
+       
+    func test_that_if_the_text_starts_with_a_single_character_and_the_caretLocation_is_on_this_character_then_it_grabs_from_the_beginning_of_the_text_till_the_beginning_of_the_next_word() {
+        let text = "a word"
+
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 0)
+
+        XCTAssertEqual(wordRange.lowerBound, 0)
+        XCTAssertEqual(wordRange.count, 2)
+    }
+        
+    func test_that_if_the_last_word_of_a_text_is_a_single_character_it_grabs_the_correct_innerWord() {
+        let text = "a-"
+
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 0)
+
+        XCTAssertEqual(wordRange.lowerBound, 0)
+        XCTAssertEqual(wordRange.count, 1)
     }
 
 }
@@ -86,9 +127,8 @@ spill
    on the next line--
 """
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.innerWord(startingAt: 23)
-        
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 23)
+
         XCTAssertEqual(wordRange.lowerBound, 20)
         XCTAssertEqual(wordRange.count, 6)
     }
@@ -100,11 +140,10 @@ spill also
     backwards
 """
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordrange = fileText.innerWord(startingAt: 33)
-        
-        XCTAssertEqual(wordrange.lowerBound, 30)
-        XCTAssertEqual(wordrange.count, 4)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 33)
+
+        XCTAssertEqual(wordRange.lowerBound, 30)
+        XCTAssertEqual(wordRange.count, 4)
     }
     
     func test_that_innerWord_stops_at_Linefeeds_both_at_beginning_and_end_of_lines_that_is_on_empty_lines() {
@@ -114,11 +153,10 @@ this shouldn't
     backwards
 """
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordrange = fileText.innerWord(startingAt: 15)
-        
-        XCTAssertEqual(wordrange.lowerBound, 15)
-        XCTAssertEqual(wordrange.count, 0)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 15)
+
+        XCTAssertEqual(wordRange.lowerBound, 15)
+        XCTAssertEqual(wordRange.count, 0)
     }
     
 }
@@ -133,9 +171,8 @@ extension FT_innerWordTests_Tests {
     func test_that_it_handles_emojis() {
         let text = "emojis are symbols that 🔫️🔫️🔫️*** are longer than 1 length"
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.innerWord(startingAt: 27)
-        
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 27)
+
         XCTAssertEqual(wordRange.lowerBound, 24)
         XCTAssertEqual(wordRange.count, 9)                
     }
@@ -143,9 +180,8 @@ extension FT_innerWordTests_Tests {
     func test_that_it_does_not_do_shit_with_emojis_before_a_space() {
         let text = "emojis are symbols that ***🔫️🔫️🔫️ are longer than 1 length"
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.innerWord(startingAt: 36)
-        
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 36)
+
         XCTAssertEqual(wordRange.lowerBound, 36)
         XCTAssertEqual(wordRange.count, 1)                
     }
