@@ -48,8 +48,8 @@ extension FT_endOfWordForward_Tests {
 
         XCTAssertEqual(endOfWordForwardLocation, 14)
     }
-
-    func test_that_it_does_not_stop_at_spaces() {
+    
+    func test_that_if_it_is_at_the_end_of_the_current_word_it_goes_to_the_end_of_the_next_word_instead() {
         let text = "yep, it should just jump over spaces!"
 
         let fileText = FileText(end: text.utf16.count, value: text)
