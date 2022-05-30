@@ -89,7 +89,7 @@ extension FT_endOfWordForward_Tests {
         let text = "all those moves are fucking weird"
 
         let fileText = FileText(end: text.utf16.count, value: text)
-        let beginningOfWordForwardLocation = fileText.endOfWordForward(startingAt: 33)
+        let beginningOfWordForwardLocation = fileText.endOfWordForward(startingAt: 32)
 
         XCTAssertNil(beginningOfWordForwardLocation)
     }
