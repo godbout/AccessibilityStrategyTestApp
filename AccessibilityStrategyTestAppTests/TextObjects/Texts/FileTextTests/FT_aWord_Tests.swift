@@ -5,7 +5,15 @@ import XCTest
 // 1. when caretLocation is on a whitespace (ignore forward linefeed, for example)
 // 2. when caretLocation is on a non whitespace (doesn't ignore forward linefeed, for example)
 // so we gonna separate the tests like this.
-class FT_aWord_Tests: XCTestCase {}
+class FT_aWord_Tests: XCTestCase {
+    
+    private func applyFuncBeingTested(on text: String, startingAt caretLocation: Int) -> Range<Int>? {
+        let fileText = FileText(end: text.utf16.count, value: text)
+        
+        return fileText.aWord(startingAt: caretLocation)
+    }
+
+}
 
 
 // caretLocation on whitespace
@@ -14,18 +22,16 @@ extension FT_aWord_Tests {
     func test_that_if_the_text_is_only_whitespaces_it_returns_nil() {
         let text = "               "
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 7)
-        
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 7)
+
         XCTAssertNil(wordRange)
     }
     
     func test_that_if_there_is_a_word_after_whitespaces_it_goes_until_the_end_of_that_word() {
         let text = "        aWord-and another"
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 2)
-        
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 2)
+
         XCTAssertEqual(wordRange?.lowerBound, 0)
         XCTAssertEqual(wordRange?.count, 13)
     }
@@ -33,9 +39,8 @@ extension FT_aWord_Tests {
     func test_that_if_there_are_spaces_between_two_words_it_goes_from_the_end_of_the_word_backward_till_the_end_of_the_word_forward() {
         let text = "  aWord        aWord-and another"
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 10)
-        
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 10)
+
         XCTAssertEqual(wordRange?.lowerBound, 7)
         XCTAssertEqual(wordRange?.count, 13)
     }
@@ -46,9 +51,8 @@ there's 5 spaces at the end of this line
    careful-that Xcode doesn't delete them
 """
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 42)
-        
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 42)
+
         XCTAssertEqual(wordRange?.lowerBound, 40)
         XCTAssertEqual(wordRange?.count, 16)
     }
@@ -59,9 +63,8 @@ there's 5 spaces at the end of this line
    careful-that Xcode doesn't delete them
 """
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 48)
-        
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 48)
+
         XCTAssertEqual(wordRange?.lowerBound, 46)
         XCTAssertEqual(wordRange?.count, 10)
     }
@@ -75,10 +78,18 @@ extension FT_aWord_Tests {
     func test_that_if_the_text_is_empty_it_returns_nil() {
         let text = ""
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 0)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 0)
 
         XCTAssertNil(wordRange)
+    }
+    
+    func test_that_if_the_text_is_a_single_word_it_grabs_from_the_beginning_to_the_end_of_the_word() {
+        let text = "salut"
+
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 0)
+
+        XCTAssertEqual(wordRange?.lowerBound, 0)
+        XCTAssertEqual(wordRange?.count, 5)
     }
     
     func test_that_if_the_caret_is_at_the_last_empty_line_it_returns_nil() {
@@ -88,8 +99,7 @@ the last line is empty
 
 """
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 52)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 52)
 
         XCTAssertNil(wordRange)
     }
@@ -97,8 +107,7 @@ the last line is empty
     func test_that_if_there_are_no_trailing_spaces_and_no_leading_spaces_it_grabs_from_the_beginning_to_the_end_of_the_word() {
         let text = "aWord-hehe"
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 3)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 3)
 
         XCTAssertEqual(wordRange?.lowerBound, 0)
         XCTAssertEqual(wordRange?.count, 5)
@@ -107,8 +116,7 @@ the last line is empty
     func test_that_if_there_are_trailing_spaces_until_the_beginning_of_a_word_forward_it_grabs_them_and_therefore_does_not_grab_leading_spaces() {
         let text = "this is-aWord   can you believe it?"
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 11)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 11)
 
         XCTAssertEqual(wordRange?.lowerBound, 8)
         XCTAssertEqual(wordRange?.count, 8)
@@ -117,8 +125,7 @@ the last line is empty
     func test_that_if_there_are_trailing_spaces_until_the_end_of_the_text_it_grabs_them_and_therefore_does_not_grab_leading_spaces() {
         let text = "this is something       "
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 13)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 13)
 
         XCTAssertEqual(wordRange?.lowerBound, 8)
         XCTAssertEqual(wordRange?.count, 16)
@@ -127,8 +134,7 @@ the last line is empty
     func test_that_it_grabs_the_trailing_spaces_until_the_end_of_the_text_if_there_is_no_word_forward() {
         let text = "a-Word      "
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 3)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 3)
 
         XCTAssertEqual(wordRange?.lowerBound, 2)
         XCTAssertEqual(wordRange?.count, 10)
@@ -137,8 +143,7 @@ the last line is empty
     func test_that_if_there_are_no_trailing_spaces_until_the_beginning_of_a_word_forward_then_it_grabs_until_the_end_of_the_word_backward() {
         let text = "some     aWord(and another"
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 12)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 12)
 
         XCTAssertEqual(wordRange?.lowerBound, 4)
         XCTAssertEqual(wordRange?.count, 10)
@@ -147,8 +152,7 @@ the last line is empty
     func test_that_if_there_are_no_trailing_spaces_until_the_beginning_of_a_word_forward_but_also_no_word_backward_then_it_grabs_from_the_beginning_of_the_current_word() {
         let text = "     aWord(and another"
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 7)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 7)
 
         XCTAssertEqual(wordRange?.lowerBound, 5)
         XCTAssertEqual(wordRange?.count, 5)
@@ -157,8 +161,7 @@ the last line is empty
     func test_that_if_there_are_no_trailing_spaces_because_there_is_no_word_forward_but_also_no_word_backward_then_it_grabs_from_the_beginning_of_the_current_word() {
         let text = "           aWord"
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 14)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 14)
 
         XCTAssertEqual(wordRange?.lowerBound, 11)
         XCTAssertEqual(wordRange?.count, 5)
@@ -167,8 +170,7 @@ the last line is empty
     func test_that_if_there_are_no_trailing_spaces_because_there_is_no_word_forward_but_there_is_a_word_backward_then_it_grabs_from_the_end_of_word_backward_until_the_end_of_the_current_word() {
         let text = "  hello         aWord"
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 20)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 20)
 
         XCTAssertEqual(wordRange?.lowerBound, 7)
         XCTAssertEqual(wordRange?.count, 14)
@@ -180,8 +182,7 @@ this line ends with 3-spaces
   and this line should be kept intact
 """
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 25)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 25)
 
         XCTAssertEqual(wordRange?.lowerBound, 22)
         XCTAssertEqual(wordRange?.count, 9)
@@ -193,8 +194,7 @@ this line ends with 3 spaces
   and(this line should be kept intact
 """
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 36)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 36)
 
         XCTAssertEqual(wordRange?.lowerBound, 34)
         XCTAssertEqual(wordRange?.count, 3)
@@ -206,8 +206,7 @@ this line ends with 3 spaces
   and
 """
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 34)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 34)
 
         XCTAssertEqual(wordRange?.lowerBound, 34)
         XCTAssertEqual(wordRange?.count, 3)
@@ -221,8 +220,7 @@ this line ends with 3 spaces
   and   this is something
 """
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 32)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 32)
 
         XCTAssertEqual(wordRange?.lowerBound, 32)
         XCTAssertEqual(wordRange?.count, 6)
@@ -231,21 +229,37 @@ this line ends with 3 spaces
     func test_that_if_the_text_is_a_single_character_it_grabs_from_the_beginning_to_the_end_of_the_word() {
         let text = "a"
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 0)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 0)
 
         XCTAssertEqual(wordRange?.lowerBound, 0)
         XCTAssertEqual(wordRange?.count, 1)
     }
+       
+    func test_that_if_the_text_starts_with_a_single_character_and_the_caretLocation_is_on_this_character_then_it_grabs_from_the_beginning_of_the_text_till_the_beginning_of_the_next_word() {
+        let text = "a word"
 
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 0)
+
+        XCTAssertEqual(wordRange?.lowerBound, 0)
+        XCTAssertEqual(wordRange?.count, 2)
+    }
+
+    func test_that_if_the_last_word_of_a_text_is_a_single_character_it_grabs_the_correct_word() {
+        let text = "a-"
+
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 0)
+
+        XCTAssertEqual(wordRange?.lowerBound, 0)
+        XCTAssertEqual(wordRange?.count, 1)
+    }
+        
     func test_that_it_knows_how_to_handle_ugly_emojis() {
         let text = """
 need to deal with
 those faces 🥺️☹️😂️ fart
 """
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let wordRange = fileText.aWord(startingAt: 33)
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 33)
 
         XCTAssertEqual(wordRange?.lowerBound, 30)
         XCTAssertEqual(wordRange?.count, 9)
