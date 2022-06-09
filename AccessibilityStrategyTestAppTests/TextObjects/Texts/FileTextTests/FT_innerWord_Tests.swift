@@ -119,6 +119,15 @@ extension FT_innerWordTests_Tests {
         XCTAssertEqual(wordRange.lowerBound, 8)
         XCTAssertEqual(wordRange.count, 1)
     }
+    
+    func test_that_if_the_text_starts_with_a_innerWord_made_of_a_single_character_followed_by_space_if_the_caret_is_on_the_space_then_it_grabs_the_correct_innerWord() {
+        let text = "a bug more"
+        
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 1)
+
+        XCTAssertEqual(wordRange.lowerBound, 1)
+        XCTAssertEqual(wordRange.count, 1)
+    }
 
 }
 
