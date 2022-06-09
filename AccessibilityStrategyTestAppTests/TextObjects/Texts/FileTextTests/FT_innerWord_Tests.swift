@@ -110,6 +110,15 @@ extension FT_innerWordTests_Tests {
         XCTAssertEqual(wordRange.lowerBound, 0)
         XCTAssertEqual(wordRange.count, 1)
     }
+    
+    func test_that_if_the_caret_is_on_a_single_punction_it_grabs_the_correct_innerWord() {
+        let text = "many new.bugs :("
+        
+        let wordRange = applyFuncBeingTested(on: text, startingAt: 8)
+
+        XCTAssertEqual(wordRange.lowerBound, 8)
+        XCTAssertEqual(wordRange.count, 1)
+    }
 
 }
 
