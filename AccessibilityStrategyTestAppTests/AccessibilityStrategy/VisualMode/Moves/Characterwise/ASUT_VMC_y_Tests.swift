@@ -136,7 +136,7 @@ extension ASUT_VMC_y_Tests {
             )!
         )
         
-        asVisualMode.copyToClipboard(text: "test 1 for The 3 Cases VM y")
+        copyToClipboard(text: "test 1 for The 3 Cases VM y")
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
@@ -168,7 +168,7 @@ line
             )!
         )
         
-        asVisualMode.copyToClipboard(text: "test 3 of The 3 Cases VM y")
+        copyToClipboard(text: "test 3 of The 3 Cases VM y")
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
