@@ -1,6 +1,5 @@
 import XCTest
 @testable import AccessibilityStrategy
-import Common
 
 
 // AFAIC in VM, P is calling p. so impl and UIT there.
