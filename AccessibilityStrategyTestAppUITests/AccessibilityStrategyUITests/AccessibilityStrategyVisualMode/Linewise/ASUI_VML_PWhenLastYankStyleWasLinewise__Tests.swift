@@ -3,4 +3,4 @@ import XCTest
 
 
 // AFAIC in VM, P behaves like p. so impl and UIT there.
-class ASUI_VM_PWhenLastYankStyleWasLinewise_Tests: ASUI_VM_BaseTests {}
+class ASUI_VML_PWhenLastYankStyleWasLinewise_Tests: ASUI_VM_BaseTests {}

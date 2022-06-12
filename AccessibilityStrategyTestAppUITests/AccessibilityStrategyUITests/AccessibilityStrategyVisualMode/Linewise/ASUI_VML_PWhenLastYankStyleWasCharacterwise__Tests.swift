@@ -3,4 +3,4 @@ import XCTest
 
 
 // see VML PWhenLastYankStyleWasLinewise for blah blah
-class ASUI_VM_PWhenLastYankStyleWasCharacterwise_Tests: ASUI_VM_BaseTests {}
+class ASUI_VML_PWhenLastYankStyleWasCharacterwise_Tests: ASUI_VM_BaseTests {}
