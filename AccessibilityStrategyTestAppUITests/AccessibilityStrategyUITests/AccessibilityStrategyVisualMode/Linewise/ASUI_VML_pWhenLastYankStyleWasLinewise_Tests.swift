@@ -3,20 +3,20 @@ import XCTest
 import Common
 
 
-class ASUI_VM_pForLastYankStyleLinewise_Tests: ASUI_VM_BaseTests {
+class ASUI_VM_pWhenLastYankStyleWasLinewise_Tests: ASUI_VM_BaseTests {
     
     var state = VimEngineState(visualStyle: .linewise)
     
            
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        return applyMove { asVisualMode.p(on: $0, VimEngineState(appFamily: appFamily, lastYankStyle: .linewise)) }
+        return applyMove { asVisualMode.p(on: $0, VimEngineState(appFamily: appFamily, lastYankStyle: .linewise, visualStyle: .linewise)) }
     }
     
 }
 
 
 // TextFields
-extension ASUI_VM_pForLastYankStyleLinewise_Tests {
+extension ASUI_VM_pWhenLastYankStyleWasLinewise_Tests {
     
     func test_that_it_replaces_the_current_Linewise_selection_and_the_block_cursor_goes_to_the_firstNonBlank_and_if_the_previously_copied_Linewise_text_had_a_linefeed_it_removes_it() {
         let textInAXFocusedElement = "gonna select the whole line and replace it and remove linefeed in copied text"
@@ -37,7 +37,7 @@ extension ASUI_VM_pForLastYankStyleLinewise_Tests {
 
 
 // TextAreas
-extension ASUI_VM_pForLastYankStyleLinewise_Tests {
+extension ASUI_VM_pWhenLastYankStyleWasLinewise_Tests {
     
     func test_that_in_normal_setting_it_replaces_the_current_Linewise_selection_with_the_previously_copied_Linewise_text() {
         let textInAXFocusedElement = """
@@ -154,7 +154,7 @@ of new pasted text
 
 
 // PGR and Electron
-extension ASUI_VM_pForLastYankStyleLinewise_Tests {
+extension ASUI_VM_pWhenLastYankStyleWasLinewise_Tests {
     
     func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "check that it works in PGR too"
