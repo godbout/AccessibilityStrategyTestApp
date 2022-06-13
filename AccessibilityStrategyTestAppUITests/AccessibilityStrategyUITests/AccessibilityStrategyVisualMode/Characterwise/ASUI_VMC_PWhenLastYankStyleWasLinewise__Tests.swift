@@ -1,8 +1,6 @@
-//
-//  ASUI_VMC_PForLastYankStyleLinewise__Tests.swift
-//  AccessibilityStrategyVisualModeUITests
-//
-//  Created by Guillaume Leclerc on 12/06/2022.
-//
+import XCTest
+@testable import AccessibilityStrategy
 
-import Foundation
+
+// see ASUI VML PWhenLastYankStyleWasLinewise for blah blah
+class ASUI_VMC_PWhenLastYankStyleWasLinewise_Tests: ASUI_VM_BaseTests {}

@@ -14,6 +14,7 @@ class ASUI_VMC_pWhenLastYankStyleWasCharacterwise_Tests: ASUI_VM_BaseTests {
     
 }
 
+// TODO: keep to Characterwise
 
 // TextFields
 extension ASUI_VMC_pWhenLastYankStyleWasCharacterwise_Tests {
@@ -41,6 +42,23 @@ it maybe have been a multiliney pasting
         )
         XCTAssertEqual(accessibilityElement.caretLocation, 97)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
+    }
+    
+    func test_that_for_TF_the_replaced_text_is_copied_and_available_in_the_Pasteboard_and_that_it_keeps_the_LYS_to_Characterwise() {
+        let textInAXFocusedElement = "gonna select the whole line and replace it and remove linefeed in copied text"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.b(times: 4, on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
+        applyMove { asVisualMode.e(times: 2, on: $0, state) }
+        
+        copyToClipboard(text: "  😂️ext to be copied\n")
+        
+        _ = applyMoveBeingTested()
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "linefeed in")
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
     }
 
 }
@@ -120,6 +138,28 @@ text for the new linehere's the last one
         )
         XCTAssertEqual(accessibilityElement.caretLocation, 45)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
+    }
+    
+    func test_that_for_TA_the_replaced_text_is_copied_and_available_in_the_Pasteboard_and_that_it_keeps_the_LYS_to_Characterwise() {
+        let textInAXFocusedElement = """
+what is being selected
+and replaced
+is gonna get copied
+in the clipboard
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.gg(times: 2, on: $0) }
+        applyMove { asNormalMode.w(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
+        applyMove { asVisualMode.j(on: $0, state) }
+        
+        copyToClipboard(text: "text to pasta\nhere and there")
+               
+        _ = applyMoveBeingTested()
+
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "replaced\nis go")
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
     }
     
 }
