@@ -5,11 +5,11 @@ import Common
 
 class ASUI_VML_pWhenLastYankStyleWasLinewise_Tests: ASUI_VM_BaseTests {
     
-    var state = VimEngineState(visualStyle: .linewise)
+    var state = VimEngineState(lastYankStyle: .linewise, visualStyle: .linewise)
     
            
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        return applyMove { asVisualMode.p(on: $0, VimEngineState(appFamily: appFamily, lastYankStyle: .linewise, visualStyle: state.visualStyle)) }
+        return applyMove { asVisualMode.p(on: $0, VimEngineState(appFamily: appFamily, lastYankStyle: state.lastYankStyle, visualStyle: state.visualStyle)) }
     }
     
 }
@@ -31,6 +31,20 @@ extension ASUI_VML_pWhenLastYankStyleWasLinewise_Tests {
         XCTAssertEqual(accessibilityElement.fileText.value, "  😂️ext to be copied")
         XCTAssertEqual(accessibilityElement.caretLocation, 2)
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
+    }
+    
+    func test_that_for_TF_the_replaced_text_is_copied_and_available_in_the_Pasteboard_and_that_it_keeps_the_LYS_to_Linewise() {
+        let textInAXFocusedElement = "gonna select the whole line and replace it and remove linefeed in copied text"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asVisualMode.VFromNormalMode(on: $0) }
+        
+        copyToClipboard(text: "  😂️ext to be copied\n")
+        
+        _ = applyMoveBeingTested()
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "gonna select the whole line and replace it and remove linefeed in copied text")
+        XCTAssertEqual(state.lastYankStyle, .linewise)
     }
 
 }
@@ -148,6 +162,27 @@ of new pasted text
         )
         XCTAssertEqual(accessibilityElement.caretLocation, 4)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
+    }
+    
+    func test_that_for_TA_the_replaced_text_is_copied_and_available_in_the_Pasteboard_and_that_it_keeps_the_LYS_to_Linewise() {
+        let textInAXFocusedElement = """
+what is being selected
+and replaced
+is gonna get copied
+in the clipboard
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.gg(times: 2, on: $0) }
+        applyMove { asVisualMode.VFromNormalMode(on: $0) }
+        applyMove { asVisualMode.j(on: $0, state) }
+        
+        copyToClipboard(text: "text to pasta\nhere and there")
+               
+        _ = applyMoveBeingTested()
+
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "and replaced\nis gonna get copied\n")
+        XCTAssertEqual(state.lastYankStyle, .linewise)
     }
 
 }
