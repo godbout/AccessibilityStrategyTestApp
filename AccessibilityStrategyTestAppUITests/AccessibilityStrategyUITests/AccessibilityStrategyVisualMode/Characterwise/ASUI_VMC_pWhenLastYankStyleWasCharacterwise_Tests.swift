@@ -6,15 +6,16 @@ import Common
 class ASUI_VMC_pWhenLastYankStyleWasCharacterwise_Tests: ASUI_VM_BaseTests {
     
     var state = VimEngineState(visualStyle: .characterwise)
+       
     
-           
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        return applyMove { asVisualMode.p(on: $0, VimEngineState(appFamily: appFamily, lastYankStyle: .characterwise, visualStyle: state.visualStyle)) }
+        state.appFamily = appFamily
+        
+        return applyMove { asVisualMode.p(on: $0, &state) }
     }
     
 }
 
-// TODO: keep to Characterwise
 
 // TextFields
 extension ASUI_VMC_pWhenLastYankStyleWasCharacterwise_Tests {

@@ -9,7 +9,9 @@ class ASUI_VML_pWhenLastYankStyleWasLinewise_Tests: ASUI_VM_BaseTests {
     
            
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        return applyMove { asVisualMode.p(on: $0, VimEngineState(appFamily: appFamily, lastYankStyle: state.lastYankStyle, visualStyle: state.visualStyle)) }
+        state.appFamily = appFamily
+        
+        return applyMove { asVisualMode.p(on: $0, &state) }
     }
     
 }
