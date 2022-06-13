@@ -44,6 +44,7 @@ extension ASUI_NM_pForLastYankStyleLinewise_Tests {
         XCTAssertEqual(accessibilityElement.caretLocation, 60)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
+        
 }
 
 
