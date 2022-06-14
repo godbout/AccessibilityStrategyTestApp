@@ -5,17 +5,17 @@ import Common
 
 // used by yi`, yi', yi"
 // see yInnerBlock for more blah blah
-class ASUT_NM_yiInnerQuotedString_Tests: ASUT_NM_BaseTests {
+class ASUT_NM_yInnerQuotedString_Tests: ASUT_NM_BaseTests {
     
     private func applyMove(using quote: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return asNormalMode.yiInnerQuotedString(using: quote, on: element, &vimEngineState) 
+        return asNormalMode.yInnerQuotedString(using: quote, on: element, &vimEngineState) 
     }
     
 }
 
 
 // Bip, copy deletion and LYS
-extension ASUT_NM_yiInnerQuotedString_Tests {
+extension ASUT_NM_yInnerQuotedString_Tests {
     
     func test_that_when_it_finds_the_stuff_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
         let text = """
@@ -80,7 +80,7 @@ and now `hohohohoho`
 
 
 // Both
-extension ASUT_NM_yiInnerQuotedString_Tests {
+extension ASUT_NM_yInnerQuotedString_Tests {
     
     func test_that_there_is_no_quote_it_does_not_move_or_copy_anything_and_does_not_touch_the_LastYankStyle() {
         let text = "some text without any double quote"
@@ -309,7 +309,7 @@ now there's gonna
 
 
 // emojis
-extension ASUT_NM_yiInnerQuotedString_Tests {
+extension ASUT_NM_yInnerQuotedString_Tests {
     
     func test_that_it_handles_emojis() {
         let text = """
