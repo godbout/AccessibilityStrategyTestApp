@@ -2,5 +2,5 @@
 import XCTest
 
 
-// same as `ciB` except for calling `ci(`
+// see `ciB` for blah blah
 class ASUT_NM_cib_Tests: ASUT_NM_BaseTests {}
