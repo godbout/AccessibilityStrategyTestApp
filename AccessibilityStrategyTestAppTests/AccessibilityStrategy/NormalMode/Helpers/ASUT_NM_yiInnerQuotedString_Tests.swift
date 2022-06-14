@@ -4,7 +4,7 @@ import Common
 
 
 // used by yi`, yi', yi"
-// see yiInnerBrackets for more blah blah
+// see yInnerBlock for more blah blah
 class ASUT_NM_yiInnerQuotedString_Tests: ASUT_NM_BaseTests {
     
     private func applyMove(using quote: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {

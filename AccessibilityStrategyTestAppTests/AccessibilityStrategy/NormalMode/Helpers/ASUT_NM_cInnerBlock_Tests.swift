@@ -3,28 +3,28 @@ import XCTest
 import Common
 
 
-// this move uses FT innerBrackets which is already tested on its own.
-// FT innerBrackets returns the range of the text found, but doesn't care if the text
-// spans on a line or several. this is up to ciInnerBrackets to handle this, which is
+// this move uses FT innerBlock which is already tested on its own.
+// FT innerBlock returns the range of the text found, but doesn't care if the text
+// spans on a line or several. this is up to cInnerBlock to handle this, which is
 // what we need to test.
-class ASUT_NM_ciInnerBrackets_Tests: ASUT_NM_BaseTests {
+class ASUT_NM_cInnerBlock_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(using bracket: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return asNormalMode.ciInnerBrackets(using: bracket, on: element, &vimEngineState)
+        return asNormalMode.cInnerBlock(using: bracket, on: element, &vimEngineState)
     }
     
 }
 
 
 // Bip, copy deletion and LYS
-// here it is more complicated (after finishing the tests: WAY MORE COMPLICATED) than other moves as ciInnerBracket may sometimes
+// here it is more complicated (after finishing the tests: WAY MORE COMPLICATED) than other moves as cInnerBlock may sometimes
 // return Characterwise, sometimes Linewise.
 // so for all the tests we're gonna test everything: caretLocation, selectedLength,
 // selectedText, Bip, LYS, copy deletion.
 
 
 // Both
-extension ASUT_NM_ciInnerBrackets_Tests {
+extension ASUT_NM_cInnerBlock_Tests {
     
     func test_that_it_gets_the_content_between_two_brackets_on_a_same_line_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
         let text = "now th😄️at is ( some stuff 😄️😄️😄️on the same ) line😄️"
@@ -62,7 +62,7 @@ extension ASUT_NM_ciInnerBrackets_Tests {
 
 
 // TextViews
-extension ASUT_NM_ciInnerBrackets_Tests {
+extension ASUT_NM_cInnerBlock_Tests {
   
     func test_that_it_gets_the_content_between_two_brackets_on_different_lines_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
         let text = """

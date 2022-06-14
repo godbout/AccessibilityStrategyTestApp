@@ -3,8 +3,8 @@ import XCTest
 import Common
 
 
-// this is calling ciInnerBrackets so all the tests are there.
-// here we just test that we pass the pgR parameter correctly to ciInnerBrackets.
+// this is calling cInnerBlock so all the tests are there.
+// here we just test that we pass the pgR parameter correctly to cInnerBlock.
 class ASUI_NM_ciLeftParenthesis_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(appFamily: AppFamily) -> AccessibilityTextElement {
