@@ -3,22 +3,24 @@ import XCTest
 import Common
 
 
-// see `yiB` for blah blah
-class ASUT_NM_yiRightBracket_Tests: ASUT_NM_BaseTests {
+// calling yInnerBlock, all the tests are there.
+// here we just have one test to check that we're calling yInnerBlock with the right bracket.
+// there's also one UI Tests for yInnerBlock, to check that we pass the pgR correctly to yInnerBlock.
+class ASUT_NM_yiB__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState()
         
-        return asNormalMode.yiRightBracket(on: element, &state)
+        return asNormalMode.yiB(on: element, &state)
     }
     
 }
 
 
-extension ASUT_NM_yiRightBracket_Tests {
+extension ASUT_NM_yiB__Tests {
 
     func test_that_it_calls_yInnerBlock_with_the_correct_bracket_as_parameter() {
-        let text = "some text that [😂️ has some nice ] braces"
+        let text = "some text that {😂️ has some nice } braces"
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
