@@ -3,26 +3,26 @@ import XCTest
 import Common
 
 
-// this is using TE innerBrackets which is already heavily tested.
+// this is using TE innerBlock which is already heavily tested.
 // so here we test only what is specific to the move, which is the NSPasteboard
 // and the caret location, selectedLengh and selectedText and also whether
 // the lastYankStyle goes Characterwise or Linewise (tested here because it does depend
 // on the text that is being copied, so cannot test in KVE).
-class ASUT_NM_yiInnerBrackets_Tests: ASUT_NM_BaseTests {
+class ASUT_NM_yInnerBlock_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(using bracket: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return asNormalMode.yiInnerBrackets(using: bracket, on: element, &vimEngineState) 
+        return asNormalMode.yInnerBlock(using: bracket, on: element, &vimEngineState) 
     }
     
 }
 
 
 // Bip, copy deletion and LYS
-// see ciInnerBrackets for blah blah
+// see cInnerBlock for blah blah
 
 
 // Both
-extension ASUT_NM_yiInnerBrackets_Tests {
+extension ASUT_NM_yInnerBlock_Tests {
 
     func test_that_it_copies_the_inner_range_and_puts_the_caret_after_the_opening_bracket_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
         let text = "some text that {😂️ has some nice } braces"
@@ -59,7 +59,7 @@ extension ASUT_NM_yiInnerBrackets_Tests {
 
 
 // TextViews
-extension ASUT_NM_yiInnerBrackets_Tests {
+extension ASUT_NM_yInnerBlock_Tests {
     
     func test_that_it_copies_the_content_between_two_brackets_on_different_lines_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
         let text = """
