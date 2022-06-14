@@ -3,26 +3,26 @@ import XCTest
 import Common
 
 
-// see `caB`
-class ASUI_NM_caLeftBracket_Tests: ASUI_NM_BaseTests {
+// see `cab` for blah blah
+class ASUI_NM_caLeftChevron_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(appFamily: AppFamily) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.caLeftBracket(on: $0, &state) }
+        return applyMove { asNormalMode.caLeftChevron(on: $0, &state) }
     }
 
 }
 
 
 // PGR and Electron
-extension ASUI_NM_caLeftBracket_Tests {
+extension ASUI_NM_caLeftChevron_Tests {
     
     func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = """
-this case is when [ is not followed
+this case is when < is not followed
 by a linefeed and
-     ] is preceded by a linefeed
+     > is preceded by a linefeed
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
