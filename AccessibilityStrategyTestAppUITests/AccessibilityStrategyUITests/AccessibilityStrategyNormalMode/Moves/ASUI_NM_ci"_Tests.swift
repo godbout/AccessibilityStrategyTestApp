@@ -9,7 +9,7 @@ class ASUI_NM_ciDoubleQuote_Tests: ASUI_NM_BaseTests {
     private func applyMoveBeingTested(appFamily: AppFamily) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.ciInnerQuotedString(using: "\"", on: $0, &state) }
+        return applyMove { asNormalMode.cInnerQuotedString(using: "\"", on: $0, &state) }
     }
 
 }

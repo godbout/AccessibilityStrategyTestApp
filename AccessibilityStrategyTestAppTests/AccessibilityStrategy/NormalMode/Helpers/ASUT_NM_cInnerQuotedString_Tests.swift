@@ -4,7 +4,7 @@ import Common
 
 
 // PGR and Electron in UIT
-class ASUT_NM_ciInnerQuotedString_Tests: ASUT_NM_BaseTests {
+class ASUT_NM_cInnerQuotedString_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(using quote: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: .auto)
@@ -13,14 +13,14 @@ class ASUT_NM_ciInnerQuotedString_Tests: ASUT_NM_BaseTests {
     }
         
     private func applyMoveBeingTested(using quote: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return asNormalMode.ciInnerQuotedString(using: quote, on: element, &vimEngineState)
+        return asNormalMode.cInnerQuotedString(using: quote, on: element, &vimEngineState)
     }
     
 }
 
 
 // Bip, copy deletion and LYS
-extension ASUT_NM_ciInnerQuotedString_Tests {
+extension ASUT_NM_cInnerQuotedString_Tests {
     
     func test_that_when_it_finds_the_stuff_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion() {
         let text = """
@@ -85,7 +85,7 @@ finally dealing with the "real stuff!
 }
 
 
-extension ASUT_NM_ciInnerQuotedString_Tests {
+extension ASUT_NM_cInnerQuotedString_Tests {
     
     func test_that_if_the_caret_is_between_quotes_the_content_within_the_quotes_is_deleted_and_the_caret_moves() {
         let text = """

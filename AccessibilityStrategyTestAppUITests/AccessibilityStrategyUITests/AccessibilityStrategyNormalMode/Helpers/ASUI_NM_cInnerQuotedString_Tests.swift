@@ -3,20 +3,20 @@ import XCTest
 import Common
 
 
-// see ASUT ciInnerQuotedString for blah blah
-class ASUI_NM_ciInnerQuotedString_Tests: ASUI_NM_BaseTests {
+// see ASUT cInnerQuotedString for blah blah
+class ASUI_NM_cInnerQuotedString_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(using quote: Character, appFamily: AppFamily) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.ciInnerQuotedString(using: quote, on: $0, &state) }
+        return applyMove { asNormalMode.cInnerQuotedString(using: quote, on: $0, &state) }
     }
     
 }
 
 
 // PGR and Electron
-extension ASUI_NM_ciInnerQuotedString_Tests {
+extension ASUI_NM_cInnerQuotedString_Tests {
     
     func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = """

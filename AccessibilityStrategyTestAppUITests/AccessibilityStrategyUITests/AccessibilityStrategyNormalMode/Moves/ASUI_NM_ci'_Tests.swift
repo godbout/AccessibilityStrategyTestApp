@@ -4,14 +4,14 @@ import Common
 
 
 // same mindset as ci( and co.
-// this is calling ciInnerQuoteString. all the tests are there.
+// this is calling cInnerQuotedString. all the tests are there.
 // here we just test that we pass the pgR parameter correctly to cInnerQuoteString.
 class ASUI_NM_ciSingleQuote_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(appFamily: AppFamily) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.ciInnerQuotedString(using: "'", on: $0, &state) }
+        return applyMove { asNormalMode.cInnerQuotedString(using: "'", on: $0, &state) }
     }
 
 }
