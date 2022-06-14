@@ -722,7 +722,6 @@
 		91ACF28F2858A94B0087E1AB /* ASUI_NM_caB__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_caB__Tests.swift; sourceTree = "<group>"; };
 		91ACF2912858A9590087E1AB /* ASUI_NM_cab_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_cab_Tests.swift; sourceTree = "<group>"; };
 		91ACF2952858AB880087E1AB /* ASUI_NM_cABlock_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_cABlock_Tests.swift; sourceTree = "<group>"; };
-		91ACF2DA2858ED800087E1AB /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		91ACF2DB2858EDB00087E1AB /* ASUT_NM_yiB__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_yiB__Tests.swift; sourceTree = "<group>"; };
 		91ACF2DD2858EDB90087E1AB /* ASUT_NM_yib_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_yib_Tests.swift; sourceTree = "<group>"; };
 		91AD9F08275A4A36006EE6B4 /* ASUI_NM_cc_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_cc_Tests.swift; sourceTree = "<group>"; };
@@ -1339,7 +1338,6 @@
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
-				91ACF2DA2858ED800087E1AB /* AccessibilityStrategy */,
 				91F951B326DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,
@@ -2891,7 +2889,7 @@
 			repositoryURL = "git@github.com:godbout/AccessibilityStrategy.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 4.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
