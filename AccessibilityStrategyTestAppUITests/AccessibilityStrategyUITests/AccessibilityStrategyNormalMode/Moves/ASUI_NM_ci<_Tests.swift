@@ -4,25 +4,25 @@ import Common
 
 
 // see `ciB`
-class ASUI_NM_ciLeftBracket_Tests: ASUI_NM_BaseTests {
+class ASUI_NM_ciLeftChevron_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(appFamily: AppFamily) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.ciLeftBracket(on: $0, &state) }
+        return applyMove { asNormalMode.ciLeftChevron(on: $0, &state) }
     }
 
 }
 
 
 // PGR and Electron
-extension ASUI_NM_ciLeftBracket_Tests {
+extension ASUI_NM_ciLeftChevron_Tests {
     
     func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = """
-this case is when [ is not followed
+this case is when < is not followed
 by a linefeed and
-     ] is preceded by a linefeed
+     > is preceded by a linefeed
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -33,7 +33,7 @@ by a linefeed and
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 this case is when 
-     ] is preceded by a linefeed
+     > is preceded by a linefeed
 """
         )
         XCTAssertEqual(accessibilityElement.caretLocation, 18)

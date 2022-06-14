@@ -4,7 +4,8 @@ import Common
 
 
 // calling cInnerBlock, all the tests are there.
-// here we just have one test to check that we're calling cInnerBlock with the right bracket.
+// here we just have one test to check that we're calling cInnerBlock with the right bracket
+// (this is indeed implicitely tested in UIT but UT are cheap so...)
 // there's also one UI Tests for cInnerBlock, to check that we pass the pgR correctly to cInnerBlock.
 class ASUT_NM_ciB__Tests: ASUT_NM_BaseTests {
     
