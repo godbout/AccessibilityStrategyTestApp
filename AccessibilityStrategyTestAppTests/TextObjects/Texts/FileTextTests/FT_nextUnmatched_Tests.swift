@@ -2,17 +2,24 @@
 import XCTest
 
 
-class FT_nextUnmatched_Tests: XCTestCase {}
+class FT_nextUnmatched_Tests: XCTestCase {
+    
+    private func applyFuncBeingTested(on text: String, using bracket: Character, after caretLocation: Int) -> Int? {
+        let fileText = FileText(end: text.utf16.count, value: text)
+        
+        return fileText.nextUnmatched(bracket, after: caretLocation)
+    }
+    
+}
 
 
 // Both
 extension FT_nextUnmatched_Tests {
     
     func test_that_it_goes_to_the_next_unmatched_bracket_where_there_is_only_one() {
-        let text = "ok so an easy test because i can't wrap } my head around the recursive func lol"
+        let text = "ok so an easy test because i can't wrap ] my head around the recursive func lol"
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let nextUnmatchedLocation = fileText.nextUnmatched("}", after: 11)
+        let nextUnmatchedLocation = applyFuncBeingTested(on: text, using: "]", after: 11)
         
         XCTAssertEqual(nextUnmatchedLocation, 40)
     }
@@ -20,8 +27,7 @@ extension FT_nextUnmatched_Tests {
     func test_that_in_normal_setting_it_goes_to_the_next_unmatched_bracket() {
         let text = "hello{h}ell}"
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let nextUnmatchedLocation = fileText.nextUnmatched("}", after: 2)
+        let nextUnmatchedLocation = applyFuncBeingTested(on: text, using: "}", after: 2)
         
         XCTAssertEqual(nextUnmatchedLocation, 11)
     }
@@ -29,8 +35,7 @@ extension FT_nextUnmatched_Tests {
     func test_that_if_there_is_no_right_bracket_it_returns_nil() {
         let text = "no left brace in here move along"
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let nextUnmatchedLocation = fileText.nextUnmatched("}", after: 19)
+        let nextUnmatchedLocation = applyFuncBeingTested(on: text, using: "}", after: 19)
         
         XCTAssertNil(nextUnmatchedLocation)
     }
@@ -38,8 +43,7 @@ extension FT_nextUnmatched_Tests {
     func test_that_if_there_are_only_matched_brackets_it_returns_nil() {
         let text = "full of ( ) matched ( braces ) "
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let nextUnmatchedLocation = fileText.nextUnmatched(")", after: 6)
+        let nextUnmatchedLocation = applyFuncBeingTested(on: text, using: ")", after: 6)
         
         XCTAssertNil(nextUnmatchedLocation)
     }
@@ -50,8 +54,7 @@ so there's a ) here
 and another ) here
 """
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let nextUnmatchedLocation = fileText.nextUnmatched(")", after: 13)
+        let nextUnmatchedLocation = applyFuncBeingTested(on: text, using: ")", after: 13)
 
         XCTAssertEqual(nextUnmatchedLocation, 32)
     }
@@ -59,8 +62,7 @@ and another ) here
     func test_that_it_works_with_a_lot_of_brackets() {
         let text = "(   (    (   )   )     )"
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let nextUnmatchedLocation = fileText.nextUnmatched(")", after: 0)
+        let nextUnmatchedLocation = applyFuncBeingTested(on: text, using: ")", after: 0)
 
         XCTAssertEqual(nextUnmatchedLocation, 23)
     }
@@ -68,8 +70,7 @@ and another ) here
     func test_that_in_normal_cases_it_works_hehe() {
         let text = "a couple of ( (( ))))  ) O_o"
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let nextUnmatchedLocation = fileText.nextUnmatched(")", after: 14)
+        let nextUnmatchedLocation = applyFuncBeingTested(on: text, using: ")", after: 14)
         
         XCTAssertEqual(nextUnmatchedLocation, 18)
     }
@@ -77,8 +78,7 @@ and another ) here
     func test_another_complicated_one_to_see_if_the_algorithm_works() {
         let text = "{{{          }}         {{{{ }}}}}}}}"
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let nextUnmatchedLocation = fileText.nextUnmatched("}", after: 20)
+        let nextUnmatchedLocation = applyFuncBeingTested(on: text, using: "}", after: 20)
         
         XCTAssertEqual(nextUnmatchedLocation, 33)
     }
@@ -86,8 +86,7 @@ and another ) here
     func test_that_if_the_text_is_empty_it_returns_nil() {
         let text = ""
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let nextUnmatchedLocation = fileText.nextUnmatched("}", after: 0)
+        let nextUnmatchedLocation = applyFuncBeingTested(on: text, using: "}", after: 0)
         
         XCTAssertNil(nextUnmatchedLocation)
     }
@@ -100,10 +99,9 @@ and another ) here
 extension FT_nextUnmatched_Tests {
     
     func test_that_it_handles_emojis() {
-        let text = "emyeah 🤨️{🤨️ coz🤨️🤨️ the text 🤨️🤨️functions don't care about😂️🤨️🤨️🤨️ the len)gth but 🦋️ the move"
+        let text = "emyeah 🤨️{🤨️ coz🤨️🤨️ the text 🤨️🤨️functions don't care about😂️🤨️🤨️🤨️ the len>gth but 🦋️ the move"
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let nextUnmatchedLocation = fileText.nextUnmatched(")", after: 6)
+        let nextUnmatchedLocation = applyFuncBeingTested(on: text, using: ">", after: 6)
         
         XCTAssertEqual(nextUnmatchedLocation, 86)
     }
