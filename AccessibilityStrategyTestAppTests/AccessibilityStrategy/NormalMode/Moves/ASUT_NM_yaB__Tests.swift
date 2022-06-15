@@ -3,22 +3,22 @@ import XCTest
 import Common
 
 
-// calling yInnerBlock, all the tests are there.
-// here we just have one test to check that we're calling yInnerBlock with the right bracket.
-class ASUT_NM_yiB__Tests: ASUT_NM_BaseTests {
+// calling yABlock, all the tests are there.
+// here we just have one test to check that we're calling yABlock with the right bracket.
+class ASUT_NM_yaB__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState()
         
-        return asNormalMode.yiB(on: element, &state)
+        return asNormalMode.yaB(on: element, &state)
     }
     
 }
 
 
-extension ASUT_NM_yiB__Tests {
+extension ASUT_NM_yaB__Tests {
 
-    func test_that_it_calls_yInnerBlock_with_the_correct_bracket_as_parameter() {
+    func test_that_it_calls_yABlock_with_the_correct_bracket_as_parameter() {
         let text = "some text that {😂️ has some nice } braces"
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -39,8 +39,8 @@ extension ASUT_NM_yiB__Tests {
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement.caretLocation, 16)  
-        XCTAssertEqual(returnedElement.selectedLength, 3)
+        XCTAssertEqual(returnedElement.caretLocation, 15)  
+        XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
     }
     
