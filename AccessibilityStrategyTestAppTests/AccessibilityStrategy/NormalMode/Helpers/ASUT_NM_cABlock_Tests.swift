@@ -24,6 +24,40 @@ class ASUT_NM_cABlock_Tests: ASUT_NM_BaseTests {
 // Both
 extension ASUT_NM_cABlock_Tests {
     
+    func test_that_it_there_is_no_block_found_it_bips_and_does_not_copy_anything_and_does_not_change_the_LastYankStyle() {
+        let text = "no block here"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 13,
+            caretLocation: 6,
+            selectedLength: 1,
+            selectedText: """
+        c
+        """,
+            fullyVisibleArea: 0..<13,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 13,
+                number: 1,
+                start: 0,
+                end: 13
+            )!
+        )
+        
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(using: "(", on: element, &state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
+        XCTAssertEqual(returnedElement.caretLocation, 6)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+        
+        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertEqual(state.lastMoveBipped, true)
+    }
+    
     func test_that_it_gets_the_block_on_a_same_line_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
         let text = "now th😄️at is ( some stuff 😄️😄️😄️on the same ) line😄️"
         let element = AccessibilityTextElement(
