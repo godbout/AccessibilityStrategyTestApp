@@ -4,25 +4,24 @@ import Common
 
 
 
-// this is calling dInnerBlock. tests are there. here we just test that we're passing
-// the correct bracket to dInnerBlock. that's all we need to do!
-class ASUI_NM_diB__Tests: ASUI_NM_BaseTests {
+// see diB for blah blah
+class ASUI_NM_dib_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.diB(on: $0, &vimEngineState) }
+        return applyMove { asNormalMode.dib(on: $0, &vimEngineState) }
     }
 
 }
 
 
-extension ASUI_NM_diB__Tests {
+extension ASUI_NM_dib_Tests {
 
     func test_that_we_are_passing_the_correct_bracket_parameter_to_dInnerBlock() {
         let textInAXFocusedElement = """
-now that shit will get cleaned {
+now that shit will get cleaned (
     and the non blank
   will be respected!
-}
+)
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -38,13 +37,13 @@ now that shit will get cleaned {
 """
         )
         XCTAssertEqual(accessibilityElement.fileText.value, """
-now that shit will get cleaned {
-}
+now that shit will get cleaned (
+)
 """
         )
         XCTAssertEqual(accessibilityElement.caretLocation, 33)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement.selectedText, "}")
+        XCTAssertEqual(accessibilityElement.selectedText, ")")
 
         XCTAssertEqual(state.lastYankStyle, .linewise)
         XCTAssertEqual(state.lastMoveBipped, false)
