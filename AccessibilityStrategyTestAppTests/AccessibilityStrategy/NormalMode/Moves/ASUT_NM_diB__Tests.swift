@@ -1,8 +1,6 @@
-//
-//  ASUT_NM_diB__Tests.swift
-//  AccessibilityStrategyTestAppTests
-//
-//  Created by Guillaume Leclerc on 16/06/2022.
-//
+@testable import AccessibilityStrategy
+import XCTest
 
-import Foundation
+
+// in UIT. diB is not calling ciB as ciB may leave an empty line where diB doesn't
+class ASUT_NM_diB__Tests: ASUT_NM_BaseTests {}
