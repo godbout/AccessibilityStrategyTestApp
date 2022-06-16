@@ -3,7 +3,6 @@ import XCTest
 import Common
 
 
-
 class ASUI_NM_diSingleQuote_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
