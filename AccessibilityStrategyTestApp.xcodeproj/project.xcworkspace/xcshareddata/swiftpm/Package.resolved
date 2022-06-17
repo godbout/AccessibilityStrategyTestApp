@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:godbout/AccessibilityStrategy.git",
       "state" : {
-        "revision" : "08fb54c7b2a5ad764c563a8f15adcddbcc8bef3a",
-        "version" : "5.7.0"
+        "revision" : "33a5e3afc35363a184ea4fe9d83150973897cdf5",
+        "version" : "5.7.1"
       }
     },
     {
