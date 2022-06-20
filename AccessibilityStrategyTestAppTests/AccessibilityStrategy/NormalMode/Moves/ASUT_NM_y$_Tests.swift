@@ -5,12 +5,6 @@ import Common
 
 class ASUT_NM_y$_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
-        
-        return applyMoveBeingTested(on: element, &state)
-    }
-        
     private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.yDollarSign(on: element, &vimEngineState)
     }
