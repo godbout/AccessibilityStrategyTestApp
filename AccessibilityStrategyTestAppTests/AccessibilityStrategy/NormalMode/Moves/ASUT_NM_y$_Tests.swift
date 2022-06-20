@@ -37,9 +37,13 @@ extension ASUT_NM_y$_Tests {
         
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(on: element, &state)
+        let returnedElement = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "be from caret to end limit")
+        XCTAssertEqual(returnedElement.caretLocation, 46)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+        
         XCTAssertFalse(state.lastMoveBipped)
         XCTAssertEqual(state.lastYankStyle, .characterwise)
     }
@@ -71,9 +75,13 @@ finally
         
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(on: element, &state)
+        let returnedElement = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "inefeeds")
+        XCTAssertEqual(returnedElement.caretLocation, 31)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+        
         XCTAssertFalse(state.lastMoveBipped)
         XCTAssertEqual(state.lastYankStyle, .characterwise)
     }
@@ -106,9 +114,13 @@ a little more
         
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(on: element, &state)
+        let returnedElement = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
+        XCTAssertEqual(returnedElement.caretLocation, 16)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+        
         XCTAssertFalse(state.lastMoveBipped)
         XCTAssertEqual(state.lastYankStyle, .characterwise)
     }
