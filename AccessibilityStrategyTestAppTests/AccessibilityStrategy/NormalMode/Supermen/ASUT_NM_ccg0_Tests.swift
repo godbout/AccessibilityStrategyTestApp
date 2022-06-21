@@ -12,8 +12,7 @@ class ASUT_NM_ccg0_Tests: ASUT_NM_BaseTests {
     }
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        // sending currentFileLine coz we can test through UT, no need UI. but logic the same. one test will be done in UI for cgZero, to
-        // make sure it sends the right line type parameter.
+        // see cgg$ for blah blah
         return asNormalMode.ccgZero(using: element.currentFileLine, on: element, &vimEngineState) 
     }
     

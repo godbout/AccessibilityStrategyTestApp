@@ -3,9 +3,8 @@ import XCTest
 import Common
 
 
-// c0 calls ccg0. tests are there.
-// here we do one test to make sure that c0 sends the right line parameter to ccg0.
-class ASUT_NM_cZero_Tests: ASUT_NM_BaseTests {
+// see c$ for blah blah
+class ASUT_NM_c0_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: .auto)
@@ -16,7 +15,7 @@ class ASUT_NM_cZero_Tests: ASUT_NM_BaseTests {
 }
 
 
-extension ASUT_NM_cZero_Tests {
+extension ASUT_NM_c0_Tests {
 
     func test_that_a_FileLine_and_not_a_ScreenLine_is_sent_as_parameter_to_the_superman_move() {
         let text = """

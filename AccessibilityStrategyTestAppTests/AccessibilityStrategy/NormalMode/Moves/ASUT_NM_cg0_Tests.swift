@@ -2,5 +2,5 @@
 import XCTest
 
 
-// ScreenLine, UIT. plus also PGR needs to be done there of course.
+// see cg$ for blah blah
 class ASUT_NM_cg0_Tests: ASUT_NM_BaseTests {}

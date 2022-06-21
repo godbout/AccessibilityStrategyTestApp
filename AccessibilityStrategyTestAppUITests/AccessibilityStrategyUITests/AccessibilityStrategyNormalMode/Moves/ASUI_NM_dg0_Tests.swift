@@ -18,7 +18,7 @@ class ASUI_NM_dg0_Tests: ASUI_NM_BaseTests {
 // test that we pass the right LineType parameter to ddg0
 extension ASUI_NM_dg0_Tests {
         
-    func test_that_a_FileLine_and_not_a_ScreenLine_is_sent_as_parameter_to_the_superman_move() {
+    func test_that_a_ScreenLine_and_not_a_FileLine_is_sent_as_parameter_to_the_superman_move() {
         let textInAXFocusedElement = """
 C will now work with file lines and is supposed to delete from the caret ☀️ to before the linefeed
 and of course this is in the case there is a linefeed at the end of the line.
