@@ -41,7 +41,7 @@ extension ASUT_NM_y$_Tests {
         let returnedElement = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "be from caret to end limit")
-        XCTAssertEqual(returnedElement.caretLocation, 46)
+        XCTAssertEqual(returnedElement.caretLocation, 21)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
         

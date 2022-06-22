@@ -24,9 +24,9 @@ extension ASUI_NM_yg$_Tests {
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let accessibilityElement = applyMoveBeingTested(&state)
         
-        XCTAssertEqual(accessibilityElement.caretLocation, 23)
+        XCTAssertEqual(accessibilityElement.caretLocation, 17)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement.selectedText, " ")
+        XCTAssertEqual(accessibilityElement.selectedText, "c")
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "change ")
         XCTAssertFalse(state.lastMoveBipped)
@@ -48,9 +48,9 @@ linefeeds also finally
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let accessibilityElement = applyMoveBeingTested(&state)
         
-        XCTAssertEqual(accessibilityElement.caretLocation, 63)
+        XCTAssertEqual(accessibilityElement.caretLocation, 60)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement.selectedText, "e")
+        XCTAssertEqual(accessibilityElement.selectedText, "h")
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "have")
         XCTAssertFalse(state.lastMoveBipped)
