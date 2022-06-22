@@ -14,7 +14,7 @@ class ASUI_NM_yg$_Tests: ASUI_NM_BaseTests {
 
 extension ASUI_NM_yg$_Tests {
 
-    func test_that_if_the_FileLine_does_not_end_with_a_Linefeed_it_copies_from_the_caretLocation_to_the_LineEndLimit_included_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
+    func test_that_if_the_ScreenLine_does_not_end_with_a_Linefeed_it_copies_from_the_caretLocation_to_the_LineEndLimit_included_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
         let textInAXFocusedElement = "hehe i forgot to change the content of this string LOL"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -33,7 +33,7 @@ extension ASUI_NM_yg$_Tests {
         XCTAssertEqual(state.lastYankStyle, .characterwise)
     }
         
-    func test_that_if_the_FileLine_ends_with_a_Linefeed_it_copies_from_the_caretLocation_to_the_LineEndLimit_included_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
+    func test_that_if_the_ScreenLineLine_ends_with_a_Linefeed_it_copies_from_the_caretLocation_to_the_LineEndLimit_included_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
         let textInAXFocusedElement = """
 ok so another long one because
 screenlines and now we gonna have
