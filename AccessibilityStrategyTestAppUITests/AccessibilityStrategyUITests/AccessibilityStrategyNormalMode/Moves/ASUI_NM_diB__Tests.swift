@@ -4,8 +4,7 @@ import Common
 
 
 
-// this is calling dInnerBlock. tests are there. here we just test that we're passing
-// the correct bracket to dInnerBlock. that's all we need to do!
+// see daB for blah blah
 class ASUI_NM_diB__Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
