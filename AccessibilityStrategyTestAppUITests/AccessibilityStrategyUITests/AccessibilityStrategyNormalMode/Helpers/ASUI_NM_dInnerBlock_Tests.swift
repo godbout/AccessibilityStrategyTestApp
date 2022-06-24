@@ -138,7 +138,7 @@ this case is when [
 now that shit will get cleaned <
     and the non blank
   will be respected!
->
+  >
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -155,10 +155,10 @@ now that shit will get cleaned <
         )
         XCTAssertEqual(accessibilityElement.fileText.value, """
 now that shit will get cleaned <
->
+  >
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 33)
+        XCTAssertEqual(accessibilityElement.caretLocation, 35)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, ">")
 
