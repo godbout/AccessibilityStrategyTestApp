@@ -20,6 +20,8 @@ class ASUI_NM_ddgDollarSign_Tests: ASUI_NM_BaseTests {
 // 1. as stated above, here we only need to test the caret repositioning (D calls C, C is already tested)
 // 2. the caret position will always go to the line endLimit, whether the line is empty or not. this is
 // tested in the endLimit tests. so here we mostly have nothing to do. :D
+// UPDATE: 2. is not valid anymore as ddgDollarSign may be passed the ScreenLine, in which case the caret position will not
+// end up at the line endLimit, but will not move instead. that part is tested in ASUI dg$ test.
 extension ASUI_NM_ddgDollarSign_Tests {
 
     func test_that_in_any_case_the_caret_location_will_end_up_at_the_line_end_limit() {
