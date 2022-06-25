@@ -3085,7 +3085,7 @@
 			repositoryURL = "git@github.com:godbout/AccessibilityStrategy.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.0;
+				minimumVersion = 5.11.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
