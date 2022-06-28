@@ -7,10 +7,10 @@ import Common
 // so the tests are done in UT and UIT cABlock. here we test the repositioning after the move.
 class ASUI_NM_dABlock_Tests: ASUI_NM_BaseTests {
 
-    private func applyMoveBeingTested(using bracket: Character) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(using openingBlock: OpeningBlockType) -> AccessibilityTextElement {
         var state = VimEngineState()
         
-        return applyMove { asNormalMode.dABlock(using: bracket, on: $0, &state) }
+        return applyMove { asNormalMode.dABlock(using: openingBlock, on: $0, &state) }
     }
 
 }
@@ -25,7 +25,7 @@ extension ASUI_NM_dABlock_Tests {
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.b(on: $0) }
 
-        let accessibilityElement = applyMoveBeingTested(using: "{")
+        let accessibilityElement = applyMoveBeingTested(using: .leftBrace)
 
         XCTAssertEqual(accessibilityElement.caretLocation, 9)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
@@ -38,7 +38,7 @@ extension ASUI_NM_dABlock_Tests {
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.b(times: 5, on: $0) }
 
-        let accessibilityElement = applyMoveBeingTested(using: "(")
+        let accessibilityElement = applyMoveBeingTested(using: .leftParenthesis)
 
         XCTAssertEqual(accessibilityElement.caretLocation, 15)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
@@ -61,7 +61,7 @@ and } is not preceded by a linefeed
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
 
-        let accessibilityElement = applyMoveBeingTested(using: "{")
+        let accessibilityElement = applyMoveBeingTested(using: .leftBrace)
 
         XCTAssertEqual(accessibilityElement.caretLocation, 18)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
@@ -78,7 +78,7 @@ by a linefeed and
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
 
-        let accessibilityElement = applyMoveBeingTested(using: "{")
+        let accessibilityElement = applyMoveBeingTested(using: .leftBrace)
 
         XCTAssertEqual(accessibilityElement.caretLocation, 18)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
@@ -95,7 +95,7 @@ and ] is not preceded by a linefeed
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
 
-        let accessibilityElement = applyMoveBeingTested(using: "[")
+        let accessibilityElement = applyMoveBeingTested(using: .leftBracket)
 
         XCTAssertEqual(accessibilityElement.caretLocation, 15)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
@@ -112,7 +112,7 @@ is followed by a linefeed and
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
 
-        let accessibilityElement = applyMoveBeingTested(using: "(")
+        let accessibilityElement = applyMoveBeingTested(using: .leftParenthesis)
 
         XCTAssertEqual(accessibilityElement.caretLocation, 18)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
@@ -131,7 +131,7 @@ and more
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
 
-        let accessibilityElement = applyMoveBeingTested(using: "<")
+        let accessibilityElement = applyMoveBeingTested(using: .leftChevron)
 
         XCTAssertEqual(accessibilityElement.caretLocation, 17)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)

@@ -10,8 +10,8 @@ import Common
 // what we need to test.
 class ASUI_NM_dInnerBlock_Tests: ASUI_NM_BaseTests {
 
-    private func applyMoveBeingTested(using bracket: Character, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.dInnerBlock(using: bracket, on: $0, &vimEngineState) }
+    private func applyMoveBeingTested(using openingBlock: OpeningBlockType, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        return applyMove { asNormalMode.dInnerBlock(using: openingBlock, on: $0, &vimEngineState) }
     }
 
 }
@@ -33,7 +33,7 @@ extension ASUI_NM_dInnerBlock_Tests {
 
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(using: "{", &state)
+        let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
         XCTAssertEqual(accessibilityElement.fileText.value, "no block here")
@@ -53,7 +53,7 @@ extension ASUI_NM_dInnerBlock_Tests {
 
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(using: "(", &state)
+        let accessibilityElement = applyMoveBeingTested(using: .leftParenthesis, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), " some stuff 😄️😄️😄️on the same ")
         XCTAssertEqual(accessibilityElement.fileText.value, "now th😄️at is () line😄️")
@@ -84,7 +84,7 @@ and } is not preceded by a linefeed
 
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(using: "{", &state)
+        let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
  is not followed
@@ -113,7 +113,7 @@ by a linefeed and
 
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(using: "[", &state)
+        let accessibilityElement = applyMoveBeingTested(using: .leftBracket, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
  is not followed
@@ -146,7 +146,7 @@ now that shit will get cleaned <
 
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(using: "<", &state)
+        let accessibilityElement = applyMoveBeingTested(using: .leftChevron, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
     and the non blank
@@ -179,7 +179,7 @@ and } is not preceded by a linefeed
 
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(using: "{", &state)
+        let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 is followed by a linefeed
@@ -211,7 +211,7 @@ is followed by a linefeed and
 
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(using: "(", &state)
+        let accessibilityElement = applyMoveBeingTested(using: .leftParenthesis, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "is followed by a linefeed and\n")
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -245,7 +245,7 @@ and } is not preceded by a linefeed
 
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(appFamily: .pgR)
-        let accessibilityElement = applyMoveBeingTested(using: "{", &state)
+        let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
  is not followed

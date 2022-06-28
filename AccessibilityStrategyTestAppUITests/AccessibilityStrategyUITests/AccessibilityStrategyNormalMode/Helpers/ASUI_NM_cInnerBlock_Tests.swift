@@ -5,10 +5,10 @@ import Common
 
 class ASUI_NM_cInnerBlock_Tests: ASUI_NM_BaseTests {
        
-    private func applyMoveBeingTested(using bracket: Character, appFamily: AppFamily) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(using openingBlock: OpeningBlockType, appFamily: AppFamily) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.cInnerBlock(using: bracket, on: $0, &state) }
+        return applyMove { asNormalMode.cInnerBlock(using: openingBlock, on: $0, &state) }
     }
     
 }
@@ -28,7 +28,7 @@ by a linefeed and
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.f(times: 2, to: "n", on: $0) }
-        let accessibilityElement = applyMoveBeingTested(using: "{", appFamily: .pgR)
+        let accessibilityElement = applyMoveBeingTested(using: .leftBrace, appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 this case is when 

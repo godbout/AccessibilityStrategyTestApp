@@ -10,8 +10,8 @@ import Common
 // on the text that is being copied, so cannot test in KVE).
 class ASUT_NM_yInnerBlock_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(using bracket: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return asNormalMode.yInnerBlock(using: bracket, on: element, &vimEngineState) 
+    private func applyMoveBeingTested(using openingBlock: OpeningBlockType, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        return asNormalMode.yInnerBlock(using: openingBlock, on: element, &vimEngineState) 
     }
     
 }
@@ -47,7 +47,7 @@ extension ASUT_NM_yInnerBlock_Tests {
         
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(using: "(", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
         XCTAssertEqual(returnedElement.caretLocation, 6)
@@ -78,7 +78,7 @@ extension ASUT_NM_yInnerBlock_Tests {
         )
         
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(using: "{", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️ has some nice ")
         XCTAssertEqual(returnedElement.caretLocation, 16)  
@@ -119,7 +119,7 @@ and } is not preceded by a linefeed
         )
         
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(using: "{", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
  is not followed
@@ -159,7 +159,7 @@ and } is not preceded by a linefeed
         )
         
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(using: "{", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 is followed by a linefeed
@@ -198,7 +198,7 @@ by a linefeed and
         )
         
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
-        let returnedElement = applyMoveBeingTested(using: "{", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
  is not followed
@@ -237,7 +237,7 @@ is followed by a linefeed and
         )
         
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
-        let returnedElement = applyMoveBeingTested(using: "{", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "is followed by a linefeed and")
         XCTAssertEqual(returnedElement.caretLocation, 20)

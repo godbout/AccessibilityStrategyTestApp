@@ -9,8 +9,8 @@ import Common
 // what we need to test.
 class ASUT_NM_cInnerBlock_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(using bracket: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return asNormalMode.cInnerBlock(using: bracket, on: element, &vimEngineState)
+    private func applyMoveBeingTested(using openingBlock: OpeningBlockType, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        return asNormalMode.cInnerBlock(using: openingBlock, on: element, &vimEngineState)
     }
     
 }
@@ -49,7 +49,7 @@ extension ASUT_NM_cInnerBlock_Tests {
         
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(using: "(", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
         XCTAssertEqual(returnedElement.caretLocation, 6)
@@ -81,7 +81,7 @@ extension ASUT_NM_cInnerBlock_Tests {
         
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(using: "(", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), " some stuff 😄️😄️😄️on the same ")
         XCTAssertEqual(returnedElement.caretLocation, 16)
@@ -123,7 +123,7 @@ and } is not preceded by a linefeed
         
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(using: "{", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
  is not followed
@@ -164,7 +164,7 @@ by a linefeed and
         
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(using: "{", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
  is not followed
@@ -205,7 +205,7 @@ now that shit will get cleaned (
         
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
-        let returnedElement = applyMoveBeingTested(using: "(", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
     and the non blank
@@ -245,7 +245,7 @@ and ] is not preceded by a linefeed
         
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(using: "[", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element, &state)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 is followed by a linefeed
@@ -285,7 +285,7 @@ is followed by a linefeed and
         
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
-        let returnedElement = applyMoveBeingTested(using: "(", on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 is followed by a linefeed and\n
