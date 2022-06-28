@@ -31,13 +31,16 @@ extension FT_aBlock_Tests {
         
         XCTAssertNil(aBlockRange)
     }
+
     
-    func test_that_if_there_are_two_matched_brackets_and_the_caret_is_before_them_then_it_returns_nil() {
+    // see innerBlock for blah blah (new way in Vim)
+    func test_that_if_there_are_two_matched_brackets_and_the_caret_is_before_them_and_there_is_no_previous_unmatched_bracket_then_it_can_find_the_text() {
         let text = "still no gourmet [ shit for that ] one"
         
-        let aBlockRange = applyFuncBeingTested(on: text, using: "[", startingAt: 15)
+        let aBlockRange = applyFuncBeingTested(on: text, using: .leftBracket, startingAt: 3)
         
-        XCTAssertNil(aBlockRange)
+        XCTAssertEqual(aBlockRange?.lowerBound, 17)
+        XCTAssertEqual(aBlockRange?.count, 17)
     }
     
     func test_that_if_there_are_two_matched_brackets_and_the_caret_is_after_them_then_it_returns_nil() {
