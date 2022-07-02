@@ -113,6 +113,27 @@ extension FL_aQuotedString_Tests {
 }
 
 
+// TextViews
+// already tested in innerQuotedString, but one more to be sure
+// cheap UTs.
+extension FL_aQuotedString_Tests {
+    
+    // this test contains blanks
+    func test_that_it_grabs_on_the_current_FileLine_and_does_not_spill_over() {
+        let text = """
+so this is some "multiline"       
+      and the move should and its line
+"""
+        
+        let aQuotedStringRange = try? applyFuncBeingTested(on: text, using: "\"", startingAt: 11)
+        
+        XCTAssertEqual(aQuotedStringRange?.lowerBound, 16)
+        XCTAssertEqual(aQuotedStringRange?.count, 18) 
+    }
+    
+}
+
+
 // emojis
 // see beginningOfWordBackward for the blah blah
 extension FL_aQuotedString_Tests {
