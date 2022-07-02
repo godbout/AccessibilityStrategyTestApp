@@ -2,7 +2,7 @@
 import XCTest
 
 
-// aQuotedString is innerQuotedString + checking the spaces before and/or after the innerQuoteString
+// aQuotedString is innerQuotedString + checking the spaces before and/or after the innerQuotedString
 // so a lot of the tests are already done there. here we test mostly what is specific to aQuotedString, which
 // is the trailing and leading spaces story.
 class FL_aQuotedString_Tests: XCTestCase {
