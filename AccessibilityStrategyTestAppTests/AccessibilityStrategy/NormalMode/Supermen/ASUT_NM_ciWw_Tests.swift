@@ -3,7 +3,7 @@ import XCTest
 import Common
 
 
-// ciWw will be using TE.innerWord and TE.innerWOrd that are both fully tested.
+// ciWw will be using TE.innerWord and TE.innerWORD that are both fully tested.
 // contrary to TE.aWORD/word, innerWORD/word never returns nil because Vim always finds an innerWORD/word.
 // PGR and Electron in UIT.
 class ASUT_NM_ciWw_Tests: ASUT_NM_BaseTests {
