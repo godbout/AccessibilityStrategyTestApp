@@ -11,7 +11,7 @@ class ASUI_NM_ciSingleQuote_Tests: ASUI_NM_BaseTests {
     private func applyMoveBeingTested(appFamily: AppFamily) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.cInnerQuotedString(using: "'", on: $0, &state) }
+        return applyMove { asNormalMode.ciSingleQuote(on: $0, &state) }
     }
 
 }
