@@ -4,7 +4,7 @@ import XCTest
 
 class FL_innerQuotedString_Tests: XCTestCase {
     
-    private func applyFuncBeingTested(on text: String, using quote: Character, startingAt caretLocation: Int) throws -> Range<Int>? {
+    private func applyFuncBeingTested(on text: String, using quote: QuoteType, startingAt caretLocation: Int) throws -> Range<Int>? {
         let fileLine = try XCTUnwrap(
             FileLine(fullFileText: text, fullFileTextLength: text.utf16.count, caretLocation: caretLocation)
         )
@@ -21,7 +21,7 @@ extension FL_innerQuotedString_Tests {
     func test_that_if_there_is_no_quote_then_it_returns_nil() {
         let text = "yep no quote in here"
         
-        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: "\"", startingAt: 2)
+        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: .doubleQuote, startingAt: 2)
         
         XCTAssertNil(innerQuotedStringRange)
     }
@@ -29,7 +29,7 @@ extension FL_innerQuotedString_Tests {
     func test_that_if_there_is_only_one_quote_then_it_returns_nil_also() {
         let text = "only one quote in 'there"
         
-        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: "'", startingAt: 6)
+        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: .singleQuote, startingAt: 6)
 
         XCTAssertNil(innerQuotedStringRange)
     }
@@ -37,7 +37,7 @@ extension FL_innerQuotedString_Tests {
     func test_that_if_there_are_two_quotes_and_the_caret_is_before_them_then_it_can_find_the_text() {
         let text = "finally some serious 'gourmet' shit"
         
-        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: "'", startingAt: 4)
+        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: .singleQuote, startingAt: 4)
         
         XCTAssertEqual(innerQuotedStringRange?.lowerBound, 22)
         XCTAssertEqual(innerQuotedStringRange?.upperBound, 29) 
@@ -46,7 +46,7 @@ extension FL_innerQuotedString_Tests {
     func test_that_if_there_are_two_quotes_and_the_caret_is_between_them_then_it_can_find_the_text() {
         let text = "wow now we're gonna eat shit a bit' lol"
         
-        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: "'", startingAt: 15)
+        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: .singleQuote, startingAt: 15)
         
         XCTAssertEqual(innerQuotedStringRange?.lowerBound, 11)
         XCTAssertEqual(innerQuotedStringRange?.upperBound, 34) 
@@ -55,7 +55,7 @@ extension FL_innerQuotedString_Tests {
     func test_that_if_there_are_two_quotes_and_the_caret_is_after_them_then_it_returns_nil() {
         let text = "pretty `tough` if you ask me"
         
-        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: "`", startingAt: 15)
+        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: .backtick, startingAt: 15)
         
         XCTAssertNil(innerQuotedStringRange)
     }
@@ -65,7 +65,7 @@ extension FL_innerQuotedString_Tests {
 that's " three quotes " in there "
 """
         
-        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: "\"", startingAt: 29)
+        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: .doubleQuote, startingAt: 29)
         
         XCTAssertEqual(innerQuotedStringRange?.lowerBound, 23)
         XCTAssertEqual(innerQuotedStringRange?.upperBound, 33) 
@@ -76,7 +76,7 @@ that's " three quotes " in there "
 several "pairs" here and kindaVim should "know" which one to delete
 """
         
-        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: "\"", startingAt: 41)
+        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: .doubleQuote, startingAt: 41)
         
         XCTAssertEqual(innerQuotedStringRange?.lowerBound, 42)
         XCTAssertEqual(innerQuotedStringRange?.upperBound, 46) 
@@ -87,7 +87,7 @@ several "pairs" here and kindaVim should "know" which one to delete
 several "pairs" here and kindaVim should "know which one to delete
 """
         
-        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: "\"", startingAt: 41)
+        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: .doubleQuote, startingAt: 41)
         
         XCTAssertNil(innerQuotedStringRange)
     }
@@ -95,7 +95,7 @@ several "pairs" here and kindaVim should "know which one to delete
     func test_that_if_the_string_is_empty_it_returns_nil() {
         let text = ""
         
-        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: "\"", startingAt: 0)
+        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: .doubleQuote, startingAt: 0)
         
         XCTAssertNil(innerQuotedStringRange)
     }
@@ -107,7 +107,7 @@ and then the "real" shit
 and currently i fail
 """
         
-        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: "\"", startingAt: 24)
+        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: .doubleQuote, startingAt: 24)
         
         XCTAssertEqual(innerQuotedStringRange?.lowerBound, 34)
         XCTAssertEqual(innerQuotedStringRange?.upperBound, 38) 
@@ -125,7 +125,7 @@ extension FL_innerQuotedString_Tests {
 emojis are sy🧑‍🌾️🧑‍🌾️mbols" that 🔫️🔫️🔫️ are longer" than 1 length
 """
         
-        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: "\"", startingAt: 9)
+        let innerQuotedStringRange = try? applyFuncBeingTested(on: text, using: .doubleQuote, startingAt: 9)
         
         XCTAssertEqual(innerQuotedStringRange?.lowerBound, 31)
         XCTAssertEqual(innerQuotedStringRange?.upperBound, 57) 
