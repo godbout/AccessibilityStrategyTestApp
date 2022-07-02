@@ -9,13 +9,13 @@ import Common
 // PGR and Electron in UIT
 class ASUT_NM_cAQuotedString_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(using quote: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(using quote: QuoteType, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: .auto)
         
         return applyMoveBeingTested(using: quote, on: element, &state)
     }
         
-    private func applyMoveBeingTested(using quote: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(using quote: QuoteType, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.cAQuotedString(using: quote, on: element, &vimEngineState)
     }
     
@@ -48,7 +48,7 @@ finally dealing with the "real stuff"!
         
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(using: "\"", on: element, &state)
+        _ = applyMoveBeingTested(using: .doubleQuote, on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
  "real stuff"
@@ -80,7 +80,7 @@ finally dealing with the "real stuff!
         
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(using: "\"", on: element, &state)
+        _ = applyMoveBeingTested(using: .doubleQuote, on: element, &state)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
         XCTAssertTrue(state.lastMoveBipped)
@@ -113,7 +113,7 @@ finally dealing with the "real stuff"!
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(using: "\"", on: element)
+        let returnedElement = applyMoveBeingTested(using: .doubleQuote, on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 24)
         XCTAssertEqual(returnedElement.selectedLength, 13)
@@ -141,7 +141,7 @@ now the caret 💨️💨️💨️ is before the ` shit with 🥺️☹️😂�
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(using: "`", on: element)
+        let returnedElement = applyMoveBeingTested(using: .backtick, on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 38)
         XCTAssertEqual(returnedElement.selectedLength, 33)
@@ -169,7 +169,7 @@ that's ' three quotes ' in there
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(using: "'", on: element)
+        let returnedElement = applyMoveBeingTested(using: .singleQuote, on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 7)
         XCTAssertEqual(returnedElement.selectedLength, 17)
@@ -200,7 +200,7 @@ that's " four quotes " in " there "
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(using: "\"", on: element)
+        let returnedElement = applyMoveBeingTested(using: .doubleQuote, on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 25)
         XCTAssertEqual(returnedElement.selectedLength, 10)
@@ -228,7 +228,7 @@ a text with only one quote ' lol
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(using: "'", on: element)
+        let returnedElement = applyMoveBeingTested(using: .singleQuote, on: element)
         
         XCTAssertNil(returnedElement.selectedText)
     }
@@ -252,7 +252,7 @@ a text with only one quote ' lol
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(using: "'", on: element)
+        let returnedElement = applyMoveBeingTested(using: .singleQuote, on: element)
         
         XCTAssertNil(returnedElement.selectedText)
     }
@@ -280,7 +280,7 @@ now the "caret" is after the quotes
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(using: "\"", on: element)
+        let returnedElement = applyMoveBeingTested(using: .doubleQuote, on: element)
         
         XCTAssertNil(returnedElement.selectedText)
     }

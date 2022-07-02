@@ -6,7 +6,7 @@ import Common
 // see ASUT cInnerQuotedString for blah blah
 class ASUI_NM_cInnerQuotedString_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(using quote: Character, appFamily: AppFamily) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(using quote: QuoteType, appFamily: AppFamily) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.cInnerQuotedString(using: quote, on: $0, &state) }
@@ -26,7 +26,7 @@ finally dealing with the "real stuff"!
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.F(to: "l", on: $0) }
-        let accessibilityElement = applyMoveBeingTested(using: "\"", appFamily: .pgR)
+        let accessibilityElement = applyMoveBeingTested(using: .doubleQuote, appFamily: .pgR)
                
         XCTAssertEqual(accessibilityElement.fileText.value, """
 finally dealing with the "!
