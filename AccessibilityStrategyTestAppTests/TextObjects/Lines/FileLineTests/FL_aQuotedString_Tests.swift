@@ -113,9 +113,20 @@ extension FL_aQuotedString_Tests {
 
 
 // TextViews
-// already tested in innerQuotedString, but one more to be sure
-// cheap UTs.
 extension FL_aQuotedString_Tests {
+    
+    func test_that_it_gets_the_correct_location_if_the_location_is_not_on_the_first_FileLine() {
+        let text = """
+LOL i forgot again that for FL
+we need to play with the "relative"location :D
+so it failed again here.
+"""
+
+        let aQuotedStringRange = try? applyFuncBeingTested(on: text, using: .doubleQuote, startingAt: 47)
+       
+        XCTAssertEqual(aQuotedStringRange?.lowerBound, 55)
+        XCTAssertEqual(aQuotedStringRange?.count, 11) 
+    }
     
     // this test contains blanks
     func test_that_it_grabs_on_the_current_FileLine_and_does_not_spill_over() {
