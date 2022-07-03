@@ -109,6 +109,15 @@ extension FL_aQuotedString_Tests {
         XCTAssertEqual(aQuotedStringRange?.count, 30) 
     }
     
+    func test_that_if_the_quotedString_is_at_the_end_of_the_text_it_still_grabs_the_correct_range() {
+        let text = "coz current it 'doesn'"
+        
+        let aQuotedStringRange = try? applyFuncBeingTested(on: text, using: .singleQuote, startingAt: 4)
+        
+        XCTAssertEqual(aQuotedStringRange?.lowerBound, 14)
+        XCTAssertEqual(aQuotedStringRange?.count, 8) 
+    }
+    
 }
 
 
