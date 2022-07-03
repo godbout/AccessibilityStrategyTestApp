@@ -100,6 +100,12 @@ several "pairs" here and kindaVim should "know which one to delete
         XCTAssertNil(innerQuotedStringRange)
     }
     
+}
+
+
+// TextViews
+extension FL_innerQuotedString_Tests {
+    
     func test_that_if_the_line_with_quotes_is_not_the_first_one_it_still_fucking_works() {
         let text = """
 so i'm a line first
