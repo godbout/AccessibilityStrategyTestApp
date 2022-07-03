@@ -596,7 +596,6 @@
 		911D25DE2713021300A1AFCD /* ASUT_NM_gg_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_gg_Tests.swift; sourceTree = "<group>"; };
 		91202CBF27F9F04B0016BCAB /* ASUI_NM_L__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_L__Tests.swift; sourceTree = "<group>"; };
 		91202CC127F9F28A0016BCAB /* ASUI_NM_M__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_M__Tests.swift; sourceTree = "<group>"; };
-		9121C1192871DAB70051F627 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		9121C11B2871EC7E0051F627 /* ASUI_NM_da'_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUI_NM_da'_Tests.swift"; sourceTree = "<group>"; };
 		9121C11D2871ECEA0051F627 /* ASUI_NM_da"_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUI_NM_da\"_Tests.swift"; sourceTree = "<group>"; };
 		9121C11F2871ED1F0051F627 /* ASUI_NM_da`_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUI_NM_da`_Tests.swift"; sourceTree = "<group>"; };
@@ -1517,7 +1516,6 @@
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
-				9121C1192871DAB70051F627 /* AccessibilityStrategy */,
 				91F951B326DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,
