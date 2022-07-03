@@ -92,6 +92,18 @@ extension FL_nextNonBlank_Tests {
 // TextViews
 extension FL_nextNonBlank_Tests {
     
+    func test_that_it_gets_the_correct_location_if_the_location_is_not_on_the_first_FileLine() {
+        let text = """
+doing this one because we need to calculate
+the relative caretLocation of FLs
+else it's crashing of course!
+"""
+
+        let nextNonBlankLocation = try? applyFuncBeingTested(on: text, after: 55)
+       
+        XCTAssertEqual(nextNonBlankLocation, 57)
+    }
+    
     // this test contains blanks
     func test_that_for_a_line_that_ends_with_a_linefeed_it_returns_the_linefeed() {
         let text = """
