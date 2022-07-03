@@ -21,7 +21,6 @@ class FL_aQuotedString_Tests: XCTestCase {
 // Both
 extension FL_aQuotedString_Tests {
     
-    // TODO: use enum
     func test_that_if_there_is_no_quote_then_it_returns_nil() {
         let text = "yep no quote in here"
         
