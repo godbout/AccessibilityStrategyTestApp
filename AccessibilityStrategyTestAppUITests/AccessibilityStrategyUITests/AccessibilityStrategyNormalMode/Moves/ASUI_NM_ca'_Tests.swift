@@ -2,6 +2,7 @@ import XCTest
 @testable import AccessibilityStrategy
 import Common
 
+// TODO: do we really need those UI tests here? that PGR is passed properly?
 
 // see ci' for blah blah
 class ASUI_NM_caSingleQuote_Tests: ASUI_NM_BaseTests {
