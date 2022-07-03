@@ -89,6 +89,18 @@ extension FL_previousNonBlank_Tests {
 // TextViews
 extension FL_previousNonBlank_Tests {
     
+    func test_that_it_gets_the_correct_location_if_the_location_is_not_on_the_first_FileLine() {
+        let text = """
+doing this one because we need to calculate
+the relative caretLocation of FLs
+else it's crashing of course!
+"""
+
+        let previousNonBlankLocation = try? applyFuncBeingTested(on: text, startingAt: 57)
+       
+        XCTAssertEqual(previousNonBlankLocation, 55)
+    }
+    
     // this test contains blanks
     func test_that_if_it_reaches_the_beginning_of_a_line_it_returns_nil_because_we_are_testing_on_FileLines() {
         let text = """
