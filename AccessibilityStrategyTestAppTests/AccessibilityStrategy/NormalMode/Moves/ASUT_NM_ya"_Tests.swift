@@ -43,7 +43,10 @@ some new ("shit in there") right?
         let returnedElement = applyMoveBeingTested(on: element, &state)
         
         XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "\"shit in there\"")
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
+"shit in there"
+"""
+        )
         XCTAssertEqual(returnedElement.caretLocation, 28)  
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)

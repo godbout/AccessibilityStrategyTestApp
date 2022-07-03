@@ -44,7 +44,7 @@ the right-parameter to the funcs!
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 33)
-        XCTAssertEqual(returnedElement.selectedLength, 14)
+        XCTAssertEqual(returnedElement.selectedLength, 13)
         XCTAssertEqual(returnedElement.selectedText, "")
     }
     
