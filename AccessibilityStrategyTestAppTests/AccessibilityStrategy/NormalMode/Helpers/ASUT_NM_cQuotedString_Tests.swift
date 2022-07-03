@@ -283,4 +283,36 @@ now the "caret" is after the quotes
         XCTAssertNil(returnedElement.selectedText)
     }
     
+    func test_that_if_the_quoteString_is_not_on_the_first_FileLine_it_still_works_and_does_not_crash_LOL() {
+        let text = """
+adding some lines on top because
+it doesn't pass for long text
+now the `caret` is after the quotes
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 98,
+            caretLocation: 69,
+            selectedLength: 1,
+            selectedText: """
+        e
+        """,
+            fullyVisibleArea: 0..<98,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 98,
+                number: 3,
+                start: 63,
+                end: 98
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(using: .backtick, on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 72)
+        XCTAssertEqual(returnedElement.selectedLength, 5)
+        XCTAssertEqual(returnedElement.selectedText, "")
+    }
+    
 }
