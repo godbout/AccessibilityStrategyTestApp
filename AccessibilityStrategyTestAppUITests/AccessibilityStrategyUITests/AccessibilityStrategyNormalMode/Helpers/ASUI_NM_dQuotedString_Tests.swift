@@ -3,19 +3,21 @@ import XCTest
 import Common
 
 
-// TODO: gonna have to check if need to refactor/check passing parameters
-class ASUI_NM_diSingleQuote_Tests: ASUI_NM_BaseTests {
+// here we test with innerQuotedString, and singleQuote. the other types of quotes
+// and aQuotedString are tested in each individual case, with a test that we're passing the proper
+// parameters to dQuotedString.
+class ASUI_NM_dQuotedString_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.diSingleQuote(on: $0, &state) }
+        return applyMove { asNormalMode.dQuotedString($0.currentFileLine.innerQuotedString, .singleQuote, on: $0, &state) }
     }
 
 }
 
 
-extension ASUI_NM_diSingleQuote_Tests {
+extension ASUI_NM_dQuotedString_Tests {
     
     func test_that_the_block_cursor_is_repositioned_correctly_after_the_deletion() {
         let textInAXFocusedElement = """
@@ -41,7 +43,7 @@ finally dealing with the ''!
 
 
 // PGR and Electron
-extension ASUI_NM_diSingleQuote_Tests {
+extension ASUI_NM_dQuotedString_Tests {
     
     func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = """
