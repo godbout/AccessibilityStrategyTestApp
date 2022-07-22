@@ -2098,7 +2098,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1310;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					913BAFDB26E103FE002E6999 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -2770,6 +2770,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = AccessibilityStrategyTestAppUITests/AccessibilityTextElementAdaptorUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2791,6 +2792,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = AccessibilityStrategyTestAppUITests/AccessibilityTextElementAdaptorUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2812,6 +2814,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = "AccessibilityStrategyTestAppUITests/AccessibilityStrategyUITests/AccessibilityStrategyNormalMode//Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2833,6 +2836,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = "AccessibilityStrategyTestAppUITests/AccessibilityStrategyUITests/AccessibilityStrategyNormalMode//Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2855,6 +2859,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = AccessibilityStrategyTestAppUITests/AccessibilityStrategyUITests/AccessibilityStrategyVisualMode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2878,6 +2883,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = AccessibilityStrategyTestAppUITests/AccessibilityStrategyUITests/AccessibilityStrategyVisualMode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2927,6 +2933,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -2988,6 +2995,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3017,6 +3025,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"AccessibilityStrategyTestApp/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -3043,6 +3052,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"AccessibilityStrategyTestApp/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -3068,6 +3078,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = AccessibilityStrategyTestAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3092,6 +3103,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = AccessibilityStrategyTestAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3173,7 +3185,7 @@
 			repositoryURL = "git@github.com:godbout/AccessibilityStrategy.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.11.2;
+				minimumVersion = 5.15.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
