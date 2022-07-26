@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:godbout/AccessibilityStrategy.git",
       "state" : {
-        "revision" : "18f9816722970ee96ebcb9813f577a526a9454df",
-        "version" : "5.15.0"
+        "revision" : "23525ed8d420427c4bbb032d2d499e1810c9ce8b",
+        "version" : "6.0.0"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:godbout/AXEngine.git",
       "state" : {
-        "revision" : "6587e9760de81335b5f386e07f57d23f37eb1770",
-        "version" : "1.8.0"
+        "revision" : "1e9b043808332ebc4c9f4703db914a97d262f83d",
+        "version" : "2.0.0"
       }
     },
     {
