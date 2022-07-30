@@ -154,4 +154,38 @@ can check the impl of that
         
         XCTAssertEqual(beginningOfSentenceForwardLocation, 62)
     }
+       
+    func test_that_it_does_not_get_stuck_in_the_middle_of_multiple_emptyLines() {
+        let text = """
+so it's not gonna skip lines but stop
+at paragraph boundaries
+
+
+
+
+
+can check the impl of that
+"""
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 62)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 67)
+    }
+        
+    func test_that_if_the_caret_is_on_an_emptyLine_and_the_text_ends_by_multiple_emptyLines_then_it_goes_to_the_end() {
+        let text = """
+plenty of empty lines
+below
+
+
+
+
+
+
+
+"""
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 29)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 34)
+    }
+
 }
