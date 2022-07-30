@@ -1,50 +1,43 @@
 {
-  "pins" : [
-    {
-      "identity" : "accessibilitystrategy",
-      "kind" : "remoteSourceControl",
-      "location" : "git@github.com:godbout/AccessibilityStrategy.git",
-      "state" : {
-        "revision" : "23525ed8d420427c4bbb032d2d499e1810c9ce8b",
-        "version" : "6.0.0"
+  "object": {
+    "pins": [
+      {
+        "package": "AXEngine",
+        "repositoryURL": "git@github.com:godbout/AXEngine.git",
+        "state": {
+          "branch": null,
+          "revision": "1e9b043808332ebc4c9f4703db914a97d262f83d",
+          "version": "2.0.0"
+        }
+      },
+      {
+        "package": "Common",
+        "repositoryURL": "git@github.com:godbout/Common.git",
+        "state": {
+          "branch": null,
+          "revision": "8ddc947f9dbde4e6f5f28f2f36b1d6086a413151",
+          "version": "1.2.0"
+        }
+      },
+      {
+        "package": "KeyCombination",
+        "repositoryURL": "git@github.com:godbout/KeyCombination.git",
+        "state": {
+          "branch": null,
+          "revision": "cb753b3674f7bfae9d0bfac80c858c2f20eaf7b7",
+          "version": "1.2.1"
+        }
+      },
+      {
+        "package": "Sauce",
+        "repositoryURL": "git@github.com:Clipy/Sauce.git",
+        "state": {
+          "branch": null,
+          "revision": "88bd02d8069e4db1a03202d029c80bb0e5a61800",
+          "version": "2.3.0"
+        }
       }
-    },
-    {
-      "identity" : "axengine",
-      "kind" : "remoteSourceControl",
-      "location" : "git@github.com:godbout/AXEngine.git",
-      "state" : {
-        "revision" : "1e9b043808332ebc4c9f4703db914a97d262f83d",
-        "version" : "2.0.0"
-      }
-    },
-    {
-      "identity" : "common",
-      "kind" : "remoteSourceControl",
-      "location" : "git@github.com:godbout/Common.git",
-      "state" : {
-        "revision" : "8ddc947f9dbde4e6f5f28f2f36b1d6086a413151",
-        "version" : "1.2.0"
-      }
-    },
-    {
-      "identity" : "keycombination",
-      "kind" : "remoteSourceControl",
-      "location" : "git@github.com:godbout/KeyCombination.git",
-      "state" : {
-        "revision" : "cb753b3674f7bfae9d0bfac80c858c2f20eaf7b7",
-        "version" : "1.2.1"
-      }
-    },
-    {
-      "identity" : "sauce",
-      "kind" : "remoteSourceControl",
-      "location" : "git@github.com:Clipy/Sauce.git",
-      "state" : {
-        "revision" : "88bd02d8069e4db1a03202d029c80bb0e5a61800",
-        "version" : "2.3.0"
-      }
-    }
-  ],
-  "version" : 2
+    ]
+  },
+  "version": 1
 }
