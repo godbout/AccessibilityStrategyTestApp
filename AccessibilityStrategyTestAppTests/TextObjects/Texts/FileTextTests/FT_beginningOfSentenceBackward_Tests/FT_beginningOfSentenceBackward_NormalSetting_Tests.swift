@@ -2,7 +2,7 @@
 import XCTest
 
 
-class FT_beginningOfSentenceBackward_Tests: XCTestCase {
+class FT_beginningOfSentenceBackward_NormalSetting_Tests: XCTestCase {
     
     private func applyFuncBeingTested(on text: String, startingAt caretLocation: Int) -> Int {
         let fileText = FileText(end: text.utf16.count, value: text)
@@ -13,36 +13,8 @@ class FT_beginningOfSentenceBackward_Tests: XCTestCase {
 }
 
 
-// The 3 Cases:
-// - empty TextElement
-// - 2nd case is now gone!
-// - caret at the end of TextElement on own empty line
-extension FT_beginningOfSentenceBackward_Tests {
-    
-    func test_that_if_the_text_is_empty_then_it_returns_0() {
-        let text = ""
-        
-        let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 0)
-        
-        XCTAssertEqual(beginningOfSentenceBackwardLocation, 0)
-    }
-    
-    func test_that_if_the_caret_is_on_the_last_EmptyLine_it_still_works() {
-        let text = """
-that this is gonna
-go up
-
-"""
-        let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 25)
-        
-        XCTAssertEqual(beginningOfSentenceBackwardLocation, 0)
-    }
-    
-}
-
-
 // both
-extension FT_beginningOfSentenceBackward_Tests {
+extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
 
     func test_that_if_the_text_is_just_one_word_then_it_goes_to_the_beginning_of_the_text() {
         let text = "dumb"
@@ -130,15 +102,28 @@ extension FT_beginningOfSentenceBackward_Tests {
         
         XCTAssertEqual(beginningOfSentenceBackwardLocation, 28)
     }
+    
+    func test_that_if_it_is_already_at_the_beginning_of_the_current_sentence_then_it_does_not_get_stuck_and_goes_to_the_beginning_of_the_previous_sentence() {
+        let text = "one more to start. now we gonna have. two sentenced and current it gets stuck"
+        let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 38)
+        
+        XCTAssertEqual(beginningOfSentenceBackwardLocation, 19)
+    }
+    
+    func test_that_it_skips_consecutive_blanks_because_there_is_a_bug() {
+        let text = "one more.    ok so it seems that.       if there are many blanks it does not work"
+        let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 38)
+        
+        XCTAssertEqual(beginningOfSentenceBackwardLocation, 13)
+        
+    }
         
 }
 
 
 // TextViews
-extension FT_beginningOfSentenceBackward_Tests {
+extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
     
-    // TODO: this one
-    // TODO: plus stuck when already at the beginning of sentence
     func test_that_paragraph_boundaries_are_also_sentence_boundaries() {
         let text = """
 so it's not gonna skip lines but stop
@@ -152,7 +137,45 @@ can check the impl of that
 """
         let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 84)
         
-        XCTAssertEqual(beginningOfSentenceForwardLocation, 62)
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 67)
+    }
+    
+    func test_that_it_does_not_stop_at_consecutive_lines_when_the_lines_start_with_blanks() {
+        let text = """
+this is a first line
+
+   for example it
+   it should go to the empty line
+   no the lines above
+"""
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 87)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 25)
+    }
+    
+    func test_that_it_stops_at_the_emptyLine_right_above_even_when_there_are_multiple_consecutive_lines() {
+        let text = """
+  it shoud
+
+
+
+
+  go up directly
+""" 
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 17)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 14)
+    }
+    
+    func test_that_it_stops_at_the_emptyLine_right_above_even_if_there_is_only_one() {
+        let text = """
+it should
+
+stop on the empty line above
+""" 
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 11)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 10)
     }
     
 }
