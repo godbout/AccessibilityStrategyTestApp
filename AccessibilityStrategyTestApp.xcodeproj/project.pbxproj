@@ -193,6 +193,7 @@
 		916DD1B427634F9600E4BC4C /* ASUI_NM_ce_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916DD1B0276347D200E4BC4C /* ASUI_NM_ce_Tests.swift */; };
 		9171482727058FC400BC4593 /* ASUT_NM_^_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9171482627058FC400BC4593 /* ASUT_NM_^_Tests.swift */; };
 		9171B8112706D02200709FDD /* SL_SimpleComputedProperties_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9171B8102706D02200709FDD /* SL_SimpleComputedProperties_Tests.swift */; };
+		917744C728963CC7000F3677 /* ASUT_NM_(_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917744C628963CC7000F3677 /* ASUT_NM_(_Tests.swift */; };
 		917CA66E2786F71B00D0BC37 /* ASUT_NM_d$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CA66D2786F71B00D0BC37 /* ASUT_NM_d$_Tests.swift */; };
 		917CA6732786F87F00D0BC37 /* ASUI_NM_d$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CA6712786F7B900D0BC37 /* ASUI_NM_d$_Tests.swift */; };
 		917CA6742786F88400D0BC37 /* ASUI_NM_c$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CA66F2786F79E00D0BC37 /* ASUI_NM_c$_Tests.swift */; };
@@ -743,6 +744,7 @@
 		916DD1B0276347D200E4BC4C /* ASUI_NM_ce_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_ce_Tests.swift; sourceTree = "<group>"; };
 		9171482627058FC400BC4593 /* ASUT_NM_^_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUT_NM_^_Tests.swift"; sourceTree = "<group>"; };
 		9171B8102706D02200709FDD /* SL_SimpleComputedProperties_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SL_SimpleComputedProperties_Tests.swift; sourceTree = "<group>"; };
+		917744C628963CC7000F3677 /* ASUT_NM_(_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUT_NM_(_Tests.swift"; sourceTree = "<group>"; };
 		917CA66D2786F71B00D0BC37 /* ASUT_NM_d$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_d$_Tests.swift; sourceTree = "<group>"; };
 		917CA66F2786F79E00D0BC37 /* ASUI_NM_c$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_c$_Tests.swift; sourceTree = "<group>"; };
 		917CA6712786F7B900D0BC37 /* ASUI_NM_d$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_d$_Tests.swift; sourceTree = "<group>"; };
@@ -1640,6 +1642,7 @@
 				91F9521226DFF7F900DC26C6 /* ASUT_NM_]}_Tests.swift */,
 				91F9521E26DFF7F900DC26C6 /* ASUT_NM_{_Tests.swift */,
 				91E2249928952ABB002869AA /* ASUT_NM_)_Tests.swift */,
+				917744C628963CC7000F3677 /* ASUT_NM_(_Tests.swift */,
 				91F9520F26DFF7F900DC26C6 /* ASUT_NM_}_Tests.swift */,
 				91F9520E26DFF7F900DC26C6 /* ASUT_NM_%_Tests.swift */,
 				9171482627058FC400BC4593 /* ASUT_NM_^_Tests.swift */,
@@ -2459,6 +2462,7 @@
 				91F9526C26DFF7F900DC26C6 /* ASUT_NM_cF__Tests.swift in Sources */,
 				91EFE6C927C2BF940067425E /* ASUT_VML_,_Tests.swift in Sources */,
 				9157BCD62859EAC400D2B8CB /* ASUT_NM_yaB__Tests.swift in Sources */,
+				917744C728963CC7000F3677 /* ASUT_NM_(_Tests.swift in Sources */,
 				91F5987126F0D9E700C8EAE9 /* ASUT_VM_wOrDMotionForward_Tests.swift in Sources */,
 				91B858E328704B2800C9520F /* FL_previousNonBlank_tests.swift in Sources */,
 				91F9528126DFF7F900DC26C6 /* ASUT_NM_yy_Tests.swift in Sources */,
@@ -3221,7 +3225,7 @@
 			repositoryURL = "git@github.com:godbout/AccessibilityStrategy.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.2.0;
+				minimumVersion = 6.3.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
