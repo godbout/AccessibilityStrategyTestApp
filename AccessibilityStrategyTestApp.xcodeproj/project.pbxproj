@@ -951,7 +951,6 @@
 		91DC71E82859BADD00815374 /* ASUT_NM_yi<_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUT_NM_yi<_Tests.swift"; sourceTree = "<group>"; };
 		91DC71F62859BFC600815374 /* ASUT_NM_yABlock_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_yABlock_Tests.swift; sourceTree = "<group>"; };
 		91DC71FE2859E9C700815374 /* ASUT_NM_yab_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_yab_Tests.swift; sourceTree = "<group>"; };
-		91E224962894FF0B002869AA /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		91E224972894FF86002869AA /* FT_beginningOfSentenceForward_NormalSetting_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT_beginningOfSentenceForward_NormalSetting_Tests.swift; sourceTree = "<group>"; };
 		91E2249928952ABB002869AA /* ASUT_NM_)_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUT_NM_)_Tests.swift"; sourceTree = "<group>"; };
 		91E2249B28952CAF002869AA /* FT_beginningOfSentenceBackward_NormalSetting_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT_beginningOfSentenceBackward_NormalSetting_Tests.swift; sourceTree = "<group>"; };
@@ -1547,7 +1546,6 @@
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
-				91E224962894FF0B002869AA /* AccessibilityStrategy */,
 				91F951B326DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,
@@ -3223,7 +3221,7 @@
 			repositoryURL = "git@github.com:godbout/AccessibilityStrategy.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
+				minimumVersion = 6.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
