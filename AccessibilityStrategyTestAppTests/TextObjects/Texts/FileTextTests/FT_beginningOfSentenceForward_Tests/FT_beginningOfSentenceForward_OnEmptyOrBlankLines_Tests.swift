@@ -14,10 +14,8 @@ class FT_beginningOfSentenceForward_OnEmptyOrBlankLines_Tests: XCTestCase {
 }
 
 
-// The 3 Cases:
-// - empty TextElement
-// - 2nd case is now gone!
-// - caret at the end of TextElement on own empty line
+// on Empty Lines
+// these tests contain Blanks
 extension FT_beginningOfSentenceForward_OnEmptyOrBlankLines_Tests {
     
     func test_that_if_the_text_is_empty_then_it_returns_0() {
@@ -39,13 +37,7 @@ it will not move
         
         XCTAssertEqual(beginningOfSentenceForwardLocation, 76)
     }
-    
-}
-
-
-// TextViews
-extension FT_beginningOfSentenceForward_OnEmptyOrBlankLines_Tests {
-    
+       
     func test_that_it_does_not_get_stuck_in_the_middle_of_multiple_emptyLines() {
         let text = """
 so it's not gonna skip lines but stop
@@ -77,6 +69,46 @@ below
         let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 29)
         
         XCTAssertEqual(beginningOfSentenceForwardLocation, 34)
+    }
+    
+}
+
+
+// on Blank Lines
+// these tests contain Blanks
+extension FT_beginningOfSentenceForward_OnEmptyOrBlankLines_Tests {
+    
+    func test_that_it_does_not_get_stuck_in_the_middle_of_multiple_BlankLines() {
+        let text = """
+so it's not gonna skip lines but stop
+at paragraph boundaries
+        
+           
+       
+               
+               
+can check the impl of that
+"""
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 78)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 123)
+    }
+    
+    func test_that_if_the_caret_is_on_an_BlankLine_and_the_text_ends_by_multiple_BlankLines_then_it_goes_to_the_end() {
+        let text = """
+plenty of empty lines
+below
+           
+        
+   
+  
+     
+     
+     
+"""
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 29)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 73)
     }
     
 }
