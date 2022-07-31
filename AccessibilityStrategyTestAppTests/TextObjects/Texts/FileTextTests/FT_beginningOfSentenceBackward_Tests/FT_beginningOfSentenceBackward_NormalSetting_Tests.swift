@@ -122,6 +122,7 @@ extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
 
 
 // TextViews
+// surrounded by Empty Lines
 extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
     
     func test_that_paragraph_boundaries_are_also_sentence_boundaries() {
@@ -176,6 +177,42 @@ stop on the empty line above
         let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 11)
         
         XCTAssertEqual(beginningOfSentenceForwardLocation, 10)
+    }
+    
+}
+
+
+// TextViews
+// surrounded by Blank Lines
+extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
+    
+    func test_that_it_skips_BlankLines() {
+        let text = """
+below is an empty line
+
+ below is a blank line
+      
+   for example it
+   it should go to the empty line
+   no the lines above
+"""
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 80)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 25)
+    }
+    
+    func test_that_it_skips_multiple_BlankLines() {
+        let text = """
+  it.    shoud
+   
+  
+   
+     
+  go up directly
+""" 
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 40)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 9)
     }
     
 }
