@@ -3,7 +3,7 @@ import XCTest
 
 
 // tests for when the caret is not on an empty or blank line
-class FT_beginningOfSentenceForward_Tests: XCTestCase {
+class FT_beginningOfSentenceForward_NormalSetting_Tests: XCTestCase {
     
     private func applyFuncBeingTested(on text: String, startingAt caretLocation: Int) -> Int {
         let fileText = FileText(end: text.utf16.count, value: text)
@@ -14,8 +14,8 @@ class FT_beginningOfSentenceForward_Tests: XCTestCase {
 }
 
 
-// TextFields
-extension FT_beginningOfSentenceForward_Tests {
+// both
+extension FT_beginningOfSentenceForward_NormalSetting_Tests {
 
     func test_that_if_the_text_is_just_one_word_then_it_goes_to_the_endLimit_of_the_text() {
         let text = "dumb"
@@ -107,4 +107,61 @@ extension FT_beginningOfSentenceForward_Tests {
         
 }
 
-// TODO: still need to check going forward towards emptyLines, and blankLines (behave differently)
+
+// TextViews
+// surrounded by EmptyLines
+extension FT_beginningOfSentenceForward_NormalSetting_Tests {
+
+    func test_that_paragraph_boundaries_are_also_sentence_boundaries() {
+        let text = """
+so it's not gonna skip lines but stop
+at paragraph boundaries
+
+
+
+
+
+can check the impl of that
+"""
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 10)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 62)
+    }
+    
+}
+
+
+// TextViews
+// surrounded by Blank Lines
+extension FT_beginningOfSentenceForward_NormalSetting_Tests {
+    
+    func test_that_it_skips_BlankLines() {
+        let text = """
+below is a blank line
+          
+ below is an empty line
+
+   for example it
+   it should go to the empty line
+   no the lines above
+"""
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 17)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 57)
+    }
+    
+    func test_that_it_skips_multiple_BlankLines() {
+        let text = """
+  it.    shoud
+   
+  
+   
+     
+  go up. directly
+""" 
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 7)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 41)
+    }
+    
+}
