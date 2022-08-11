@@ -4,6 +4,9 @@ import XCTest
 
 // this is using nextUnmatched and previousUnmatched internally, which are already tested on their own
 // so here we have just a few cases for extra care, and got the special cases for this move as usual
+// 2022-08-12: tried to move the handling of special cases for multilines here so that we don't repeat some code
+// for VM innerBlock but can't make sense of when to keep the linefeeds, when to discard etc. seems it depends on the moves
+// themselves, so ultimately each move is gonna take care of itself.
 class FT_innerBlock_Tests: XCTestCase {
     
     private func applyFuncBeingTested(on text: String, using openingBlock: OpeningBlockType, startingAt caretLocation: Int) -> Range<Int>? {
