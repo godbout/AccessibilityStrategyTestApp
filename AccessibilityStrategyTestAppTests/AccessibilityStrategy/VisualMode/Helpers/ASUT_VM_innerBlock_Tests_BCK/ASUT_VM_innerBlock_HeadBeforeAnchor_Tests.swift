@@ -2,11 +2,9 @@
 import XCTest
 import Common
 
-// TODO: test multiline
 
-// this move uses FT.innerBlock so we're not gonna test this. innerBlock is already heavily tested on its own.
-// here we're gonna test the stuff specific to VM innerBlock, which is cases where it Bips, repositioning Anchor and Head, etc.
-class ASUT_VM_innerBlock_AnchorBeforeHead_Tests: ASUT_VM_BaseTests {
+// see AnchorBeforeHead for blah blah
+class ASUT_VM_innerBlock_HeadBeforeAnchor_Tests: ASUT_VM_BaseTests {
 
     private func applyMoveBeingTested(using openingBlock: OpeningBlockType, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: .auto)
@@ -21,9 +19,9 @@ class ASUT_VM_innerBlock_AnchorBeforeHead_Tests: ASUT_VM_BaseTests {
 }
 
 
-extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
+extension ASUT_VM_innerBlock_HeadBeforeAnchor_Tests {
     
-    func test_that_for_Anchor_before_Head_if_the_Anchor_is_before_the_openingBlock_and_the_Head_is_also_before_the_openingBlock_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
+    func test_that_for_Head_before_Anchor_if_the_Head_is_before_the_openingBlock_and_the_Anchor_is_also_before_the_openingBlock_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
         let text = "this is (some block) hehe"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -44,8 +42,8 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
             )!
         )
         
-        AccessibilityStrategyVisualMode.anchor = 1
-        AccessibilityStrategyVisualMode.head = 5
+        AccessibilityStrategyVisualMode.anchor = 5
+        AccessibilityStrategyVisualMode.head = 1
         
         let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element)
         
@@ -56,7 +54,7 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 18)
     }
     
-    func test_that_for_Anchor_before_Head_if_the_Anchor_is_before_the_openingBlock_and_the_Head_is_within_the_innerBlock_but_not_at_the_upperBound_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
+    func test_that_for_Head_before_Anchor_if_the_Head_is_before_the_openingBlock_and_the_Anchor_is_within_the_innerBlock_but_not_at_the_upperBound_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
         let text = "this is {some block} hehe"
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -77,8 +75,8 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
             )!
         )
         
-        AccessibilityStrategyVisualMode.anchor = 3
-        AccessibilityStrategyVisualMode.head = 16
+        AccessibilityStrategyVisualMode.anchor = 16
+        AccessibilityStrategyVisualMode.head = 3
         
         let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element)
         
@@ -89,7 +87,7 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 18)
     }
     
-    func test_that_for_Anchor_before_Head_if_the_Anchor_is_before_the_openingBlock_and_the_Head_is_at_the_innerBlock_upperBound_then_it_Bips_and_does_not_move_and_does_not_reposition_the_Anchor_and_Head() {
+    func test_that_for_Head_before_Anchor_if_the_Head_is_before_the_openingBlock_and_the_Anchor_is_at_the_innerBlock_upperBound_then_it_Bips_and_does_not_move_and_does_not_reposition_the_Anchor_and_Head() {
         let text = "this is [some block] hehe"
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -110,8 +108,8 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
             )!
         )
         
-        AccessibilityStrategyVisualMode.anchor = 3
-        AccessibilityStrategyVisualMode.head = 18
+        AccessibilityStrategyVisualMode.anchor = 18
+        AccessibilityStrategyVisualMode.head = 3
         
         var state = VimEngineState(lastMoveBipped: false)
         let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element, &state)
@@ -120,11 +118,11 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
         XCTAssertEqual(returnedElement.caretLocation, 3)
         XCTAssertEqual(returnedElement.selectedLength, 16)
         XCTAssertNil(returnedElement.selectedText)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 3)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 18)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 18)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 3)
     }
     
-    func test_that_for_Anchor_before_Head_if_the_Anchor_is_before_the_openingBlock_and_the_Head_is_after_the_innerBlock_then_it_Bips_and_does_not_move_and_does_not_reposition_the_Anchor_and_Head() {
+    func test_that_for_Head_before_Anchor_if_the_Head_is_before_the_openingBlock_and_the_Anchor_is_after_the_innerBlock_then_it_Bips_and_does_not_move_and_does_not_reposition_the_Anchor_and_Head() {
         let text = "this is [some block] hehe"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -145,8 +143,8 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
             )!
         )
         
-        AccessibilityStrategyVisualMode.anchor = 3
-        AccessibilityStrategyVisualMode.head = 22
+        AccessibilityStrategyVisualMode.anchor = 22
+        AccessibilityStrategyVisualMode.head = 3
         
         var state = VimEngineState(lastMoveBipped: false)
         let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element, &state)
@@ -155,11 +153,11 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
         XCTAssertEqual(returnedElement.caretLocation, 3)
         XCTAssertEqual(returnedElement.selectedLength, 20)
         XCTAssertNil(returnedElement.selectedText)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 3)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 22)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 22)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 3)
     }
     
-    func test_that_for_Anchor_before_Head_if_the_Anchor_is_within_innerBlock_at_the_lowerBound_and_the_Head_is_within_the_innerBlock_but_not_at_the_upperBound_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
+    func test_that_for_Head_before_Anchor_if_the_Head_is_within_innerBlock_at_the_lowerBound_and_the_Anchor_is_within_the_innerBlock_but_not_at_the_upperBound_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
         let text = "this is [some block] hehe"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -180,8 +178,8 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
             )!
         )
         
-        AccessibilityStrategyVisualMode.anchor = 9
-        AccessibilityStrategyVisualMode.head = 15
+        AccessibilityStrategyVisualMode.anchor = 15
+        AccessibilityStrategyVisualMode.head = 9
         
         let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element)
         
@@ -192,7 +190,7 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 18)
     }
     
-    func test_that_for_Anchor_before_Head_if_the_Anchor_is_at_the_innerBlock_lowerBound_and_the_Head_is_at_the_innerBlock_upperBound_then_it_Bips_and_does_not_move_and_does_not_reposition_the_Anchor_and_Head() {
+    func test_that_for_Head_before_Anchor_if_the_Head_is_at_the_innerBlock_lowerBound_and_the_Anchor_is_at_the_innerBlock_upperBound_then_it_Bips_and_does_not_move_and_does_not_reposition_the_Anchor_and_Head() {
         let text = "this is [some block] hehe"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -213,8 +211,8 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
             )!
         )
         
-        AccessibilityStrategyVisualMode.anchor = 9
-        AccessibilityStrategyVisualMode.head = 18
+        AccessibilityStrategyVisualMode.anchor = 18
+        AccessibilityStrategyVisualMode.head = 9
         
         var state = VimEngineState(lastMoveBipped: false)
         let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element, &state)
@@ -223,11 +221,11 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
         XCTAssertEqual(returnedElement.caretLocation, 9)
         XCTAssertEqual(returnedElement.selectedLength, 10)
         XCTAssertNil(returnedElement.selectedText)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 9)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 18)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 18)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 9)
     }
     
-    func test_that_for_Anchor_before_Head_if_the_Anchor_is_at_the_innerBlock_lowerBound_and_the_Head_is_after_the_innerBlock_upperBound_then_it_Bips_and_does_not_move_and_does_not_reposition_the_Anchor_and_Head() {
+    func test_that_for_Head_before_Anchor_if_the_Head_is_at_the_innerBlock_lowerBound_and_the_Anchor_is_after_the_innerBlock_upperBound_then_it_Bips_and_does_not_move_and_does_not_reposition_the_Anchor_and_Head() {
         let text = "this is (some block) hehe"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -248,8 +246,8 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
             )!
         )
         
-        AccessibilityStrategyVisualMode.anchor = 9
-        AccessibilityStrategyVisualMode.head = 22
+        AccessibilityStrategyVisualMode.anchor = 22
+        AccessibilityStrategyVisualMode.head = 9
         
         var state = VimEngineState(lastMoveBipped: false)
         let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
@@ -258,11 +256,11 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
         XCTAssertEqual(returnedElement.caretLocation, 9)
         XCTAssertEqual(returnedElement.selectedLength, 14)
         XCTAssertNil(returnedElement.selectedText)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 9)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 22)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 22)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 9)
     }
-    
-    func test_that_for_Anchor_before_Head_if_the_Anchor_is_within_the_innerBlock_but_not_at_the_lowerbound_and_the_Head_is_within_the_innerBlock_but_not_at_the_upperBound_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
+
+    func test_that_for_Head_before_Anchor_if_the_Head_is_within_the_innerBlock_but_not_at_the_lowerbound_and_the_Anchor_is_within_the_innerBlock_but_not_at_the_upperBound_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
         let text = "this is (some block) hehe"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -283,8 +281,8 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
             )!
         )
         
-        AccessibilityStrategyVisualMode.anchor = 11
-        AccessibilityStrategyVisualMode.head = 15
+        AccessibilityStrategyVisualMode.anchor = 15
+        AccessibilityStrategyVisualMode.head = 11
         
         let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element)
         
@@ -295,7 +293,7 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 18)
     }
     
-    func test_that_for_Anchor_before_Head_if_the_Anchor_is_within_the_innerBlock_but_not_at_the_lowerbound_and_the_Head_is_within_the_innerBlock_at_the_upperBound_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
+    func test_that_for_Head_before_Anchor_if_the_Head_is_within_the_innerBlock_but_not_at_the_lowerbound_and_the_Anchor_is_within_the_innerBlock_at_the_upperBound_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
         let text = "this is (some block) hehe"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -316,8 +314,8 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
             )!
         )
         
-        AccessibilityStrategyVisualMode.anchor = 12
-        AccessibilityStrategyVisualMode.head = 18
+        AccessibilityStrategyVisualMode.anchor = 18
+        AccessibilityStrategyVisualMode.head = 12
         
         let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element)
         
@@ -328,7 +326,7 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 18)
     }
     
-    func test_that_for_Anchor_before_Head_if_the_Anchor_is_within_the_innerBlock_but_not_at_the_lowerbound_and_the_Head_is_after_the_innerBlock_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
+    func test_that_for_Head_before_Anchor_if_the_Head_is_within_the_innerBlock_but_not_at_the_lowerbound_and_the_Anchor_is_after_the_innerBlock_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
         let text = "this is (some block) hehe"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -349,8 +347,8 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
             )!
         )
         
-        AccessibilityStrategyVisualMode.anchor = 15
-        AccessibilityStrategyVisualMode.head = 23
+        AccessibilityStrategyVisualMode.anchor = 23
+        AccessibilityStrategyVisualMode.head = 15
         
         let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element)
         
@@ -361,7 +359,7 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 18)
     }
     
-    func test_that_for_Anchor_before_Head_if_the_Anchor_is_within_the_innerBlock_at_the_upperBound_and_the_Head_is_after_the_innerBlock_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
+    func test_that_for_Head_before_Anchor_if_the_Head_is_within_the_innerBlock_at_the_upperBound_and_the_Anchor_is_after_the_innerBlock_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
         let text = "this is (some block) hehe"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -382,8 +380,8 @@ extension ASUT_VM_innerBlock_AnchorBeforeHead_Tests {
             )!
         )
         
-        AccessibilityStrategyVisualMode.anchor = 18
-        AccessibilityStrategyVisualMode.head = 24
+        AccessibilityStrategyVisualMode.anchor = 24
+        AccessibilityStrategyVisualMode.head = 18
         
         let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element)
         
