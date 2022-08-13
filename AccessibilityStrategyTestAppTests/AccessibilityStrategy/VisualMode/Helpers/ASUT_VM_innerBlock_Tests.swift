@@ -248,7 +248,7 @@ extension ASUT_VM_innerBlock_Tests {
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 18)
     }
     
-    func test_that_if_the_selectionStart_is_within_innerBlock_at_the_lowerBound_and_the_selectionEnd_is_within_the_innerBlock_but_not_at_the_upperBound_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
+    func test_that_if_the_selectionStart_is_at_the_innerBlock_lowerBound_and_the_selectionEnd_is_within_the_innerBlock_but_not_at_the_upperBound_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
         let text = "this is [some block] hehe"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -315,7 +315,7 @@ extension ASUT_VM_innerBlock_Tests {
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 18)
     }
     
-    func test_that_if_the_selectionStart_is_within_the_innerBlock_but_not_at_the_lowerbound_and_the_selectionEnd_is_within_the_innerBlock_at_the_upperBound_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
+    func test_that_if_the_selectionStart_is_within_the_innerBlock_but_not_at_the_lowerbound_and_the_selectionEnd_is_at_the_innerBlock_upperBound_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
         let text = "this is (some block) hehe"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -381,7 +381,7 @@ extension ASUT_VM_innerBlock_Tests {
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 18)
     }
     
-    func test_that_if_the_selectionStart_is_within_the_innerBlock_at_the_upperBound_and_the_selectionEnd_is_after_the_innerBlock_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
+    func test_that_if_the_selectionStart_is_at_the_innerBlock_upperBound_and_the_selectionEnd_is_after_the_innerBlock_then_it_selects_the_innerBlock_and_repositions_the_Anchor_and_Head_properly() {
         let text = "this is (some block) hehe"
         let element = AccessibilityTextElement(
             role: .textField,
