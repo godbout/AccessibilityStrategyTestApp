@@ -575,4 +575,46 @@ is followed by a linefeed and
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 49)
     }
     
+    func test_that_on_multilines_if_the_openingBlock_is_immediately_followed_by_a_linefeed_and_the_closingBlock_is_immediately_preceded_by_a_linefeed_then_it_selects_the_lines_in_between_the_blocks_starting_from_their_start_and_including_the_linefeeds_and_does_not_Bip() {
+        let text = """
+this case is when (
+    is followed by a linefeed and
+    and even some more
+) is preceded by a linefeed
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 105,
+            caretLocation: 8,
+            selectedLength: 57,
+            selectedText: """
+        e is when (
+            is followed by a linefeed and
+            and eve
+        """,
+            fullyVisibleArea: 0..<105,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 105,
+                number: 1,
+                start: 0,
+                end: 20
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 8
+        AccessibilityStrategyVisualMode.head = 64
+        
+        var state = VimEngineState(lastMoveBipped: true)
+        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
+        
+        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(returnedElement.caretLocation, 20)
+        XCTAssertEqual(returnedElement.selectedLength, 57)
+        XCTAssertNil(returnedElement.selectedText)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 20)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 76)
+    }
+    
 }
