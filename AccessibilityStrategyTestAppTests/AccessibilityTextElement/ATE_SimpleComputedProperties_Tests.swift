@@ -39,8 +39,8 @@ extension ATE_SimpleComputedProperties_Tests {
             )!
         )
         
-        XCTAssertEqual(element.selectionStart, 0)
-        XCTAssertEqual(element.selectionEnd, 0)
+        XCTAssertEqual(element.selectionLowerBound, 0)
+        XCTAssertEqual(element.selectionUpperBound, 0)
         XCTAssertEqual(element.endLimit, 0)
         XCTAssertEqual(element.characterLength, 0)
         XCTAssertEqual(element.isEmpty, true)
@@ -77,8 +77,8 @@ line
             )!
         )
         
-        XCTAssertEqual(element.selectionStart, 31)
-        XCTAssertEqual(element.selectionEnd, 31)
+        XCTAssertEqual(element.selectionLowerBound, 31)
+        XCTAssertEqual(element.selectionUpperBound, 31)
         XCTAssertEqual(element.endLimit, 31)
         XCTAssertEqual(element.characterLength, 0)
         XCTAssertEqual(element.isEmpty, false)
@@ -117,8 +117,8 @@ extension ATE_SimpleComputedProperties_Tests {
             )!
         )
         
-        XCTAssertEqual(element.selectionStart, 8)
-        XCTAssertEqual(element.selectionEnd, 8)
+        XCTAssertEqual(element.selectionLowerBound, 8)
+        XCTAssertEqual(element.selectionUpperBound, 9)
         XCTAssertEqual(element.endLimit, 19)
         XCTAssertEqual(element.characterLength, 1)
         XCTAssertEqual(element.isEmpty, false)
@@ -168,8 +168,8 @@ line 🌻️
             )!
         )
         
-        XCTAssertEqual(element.selectionStart, 35)
-        XCTAssertEqual(element.selectionEnd, 35)
+        XCTAssertEqual(element.selectionLowerBound, 35)
+        XCTAssertEqual(element.selectionUpperBound, 35)
         XCTAssertEqual(element.endLimit, 35)
         XCTAssertEqual(element.characterLength, 0)
         XCTAssertEqual(element.isEmpty, false)
@@ -206,8 +206,8 @@ extension ATE_SimpleComputedProperties_Tests {
             )!
         )
         
-        XCTAssertEqual(element.selectionStart, 13)
-        XCTAssertEqual(element.selectionEnd, 13)
+        XCTAssertEqual(element.selectionLowerBound, 13)
+        XCTAssertEqual(element.selectionUpperBound, 16)
         XCTAssertEqual(element.endLimit, 28)
         XCTAssertEqual(element.characterLength, 3)
         XCTAssertEqual(element.isEmpty, false)
