@@ -577,10 +577,10 @@ is followed by a linefeed and
     
     func test_that_on_multilines_if_the_openingBlock_is_immediately_followed_by_a_linefeed_and_the_closingBlock_is_immediately_preceded_by_a_linefeed_then_it_selects_the_lines_in_between_the_blocks_starting_from_their_start_and_including_the_linefeeds_and_does_not_Bip() {
         let text = """
-this case is when (
+this case is when <
     is followed by a linefeed and
     and even some more
-) is preceded by a linefeed
+> is preceded by a linefeed
 """
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -589,7 +589,7 @@ this case is when (
             caretLocation: 8,
             selectedLength: 57,
             selectedText: """
-        e is when (
+        e is when <
             is followed by a linefeed and
             and eve
         """,
@@ -607,7 +607,7 @@ this case is when (
         AccessibilityStrategyVisualMode.head = 64
         
         var state = VimEngineState(lastMoveBipped: true)
-        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: .leftChevron, on: element, &state)
         
         XCTAssertEqual(state.lastMoveBipped, false)
         XCTAssertEqual(returnedElement.caretLocation, 20)

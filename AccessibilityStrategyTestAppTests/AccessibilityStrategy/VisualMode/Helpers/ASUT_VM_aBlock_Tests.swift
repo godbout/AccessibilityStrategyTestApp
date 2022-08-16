@@ -494,9 +494,9 @@ by a linefeed and
     
     func test_that_on_multilines_if_the_openingBlock_is_immediately_followed_by_a_linefeed_then_it_works_normally_and_selects_from_the_openingBlock_to_the_closingBlock() {
         let text = """
-this work when [
+this work when <
 is followed by a linefeed
-and ] is not preceded by a linefeed
+and > is not preceded by a linefeed
 """
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -506,7 +506,7 @@ and ] is not preceded by a linefeed
             selectedLength: 29,
             selectedText: """
         owed by a linefeed
-        and ] is n
+        and > is n
         """,
             fullyVisibleArea: 0..<78,
             currentScreenLine: ScreenLine(
@@ -522,7 +522,7 @@ and ] is not preceded by a linefeed
         AccessibilityStrategyVisualMode.head = 52
         
         var state = VimEngineState(lastMoveBipped: true)
-        let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element, &state)
+        let returnedElement = applyMoveBeingTested(using: .leftChevron, on: element, &state)
         
         XCTAssertEqual(state.lastMoveBipped, false)
         XCTAssertEqual(returnedElement.caretLocation, 15)
