@@ -248,10 +248,6 @@ some sentence with 'some nice' quotes hehe
 // TextFields and TextViews
 extension ASUT_VM_quotedString_Tests {
 
-    // TODO: this is different from innerBlock LOL. the Bips and non Bips.
-    // with quotedStrings it's gonna depend if the Anchor is before the Head, etc. and of course also the position
-    // regarding the innerRange.
-    
     func test_that_if_the_Anchor_is_before_the_openingQuote_and_the_Head_is_also_before_the_openingQuote_and_the_Anchor_is_before_the_Head_then_it_selects_the_innerQuotedString_and_repositions_the_Anchor_and_Head_properly() {
         let text = """
 some sentence with "some nice" quotes hehe
@@ -323,6 +319,41 @@ some sentence with 'some nice' quotes hehe
     }
     
     func test_that_if_the_Anchor_is_within_the_innerQuotedString_and_the_Head_is_within_the_innerQuotedString_and_the_Anchor_is_before_the_Head_then_it_selects_the_innerQuotedString_and_repositions_the_Anchor_and_the_Head_properly() {
+        let text = """
+some sentence with 'some nice' quotes hehe
+"""
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 42,
+            caretLocation: 22,
+            selectedLength: 6,
+            selectedText: """
+        me nic
+        """,
+            fullyVisibleArea: 0..<42,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 42,
+                number: 1,
+                start: 0,
+                end: 42
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 22
+        AccessibilityStrategyVisualMode.head = 27
+        
+        let returnedElement = applyMoveBeingTested(using: .singleQuote, on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 20)
+        XCTAssertEqual(returnedElement.selectedLength, 9)
+        XCTAssertNil(returnedElement.selectedText)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 20)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 28)
+    }
+    
+    func test_that_if_the_Anchor_is_within_the_innerQuotedString_and_the_Head_is_within_the_innerQuotedString_and_the_Anchor_and_the_Head_are_equal_then_it_selects_the_innerQuotedString_and_repositions_the_Anchor_and_the_Head_properly() {
         let text = """
 some sentence with 'some nice' quotes hehe
 """

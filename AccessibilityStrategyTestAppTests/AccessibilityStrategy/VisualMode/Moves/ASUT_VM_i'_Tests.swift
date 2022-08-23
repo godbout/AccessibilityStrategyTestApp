@@ -47,6 +47,8 @@ now th😄️at is ' some stuff 😄️😄️😄️on the same ' line😄️
         XCTAssertEqual(returnedElement.caretLocation, 16)
         XCTAssertEqual(returnedElement.selectedLength, 33)
         XCTAssertNil(returnedElement.selectedText)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 16)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 48)
     }
     
 }
