@@ -505,6 +505,11 @@ extension ASUT_VM_quotedString_Tests {
     
     // that may happen only for the innerQuotedString, which would mean that there is nothing within the quotes.
     // the lowerBound and upperBound will never be equal for aQuotedString, as the quotes are part of the range.
+    // update: this is also not really in line with Vim. in Vim, you may end up with
+    // different Anchor and Head depending on where you were located before calling the move.
+    // strangely the Anchor/Head are inversly positioned to what they usually are when
+    // the quotedString is not empty. currently i don't bother and handle all the cases
+    // the same, and the Anchor ends up at the first quote, the Head at the second.
     func test_that_if_the_lowerBound_and_the_upperBound_are_equal_then_it_selects_the_bounds_and_repositions_the_Anchor_and_the_Head_properly() {
         let text = """
 hehe nothing to see "" in there.
