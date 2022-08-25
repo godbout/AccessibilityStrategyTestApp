@@ -493,4 +493,121 @@ some sentence with 'some nice' quotes hehe
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 20)
     }
     
+    
+}
+
+
+// bugs discovered after
+// some would/should require testing in lots of different cases but i don't wanna
+// go through all of them :tears: :cry: so i'm make sure they're at least tested
+// in one case, and thoughts and prayers that i've handled all the sibling cases as well.
+extension ASUT_VM_quotedString_Tests {
+    
+    // that may happen only for the innerQuotedString, which would mean that there is nothing within the quotes.
+    // the lowerBound and upperBound will never be equal for aQuotedString, as the quotes are part of the range.
+    func test_that_if_the_lowerBound_and_the_upperBound_are_equal_then_it_selects_the_bounds_and_repositions_the_Anchor_and_the_Head_properly() {
+        let text = """
+hehe nothing to see "" in there.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 32,
+            caretLocation: 11,
+            selectedLength: 5,
+            selectedText: """
+        g to 
+        """,
+            fullyVisibleArea: 0..<32,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 32,
+                number: 1,
+                start: 0,
+                end: 32
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 11
+        AccessibilityStrategyVisualMode.head = 15
+        
+        let returnedElement = applyMoveBeingTested(using: .doubleQuote, on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 20)
+        XCTAssertEqual(returnedElement.selectedLength, 2)
+        XCTAssertNil(returnedElement.selectedText)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 20)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 21)
+    }
+    
+    func test_that_if_the_caretLocation_is_at_the_lowerBound_it_works() {
+        let text = """
+some sentence with "some nice" quotes hehe
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 42,
+            caretLocation: 20,
+            selectedLength: 1,
+            selectedText: """
+        s
+        """,
+            fullyVisibleArea: 0..<42,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 42,
+                number: 1,
+                start: 0,
+                end: 42
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 20
+        AccessibilityStrategyVisualMode.head = 20
+        
+        let returnedElement = applyMoveBeingTested(using: .doubleQuote, on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 20)
+        XCTAssertEqual(returnedElement.selectedLength, 9)
+        XCTAssertNil(returnedElement.selectedText)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 20)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 28)
+    }
+        
+    func test_that_if_the_caretLocation_is_at_the_second_quote_it_works() {
+        let text = """
+some sentence with "some nice" quotes hehe
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 42,
+            caretLocation: 29,
+            selectedLength: 1,
+            selectedText: """
+        "
+        """,
+            fullyVisibleArea: 0..<42,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 42,
+                number: 1,
+                start: 0,
+                end: 42
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 29
+        AccessibilityStrategyVisualMode.head = 29
+        
+        let returnedElement = applyMoveBeingTested(using: .doubleQuote, on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 20)
+        XCTAssertEqual(returnedElement.selectedLength, 9)
+        XCTAssertNil(returnedElement.selectedText)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 20)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 28)
+    }
+    
 }
