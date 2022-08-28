@@ -47,7 +47,7 @@ extension ASUT_VMC_rightParenthesis_Tests {
         XCTAssertEqual(returnedElement.selectedLength, 30)
     }
     
-    func test_that_if_the_Head_is_before_the_Anchor_then_it_reduces_the_selection_to_the_new_HeadLocation() {
+    func test_that_if_the_Head_is_before_the_Anchor_then_it_reduces_the_selection_to_the_newHeadLocation() {
         let text = "that's pretty much several sentences. together. hehe"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -76,6 +76,42 @@ extension ASUT_VMC_rightParenthesis_Tests {
         XCTAssertEqual(returnedElement.caretLocation, 20)
         XCTAssertEqual(returnedElement.selectedLength, 19)
         
+    }
+    
+}
+
+
+// bugs found
+extension ASUT_VMC_rightParenthesis_Tests {
+    
+    func test_that_the_newHeadLocation_is_calculated_according_to_the_Head_and_not_the_caretLocation_or_selectionUpperBound() {
+        let text = "that's pretty much several sentences. together. hehe"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 52,
+            caretLocation: 12,
+            selectedLength: 33,
+            selectedText: """
+        y much several sentences. togethe
+        """,
+            fullyVisibleArea: 0..<52,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 52,
+                number: 1,
+                start: 0,
+                end: 52
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 44
+        AccessibilityStrategyVisualMode.head = 12
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 38)
+        XCTAssertEqual(returnedElement.selectedLength, 7)
     }
     
 }
