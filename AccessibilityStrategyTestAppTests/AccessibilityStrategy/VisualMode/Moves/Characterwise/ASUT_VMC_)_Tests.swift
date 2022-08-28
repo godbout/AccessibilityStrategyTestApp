@@ -75,7 +75,6 @@ extension ASUT_VMC_rightParenthesis_Tests {
 
         XCTAssertEqual(returnedElement.caretLocation, 20)
         XCTAssertEqual(returnedElement.selectedLength, 19)
-        
     }
     
 }
