@@ -202,7 +202,6 @@ paragraph in
         XCTAssertEqual(innerParagraphRange.count, 44) 
     }
     
-    
     func test_that_for_multilines_surrounded_by_other_lines_it_returns_the_correct_range() {
         let text = """
 some fucking lines
@@ -397,7 +396,6 @@ is a whole
         XCTAssertEqual(innerParagraphRange.lowerBound, 12)
         XCTAssertEqual(innerParagraphRange.count, 48) 
     }
-    
     
     func test_that_for_multilines_surrounded_by_other_BlankLines_it_returns_the_correct_range() {
         let text = """
