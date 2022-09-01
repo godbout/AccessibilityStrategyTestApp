@@ -300,7 +300,7 @@ is a whole
   paragraph in
    itself
 """
-        let aParagraphRange = applyFuncBeingTested(on: text, startingAt: 33)
+        let aParagraphRange = applyFuncBeingTested(on: text, startingAt: 38)
         
         XCTAssertEqual(aParagraphRange?.lowerBound, 24)
         XCTAssertEqual(aParagraphRange?.count, 49) 
