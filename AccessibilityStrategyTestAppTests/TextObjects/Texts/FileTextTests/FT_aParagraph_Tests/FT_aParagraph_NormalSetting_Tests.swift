@@ -307,6 +307,22 @@ hehe
         XCTAssertEqual(aParagraphRange?.count, 83) 
     }
     
+    func test_that_for_a_single_line_that_ends_the_text_and_with_lines_above_it_returns_the_correct_range() {
+        let text = """
+hey here are
+some line
+          
+       
+      
+and a last line with blanks above
+"""
+        let aParagraphRange = applyFuncBeingTested(on: text, startingAt: 68)
+        
+        XCTAssertEqual(aParagraphRange?.lowerBound, 23)
+        XCTAssertEqual(aParagraphRange?.count, 59) 
+        
+    }
+    
     func test_that_for_multiple_lines_before_one_BlankLine_it_returns_the_correct_range() {
         let text = """
           
