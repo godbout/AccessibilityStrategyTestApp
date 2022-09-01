@@ -4,18 +4,18 @@ import Common
 
 
 // see see yiWw
-class ASUT_NM_yiw_Tests: ASUT_NM_BaseTests {
+class ASUT_NM_yiW__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: .auto)
         
-        return asNormalMode.yiw(on: element, &state)
+        return asNormalMode.yiW(on: element, &state)
     }
     
 }
 
 
-extension ASUT_NM_yiw_Tests {
+extension ASUT_NM_yiW__Tests {
     
     func test_that_we_pass_the_right_function_and_the_right_quote_to_the_helper_function() {
         let text = """
@@ -43,7 +43,7 @@ the right-parameter to the funcs!
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "right")
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "right-parameter")
         XCTAssertEqual(returnedElement.caretLocation, 31)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
