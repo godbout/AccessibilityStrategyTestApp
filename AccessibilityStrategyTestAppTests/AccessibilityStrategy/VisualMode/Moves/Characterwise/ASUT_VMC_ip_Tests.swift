@@ -23,7 +23,7 @@ class ASUT_VMC_ip_Tests: ASUT_VM_BaseTests {
 
 extension ASUT_VMC_ip_Tests {
 
-    func test_that_when_starting_in_VMC_and_the_Head_is_after_the_Anchor_then_the_move_selects_the_whole_innerParagraph_counting_from_the_Head_and_recalculated_the_Anchor_and_Head_properly() {
+    func test_that_if_the_Head_is_after_the_Anchor_then_the_move_selects_the_whole_innerParagraph_counting_from_the_Head_and_recalculate_the_Anchor_and_Head_properly() {
         let text = """
 so we are in VMC
 and some stuff
@@ -66,7 +66,7 @@ innerParagraph
         XCTAssertEqual(returnedElement.selectedLength, 57)
     }
     
-    func test_that_when_starting_in_VMC_and_the_Head_is_before_the_Anchor_then_the_move_selects_the_whole_innerParagraph_counting_from_the_Head_and_recalculated_the_Anchor_and_Head_properly() {
+    func test_that_if_the_Head_is_before_the_Anchor_then_the_move_selects_the_whole_innerParagraph_counting_from_the_Head_and_recalculate_the_Anchor_and_Head_properly() {
         let text = """
 so we are in VMC
 and some stuff
@@ -109,7 +109,7 @@ innerParagraph
         XCTAssertEqual(returnedElement.selectedLength, 57)
     }
     
-    func test_that_when_starting_in_VMC_and_the_Head_and_the_Anchor_are_equal_then_the_move_selects_the_whole_innerParagraph_counting_from_the_Head_and_recalculated_the_Anchor_and_Head_properly() {
+    func test_that_if_the_Head_and_the_Anchor_are_equal_then_the_move_selects_the_whole_innerParagraph_counting_from_the_Head_and_recalculate_the_Anchor_and_Head_properly() {
         let text = """
 so we are in VMC
 and some stuff
@@ -150,6 +150,5 @@ innerParagraph
         XCTAssertEqual(returnedElement.caretLocation, 91)
         XCTAssertEqual(returnedElement.selectedLength, 42)
     }
-
     
 }
