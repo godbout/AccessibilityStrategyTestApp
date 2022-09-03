@@ -345,7 +345,7 @@ and a last line with blanks above
         let aParagraphRange = applyFuncBeingTested(on: text, startingAt: 51)
 
         XCTAssertEqual(aParagraphRange?.lowerBound, 23)
-        XCTAssertEqual(aParagraphRange?.count, 44)
+        XCTAssertEqual(aParagraphRange?.count, 34)
 
     }
 
