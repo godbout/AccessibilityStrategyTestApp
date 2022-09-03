@@ -117,6 +117,19 @@ fail only with aParagraph, not with innerParagraph
         XCTAssertEqual(aParagraphRange?.count, 53) 
     }
     
+    func test_that_for_a_single_line_at_the_end_of_the_text_preceded_by_only_one_empty_line_if_returns_the_correct_range() {
+        let text = """
+this is something
+that is gonna
+
+fail only with aParagraph, not with innerParagraph
+"""
+        let aParagraphRange = applyFuncBeingTested(on: text, startingAt: 39)
+
+        XCTAssertEqual(aParagraphRange?.lowerBound, 32)
+        XCTAssertEqual(aParagraphRange?.count, 51)
+    }
+
     func test_that_for_multiple_lines_without_any_Empty_or_Blank_Lines_above_and_below_it_returns_the_whole_text() {
         let text = """
  this text
@@ -320,9 +333,22 @@ and a last line with blanks above
         
         XCTAssertEqual(aParagraphRange?.lowerBound, 23)
         XCTAssertEqual(aParagraphRange?.count, 59) 
-        
     }
     
+    func test_that_for_a_single_line_that_ends_the_text_and_with_only_one_line_above_it_returns_the_correct_range() {
+        let text = """
+hey here are
+some line
+
+and a last line with blanks above
+"""
+        let aParagraphRange = applyFuncBeingTested(on: text, startingAt: 51)
+
+        XCTAssertEqual(aParagraphRange?.lowerBound, 23)
+        XCTAssertEqual(aParagraphRange?.count, 44)
+
+    }
+
     func test_that_for_multiple_lines_before_one_BlankLine_it_returns_the_correct_range() {
         let text = """
           
