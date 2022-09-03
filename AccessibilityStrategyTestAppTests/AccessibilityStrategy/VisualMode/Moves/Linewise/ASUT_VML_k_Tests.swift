@@ -249,3 +249,50 @@ caret at the last empty line
     }
     
 }
+
+
+// special for this move:
+// the Anchor has to be updated once the Head goes above it
+// because through the V when entering NM, the Anchor will be at the beginning of a line
+// but once the Head passes above it should be at the end of the line.
+extension ASUT_VML_k_Tests {
+   
+    func test_that_the_Anchor_is_getting_updated_to_the_end_of_the_line_rather_than_the_start_when_the_Head_passes_above_it() {
+        let text = """
+this is a case that showed up
+only because of ip else i guess
+we would have never known
+but who knows right
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 107,
+            caretLocation: 62,
+            selectedLength: 26,
+            selectedText: """
+        we would have never known
+
+        """,
+            fullyVisibleArea: 0..<107,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 107,
+                number: 3,
+                start: 62,
+                end: 88
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 62
+        AccessibilityStrategyVisualMode.head = 87
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 87)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 30)
+        XCTAssertEqual(returnedElement.caretLocation, 30)
+        XCTAssertEqual(returnedElement.selectedLength, 58)
+    }
+    
+}
