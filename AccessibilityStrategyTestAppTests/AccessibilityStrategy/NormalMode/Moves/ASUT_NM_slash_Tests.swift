@@ -74,7 +74,7 @@ extension ASUT_NM_slash_Tests {
 // Both
 extension ASUT_NM_slash_Tests {
     
-    func test_that_in_normal_setting_it_moves_the_caret_to_the_first_occurence_of_the_pattern_found_to_the_right() {
+    func test_that_in_normal_setting_it_moves_the_caret_to_the_first_occurrence_of_the_pattern_found_to_the_right() {
         let text = "hehe now it's real regex my man not some pussy pussy stuff like before"
         let element = AccessibilityTextElement(
             role: .textField,
