@@ -238,5 +238,92 @@ but actually easy yes
         XCTAssertEqual(returnedElement.caretLocation, 48)
         XCTAssertEqual(returnedElement.selectedLength, 23)
     }
+    
+    func test_on_a_text_with_sentences_on_a_same_line_not_like_code() {
+        let text = """
+here is. some sentence. and more.
+and like we have this.
+and hehe. hard.
+yep. coding is hard.
+vim even. more.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 109,
+            caretLocation: 0,
+            selectedLength: 94,
+            selectedText: """
+        here is. some sentence. and more.
+        and like we have this.
+        and hehe. hard.
+        yep. coding is hard.
 
+        """,
+            fullyVisibleArea: 0..<109,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 109,
+                number: 1,
+                start: 0,
+                end: 34
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 93
+        AccessibilityStrategyVisualMode.head = 0
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 93)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 34)
+        XCTAssertEqual(returnedElement.caretLocation, 34)
+        XCTAssertEqual(returnedElement.selectedLength, 60)
+    }
+
+}
+
+
+// bug found
+extension ASUT_VML_rightParenthesis_Tests {
+    
+    func test_some_case_where_it_skips_one_line() {
+        let text = """
+here is. some sentence. and more.
+and like we have this.
+and hehe. hard.
+yep. coding is hard.
+vim even. more.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 109,
+            caretLocation: 0,
+            selectedLength: 34,
+            selectedText: """
+        here is. some sentence. and more.
+
+        """,
+            fullyVisibleArea: 0..<109,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 109,
+                number: 1,
+                start: 0,
+                end: 34
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 0
+        AccessibilityStrategyVisualMode.head = 33
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 56)
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 57)
+    }
+    
 }
