@@ -70,6 +70,64 @@ extension ASUT_NM_interrogationMark_Tests {
 }
 
 
+// regex correct vs regex not correct
+extension ASUT_NM_interrogationMark_Tests {
+    
+    func test_that_if_the_regex_given_is_correct_then_it_uses_that_regex_to_search() {
+        let text = "ok now we're gonna go harder asNormalMode.h(times: count) alright?"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 66,
+            caretLocation: 58,
+            selectedLength: 1,
+            selectedText: "a",
+            fullyVisibleArea: 0..<66,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 66,
+                number: 1,
+                start: 0,
+                end: 66
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(to: "N.*M", on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 31)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
+    func test_that_if_the_regex_given_is_not_correct_then_it_uses_the_literal_version_if_it_to_search() {
+        let text = "ok now we're gonna go harder asNormalMode.h(times: count) alright?"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 66,
+            caretLocation: 58,
+            selectedLength: 1,
+            selectedText: "a",
+            fullyVisibleArea: 0..<66,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 66,
+                number: 1,
+                start: 0,
+                end: 66
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(to: "h(", on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 42)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
+}
+
+
 // Both
 extension ASUT_NM_interrogationMark_Tests {
     
