@@ -99,6 +99,39 @@ extension ASUT_NM_interrogationMark_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
+    func test_that_if_the_regex_is_valid_and_contains_anchors_the_anchors_match_lines() {
+        let text = """
+ok so now we gonna have
+multilines
+and $ and ^ should match
+end and start of lines
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 82,
+            caretLocation: 78,
+            selectedLength: 1,
+            selectedText: """
+        i
+        """,
+            fullyVisibleArea: 0..<82,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 82,
+                number: 4,
+                start: 60,
+                end: 82
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(to: "^m", on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 24)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
     func test_that_if_the_regex_given_is_not_correct_then_it_uses_the_literal_version_if_it_to_search() {
         let text = "ok now we're gonna go harder asNormalMode.h(times: count) alright?"
         let element = AccessibilityTextElement(
