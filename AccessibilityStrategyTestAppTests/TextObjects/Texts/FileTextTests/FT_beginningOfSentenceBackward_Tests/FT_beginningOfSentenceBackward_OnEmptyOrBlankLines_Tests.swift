@@ -152,3 +152,41 @@ this is some more text
     }
     
 }
+
+
+// bug found
+extension FT_beginningOfSentenceBackward_OnEmptyOrBlankLines_Tests {
+    
+    func test_that_it_does_not_skip_empty_lines_in_some_cases() {
+        let text = """
+so that's a case
+
+where it skips
+
+empty lines!
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 46,
+            caretLocation: 33,
+            selectedLength: 1,
+            selectedText: """
+
+
+        """,
+            fullyVisibleArea: 0..<46,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 46,
+                number: 4,
+                start: 33,
+                end: 34
+            )!
+        )
+                
+        let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 33)
+        
+        XCTAssertEqual(beginningOfSentenceBackwardLocation, 18)
+    }
+}
