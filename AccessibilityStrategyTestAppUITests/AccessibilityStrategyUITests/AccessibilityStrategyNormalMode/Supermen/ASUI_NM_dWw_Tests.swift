@@ -105,6 +105,30 @@ extension ASUI_NM_dWw_Tests {
 // TextViews
 extension ASUI_NM_dWw_Tests {
 
+    func test_that_it_deletes_correctly_when_we_are_at_the_last_word_of_a_line() {
+        let textInAXFocusedElement = """
+let's have
+several lines now
+hehe
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.dollarSign(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+let's hav
+several lines now
+hehe
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 8)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "vs")
+    }
+
 }
 
 
