@@ -33,7 +33,27 @@ finally dealing with the!
         XCTAssertEqual(accessibilityElement.caretLocation, 24)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "!")
+    }
         
+    func test_that_the_block_cursor_is_repositioned_correctly_even_when_the_quote_is_the_last_character_of_the_line() {
+        let textInAXFocusedElement = """
+ok so there was "a bug"
+here hehe
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.gg(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
+        
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+ok so there was
+here hehe
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 14)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "s")
     }
 
 }
