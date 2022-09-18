@@ -137,5 +137,22 @@ and more
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, " ")
     }
+    
+    func test_that_if_the_closing_bracket_is_at_the_end_of_a_line_it_repositions_the_caretLocation_correctly() {
+        let textInAXFocusedElement = """
+hehe
+this is < a funny >
+one hehe
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.gg(times: 2, on: $0) }
+
+        let accessibilityElement = applyMoveBeingTested(using: .leftChevron)
+
+        XCTAssertEqual(accessibilityElement.caretLocation, 12)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, " ")
+    }
 
 }
