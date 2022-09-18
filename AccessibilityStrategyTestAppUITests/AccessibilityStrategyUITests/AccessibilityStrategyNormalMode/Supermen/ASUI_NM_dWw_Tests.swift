@@ -24,8 +24,8 @@ class ASUI_NM_dWw_Tests: ASUI_NM_BaseTests {
 
 // Bip, copy deletion and LYS
 extension ASUI_NM_dWw_Tests {
-    
-    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_even_for_an_empty_line() {
+
+    func test_that_for_a_word_that_is_not_at_the_end_of_a_line_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_proper_deletion() {
         let textInAXFocusedElement = "😂️😂️😂️😂️hehehe gonna use ce on this sentence"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -39,6 +39,49 @@ extension ASUI_NM_dWw_Tests {
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️😂️😂️")
         XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(state.lastMoveBipped)
+    }
+    
+    func test_that_for_a_word_that_is_at_the_end_of_a_line_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_proper_deletion_which_means_without_the_Linefeed() {
+        let textInAXFocusedElement = """
+ok my friend here
+you shouldn't copy
+the linefeed ok?
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(&state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "copy")
+        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(state.lastMoveBipped)
+    }
+    
+    func test_that_for_an_EmptyLine_it_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_an_empty_string() {
+        let textInAXFocusedElement = """
+hehe empty lines
+
+
+yes hehe
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.j(on: $0) }
+        
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(&state)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
+        XCTAssertEqual(state.lastYankStyle, .linewise)
         XCTAssertFalse(state.lastMoveBipped)
     }
     
@@ -126,7 +169,32 @@ hehe
         )
         XCTAssertEqual(accessibilityElement.caretLocation, 8)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement.selectedText, "vs")
+        XCTAssertEqual(accessibilityElement.selectedText, "v")
+    }
+
+    func test_that_if_on_an_EmptyLine_it_deletes_that_line_and_only_that_one() {
+        let textInAXFocusedElement = """
+hehe empty lines
+
+😂️
+yes hehe
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.j(on: $0) }
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+hehe empty lines
+😂️
+yes hehe
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 17)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.selectedText, "😂️")
     }
 
 }
@@ -148,6 +216,30 @@ extension ASUI_NM_dWw_Tests {
         XCTAssertEqual(accessibilityElement.caretLocation, 0)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "h")
+    }
+        
+    func test_that_for_emptyLines_the_PGR_mode_works_also() {
+        let textInAXFocusedElement = """
+hehe empty lines
+
+😂️
+yes hehe
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.j(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+hehe empty lines😂️
+yes hehe
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 16)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.selectedText, "😂️")
     }
         
 }
