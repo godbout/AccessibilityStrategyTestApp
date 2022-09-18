@@ -36,7 +36,6 @@ finally dealing with the ''!
         XCTAssertEqual(accessibilityElement.caretLocation, 26)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "'")
-        
     }
 
 }
