@@ -289,31 +289,29 @@ put the caret in weird places
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    
-    func test_that_if_the_pasted_line_is_BlankLine_then_the_caret_ends_at_the_end_of_the_line_not_the_beginning() {
+    // this test contains Blanks
+    func test_that_if_the_pasted_line_at_the_LastLine_is_BlankLine_then_the_caret_ends_at_the_end_of_the_line_not_the_beginning() {
         let textInAXFocusedElement = """
-caret reposition issue
-should probably be
-first non blank limit
-rather than forst non blank
+so this is when the copied line
+is blank and we paste on
+the last line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.l(on: $0) }
-        applyMove { asNormalMode.k(times: 2, on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
         copyToClipboard(text: "        ")
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
-caret reposition issue
-should probably be
+so this is when the copied line
+is blank and we paste on
+the last line
         
-first non blank limit
-rather than forst non blank
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 49)
+        XCTAssertEqual(accessibilityElement.caretLocation, 78)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
