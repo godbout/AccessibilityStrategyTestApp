@@ -11,7 +11,6 @@ class ASUI_NM_pForLastYankStyleLinewise_Tests: ASUI_NM_BaseTests {
     
 }
 
-
 // TextFields
 extension ASUI_NM_pForLastYankStyleLinewise_Tests {
 
@@ -233,6 +232,89 @@ a linefeed at the end of the line
         XCTAssertEqual(accessibilityElement.caretLocation, 74)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "s")
+    }
+    
+}
+
+
+// bugs found
+extension ASUI_NM_pForLastYankStyleLinewise_Tests {
+
+    // TODO:
+    // clipboard empty? one linefeed? only linefeed? spaces and linefeed?
+    func test_that_if_the_Clipboard_is_empty_and_we_paste_Linewise_at_the_LastLine_it_pastes_a_Linefeed_after_that_LastLine() {
+        let textInAXFocusedElement = """
+so if the Clipboard is empty
+and we paste the Linewise at the last line
+it actually works lol
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.G(on: $0) }
+        copyToClipboard(text: "")
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+so if the Clipboard is empty
+and we paste the Linewise at the last line
+it actually works lol
+
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 94)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+    }
+    
+    // this test contains Blanks
+    func test_that_when_we_paste_a_BlankLine_or_an_EmptyLine_the_caret_is_repositioned_at_the_endLimit_not_the_end() {
+        let textInAXFocusedElement = """
+pasting a blank line shouldn't
+put the caret in weird places
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        copyToClipboard(text: "        ")
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+pasting a blank line shouldn't
+        
+put the caret in weird places
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 38)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+    }
+    
+    
+    func test_that_if_the_pasted_line_is_BlankLine_then_the_caret_ends_at_the_end_of_the_line_not_the_beginning() {
+        let textInAXFocusedElement = """
+caret reposition issue
+should probably be
+first non blank limit
+rather than forst non blank
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.k(times: 2, on: $0) }
+        copyToClipboard(text: "        ")
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+caret reposition issue
+should probably be
+        
+first non blank limit
+rather than forst non blank
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 49)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
 }
