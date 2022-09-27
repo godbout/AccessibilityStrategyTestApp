@@ -314,5 +314,29 @@ the last line
         XCTAssertEqual(accessibilityElement.caretLocation, 78)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
+        
+    func test_that_if_the_Clipboard_is_one_linefeed_and_we_paste_Linewise_at_the_LastLine_it_pastes_a_Linefeed_after_that_LastLine() {
+        let textInAXFocusedElement = """
+so if the Clipboard holds a linefeed
+and we paste Linewise at the last line
+it should work hehe
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.G(on: $0) }
+        copyToClipboard(text: "\n")
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+so if the Clipboard holds a linefeed
+and we paste Linewise at the last line
+it should work hehe
+
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 96)
+        XCTAssertEqual(accessibilityElement.selectedLength, 0)
+    }
     
 }
