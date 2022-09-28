@@ -2,6 +2,9 @@
 import XCTest
 
 
+// that func is actually on FileObject, but we test it both
+// separately on FL and FT because it makes more sense to me
+// rather than testing on the protocol.
 class FL_firstNonBlank_Tests: XCTestCase {}
 
 
@@ -25,7 +28,7 @@ extension FL_firstNonBlank_Tests {
             FileLine(fullFileText: text, fullFileTextLength: text.utf16.count, caretLocation: 17)
         )
         
-        XCTAssertEqual(fileLine.firstNonBlankLimit, 2)
+        XCTAssertEqual(fileLine.firstNonBlank, 2)
     }
     
     func test_that_if_the_line_starts_with_a_fucking_mix_of_tabs_and_spaces_it_still_returns_the_correct_location() throws {
