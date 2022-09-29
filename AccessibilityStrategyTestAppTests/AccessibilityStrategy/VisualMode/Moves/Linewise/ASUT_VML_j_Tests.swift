@@ -49,6 +49,8 @@ Visual Mode is gonna be
 
         XCTAssertEqual(returnedElement.caretLocation, 0)
         XCTAssertEqual(returnedElement.selectedLength, 83)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 82)
     }
         
     func test_that_it_implements_the_count_system_for_when_the_newHead_is_before_the_Anchor() {
@@ -86,6 +88,8 @@ Visual Mode is gonna be
 
         XCTAssertEqual(returnedElement.caretLocation, 17)
         XCTAssertEqual(returnedElement.selectedLength, 66)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 17)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 82)
     }
         
     func test_that_if_the_count_is_too_high_it_selects_until_the_end_of_the_text() {
@@ -167,6 +171,8 @@ when the head is after the anchor
 
         XCTAssertEqual(returnedElement.caretLocation, 0)
         XCTAssertEqual(returnedElement.selectedLength, 41)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 40)
     }
     
     func test_that_if_the_head_is_before_the_anchor_then_it_reduces_the_selection_by_one_line_below_at_a_time() {
@@ -199,13 +205,15 @@ head if before the anchor
             )!
         )
         
-        AccessibilityStrategyVisualMode.head = 17
         AccessibilityStrategyVisualMode.anchor = 116
+        AccessibilityStrategyVisualMode.head = 17
         
         let returnedElement = applyMoveBeingTested(on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 41)
         XCTAssertEqual(returnedElement.selectedLength, 76)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 116)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 41)
     }
     
     func test_that_it_does_not_skip_empty_lines() {
@@ -238,6 +246,8 @@ ass off lol
 
         XCTAssertEqual(returnedElement.caretLocation, 0)
         XCTAssertEqual(returnedElement.selectedLength, 17)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 16)
     }
     
     // this is intrinsic to Linewise, Anchor/Head and the `j` move with a count of 1.
@@ -280,4 +290,53 @@ head if before the anchor
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 91)
     }
     
+}
+
+
+// bugs found
+extension ASUT_VML_j_Tests {
+    
+    func test_that_when_we_use_the_count_and_reverse_the_Head_and_Anchor_then_they_are_updated_correctly() {
+        let text = """
+it seems that moves
+themselves
+have to updated
+Head and Anchor
+and that can't be
+done automatically
+in the cp didSet
+at least for VML
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 133,
+            caretLocation: 20,
+            selectedLength: 43,
+            selectedText: """
+        themselves
+        have to updated
+        Head and Anchor
+
+        """,
+            fullyVisibleArea: 0..<133,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 133,
+                number: 2,
+                start: 20,
+                end: 31
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 62
+        AccessibilityStrategyVisualMode.head = 20
+        
+        let returnedElement = applyMoveBeingTested(times: 5, on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 47)
+        XCTAssertEqual(returnedElement.selectedLength, 70)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 47)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 116)
+    }
 }
