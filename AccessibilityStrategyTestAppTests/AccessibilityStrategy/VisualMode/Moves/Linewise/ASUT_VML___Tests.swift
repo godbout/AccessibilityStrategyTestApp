@@ -53,6 +53,8 @@ multiline and this
 
         XCTAssertEqual(returnedElement.caretLocation, 22)
         XCTAssertEqual(returnedElement.selectedLength, 91)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 22)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 112)
     }
         
     func test_that_it_implements_the_count_system_for_when_the_newHead_is_before_the_Anchor() {
@@ -93,6 +95,8 @@ so it's probably gonna
 
         XCTAssertEqual(returnedElement.caretLocation, 90)
         XCTAssertEqual(returnedElement.selectedLength, 23)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 90)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 112)
     }
     
     func test_that_if_the_count_is_too_high_it_selects_until_the_end_of_the_text() {
@@ -131,6 +135,8 @@ multiline and this
 
         XCTAssertEqual(returnedElement.caretLocation, 43)
         XCTAssertEqual(returnedElement.selectedLength, 95)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 43)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 137)
     }
     
 }
@@ -165,6 +171,8 @@ extension ASUT_VML___Tests {
 
         XCTAssertEqual(accessibilityElement.caretLocation, 0)
         XCTAssertEqual(accessibilityElement.selectedLength, 32)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 31)
     }
     
 }
@@ -209,6 +217,8 @@ select until
 
         XCTAssertEqual(accessibilityElement.caretLocation, 21)
         XCTAssertEqual(accessibilityElement.selectedLength, 49)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 21)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 69)
     }
    
 }
