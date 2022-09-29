@@ -56,6 +56,8 @@ so it's probably gonna
 
         XCTAssertEqual(returnedElement.caretLocation, 0)
         XCTAssertEqual(returnedElement.selectedLength, 43)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 42)
     }
         
     func test_that_it_implements_the_count_system_for_when_the_newHead_is_before_the_Anchor() {
@@ -95,6 +97,8 @@ select some stuff and all
 
         XCTAssertEqual(returnedElement.caretLocation, 43)
         XCTAssertEqual(returnedElement.selectedLength, 47)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 89)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 43)
     }
     
     func test_that_if_the_count_is_nil_it_selects_until_the_beginning_of_the_text() {
@@ -134,6 +138,8 @@ select some stuff and all
 
         XCTAssertEqual(returnedElement.caretLocation, 0)
         XCTAssertEqual(returnedElement.selectedLength, 90)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 89)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 0)
     }
         
     func test_that_if_the_count_is_too_high_it_selects_until_the_beginning_of_the_text() {
@@ -173,6 +179,8 @@ select some stuff and all
 
         XCTAssertEqual(returnedElement.caretLocation, 0)
         XCTAssertEqual(returnedElement.selectedLength, 138)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 137)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 0)
     }
     
 }
@@ -207,6 +215,8 @@ extension ASUT_VML_gg_Tests {
 
         XCTAssertEqual(accessibilityElement.caretLocation, 0)
         XCTAssertEqual(accessibilityElement.selectedLength, 33)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 32)
     }
     
 }
@@ -247,6 +257,8 @@ the end
 
         XCTAssertEqual(accessibilityElement.caretLocation, 0)
         XCTAssertEqual(accessibilityElement.selectedLength, 57)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 56)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 0)
     }
     
     func test_that_if_the_head_is_before_or_at_the_same_line_as_the_anchor_then_it_selects_from_the_anchor_to_the_beginning_of_the_text() {
@@ -281,6 +293,8 @@ the end
 
         XCTAssertEqual(accessibilityElement.caretLocation, 0)
         XCTAssertEqual(accessibilityElement.selectedLength, 70)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 69)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 0)
     }
     
 }
