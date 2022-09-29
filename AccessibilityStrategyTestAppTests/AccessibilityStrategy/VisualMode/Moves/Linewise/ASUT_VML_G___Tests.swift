@@ -52,6 +52,8 @@ Visual Mode is gonna be
 
         XCTAssertEqual(returnedElement.caretLocation, 0)
         XCTAssertEqual(returnedElement.selectedLength, 83)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 82)
     }
         
     func test_that_it_implements_the_count_system_for_when_the_newHead_is_before_the_Anchor() {
@@ -89,6 +91,8 @@ Visual Mode is gonna be
 
         XCTAssertEqual(returnedElement.caretLocation, 0)
         XCTAssertEqual(returnedElement.selectedLength, 17)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 16)
     }
     
     func test_that_if_the_count_is_nil_it_selects_until_the_end_of_the_text() {
@@ -126,6 +130,8 @@ Visual Mode is gonna be
 
         XCTAssertEqual(returnedElement.caretLocation, 17)
         XCTAssertEqual(returnedElement.selectedLength, 99)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 17)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 115)
     }
         
     func test_that_if_the_count_is_too_high_it_selects_until_the_end_of_the_text() {
@@ -163,6 +169,8 @@ Visual Mode is gonna be
 
         XCTAssertEqual(returnedElement.caretLocation, 17)
         XCTAssertEqual(returnedElement.selectedLength, 99)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 17)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 115)
     }
     
 }
@@ -197,6 +205,8 @@ extension ASUT_VML_G__Tests {
 
         XCTAssertEqual(accessibilityElement.caretLocation, 0)
         XCTAssertEqual(accessibilityElement.selectedLength, 32)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 31)
     }
     
 }
@@ -237,6 +247,8 @@ the end
 
         XCTAssertEqual(accessibilityElement.caretLocation, 21)
         XCTAssertEqual(accessibilityElement.selectedLength, 56)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 21)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 76)
     }
     
     func test_that_if_the_head_is_before_the_line_of_the_anchor_then_it_selects_from_the_anchor_to_the_end_of_the_text() {
@@ -271,6 +283,58 @@ the end
 
         XCTAssertEqual(accessibilityElement.caretLocation, 41)
         XCTAssertEqual(accessibilityElement.selectedLength, 36)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 41)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 76)
     }
     
 }
+
+
+// bugs found
+extension ASUT_VML_G__Tests {
+    
+    func test_that_when_the_move_passes_through_the_switch_of_Anchor_and_Head_then_they_are_updated_correctly() {
+        let text = """
+this is something
+i've missed before
+probably because
+when you deal with j
+and no count then you
+can swap those
+differently
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 123,
+            caretLocation: 18,
+            selectedLength: 57,
+            selectedText: """
+        i've missed before
+        probably because
+        when you deal with j
+
+        """,
+            fullyVisibleArea: 0..<123,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 123,
+                number: 2,
+                start: 18,
+                end: 37
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 74
+        AccessibilityStrategyVisualMode.head = 18
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+
+        XCTAssertEqual(returnedElement.caretLocation, 54)
+        XCTAssertEqual(returnedElement.selectedLength, 69)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 54)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 122)
+    }
+
+}
+
