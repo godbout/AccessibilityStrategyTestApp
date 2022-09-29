@@ -240,8 +240,6 @@ a linefeed at the end of the line
 // bugs found
 extension ASUI_NM_pForLastYankStyleLinewise_Tests {
 
-    // TODO:
-    // clipboard empty? one linefeed? only linefeed? spaces and linefeed?
     func test_that_if_the_Clipboard_is_empty_and_we_paste_Linewise_at_the_LastLine_it_pastes_a_Linefeed_after_that_LastLine() {
         let textInAXFocusedElement = """
 so if the Clipboard is empty
@@ -337,6 +335,66 @@ it should work hehe
         )
         XCTAssertEqual(accessibilityElement.caretLocation, 96)
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
+    }
+        
+    func test_that_if_the_Clipboard_contains_many_Linefeeds_and_we_paste_Linewise_at_the_LastLine_it_pastes_Linefeeds_after_that_LastLine_and_repositions_the_caret_correctly() {
+        let textInAXFocusedElement = """
+that's gonna be
+many many
+linefeeds
+at the last line
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.G(on: $0) }
+        copyToClipboard(text: "\n\n\n\n\n\n")
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+that's gonna be
+many many
+linefeeds
+at the last line
+
+
+
+
+
+
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 53)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+    }
+    
+    func test_that_if_the_Clipboard_contains_many_Linefeeds_and_we_paste_Linewise_NOT_at_the_LastLine_but_anywhere_else_it_repositions_the_caret_correctly() {
+        let textInAXFocusedElement = """
+doesn't need to be
+at the last line
+to fail LOL
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        copyToClipboard(text: "\n\n\n\n\n\n")
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+doesn't need to be
+
+
+
+
+
+
+at the last line
+to fail LOL
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 19)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
 }
