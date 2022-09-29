@@ -53,6 +53,8 @@ so it's probably gonna
 
         XCTAssertEqual(returnedElement.caretLocation, 0)
         XCTAssertEqual(returnedElement.selectedLength, 62)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 61)
     }
         
     func test_that_it_implements_the_count_system_for_when_the_newHead_is_before_the_Anchor() {
@@ -92,6 +94,8 @@ select some stuff and all
 
         XCTAssertEqual(returnedElement.caretLocation, 22)
         XCTAssertEqual(returnedElement.selectedLength, 68)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 89)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 22)
     }
         
     func test_that_if_the_count_is_too_high_it_selects_until_the_beginning_of_the_text() {
@@ -131,6 +135,8 @@ select some stuff and all
 
         XCTAssertEqual(returnedElement.caretLocation, 0)
         XCTAssertEqual(returnedElement.selectedLength, 90)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 89)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 0)
     }
     
 }
@@ -176,6 +182,9 @@ the line above nice
 
         XCTAssertEqual(returnedElement.caretLocation, 52)
         XCTAssertEqual(returnedElement.selectedLength, 43)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 94)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 52)
+
     }
     
     func test_that_if_the_head_is_after_the_anchor_then_it_reduces_the_selection_by_one_line_above_at_a_time() {
@@ -214,6 +223,8 @@ the line above nice
 
         XCTAssertEqual(returnedElement.caretLocation, 0)
         XCTAssertEqual(returnedElement.selectedLength, 75)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 74)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_not_get_stuck_when_trying_to_move_up_and_selects_the_line_above() {
@@ -246,6 +257,8 @@ caret at the last empty line
 
         XCTAssertEqual(returnedElement.caretLocation, 19)
         XCTAssertEqual(returnedElement.selectedLength, 29)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 47)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 19)
     }
     
 }
@@ -289,10 +302,10 @@ but who knows right
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 87)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 30)
         XCTAssertEqual(returnedElement.caretLocation, 30)
         XCTAssertEqual(returnedElement.selectedLength, 58)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 87)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 30)
     }
     
 }
