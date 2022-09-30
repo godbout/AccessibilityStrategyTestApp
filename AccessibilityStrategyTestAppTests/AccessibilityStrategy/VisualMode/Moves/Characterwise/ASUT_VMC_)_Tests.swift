@@ -45,6 +45,8 @@ extension ASUT_VMC_rightParenthesis_Tests {
 
         XCTAssertEqual(returnedElement.caretLocation, 9)
         XCTAssertEqual(returnedElement.selectedLength, 30)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 9)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 38)
     }
     
     func test_that_if_the_Head_is_before_the_Anchor_then_it_reduces_the_selection_to_the_newHeadLocation() {
@@ -75,6 +77,8 @@ extension ASUT_VMC_rightParenthesis_Tests {
 
         XCTAssertEqual(returnedElement.caretLocation, 20)
         XCTAssertEqual(returnedElement.selectedLength, 19)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 20)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 38)
     }
     
 }
@@ -111,6 +115,8 @@ extension ASUT_VMC_rightParenthesis_Tests {
 
         XCTAssertEqual(returnedElement.caretLocation, 38)
         XCTAssertEqual(returnedElement.selectedLength, 7)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 44)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 38)
     }
     
 }

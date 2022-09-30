@@ -54,10 +54,10 @@ but actually easy yes
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 13)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 70)
         XCTAssertEqual(returnedElement.caretLocation, 13)
         XCTAssertEqual(returnedElement.selectedLength, 58)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 13)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 70)
     }
     
     func test_that_when_the_lineAtAnchor_is_after_the_lineAtHead_and_the_newLineAtHead_ends_before_the_lineAtAnchor_then_it_selects_from_the_start_of_the_newLineAtHead_to_the_end_of_lineAtAnchor() {
@@ -103,10 +103,10 @@ but actually easy yes
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 108)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 70)
         XCTAssertEqual(returnedElement.caretLocation, 70)
         XCTAssertEqual(returnedElement.selectedLength, 39)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 108)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 70)
     }
 
     func test_that_when_the_lineAtAnchor_is_after_the_lineAtHead_and_the_newLineAtHead_ends_after_the_lineAtAnchor_then_it_selects_from_the_start_of_the_lineAtAnchor_to_the_end_of_newLineAtHead() {
@@ -147,10 +147,10 @@ but actually easy yes
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 35)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 70)
         XCTAssertEqual(returnedElement.caretLocation, 35)
         XCTAssertEqual(returnedElement.selectedLength, 36)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 35)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 70)
     }
     
     func test_that_when_the_lineAtAnchor_is_the_same_as_the_lineAtHead_and_the_Anchor_is_before_the_Head_then_it_selects_from_the_start_of_the_lineAtAnchorSlashHead_to_the_end_of_newLineAtHead() {
@@ -190,10 +190,10 @@ but actually easy yes
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 48)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 70)
         XCTAssertEqual(returnedElement.caretLocation, 48)
         XCTAssertEqual(returnedElement.selectedLength, 23)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 48)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 70)
     }
     
     func test_that_when_the_lineAtAnchor_is_the_same_as_the_lineAtHead_and_the_Head_is_before_the_Anchor_then_it_selects_from_the_start_of_the_lineAtAnchorSlashHead_to_the_end_of_newLineAtHead() {
@@ -233,10 +233,10 @@ but actually easy yes
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 48)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 70)
         XCTAssertEqual(returnedElement.caretLocation, 48)
         XCTAssertEqual(returnedElement.selectedLength, 23)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 48)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 70)
     }
     
     func test_on_a_text_with_sentences_on_a_same_line_not_like_code() {
@@ -275,10 +275,10 @@ vim even. more.
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 93)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 34)
         XCTAssertEqual(returnedElement.caretLocation, 34)
         XCTAssertEqual(returnedElement.selectedLength, 60)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 93)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 34)
     }
 
 }
@@ -320,10 +320,10 @@ vim even. more.
         
         let returnedElement = applyMoveBeingTested(on: element)
 
-        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 56)
         XCTAssertEqual(returnedElement.caretLocation, 0)
         XCTAssertEqual(returnedElement.selectedLength, 57)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 56)
     }
     
 }
