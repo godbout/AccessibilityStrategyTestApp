@@ -6,7 +6,7 @@ import Common
 // see NM ; for blah blah
 class ASUT_VM_comma_Tests: ASUT_VM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int? = 1, lastLeftRightSearch: LastLeftRightSearch, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int? = 1, lastLeftRightSearch: LeftRightSearch, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         let state = VimEngineState(visualStyle: .characterwise)
                 
         return asVisualMode.comma(times: count, lastLeftRightSearch: lastLeftRightSearch, on: element, state)
@@ -40,7 +40,7 @@ extension ASUT_VM_comma_Tests {
         AccessibilityStrategyVisualMode.anchor = 25
         AccessibilityStrategyVisualMode.head = 7
         
-        let returnedElement = applyMoveBeingTested(times: 3, lastLeftRightSearch: LastLeftRightSearch(motion: .F, character: "a"), on: element)
+        let returnedElement = applyMoveBeingTested(times: 3, lastLeftRightSearch: LeftRightSearch(motion: .F, character: "a"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 25)
         XCTAssertEqual(returnedElement.selectedLength, 53)
@@ -69,7 +69,7 @@ extension ASUT_VM_comma_Tests {
         AccessibilityStrategyVisualMode.anchor = 100
         AccessibilityStrategyVisualMode.head = 96
         
-        let returnedElement = applyMoveBeingTested(times: 6, lastLeftRightSearch: LastLeftRightSearch(motion: .f, character: "e"), on: element)
+        let returnedElement = applyMoveBeingTested(times: 6, lastLeftRightSearch: LeftRightSearch(motion: .f, character: "e"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 50)
         XCTAssertEqual(returnedElement.selectedLength, 51)
@@ -104,7 +104,7 @@ extension ASUT_VM_comma_Tests {
         AccessibilityStrategyVisualMode.anchor = 6
         AccessibilityStrategyVisualMode.head = 19
 
-        let returnedElement = applyMoveBeingTested(times: nil, lastLeftRightSearch: LastLeftRightSearch(motion: .T, character: "e"), on: element)
+        let returnedElement = applyMoveBeingTested(times: nil, lastLeftRightSearch: LeftRightSearch(motion: .T, character: "e"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 6)
         XCTAssertEqual(returnedElement.selectedLength, 17)
@@ -133,7 +133,7 @@ extension ASUT_VM_comma_Tests {
         AccessibilityStrategyVisualMode.anchor = 6
         AccessibilityStrategyVisualMode.head = 19
 
-        let returnedElement = applyMoveBeingTested(times: 1, lastLeftRightSearch: LastLeftRightSearch(motion: .T, character: "e"), on: element)
+        let returnedElement = applyMoveBeingTested(times: 1, lastLeftRightSearch: LeftRightSearch(motion: .T, character: "e"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 6)
         XCTAssertEqual(returnedElement.selectedLength, 17)
@@ -162,7 +162,7 @@ extension ASUT_VM_comma_Tests {
         AccessibilityStrategyVisualMode.anchor = 69
         AccessibilityStrategyVisualMode.head = 79
         
-        let returnedElement = applyMoveBeingTested(times: nil, lastLeftRightSearch: LastLeftRightSearch(motion: .t, character: "s"), on: element)
+        let returnedElement = applyMoveBeingTested(times: nil, lastLeftRightSearch: LeftRightSearch(motion: .t, character: "s"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 60)
         XCTAssertEqual(returnedElement.selectedLength, 10)
@@ -191,7 +191,7 @@ extension ASUT_VM_comma_Tests {
         AccessibilityStrategyVisualMode.anchor = 69
         AccessibilityStrategyVisualMode.head = 79
         
-        let returnedElement = applyMoveBeingTested(times: 1, lastLeftRightSearch: LastLeftRightSearch(motion: .t, character: "s"), on: element)
+        let returnedElement = applyMoveBeingTested(times: 1, lastLeftRightSearch: LeftRightSearch(motion: .t, character: "s"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 60)
         XCTAssertEqual(returnedElement.selectedLength, 10)

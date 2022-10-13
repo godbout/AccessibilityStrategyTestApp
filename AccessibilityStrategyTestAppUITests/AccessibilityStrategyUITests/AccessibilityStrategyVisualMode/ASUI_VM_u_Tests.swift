@@ -3,23 +3,23 @@ import XCTest
 import Common
 
 
-class ASUI_VM_tilde_Tests: ASUI_VM_BaseTests {
+class ASUI_VM_u_Tests: ASUI_VM_BaseTests {
     
     var state = VimEngineState(visualStyle: .characterwise)
 
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         state.appFamily = appFamily
         
-        return applyMove { asVisualMode.tilde(on: $0, state) }
+        return applyMove { asVisualMode.u(on: $0, state) }
     }
 
 }
 
 
 // Both
-extension ASUI_VM_tilde_Tests {
+extension ASUI_VM_u_Tests {
 
-    func test_that_it_switches_case_for_the_selection() {
+    func test_that_it_changes_case_to_uppercase_for_the_selection() {
         let textInAXFocusedElement = """
 all that VM d DOES
 in characTerwi😂️e is deleting
@@ -38,8 +38,8 @@ the SElection!
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
 all that VM d does
-IN CHARACtERWI😂️E IS DELETING
-THE sElection!
+in characterwi😂️e is deleting
+the sElection!
 """
         )
         XCTAssertEqual(accessibilityElement.caretLocation, 14)
@@ -51,7 +51,7 @@ THE sElection!
 
 
 // PGR and Electron
-extension ASUI_VM_tilde_Tests {
+extension ASUI_VM_u_Tests {
 
     func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = """
@@ -72,10 +72,10 @@ the SElection!
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
 all that VM d does
-IN CHARACtERWI😂️E IS DELETING
-THE does
-IN CHARACtERWI😂️E IS DELETING
-THE sElection!
+in characterwi😂️e is deleting
+the does
+in characterwi😂️e is deleting
+the sElection!
 """
         )
         XCTAssertEqual(accessibilityElement.caretLocation, 14)

@@ -5,7 +5,7 @@ import Common
 
 class ASUT_NM_n_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int? = 1, lastSearchCommand: LastSearchCommand, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int? = 1, lastSearchCommand: SearchCommand, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.n(times: count, lastSearchCommand: lastSearchCommand, on: element)
     }
     
@@ -33,7 +33,7 @@ extension ASUT_NM_n_Tests {
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(times: 2, lastSearchCommand: LastSearchCommand(motion: .interrogationMark, searchString: "on"), on: element)
+        let returnedElement = applyMoveBeingTested(times: 2, lastSearchCommand: SearchCommand(motion: .interrogationMark, searchString: "on"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 4)
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -59,7 +59,7 @@ extension ASUT_NM_n_Tests {
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(times: nil, lastSearchCommand: LastSearchCommand(motion: .slash, searchString: "ame"), on: element)
+        let returnedElement = applyMoveBeingTested(times: nil, lastSearchCommand: SearchCommand(motion: .slash, searchString: "ame"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 18)
         XCTAssertEqual(returnedElement.selectedLength, 1)

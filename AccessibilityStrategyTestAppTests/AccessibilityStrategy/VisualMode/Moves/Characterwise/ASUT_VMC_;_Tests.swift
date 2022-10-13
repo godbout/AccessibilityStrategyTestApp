@@ -6,7 +6,7 @@ import Common
 // see NM ; for blah blah
 class ASUT_VM_semicolon_Tests: ASUT_VM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int? = 1, lastLeftRightSearch: LastLeftRightSearch, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int? = 1, lastLeftRightSearch: LeftRightSearch, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         let state = VimEngineState(visualStyle: .characterwise)
 
         return asVisualMode.semicolon(times: count, lastLeftRightSearch: lastLeftRightSearch, on: element, state)
@@ -40,7 +40,7 @@ extension ASUT_VM_semicolon_Tests {
         AccessibilityStrategyVisualMode.anchor = 80
         AccessibilityStrategyVisualMode.head = 92
         
-        let returnedElement = applyMoveBeingTested(times: 3, lastLeftRightSearch: LastLeftRightSearch(motion: .F, character: "a"), on: element)
+        let returnedElement = applyMoveBeingTested(times: 3, lastLeftRightSearch: LeftRightSearch(motion: .F, character: "a"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 52)
         XCTAssertEqual(returnedElement.selectedLength, 29)
@@ -69,7 +69,7 @@ extension ASUT_VM_semicolon_Tests {
         AccessibilityStrategyVisualMode.anchor = 1
         AccessibilityStrategyVisualMode.head = 4
         
-        let returnedElement = applyMoveBeingTested(times: 6, lastLeftRightSearch: LastLeftRightSearch(motion: .f, character: "e"), on: element)
+        let returnedElement = applyMoveBeingTested(times: 6, lastLeftRightSearch: LeftRightSearch(motion: .f, character: "e"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 1)
         XCTAssertEqual(returnedElement.selectedLength, 29)
@@ -104,7 +104,7 @@ extension ASUT_VM_semicolon_Tests {
         AccessibilityStrategyVisualMode.anchor = 69
         AccessibilityStrategyVisualMode.head = 82
 
-        let returnedElement = applyMoveBeingTested(times: nil, lastLeftRightSearch: LastLeftRightSearch(motion: .T, character: "e"), on: element)
+        let returnedElement = applyMoveBeingTested(times: nil, lastLeftRightSearch: LeftRightSearch(motion: .T, character: "e"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 69)
         XCTAssertEqual(returnedElement.selectedLength, 5)
@@ -133,7 +133,7 @@ extension ASUT_VM_semicolon_Tests {
         AccessibilityStrategyVisualMode.anchor = 69
         AccessibilityStrategyVisualMode.head = 82
 
-        let returnedElement = applyMoveBeingTested(times: 1, lastLeftRightSearch: LastLeftRightSearch(motion: .T, character: "e"), on: element)
+        let returnedElement = applyMoveBeingTested(times: 1, lastLeftRightSearch: LeftRightSearch(motion: .T, character: "e"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 69)
         XCTAssertEqual(returnedElement.selectedLength, 5)
@@ -162,7 +162,7 @@ extension ASUT_VM_semicolon_Tests {
         AccessibilityStrategyVisualMode.anchor = 2
         AccessibilityStrategyVisualMode.head = 9
         
-        let returnedElement = applyMoveBeingTested(times: nil, lastLeftRightSearch: LastLeftRightSearch(motion: .t, character: "s"), on: element)
+        let returnedElement = applyMoveBeingTested(times: nil, lastLeftRightSearch: LeftRightSearch(motion: .t, character: "s"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 2)
         XCTAssertEqual(returnedElement.selectedLength, 15)
@@ -191,7 +191,7 @@ extension ASUT_VM_semicolon_Tests {
         AccessibilityStrategyVisualMode.anchor = 2
         AccessibilityStrategyVisualMode.head = 9
         
-        let returnedElement = applyMoveBeingTested(times: 1, lastLeftRightSearch: LastLeftRightSearch(motion: .t, character: "s"), on: element)
+        let returnedElement = applyMoveBeingTested(times: 1, lastLeftRightSearch: LeftRightSearch(motion: .t, character: "s"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 2)
         XCTAssertEqual(returnedElement.selectedLength, 15)

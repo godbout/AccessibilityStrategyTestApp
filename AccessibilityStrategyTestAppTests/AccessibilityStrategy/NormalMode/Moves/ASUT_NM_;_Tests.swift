@@ -11,7 +11,7 @@ import Common
 // we are searching for, ; acts like with a count of 2. 
 class ASUT_NM_semicolon_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int? = 1, lastLeftRightSearch: LastLeftRightSearch, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int? = 1, lastLeftRightSearch: LeftRightSearch, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.semicolon(times: count, lastLeftRightSearch: lastLeftRightSearch, on: element)
     }
     
@@ -41,7 +41,7 @@ extension ASUT_NM_semicolon_Tests {
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(times: 3, lastLeftRightSearch: LastLeftRightSearch(motion: .F, character: "a"), on: element)
+        let returnedElement = applyMoveBeingTested(times: 3, lastLeftRightSearch: LeftRightSearch(motion: .F, character: "a"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 18)
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -67,7 +67,7 @@ extension ASUT_NM_semicolon_Tests {
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(times: 6, lastLeftRightSearch: LastLeftRightSearch(motion: .f, character: "e"), on: element)
+        let returnedElement = applyMoveBeingTested(times: 6, lastLeftRightSearch: LeftRightSearch(motion: .f, character: "e"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 29)
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -101,7 +101,7 @@ extension ASUT_NM_semicolon_Tests {
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(times: nil, lastLeftRightSearch: LastLeftRightSearch(motion: .T, character: "e"), on: element)
+        let returnedElement = applyMoveBeingTested(times: nil, lastLeftRightSearch: LeftRightSearch(motion: .T, character: "e"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 71)
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -127,7 +127,7 @@ extension ASUT_NM_semicolon_Tests {
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(times: 1, lastLeftRightSearch: LastLeftRightSearch(motion: .T, character: "e"), on: element)
+        let returnedElement = applyMoveBeingTested(times: 1, lastLeftRightSearch: LeftRightSearch(motion: .T, character: "e"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 71)
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -153,7 +153,7 @@ extension ASUT_NM_semicolon_Tests {
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(times: nil, lastLeftRightSearch: LastLeftRightSearch(motion: .t, character: "s"), on: element)
+        let returnedElement = applyMoveBeingTested(times: nil, lastLeftRightSearch: LeftRightSearch(motion: .t, character: "s"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 16)
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -179,7 +179,7 @@ extension ASUT_NM_semicolon_Tests {
             )!
         )
         
-        let returnedElement = applyMoveBeingTested(times: 1, lastLeftRightSearch: LastLeftRightSearch(motion: .t, character: "s"), on: element)
+        let returnedElement = applyMoveBeingTested(times: 1, lastLeftRightSearch: LeftRightSearch(motion: .t, character: "s"), on: element)
 
         XCTAssertEqual(returnedElement.caretLocation, 16)
         XCTAssertEqual(returnedElement.selectedLength, 1)

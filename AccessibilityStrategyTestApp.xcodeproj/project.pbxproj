@@ -140,6 +140,8 @@
 		914DD47726E145540067DD83 /* ASUI_NM_pForLastYankStyleLinewise_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD47626E145540067DD83 /* ASUI_NM_pForLastYankStyleLinewise_Tests.swift */; };
 		914DD47D26E149000067DD83 /* ASUI_NM_PForLastYankStyleCharacterwise__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD47C26E149000067DD83 /* ASUI_NM_PForLastYankStyleCharacterwise__Tests.swift */; };
 		914DD47F26E149660067DD83 /* ASUI_NM_PForLastYankStyleLinewise__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD47E26E149660067DD83 /* ASUI_NM_PForLastYankStyleLinewise__Tests.swift */; };
+		914F8FAC28F85661002DDA6D /* ASUI_VM_U__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F8FA828F8558C002DDA6D /* ASUI_VM_U__Tests.swift */; };
+		914F8FAD28F85664002DDA6D /* ASUI_VM_u_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F8FAA28F855E5002DDA6D /* ASUI_VM_u_Tests.swift */; };
 		9153303A27EC616800A9E856 /* ASUT_NM_control_b_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9153303927EC616800A9E856 /* ASUT_NM_control_b_Tests.swift */; };
 		915430A627FAD98B007F7462 /* ASUT_NM_zb_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915430A527FAD98B007F7462 /* ASUT_NM_zb_Tests.swift */; };
 		915430A927FAD9E9007F7462 /* ASUI_NM_zb_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915430A727FAD9BB007F7462 /* ASUI_NM_zb_Tests.swift */; };
@@ -728,6 +730,9 @@
 		914DD47626E145540067DD83 /* ASUI_NM_pForLastYankStyleLinewise_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_pForLastYankStyleLinewise_Tests.swift; sourceTree = "<group>"; };
 		914DD47C26E149000067DD83 /* ASUI_NM_PForLastYankStyleCharacterwise__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_PForLastYankStyleCharacterwise__Tests.swift; sourceTree = "<group>"; };
 		914DD47E26E149660067DD83 /* ASUI_NM_PForLastYankStyleLinewise__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_PForLastYankStyleLinewise__Tests.swift; sourceTree = "<group>"; };
+		914F8FA728F84383002DDA6D /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
+		914F8FA828F8558C002DDA6D /* ASUI_VM_U__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_VM_U__Tests.swift; sourceTree = "<group>"; };
+		914F8FAA28F855E5002DDA6D /* ASUI_VM_u_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_VM_u_Tests.swift; sourceTree = "<group>"; };
 		9153303927EC616800A9E856 /* ASUT_NM_control_b_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_control_b_Tests.swift; sourceTree = "<group>"; };
 		915430A527FAD98B007F7462 /* ASUT_NM_zb_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_zb_Tests.swift; sourceTree = "<group>"; };
 		915430A727FAD9BB007F7462 /* ASUI_NM_zb_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_zb_Tests.swift; sourceTree = "<group>"; };
@@ -1503,6 +1508,8 @@
 				916797D827DF783B008D4558 /* ASUI_VM_<_Tests.swift */,
 				916797D127DF65A4008D4558 /* ASUI_VM_>_Tests.swift */,
 				91BD8DCA2782D5FE0009D107 /* ASUI_VM_~_Tests.swift */,
+				914F8FA828F8558C002DDA6D /* ASUI_VM_U__Tests.swift */,
+				914F8FAA28F855E5002DDA6D /* ASUI_VM_u_Tests.swift */,
 				91AF718D26E151B8007C2D2E /* Characterwise */,
 				91A3018726F0E202001BFD23 /* Helpers */,
 				91AF718426E15140007C2D2E /* Info.plist */,
@@ -1639,6 +1646,7 @@
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
+				914F8FA728F84383002DDA6D /* AccessibilityStrategy */,
 				91F951B326DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,
@@ -2524,7 +2532,9 @@
 				91AF71BC26E151B8007C2D2E /* ASUI_VML_d_Tests.swift in Sources */,
 				91A3018A26F0E251001BFD23 /* ASUI_VM_wordMotionForward_Tests.swift in Sources */,
 				915C8ED7271A8F7800D43DB6 /* ASUI_VMC_k_Tests.swift in Sources */,
+				914F8FAC28F85661002DDA6D /* ASUI_VM_U__Tests.swift in Sources */,
 				916797D327DF65CA008D4558 /* ASUI_VM_>_Tests.swift in Sources */,
+				914F8FAD28F85664002DDA6D /* ASUI_VM_u_Tests.swift in Sources */,
 				91B84C5D2855CCBA005E48B1 /* ASUI_VML_pWhenLastYankStyleWasCharacterwise_Tests.swift in Sources */,
 				913DEF6F275BD07100BE75FB /* ASUI_VML_c_Tests.swift in Sources */,
 				91AF71AE26E151B8007C2D2E /* ASUI_VMC_gk_Tests.swift in Sources */,
@@ -3397,7 +3407,7 @@
 			repositoryURL = "git@github.com:godbout/AccessibilityStrategy.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.17.0;
+				minimumVersion = 6.18.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
