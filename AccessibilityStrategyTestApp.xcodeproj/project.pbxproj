@@ -730,7 +730,6 @@
 		914DD47626E145540067DD83 /* ASUI_NM_pForLastYankStyleLinewise_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_pForLastYankStyleLinewise_Tests.swift; sourceTree = "<group>"; };
 		914DD47C26E149000067DD83 /* ASUI_NM_PForLastYankStyleCharacterwise__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_PForLastYankStyleCharacterwise__Tests.swift; sourceTree = "<group>"; };
 		914DD47E26E149660067DD83 /* ASUI_NM_PForLastYankStyleLinewise__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_PForLastYankStyleLinewise__Tests.swift; sourceTree = "<group>"; };
-		914F8FA728F84383002DDA6D /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		914F8FA828F8558C002DDA6D /* ASUI_VM_U__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_VM_U__Tests.swift; sourceTree = "<group>"; };
 		914F8FAA28F855E5002DDA6D /* ASUI_VM_u_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_VM_u_Tests.swift; sourceTree = "<group>"; };
 		9153303927EC616800A9E856 /* ASUT_NM_control_b_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_control_b_Tests.swift; sourceTree = "<group>"; };
@@ -1646,7 +1645,6 @@
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
-				914F8FA728F84383002DDA6D /* AccessibilityStrategy */,
 				91F951B326DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,
@@ -3407,7 +3405,7 @@
 			repositoryURL = "git@github.com:godbout/AccessibilityStrategy.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.18.0;
+				minimumVersion = 6.19.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
