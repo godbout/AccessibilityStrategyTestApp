@@ -292,7 +292,7 @@ hehe
 
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement.caretLocation, 14)
+        XCTAssertEqual(returnedElement.caretLocation, 28)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
     }
