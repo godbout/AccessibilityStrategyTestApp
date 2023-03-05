@@ -3,7 +3,7 @@ import AccessibilityStrategy
 import Common
 
 
-class ASUT_VMC_return_Tests: ASUT_VM_BaseTests {
+class ASUT_VMC_minus_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var state = VimEngineState(visualStyle: .characterwise)
@@ -14,7 +14,7 @@ class ASUT_VMC_return_Tests: ASUT_VM_BaseTests {
     private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         vimEngineState.visualStyle = .characterwise
         
-        return asVisualMode.`return`(times: count, on: element, &vimEngineState)
+        return asVisualMode.minus(times: count, on: element, &vimEngineState)
     }
 
 }
@@ -25,33 +25,37 @@ class ASUT_VMC_return_Tests: ASUT_VM_BaseTests {
 
 
 // Bip
-extension ASUT_VMC_return_Tests {
+extension ASUT_VMC_minus_Tests {
     
-    func test_that_if_the_head_is_at_the_last_line_then_it_bips() {
+    func test_that_if_the_head_is_at_the_first_line_then_it_bips() {
         let text = """
-well last line
+well first line
 or TV 🍍️
 or a TF same same
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 42,
-            caretLocation: 18,
-            selectedLength: 17,
-            selectedText: "TV 🍍️\nor a TF sa",
-            fullyVisibleArea: 0..<42,
+            length: 43,
+            caretLocation: 5,
+            selectedLength: 31,
+            selectedText: """
+        first line
+        or TV 🍍️
+        or a TF sa
+        """,
+            fullyVisibleArea: 0..<43,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 42,
-                number: 2,
-                start: 15,
-                end: 25
+                fullTextLength: 43,
+                number: 1,
+                start: 0,
+                end: 16
             )!
         )
         
-        AccessibilityStrategyVisualMode.anchor = 18
-        AccessibilityStrategyVisualMode.head = 34
+        AccessibilityStrategyVisualMode.anchor = 35
+        AccessibilityStrategyVisualMode.head = 5
                 
         var state = VimEngineState(lastMoveBipped: false)
         _ = applyMoveBeingTested(on: element, &state)
@@ -63,7 +67,7 @@ or a TF same same
 
 
 // count
-extension ASUT_VMC_return_Tests {
+extension ASUT_VMC_minus_Tests {
     
     func test_it_implements_the_count_system_for_when_the_newHead_is_after_or_equal_to_the_Anchor() {
         let text = """
@@ -169,7 +173,7 @@ and it's getting even harder now that
 
 
 // TextViews
-extension ASUT_VMC_return_Tests {
+extension ASUT_VMC_minus_Tests {
     
     func test_that_if_the_head_is_after_the_anchor_then_it_goes_to_the_line_below_the_head_at_the_first_NonBlank_selects_from_the_anchor_to_that_new_head_location() {
         let text = """
