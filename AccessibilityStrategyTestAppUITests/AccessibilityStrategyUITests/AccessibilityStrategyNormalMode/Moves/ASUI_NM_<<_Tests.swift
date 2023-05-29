@@ -94,19 +94,20 @@ seems that even the normal
 hehe
        🖕️ase fails LMAO
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 seems that even the normal
-hehe   🖕️ase fails LMAO
+hehe
+   🖕️ase fails LMAO
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 27)
-        XCTAssertEqual(accessibilityElement.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement.selectedText, "h")
+        XCTAssertEqual(accessibilityElement.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.selectedText, "🖕️")
     }
     
 }

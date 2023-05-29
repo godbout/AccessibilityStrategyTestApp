@@ -23,8 +23,8 @@ ct on a multiline
 should work
 on a line
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
@@ -33,11 +33,11 @@ on a line
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 ct on a multiline
-work
+swork
 on a line
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 18)
+        XCTAssertEqual(accessibilityElement.caretLocation, 19)
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }

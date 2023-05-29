@@ -27,8 +27,8 @@ one more
 
 shit in PGR
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
@@ -38,10 +38,11 @@ shit in PGR
         XCTAssertEqual(accessibilityElement.fileText.value, """
 this is some text
 
+
 shit in PGR
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 18)
+        XCTAssertEqual(accessibilityElement.caretLocation, 19)
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }

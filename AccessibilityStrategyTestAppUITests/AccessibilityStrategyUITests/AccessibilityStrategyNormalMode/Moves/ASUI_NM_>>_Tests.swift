@@ -96,17 +96,17 @@ extension ASUI_NM_rightChevronRightChevron_Tests {
 seems that even the normal
 🖕️ase fails LMAO
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
             
         XCTAssertEqual(accessibilityElement.fileText.value, """
 seems that even the normal
-        🖕️ase fails LMAO
+    🖕️ase fails LMAO
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement.caretLocation, 31)
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
         XCTAssertEqual(accessibilityElement.selectedText, "🖕️")
     }

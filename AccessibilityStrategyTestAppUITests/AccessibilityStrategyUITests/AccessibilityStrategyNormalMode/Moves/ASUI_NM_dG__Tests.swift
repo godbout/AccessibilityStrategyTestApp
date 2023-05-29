@@ -131,14 +131,14 @@ deletes from the current line to the end of the text
 the caret will go to the first non blank limit of the line
 before what was the current one.
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
-        XCTAssertEqual(accessibilityElement.fileText.value, "  😂️k so now we're having multiple line")
+        XCTAssertEqual(accessibilityElement.fileText.value, "  😂️k so now we're having multiple lines")
         XCTAssertEqual(accessibilityElement.caretLocation, 2)
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
         

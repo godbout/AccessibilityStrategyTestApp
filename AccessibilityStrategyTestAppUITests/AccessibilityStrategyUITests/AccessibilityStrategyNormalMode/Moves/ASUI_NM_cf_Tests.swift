@@ -23,19 +23,20 @@ cf on a multiline
 should work
 on a line
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
         let accessibilityElement = applyMoveBeingTested(to: "w", appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
-cf on a multilineork
+cf on a multiline
+ork
 on a line
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 17)
+        XCTAssertEqual(accessibilityElement.caretLocation, 18)
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }

@@ -59,8 +59,8 @@ all that VM d DOES
 in characTerwi😂️e is deleting
 the SElection!
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(times: 4, on: $0) }
@@ -72,8 +72,6 @@ the SElection!
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
 all that VM d DOES
-IN CHARACTERWI😂️E IS DELETING
-THE DOES
 IN CHARACTERWI😂️E IS DELETING
 THE SElection!
 """

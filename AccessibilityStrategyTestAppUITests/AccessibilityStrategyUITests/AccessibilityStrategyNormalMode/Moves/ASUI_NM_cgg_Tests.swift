@@ -26,8 +26,8 @@ need to deal with
 those faces 🥺️☹️😂️
 
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.gj(on: $0) }
@@ -36,13 +36,13 @@ those faces 🥺️☹️😂️
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
- 
+  
 need to deal with
 those faces 🥺️☹️😂️
 
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 1)
+        XCTAssertEqual(accessibilityElement.caretLocation, 2)
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
     }
     

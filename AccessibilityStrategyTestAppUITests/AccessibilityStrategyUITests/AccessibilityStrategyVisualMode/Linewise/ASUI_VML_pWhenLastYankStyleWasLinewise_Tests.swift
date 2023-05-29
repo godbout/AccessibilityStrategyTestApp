@@ -193,16 +193,17 @@ in the clipboard
 // PGR and Electron
 extension ASUI_VML_pWhenLastYankStyleWasLinewise_Tests {
     
+    // TODO: textField?
     func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "check that it works in PGR too"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         copyToClipboard(text: "pasta\n")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
-        XCTAssertEqual(accessibilityElement.fileText.value, "pastapasta")
+        XCTAssertEqual(accessibilityElement.fileText.value, "pasta")
         XCTAssertEqual(accessibilityElement.caretLocation, 0)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "p")
@@ -213,8 +214,8 @@ extension ASUI_VML_pWhenLastYankStyleWasLinewise_Tests {
 it's gonna paste twice coz
 PGR
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
@@ -222,7 +223,6 @@ PGR
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
-  should paste that somewhere
   should paste that somewhere
 PGR
 """

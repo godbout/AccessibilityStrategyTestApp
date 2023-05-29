@@ -106,8 +106,8 @@ right
 
 place
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
@@ -118,10 +118,11 @@ place
 this is to check
 that
 
+
 place
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 22)
+        XCTAssertEqual(accessibilityElement.caretLocation, 23)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     

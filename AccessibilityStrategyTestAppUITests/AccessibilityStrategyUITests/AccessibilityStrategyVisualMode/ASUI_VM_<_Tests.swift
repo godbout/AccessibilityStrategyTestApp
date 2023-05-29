@@ -113,8 +113,8 @@ seems that even the normal
 hehe
        🖕️ase fails LMAO
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
@@ -124,7 +124,6 @@ hehe
         XCTAssertEqual(accessibilityElement.fileText.value, """
 seems that even the normal
 hehe
-   🖕️ase fails LMAhehe
    🖕️ase fails LMAO
 """
         )

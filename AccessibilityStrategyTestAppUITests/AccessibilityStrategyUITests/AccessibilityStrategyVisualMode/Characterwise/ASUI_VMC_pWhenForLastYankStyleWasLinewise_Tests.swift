@@ -177,8 +177,8 @@ extension ASUI_VMC_pWhenLastYankStyleWasLinewise_Tests {
    
     func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "check that it works in PGR too"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
@@ -202,8 +202,8 @@ pastat works in PGR too
 it's gonna paste twice coz
 PGR
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }

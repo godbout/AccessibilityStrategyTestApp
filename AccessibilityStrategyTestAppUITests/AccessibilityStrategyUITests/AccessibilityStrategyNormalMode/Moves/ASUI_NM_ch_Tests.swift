@@ -17,15 +17,15 @@ extension ASUI_NM_ch_Tests {
 
     func test_that_in_normal_setting_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "ch should delete the correct character"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.b(on: $0) }
         var state = VimEngineState(appFamily: .pgR)
         let accessibilityElement = applyMoveBeingTested(&state)
 
-        XCTAssertEqual(accessibilityElement.fileText.value, "ch should delete the correccharacter")
-        XCTAssertEqual(accessibilityElement.caretLocation, 27)
+        XCTAssertEqual(accessibilityElement.fileText.value, "ch should delete the correctcharacter")
+        XCTAssertEqual(accessibilityElement.caretLocation, 28)
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
     }    
     

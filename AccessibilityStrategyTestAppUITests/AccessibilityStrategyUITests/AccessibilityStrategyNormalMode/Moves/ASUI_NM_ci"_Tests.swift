@@ -22,17 +22,17 @@ extension ASUI_NM_ciDoubleQuote_Tests {
         let textInAXFocusedElement = """
 finally dealing with the "real stuff"!
 """
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.F(to: "l", on: $0) }
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
-finally dealing with the "!
+finally dealing with the ""!
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement.caretLocation, 26)
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }

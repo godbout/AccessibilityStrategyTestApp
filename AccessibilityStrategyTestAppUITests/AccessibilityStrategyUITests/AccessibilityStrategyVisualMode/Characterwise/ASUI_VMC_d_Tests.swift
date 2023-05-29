@@ -182,8 +182,8 @@ all that VM d does
 in characterwi😂️e is deleting
 the selection!
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
@@ -193,11 +193,11 @@ the selection!
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
-all that VM d😂️e is deleting
+all that VM d 😂️e is deleting
 the selection!
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 13)
+        XCTAssertEqual(accessibilityElement.caretLocation, 14)
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
         XCTAssertEqual(accessibilityElement.selectedText, "😂️")
     }

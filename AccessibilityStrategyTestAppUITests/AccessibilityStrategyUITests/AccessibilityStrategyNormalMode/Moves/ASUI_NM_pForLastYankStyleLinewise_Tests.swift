@@ -189,8 +189,8 @@ extension ASUI_NM_pForLastYankStyleLinewise_Tests {
     
     func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "linewise for TF is still pasted characterwise!"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
@@ -210,8 +210,8 @@ on a line that is not
 the last so there's already
 a linefeed at the end of the line
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }

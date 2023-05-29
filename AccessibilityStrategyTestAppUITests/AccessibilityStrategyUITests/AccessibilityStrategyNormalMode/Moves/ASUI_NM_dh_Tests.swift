@@ -133,14 +133,14 @@ extension ASUI_NM_dh_Tests {
     
     func test_that_in_normal_setting_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "X should delete the right character😂️😂️😂️😂️"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.b(on: $0) }
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
-        XCTAssertEqual(accessibilityElement.fileText.value, "X should delete the right charact😂️😂️😂️😂️")
-        XCTAssertEqual(accessibilityElement.caretLocation, 33)
+        XCTAssertEqual(accessibilityElement.fileText.value, "X should delete the right characte😂️😂️😂️😂️")
+        XCTAssertEqual(accessibilityElement.caretLocation, 34)
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     

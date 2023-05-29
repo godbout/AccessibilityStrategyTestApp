@@ -22,31 +22,31 @@ extension ASUI_NM_cWw_Tests {
     
     func test_that_if_the_caret_is_on_a_non_blank_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "😂️😂️😂️😂️hehehe gonna use cw on this sentence"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
-        XCTAssertEqual(accessibilityElement.fileText.value, " gonna use cw on this sentence")
-        XCTAssertEqual(accessibilityElement.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement.fileText.value, "😂️ gonna use cw on this sentence")
+        XCTAssertEqual(accessibilityElement.caretLocation, 3)
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
     func test_that_if_the_caret_is_on_a_blank_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "😂️😂️😂️😂️hehehe                   gonna use cw on this sentence"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.E(on: $0) }
         applyMove { asNormalMode.l(times: 4, on: $0) }
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
-        XCTAssertEqual(accessibilityElement.fileText.value, "😂️😂️😂️😂️hehehe  gonna use cw on this sentence")
-        XCTAssertEqual(accessibilityElement.caretLocation, 20)
+        XCTAssertEqual(accessibilityElement.fileText.value, "😂️😂️😂️😂️hehehe   gonna use cw on this sentence")
+        XCTAssertEqual(accessibilityElement.caretLocation, 21)
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }

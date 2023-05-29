@@ -252,8 +252,8 @@ for example
   🇫🇷️t should stop
 after the two spaces
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
@@ -261,11 +261,11 @@ after the two spaces
         
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
- 🇫🇷️t should stop
+  🇫🇷️t should stop
 after the two spaces
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 1)
+        XCTAssertEqual(accessibilityElement.caretLocation, 2)
         XCTAssertEqual(accessibilityElement.selectedLength, 5)
         XCTAssertEqual(accessibilityElement.selectedText, "🇫🇷️")
     }
@@ -276,8 +276,8 @@ this one
     🌲️s a tough
 one
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.l(on: $0) }
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)

@@ -187,10 +187,11 @@ and fucking AX restrictions in browsers
 // PGR and Electron
 extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
     
+    // TODO: textFields
     func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "🍕️🍕️🍕️"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
         copyToClipboard(text: "text to pasta 🍕️!!🍔️")
@@ -208,8 +209,8 @@ time to paste
 in TextViews
 ho ho ho
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }

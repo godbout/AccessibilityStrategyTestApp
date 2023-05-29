@@ -87,17 +87,17 @@ extension ASUI_NM_J__Tests {
 gonna try to fuse line 1
 with line 2
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
                
         applyMove { asNormalMode.gg(on: $0) }
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
-gonna try to fuse line   with line 2
+gonna try to fuse line 1 with line 2
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 23)
+        XCTAssertEqual(accessibilityElement.caretLocation, 24)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, " ")
     }

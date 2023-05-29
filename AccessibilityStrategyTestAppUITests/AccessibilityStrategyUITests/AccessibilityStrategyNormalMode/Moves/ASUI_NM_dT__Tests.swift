@@ -75,8 +75,8 @@ dT on a multiline
 should wor⛱️
 on a line
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
@@ -85,11 +85,11 @@ on a line
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 dT on a multiline
-should ⛱️
+should w⛱️
 on a line
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement.caretLocation, 26)
         XCTAssertEqual(accessibilityElement.selectedLength, 2)
     }
     

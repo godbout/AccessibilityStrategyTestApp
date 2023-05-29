@@ -156,13 +156,13 @@ extension ASUI_NM_dk_Tests {
 becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
      🤡️o🤡️n b🤡️lank of 🤡️this line
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
-   😚️ow 🤡️🤡️this is🤡️ get🤡️🤡️ting coo
+   😚️ow 🤡️🤡️this is🤡️ get🤡️🤡️ting cool
 """
         )        
         XCTAssertEqual(accessibilityElement.caretLocation, 3)

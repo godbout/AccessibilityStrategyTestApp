@@ -23,18 +23,18 @@ but the indent should
    i delete a line
 be kept
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.b(on: $0) }
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 but the indent should
-  
+   
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 24)
+        XCTAssertEqual(accessibilityElement.caretLocation, 25)
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }

@@ -76,8 +76,8 @@ extension ASUI_NM_diWw_Tests {
 like honestly that one should be
    pretty-much     📏️traight forward if you ask me
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
@@ -86,10 +86,10 @@ like honestly that one should be
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 like honestly that one should be
-  -much     📏️traight forward if you ask me
+   -much     📏️traight forward if you ask me
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement.caretLocation, 36)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     

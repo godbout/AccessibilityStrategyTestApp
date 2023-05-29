@@ -74,19 +74,21 @@ dF on a multiline
 should work
 on a lin😂️
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
+        applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "o", appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 dF on a multiline
-should work😂️
+should work
+n😂️
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 29)
-        XCTAssertEqual(accessibilityElement.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.caretLocation, 30)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
 }

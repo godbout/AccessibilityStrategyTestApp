@@ -239,8 +239,8 @@ this case is when { is not followed
 by a linefeed
 and } is not preceded by a linefeed
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
 
         copyToClipboard(text: "some fake shit")
@@ -253,8 +253,8 @@ by a linefeed
 and 
 """
         )
-        XCTAssertEqual(accessibilityElement.fileText.value, "this case is when } is not preceded by a linefeed")
-        XCTAssertEqual(accessibilityElement.caretLocation, 18)
+        XCTAssertEqual(accessibilityElement.fileText.value, "this case is when {} is not preceded by a linefeed")
+        XCTAssertEqual(accessibilityElement.caretLocation, 19)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "}")
     }

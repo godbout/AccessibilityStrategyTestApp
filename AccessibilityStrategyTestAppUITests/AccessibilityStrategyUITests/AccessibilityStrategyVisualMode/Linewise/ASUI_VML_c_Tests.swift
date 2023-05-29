@@ -27,8 +27,8 @@ will delete the selected lines
 but the below line will not go up
 at least if we're not at the end of the text
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }
@@ -38,10 +38,11 @@ at least if we're not at the end of the text
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 VM c in Linewise
+
 at least if we're not at the end of the text
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 16)
+        XCTAssertEqual(accessibilityElement.caretLocation, 17)
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }

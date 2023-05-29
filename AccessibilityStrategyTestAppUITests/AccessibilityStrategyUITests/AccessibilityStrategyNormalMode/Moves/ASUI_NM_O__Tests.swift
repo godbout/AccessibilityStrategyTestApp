@@ -69,15 +69,14 @@ caret on the first
 line and it should
 still create a line above
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
                
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.dollarSign(on: $0) }
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
-
 
 caret on the first
 line and it should
@@ -96,8 +95,8 @@ an😄️😄️d O will
 create a n😄️ew line
 abo😄️ve!
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
                
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }
@@ -106,14 +105,13 @@ abo😄️ve!
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
 tha😄️t's a mu😄️ltiline
-tha😄️t's a mu😄️ltiline
 
 an😄️😄️d O will
 create a n😄️ew line
 abo😄️ve!
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 50)
+        XCTAssertEqual(accessibilityElement.caretLocation, 25)
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }

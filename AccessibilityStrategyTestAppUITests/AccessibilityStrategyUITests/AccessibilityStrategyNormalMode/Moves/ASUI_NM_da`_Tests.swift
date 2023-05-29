@@ -66,17 +66,17 @@ extension ASUI_NM_daBacktick_Tests {
         let textInAXFocusedElement = """
 finally dealing with the `real stuff`!
 """
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.F(to: "l", on: $0) }
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
-finally dealing with th!
+finally dealing with the!
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 23)
+        XCTAssertEqual(accessibilityElement.caretLocation, 24)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "!")
     }

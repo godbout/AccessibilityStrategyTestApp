@@ -207,8 +207,8 @@ d here and we suppose
 one extra line in between!
       ⛱️o go to non blank of the line
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
@@ -218,12 +218,13 @@ one extra line in between!
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
                      
         XCTAssertEqual(accessibilityElement.fileText.value, """
-we gonna use VM      ⛱️o go to non blank of the line
+we gonna use VM
+      ⛱️o go to non blank of the line
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 0)
-        XCTAssertEqual(accessibilityElement.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement.selectedText, "w")
+        XCTAssertEqual(accessibilityElement.caretLocation, 22)
+        XCTAssertEqual(accessibilityElement.selectedLength, 2)
+        XCTAssertEqual(accessibilityElement.selectedText, "⛱️")
     }
     
     func test_that_if_there_is_no_next_line_and_there_is_a_previous_line_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
@@ -232,8 +233,8 @@ we gonna use VM      ⛱️o go to non blank of the line
 line and caret should go up
 and it would be beautiful
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
@@ -242,7 +243,7 @@ and it would be beautiful
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
-   ⛱️e gonna remove the las
+   ⛱️e gonna remove the last
 """
         )
         XCTAssertEqual(accessibilityElement.caretLocation, 3)

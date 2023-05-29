@@ -113,8 +113,8 @@ seems that even the normal
 some more
 and more
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
        
         applyMove { asNormalMode.G(times: 2, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
@@ -124,7 +124,6 @@ and more
         XCTAssertEqual(accessibilityElement.fileText.value, """
 seems that even the normal
       🖕️ase fails LMAO
-    some more      🖕️ase fails LMAO
     some more
 and more
 """

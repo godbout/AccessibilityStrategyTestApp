@@ -23,8 +23,8 @@ cT on a multiline
 should work
 on a 📏️📏️ line
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.l(on: $0) }
         let accessibilityElement = applyMoveBeingTested(to: "o", appFamily: .pgR)
@@ -32,10 +32,10 @@ on a 📏️📏️ line
         XCTAssertEqual(accessibilityElement.fileText.value, """
 cT on a multiline
 should work
-e
+oe
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 30)
+        XCTAssertEqual(accessibilityElement.caretLocation, 31)
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }

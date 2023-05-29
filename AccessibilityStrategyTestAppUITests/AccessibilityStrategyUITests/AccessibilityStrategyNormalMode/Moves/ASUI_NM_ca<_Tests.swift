@@ -24,18 +24,18 @@ this case is when < is not followed
 by a linefeed and
      > is preceded by a linefeed
 """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.firstMatch.tap()
+        app.webViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.f(times: 2, to: "n", on: $0) }
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
-this case is when is preceded by a linefeed
+this case is when  is preceded by a linefeed
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 17)
+        XCTAssertEqual(accessibilityElement.caretLocation, 18)
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
