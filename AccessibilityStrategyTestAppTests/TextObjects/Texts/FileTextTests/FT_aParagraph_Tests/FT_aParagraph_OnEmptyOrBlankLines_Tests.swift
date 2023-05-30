@@ -49,7 +49,6 @@ extension FT_aParagraph_OnEmptyOrBlankLines_Tests {
         XCTAssertEqual(aParagraphRange?.count, 72) 
     }
     
-    // TODO: that should return nil? huh. probably better check all the other tests
     func test_that_for_a_single_EmptyLine_after_some_text_it_returns_nil() {
         let text = """
 so for innerParagraph blank lines are a boundary. it's an exception.   

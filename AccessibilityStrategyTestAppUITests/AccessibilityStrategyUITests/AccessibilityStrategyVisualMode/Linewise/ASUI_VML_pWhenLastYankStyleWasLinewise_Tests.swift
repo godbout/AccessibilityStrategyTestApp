@@ -193,7 +193,6 @@ in the clipboard
 // PGR and Electron
 extension ASUI_VML_pWhenLastYankStyleWasLinewise_Tests {
     
-    // TODO: textField?
     func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "check that it works in PGR too"
         app.webViews.textViews.firstMatch.tap()
