@@ -222,7 +222,6 @@ ho ho ho
         XCTAssertEqual(accessibilityElement.fileText.value, """
 time to paste
 in😂️astaing
-my man!😂️astaing
 my man! TextViews
 ho ho ho
 """

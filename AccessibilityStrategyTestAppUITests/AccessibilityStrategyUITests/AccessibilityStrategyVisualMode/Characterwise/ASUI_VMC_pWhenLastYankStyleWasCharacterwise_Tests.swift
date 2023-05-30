@@ -205,7 +205,6 @@ PGR
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 it's gonna paste twice   should paste that
-somewhere  should paste that
 somewhereR
 """
         )

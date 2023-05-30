@@ -187,6 +187,7 @@ test 3 of The 3 Cases for TextArea linewise
 // PGR and Electron
 extension ASUI_NM_pForLastYankStyleLinewise_Tests {
     
+    // TODO: textField
     func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "linewise for TF is still pasted characterwise!"
         app.webViews.firstMatch.tap()
@@ -223,8 +224,6 @@ a linefeed at the end of the line
 we gonna linewise paste
 on a line that is not
 the last so there's already
-should paste that somewhere
-s already
 should paste that somewhere
 a linefeed at the end of the line
 """

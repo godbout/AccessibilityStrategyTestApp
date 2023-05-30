@@ -217,9 +217,6 @@ PGR
 it's gonna paste twic
   should paste
 that somewhere
-
-  should paste
-that somewhere
 GR
 """
         )

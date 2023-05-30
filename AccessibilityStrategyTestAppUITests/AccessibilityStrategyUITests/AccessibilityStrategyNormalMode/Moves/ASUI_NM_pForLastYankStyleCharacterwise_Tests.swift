@@ -189,11 +189,11 @@ ho ho ho
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 time to paste
-in pastaingpastaingTextViews
+in pastaingTextViews
 ho ho ho
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 32)
+        XCTAssertEqual(accessibilityElement.caretLocation, 24)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "g")
     }
