@@ -246,6 +246,9 @@ own empty
 // see NM dd implementation. will be clear.
 extension ASUI_NM_dd_Tests {
     
+    // TODO: this one is strange. maybe the dd move? need to paste "  "
+    // which wouldn't work with PGR apps because it's locked? need the magicPaste?
+    // but some other moves like dj work...
     func test_that_if_there_is_a_next_line_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = """
 for example
