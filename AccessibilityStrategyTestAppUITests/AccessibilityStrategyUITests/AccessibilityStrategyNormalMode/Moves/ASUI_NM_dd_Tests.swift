@@ -284,7 +284,7 @@ one
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
 this one
-    🌲️s a toug
+    🌲️s a tough
 """
         )
         XCTAssertEqual(accessibilityElement.caretLocation, 13)
