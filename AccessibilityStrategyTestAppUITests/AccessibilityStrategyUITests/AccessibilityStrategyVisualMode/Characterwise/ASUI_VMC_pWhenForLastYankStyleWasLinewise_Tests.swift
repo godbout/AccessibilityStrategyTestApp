@@ -174,11 +174,12 @@ in the clipboard
 
 // PGR and Electron
 extension ASUI_VMC_pWhenLastYankStyleWasLinewise_Tests {
-   
+
+    // in HTML, the textField don't allow linefeed and automatically stripped them out :D
     func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "check that it works in PGR too"
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textFields.firstMatch.tap()
+        app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
@@ -187,12 +188,10 @@ extension ASUI_VMC_pWhenLastYankStyleWasLinewise_Tests {
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
-some
-pastasome
-pastat works in PGR too
+some pastat works in PGR too
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 19)
+        XCTAssertEqual(accessibilityElement.caretLocation, 9)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "a")
     }

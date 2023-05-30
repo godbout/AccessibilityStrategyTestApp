@@ -44,7 +44,7 @@ struct UITestsView: View {
     @State var textFieldValue = ""
     @State var textViewValue = ""
     @State var toggle = false
-    @State var webViewValue = "<textarea rows=15 cols=25></textarea>"
+    @State var webViewValue = "<input /><textarea rows=15 cols=25></textarea>"
 
     var body: some View {
         VStack {

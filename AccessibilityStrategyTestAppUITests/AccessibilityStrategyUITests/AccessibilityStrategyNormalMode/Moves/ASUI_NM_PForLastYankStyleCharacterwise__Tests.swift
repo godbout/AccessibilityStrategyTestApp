@@ -187,18 +187,17 @@ and fucking AX restrictions in browsers
 // PGR and Electron
 extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
     
-    // TODO: textFields
     func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "🍕️🍕️🍕️"
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textFields.firstMatch.tap()
+        app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
         copyToClipboard(text: "text to pasta 🍕️!!🍔️")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
-        XCTAssertEqual(accessibilityElement.fileText.value, "🍕️🍕️text to pasta 🍕️!!🍔️text to pasta 🍕️!!🍔️🍕️")
-        XCTAssertEqual(accessibilityElement.caretLocation, 47)
+        XCTAssertEqual(accessibilityElement.fileText.value, "🍕️🍕️text to pasta 🍕️!!🍔️🍕️")
+        XCTAssertEqual(accessibilityElement.caretLocation, 25)
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
         XCTAssertEqual(accessibilityElement.selectedText, "🍔️")
     }

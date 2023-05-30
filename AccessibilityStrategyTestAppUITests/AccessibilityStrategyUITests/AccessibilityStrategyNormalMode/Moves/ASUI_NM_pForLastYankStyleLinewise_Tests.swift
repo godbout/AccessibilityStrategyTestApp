@@ -187,19 +187,18 @@ test 3 of The 3 Cases for TextArea linewise
 // PGR and Electron
 extension ASUI_NM_pForLastYankStyleLinewise_Tests {
     
-    // TODO: textField
     func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "linewise for TF is still pasted characterwise!"
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textFields.firstMatch.tap()
+        app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
         copyToClipboard(text: "text to pasta")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
-        XCTAssertEqual(accessibilityElement.fileText.value, "ltext to pastatext to pastainewise for TF is still pasted characterwise!")
-        XCTAssertEqual(accessibilityElement.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement.fileText.value, "ltext to pastainewise for TF is still pasted characterwise!")
+        XCTAssertEqual(accessibilityElement.caretLocation, 13)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "a")
     }

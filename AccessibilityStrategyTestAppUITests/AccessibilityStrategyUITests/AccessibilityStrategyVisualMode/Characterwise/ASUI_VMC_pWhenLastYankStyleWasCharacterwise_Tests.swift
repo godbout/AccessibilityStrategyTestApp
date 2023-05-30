@@ -171,8 +171,8 @@ extension ASUI_VMC_pWhenLastYankStyleWasCharacterwise_Tests {
    
     func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "check that it works in PGR too"
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textFields.firstMatch.tap()
+        app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.b(times: 5, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
@@ -180,8 +180,8 @@ extension ASUI_VMC_pWhenLastYankStyleWasCharacterwise_Tests {
         copyToClipboard(text: "pasta\n")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
-        XCTAssertEqual(accessibilityElement.fileText.value, "check that pastapasta in PGR too")
-        XCTAssertEqual(accessibilityElement.caretLocation, 20)
+        XCTAssertEqual(accessibilityElement.fileText.value, "check that pasta in PGR too")
+        XCTAssertEqual(accessibilityElement.caretLocation, 15)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "a")
     }

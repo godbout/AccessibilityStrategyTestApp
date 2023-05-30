@@ -137,11 +137,10 @@ test 3 of The 3 Cases for TextArea linewise P
 // PGR and Electron
 extension ASUI_NM_PForLastYankStyleLinewise_Tests {
     
-    // TODO: textField
     func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "P linewise for TF is still pasted characterwise!"
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textFields.firstMatch.tap()
+        app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }

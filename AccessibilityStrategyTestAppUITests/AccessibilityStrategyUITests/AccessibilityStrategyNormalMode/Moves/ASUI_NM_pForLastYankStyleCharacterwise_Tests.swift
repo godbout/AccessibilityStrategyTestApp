@@ -158,15 +158,15 @@ extension ASUI_NM_pForLastYankStyleCharacterwise_Tests {
     
     func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "we go😂️😂️😂️nna paste some 💩️"
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textFields.firstMatch.tap()
+        app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.h(on: $0) }
         copyToClipboard(text: "text to 🥞️🥞️🥞️ paste!!!🥠️")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
-        XCTAssertEqual(accessibilityElement.fileText.value, "we go😂️😂️😂️nna paste some 💩️text to 🥞️🥞️🥞️ paste!!!🥠️text to 🥞️🥞️🥞️ paste!!!🥠️")
-        XCTAssertEqual(accessibilityElement.caretLocation, 87)
+        XCTAssertEqual(accessibilityElement.fileText.value, "we go😂️😂️😂️nna paste some 💩️text to 🥞️🥞️🥞️ paste!!!🥠️")
+        XCTAssertEqual(accessibilityElement.caretLocation, 58)
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
         XCTAssertEqual(accessibilityElement.selectedText, "🥠️")
     }
