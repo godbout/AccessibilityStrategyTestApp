@@ -59,8 +59,8 @@ all that VM d DOES
 in characTerwi😂️e is deleting
 the SElection!
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(times: 4, on: $0) }

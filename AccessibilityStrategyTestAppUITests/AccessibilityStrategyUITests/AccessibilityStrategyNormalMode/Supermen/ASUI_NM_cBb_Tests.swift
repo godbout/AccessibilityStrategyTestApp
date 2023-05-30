@@ -19,8 +19,8 @@ extension ASUI_NM_cBb_Tests {
     
     func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "so we gonna⏰️⏰️trytouse cb here and see 😂️😂️ if it works ⏰️"
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.F(to: "u", on: $0) }
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)

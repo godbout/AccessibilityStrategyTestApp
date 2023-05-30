@@ -24,8 +24,8 @@ this case is when ( is not followed
 by a linefeed and
      ) is preceded by a linefeed
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.f(times: 2, to: "n", on: $0) }

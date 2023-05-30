@@ -87,8 +87,8 @@ extension ASUI_NM_J__Tests {
 gonna try to fuse line 1
 with line 2
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
                
         applyMove { asNormalMode.gg(on: $0) }
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)

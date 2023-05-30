@@ -22,8 +22,8 @@ extension ASUI_NM_ciWw__Tests {
     
     func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "that's some cute-boobies      text in here don't you think?"
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.F(to: "c", on: $0) }

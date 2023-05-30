@@ -21,8 +21,8 @@ extension ASUI_NM_o_Tests {
 caret on empty last line
 
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.l(on: $0) }
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
@@ -42,8 +42,8 @@ caret on empty last line
 that's a multiline and o will create a new line
 between the first file line and the second file line
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.f(times: 1, to: "i", on: $0) }

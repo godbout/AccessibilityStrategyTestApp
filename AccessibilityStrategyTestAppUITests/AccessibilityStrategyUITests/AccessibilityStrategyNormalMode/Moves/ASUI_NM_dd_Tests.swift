@@ -256,8 +256,8 @@ for example
   🇫🇷️t should stop
 after the two spaces
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
@@ -280,8 +280,8 @@ this one
     🌲️s a tough
 one
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
 
         applyMove { asNormalMode.l(on: $0) }
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)

@@ -23,8 +23,8 @@ cT on a multiline
 should work
 on a 📏️📏️ line
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.l(on: $0) }
         let accessibilityElement = applyMoveBeingTested(to: "o", appFamily: .pgR)

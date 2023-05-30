@@ -196,8 +196,8 @@ extension ASUI_VML_pWhenLastYankStyleWasLinewise_Tests {
     // TODO: textField?
     func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
         let textInAXFocusedElement = "check that it works in PGR too"
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         copyToClipboard(text: "pasta\n")
@@ -214,8 +214,8 @@ extension ASUI_VML_pWhenLastYankStyleWasLinewise_Tests {
 it's gonna paste twice coz
 PGR
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }

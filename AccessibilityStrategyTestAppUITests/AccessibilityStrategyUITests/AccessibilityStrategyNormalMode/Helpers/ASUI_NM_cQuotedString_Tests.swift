@@ -22,8 +22,8 @@ extension ASUI_NM_cQuotedString_Tests {
         let textInAXFocusedElement = """
 finally dealing with the "real stuff"!
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.F(to: "l", on: $0) }
         let accessibilityElement = applyMoveBeingTested(using: .doubleQuote, appFamily: .pgR)

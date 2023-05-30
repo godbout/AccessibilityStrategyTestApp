@@ -96,8 +96,8 @@ extension ASUI_NM_rightChevronRightChevron_Tests {
 seems that even the normal
 🖕️ase fails LMAO
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
             

@@ -23,8 +23,8 @@ but the indent should
    i delete a line
 be kept
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.b(on: $0) }
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)

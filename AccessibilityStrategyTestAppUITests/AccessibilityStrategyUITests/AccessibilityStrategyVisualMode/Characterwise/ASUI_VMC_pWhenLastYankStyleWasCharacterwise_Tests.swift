@@ -191,8 +191,8 @@ extension ASUI_VMC_pWhenLastYankStyleWasCharacterwise_Tests {
 it's gonna paste twice coz
 PGR
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.dollarSign(on: $0) }

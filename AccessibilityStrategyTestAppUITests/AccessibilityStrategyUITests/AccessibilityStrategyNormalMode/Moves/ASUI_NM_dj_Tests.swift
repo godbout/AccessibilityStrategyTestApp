@@ -157,8 +157,8 @@ extension ASUI_NM_dj_Tests {
 becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
      🤡️o🤡️n b🤡️lank of 🤡️this line
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }

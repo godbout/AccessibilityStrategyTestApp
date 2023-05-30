@@ -113,8 +113,8 @@ seems that even the normal
 some more
 and more
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
        
         applyMove { asNormalMode.G(times: 2, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }

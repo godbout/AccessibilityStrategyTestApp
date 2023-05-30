@@ -239,8 +239,8 @@ this case is when { is not followed
 by a linefeed
 and } is not preceded by a linefeed
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
 
         copyToClipboard(text: "some fake shit")

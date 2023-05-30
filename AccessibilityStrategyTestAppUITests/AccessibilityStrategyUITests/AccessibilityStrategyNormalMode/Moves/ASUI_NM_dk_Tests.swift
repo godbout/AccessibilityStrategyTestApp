@@ -156,8 +156,8 @@ extension ASUI_NM_dk_Tests {
 becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
      🤡️o🤡️n b🤡️lank of 🤡️this line
 """
-        app.webViews.firstMatch.tap()
-        app.webViews.firstMatch.typeText(textInAXFocusedElement)
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
