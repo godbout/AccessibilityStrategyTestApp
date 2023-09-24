@@ -5,16 +5,111 @@ import Common
 
 class ASUI_NM_dd_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.dd(on: $0, &vimEngineState) }
+    private func applyMoveBeingTested(times count: Int? = 1, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        return applyMove { asNormalMode.dd(times: count, on: $0, &vimEngineState) }
     }
     
-    private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int? = 1, appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
-        return applyMoveBeingTested(&state)
+        return applyMoveBeingTested(times: count, &state)
+    }
+
+}
+
+
+// count
+extension ASUI_NM_dd_Tests {
+    
+    func test_that_it_implements_the_count_system() {
+        let textInAXFocusedElement = """
+hehe now can you believe
+this but we're
+having count
+for dd because well
+    someone asked so why not
+right?
+hehe :D
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.j(on: $0) }
+        applyMove { asNormalMode.w(on: $0) }
+
+        let accessibilityElement = applyMoveBeingTested(times: 3)
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+hehe now can you believe
+    someone asked so why not
+right?
+hehe :D
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 29)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
+    func test_that_if_the_count_is_1_then_it_deletes_only_the_current_line() {
+        let textInAXFocusedElement = """
+hehe now can you believe
+this but we're
+having count
+for dd because well
+someone asked so why not
+right?
+hehe :D
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.j(on: $0) }
+        applyMove { asNormalMode.w(on: $0) }
+
+        let accessibilityElement = applyMoveBeingTested(times: 1)
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+hehe now can you believe
+having count
+for dd because well
+someone asked so why not
+right?
+hehe :D
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+    }
+    
+    func test_that_if_the_count_is_too_high_then_it_deletes_until_the_end_of_the_text() {
+        let textInAXFocusedElement = """
+   hehe now can you believe
+this but we're
+having count
+for dd because well
+someone asked so why not
+right?
+hehe :D
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.j(on: $0) }
+        applyMove { asNormalMode.w(on: $0) }
+
+        let accessibilityElement = applyMoveBeingTested(times: 69)
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+   hehe now can you believe
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+    }
+
 }
 
 
