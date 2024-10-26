@@ -165,7 +165,7 @@ where it skips
 
 empty lines!
 """
-        let element = AccessibilityTextElement(
+        let _ = AccessibilityTextElement(
             role: .textArea,
             value: text,
             length: 46,
