@@ -708,6 +708,8 @@
 		913EF361277F06550078D9EF /* ASUT_VMC_iW__Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUT_VMC_iW__Tests.swift; sourceTree = "<group>"; };
 		9140CB8426ECEE2D00D43793 /* ASUT_VMC_g$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_VMC_g$_Tests.swift; sourceTree = "<group>"; };
 		91427CF6270C98FC00767EBA /* FT_previousUnmatched_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT_previousUnmatched_Tests.swift; sourceTree = "<group>"; };
+		91433AB82CD2351200697A89 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = SOURCE_ROOT; };
+		91433AB92CD2C69100697A89 /* Common */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Common; path = /Users/guill/Development/Common; sourceTree = "<absolute>"; };
 		9148E9D92770696300A86F61 /* FT_aWORD__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT_aWORD__Tests.swift; sourceTree = "<group>"; };
 		914B80D52717068200688C91 /* ASUT_VMC_$_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUT_VMC_$_Tests.swift; sourceTree = "<group>"; };
 		914B80D7271706DD00688C91 /* ASUT_VML_V__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_VML_V__Tests.swift; sourceTree = "<group>"; };
@@ -1651,6 +1653,8 @@
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
+				91433AB92CD2C69100697A89 /* Common */,
+				91433AB82CD2351200697A89 /* AccessibilityStrategy */,
 				91F951B326DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,

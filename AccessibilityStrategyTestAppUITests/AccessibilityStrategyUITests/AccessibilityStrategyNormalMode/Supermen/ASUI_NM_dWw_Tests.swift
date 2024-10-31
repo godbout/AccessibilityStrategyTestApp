@@ -203,7 +203,7 @@ yes hehe
 // PGR and Electron
 extension ASUI_NM_dWw_Tests {
     
-    func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = "😂️😂️😂️😂️hehehe gonna use ce on this sentence"
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -218,7 +218,7 @@ extension ASUI_NM_dWw_Tests {
         XCTAssertEqual(accessibilityElement.selectedText, "h")
     }
         
-    func test_that_for_emptyLines_the_PGR_mode_works_also() {
+    func test_that_for_emptyLines_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 hehe empty lines
 
@@ -227,6 +227,46 @@ yes hehe
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.j(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+hehe empty lines
+😂️
+yes hehe
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 17)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.selectedText, "😂️")
+    }
+    
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = "😂️😂️😂️😂️hehehe gonna use ce on this sentence"
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.l(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, "😂️hehehe gonna use ce on this sentence")
+        XCTAssertEqual(accessibilityElement.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "h")
+    }
+        
+    func test_that_for_emptyLines_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = """
+hehe empty lines
+
+😂️
+yes hehe
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }

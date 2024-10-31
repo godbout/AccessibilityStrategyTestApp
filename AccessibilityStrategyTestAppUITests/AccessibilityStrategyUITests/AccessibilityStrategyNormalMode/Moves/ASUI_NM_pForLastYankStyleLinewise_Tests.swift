@@ -187,7 +187,7 @@ test 3 of The 3 Cases for TextArea linewise
 // PGR and Electron
 extension ASUI_NM_pForLastYankStyleLinewise_Tests {
     
-    func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = "linewise for TF is still pasted characterwise!"
         app.webViews.textFields.firstMatch.tap()
         app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -203,7 +203,7 @@ extension ASUI_NM_pForLastYankStyleLinewise_Tests {
         XCTAssertEqual(accessibilityElement.selectedText, "a")
     }
     
-    func test_that_on_TextAreas_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 we gonna linewise paste
 on a line that is not
@@ -212,6 +212,51 @@ a linefeed at the end of the line
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        copyToClipboard(text: "should paste that somewhere\n")
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+we gonna linewise paste
+on a line that is not
+the last so there's already
+should paste that somewhere
+a linefeed at the end of the line
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 74)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "s")
+    }
+    
+    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = "linewise for TF is still pasted characterwise!"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.zero(on: $0) }
+        copyToClipboard(text: "text to pasta")
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+
+        XCTAssertEqual(accessibilityElement.fileText.value, "ltext to pastainewise for TF is still pasted characterwise!")
+        XCTAssertEqual(accessibilityElement.caretLocation, 13)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "a")
+    }
+    
+    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = """
+we gonna linewise paste
+on a line that is not
+the last so there's already
+a linefeed at the end of the line
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }

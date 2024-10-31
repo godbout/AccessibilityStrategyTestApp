@@ -123,7 +123,7 @@ before what was the current one.
 // PGR and Electron
 extension ASUI_NM_dG__Tests {
 
-    func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
   😂️k so now we're having multiple lines
 and we will NOT be on on the first one so after dG
@@ -133,6 +133,27 @@ before what was the current one.
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asNormalMode.j(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, "  😂️k so now we're having multiple lines")
+        XCTAssertEqual(accessibilityElement.caretLocation, 2)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
+        
+    }
+    
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = """
+  😂️k so now we're having multiple lines
+and we will NOT be on on the first one so after dG
+deletes from the current line to the end of the text
+the caret will go to the first non blank limit of the line
+before what was the current one.
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }

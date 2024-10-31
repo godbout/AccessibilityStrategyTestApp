@@ -233,7 +233,7 @@ this case is when (
 extension ASUI_NM_dInnerBlock_Tests {
 
     // this test contains blank spaces
-    func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 this case is when { is not followed
 by a linefeed
@@ -241,6 +241,32 @@ and } is not preceded by a linefeed
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.gg(times: 2, on: $0) }
+
+        copyToClipboard(text: "some fake shit")
+        var state = VimEngineState(appFamily: .pgR)
+        let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &state)
+
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
+ is not followed
+by a linefeed
+and 
+"""
+        )
+        XCTAssertEqual(accessibilityElement.fileText.value, "this case is when {} is not preceded by a linefeed")
+        XCTAssertEqual(accessibilityElement.caretLocation, 19)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "}")
+    }
+
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = """
+this case is when { is not followed
+by a linefeed
+and } is not preceded by a linefeed
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
 
         copyToClipboard(text: "some fake shit")

@@ -194,7 +194,7 @@ x
 // PGR and Electron
 extension ASUI_NM_dl_Tests {
     
-    func test_that_in_normal_setting_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_in_normal_setting_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = "x should delete the right character"
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -208,7 +208,7 @@ extension ASUI_NM_dl_Tests {
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_if_the_caret_is_at_the_last_character_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 so we're on the last
 character of the last line
@@ -216,6 +216,43 @@ that is not an empty line🤡️🤡️
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+      
+        applyMove { asNormalMode.l(on: $0) }
+        var state = VimEngineState(appFamily: .pgR)
+        let accessibilityElement = applyMoveBeingTested(&state)
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+so we're on the last
+character of the last line
+that is not an empty line🤡️
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 73)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
+    }
+    
+    func test_that_in_normal_setting_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = "x should delete the right character"
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+
+        applyMove { asNormalMode.b(on: $0) }
+        var state = VimEngineState(appFamily: .pgR)
+        let accessibilityElement = applyMoveBeingTested(&state)
+
+        XCTAssertEqual(accessibilityElement.fileText.value, "x should delete the right haracter")
+        XCTAssertEqual(accessibilityElement.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+    }
+    
+    func test_that_if_the_caret_is_at_the_last_character_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = """
+so we're on the last
+character of the last line
+that is not an empty line🤡️🤡️
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
       
         applyMove { asNormalMode.l(on: $0) }
         var state = VimEngineState(appFamily: .pgR)

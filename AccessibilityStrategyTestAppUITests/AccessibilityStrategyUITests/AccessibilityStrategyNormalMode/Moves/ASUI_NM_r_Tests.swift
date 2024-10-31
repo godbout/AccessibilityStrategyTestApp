@@ -147,10 +147,26 @@ escape
 // PGR and Electron
 extension ASUI_NM_r_Tests {
     
-    func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = "gonna replace one of those letters..."
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.B(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(with: "a", appFamily: .pgR)
+      
+        XCTAssertEqual(accessibilityElement.fileText.value, "gonna replace one of thosa letters...")
+        XCTAssertEqual(accessibilityElement.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "a")
+    }
+    
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = "gonna replace one of those letters..."
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.B(on: $0) }
         applyMove { asNormalMode.h(on: $0) }

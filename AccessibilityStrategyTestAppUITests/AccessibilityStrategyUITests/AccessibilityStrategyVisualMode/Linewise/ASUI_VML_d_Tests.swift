@@ -200,7 +200,7 @@ t
 // yes, one case cannot be tested here.
 extension ASUI_VML_d_Tests {
     
-    func test_that_if_there_is_a_next_line_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_if_there_is_a_next_line_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 we gonna use VM
 d here and we suppose
@@ -227,7 +227,7 @@ we gonna use VM
         XCTAssertEqual(accessibilityElement.selectedText, "⛱️")
     }
     
-    func test_that_if_there_is_no_next_line_and_there_is_a_previous_line_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_if_there_is_no_next_line_and_there_is_a_previous_line_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
    ⛱️e gonna remove the last
 line and caret should go up
@@ -235,6 +235,57 @@ and it would be beautiful
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+       
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asVisualMode.VFromNormalMode(on: $0) }
+        applyMove { asVisualMode.j(on: $0, state) }
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+   ⛱️e gonna remove the last
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement.selectedLength, 2)
+        XCTAssertEqual(accessibilityElement.selectedText, "⛱️")
+    }
+
+    func test_that_if_there_is_a_next_line_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = """
+we gonna use VM
+d here and we suppose
+one extra line in between!
+      ⛱️o go to non blank of the line
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asVisualMode.VFromNormalMode(on: $0) }
+        applyMove { asVisualMode.j(on: $0, state) }
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+                     
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+we gonna use VM
+      ⛱️o go to non blank of the line
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 22)
+        XCTAssertEqual(accessibilityElement.selectedLength, 2)
+        XCTAssertEqual(accessibilityElement.selectedText, "⛱️")
+    }
+    
+    func test_that_if_there_is_no_next_line_and_there_is_a_previous_line_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = """
+   ⛱️e gonna remove the last
+line and caret should go up
+and it would be beautiful
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }

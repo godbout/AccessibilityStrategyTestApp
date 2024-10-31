@@ -193,7 +193,7 @@ in the clipboard
 // PGR and Electron
 extension ASUI_VML_pWhenLastYankStyleWasLinewise_Tests {
     
-    func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = "check that it works in PGR too"
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -208,13 +208,51 @@ extension ASUI_VML_pWhenLastYankStyleWasLinewise_Tests {
         XCTAssertEqual(accessibilityElement.selectedText, "p")
     }
     
-    func test_that_on_TextAreas_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 it's gonna paste twice coz
 PGR
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.gg(on: $0) }
+        applyMove { asVisualMode.VFromNormalMode(on: $0) }
+        copyToClipboard(text: "  should paste that somewhere\n")
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+  should paste that somewhere
+PGR
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 2)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "s")
+    }
+
+    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = "check that it works in PGR too"
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asVisualMode.VFromNormalMode(on: $0) }
+        copyToClipboard(text: "pasta\n")
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+
+        XCTAssertEqual(accessibilityElement.fileText.value, "pasta")
+        XCTAssertEqual(accessibilityElement.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "p")
+    }
+    
+    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = """
+it's gonna paste twice coz
+PGR
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }

@@ -107,7 +107,7 @@ spaces
 // PGR and Electron
 extension ASUI_VM_leftChevron_Tests {
     
-    func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 seems that even the normal
 hehe
@@ -115,6 +115,30 @@ hehe
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+       
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+seems that even the normal
+hehe
+   🖕️ase fails LMAO
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 27)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+    }
+    
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = """
+seems that even the normal
+hehe
+       🖕️ase fails LMAO
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }

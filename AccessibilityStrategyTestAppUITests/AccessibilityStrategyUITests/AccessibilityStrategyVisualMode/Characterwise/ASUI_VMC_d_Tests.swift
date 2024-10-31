@@ -176,7 +176,7 @@ own empty
 // PGR and Electron
 extension ASUI_VMC_d_Tests {
     
-    func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 all that VM d does
 in characterwi😂️e is deleting
@@ -184,6 +184,32 @@ the selection!
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
+        applyMove { asVisualMode.zero(on: $0, state) }
+        applyMove { asVisualMode.b(on: $0, state) }
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+all that VM d 😂️e is deleting
+the selection!
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 14)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.selectedText, "😂️")
+    }
+    
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = """
+all that VM d does
+in characterwi😂️e is deleting
+the selection!
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }

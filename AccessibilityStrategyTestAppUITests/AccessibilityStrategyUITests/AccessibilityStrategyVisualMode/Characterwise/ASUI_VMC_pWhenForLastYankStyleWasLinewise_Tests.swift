@@ -176,7 +176,7 @@ in the clipboard
 extension ASUI_VMC_pWhenLastYankStyleWasLinewise_Tests {
 
     // in HTML, the textField don't allow linefeed and automatically stripped them out :D
-    func test_that_on_TextFields_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = "check that it works in PGR too"
         app.webViews.textFields.firstMatch.tap()
         app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -196,13 +196,62 @@ some pastat works in PGR too
         XCTAssertEqual(accessibilityElement.selectedText, "a")
     }
     
-    func test_that_on_TextAreas_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 it's gonna paste twice coz
 PGR
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.ge(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
+        applyMove { asVisualMode.w(times: 2, on: $0, state) }
+        copyToClipboard(text: "  should paste\nthat somewhere")
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+it's gonna paste twic
+  should paste
+that somewhere
+GR
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 24)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "s")
+    }
+    
+    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = "check that it works in PGR too"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
+        applyMove { asVisualMode.w(times: 2, on: $0, state) }
+        copyToClipboard(text: "some\npasta\n")
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+
+        // TODO: seems need to decide here if all \n should be stripped or only the last one like currently
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+somepastat works in PGR too
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 9)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "a")
+    }
+    
+    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = """
+it's gonna paste twice coz
+PGR
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }

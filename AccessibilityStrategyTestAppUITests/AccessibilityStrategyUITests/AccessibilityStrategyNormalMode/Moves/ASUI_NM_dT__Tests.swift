@@ -69,7 +69,7 @@ on a line
 // PGR and Electron
 extension ASUI_NM_dT__Tests {
     
-    func test_that_when_it_is_called_in_PGR_mode_it_tricks_the_system_and_eventually_modifies_text() {
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 dT on a multiline
 should wor⛱️
@@ -77,6 +77,30 @@ on a line
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
+        applyMove { asNormalMode.dollarSign(on: $0) }
+        let accessibilityElement = applyMoveBeingTested(with: "w", appFamily: .pgR)
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+dT on a multiline
+should w⛱️
+on a line
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement.selectedLength, 2)
+    }
+    
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+        let textInAXFocusedElement = """
+dT on a multiline
+should wor⛱️
+on a line
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
