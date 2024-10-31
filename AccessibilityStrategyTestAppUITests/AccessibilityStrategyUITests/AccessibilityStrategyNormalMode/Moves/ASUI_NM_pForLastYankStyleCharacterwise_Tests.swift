@@ -156,7 +156,7 @@ and fucking AX restrictions in browsers
 // PGR and Electron
 extension ASUI_NM_pForLastYankStyleCharacterwise_Tests {
     
-    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
+    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = "we go😂️😂️😂️nna paste some 💩️"
         app.webViews.textFields.firstMatch.tap()
         app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -171,7 +171,7 @@ extension ASUI_NM_pForLastYankStyleCharacterwise_Tests {
         XCTAssertEqual(accessibilityElement.selectedText, "🥠️")
     }
     
-    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
+    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 time to paste
 in TextViews
@@ -198,7 +198,7 @@ ho ho ho
         XCTAssertEqual(accessibilityElement.selectedText, "g")
     }
     
-    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_and_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
         let textInAXFocusedElement = "we go😂️😂️😂️nna paste some 💩️"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -213,7 +213,7 @@ ho ho ho
         XCTAssertEqual(accessibilityElement.selectedText, "🥠️")
     }
     
-    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_and_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
         let textInAXFocusedElement = """
 time to paste
 in TextViews

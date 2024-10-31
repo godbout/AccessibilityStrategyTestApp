@@ -169,7 +169,7 @@ in the clipboard
 // PGR and Electron
 extension ASUI_VMC_pWhenLastYankStyleWasCharacterwise_Tests {
     
-    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
+    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = "check that it works in PGR too"
         app.webViews.textFields.firstMatch.tap()
         app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -186,7 +186,7 @@ extension ASUI_VMC_pWhenLastYankStyleWasCharacterwise_Tests {
         XCTAssertEqual(accessibilityElement.selectedText, "a")
     }
     
-    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
+    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 it's gonna paste twice coz
 PGR
@@ -213,7 +213,7 @@ somewhereR
         XCTAssertEqual(accessibilityElement.selectedText, " ")
     }
     
-    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_and_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
         let textInAXFocusedElement = "check that it works in PGR too"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -230,7 +230,7 @@ somewhereR
         XCTAssertEqual(accessibilityElement.selectedText, "a")
     }
     
-    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_and_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
         let textInAXFocusedElement = """
 it's gonna paste twice coz
 PGR

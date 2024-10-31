@@ -345,7 +345,7 @@ extension ASUI_NM_dd_Tests {
     // which wouldn't work with PGR apps because it's locked? need the magicPaste?
     // but some other moves like dj work...
     // **ACTUALLY I DONT UNDERSTAND HOW IT WORKS IN NATIVE LOL**
-    func test_that_if_there_is_a_next_line_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
+    func test_that_if_there_is_a_next_line_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 for example
   🇫🇷️t should stop
@@ -369,7 +369,7 @@ after the two spaces
         XCTAssertEqual(accessibilityElement.selectedText, "🇫🇷️")
     }
 
-    func test_that_if_there_is_no_next_line_and_there_is_a_previous_line_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
+    func test_that_if_there_is_no_next_line_and_there_is_a_previous_line_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 this one
     🌲️s a tough
@@ -391,7 +391,7 @@ this one
         XCTAssertEqual(accessibilityElement.selectedText, "🌲️")
     }
     
-    func test_that_if_there_is_a_next_line_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+    func test_that_if_there_is_a_next_line_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_and_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
         let textInAXFocusedElement = """
 for example
   🇫🇷️t should stop
@@ -415,7 +415,7 @@ after the two spaces
         XCTAssertEqual(accessibilityElement.selectedText, "🇫🇷️")
     }
 
-    func test_that_if_there_is_no_next_line_and_there_is_a_previous_line_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+    func test_that_if_there_is_no_next_line_and_there_is_a_previous_line_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_and_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
         let textInAXFocusedElement = """
 this one
     🌲️s a tough

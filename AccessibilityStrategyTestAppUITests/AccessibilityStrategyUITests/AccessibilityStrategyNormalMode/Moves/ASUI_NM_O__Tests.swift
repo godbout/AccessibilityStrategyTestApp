@@ -63,7 +63,7 @@ still create a line above
 // PGR and Electron
 extension ASUI_NM_O__Tests {
     
-    func test_that_if_at_the_first_line_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
+    func test_that_if_at_the_first_line_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 caret on the first
 line and it should
@@ -88,7 +88,7 @@ still create a line above
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
-    func test_that_in_other_settings_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
+    func test_that_in_other_settings_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 tha😄️t's a mu😄️ltiline
 an😄️😄️d O will
@@ -116,7 +116,7 @@ abo😄️ve!
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
-    func test_that_if_at_the_first_line_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+    func test_that_if_at_the_first_line_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_and_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
         let textInAXFocusedElement = """
 caret on the first
 line and it should
@@ -141,7 +141,7 @@ still create a line above
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
-    func test_that_in_other_settings_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+    func test_that_in_other_settings_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_and_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
         let textInAXFocusedElement = """
 tha😄️t's a mu😄️ltiline
 an😄️😄️d O will

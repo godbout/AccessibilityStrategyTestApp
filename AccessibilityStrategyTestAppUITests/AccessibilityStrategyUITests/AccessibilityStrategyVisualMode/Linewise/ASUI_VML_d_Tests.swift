@@ -200,7 +200,7 @@ t
 // yes, one case cannot be tested here.
 extension ASUI_VML_d_Tests {
     
-    func test_that_if_there_is_a_next_line_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
+    func test_that_if_there_is_a_next_line_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 we gonna use VM
 d here and we suppose
@@ -227,7 +227,7 @@ we gonna use VM
         XCTAssertEqual(accessibilityElement.selectedText, "⛱️")
     }
     
-    func test_that_if_there_is_no_next_line_and_there_is_a_previous_line_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
+    func test_that_if_there_is_no_next_line_and_there_is_a_previous_line_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
    ⛱️e gonna remove the last
 line and caret should go up
@@ -251,7 +251,7 @@ and it would be beautiful
         XCTAssertEqual(accessibilityElement.selectedText, "⛱️")
     }
 
-    func test_that_if_there_is_a_next_line_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+    func test_that_if_there_is_a_next_line_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_and_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
         let textInAXFocusedElement = """
 we gonna use VM
 d here and we suppose
@@ -278,7 +278,7 @@ we gonna use VM
         XCTAssertEqual(accessibilityElement.selectedText, "⛱️")
     }
     
-    func test_that_if_there_is_no_next_line_and_there_is_a_previous_line_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+    func test_that_if_there_is_no_next_line_and_there_is_a_previous_line_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_and_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
         let textInAXFocusedElement = """
    ⛱️e gonna remove the last
 line and caret should go up

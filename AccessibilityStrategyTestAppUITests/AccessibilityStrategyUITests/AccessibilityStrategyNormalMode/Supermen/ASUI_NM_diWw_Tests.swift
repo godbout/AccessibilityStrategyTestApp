@@ -71,7 +71,7 @@ the block cursor is important!
 // PGR and Electron
 extension ASUI_NM_diWw_Tests {
     
-    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 like honestly that one should be
    pretty-much     📏️traight forward if you ask me
@@ -93,7 +93,7 @@ like honestly that one should be
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_and_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
         let textInAXFocusedElement = """
 like honestly that one should be
    pretty-much     📏️traight forward if you ask me

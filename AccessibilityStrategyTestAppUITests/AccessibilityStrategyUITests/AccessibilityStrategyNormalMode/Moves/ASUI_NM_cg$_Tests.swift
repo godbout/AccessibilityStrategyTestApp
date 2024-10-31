@@ -17,7 +17,7 @@ class ASUI_NM_cg$_Tests: ASUI_NM_BaseTests {
 // PGR and Electron + passing right LineType parameter to superman func
 extension ASUI_NM_cg$_Tests {
     
-    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR_and_also_passes_the_right_LineType_parameter_to_the_superman_func() {
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR_and_also_passes_the_right_LineType_parameter_to_the_superman_func() {
         let textInAXFocusedElement = """
 C will now work with file lines and is supposed to delete from the caret ☀️ to before the linefeed
 and of course this is in the case there is a linefeed at the end of the line.
@@ -39,7 +39,7 @@ and of course this is in the case there is a linefeed at the end of the line.
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
-    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR_and_also_passes_the_right_LineType_parameter_to_the_superman_func() {
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_and_once_only_in_UI_Elements_NOT_receptive_to_PGR_and_also_passes_the_right_LineType_parameter_to_the_superman_func() {
         let textInAXFocusedElement = """
 C will now work with file lines and is supposed to delete from the caret ☀️ to before the linefeed
 and of course this is in the case there is a linefeed at the end of the line.

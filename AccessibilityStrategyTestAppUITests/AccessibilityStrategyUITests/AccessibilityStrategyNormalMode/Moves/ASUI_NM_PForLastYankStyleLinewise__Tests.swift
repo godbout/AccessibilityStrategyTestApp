@@ -137,7 +137,7 @@ test 3 of The 3 Cases for TextArea linewise P
 // PGR and Electron
 extension ASUI_NM_PForLastYankStyleLinewise_Tests {
     
-    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
+    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = "P linewise for TF is still pasted characterwise!"
         app.webViews.textFields.firstMatch.tap()
         app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -153,7 +153,7 @@ extension ASUI_NM_PForLastYankStyleLinewise_Tests {
         XCTAssertEqual(accessibilityElement.selectedText, "y")
     }
     
-    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
+    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 so if we use P
 the current line is gonna
@@ -183,7 +183,7 @@ pasted at the current line place
         XCTAssertEqual(accessibilityElement.selectedText, "🤍️")
     }
     
-    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+    func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_and_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
         let textInAXFocusedElement = "P linewise for TF is still pasted characterwise!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -199,7 +199,7 @@ pasted at the current line place
         XCTAssertEqual(accessibilityElement.selectedText, "y")
     }
     
-    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+    func test_that_on_TextAreas_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_and_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
         let textInAXFocusedElement = """
 so if we use P
 the current line is gonna

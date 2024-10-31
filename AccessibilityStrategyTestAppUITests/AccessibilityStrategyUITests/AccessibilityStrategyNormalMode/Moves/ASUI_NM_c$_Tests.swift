@@ -17,7 +17,7 @@ class ASUI_NM_cDollarSign_Tests: ASUI_NM_BaseTests {
 // PGR and Electron
 extension ASUI_NM_cDollarSign_Tests {
         
-    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 C will now work with file lines and is supposed to delete from the caret ☀️ to before the linefeed
 and of course this is in the case there is a linefeed at the end of the line.
@@ -39,7 +39,7 @@ and of course this is in the case there is a linefeed at the end of the line.
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
-    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_and_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
         let textInAXFocusedElement = """
 C will now work with file lines and is supposed to delete from the caret ☀️ to before the linefeed
 and of course this is in the case there is a linefeed at the end of the line.

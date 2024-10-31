@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "common",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:godbout/Common.git",
+      "state" : {
+        "revision" : "f0f0d38c44bbdb8b4cda7d2ba6795f74b2e3855f",
+        "version" : "3.1.0"
+      }
+    },
+    {
       "identity" : "keycombination",
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:godbout/KeyCombination.git",

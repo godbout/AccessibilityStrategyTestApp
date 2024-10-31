@@ -88,7 +88,7 @@ seems that even the normal
 // PGR and Electron
 extension ASUI_NM_leftChevronLeftChevron_Tests {
     
-    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_in_UI_Elements_receptive_to_PGR() {
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = """
 seems that even the normal
 hehe
@@ -110,7 +110,7 @@ hehe
         XCTAssertEqual(accessibilityElement.selectedText, "🖕️")
     }
     
-    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_and_deletes_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_and_once_only_in_UI_Elements_NOT_receptive_to_PGR() {
         let textInAXFocusedElement = """
 seems that even the normal
 hehe
