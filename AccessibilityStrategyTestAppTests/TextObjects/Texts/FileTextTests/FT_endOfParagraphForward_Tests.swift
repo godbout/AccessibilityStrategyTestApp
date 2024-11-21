@@ -53,7 +53,8 @@ extension FT_endOfParagraphForward_Tests {
     
 }
 
-// TextFields
+
+// TextViews
 extension FT_endOfParagraphForward_Tests {
     
     func test_that_it_can_go_to_the_end_of_the_current_paragraph() {

@@ -42,6 +42,12 @@ extension ASUT_NM_O__Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
+}
+
+
+// TextViews
+extension ASUT_NM_O__Tests {
+    
     func test_that_in_normal_setting_it_creates_a_new_line_above_the_current_one() {
         let text = """
 tha😄️t's a mu😄️ltiline
