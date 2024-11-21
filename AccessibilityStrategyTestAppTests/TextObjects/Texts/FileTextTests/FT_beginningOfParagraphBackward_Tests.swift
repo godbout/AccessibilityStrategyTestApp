@@ -54,7 +54,8 @@ extension FT_beginningOfParagraphBackward_Tests {
     
 }
 
-// TextFields
+
+// TextViews
 extension FT_beginningOfParagraphBackward_Tests {
     
     func test_that_it_can_go_to_the_beginning_of_the_current_paragraph() {
