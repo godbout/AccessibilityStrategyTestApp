@@ -3,5 +3,5 @@ import XCTest
 import Common
 
 
-// UIT after PG-R Makeover
+// see NM O for blah blah
 class ASUT_NM_o_Tests: ASUT_NM_BaseTests {}
