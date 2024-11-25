@@ -19,7 +19,8 @@ class ASUI_NM_dInnerBlock_Tests: ASUI_NM_BaseTests {
 
 // Bip, copy deletion and LYS
 // here it is way more complicated than other moves as diB may sometimes return Characterwise, sometimes Linewise.
-// so for all the tests we're gonna test everything: caretLocation, selectedLength, selectedText, Bip, LYS, copy deletion.
+// so for all the tests we're gonna test everything: caretLocation, selectedLength, selectedText, Bip, LYS, copy deletion
+// rather than only testing Bip, copy deletion and LYS on their own. hence they get tested here rather than in UT.
 
 
 // Both

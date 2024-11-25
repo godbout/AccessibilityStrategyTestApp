@@ -113,35 +113,6 @@ hehe :D
 }
 
 
-// Bip, copy deletion and LYS
-extension ASUI_NM_dd_Tests {
-    
-    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion_even_for_an_empty_line() {
-        let textInAXFocusedElement = """
-if the next line is just blank characters
-then there is no firstNonBlank so we need
-          
-to stop at the end limit of the line
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.zero(on: $0) }
-        applyMove { asNormalMode.ge(on: $0) }
-        applyMove { asNormalMode.ge(on: $0) }
-        
-        copyToClipboard(text: "nope you don't copy mofo")
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(&state)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "then there is no firstNonBlank so we need\n")
-        XCTAssertEqual(state.lastYankStyle, .linewise)
-        XCTAssertFalse(state.lastMoveBipped)
-    }
-    
-}
-
-
 // TextFields
 extension ASUI_NM_dd_Tests {
     

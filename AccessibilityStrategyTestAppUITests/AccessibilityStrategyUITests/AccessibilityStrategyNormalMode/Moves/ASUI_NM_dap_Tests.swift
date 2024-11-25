@@ -19,62 +19,6 @@ class ASUI_NM_dap_Tests: ASUI_NM_BaseTests {
 }
 
 
-// Bip, copy deletion and LYS
-extension ASUI_NM_dap_Tests {
-    
-    func test_that_if_there_is_no_aParagraph_found_it_Bips_and_does_not_copy_anything_and_does_not_change_the_LastYankStyle_to_Linewise() {
-        let textInAXFocusedElement = """
-like this will Bip
-
-
-
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.zero(on: $0) }
-        applyMove { asNormalMode.b(times: 2, on: $0) }
-        
-        copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
-        _ = applyMoveBeingTested(&state)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertTrue(state.lastMoveBipped)
-    }
-    
-    func test_that_if_there_is_a_aParagraph_found_it_does_not_Bip_and_it_copies_the_deletion_and_it_sets_the_LastYankStyle_to_Linewise() {
-        let textInAXFocusedElement = """
-this will not
-
-
-
-Bip
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        applyMove { asNormalMode.zero(on: $0) }
-        
-        copyToClipboard(text: "some fake shit")
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
-        _ = applyMoveBeingTested(&state)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
-
-
-
-Bip
-"""
-        )
-        XCTAssertEqual(state.lastYankStyle, .linewise)
-        XCTAssertFalse(state.lastMoveBipped)
-    }
-    
-}
-
-
 extension ASUI_NM_dap_Tests {
     
     func test_that_the_block_cursor_ends_up_at_the_right_place() {
