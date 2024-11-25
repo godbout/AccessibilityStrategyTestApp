@@ -11,7 +11,7 @@ class ASUT_NM_cj_Tests: ASUT_NM_BaseTests {
         return asNormalMode.cj(on: element, &state)
     }
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState ) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.cj(on: element, &vimEngineState)
     }
     

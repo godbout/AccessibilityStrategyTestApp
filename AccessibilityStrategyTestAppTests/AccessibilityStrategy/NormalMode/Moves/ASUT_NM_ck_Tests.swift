@@ -11,7 +11,7 @@ class ASUT_NM_ck_Tests: ASUT_NM_BaseTests {
         return asNormalMode.ck(on: element, &state)
     }
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState ) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.ck(on: element, &vimEngineState)
     }
     
