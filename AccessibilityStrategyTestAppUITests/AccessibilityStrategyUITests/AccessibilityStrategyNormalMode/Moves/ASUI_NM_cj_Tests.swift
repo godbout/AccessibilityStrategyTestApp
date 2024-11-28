@@ -14,7 +14,7 @@ class ASUI_NM_cj_Tests: ASUI_NM_BaseTests {
 }
 
 
-// Boths
+// Both
 extension ASUI_NM_cj_Tests {
     
     func test_that_if_the_caret_is_on_the_lastLine_it_does_not_move() {
@@ -22,7 +22,9 @@ extension ASUI_NM_cj_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
-        applyMove { asNormalMode.l(on: $0) }
+        // TODO: the applyMove should be stuck to the paragraphs above
+        // as it's to prepare moving the block cursor around
+        applyMove { asNormalMode.l(times: 3, on: $0) }
         applyMove { asNormalMode.b(times: 3, on: $0) }
         let accessibilityElement = applyMoveBeingTested()
         

@@ -14,7 +14,7 @@ class ASUI_NM_cc_Tests: ASUI_NM_BaseTests {
 }
 
 
-// both
+// Both
 extension ASUI_NM_cc_Tests {
     
     func test_that_if_a_file_line_ends_with_a_linefeed_it_deletes_up_to_but_not_including_the_linefeed() {

@@ -12,11 +12,7 @@ class ASUI_NM_dWw_Tests: ASUI_NM_BaseTests {
     private func applyMoveBeingTested(times count: Int? = 1, appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
-        return applyMoveBeingTested(times: count, &state)
-    }
-    
-    private func applyMoveBeingTested(times count: Int? = 1, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.dWw(times: count, on: $0, using: asNormalMode.w, &vimEngineState) }
+        return applyMove { asNormalMode.dWw(times: count, on: $0, using: asNormalMode.w, &state) }
     }
     
 }
@@ -29,9 +25,9 @@ extension ASUI_NM_dWw_Tests {
         let textInAXFocusedElement = "😂️😂️😂️😂️hehehe gonna use ce on this sentence"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 3)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "😂️use ce on this sentence")
@@ -50,9 +46,9 @@ extension ASUI_NM_dWw_Tests {
         let textInAXFocusedElement = "😂️😂️😂️😂️hehehe gonna use ce on this sentence"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, "😂️hehehe gonna use ce on this sentence")
@@ -65,9 +61,9 @@ extension ASUI_NM_dWw_Tests {
         let textInAXFocusedElement = "😂️😂️😂️😂️hehehe gonna use ce on this sentence"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, "😂️😂️😂️😂️hehehe gonna use ce on this s")
@@ -90,9 +86,9 @@ hehe
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.dollarSign(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -115,9 +111,9 @@ yes hehe
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -141,9 +137,9 @@ extension ASUI_NM_dWw_Tests {
         let textInAXFocusedElement = "😂️😂️😂️😂️hehehe gonna use ce on this sentence"
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "😂️hehehe gonna use ce on this sentence")
@@ -161,9 +157,9 @@ yes hehe
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -181,9 +177,9 @@ yes hehe
         let textInAXFocusedElement = "😂️😂️😂️😂️hehehe gonna use ce on this sentence"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "😂️hehehe gonna use ce on this sentence")
@@ -201,9 +197,9 @@ yes hehe
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

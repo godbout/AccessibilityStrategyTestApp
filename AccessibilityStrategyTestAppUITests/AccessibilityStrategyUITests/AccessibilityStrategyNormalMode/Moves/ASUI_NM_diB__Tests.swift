@@ -13,6 +13,7 @@ class ASUI_NM_diB__Tests: ASUI_NM_BaseTests {
 }
 
 
+// TODO: see da<
 extension ASUI_NM_diB__Tests {
 
     func test_that_we_are_passing_the_correct_bracket_parameter_to_dInnerBlock() {
@@ -39,8 +40,7 @@ now that shit will get cleaned {
 now that shit will get cleaned {
 }
 """
-        )
-        XCTAssertEqual(accessibilityElement.caretLocation, 33)
+        ) XCTAssertEqual(accessibilityElement.caretLocation, 33)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "}")
 

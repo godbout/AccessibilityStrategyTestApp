@@ -24,11 +24,11 @@ extension ASUI_NM_ciWw__Tests {
         let textInAXFocusedElement = "that's some cute-boobies      text in here don't you think?"
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.F(to: "c", on: $0) }
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "that's some       text in here don't you think?")
@@ -41,11 +41,11 @@ extension ASUI_NM_ciWw__Tests {
         let textInAXFocusedElement = "that's some cute-boobies      text in here don't you think?"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.F(to: "c", on: $0) }
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "that's some       text in here don't you think?")

@@ -8,8 +8,10 @@ import Common
 // the UI Tests are for the block cursor repositioning after the move.
 class ASUI_NM_ddgDollarSign_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.ddgDollarSign(using: $0.currentFileLine, on: $0, &vimEngineState) }
+    private func applyMoveBeingTested() -> AccessibilityTextElement {
+        var state = VimEngineState()
+        
+        return applyMove { asNormalMode.ddgDollarSign(using: $0.currentFileLine, on: $0, &state) }
     }
     
 }
@@ -31,12 +33,11 @@ which😂️means it will not up one line and this is tested in the endLimit!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
-        var state = VimEngineState()
-        let accessibilityElement = applyMoveBeingTested(&state)
+        
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 D will delete till the end of line but not the linefeed (tested in C) and will go to the end limit even if the line is empty
