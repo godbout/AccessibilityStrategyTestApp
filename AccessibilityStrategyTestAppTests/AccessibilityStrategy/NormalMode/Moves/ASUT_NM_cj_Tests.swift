@@ -5,12 +5,6 @@ import Common
 
 class ASUT_NM_cj_Tests: ASUT_NM_BaseTests {
 
-    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
-        
-        return asNormalMode.cj(on: element, &state)
-    }
-    
     private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.cj(on: element, &vimEngineState)
     }
