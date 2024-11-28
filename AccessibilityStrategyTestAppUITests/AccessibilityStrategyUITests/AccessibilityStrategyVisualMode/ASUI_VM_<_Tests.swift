@@ -27,10 +27,10 @@ extension ASUI_VM_leftChevron_Tests {
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) } 
         applyMove { asVisualMode.G(on: $0, state) } 
+        
         let accessibilityElement = applyMoveBeingTested(times: 3)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -58,11 +58,11 @@ some more
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.k(on: $0) } 
         applyMove { asVisualMode.vFromNormalMode(on: $0) } 
         applyMove { asVisualMode.k(times: 2, on: $0, state) } 
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -85,10 +85,10 @@ some more
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.G(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -115,10 +115,10 @@ hehe
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -139,10 +139,10 @@ hehe
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

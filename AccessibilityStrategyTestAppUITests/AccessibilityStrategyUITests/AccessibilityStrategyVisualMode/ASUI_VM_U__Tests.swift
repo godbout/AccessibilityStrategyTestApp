@@ -27,13 +27,13 @@ the SElection!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(times: 4, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
         applyMove { asVisualMode.j(on: $0, state) }
         applyMove { asVisualMode.b(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -61,13 +61,13 @@ the SElection!
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(times: 4, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
         applyMove { asVisualMode.j(on: $0, state) }
         applyMove { asVisualMode.b(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -89,13 +89,13 @@ the SElection!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(times: 4, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
         applyMove { asVisualMode.j(on: $0, state) }
         applyMove { asVisualMode.b(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """

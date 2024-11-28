@@ -24,11 +24,11 @@ extension ASUI_VMC_pWhenLastYankStyleWasLinewise_Tests {
         let textInAXFocusedElement = "linewise for TF is still pasted characterwise!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.b(times: 4, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(times: 2, on: $0, state) }
+        
         copyToClipboard(text: "text to pasta\n")
         let accessibilityElement = applyMoveBeingTested()
 
@@ -69,11 +69,11 @@ own line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(times: 2, on: $0, state) }
+        
         copyToClipboard(text: """
 some new lines
 for you
@@ -102,11 +102,11 @@ on its own lines
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.w(on: $0, state) }
+        
         copyToClipboard(text: "we pasted the last line so no linefeed")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -129,10 +129,10 @@ to the first non blank!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(times: 3, on: $0, state) }
+        
         copyToClipboard(text: "   🤍️he copied line has 🤍️🤍️🤍️ non blanks\n")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -180,10 +180,10 @@ extension ASUI_VMC_pWhenLastYankStyleWasLinewise_Tests {
         let textInAXFocusedElement = "check that it works in PGR too"
         app.webViews.textFields.firstMatch.tap()
         app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.w(times: 2, on: $0, state) }
+        
         copyToClipboard(text: "some\npasta\n")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
@@ -203,12 +203,12 @@ PGR
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.ge(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.w(times: 2, on: $0, state) }
+        
         copyToClipboard(text: "  should paste\nthat somewhere")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
@@ -228,10 +228,10 @@ GR
         let textInAXFocusedElement = "check that it works in PGR too"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.w(times: 2, on: $0, state) }
+        
         copyToClipboard(text: "some\npasta\n")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
@@ -252,12 +252,12 @@ PGR
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.ge(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.w(times: 2, on: $0, state) }
+        
         copyToClipboard(text: "  should paste\nthat somewhere")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         

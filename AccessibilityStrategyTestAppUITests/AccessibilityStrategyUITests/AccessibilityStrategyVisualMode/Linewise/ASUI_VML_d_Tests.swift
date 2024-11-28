@@ -29,12 +29,12 @@ one extra line in between!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
                      
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -56,13 +56,13 @@ some more
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.gj(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -85,12 +85,12 @@ another line agan
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -111,11 +111,11 @@ and it would be beautiful
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -134,10 +134,10 @@ and it would be beautiful
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-             
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.k(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -156,10 +156,10 @@ yes there is
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-             
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -180,12 +180,12 @@ t
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-               
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.gk(on: $0, state) }
         applyMove { asVisualMode.gk(on: $0, state) }
         applyMove { asVisualMode.gk(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, "")
@@ -209,12 +209,12 @@ one extra line in between!
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
                      
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -235,11 +235,11 @@ and it would be beautiful
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -260,12 +260,12 @@ one extra line in between!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
                      
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -286,11 +286,11 @@ and it would be beautiful
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """

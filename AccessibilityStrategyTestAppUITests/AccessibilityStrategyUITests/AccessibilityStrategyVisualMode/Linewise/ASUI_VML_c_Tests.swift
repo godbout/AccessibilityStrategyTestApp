@@ -29,11 +29,11 @@ at least if we're not at the end of the text
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -56,11 +56,11 @@ at least if we're not at the end of the text
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

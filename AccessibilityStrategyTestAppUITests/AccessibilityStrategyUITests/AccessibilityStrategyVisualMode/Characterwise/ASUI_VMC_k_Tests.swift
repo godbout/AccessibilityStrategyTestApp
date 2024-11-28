@@ -27,11 +27,11 @@ globalColumnNumber is nil
 
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(text)
-        
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.dollarSign(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 74)

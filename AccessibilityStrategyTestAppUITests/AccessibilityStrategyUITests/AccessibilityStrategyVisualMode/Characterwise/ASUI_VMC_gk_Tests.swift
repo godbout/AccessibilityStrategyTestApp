@@ -28,10 +28,10 @@ the wrapped lines and shit is understood
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-                
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asNormalMode.e(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 3)
                
         XCTAssertEqual(accessibilityElement.caretLocation, 24)
@@ -52,10 +52,10 @@ the wrapped lines and shit is understood
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 78)
@@ -70,10 +70,10 @@ the wrapped lines and shit is understood
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 65)
@@ -88,12 +88,12 @@ the wrapped lines and shit is understood
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(on: $0, state) }
         applyMove { asVisualMode.gj(on: $0, state) }
         applyMove { asVisualMode.e(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
        
         XCTAssertEqual(accessibilityElement.caretLocation, 79)
@@ -108,12 +108,12 @@ the wrapped lines and shit is understood
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.gDollarSign(on: $0, state) }
         applyMove { asVisualMode.e(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 82)
@@ -130,12 +130,12 @@ wow that one is
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-              
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.b(on: $0, state) }
         applyMove { asVisualMode.gk(on: $0, state) }
         applyMove { asVisualMode.gk(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 13)
@@ -151,11 +151,11 @@ own empty
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-               
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asVisualMode.gk(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         // same test as NM k:
@@ -174,10 +174,10 @@ globalColumnNumber is nil
 
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.dollarSign(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 75)
