@@ -5,14 +5,10 @@ import Common
 
 class ASUI_NM_dd_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int? = 1, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.dd(times: count, on: $0, &vimEngineState) }
-    }
-    
     private func applyMoveBeingTested(times count: Int? = 1, appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
-        return applyMoveBeingTested(times: count, &state)
+        return applyMove { asNormalMode.dd(times: count, on: $0, &state) }
     }
 
 }

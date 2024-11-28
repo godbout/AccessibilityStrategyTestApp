@@ -5,14 +5,10 @@ import Common
 
 class ASUI_NM_dl_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1) -> AccessibilityTextElement {
-        var state = VimEngineState()
+    private func applyMoveBeingTested(times count: Int = 1, appFamily: AppFamily = .auto) -> AccessibilityTextElement {
+        var state = VimEngineState(appFamily: appFamily)
         
-        return applyMoveBeingTested(times: count, &state)
-    }
-        
-    private func applyMoveBeingTested(times count: Int = 1, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.dl(times: count, on: $0, &vimEngineState) }
+        return applyMove { asNormalMode.dl(times: count, on: $0, &state) }
     }
     
 }
@@ -136,10 +132,9 @@ extension ASUI_NM_dl_Tests {
         let textInAXFocusedElement = "x should delete the right character"
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.b(on: $0) }
-        var state = VimEngineState(appFamily: .pgR)
-        let accessibilityElement = applyMoveBeingTested(&state)
+        
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, "x should delete the right haracter")
         XCTAssertEqual(accessibilityElement.caretLocation, 26)
@@ -154,10 +149,9 @@ that is not an empty line🤡️🤡️
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-      
         applyMove { asNormalMode.l(on: $0) }
-        var state = VimEngineState(appFamily: .pgR)
-        let accessibilityElement = applyMoveBeingTested(&state)
+        
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 so we're on the last
@@ -173,10 +167,9 @@ that is not an empty line🤡️
         let textInAXFocusedElement = "x should delete the right character"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.b(on: $0) }
-        var state = VimEngineState(appFamily: .pgR)
-        let accessibilityElement = applyMoveBeingTested(&state)
+        
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, "x should delete the right haracter")
         XCTAssertEqual(accessibilityElement.caretLocation, 26)
@@ -191,10 +184,9 @@ that is not an empty line🤡️🤡️
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-      
         applyMove { asNormalMode.l(on: $0) }
-        var state = VimEngineState(appFamily: .pgR)
-        let accessibilityElement = applyMoveBeingTested(&state)
+        
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 so we're on the last

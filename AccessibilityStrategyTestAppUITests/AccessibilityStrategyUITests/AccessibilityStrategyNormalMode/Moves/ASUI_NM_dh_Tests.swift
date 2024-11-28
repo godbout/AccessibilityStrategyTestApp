@@ -7,14 +7,10 @@ import Common
 // but we may have started with dh before ch here. hence more tests.
 class ASUI_NM_dh_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.dh(times: count, on: $0, &vimEngineState) }
-    }
-    
     private func applyMoveBeingTested(times count: Int = 1, appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
-        return applyMoveBeingTested(times: count, &state)
+        return applyMove { asNormalMode.dh(times: count, on: $0, &state) }
     }
     
 }

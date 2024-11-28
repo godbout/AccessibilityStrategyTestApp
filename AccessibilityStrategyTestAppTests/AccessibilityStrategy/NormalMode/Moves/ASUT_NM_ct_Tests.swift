@@ -6,12 +6,6 @@ import Common
 // cF for blah blah
 class ASUT_NM_ct_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
-        
-        return applyMoveBeingTested(times: count, to: character, on: element, &state)
-    }
-    
     private func applyMoveBeingTested(times count: Int = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.ct(times: count, to: character, on: element, &vimEngineState)
     }
