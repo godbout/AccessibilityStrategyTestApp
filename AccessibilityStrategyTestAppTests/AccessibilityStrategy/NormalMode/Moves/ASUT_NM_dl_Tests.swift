@@ -3,7 +3,6 @@ import XCTest
 import Common
 
 
-// TODO: do we keep comments here to redirect to UIT?
 class ASUT_NM_dl_Tests: ASUT_NM_BaseTests {
 
     private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
