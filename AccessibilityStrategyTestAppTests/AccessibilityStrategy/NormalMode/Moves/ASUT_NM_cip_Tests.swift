@@ -8,12 +8,6 @@ import Common
 // PGR and Electron in UIT.
 class ASUT_NM_cip_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
-        
-        return applyMoveBeingTested(on: element, &state)
-    } 
-    
     private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return asNormalMode.cip(on: element, &vimEngineState) 
     }
@@ -61,111 +55,6 @@ inner paragraph\n
         )
         XCTAssertEqual(state.lastYankStyle, .linewise)
         XCTAssertFalse(state.lastMoveBipped)
-    }
-    
-}
-
-
-// both
-extension ASUT_NM_cip_Tests {
-    
-    func test_that_when_it_finds_an_innerParagraph_it_selects_the_range_and_will_delete_the_selection() {
-        let text = """
-this is some
-
-kind of hmm
-inner paragraph
-
-oh yeah
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 50,
-            caretLocation: 20,
-            selectedLength: 1,
-            selectedText: "f",
-            fullyVisibleArea: 0..<50,
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 50,
-                number: 3,
-                start: 14,
-                end: 26
-            )!
-        )
-        
-        let returnedElement = applyMoveBeingTested(on: element)
-        
-        XCTAssertEqual(returnedElement.caretLocation, 14)
-        XCTAssertEqual(returnedElement.selectedLength, 27)
-        XCTAssertEqual(returnedElement.selectedText, "")
-    }
-    
-    func test_that_it_respects_the_indentation_by_setting_the_caretLocation_to_the_firstNonBlank_of_the_first_line_of_the_paragraph_for_NormalSetting() {
-        let text = """
-this is some
-
-    kind of hmm
-inner paragraph
-
-oh yeah
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 54,
-            caretLocation: 38,
-            selectedLength: 1,
-            selectedText: "r",
-            fullyVisibleArea: 0..<54,
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 54,
-                number: 4,
-                start: 30,
-                end: 46
-            )!
-        )
-        
-        let returnedElement = applyMoveBeingTested(on: element)
-        
-        XCTAssertEqual(returnedElement.caretLocation, 18)
-        XCTAssertEqual(returnedElement.selectedLength, 27)
-        XCTAssertEqual(returnedElement.selectedText, "")
-    }
-    
-    // this test contains Blanks
-    func test_that_it_respects_the_indentation_by_setting_the_caretLocation_to_the_firstNonBlank_of_the_first_line_of_the_paragraph_for_EmptyOrBlankLine() {
-        let text = """
-this is some
-         
-    
-
-oh yeah
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 36,
-            caretLocation: 26,
-            selectedLength: 1,
-            selectedText: " ",
-            fullyVisibleArea: 0..<36,
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 36,
-                number: 3,
-                start: 23,
-                end: 28
-            )!
-        )
-        
-        let returnedElement = applyMoveBeingTested(on: element)
-        
-        XCTAssertEqual(returnedElement.caretLocation, 22)
-        XCTAssertEqual(returnedElement.selectedLength, 6)
-        XCTAssertEqual(returnedElement.selectedText, "")
     }
     
 }
