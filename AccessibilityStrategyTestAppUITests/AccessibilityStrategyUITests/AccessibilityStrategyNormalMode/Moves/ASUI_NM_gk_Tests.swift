@@ -25,9 +25,9 @@ does
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.dollarSign(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 3)
         
         XCTAssertEqual(accessibilityElement.caretLocation, 22)
@@ -45,9 +45,9 @@ doe😂️
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.dollarSign(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 69)
         
         XCTAssertEqual(accessibilityElement.caretLocation, 2)
@@ -71,9 +71,9 @@ to the same column
 
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 38)
@@ -90,9 +90,9 @@ than the previous shorter than...
 
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 52)
@@ -108,7 +108,6 @@ another quite long line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
                 
@@ -133,9 +132,9 @@ nothing ankulay
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 0)
@@ -151,8 +150,8 @@ to previ ous line length
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.dollarSign(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 42)
@@ -168,7 +167,6 @@ empty
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.gj(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
@@ -177,6 +175,7 @@ empty
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gj(on: $0) }
         applyMove { asNormalMode.gj(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 33)
@@ -192,8 +191,8 @@ globalColumnNumber is nil
 
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-      
         applyMove { asNormalMode.dollarSign(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 96)

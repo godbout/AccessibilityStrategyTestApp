@@ -20,9 +20,9 @@ extension ASUI_NM_PForLastYankStyleLinewise_Tests {
         let textInAXFocusedElement = "P linewise for TF is still pasted characterwise!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
+        
         copyToClipboard(text: "paste me daddy")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -35,9 +35,9 @@ extension ASUI_NM_PForLastYankStyleLinewise_Tests {
         let textInAXFocusedElement = "P should not paste linefeeds in the TF"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         copyToClipboard(text: "yanked with the linefeed hum hum\n")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -61,11 +61,11 @@ pasted at the current line place
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         copyToClipboard(text: "🤍️hould paste 🤍️ that\n")
         let accessibilityElement = applyMoveBeingTested()
 
@@ -89,10 +89,10 @@ to the first non blank of the copied line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.ge(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         copyToClipboard(text: "   the copied line has non blanks\n")
         let accessibilityElement = applyMoveBeingTested()
 
@@ -116,6 +116,7 @@ enforce a linefeed
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
         copyToClipboard(text: "test 3 of The 3 Cases for TextArea linewise P")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -141,9 +142,9 @@ extension ASUI_NM_PForLastYankStyleLinewise_Tests {
         let textInAXFocusedElement = "P linewise for TF is still pasted characterwise!"
         app.webViews.textFields.firstMatch.tap()
         app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
+        
         copyToClipboard(text: "paste me daddy")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
@@ -162,11 +163,11 @@ pasted at the current line place
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         copyToClipboard(text: "🤍️hould paste 🤍️ that\n")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
@@ -187,9 +188,9 @@ pasted at the current line place
         let textInAXFocusedElement = "P linewise for TF is still pasted characterwise!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
+        
         copyToClipboard(text: "paste me daddy")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
@@ -208,11 +209,11 @@ pasted at the current line place
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         copyToClipboard(text: "🤍️hould paste 🤍️ that\n")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 

@@ -27,9 +27,9 @@ and of course this is in the case there is a linefeed at the end of the line.
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.G(on: $0) }
         applyMove { asNormalMode.f(times: 3, to: "e", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
                 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -49,9 +49,9 @@ and of course this is in the case there is a linefeed at the end of the line.
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gZero(on: $0) }
         applyMove { asNormalMode.e(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
                 
         XCTAssertEqual(accessibilityElement.fileText.value, """

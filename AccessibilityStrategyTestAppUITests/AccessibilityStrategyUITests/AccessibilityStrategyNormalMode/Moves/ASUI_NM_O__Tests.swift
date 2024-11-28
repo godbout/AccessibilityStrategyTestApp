@@ -19,8 +19,8 @@ extension ASUI_NM_O__Tests {
         let textInAXFocusedElement = "O shouldn't do anything in a TextField!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(times: 15, on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, "O shouldn't do anything in a TextField!")
@@ -43,9 +43,9 @@ still create a line above
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-               
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.dollarSign(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -88,10 +88,10 @@ abo😄️ve!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.gj(on: $0) }
         applyMove { asNormalMode.E(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -115,9 +115,9 @@ an empty line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -141,8 +141,8 @@ the last empty line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -166,8 +166,8 @@ the last empty line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -191,9 +191,9 @@ but it should work
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -222,9 +222,9 @@ still create a line above
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-               
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.dollarSign(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -248,10 +248,10 @@ abo😄️ve!
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-               
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }
         applyMove { asNormalMode.f(times: 1, to: "d", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -275,9 +275,9 @@ still create a line above
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-               
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.dollarSign(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -301,10 +301,10 @@ abo😄️ve!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-               
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }
         applyMove { asNormalMode.f(times: 1, to: "d", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """

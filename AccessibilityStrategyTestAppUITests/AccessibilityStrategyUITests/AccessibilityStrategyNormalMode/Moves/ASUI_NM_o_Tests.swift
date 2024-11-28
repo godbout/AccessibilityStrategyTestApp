@@ -19,8 +19,8 @@ extension ASUI_NM_o_Tests {
         let textInAXFocusedElement = "o shouldn't do anything in a TextField!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(times: 18, on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, "o shouldn't do anything in a TextField!")
@@ -42,9 +42,9 @@ between the first file line and the second file line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.f(to: "i", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -65,9 +65,9 @@ that doesn't end with a linefeed and it's still gonna work coz 🪄️🪄️�
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.gk(times: 2, on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -89,9 +89,9 @@ and i'm doing this not because i'm a genius but because i'm pretty dumb LMAO
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -115,9 +115,9 @@ so the new line follows that
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.B(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -139,8 +139,8 @@ caret on empty last line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -168,6 +168,7 @@ caret on empty last line
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -188,9 +189,9 @@ between the first file line and the second file line
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.f(times: 1, to: "i", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -212,6 +213,7 @@ caret on empty last line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -232,9 +234,9 @@ between the first file line and the second file line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.f(times: 1, to: "i", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

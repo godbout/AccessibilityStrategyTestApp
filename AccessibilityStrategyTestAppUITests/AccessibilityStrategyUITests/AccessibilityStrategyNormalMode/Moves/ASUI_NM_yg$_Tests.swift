@@ -66,7 +66,8 @@ but now there's an empty line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
-                
+
+        // TODO: should the copyToClipboard stuck to applyMove above instead of here
         copyToClipboard(text: "some fake shit")
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let accessibilityElement = applyMoveBeingTested(&state)

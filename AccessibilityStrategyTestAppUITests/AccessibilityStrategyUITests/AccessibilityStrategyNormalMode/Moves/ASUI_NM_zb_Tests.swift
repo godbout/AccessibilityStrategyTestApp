@@ -37,9 +37,9 @@ properly!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.interrogationMark(to: "ed", on: $0) }
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
     
         XCTAssertEqual(accessibilityElement.caretLocation, 94)

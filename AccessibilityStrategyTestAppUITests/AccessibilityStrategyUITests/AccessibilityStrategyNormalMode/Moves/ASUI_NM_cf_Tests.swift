@@ -121,9 +121,9 @@ on a line
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(to: "w", appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -145,9 +145,9 @@ on a line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(to: "w", appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

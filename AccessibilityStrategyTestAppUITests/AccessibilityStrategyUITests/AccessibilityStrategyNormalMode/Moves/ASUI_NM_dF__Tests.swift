@@ -23,10 +23,10 @@ extension ASUI_NM_dF__Tests {
         let textInAXFocusedElement = "here we gonna delete up to 🕑️ characters rather than 🦴️!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.F(to: "u", on: $0) }
         applyMove { asNormalMode.ge(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 2, with: "e")
         
         XCTAssertEqual(accessibilityElement.fileText.value, "here we gonna de up to 🕑️ characters rather than 🦴️!")
@@ -48,8 +48,8 @@ on a lin😂️
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(with: "o")
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -76,9 +76,9 @@ on a lin😂️
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
         
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "o", appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -99,9 +99,9 @@ on a lin😂️
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
         
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.h(on: $0) }
         let accessibilityElement = applyMoveBeingTested(with: "o", appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

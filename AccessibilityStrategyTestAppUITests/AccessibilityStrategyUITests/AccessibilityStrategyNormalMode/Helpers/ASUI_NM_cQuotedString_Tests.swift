@@ -24,8 +24,8 @@ finally dealing with the "real stuff"!
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.F(to: "l", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(using: .doubleQuote, appFamily: .pgR)
                
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -43,8 +43,8 @@ finally dealing with the "real stuff"!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.F(to: "l", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(using: .doubleQuote, appFamily: .pgR)
                
         XCTAssertEqual(accessibilityElement.fileText.value, """

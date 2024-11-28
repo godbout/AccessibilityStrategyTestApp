@@ -18,9 +18,9 @@ extension ASUI_NM_pForLastYankStyleLinewise_Tests {
         let textInAXFocusedElement = "linewise for TF is still pasted characterwise!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
+        
         copyToClipboard(text: "text to pasta")
         let accessibilityElement = applyMoveBeingTested()
 
@@ -33,9 +33,9 @@ extension ASUI_NM_pForLastYankStyleLinewise_Tests {
         let textInAXFocusedElement = "we should not paste linefeeds in the TF"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         copyToClipboard(text: "yanked with the linefeed\n")
         let accessibilityElement = applyMoveBeingTested()
 
@@ -59,10 +59,10 @@ a linefeed at the end of the line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
+        
         copyToClipboard(text: "should paste that somewhere\n")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -86,10 +86,10 @@ if we are not pasting on the last line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
+        
         copyToClipboard(text: "we pasted the last line so no linefeed")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -113,9 +113,9 @@ ourselves
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
         
-        applyMove { asNormalMode.h(on: $0) }
-        applyMove { asNormalMode.h(on: $0) }
         copyToClipboard(text: "new line to paste after last line\n")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -139,10 +139,10 @@ to the first non blank of the copied line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.ge(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         copyToClipboard(text: "   🤍️he copied line has 🤍️🤍️🤍️ non blanks\n")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -166,6 +166,7 @@ not add a linefeed
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
         copyToClipboard(text: "test 3 of The 3 Cases for TextArea linewise\n")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -191,9 +192,9 @@ extension ASUI_NM_pForLastYankStyleLinewise_Tests {
         let textInAXFocusedElement = "linewise for TF is still pasted characterwise!"
         app.webViews.textFields.firstMatch.tap()
         app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
+        
         copyToClipboard(text: "text to pasta")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
@@ -212,10 +213,10 @@ a linefeed at the end of the line
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
+        
         copyToClipboard(text: "should paste that somewhere\n")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
@@ -236,9 +237,9 @@ a linefeed at the end of the line
         let textInAXFocusedElement = "linewise for TF is still pasted characterwise!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
+        
         copyToClipboard(text: "text to pasta")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
@@ -257,10 +258,10 @@ a linefeed at the end of the line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
+        
         copyToClipboard(text: "should paste that somewhere\n")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
@@ -291,8 +292,8 @@ it actually works lol
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.G(on: $0) }
+        
         copyToClipboard(text: "")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -315,8 +316,8 @@ put the caret in weird places
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
+        
         copyToClipboard(text: "        ")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -339,9 +340,9 @@ the last line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
+        
         copyToClipboard(text: "        ")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -364,8 +365,8 @@ it should work hehe
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.G(on: $0) }
+        
         copyToClipboard(text: "\n")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -389,8 +390,8 @@ at the last line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.G(on: $0) }
+        
         copyToClipboard(text: "\n\n\n\n\n\n")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -419,8 +420,8 @@ to fail LOL
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
+        
         copyToClipboard(text: "\n\n\n\n\n\n")
         let accessibilityElement = applyMoveBeingTested()
         

@@ -22,9 +22,9 @@ extension ASUI_NM_cEe_Tests {
         let textInAXFocusedElement = "😂️😂️😂️😂️ gonna use ce on this sentence"
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "😂️ gonna use ce on this sentence")
@@ -37,9 +37,9 @@ extension ASUI_NM_cEe_Tests {
         let textInAXFocusedElement = "😂️😂️😂️😂️ gonna use ce on this sentence"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "😂️ gonna use ce on this sentence")

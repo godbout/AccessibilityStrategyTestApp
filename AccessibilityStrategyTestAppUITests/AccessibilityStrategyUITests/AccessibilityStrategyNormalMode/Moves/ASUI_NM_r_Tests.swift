@@ -19,9 +19,9 @@ extension ASUI_NM_r_Tests {
         let textInAXFocusedElement = "we goNNa moVe in tHere with count 🈹️ awww"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.F(to: "g", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 10, with: "z")
         
         XCTAssertEqual(accessibilityElement.fileText.value, "we zzzzzzzzzz in tHere with count 🈹️ awww")
@@ -39,9 +39,9 @@ and one more line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 36, with: "\n")
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -64,10 +64,10 @@ extension ASUI_NM_r_Tests {
         let textInAXFocusedElement = "gonna replace one of those letters..."
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.B(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(with: "a")
       
         XCTAssertEqual(accessibilityElement.fileText.value, "gonna replace one of thosa letters...")
@@ -79,8 +79,8 @@ extension ASUI_NM_r_Tests {
         let textInAXFocusedElement = "i need more space!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(with: "\u{0020}")
        
         XCTAssertEqual(accessibilityElement.fileText.value, "i need more space ")
@@ -102,10 +102,10 @@ a new line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(with: "\u{000A}")
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -127,8 +127,8 @@ escape
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(with: "\u{001B}")
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -151,10 +151,10 @@ extension ASUI_NM_r_Tests {
         let textInAXFocusedElement = "gonna replace one of those letters..."
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.B(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(with: "a", appFamily: .pgR)
       
         XCTAssertEqual(accessibilityElement.fileText.value, "gonna replace one of thosa letters...")
@@ -169,10 +169,10 @@ extension ASUI_NM_r_Tests {
         let textInAXFocusedElement = "gonna replace one of those letters..."
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.B(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 3, with: "a", appFamily: .pgR)
       
         XCTAssertEqual(accessibilityElement.fileText.value, "gonna replace one of thosaaaetters...")
