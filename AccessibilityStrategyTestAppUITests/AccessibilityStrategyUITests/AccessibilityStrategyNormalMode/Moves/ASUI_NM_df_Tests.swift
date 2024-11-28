@@ -22,10 +22,10 @@ extension ASUI_NM_df_Tests {
         let textInAXFocusedElement = "here we gonna delete up to 🕑️ characters rather than 🦴️!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.F(to: "u", on: $0) }
         applyMove { asNormalMode.ge(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 2, with: "e")
         
         XCTAssertEqual(accessibilityElement.fileText.value, "here we gonna deletr than 🦴️!")
@@ -43,7 +43,6 @@ extension ASUI_NM_df_Tests {
         let textInAXFocusedElement = "gonna us⛱️ df on this sentence"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gZero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
        
@@ -64,7 +63,6 @@ extension ASUI_NM_df_Tests {
         let textInAXFocusedElement = "gonna us⛱️ df on this sentence"
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
        
@@ -79,7 +77,6 @@ extension ASUI_NM_df_Tests {
         let textInAXFocusedElement = "gonna us⛱️ df on this sentence"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
        

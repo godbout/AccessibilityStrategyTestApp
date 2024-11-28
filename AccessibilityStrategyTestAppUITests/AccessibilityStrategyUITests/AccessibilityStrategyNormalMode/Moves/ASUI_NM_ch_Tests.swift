@@ -26,9 +26,9 @@ LMAO
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.f(to: "u", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 4)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -52,9 +52,9 @@ LMAO
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.gg(times: 3, on: $0) }
         applyMove { asNormalMode.f(to: "u", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 69)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -79,8 +79,8 @@ extension ASUI_NM_ch_Tests {
         let textInAXFocusedElement = " ch to delete a char😂️cter on the left"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.F(to: "c", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, " ch to delete a charcter on the left")
@@ -103,8 +103,8 @@ we should stay there
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.gg(times: 2, on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -128,8 +128,8 @@ extension ASUI_NM_ch_Tests {
         let textInAXFocusedElement = "ch should delete the correct character"
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.b(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, "ch should delete the correctcharacter")
@@ -141,8 +141,8 @@ extension ASUI_NM_ch_Tests {
         let textInAXFocusedElement = "ch should delete the correct character"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.b(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, "ch should delete the correctcharacter")

@@ -21,8 +21,8 @@ extension ASUI_NM_dk_Tests {
         let textInAXFocusedElement = "one line is not enough for dk"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-      
         applyMove { asNormalMode.h(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, "one line is not enough for dk")        
@@ -59,10 +59,10 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

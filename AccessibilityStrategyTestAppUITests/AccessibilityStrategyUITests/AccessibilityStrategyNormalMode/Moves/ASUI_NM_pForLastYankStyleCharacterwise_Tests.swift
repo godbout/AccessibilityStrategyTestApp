@@ -19,8 +19,8 @@ extension ASUI_NM_pForLastYankStyleCharacterwise_Tests {
         let textInAXFocusedElement = "we go😂️😂️😂️nna paste some 💩️"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
+        
         copyToClipboard(text: "text to 🥞️🥞️🥞️ paste!!!🥠️")
         let accessibilityElement = applyMoveBeingTested()
 
@@ -33,8 +33,8 @@ extension ASUI_NM_pForLastYankStyleCharacterwise_Tests {
         let textInAXFocusedElement = "possible because of PGR"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(on: $0) }
+        
         copyToClipboard(text: "")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -57,11 +57,11 @@ ho ho ho
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         copyToClipboard(text: "pastaing")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -83,11 +83,11 @@ ho ho ho
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         copyToClipboard(text: "😂️astaing\nmy man!")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -110,9 +110,9 @@ here's the last one
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
+        
         copyToClipboard(text: "text for the new line")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -134,9 +134,9 @@ and fucking AX restrictions in browsers
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
+        
         copyToClipboard(text: "")
         let accessibilityElement = applyMoveBeingTested()
         
@@ -160,8 +160,8 @@ extension ASUI_NM_pForLastYankStyleCharacterwise_Tests {
         let textInAXFocusedElement = "we go😂️😂️😂️nna paste some 💩️"
         app.webViews.textFields.firstMatch.tap()
         app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
+        
         copyToClipboard(text: "text to 🥞️🥞️🥞️ paste!!!🥠️")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
@@ -179,11 +179,11 @@ ho ho ho
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         copyToClipboard(text: "pastaing")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
@@ -202,8 +202,8 @@ ho ho ho
         let textInAXFocusedElement = "we go😂️😂️😂️nna paste some 💩️"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
+        
         copyToClipboard(text: "text to 🥞️🥞️🥞️ paste!!!🥠️")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
@@ -221,11 +221,11 @@ ho ho ho
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
+        
         copyToClipboard(text: "pastaing")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         

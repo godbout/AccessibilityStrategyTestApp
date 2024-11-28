@@ -19,8 +19,8 @@ extension ASUI_NM_g0_Tests {
         let textInAXFocusedElement = "g0 should send us to the beginning of the screen line"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.caretLocation, 49)
@@ -42,8 +42,8 @@ and again this is for screen lines 😀️y friend so this line is long!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.caretLocation, 80)

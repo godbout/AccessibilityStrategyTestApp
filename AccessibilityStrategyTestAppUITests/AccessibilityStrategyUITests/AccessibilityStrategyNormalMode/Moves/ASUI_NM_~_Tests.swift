@@ -22,9 +22,9 @@ extension ASUI_NM_tilde_Tests {
         let textInAXFocusedElement = "we goNNa moVe in tHere with count 🈹️ awww"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.F(to: "g", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 10)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "we GOnnA MOvE in tHere with count 🈹️ awww")
@@ -40,9 +40,9 @@ and one more line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 69)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -65,9 +65,9 @@ extension ASUI_NM_tilde_Tests {
         let textInAXFocusedElement = "gonna replace one of those😂️letters..."
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.B(on: $0) }
         applyMove { asNormalMode.e(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
       
         XCTAssertEqual(accessibilityElement.fileText.value, "gonna replace one of thosE😂️letters...")
@@ -79,9 +79,9 @@ extension ASUI_NM_tilde_Tests {
         let textInAXFocusedElement = "gonna replace one of thosE😂️letters..."
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.B(on: $0) }
         applyMove { asNormalMode.e(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
       
         XCTAssertEqual(accessibilityElement.fileText.value, "gonna replace one of those😂️letters...")
@@ -99,8 +99,8 @@ extension ASUI_NM_tilde_Tests {
         let textInAXFocusedElement = "gonna replace one of thOse😂️letters..."
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.B(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 5, appFamily: .pgR)
       
         XCTAssertEqual(accessibilityElement.fileText.value, "gonna replace one of THoSE😂️letters...")
@@ -112,8 +112,8 @@ extension ASUI_NM_tilde_Tests {
         let textInAXFocusedElement = "gonna replace one of thOse😂️letters..."
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.B(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 5, appFamily: .pgR)
       
         XCTAssertEqual(accessibilityElement.fileText.value, "gonna replace one of THoSE😂️letters...")

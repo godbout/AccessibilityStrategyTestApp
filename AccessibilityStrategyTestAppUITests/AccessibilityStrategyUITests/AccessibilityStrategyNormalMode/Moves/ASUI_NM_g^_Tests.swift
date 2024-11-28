@@ -21,8 +21,8 @@ extension ASUI_NM_gCaret_Tests {
         let textInAXFocusedElement = "    hehe ankulay that's a long like that we gonna wrap"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.caretLocation, 4)
@@ -39,8 +39,8 @@ without a linefeed but with spaces
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.caretLocation, 85)
@@ -63,8 +63,8 @@ empty line has a linefeed
 """        
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.k(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.caretLocation, 61)

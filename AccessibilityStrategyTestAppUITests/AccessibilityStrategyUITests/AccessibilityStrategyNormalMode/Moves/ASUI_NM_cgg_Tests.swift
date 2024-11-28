@@ -111,11 +111,11 @@ those faces 🥺️☹️😂️
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.gj(on: $0) }
         applyMove { asNormalMode.gj(on: $0) }
         applyMove { asNormalMode.f(to: "g", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

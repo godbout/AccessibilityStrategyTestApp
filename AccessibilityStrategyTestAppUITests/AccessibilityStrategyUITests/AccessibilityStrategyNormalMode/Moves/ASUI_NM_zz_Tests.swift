@@ -37,9 +37,9 @@ properly!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.G(times: 8, on: $0) }
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
     
         XCTAssertEqual(accessibilityElement.caretLocation, 68)
@@ -71,9 +71,9 @@ properly!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.G(times: 9, on: $0) }
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
     
         XCTAssertEqual(accessibilityElement.caretLocation, 71)

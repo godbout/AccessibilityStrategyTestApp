@@ -23,8 +23,8 @@ finally dealing with the `real stuff`!
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.F(to: "l", on: $0) }
-        let accessibilityElement = applyMoveBeingTested()
         
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 finally dealing with the!
@@ -43,8 +43,8 @@ here hehe
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(on: $0) }
-        let accessibilityElement = applyMoveBeingTested()
         
+        let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 ok so there was
@@ -69,8 +69,8 @@ finally dealing with the `real stuff`!
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.F(to: "l", on: $0) }
-        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 finally dealing with the!
@@ -88,8 +88,8 @@ finally dealing with the `real stuff`!
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.F(to: "l", on: $0) }
-        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
 finally dealing with the!

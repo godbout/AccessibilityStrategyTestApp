@@ -6,9 +6,9 @@ import Common
 class ASUI_NM_caWw_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(appFamily: AppFamily) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.caWw(on: $0, using: $0.fileText.aWord, &state) }
+        return applyMove { asNormalMode.caWw(on: $0, using: $0.fileText.aWord, &vimEngineState) }
     }
     
 }
@@ -21,11 +21,11 @@ extension ASUI_NM_caWw_Tests {
         let textInAXFocusedElement = "that's some cute      text in here don't you think?"
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) } 
         applyMove { asNormalMode.F(to: "c", on: $0) }
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
            
         XCTAssertEqual(accessibilityElement.fileText.value, "that's some text in here don't you think?")
@@ -38,11 +38,11 @@ extension ASUI_NM_caWw_Tests {
         let textInAXFocusedElement = "that's some cute      text in here don't you think?"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.F(to: "c", on: $0) }
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
            
         XCTAssertEqual(accessibilityElement.fileText.value, "that's some text in here don't you think?")

@@ -22,10 +22,10 @@ extension ASUI_NM_dT__Tests {
         let textInAXFocusedElement = "here we gonna delete up to 🕑️ characters rather than 🦴️!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.F(to: "u", on: $0) }
         applyMove { asNormalMode.ge(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 2, with: "e")
         
         XCTAssertEqual(accessibilityElement.fileText.value, "here we gonna dee up to 🕑️ characters rather than 🦴️!")
@@ -47,10 +47,10 @@ on a line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.dollarSign(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(with: "w")
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -77,10 +77,10 @@ on a line
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.dollarSign(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(with: "w", appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -101,10 +101,10 @@ on a line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.dollarSign(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(with: "w", appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

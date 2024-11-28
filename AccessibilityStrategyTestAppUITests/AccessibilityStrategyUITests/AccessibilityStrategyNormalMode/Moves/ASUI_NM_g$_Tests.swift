@@ -26,9 +26,9 @@ LMAO
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 3)
         
         XCTAssertEqual(accessibilityElement.caretLocation, 82)
@@ -45,9 +45,9 @@ LMAO
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 69)
         
         XCTAssertEqual(accessibilityElement.caretLocation, 105)
@@ -65,8 +65,8 @@ extension ASUI_NM_g$_Tests {
         let textInAXFocusedElement = "hello world and that's a long one that we gonna wrap 🗺️"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(times: 6, on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 69)
         
         XCTAssertEqual(accessibilityElement.caretLocation, 53)
@@ -83,8 +83,8 @@ $
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gk(on: $0) }
+        
         _ = applyMoveBeingTested()
 
         XCTAssertNotNil(AccessibilityTextElement.fileLineColumnNumber)
@@ -105,9 +105,9 @@ gonna be wrapped
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.f(to: "u", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.caretLocation, 25)
@@ -123,8 +123,8 @@ it's a bug! my friend hehehehe
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.k(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 28)

@@ -21,8 +21,8 @@ extension ASUI_NM_ck_Tests {
         let textInAXFocusedElement = "the caret is on the  😂️ first line"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(times: 3, on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, "the caret is on the  😂️ first line")
@@ -46,15 +46,14 @@ no?
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         // TODO: for the UT moved to the UI, we can simplify what's below
         // we did it to match the UT but the UT were done manually so we couldn't
         // place the block cursor wherever we wanted. makes no sense for the UIs
         // coz that make them look more complicated than needed
-        
         applyMove { asNormalMode.l(on: $0 ) }
         applyMove { asNormalMode.b(times: 2, on: $0) }
         applyMove { asNormalMode.f(to: "e", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -80,6 +79,7 @@ but to the first non blank
         applyMove { asNormalMode.l(on: $0 ) }
         applyMove { asNormalMode.b(times: 2, on: $0) }
         applyMove { asNormalMode.l(on: $0 ) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -104,6 +104,7 @@ but to the first non blank
         applyMove { asNormalMode.l(on: $0 ) }
         applyMove { asNormalMode.b(times: 2, on: $0) }
         applyMove { asNormalMode.l(on: $0 ) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -130,8 +131,8 @@ be kept
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -152,8 +153,8 @@ be kept
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

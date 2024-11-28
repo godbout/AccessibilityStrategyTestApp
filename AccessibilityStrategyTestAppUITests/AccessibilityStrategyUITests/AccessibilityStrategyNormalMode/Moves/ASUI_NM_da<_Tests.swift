@@ -13,6 +13,7 @@ class ASUI_NM_daLeftChevron_Tests: ASUI_NM_BaseTests {
 }
 
 
+// TODO: shouldn't bip be tested in UT?
 extension ASUI_NM_daLeftChevron_Tests {
 
     // this test contains blank spaces

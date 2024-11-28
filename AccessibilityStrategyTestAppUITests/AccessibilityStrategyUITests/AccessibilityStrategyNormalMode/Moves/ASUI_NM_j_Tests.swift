@@ -25,7 +25,6 @@ another long line longer than all the other ones!!!
 """        
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.f(to: "g", on: $0) }
        

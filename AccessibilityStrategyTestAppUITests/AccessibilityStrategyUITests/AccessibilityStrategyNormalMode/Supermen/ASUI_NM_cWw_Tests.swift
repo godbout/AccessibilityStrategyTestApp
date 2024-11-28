@@ -24,9 +24,9 @@ extension ASUI_NM_cWw_Tests {
         let textInAXFocusedElement = "😂️😂️😂️😂️hehehe gonna use cw on this sentence"
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "😂️ gonna use cw on this sentence")
@@ -39,10 +39,10 @@ extension ASUI_NM_cWw_Tests {
         let textInAXFocusedElement = "😂️😂️😂️😂️hehehe                   gonna use cw on this sentence"
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.E(on: $0) }
         applyMove { asNormalMode.l(times: 4, on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "😂️😂️😂️😂️hehehe   gonna use cw on this sentence")
@@ -55,9 +55,9 @@ extension ASUI_NM_cWw_Tests {
         let textInAXFocusedElement = "😂️😂️😂️😂️hehehe gonna use cw on this sentence"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "😂️ gonna use cw on this sentence")
@@ -70,10 +70,10 @@ extension ASUI_NM_cWw_Tests {
         let textInAXFocusedElement = "😂️😂️😂️😂️hehehe                   gonna use cw on this sentence"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.E(on: $0) }
         applyMove { asNormalMode.l(times: 4, on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "😂️😂️😂️😂️hehehe   gonna use cw on this sentence")

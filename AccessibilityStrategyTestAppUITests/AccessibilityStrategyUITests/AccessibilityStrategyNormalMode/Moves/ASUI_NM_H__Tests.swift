@@ -42,8 +42,8 @@ properly!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.G(times: 5, on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 7)
     
         XCTAssertEqual(accessibilityElement.caretLocation, 60)
@@ -75,8 +75,8 @@ properly!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.G(times: 5, on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 100)
     
         XCTAssertEqual(accessibilityElement.caretLocation, 74)
@@ -114,8 +114,8 @@ properly!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.G(times: 7, on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
     
         XCTAssertEqual(accessibilityElement.caretLocation, 1)
@@ -162,8 +162,8 @@ It was the White Rabbit, trotting slowly back again, and looking anxiously about
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.interrogationMark(to: "looking", on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
     
         XCTAssertEqual(accessibilityElement.caretLocation, 241)

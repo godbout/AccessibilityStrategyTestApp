@@ -5,9 +5,10 @@ import Common
 
 class ASUI_NM_ddg0_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        // see ccgZero UT for blah blah
-        return applyMove { asNormalMode.ddgZero(using: $0.currentFileLine, on: $0, &vimEngineState) }
+    private func applyMoveBeingTested() -> AccessibilityTextElement {
+        var state = VimEngineState()
+        
+        return applyMove { asNormalMode.ddgZero(using: $0.currentFileLine, on: $0, &state) }
     }
     
 }
@@ -23,13 +24,12 @@ and that has to include emojis
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
-        var state = VimEngineState()
-        let accessibilityElement = applyMoveBeingTested(&state)
         
+        let accessibilityElement = applyMoveBeingTested()
+        x
         XCTAssertEqual(accessibilityElement.fileText.value, """
 ultimately this will show that this move is calling its `c` counterpart and that
 😂️d block cursor correctly
