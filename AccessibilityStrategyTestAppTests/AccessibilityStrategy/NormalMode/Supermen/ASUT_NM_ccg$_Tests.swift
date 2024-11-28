@@ -89,7 +89,7 @@ and of course this is in the case there is a linefeed at the end of the line.
 }
 
 
-// both
+// Both
 extension ASUT_NM_ccg$_Tests {
     
     func test_that_if_a_file_line_does_not_end_with_a_linefeed_it_deletes_from_the_caret_to_the_end_of_the_line() {

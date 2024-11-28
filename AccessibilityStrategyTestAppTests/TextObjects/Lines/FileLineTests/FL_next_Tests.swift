@@ -5,7 +5,7 @@ import XCTest
 class FL_next_Tests: XCTestCase {}
 
 
-// both
+// Both
 extension FL_next_Tests {
     
     func test_that_in_normal_setting_it_returns_the_correct_location() throws {

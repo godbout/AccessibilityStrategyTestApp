@@ -57,7 +57,7 @@ and one more line
 }
 
 
-// both
+// Both
 extension ASUI_NM_r_Tests {
 
     func test_that_in_normal_setting_it_replaces_the_character_under_the_cursor_with_the_one_given() {

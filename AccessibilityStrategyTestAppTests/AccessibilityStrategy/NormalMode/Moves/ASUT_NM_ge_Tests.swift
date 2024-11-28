@@ -69,7 +69,7 @@ extension ASUT_NM_ge_Tests {
 }
 
 
-// both
+// Both
 extension ASUT_NM_ge_Tests {
     
     func test_that_when_there_is_no_word_backward_it_goes_to_0() {

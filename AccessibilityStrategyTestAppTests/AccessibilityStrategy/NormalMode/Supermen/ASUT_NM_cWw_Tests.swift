@@ -81,7 +81,7 @@ extension ASUT_NM_cWw_Tests {
 }
 
 
-// both
+// Both
 extension ASUT_NM_cWw_Tests {
     
     // careful with "end of word". if the caret is already on the end of the current word, it goes to the end of the next word.
