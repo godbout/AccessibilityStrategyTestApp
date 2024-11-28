@@ -24,11 +24,11 @@ extension ASUI_VMC_c_Tests {
         let textInAXFocusedElement = "ok so VM c (hahaha) on a single line"
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.f(times: 2, to: "h", on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.f(to: "i", on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "ok so VM c (hangle line")
@@ -41,11 +41,11 @@ extension ASUI_VMC_c_Tests {
         let textInAXFocusedElement = "ok so VM c (hahaha) on a single line"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.f(times: 2, to: "h", on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.f(to: "i", on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "ok so VM c (hangle line")

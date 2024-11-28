@@ -29,12 +29,12 @@ the selection!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.zero(on: $0, state) }
         applyMove { asVisualMode.b(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -54,10 +54,10 @@ should go back to line end limit
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -78,10 +78,10 @@ there's gonna be an empty line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-      
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -101,12 +101,12 @@ should go back to line end limit
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.e(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.b(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -127,12 +127,12 @@ lines this time
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-              
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.gj(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -153,10 +153,10 @@ own empty
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.l(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -184,12 +184,12 @@ the selection!
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.zero(on: $0, state) }
         applyMove { asVisualMode.b(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -210,12 +210,12 @@ the selection!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.zero(on: $0, state) }
         applyMove { asVisualMode.b(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """

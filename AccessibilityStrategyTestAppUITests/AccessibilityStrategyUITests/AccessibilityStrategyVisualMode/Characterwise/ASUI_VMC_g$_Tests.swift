@@ -25,11 +25,11 @@ at the anchor, not at the caret location
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.W(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.w(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 3)
 
         XCTAssertEqual(accessibilityElement.caretLocation, 3)
@@ -46,10 +46,10 @@ extension ASUI_VMC_g$_Tests {
         let textInAXFocusedElement = "hello world"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 5)
@@ -63,10 +63,10 @@ at the anchor, not at the caret location
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.b(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 58)
@@ -87,11 +87,11 @@ multiline
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
                 
         XCTAssertEqual(accessibilityElement.caretLocation, 12)
@@ -106,12 +106,12 @@ g$ not work ⛱️⛱️LOOOL
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(on: $0, state) }
         applyMove { asVisualMode.e(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 36)
@@ -126,11 +126,11 @@ g$ doesn't work LOOOLL
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.b(on: $0, state) }
         applyMove { asVisualMode.gk(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.caretLocation, 39)

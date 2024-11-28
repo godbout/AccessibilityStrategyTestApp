@@ -24,7 +24,6 @@ extension ASUI_VML_pWhenLastYankStyleWasLinewise_Tests {
         let textInAXFocusedElement = "gonna select the whole line and replace it and remove linefeed in copied text"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         
         copyToClipboard(text: "  😂️ext to be copied\n")
@@ -65,10 +64,10 @@ can be done in one go with VM P!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
+        
         copyToClipboard(text: """
 😂️his is what we want
 to paste hehe
@@ -96,11 +95,11 @@ even if there was none
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
         copyToClipboard(text: "this copied line has no linefeed!")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -120,7 +119,6 @@ linefeed from the copied text
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
@@ -145,7 +143,6 @@ of new pasted text
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
@@ -197,9 +194,9 @@ extension ASUI_VML_pWhenLastYankStyleWasLinewise_Tests {
         let textInAXFocusedElement = "check that it works in PGR too"
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         copyToClipboard(text: "pasta\n")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, "pasta")
@@ -215,9 +212,9 @@ PGR
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
+        
         copyToClipboard(text: "  should paste that somewhere\n")
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
@@ -235,9 +232,9 @@ PGR
         let textInAXFocusedElement = "check that it works in PGR too"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         copyToClipboard(text: "pasta\n")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, "pasta")
@@ -253,10 +250,10 @@ PGR
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         copyToClipboard(text: "  should paste that somewhere\n")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

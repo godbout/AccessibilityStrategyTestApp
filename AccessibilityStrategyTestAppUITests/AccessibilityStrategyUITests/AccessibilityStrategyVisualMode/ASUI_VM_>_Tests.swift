@@ -28,10 +28,10 @@ sooome more
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.b(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested(times: 3)
             
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -59,10 +59,10 @@ and more
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.G(times: 2, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
             
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -84,10 +84,10 @@ or just a linefeed
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.gg(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -115,10 +115,10 @@ and more
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.G(times: 2, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
             
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -141,10 +141,10 @@ and more
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.G(times: 2, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
             
         XCTAssertEqual(accessibilityElement.fileText.value, """

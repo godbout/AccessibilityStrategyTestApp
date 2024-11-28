@@ -17,7 +17,6 @@ from the caret location
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-       
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
@@ -25,6 +24,7 @@ from the caret location
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.b(on: $0, state) }
+        
         let accessibilityElement = applyMove { asVisualMode.w(on: $0, state) }
 
         XCTAssertEqual(accessibilityElement.caretLocation, 54)
@@ -35,7 +35,6 @@ from the caret location
         let textInAXFocusedElement = "we-have to updated caretLocation before selectedLength!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-             
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.zero(on: $0, state) }
         applyMove { asVisualMode.E(on: $0, state) }

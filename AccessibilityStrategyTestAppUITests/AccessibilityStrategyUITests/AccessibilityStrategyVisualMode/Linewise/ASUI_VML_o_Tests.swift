@@ -25,7 +25,6 @@ the globalColumnNumbers have to get recalculated!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-               
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         

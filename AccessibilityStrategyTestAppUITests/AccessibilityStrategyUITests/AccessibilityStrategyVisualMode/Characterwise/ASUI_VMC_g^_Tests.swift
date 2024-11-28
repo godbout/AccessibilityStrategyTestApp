@@ -22,9 +22,9 @@ extension ASUI_VMC_gCaret_Tests {
         let textInAXFocusedElement = "   that's some nice text in here yehe"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
+        
         let returnedElement = applyMoveBeingTested()
 
         XCTAssertEqual(returnedElement.caretLocation, 3)
@@ -38,7 +38,6 @@ extension ASUI_VMC_gCaret_Tests {
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
@@ -64,10 +63,10 @@ over ⛱️⛱️ multiple     lines coz
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.k(on: $0, state) }
+        
         let returnedElement = applyMoveBeingTested()
        
         XCTAssertEqual(returnedElement.caretLocation, 40)
@@ -83,11 +82,11 @@ start of the line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
         applyMove { asVisualMode.w(on: $0, state) }
+        
         let returnedElement = applyMoveBeingTested()
 
         XCTAssertEqual(returnedElement.caretLocation, 0)
