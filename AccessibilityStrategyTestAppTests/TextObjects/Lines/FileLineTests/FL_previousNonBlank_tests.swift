@@ -16,7 +16,7 @@ class FL_previousNonBlank_Tests: XCTestCase {
 }
     
 
-// both
+// Both
 extension FL_previousNonBlank_Tests {
 
     func test_that_it_returns_nil_if_the_text_is_empty() {

@@ -176,7 +176,7 @@ but hey surprise mofo
 }
 
 
-// both
+// Both
 extension ASUT_NM_G__Tests {
     
     func test_that_it_goes_to_the_beginning_of_the_line_if_it_starts_with_non_blank() {

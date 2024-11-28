@@ -43,7 +43,7 @@ extension ASUI_NM_dWw_Tests {
 }
 
 
-// both
+// Both
 extension ASUI_NM_dWw_Tests {
     
     func test_that_the_block_cursor_ends_up_at_the_right_place() {

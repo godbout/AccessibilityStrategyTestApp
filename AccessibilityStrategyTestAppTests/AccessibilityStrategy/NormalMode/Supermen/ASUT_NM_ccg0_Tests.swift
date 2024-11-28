@@ -89,7 +89,7 @@ and also some more
 }
 
 
-// both
+// Both
 extension ASUT_NM_ccg0_Tests {
     
     func test_that_in_normal_setting_it_deletes_up_to_the_start_of_the_currentFileLine() {
