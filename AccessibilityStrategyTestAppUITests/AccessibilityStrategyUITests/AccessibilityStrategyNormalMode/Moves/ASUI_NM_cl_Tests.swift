@@ -79,9 +79,7 @@ extension ASUI_NM_cl_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
-        applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.F(times: 2, to: "a", on: $0) }
-
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, " cl to delete a chracter on the right")
