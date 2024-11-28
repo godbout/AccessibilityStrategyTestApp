@@ -6,14 +6,10 @@ import Common
 // careful. dip is special in the sense that blank lines are paragraph boundaries, which is not the case with {}
 class ASUI_NM_dip_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return applyMove { asNormalMode.dip(on: $0, &vimEngineState) }
-    }
-    
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
         var state = VimEngineState(appFamily: appFamily)
         
-        return applyMoveBeingTested(&state)
+        return applyMove { asNormalMode.dip(on: $0, &state) }
     }
     
 }
