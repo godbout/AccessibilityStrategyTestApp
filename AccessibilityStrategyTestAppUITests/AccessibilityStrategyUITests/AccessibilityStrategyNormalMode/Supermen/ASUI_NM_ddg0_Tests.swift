@@ -29,7 +29,7 @@ and that has to include emojis
         applyMove { asNormalMode.l(on: $0) }
         
         let accessibilityElement = applyMoveBeingTested()
-        x
+
         XCTAssertEqual(accessibilityElement.fileText.value, """
 ultimately this will show that this move is calling its `c` counterpart and that
 😂️d block cursor correctly
