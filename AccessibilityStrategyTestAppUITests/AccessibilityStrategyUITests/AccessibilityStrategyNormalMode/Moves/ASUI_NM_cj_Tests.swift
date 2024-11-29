@@ -21,11 +21,9 @@ extension ASUI_NM_cj_Tests {
         let textInAXFocusedElement = "the caret is on the  😂️ last line"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
-        // TODO: the applyMove should be stuck to the paragraphs above
-        // as it's to prepare moving the block cursor around
         applyMove { asNormalMode.l(times: 3, on: $0) }
         applyMove { asNormalMode.b(times: 3, on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, "the caret is on the  😂️ last line")
@@ -49,10 +47,10 @@ no?
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.gk(times: 2, on: $0) }
         applyMove { asNormalMode.e(times: 2, on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -75,9 +73,9 @@ no?
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -99,9 +97,9 @@ but to the first non blank
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         applyMove { asNormalMode.l(times: 2, on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -114,6 +112,9 @@ this moves does not go to the
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
+    // UPDATE: THEY ARE DONE LIKE THIS ON PURPOSE!!!
+    // it's because we do the moves according to Vim being set as autoident!
+    // so TODO: make this clear somewhere
     // TODO: bug in implementation it seems, hence wrong test (it seems)
     // the resulting fileText shouldn't contain any blanks anymore and the caret
     // should be a the beginning of the last line.
@@ -126,9 +127,9 @@ but to the first non blank
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         applyMove { asNormalMode.h(times: 9, on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -152,9 +153,9 @@ but to the first non blank
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         applyMove { asNormalMode.h(times: 9, on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -182,8 +183,8 @@ be kept
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gk(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -204,8 +205,8 @@ be kept
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         applyMove { asNormalMode.gk(on: $0) }
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
