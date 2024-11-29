@@ -40,7 +40,8 @@ now that shit will get cleaned {
 now that shit will get cleaned {
 }
 """
-        ) XCTAssertEqual(accessibilityElement.caretLocation, 33)
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 33)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "}")
 
