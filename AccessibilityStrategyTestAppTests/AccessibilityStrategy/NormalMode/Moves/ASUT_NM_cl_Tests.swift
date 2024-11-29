@@ -33,8 +33,8 @@ extension ASUT_NM_cl_Tests {
                 end: 0
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         
@@ -68,8 +68,8 @@ those faces 🥺️☹️😂️
                 end: 41
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(times: 3, on: element, &state)
         
@@ -103,8 +103,8 @@ those faces 🥺️☹️😂️
                 end: 59
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(times: 69, on: element, &state)
         

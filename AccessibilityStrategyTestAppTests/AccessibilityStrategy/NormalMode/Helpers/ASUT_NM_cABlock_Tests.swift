@@ -44,8 +44,8 @@ extension ASUT_NM_cABlock_Tests {
                 end: 13
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
         let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
         
@@ -76,8 +76,8 @@ extension ASUT_NM_cABlock_Tests {
                 end: 58
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
         
@@ -118,8 +118,8 @@ and } is not preceded by a linefeed
                 end: 36
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &state)
         
@@ -159,8 +159,8 @@ by a linefeed and
                 end: 36
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &state)
 
@@ -200,8 +200,8 @@ and ] is not preceded by a linefeed
                 end: 43
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element, &state)
 
@@ -241,8 +241,8 @@ is followed by a linefeed and
                 end: 50
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
         

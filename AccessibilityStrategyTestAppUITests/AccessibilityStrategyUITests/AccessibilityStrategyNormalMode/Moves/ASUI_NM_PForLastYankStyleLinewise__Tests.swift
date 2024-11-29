@@ -22,8 +22,8 @@ extension ASUI_NM_PForLastYankStyleLinewise_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
-        
         copyToClipboard(text: "paste me daddy")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, "paste me daddyP linewise for TF is still pasted characterwise!")
@@ -37,8 +37,8 @@ extension ASUI_NM_PForLastYankStyleLinewise_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-        
         copyToClipboard(text: "yanked with the linefeed hum hum\n")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, "P should not paste linefeeds in theyanked with the linefeed hum hum TF")
@@ -65,8 +65,8 @@ pasted at the current line place
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-        
         copyToClipboard(text: "🤍️hould paste 🤍️ that\n")
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -92,8 +92,8 @@ to the first non blank of the copied line
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.ge(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-        
         copyToClipboard(text: "   the copied line has non blanks\n")
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -116,8 +116,8 @@ enforce a linefeed
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         copyToClipboard(text: "test 3 of The 3 Cases for TextArea linewise P")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -144,8 +144,8 @@ extension ASUI_NM_PForLastYankStyleLinewise_Tests {
         app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
-        
         copyToClipboard(text: "paste me daddy")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "paste me daddyP linewise for TF is still pasted characterwise!")
@@ -167,8 +167,8 @@ pasted at the current line place
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-        
         copyToClipboard(text: "🤍️hould paste 🤍️ that\n")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -190,8 +190,8 @@ pasted at the current line place
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
-        
         copyToClipboard(text: "paste me daddy")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "paste me daddyP linewise for TF is still pasted characterwise!")
@@ -213,8 +213,8 @@ pasted at the current line place
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-        
         copyToClipboard(text: "🤍️hould paste 🤍️ that\n")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """

@@ -40,8 +40,8 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
                 end: 27
             )!
         )
-        
         copyToClipboard(text: "nope you don't copy mofo")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(on: element, &state)
         
@@ -74,8 +74,8 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next\n
                 end: 33
             )!
         )
-        
         copyToClipboard(text: "nope you don't copy mofo")
+        
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(on: element, &state)
         

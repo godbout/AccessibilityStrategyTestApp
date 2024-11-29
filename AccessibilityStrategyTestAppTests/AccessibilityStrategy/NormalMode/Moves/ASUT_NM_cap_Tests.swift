@@ -43,8 +43,8 @@ like this will Bip
                 end: 21
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(on: element, &state)
         
@@ -80,8 +80,8 @@ Bip
                 end: 16
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(on: element, &state)
         

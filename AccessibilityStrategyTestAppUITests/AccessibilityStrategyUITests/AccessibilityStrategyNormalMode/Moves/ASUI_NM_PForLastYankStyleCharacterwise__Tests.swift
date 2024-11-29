@@ -21,8 +21,8 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
-        
         copyToClipboard(text: "text to pasta 🍕️!!🍔️")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, "🍕️🍕️text to pasta 🍕️!!🍔️🍕️")
@@ -36,8 +36,8 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
-        
         copyToClipboard(text: "paste me daddy")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, "paste me daddyP linewise for TF is still pasted characterwise!")
@@ -51,8 +51,8 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-        
         copyToClipboard(text: "yanked with the linefeed hum hum\n")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, "P should not paste linefeeds in theyanked with the linefeed hum hum TF")
@@ -65,8 +65,8 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
-        
         copyToClipboard(text: "")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, "possible because of PGR")
@@ -92,8 +92,8 @@ ho ho ho
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-        
         copyToClipboard(text: "pastaing")
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -118,8 +118,8 @@ ho ho ho
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-        
         copyToClipboard(text: "😂️astaing\nmy man!")
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -143,8 +143,8 @@ here's the last one
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
-        
         copyToClipboard(text: "text for the new line")
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -167,8 +167,8 @@ and fucking AX restrictions in browsers
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
-        
         copyToClipboard(text: "")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -192,8 +192,8 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         app.webViews.textFields.firstMatch.tap()
         app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
-        
         copyToClipboard(text: "text to pasta 🍕️!!🍔️")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "🍕️🍕️text to pasta 🍕️!!🍔️🍕️")
@@ -214,8 +214,8 @@ ho ho ho
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-        
         copyToClipboard(text: "😂️astaing\nmy man!")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -235,8 +235,8 @@ ho ho ho
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
-        
         copyToClipboard(text: "text to pasta 🍕️!!🍔️")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, "🍕️🍕️text to pasta 🍕️!!🍔️🍕️")

@@ -40,8 +40,8 @@ but shouldn't be deleted
                 end: 30
             )!
         )
-        
         copyToClipboard(text: "nope you don't copy mofo")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         
@@ -70,8 +70,8 @@ but shouldn't be deleted
                 end: 35
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(times: 6, on: element, &state)
         
@@ -104,8 +104,8 @@ we gonna need several lines here
                 end: 50
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(times: 128, on: element, &state)
         

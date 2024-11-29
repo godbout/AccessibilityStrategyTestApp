@@ -48,8 +48,8 @@ finally dealing with the "real stuff"!
                 end: 38
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(using: .doubleQuote, on: element, &state)
         
@@ -78,8 +78,8 @@ finally dealing with the "real stuff!
                 end: 37
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(using: .doubleQuote, on: element, &state)
         

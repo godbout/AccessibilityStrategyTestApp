@@ -27,12 +27,12 @@ extension ASUI_VMC_pWhenLastYankStyleWasCharacterwise_Tests {
         applyMove { asNormalMode.b(times: 4, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.w(times: 2, on: $0, state) }
-
         copyToClipboard(text: """
 yes maybe even with LYS Characterwise
 it maybe have been a multiline\n
 """
         )
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -52,7 +52,6 @@ it maybe have been a multiliney pasting
         applyMove { asNormalMode.b(times: 4, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(times: 2, on: $0, state) }
-        
         copyToClipboard(text: "  😂️ext to be copied\n")
         
         _ = applyMoveBeingTested()
@@ -78,8 +77,8 @@ text doesn't have a linefeed
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(times: 3, on: $0, state) }
-        
         copyToClipboard(text: "does not have a linefeed")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -102,8 +101,8 @@ text does have a linefeed
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(times: 3, on: $0, state) }
-        
         copyToClipboard(text: "does have\na linefeed now :D")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -127,8 +126,8 @@ here's the last one
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        
         copyToClipboard(text: "text for the new line")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -153,7 +152,6 @@ in the clipboard
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
-        
         copyToClipboard(text: "text to pasta\nhere and there")
                
         _ = applyMoveBeingTested()
@@ -175,8 +173,8 @@ extension ASUI_VMC_pWhenLastYankStyleWasCharacterwise_Tests {
         applyMove { asNormalMode.b(times: 5, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(times: 2, on: $0, state) }
-        
         copyToClipboard(text: "pasta\n")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, "check that pasta in PGR too")
@@ -219,8 +217,8 @@ somewhereR
         applyMove { asNormalMode.b(times: 5, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(times: 2, on: $0, state) }
-        
         copyToClipboard(text: "pasta\n")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, "check that pasta in PGR too")
@@ -242,8 +240,8 @@ PGR
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.w(on: $0, state) }
         applyMove { asVisualMode.l(on: $0, state) }
-        
         copyToClipboard(text: "  should paste that\nsomewhere")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

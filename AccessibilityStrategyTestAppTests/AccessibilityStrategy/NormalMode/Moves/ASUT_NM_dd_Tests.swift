@@ -41,8 +41,8 @@ to stop at the end limit of the line
                 end: 84
             )!
         )
-        
         copyToClipboard(text: "nope you don't copy mofo")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         

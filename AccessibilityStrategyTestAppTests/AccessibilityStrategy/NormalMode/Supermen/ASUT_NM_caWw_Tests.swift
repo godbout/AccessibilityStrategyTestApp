@@ -40,8 +40,8 @@ extension ASUT_NM_caWw_Tests {
                 end: 51
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+               
         // TODO: rename all to vimEngineState
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
@@ -72,8 +72,8 @@ and also a lot of spaces at the end of this line
                 end: 66
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         

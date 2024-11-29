@@ -37,8 +37,8 @@ extension ASUT_NM_caB__Tests {
                 end: 58
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 15)

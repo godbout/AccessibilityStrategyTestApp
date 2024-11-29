@@ -41,8 +41,8 @@ we should stay there
                 end: 61
             )!
         )
-      
         copyToClipboard(text: "nope you don't copy mofo")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         
@@ -71,8 +71,8 @@ we should stay there
                 end: 47
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(times: 5, on: element, &state)
         
@@ -101,8 +101,8 @@ we should stay there
                 end: 47
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(times: 128, on: element, &state)
         

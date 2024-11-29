@@ -77,8 +77,8 @@ extension ASUT_NM_yy_Tests {
                 end: 0
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(on: element, &state)
         
@@ -108,8 +108,8 @@ but actually it's only 21.43 LMAOOOOOOOO
                 end: 55
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(on: element, &state)
         
@@ -143,8 +143,8 @@ of days.
                 end: 39
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(times: 3, on: element, &state)
         
@@ -183,8 +183,8 @@ of days.
                 end: 39
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(times: 69, on: element, &state)
         
@@ -314,8 +314,8 @@ my friend
                 end: 0
             )!
         )
-        
         copyToClipboard(text: "test 1 of The 3 Cases")
+        
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
@@ -347,8 +347,8 @@ line
                 end: 31
             )!
         )
-        
         copyToClipboard(text: "test 3 of The 3 cases")
+        
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")

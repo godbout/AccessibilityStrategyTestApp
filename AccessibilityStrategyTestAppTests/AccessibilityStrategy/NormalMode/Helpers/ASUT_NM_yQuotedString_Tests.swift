@@ -65,8 +65,8 @@ and now `hohohohoho`
                 end: 34
             )!
         )
-        
         copyToClipboard(text: "no double quote")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMove(using: .doubleQuote, on: element, &state)
         
@@ -99,8 +99,8 @@ extension ASUT_NM_yQuotedString_Tests {
                 end: 34
             )!
         )
-        
         copyToClipboard(text: "no double quote")
+        
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
         let returnedElement = applyMove(using: .doubleQuote, on: element, &state)
         
@@ -131,8 +131,8 @@ now there's one " double quote
                 end: 30
             )!
         )
-        
         copyToClipboard(text: "only one double quote")
+        
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
         let returnedElement = applyMove(using: .doubleQuote, on: element, &state)
         
@@ -228,8 +228,8 @@ double "quotes" before the caret
                 end: 32
             )!
         )
-        
         copyToClipboard(text: "caret after double quote")
+        
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
         let returnedElement = applyMove(using: .doubleQuote, on: element, &state)
         
