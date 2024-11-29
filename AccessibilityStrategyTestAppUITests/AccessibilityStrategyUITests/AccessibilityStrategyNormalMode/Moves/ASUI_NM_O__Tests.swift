@@ -3,6 +3,8 @@ import XCTest
 import Common
 
 
+// if some tests feel "wrong" because they end up at the end
+// of blank lines is because you forgot that kV uses autoindent
 class ASUI_NM_O__Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {

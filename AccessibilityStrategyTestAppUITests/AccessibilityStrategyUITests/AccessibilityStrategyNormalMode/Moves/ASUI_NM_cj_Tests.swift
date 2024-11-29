@@ -3,6 +3,7 @@ import XCTest
 import Common
 
 
+// see ASUI NM O for blah blah
 class ASUI_NM_cj_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
@@ -112,12 +113,6 @@ this moves does not go to the
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
-    // UPDATE: THEY ARE DONE LIKE THIS ON PURPOSE!!!
-    // it's because we do the moves according to Vim being set as autoident!
-    // so TODO: make this clear somewhere
-    // TODO: bug in implementation it seems, hence wrong test (it seems)
-    // the resulting fileText shouldn't contain any blanks anymore and the caret
-    // should be a the beginning of the last line.
     // this test contains blanks
     func test_that_if_the_currentFileLine_is_just_blanks_or_linefeed_and_the_nextLine_is_the_lastLine_the_caret_ends_up_at_the_end_of_the_currentFileLine() {
         let textInAXFocusedElement = """
@@ -142,7 +137,6 @@ this moves does not go to the
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
-    // TODO: see above
     // this test contains blanks
     func test_that_if_the_currentFileLine_is_just_blanks_or_linefeed_and_the_nextLine_is_not_the_lastLine_the_caret_ends_up_at_the_end_of_the_currentFileLine() {
         let textInAXFocusedElement = """
