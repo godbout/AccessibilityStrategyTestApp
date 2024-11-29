@@ -29,8 +29,8 @@ like honestly that one should be
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
-        
         copyToClipboard(text: "some fake shit")
+        
         _ = applyMoveBeingTested()
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "pretty     ")

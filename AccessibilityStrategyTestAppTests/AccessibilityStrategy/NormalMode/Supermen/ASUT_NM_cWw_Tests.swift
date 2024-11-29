@@ -39,8 +39,8 @@ extension ASUT_NM_cWw_Tests {
                 end: 0
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(on: element, using: element.fileText.innerWord, &state)
         
@@ -68,8 +68,8 @@ extension ASUT_NM_cWw_Tests {
                 end: 48
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, using: element.fileText.innerWord, &state)
         

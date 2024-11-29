@@ -34,8 +34,8 @@ extension ASUT_NM_cgg_Tests {
                 end: 0
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(on: element, &state)
         
@@ -69,8 +69,8 @@ those faces 🥺️☹️😂️
                 end: 41
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(on: element, &state)
         

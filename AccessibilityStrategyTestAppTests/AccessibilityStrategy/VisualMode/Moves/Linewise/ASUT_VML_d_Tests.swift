@@ -46,11 +46,11 @@ one extra line in between!\n
                 end: 38
             )!
         )
-        
+        copyToClipboard(text: "some fake shit")
+
         AccessibilityStrategyVisualMode.anchor = 16
         AccessibilityStrategyVisualMode.head = 64
-        
-        copyToClipboard(text: "some fake shit")
+
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(on: element, &state)
         

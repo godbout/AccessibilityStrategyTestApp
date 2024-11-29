@@ -36,8 +36,8 @@ but actually it's only 21.43 LMAOOOOOOOO
                 end: 55
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(on: element, &state)
         

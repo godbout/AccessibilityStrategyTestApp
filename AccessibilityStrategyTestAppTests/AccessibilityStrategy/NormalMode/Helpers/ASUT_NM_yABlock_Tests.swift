@@ -40,8 +40,8 @@ extension ASUT_NM_yABlock_Tests {
                 end: 13
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
         let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
         

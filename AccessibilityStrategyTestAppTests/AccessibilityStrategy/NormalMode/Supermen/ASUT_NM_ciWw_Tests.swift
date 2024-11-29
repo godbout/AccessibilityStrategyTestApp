@@ -44,8 +44,8 @@ extension ASUT_NM_ciWw_Tests {
                 end: 49
             )!
         )
-       
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         

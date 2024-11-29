@@ -45,8 +45,8 @@ the selection!
                 end: 19
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         
@@ -135,8 +135,8 @@ extension ASUT_VMC_y_Tests {
                 end: 0
             )!
         )
-        
         copyToClipboard(text: "test 1 for The 3 Cases VM y")
+        
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
@@ -167,8 +167,8 @@ line
                 end: 31
             )!
         )
-        
         copyToClipboard(text: "test 3 of The 3 Cases VM y")
+        
         let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")

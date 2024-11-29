@@ -107,8 +107,8 @@ that is not there
                 end: 17
             )!
         )
-        
         copyToClipboard(text: "404 character not found")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(with: "z", on: element, &state)
         
@@ -168,8 +168,8 @@ extension ASUT_NM_yT__Tests {
                 end: 62
             )!
         )
-               
         copyToClipboard(text: "404 character not found")
+        
         let returnedElement = applyMoveBeingTested(times: 69, with: "i", on: element)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")

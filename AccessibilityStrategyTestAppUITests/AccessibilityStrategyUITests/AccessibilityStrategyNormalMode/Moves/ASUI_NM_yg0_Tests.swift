@@ -19,8 +19,8 @@ extension ASUI_NM_yg0_Tests {
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.b(on: $0) }
-                
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let accessibilityElement = applyMoveBeingTested(&state)
         
@@ -42,8 +42,8 @@ and maybe a little here too coz ScreenLines
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
-                
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let accessibilityElement = applyMoveBeingTested(&state)
         

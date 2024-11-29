@@ -52,8 +52,8 @@ but the below line will not go up\n
                 end: 48
             )!
         )      
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
         _ = applyMoveBeingTested(on: element, &state)
         

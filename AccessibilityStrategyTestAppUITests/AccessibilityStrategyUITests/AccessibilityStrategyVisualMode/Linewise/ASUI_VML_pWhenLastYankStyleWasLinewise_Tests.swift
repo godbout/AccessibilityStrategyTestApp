@@ -25,8 +25,8 @@ extension ASUI_VML_pWhenLastYankStyleWasLinewise_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
-        
         copyToClipboard(text: "  😂️ext to be copied\n")
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, "  😂️ext to be copied")
@@ -39,7 +39,6 @@ extension ASUI_VML_pWhenLastYankStyleWasLinewise_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
-        
         copyToClipboard(text: "  😂️ext to be copied\n")
         
         _ = applyMoveBeingTested()
@@ -67,12 +66,12 @@ can be done in one go with VM P!
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
-        
         copyToClipboard(text: """
 😂️his is what we want
 to paste hehe
 """
         )
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -122,8 +121,8 @@ linefeed from the copied text
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
-
         copyToClipboard(text: "new line to paste after last line\n")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -151,6 +150,7 @@ of new pasted text
 identations here
 """
         )
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -175,7 +175,6 @@ in the clipboard
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
-        
         copyToClipboard(text: "text to pasta\nhere and there")
                
         _ = applyMoveBeingTested()
@@ -214,8 +213,8 @@ PGR
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
-        
         copyToClipboard(text: "  should paste that somewhere\n")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

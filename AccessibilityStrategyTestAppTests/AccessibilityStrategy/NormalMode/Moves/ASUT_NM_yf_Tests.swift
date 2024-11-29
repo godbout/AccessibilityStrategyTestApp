@@ -102,8 +102,8 @@ that is not there
                 end: 17
             )!
         )
-        
         copyToClipboard(text: "404 character not found")
+        
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(with: "z", on: element, &state)
         
@@ -164,8 +164,8 @@ extension ASUT_NM_yf_Tests {
                 end: 62
             )!
         )
-        
         copyToClipboard(text: "404 character not found")
+        
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
         let returnedElement = applyMoveBeingTested(times: 69, with: "i", on: element, &state)
 
@@ -231,8 +231,8 @@ that is not there
                 end: 17
             )!
         )
-        
         copyToClipboard(text: "404 character not found")
+        
         var state = VimEngineState()
         let returnedElement = applyMoveBeingTested(with: "z", on: element, &state)
         

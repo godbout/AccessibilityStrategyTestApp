@@ -45,8 +45,8 @@ hoho
                 end: 6
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         
@@ -76,8 +76,8 @@ and of course this is in the case there is a linefeed at the end of the line.
                 end: 99
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         

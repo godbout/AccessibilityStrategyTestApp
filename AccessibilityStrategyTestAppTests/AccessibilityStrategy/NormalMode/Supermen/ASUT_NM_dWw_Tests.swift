@@ -36,8 +36,8 @@ extension ASUT_NM_dWw_Tests {
                 end: 48
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         
@@ -70,8 +70,8 @@ the linefeed ok?
                 end: 37
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         
@@ -106,8 +106,8 @@ yes hehe
                 end: 18
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         

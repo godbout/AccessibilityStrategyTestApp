@@ -39,8 +39,8 @@ extension ASUT_NM_cBb_Tests {
                 end: 61
             )!
         )
-        
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         
@@ -67,8 +67,8 @@ extension ASUT_NM_cBb_Tests {
                 end: 0
             )!
         )
-                
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
         _ = applyMoveBeingTested(on: element, &state)
         

@@ -26,8 +26,8 @@ now that shit will get cleaned {
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
-
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let accessibilityElement = applyMoveBeingTested(&state)
 

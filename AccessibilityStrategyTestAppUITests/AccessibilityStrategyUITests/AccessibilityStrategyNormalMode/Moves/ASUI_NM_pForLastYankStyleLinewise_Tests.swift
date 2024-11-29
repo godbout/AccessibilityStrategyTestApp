@@ -20,8 +20,8 @@ extension ASUI_NM_pForLastYankStyleLinewise_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
-        
         copyToClipboard(text: "text to pasta")
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, "ltext to pastainewise for TF is still pasted characterwise!")
@@ -35,8 +35,8 @@ extension ASUI_NM_pForLastYankStyleLinewise_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-        
         copyToClipboard(text: "yanked with the linefeed\n")
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, "we should not paste linefeeds in the yanked with the linefeedTF")
@@ -62,8 +62,8 @@ a linefeed at the end of the line
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
-        
         copyToClipboard(text: "should paste that somewhere\n")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -89,8 +89,8 @@ if we are not pasting on the last line
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
-        
         copyToClipboard(text: "we pasted the last line so no linefeed")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -115,8 +115,8 @@ ourselves
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-        
         copyToClipboard(text: "new line to paste after last line\n")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -142,8 +142,8 @@ to the first non blank of the copied line
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.ge(on: $0) }
         applyMove { asNormalMode.h(on: $0) }
-        
         copyToClipboard(text: "   🤍️he copied line has 🤍️🤍️🤍️ non blanks\n")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -166,8 +166,8 @@ not add a linefeed
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         copyToClipboard(text: "test 3 of The 3 Cases for TextArea linewise\n")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -194,8 +194,8 @@ extension ASUI_NM_pForLastYankStyleLinewise_Tests {
         app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
-        
         copyToClipboard(text: "text to pasta")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, "ltext to pastainewise for TF is still pasted characterwise!")
@@ -216,8 +216,8 @@ a linefeed at the end of the line
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
-        
         copyToClipboard(text: "should paste that somewhere\n")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -239,8 +239,8 @@ a linefeed at the end of the line
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.zero(on: $0) }
-        
         copyToClipboard(text: "text to pasta")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, "ltext to pastainewise for TF is still pasted characterwise!")
@@ -261,8 +261,8 @@ a linefeed at the end of the line
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
-        
         copyToClipboard(text: "should paste that somewhere\n")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -293,8 +293,8 @@ it actually works lol
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.G(on: $0) }
-        
         copyToClipboard(text: "")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -317,8 +317,8 @@ put the caret in weird places
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(on: $0) }
-        
         copyToClipboard(text: "        ")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -342,8 +342,8 @@ the last line
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
-        
         copyToClipboard(text: "        ")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -366,8 +366,8 @@ it should work hehe
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.G(on: $0) }
-        
         copyToClipboard(text: "\n")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -391,8 +391,8 @@ at the last line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.G(on: $0) }
-        
         copyToClipboard(text: "\n\n\n\n\n\n")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -421,8 +421,8 @@ to fail LOL
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(on: $0) }
-        
         copyToClipboard(text: "\n\n\n\n\n\n")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

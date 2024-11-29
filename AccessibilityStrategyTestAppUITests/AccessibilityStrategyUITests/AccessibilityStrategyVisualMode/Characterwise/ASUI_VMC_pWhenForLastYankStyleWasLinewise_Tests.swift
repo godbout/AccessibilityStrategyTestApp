@@ -28,8 +28,8 @@ extension ASUI_VMC_pWhenLastYankStyleWasLinewise_Tests {
         applyMove { asNormalMode.b(times: 4, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(times: 2, on: $0, state) }
-        
         copyToClipboard(text: "text to pasta\n")
+        
         let accessibilityElement = applyMoveBeingTested()
 
         XCTAssertEqual(accessibilityElement.fileText.value, "linewise for TF text to pasta pasted characterwise!")
@@ -45,7 +45,6 @@ extension ASUI_VMC_pWhenLastYankStyleWasLinewise_Tests {
         applyMove { asNormalMode.b(times: 4, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(times: 2, on: $0, state) }
-        
         copyToClipboard(text: "  😂️ext to be copied\n")
         
         _ = applyMoveBeingTested()
@@ -73,11 +72,11 @@ own line
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(times: 2, on: $0, state) }
-        
         copyToClipboard(text: """
 some new lines
 for you
 """)
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -106,8 +105,8 @@ on its own lines
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.w(on: $0, state) }
-        
         copyToClipboard(text: "we pasted the last line so no linefeed")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -132,8 +131,8 @@ to the first non blank!
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.e(times: 3, on: $0, state) }
-        
         copyToClipboard(text: "   🤍️he copied line has 🤍️🤍️🤍️ non blanks\n")
+        
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -160,7 +159,6 @@ in the clipboard
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.j(on: $0, state) }
-        
         copyToClipboard(text: "text to pasta\nhere and there")
                
         _ = applyMoveBeingTested()
@@ -183,8 +181,8 @@ extension ASUI_VMC_pWhenLastYankStyleWasLinewise_Tests {
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.w(times: 2, on: $0, state) }
-        
         copyToClipboard(text: "some\npasta\n")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -208,8 +206,8 @@ PGR
         applyMove { asNormalMode.ge(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.w(times: 2, on: $0, state) }
-        
         copyToClipboard(text: "  should paste\nthat somewhere")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -231,8 +229,8 @@ GR
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.w(times: 2, on: $0, state) }
-        
         copyToClipboard(text: "some\npasta\n")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
         // TODO: seems need to decide here if all \n should be stripped or only the last one like currently
@@ -257,8 +255,8 @@ PGR
         applyMove { asNormalMode.ge(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asVisualMode.w(times: 2, on: $0, state) }
-        
         copyToClipboard(text: "  should paste\nthat somewhere")
+        
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
         XCTAssertEqual(accessibilityElement.fileText.value, """

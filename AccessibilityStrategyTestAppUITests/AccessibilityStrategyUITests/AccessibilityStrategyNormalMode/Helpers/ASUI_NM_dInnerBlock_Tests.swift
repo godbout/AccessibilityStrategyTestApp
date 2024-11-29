@@ -31,8 +31,8 @@ extension ASUI_NM_dInnerBlock_Tests {
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.b(on: $0) }
-
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &state)
 
@@ -51,8 +51,8 @@ extension ASUI_NM_dInnerBlock_Tests {
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.b(times: 5, on: $0) }
-
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let accessibilityElement = applyMoveBeingTested(using: .leftParenthesis, &state)
 
@@ -82,8 +82,8 @@ and } is not preceded by a linefeed
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
-
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &state)
 
@@ -111,8 +111,8 @@ by a linefeed and
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
-
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let accessibilityElement = applyMoveBeingTested(using: .leftBracket, &state)
 
@@ -144,8 +144,8 @@ now that shit will get cleaned <
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
-
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let accessibilityElement = applyMoveBeingTested(using: .leftChevron, &state)
 
@@ -177,8 +177,8 @@ and } is not preceded by a linefeed
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
-
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &state)
 
@@ -209,8 +209,8 @@ is followed by a linefeed and
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
-
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let accessibilityElement = applyMoveBeingTested(using: .leftParenthesis, &state)
 
@@ -243,8 +243,8 @@ and } is not preceded by a linefeed
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
-
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(appFamily: .pgR)
         let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &state)
 
@@ -269,8 +269,8 @@ and } is not preceded by a linefeed
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(times: 2, on: $0) }
-
         copyToClipboard(text: "some fake shit")
+        
         var state = VimEngineState(appFamily: .pgR)
         let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &state)
 
