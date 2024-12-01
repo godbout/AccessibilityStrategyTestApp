@@ -7,9 +7,9 @@ import Common
 class ASUT_VM_aLeftChevron_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState()
+        var vimEngineState = VimEngineState()
         
-        return asVisualMode.aLeftChevron(on: element, &state)
+        return asVisualMode.aLeftChevron(on: element, &vimEngineState)
     }
     
 }

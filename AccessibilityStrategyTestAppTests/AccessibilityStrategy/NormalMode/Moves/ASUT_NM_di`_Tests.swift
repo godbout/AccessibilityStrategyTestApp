@@ -7,9 +7,9 @@ import Common
 class ASNM_diBacktick_Tests: ASUT_NM_BaseTests {
 
     private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
+        var vimEngineState = VimEngineState(appFamily: .auto)
         
-        return asNormalMode.diBacktick(on: element, &state)
+        return asNormalMode.diBacktick(on: element, &vimEngineState)
     }
     
 }

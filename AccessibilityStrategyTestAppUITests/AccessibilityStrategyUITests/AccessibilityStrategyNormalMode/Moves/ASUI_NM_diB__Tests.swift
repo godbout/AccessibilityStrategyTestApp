@@ -28,8 +28,8 @@ now that shit will get cleaned {
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(&state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let accessibilityElement = applyMoveBeingTested(&vimEngineState)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
     and the non blank
@@ -45,8 +45,8 @@ now that shit will get cleaned {
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "}")
 
-        XCTAssertEqual(state.lastYankStyle, .linewise)
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
 }

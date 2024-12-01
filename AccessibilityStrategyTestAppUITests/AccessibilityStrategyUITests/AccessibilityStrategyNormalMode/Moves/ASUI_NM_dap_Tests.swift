@@ -7,9 +7,9 @@ import Common
 class ASUI_NM_dap_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.dap(on: $0, &state) }
+        return applyMove { asNormalMode.dap(on: $0, &vimEngineState) }
     }
     
 }

@@ -7,13 +7,13 @@ import Common
 // the reposition the caret after the move.
 class ASUI_VMC_d_Tests: ASUI_VM_BaseTests {
 
-    var state = VimEngineState(visualStyle: .characterwise)
+    var vimEngineState = VimEngineState(visualStyle: .characterwise)
     
     
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        state.appFamily = appFamily
+        vimEngineState.appFamily = appFamily
         
-        return applyMove { asVisualMode.d(on: $0, &state) }
+        return applyMove { asVisualMode.d(on: $0, &vimEngineState) }
     }
 
 }
@@ -32,8 +32,8 @@ the selection!
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.zero(on: $0, state) }
-        applyMove { asVisualMode.b(on: $0, state) }
+        applyMove { asVisualMode.zero(on: $0, vimEngineState) }
+        applyMove { asVisualMode.b(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -105,7 +105,7 @@ should go back to line end limit
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.e(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.b(on: $0, state) }
+        applyMove { asVisualMode.b(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -131,7 +131,7 @@ lines this time
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.gj(on: $0, state) }
+        applyMove { asVisualMode.gj(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -155,7 +155,7 @@ own empty
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.l(on: $0, state) }
+        applyMove { asVisualMode.l(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -187,8 +187,8 @@ the selection!
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.zero(on: $0, state) }
-        applyMove { asVisualMode.b(on: $0, state) }
+        applyMove { asVisualMode.zero(on: $0, vimEngineState) }
+        applyMove { asVisualMode.b(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
@@ -213,8 +213,8 @@ the selection!
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.zero(on: $0, state) }
-        applyMove { asVisualMode.b(on: $0, state) }
+        applyMove { asVisualMode.zero(on: $0, vimEngineState) }
+        applyMove { asVisualMode.b(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 

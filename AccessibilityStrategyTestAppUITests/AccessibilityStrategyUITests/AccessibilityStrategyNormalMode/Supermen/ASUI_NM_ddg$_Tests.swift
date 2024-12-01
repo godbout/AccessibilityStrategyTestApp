@@ -9,9 +9,9 @@ import Common
 class ASUI_NM_ddgDollarSign_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement {
-        var state = VimEngineState()
+        var vimEngineState = VimEngineState()
         
-        return applyMove { asNormalMode.ddgDollarSign(using: $0.currentFileLine, on: $0, &state) }
+        return applyMove { asNormalMode.ddgDollarSign(using: $0.currentFileLine, on: $0, &vimEngineState) }
     }
     
 }

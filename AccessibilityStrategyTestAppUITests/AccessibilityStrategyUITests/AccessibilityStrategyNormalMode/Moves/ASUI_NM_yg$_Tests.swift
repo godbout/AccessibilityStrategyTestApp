@@ -21,16 +21,16 @@ extension ASUI_NM_yg$_Tests {
         applyMove { asNormalMode.b(times: 7, on: $0) }
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(&state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let accessibilityElement = applyMoveBeingTested(&vimEngineState)
         
         XCTAssertEqual(accessibilityElement.caretLocation, 17)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "c")
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "change ")
-        XCTAssertFalse(state.lastMoveBipped)
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
     }
         
     func test_that_if_the_ScreenLineLine_ends_with_a_Linefeed_it_copies_from_the_caretLocation_to_the_LineEndLimit_included_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
@@ -45,16 +45,16 @@ linefeeds also finally
         applyMove { asNormalMode.b(on: $0) }
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(&state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let accessibilityElement = applyMoveBeingTested(&vimEngineState)
         
         XCTAssertEqual(accessibilityElement.caretLocation, 60)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "h")
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "have")
-        XCTAssertFalse(state.lastMoveBipped)
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
     }
     
     func test_that_for_an_EmptyLine_it_fills_the_Pasteboard_with_an_empty_string_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
@@ -68,16 +68,16 @@ but now there's an empty line
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(&state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let accessibilityElement = applyMoveBeingTested(&vimEngineState)
         
         XCTAssertEqual(accessibilityElement.caretLocation, 31)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "\n")
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
-        XCTAssertFalse(state.lastMoveBipped)
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
     }
     
 }

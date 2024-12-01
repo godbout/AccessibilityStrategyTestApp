@@ -6,12 +6,12 @@ import Common
 // see < for blah blah
 class ASUI_VM_rightChevron_Tests: ASUI_VM_BaseTests {
     
-    var state = VimEngineState(visualStyle: .characterwise)
+    var vimEngineState = VimEngineState(visualStyle: .characterwise)
 
     private func applyMoveBeingTested(times count: Int = 1, appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        state.appFamily = appFamily
+        vimEngineState.appFamily = appFamily
         
-        return applyMove { asVisualMode.rightChevron(times: count, on: $0, state) }
+        return applyMove { asVisualMode.rightChevron(times: count, on: $0, vimEngineState) }
     }
 
 }
@@ -30,7 +30,7 @@ sooome more
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.b(on: $0, state) }
+        applyMove { asVisualMode.b(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested(times: 3)
             
@@ -61,7 +61,7 @@ and more
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.G(times: 2, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
             
@@ -86,7 +86,7 @@ or just a linefeed
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.gg(on: $0, state) }
+        applyMove { asVisualMode.gg(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
         
@@ -117,7 +117,7 @@ and more
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.G(times: 2, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
             
@@ -143,7 +143,7 @@ and more
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.G(times: 2, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
             

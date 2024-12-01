@@ -6,9 +6,9 @@ import Common
 class ASUT_NM_ccg0_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
+        var vimEngineState = VimEngineState(appFamily: .auto)
         
-        return applyMoveBeingTested(on: element, &state)
+        return applyMoveBeingTested(on: element, &vimEngineState)
     }
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
@@ -46,12 +46,12 @@ and also some more
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
-        XCTAssertEqual(state.lastYankStyle, .linewise)
-        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
     func test_that_in_other_cases_it_also_does_not_Bip_but_it_changes_the_LastYankStyle_to_Characterwise_and_copies_from_the_caretLocation_to_the_start_of_the_currentFileLine() {
@@ -78,12 +78,12 @@ and also some more
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️hat's some ")
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
        
 }

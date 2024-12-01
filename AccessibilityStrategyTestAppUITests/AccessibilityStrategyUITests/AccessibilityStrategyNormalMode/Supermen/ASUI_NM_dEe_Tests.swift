@@ -9,9 +9,9 @@ import Common
 class ASUI_NM_dEe_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.dEe(on: $0, using: asNormalMode.e, &state) }
+        return applyMove { asNormalMode.dEe(on: $0, using: asNormalMode.e, &vimEngineState) }
     }
     
 }

@@ -5,13 +5,13 @@ import Common
 
 class ASUI_VMC_c_Tests: ASUI_VM_BaseTests {
     
-    var state = VimEngineState(visualStyle: .characterwise)
+    var vimEngineState = VimEngineState(visualStyle: .characterwise)
     
     
     private func applyMoveBeingTested(appFamily: AppFamily) -> AccessibilityTextElement {
-        state.appFamily = appFamily
+        vimEngineState.appFamily = appFamily
         
-        return applyMove { asVisualMode.c(on: $0, &state) }
+        return applyMove { asVisualMode.c(on: $0, &vimEngineState) }
     }
 
 }
@@ -27,7 +27,7 @@ extension ASUI_VMC_c_Tests {
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.f(times: 2, to: "h", on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.f(to: "i", on: $0, state) }
+        applyMove { asVisualMode.f(to: "i", on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
@@ -44,7 +44,7 @@ extension ASUI_VMC_c_Tests {
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.f(times: 2, to: "h", on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.f(to: "i", on: $0, state) }
+        applyMove { asVisualMode.f(to: "i", on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         

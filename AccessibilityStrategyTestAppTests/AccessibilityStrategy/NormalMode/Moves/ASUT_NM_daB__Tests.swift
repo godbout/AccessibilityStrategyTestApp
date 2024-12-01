@@ -11,9 +11,9 @@ import Common
 class ASNM_daB__Tests: ASUT_NM_BaseTests {
 
     private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
+        var vimEngineState = VimEngineState(appFamily: .auto)
         
-        return asNormalMode.daB(on: element, &state)
+        return asNormalMode.daB(on: element, &vimEngineState)
     }
     
 }

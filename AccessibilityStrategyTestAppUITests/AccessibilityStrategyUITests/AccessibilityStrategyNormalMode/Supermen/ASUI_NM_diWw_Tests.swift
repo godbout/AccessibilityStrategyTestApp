@@ -12,9 +12,9 @@ import Common
 class ASUI_NM_diWw_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.diWw(on: $0, using: $0.fileText.innerWord, &state) }
+        return applyMove { asNormalMode.diWw(on: $0, using: $0.fileText.innerWord, &vimEngineState) }
     }
     
 }

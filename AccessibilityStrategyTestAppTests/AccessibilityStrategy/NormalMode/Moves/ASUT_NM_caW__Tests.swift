@@ -7,9 +7,9 @@ import Common
 class ASUT_NM_caW__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
+        var vimEngineState = VimEngineState(appFamily: .auto)
         
-        return asNormalMode.caW(on: element, &state)
+        return asNormalMode.caW(on: element, &vimEngineState)
     }
     
 }

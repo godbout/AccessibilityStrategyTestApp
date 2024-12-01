@@ -7,9 +7,9 @@ import Common
 class ASUT_VM_aDoubleQuote_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState()
+        var vimEngineState = VimEngineState()
         
-        return asVisualMode.aDoubleQuote(on: element, &state)
+        return asVisualMode.aDoubleQuote(on: element, &vimEngineState)
     }
     
 }

@@ -6,9 +6,9 @@ import Common
 class ASUT_NM_return_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int? = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState()
+        var vimEngineState = VimEngineState()
         
-        return asNormalMode.`return`(times: count, on: element, &state)
+        return asNormalMode.`return`(times: count, on: element, &vimEngineState)
     }
     
     private func applyMoveBeingTested(times count: Int? = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
@@ -75,10 +75,10 @@ extension ASUT_NM_return_Tests {
             )!
         )
                 
-        var state = VimEngineState(lastMoveBipped: false)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
-        XCTAssertTrue(state.lastMoveBipped)
+        XCTAssertTrue(vimEngineState.lastMoveBipped)
     }
 
 }

@@ -41,12 +41,12 @@ we should stay there
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
-        XCTAssertEqual(state.lastYankStyle, .linewise)
-        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
     func test_that_if_the_newCaretLocation_after_the_move_ends_up_at_the_start_of_the_line_then_it_does_not_Bip_but_change_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_up_to_the_start_of_the_line() {
@@ -69,12 +69,12 @@ we should stay there
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(times: 5, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(times: 5, on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "acter")
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
     func test_that_if_the_newCaretLocation_after_the_move_ends_up_after_the_start_of_the_line_then_it_does_not_Bip_but_change_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_up_to_the_newCaretLocation() {
@@ -97,12 +97,12 @@ we should stay there
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(times: 128, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(times: 128, on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "ch should delete the correct character")
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertFalse(state.lastMoveBipped)        
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)        
     }
     
 }

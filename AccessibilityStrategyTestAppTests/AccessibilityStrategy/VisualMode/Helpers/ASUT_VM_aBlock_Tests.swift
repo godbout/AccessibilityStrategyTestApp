@@ -7,9 +7,9 @@ import Common
 class ASUT_VM_aBlock_Tests: ASUT_VM_BaseTests {
 
     private func applyMoveBeingTested(using openingBlock: OpeningBlockType, on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
+        var vimEngineState = VimEngineState(appFamily: .auto)
         
-        return applyMoveBeingTested(using: openingBlock, on: element, &state)
+        return applyMoveBeingTested(using: openingBlock, on: element, &vimEngineState)
     }
         
     private func applyMoveBeingTested(using openingBlock: OpeningBlockType, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
@@ -46,10 +46,10 @@ extension ASUT_VM_aBlock_Tests {
         AccessibilityStrategyVisualMode.anchor = 8
         AccessibilityStrategyVisualMode.head = 14
         
-        var state = VimEngineState(lastMoveBipped: false)
-        let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false)
+        let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element, &vimEngineState)
         
-        XCTAssertTrue(state.lastMoveBipped)
+        XCTAssertTrue(vimEngineState.lastMoveBipped)
         XCTAssertEqual(returnedElement.caretLocation, 8)
         XCTAssertEqual(returnedElement.selectedLength, 7)
         XCTAssertNil(returnedElement.selectedText)
@@ -81,10 +81,10 @@ extension ASUT_VM_aBlock_Tests {
         AccessibilityStrategyVisualMode.anchor = 8
         AccessibilityStrategyVisualMode.head = 20
         
-        var state = VimEngineState(lastMoveBipped: false)
-        let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false)
+        let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element, &vimEngineState)
         
-        XCTAssertTrue(state.lastMoveBipped)
+        XCTAssertTrue(vimEngineState.lastMoveBipped)
         XCTAssertEqual(returnedElement.caretLocation, 8)
         XCTAssertEqual(returnedElement.selectedLength, 12)
         XCTAssertNil(returnedElement.selectedText)
@@ -120,10 +120,10 @@ ck) hehe
         AccessibilityStrategyVisualMode.anchor = 8
         AccessibilityStrategyVisualMode.head = 22
         
-        var state = VimEngineState(lastMoveBipped: false)
-        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false)
+        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &vimEngineState)
         
-        XCTAssertTrue(state.lastMoveBipped)
+        XCTAssertTrue(vimEngineState.lastMoveBipped)
         XCTAssertEqual(returnedElement.caretLocation, 8)
         XCTAssertEqual(returnedElement.selectedLength, 15)
         XCTAssertNil(returnedElement.selectedText)
@@ -228,10 +228,10 @@ extension ASUT_VM_aBlock_Tests {
         AccessibilityStrategyVisualMode.anchor = 3
         AccessibilityStrategyVisualMode.head = 19
         
-        var state = VimEngineState(lastMoveBipped: false)
-        let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false)
+        let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element, &vimEngineState)
         
-        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
         XCTAssertEqual(returnedElement.caretLocation, 8)
         XCTAssertEqual(returnedElement.selectedLength, 12)
         XCTAssertNil(returnedElement.selectedText)
@@ -269,10 +269,10 @@ this is [
         AccessibilityStrategyVisualMode.anchor = 3
         AccessibilityStrategyVisualMode.head = 28
         
-        var state = VimEngineState(lastMoveBipped: false)
-        let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false)
+        let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element, &vimEngineState)
         
-        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
         XCTAssertEqual(returnedElement.caretLocation, 8)
         XCTAssertEqual(returnedElement.selectedLength, 18)
         XCTAssertNil(returnedElement.selectedText)
@@ -442,10 +442,10 @@ and } is not preceded by a linefeed
         AccessibilityStrategyVisualMode.anchor = 23
         AccessibilityStrategyVisualMode.head = 42
         
-        var state = VimEngineState(lastMoveBipped: true)
-        let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true)
+        let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &vimEngineState)
         
-        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
         XCTAssertEqual(returnedElement.caretLocation, 18)
         XCTAssertEqual(returnedElement.selectedLength, 42)
         XCTAssertNil(returnedElement.selectedText)
@@ -481,10 +481,10 @@ by a linefeed and
         AccessibilityStrategyVisualMode.anchor = 16
         AccessibilityStrategyVisualMode.head = 5
         
-        var state = VimEngineState(lastMoveBipped: true)
-        let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true)
+        let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &vimEngineState)
         
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
         XCTAssertEqual(returnedElement.caretLocation, 18)
         XCTAssertEqual(returnedElement.selectedLength, 42)
         XCTAssertNil(returnedElement.selectedText)
@@ -521,10 +521,10 @@ and > is not preceded by a linefeed
         AccessibilityStrategyVisualMode.anchor = 24
         AccessibilityStrategyVisualMode.head = 52
         
-        var state = VimEngineState(lastMoveBipped: true)
-        let returnedElement = applyMoveBeingTested(using: .leftChevron, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true)
+        let returnedElement = applyMoveBeingTested(using: .leftChevron, on: element, &vimEngineState)
         
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
         XCTAssertEqual(returnedElement.caretLocation, 15)
         XCTAssertEqual(returnedElement.selectedLength, 33)
         XCTAssertNil(returnedElement.selectedText)
@@ -561,10 +561,10 @@ is followed by a linefeed and
         AccessibilityStrategyVisualMode.anchor = 5
         AccessibilityStrategyVisualMode.head = 25
         
-        var state = VimEngineState(lastMoveBipped: true)
-        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true)
+        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &vimEngineState)
         
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
         XCTAssertEqual(returnedElement.caretLocation, 18)
         XCTAssertEqual(returnedElement.selectedLength, 33)
         XCTAssertNil(returnedElement.selectedText)

@@ -6,9 +6,9 @@ import Common
 class ASUT_NM_control_d_Tests: ASUT_NM_BaseTests {
 
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
+        var vimEngineState = VimEngineState(appFamily: .auto)
         
-        return applyMoveBeingTested(on: element, &state)
+        return applyMoveBeingTested(on: element, &vimEngineState)
     }
         
     private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEnginestate: inout VimEngineState) -> AccessibilityTextElement {
@@ -61,13 +61,13 @@ tested
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false)
-        let returnedElement = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false)
+        let returnedElement = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(returnedElement.caretLocation, 104)
         XCTAssertEqual(returnedElement.selectedLength, 2)
         
-        XCTAssertEqual(state.lastMoveBipped, true)   
+        XCTAssertEqual(vimEngineState.lastMoveBipped, true)   
     }
     
     // this test because there was a bug
@@ -111,13 +111,13 @@ tested
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false)
-        let returnedElement = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false)
+        let returnedElement = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(returnedElement.caretLocation, 104)
         XCTAssertEqual(returnedElement.selectedLength, 2)
         
-        XCTAssertEqual(state.lastMoveBipped, false)  
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)  
     }
     
 }

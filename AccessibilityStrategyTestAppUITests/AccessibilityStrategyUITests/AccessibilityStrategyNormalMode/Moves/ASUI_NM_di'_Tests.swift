@@ -6,9 +6,9 @@ import Common
 class ASUI_NM_diSingleQuote_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.diSingleQuote(on: $0, &state) }
+        return applyMove { asNormalMode.diSingleQuote(on: $0, &vimEngineState) }
     }
 
 }
@@ -16,6 +16,8 @@ class ASUI_NM_diSingleQuote_Tests: ASUI_NM_BaseTests {
 
 extension ASUI_NM_diSingleQuote_Tests {
     
+    // TODO: so yeah i think those ones should just test that the dQuotedString
+    // or whatever is called
     func test_that_the_block_cursor_is_repositioned_correctly_after_the_deletion() {
         let textInAXFocusedElement = """
 finally dealing with the 'real stuff'!

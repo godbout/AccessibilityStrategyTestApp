@@ -6,9 +6,9 @@ import Common
 class ASUI_NM_ct_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, to character: Character, appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.ct(times: count, to: character, on: $0, &state) }
+        return applyMove { asNormalMode.ct(times: count, to: character, on: $0, &vimEngineState) }
     }
     
 }

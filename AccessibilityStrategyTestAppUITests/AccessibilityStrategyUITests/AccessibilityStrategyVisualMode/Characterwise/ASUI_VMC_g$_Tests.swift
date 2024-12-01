@@ -5,11 +5,11 @@ import Common
 
 class ASUI_VMC_g$_Tests: ASUI_VM_BaseTests {
 
-    var state = VimEngineState(visualStyle: .characterwise)
+    var vimEngineState = VimEngineState(visualStyle: .characterwise)
     
     
     private func applyMoveBeingTested(times count: Int = 1) -> AccessibilityTextElement {
-        return applyMove { asVisualMode.gDollarSign(times: count, on: $0, state) }
+        return applyMove { asVisualMode.gDollarSign(times: count, on: $0, vimEngineState) }
     }
     
 }
@@ -28,7 +28,7 @@ at the anchor, not at the caret location
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.W(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.w(on: $0, state) }
+        applyMove { asVisualMode.w(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested(times: 3)
 
@@ -65,7 +65,7 @@ at the anchor, not at the caret location
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.b(on: $0, state) }
+        applyMove { asVisualMode.b(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -109,8 +109,8 @@ g$ not work ⛱️⛱️LOOOL
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.e(on: $0, state) }
-        applyMove { asVisualMode.e(on: $0, state) }
+        applyMove { asVisualMode.e(on: $0, vimEngineState) }
+        applyMove { asVisualMode.e(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -128,8 +128,8 @@ g$ doesn't work LOOOLL
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.b(on: $0, state) }
-        applyMove { asVisualMode.gk(on: $0, state) }
+        applyMove { asVisualMode.b(on: $0, vimEngineState) }
+        applyMove { asVisualMode.gk(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 

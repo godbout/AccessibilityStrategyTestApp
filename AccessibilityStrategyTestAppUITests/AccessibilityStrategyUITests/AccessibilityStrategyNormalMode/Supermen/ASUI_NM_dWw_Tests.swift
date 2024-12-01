@@ -10,9 +10,9 @@ import Common
 class ASUI_NM_dWw_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int? = 1, appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.dWw(times: count, on: $0, using: asNormalMode.w, &state) }
+        return applyMove { asNormalMode.dWw(times: count, on: $0, using: asNormalMode.w, &vimEngineState) }
     }
     
 }

@@ -12,9 +12,9 @@ import Common
 class ASUT_VM_quotedString_Tests: ASUT_VM_BaseTests {
 
     private func applyMoveBeingTested(using quote: QuoteType, on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
+        var vimEngineState = VimEngineState(appFamily: .auto)
         
-        return applyMoveBeingTested(using: quote, on: element, &state)
+        return applyMoveBeingTested(using: quote, on: element, &vimEngineState)
     }
     
     // see cQuotedString blahblah. tests done with innerQuotedString but both FT funcs are tested on their own

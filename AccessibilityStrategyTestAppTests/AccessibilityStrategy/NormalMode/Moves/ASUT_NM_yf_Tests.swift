@@ -38,8 +38,8 @@ them like nothin🇫🇷️ happened. that's how special it is.
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(with: "w", on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(with: "w", on: element, &vimEngineState)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "🇫🇷️ happened. that's how")
         XCTAssertEqual(returnedElement.caretLocation, 78)
@@ -72,12 +72,12 @@ extension ASUT_NM_yf_Tests {
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(with: "s", on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(with: "s", on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "e yf 🥮️ this")
-        XCTAssertFalse(state.lastMoveBipped)
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
     }
     
     func test_that_when_it_does_not_find_the_stuff_it_Bips_and_does_not_change_the_LastYankingStyle_and_does_not_copy_anything() {
@@ -104,12 +104,12 @@ that is not there
         )
         copyToClipboard(text: "404 character not found")
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(with: "z", on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(with: "z", on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")
-        XCTAssertTrue(state.lastMoveBipped)
-        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertTrue(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
     }
     
 }
@@ -137,8 +137,8 @@ extension ASUT_NM_yf_Tests {
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(times: 3, with: "e", on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(times: 3, with: "e", on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "d letter 💌️💌️💌️ rathe")
         XCTAssertEqual(returnedElement.caretLocation, 24)
@@ -166,8 +166,8 @@ extension ASUT_NM_yf_Tests {
         )
         copyToClipboard(text: "404 character not found")
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(times: 69, with: "i", on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(times: 69, with: "i", on: element, &vimEngineState)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")
         XCTAssertEqual(returnedElement.caretLocation, 47)
@@ -201,8 +201,8 @@ extension ASUT_NM_yf_Tests {
             )!
         )
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(with: "s", on: element, &state)
+        var vimEngineState = VimEngineState()
+        let returnedElement = applyMoveBeingTested(with: "s", on: element, &vimEngineState)
         
         XCTAssertEqual(returnedElement.caretLocation, 8)
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -233,8 +233,8 @@ that is not there
         )
         copyToClipboard(text: "404 character not found")
         
-        var state = VimEngineState()
-        let returnedElement = applyMoveBeingTested(with: "z", on: element, &state)
+        var vimEngineState = VimEngineState()
+        let returnedElement = applyMoveBeingTested(with: "z", on: element, &vimEngineState)
         
         XCTAssertEqual(returnedElement.caretLocation, 14)
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -270,10 +270,10 @@ on a line
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(with: "m", on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(with: "m", on: element, &vimEngineState)
         
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "n a m")
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)

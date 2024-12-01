@@ -39,10 +39,10 @@ some new (`shit in there`) right?
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(on: element, &vimEngineState)
         
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "shit in there")
         XCTAssertEqual(returnedElement.caretLocation, 29)  
         XCTAssertEqual(returnedElement.selectedLength, 1)

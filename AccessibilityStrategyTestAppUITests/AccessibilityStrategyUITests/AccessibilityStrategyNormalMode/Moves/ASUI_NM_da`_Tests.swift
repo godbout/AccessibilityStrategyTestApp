@@ -6,15 +6,19 @@ import Common
 class ASUI_NM_daBacktick_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.daBacktick(on: $0, &state) }
+        return applyMove { asNormalMode.daBacktick(on: $0, &vimEngineState) }
     }
 
 }
 
 
 extension ASUI_NM_daBacktick_Tests {
+    
+    func test_that_if_no_innerQuotedString_is_found_then_it_does_nothing() {
+        let text = "those shits work on ` single lines not on multiple lines"
+    }
     
     func test_that_the_block_cursor_is_repositioned_correctly_after_the_deletion() {
         let textInAXFocusedElement = """

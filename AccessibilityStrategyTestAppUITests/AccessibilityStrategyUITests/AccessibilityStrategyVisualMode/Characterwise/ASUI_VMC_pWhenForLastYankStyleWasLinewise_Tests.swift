@@ -5,13 +5,13 @@ import Common
 
 class ASUI_VMC_pWhenLastYankStyleWasLinewise_Tests: ASUI_VM_BaseTests {
     
-    var state = VimEngineState(lastYankStyle: .linewise, visualStyle: .characterwise)
+    var vimEngineState = VimEngineState(lastYankStyle: .linewise, visualStyle: .characterwise)
     
     
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        state.appFamily = appFamily
+        vimEngineState.appFamily = appFamily
         
-        return applyMove { asVisualMode.p(on: $0, &state) }
+        return applyMove { asVisualMode.p(on: $0, &vimEngineState) }
     }
     
 }
@@ -27,7 +27,7 @@ extension ASUI_VMC_pWhenLastYankStyleWasLinewise_Tests {
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.b(times: 4, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.e(times: 2, on: $0, state) }
+        applyMove { asVisualMode.e(times: 2, on: $0, vimEngineState) }
         copyToClipboard(text: "text to pasta\n")
         
         let accessibilityElement = applyMoveBeingTested()
@@ -44,13 +44,13 @@ extension ASUI_VMC_pWhenLastYankStyleWasLinewise_Tests {
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.b(times: 4, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.e(times: 2, on: $0, state) }
+        applyMove { asVisualMode.e(times: 2, on: $0, vimEngineState) }
         copyToClipboard(text: "  😂️ext to be copied\n")
         
         _ = applyMoveBeingTested()
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "linefeed in")
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
     }
     
 }
@@ -71,7 +71,7 @@ own line
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.e(times: 2, on: $0, state) }
+        applyMove { asVisualMode.e(times: 2, on: $0, vimEngineState) }
         copyToClipboard(text: """
 some new lines
 for you
@@ -104,7 +104,7 @@ on its own lines
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.w(on: $0, state) }
+        applyMove { asVisualMode.w(on: $0, vimEngineState) }
         copyToClipboard(text: "we pasted the last line so no linefeed")
         
         let accessibilityElement = applyMoveBeingTested()
@@ -130,7 +130,7 @@ to the first non blank!
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.e(times: 3, on: $0, state) }
+        applyMove { asVisualMode.e(times: 3, on: $0, vimEngineState) }
         copyToClipboard(text: "   🤍️he copied line has 🤍️🤍️🤍️ non blanks\n")
         
         let accessibilityElement = applyMoveBeingTested()
@@ -158,13 +158,13 @@ in the clipboard
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         applyMove { asNormalMode.w(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
         copyToClipboard(text: "text to pasta\nhere and there")
                
         _ = applyMoveBeingTested()
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "replaced\nis go")
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
     }
     
 }
@@ -180,7 +180,7 @@ extension ASUI_VMC_pWhenLastYankStyleWasLinewise_Tests {
         app.webViews.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.w(times: 2, on: $0, state) }
+        applyMove { asVisualMode.w(times: 2, on: $0, vimEngineState) }
         copyToClipboard(text: "some\npasta\n")
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
@@ -205,7 +205,7 @@ PGR
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.ge(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.w(times: 2, on: $0, state) }
+        applyMove { asVisualMode.w(times: 2, on: $0, vimEngineState) }
         copyToClipboard(text: "  should paste\nthat somewhere")
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
@@ -228,7 +228,7 @@ GR
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.w(times: 2, on: $0, state) }
+        applyMove { asVisualMode.w(times: 2, on: $0, vimEngineState) }
         copyToClipboard(text: "some\npasta\n")
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
@@ -254,7 +254,7 @@ PGR
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.ge(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.w(times: 2, on: $0, state) }
+        applyMove { asVisualMode.w(times: 2, on: $0, vimEngineState) }
         copyToClipboard(text: "  should paste\nthat somewhere")
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)

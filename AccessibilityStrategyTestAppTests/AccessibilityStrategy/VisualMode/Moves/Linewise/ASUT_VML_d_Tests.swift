@@ -51,16 +51,16 @@ one extra line in between!\n
         AccessibilityStrategyVisualMode.anchor = 16
         AccessibilityStrategyVisualMode.head = 64
 
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 d here and we suppose
 one extra line in between!\n
 """
         )
-        XCTAssertEqual(state.lastYankStyle, .linewise)
-        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
 }

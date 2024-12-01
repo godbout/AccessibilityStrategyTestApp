@@ -5,7 +5,7 @@ import Common
 
 class ASUI_VMC_o_Tests: ASUI_VM_BaseTests {
 
-    var state = VimEngineState(visualStyle: .characterwise)
+    var vimEngineState = VimEngineState(visualStyle: .characterwise)
     
     
     private func applyMoveBeingTested() -> AccessibilityTextElement {
@@ -27,7 +27,7 @@ the globalColumnNunbers have to get recalculated!
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.b(on: $0, state) }
+        applyMove { asVisualMode.b(on: $0, vimEngineState) }
         
         let fileLineColumnNumber = AccessibilityTextElement.fileLineColumnNumber
         let screenLineColumnNumber = AccessibilityTextElement.screenLineColumnNumber

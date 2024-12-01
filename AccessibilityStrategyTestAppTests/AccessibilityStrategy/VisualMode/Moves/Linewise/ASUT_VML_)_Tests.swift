@@ -6,9 +6,9 @@ import Common
 class ASUT_VML_rightParenthesis_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        let state = VimEngineState(visualStyle: .linewise)
+        let vimEngineState = VimEngineState(visualStyle: .linewise)
         
-        return asVisualMode.rightParenthesis(on: element, state)
+        return asVisualMode.rightParenthesis(on: element, vimEngineState)
     }
    
 }

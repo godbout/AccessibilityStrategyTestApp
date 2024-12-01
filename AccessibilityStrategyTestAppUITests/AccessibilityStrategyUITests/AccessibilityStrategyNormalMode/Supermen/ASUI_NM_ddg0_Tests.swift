@@ -6,9 +6,9 @@ import Common
 class ASUI_NM_ddg0_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement {
-        var state = VimEngineState()
+        var vimEngineState = VimEngineState()
         
-        return applyMove { asNormalMode.ddgZero(using: $0.currentFileLine, on: $0, &state) }
+        return applyMove { asNormalMode.ddgZero(using: $0.currentFileLine, on: $0, &vimEngineState) }
     }
     
 }

@@ -6,9 +6,9 @@ import Common
 class ASUT_VMC_iW__Tests: ASUT_VM_BaseTests {
 
     private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        let state = VimEngineState(visualStyle: .characterwise)
+        let vimEngineState = VimEngineState(visualStyle: .characterwise)
         
-        return asVisualMode.iW(on: element, state)
+        return asVisualMode.iW(on: element, vimEngineState)
     }
     
 }

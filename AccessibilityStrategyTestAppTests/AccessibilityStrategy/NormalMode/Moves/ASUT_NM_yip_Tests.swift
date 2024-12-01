@@ -8,9 +8,9 @@ import Common
 class ASUT_NM_yip_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
+        var vimEngineState = VimEngineState(appFamily: .auto)
         
-        return applyMoveBeingTested(on: element, &state)
+        return applyMoveBeingTested(on: element, &vimEngineState)
     }
         
     private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
@@ -52,16 +52,16 @@ if it works
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 some stuff and
 see\n
 """
         )
-        XCTAssertEqual(state.lastYankStyle, .linewise)
-        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
 }

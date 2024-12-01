@@ -8,9 +8,9 @@ import Common
 class ASUI_NM_dF__Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, with character: Character, appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.dF(times: count, to: character, on: $0, &state) }
+        return applyMove { asNormalMode.dF(times: count, to: character, on: $0, &vimEngineState) }
     }
     
 }

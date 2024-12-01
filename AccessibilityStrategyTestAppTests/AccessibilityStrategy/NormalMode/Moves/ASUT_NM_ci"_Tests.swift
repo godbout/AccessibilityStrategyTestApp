@@ -7,9 +7,9 @@ import Common
 class ASNM_ciDoubleQuote_Tests: ASUT_NM_BaseTests {
 
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
+        var vimEngineState = VimEngineState(appFamily: .auto)
         
-        return asNormalMode.ciDoubleQuote(on: element, &state)
+        return asNormalMode.ciDoubleQuote(on: element, &vimEngineState)
     }
     
 }

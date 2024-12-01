@@ -38,12 +38,12 @@ the caret is on the last line
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertTrue(state.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertTrue(vimEngineState.lastMoveBipped)
     }
     
     func test_that_in_other_cases_it_does_not_Bip_and_sets_the_LastYankingStyle_to_Linewise_and_copies_the_deletion_plus_the_lastLinefeed_if_any() {
@@ -70,16 +70,16 @@ works. should be nice.
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 ok now let's check
 when the deleting\n
 """
         )
-        XCTAssertEqual(state.lastYankStyle, .linewise)
-        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
 }

@@ -11,9 +11,9 @@ import Common
 class ASNM_diSingleQuote_Tests: ASUT_NM_BaseTests {
 
     private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
+        var vimEngineState = VimEngineState(appFamily: .auto)
         
-        return asNormalMode.diSingleQuote(on: element, &state)
+        return asNormalMode.diSingleQuote(on: element, &vimEngineState)
     }
     
 }

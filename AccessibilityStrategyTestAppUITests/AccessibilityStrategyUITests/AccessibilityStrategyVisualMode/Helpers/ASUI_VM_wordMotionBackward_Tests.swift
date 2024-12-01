@@ -6,7 +6,7 @@ import Common
 // see wordMotionForward for blah blah
 class ASUI_VM_wordMotion_backward_Tests: ASUI_VM_BaseTests {
 
-    var state = VimEngineState(visualStyle: .characterwise)
+    var vimEngineState = VimEngineState(visualStyle: .characterwise)
     
 
     func test_that_when_we_reach_the_anchor_and_will_reverse_anchor_and_head_the_move_does_not_block_and_moves_properly() {
@@ -23,9 +23,9 @@ from the caret location
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.e(on: $0, state) }
+        applyMove { asVisualMode.e(on: $0, vimEngineState) }
         
-        let accessibilityElement = applyMove { asVisualMode.b(on: $0, state) }
+        let accessibilityElement = applyMove { asVisualMode.b(on: $0, vimEngineState) }
 
         XCTAssertEqual(accessibilityElement.caretLocation, 53)
         XCTAssertEqual(accessibilityElement.selectedLength, 2)
@@ -37,9 +37,9 @@ from the caret location
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.B(on: $0, state) }
+        applyMove { asVisualMode.B(on: $0, vimEngineState) }
         // it used to fail after the second move
-        applyMove { asVisualMode.B(on: $0, state) }
+        applyMove { asVisualMode.B(on: $0, vimEngineState) }
 
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 19)
     }

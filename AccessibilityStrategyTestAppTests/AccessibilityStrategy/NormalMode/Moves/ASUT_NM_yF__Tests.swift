@@ -9,9 +9,9 @@ import Common
 class ASUT_NM_yF__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, with character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
+        var vimEngineState = VimEngineState(appFamily: .auto)
         
-        return applyMoveBeingTested(times: count, with: character, on: element, &state)
+        return applyMoveBeingTested(times: count, with: character, on: element, &vimEngineState)
     }
         
     private func applyMoveBeingTested(times count: Int = 1, with character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
@@ -79,12 +79,12 @@ extension ASUT_NM_yF__Tests {
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(with: "F", on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(with: "F", on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "F on 🦘️🦘️ this sent")
-        XCTAssertFalse(state.lastMoveBipped)
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
     }
     
     func test_that_when_it_does_not_find_the_stuff_it_Bips_and_does_not_change_the_LastYankingStyle_and_does_not_copy_anything() {
@@ -111,12 +111,12 @@ that is not there
         )
         copyToClipboard(text: "404 character not found")
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(with: "z", on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(with: "z", on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")
-        XCTAssertTrue(state.lastMoveBipped)
-        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertTrue(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
     }
     
 }
@@ -271,11 +271,11 @@ on a line
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(with: "h", on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(with: "h", on: element, &vimEngineState)
         
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "hould wo")
         XCTAssertEqual(returnedElement.caretLocation, 19)
         XCTAssertEqual(returnedElement.selectedLength, 1)

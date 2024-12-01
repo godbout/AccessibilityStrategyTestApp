@@ -7,9 +7,9 @@ import Common
 class ASUT_VM_iBacktickQuote_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState()
+        var vimEngineState = VimEngineState()
         
-        return asVisualMode.iBacktick(on: element, &state)
+        return asVisualMode.iBacktick(on: element, &vimEngineState)
     }
     
 }

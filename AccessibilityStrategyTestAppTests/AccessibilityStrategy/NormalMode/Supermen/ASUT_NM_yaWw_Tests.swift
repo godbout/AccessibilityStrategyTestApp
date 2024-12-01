@@ -7,9 +7,9 @@ import Common
 class ASUT_NM_yaWw_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
+        var vimEngineState = VimEngineState(appFamily: .auto)
         
-        return applyMoveBeingTested(on: element, &state)
+        return applyMoveBeingTested(on: element, &vimEngineState)
     }
         
     private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
@@ -42,12 +42,12 @@ extension ASUT_NM_yaWw_Tests {
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "cute      ")
-        XCTAssertFalse(state.lastMoveBipped)
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
     }
         
     func test_that_when_it_does_not_find_the_stuff_it_Bips_and_does_not_change_the_LastYankingStyle_and_does_not_copy_anything() {
@@ -73,12 +73,12 @@ and also a lot of spaces at the end of this line
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
-        XCTAssertTrue(state.lastMoveBipped)
-        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertTrue(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
     }
        
 }
@@ -137,12 +137,12 @@ and also a lot of spaces at the end of this line
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
-        XCTAssertTrue(state.lastMoveBipped)
-        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertTrue(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
         XCTAssertEqual(returnedElement.caretLocation, 60)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
