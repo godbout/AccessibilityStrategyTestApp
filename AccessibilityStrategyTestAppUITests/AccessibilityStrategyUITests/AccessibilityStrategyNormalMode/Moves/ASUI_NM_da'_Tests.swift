@@ -36,20 +36,14 @@ extension ASUI_NM_daSingleQuote_Tests {
     }
 
     func test_that_the_block_cursor_is_repositioned_correctly_after_the_deletion() {
-        // TODO: put textfields in one line. makes it clear they're text fields hehe
-        let textInAXFocusedElement = """
-finally dealing with the 'real stuff'!
-"""
+        let textInAXFocusedElement = "finally dealing with the 'real stuff'!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.F(to: "l", on: $0) }
         
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement.fileText.value, """
-finally dealing with the!
-"""
-        )
+        XCTAssertEqual(accessibilityElement.fileText.value, "finally dealing with the!")
         XCTAssertEqual(accessibilityElement.caretLocation, 24)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "!")        

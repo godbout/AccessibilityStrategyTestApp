@@ -19,23 +19,17 @@ extension ASUI_NM_diSingleQuote_Tests {
     // TODO: so yeah i think those ones should just test that the dQuotedString
     // or whatever is called
     func test_that_the_block_cursor_is_repositioned_correctly_after_the_deletion() {
-        let textInAXFocusedElement = """
-finally dealing with the 'real stuff'!
-"""
+        let textInAXFocusedElement = "finally dealing with the 'real stuff'!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.F(to: "l", on: $0) }
         
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement.fileText.value, """
-finally dealing with the ''!
-"""
-        )
+        XCTAssertEqual(accessibilityElement.fileText.value, "finally dealing with the ''!")
         XCTAssertEqual(accessibilityElement.caretLocation, 26)
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "'")
-        
     }
 
 }
