@@ -4,7 +4,7 @@ import Common
 
 
 // see daB for blah blah
-class ASNM_daLeftChevron_Tests: ASUT_NM_BaseTests {
+class ASUT_NM_daLeftChevron_Tests: ASUT_NM_BaseTests {
 
     private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var vimEngineState = VimEngineState(appFamily: .auto)
@@ -16,7 +16,7 @@ class ASNM_daLeftChevron_Tests: ASUT_NM_BaseTests {
 
 
 // Both
-extension ASNM_daLeftChevron_Tests {
+extension ASUT_NM_daLeftChevron_Tests {
 
     func test_that_if_no_block_is_found_then_it_does_nothing() {
         let text = "no fucking block in here"

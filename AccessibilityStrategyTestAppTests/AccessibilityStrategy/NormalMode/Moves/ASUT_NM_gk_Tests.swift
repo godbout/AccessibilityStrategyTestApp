@@ -3,4 +3,4 @@ import XCTest
 
 
 // UIT
-class ASNM_gk_Tests: ASUT_NM_BaseTests {}
+class ASUT_NM_gk_Tests: ASUT_NM_BaseTests {}

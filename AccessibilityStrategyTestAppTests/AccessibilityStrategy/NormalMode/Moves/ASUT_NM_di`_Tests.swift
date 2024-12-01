@@ -4,7 +4,7 @@ import Common
 
 
 // see di' for blah blah
-class ASNM_diBacktick_Tests: ASUT_NM_BaseTests {
+class ASUT_NM_diBacktick_Tests: ASUT_NM_BaseTests {
 
     private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var vimEngineState = VimEngineState(appFamily: .auto)
@@ -16,7 +16,7 @@ class ASNM_diBacktick_Tests: ASUT_NM_BaseTests {
 
 
 // Both
-extension ASNM_diBacktick_Tests {
+extension ASUT_NM_diBacktick_Tests {
 
     func test_that_if_no_innerQuotedString_is_found_then_it_does_nothing() {
         let text = "those shits work on ` single lines not on multiple lines"

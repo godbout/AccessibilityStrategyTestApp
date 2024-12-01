@@ -8,7 +8,7 @@ import Common
 // here in UT we can test when there's is no innerQuotedString found, and therefore nothing is deleted.
 // for the cases where a innerQuotedString is found, text is deleted and the block cursor has to be
 // recalculated. this is tested in UI.
-class ASNM_diSingleQuote_Tests: ASUT_NM_BaseTests {
+class ASUT_NM_diSingleQuote_Tests: ASUT_NM_BaseTests {
 
     private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var vimEngineState = VimEngineState(appFamily: .auto)
@@ -20,7 +20,7 @@ class ASNM_diSingleQuote_Tests: ASUT_NM_BaseTests {
 
 
 // Both
-extension ASNM_diSingleQuote_Tests {
+extension ASUT_NM_diSingleQuote_Tests {
 
     func test_that_if_no_innerQuotedString_is_found_then_it_does_nothing() {
         let text = "those shits work on ' single lines not on multiple lines"

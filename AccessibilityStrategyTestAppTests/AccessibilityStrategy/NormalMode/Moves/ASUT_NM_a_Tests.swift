@@ -4,7 +4,7 @@ import XCTest
 
 // no need for the test on Lines here because `a` will always end up on the
 // same line. it just goes after the character that is selected.
-class ASNM_a_Tests: ASUT_NM_BaseTests {
+class ASUT_NM_a_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.a(on: element) 
@@ -14,7 +14,7 @@ class ASNM_a_Tests: ASUT_NM_BaseTests {
 
 
 // Both
-extension ASNM_a_Tests {
+extension ASUT_NM_a_Tests {
 
     func test_that_in_normal_setting_a_goes_one_character_to_the_right_in_Text_AXUIElement() {
         let text = "l should go one character to the right"
@@ -46,7 +46,7 @@ extension ASNM_a_Tests {
 
 
 // TextViews
-extension ASNM_a_Tests {
+extension ASUT_NM_a_Tests {
 
     func test_that_a_does_not_move_if_caret_is_on_an_empty_line() {
         let text = """
@@ -82,7 +82,7 @@ a should not move
 
 
 // emojis
-extension ASNM_a_Tests {
+extension ASUT_NM_a_Tests {
     
     func test_that_it_handles_emojis() {
         let text = """

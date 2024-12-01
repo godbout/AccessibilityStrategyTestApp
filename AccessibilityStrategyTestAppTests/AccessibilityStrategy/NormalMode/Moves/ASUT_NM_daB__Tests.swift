@@ -8,7 +8,7 @@ import Common
 // here in UT we can test when there's is no aBlock found, and therefore nothing is deleted.
 // for the cases where aBlock is found, text is deleted and the block cursor has to be
 // recalculated. this is tested in UI.
-class ASNM_daB__Tests: ASUT_NM_BaseTests {
+class ASUT_NM_daB__Tests: ASUT_NM_BaseTests {
 
     private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var vimEngineState = VimEngineState(appFamily: .auto)
@@ -20,7 +20,7 @@ class ASNM_daB__Tests: ASUT_NM_BaseTests {
 
 
 // Both
-extension ASNM_daB__Tests {
+extension ASUT_NM_daB__Tests {
 
     func test_that_if_no_block_is_found_then_it_does_nothing() {
         let text = "no fucking block in here"

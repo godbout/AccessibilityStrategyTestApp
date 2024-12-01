@@ -4,7 +4,7 @@ import Common
 
 
 // see ca' for blah blah
-class ASNM_caDoubleQuote_Tests: ASUT_NM_BaseTests {
+class ASUT_NM_caDoubleQuote_Tests: ASUT_NM_BaseTests {
 
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var vimEngineState = VimEngineState(appFamily: .auto)
@@ -15,7 +15,7 @@ class ASNM_caDoubleQuote_Tests: ASUT_NM_BaseTests {
 }
 
 
-extension ASNM_caDoubleQuote_Tests {
+extension ASUT_NM_caDoubleQuote_Tests {
     
     func test_that_we_pass_the_right_function_and_the_right_quote_to_the_helper_function() {
         let text = """
