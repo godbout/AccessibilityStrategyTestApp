@@ -5,11 +5,11 @@ import Common
 
 class ASUI_VMC_k_Tests: ASUI_VM_BaseTests {
 
-    var state = VimEngineState(visualStyle: .characterwise)
+    var vimEngineState = VimEngineState(visualStyle: .characterwise)
     
     
     private func applyMoveBeingTested() -> AccessibilityTextElement {
-        return applyMove { asVisualMode.k(on: $0, state) }
+        return applyMove { asVisualMode.k(on: $0, vimEngineState) }
     }
 
 }
@@ -30,7 +30,7 @@ globalColumnNumber is nil
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.dollarSign(on: $0, state) }
+        applyMove { asVisualMode.dollarSign(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -43,7 +43,7 @@ globalColumnNumber is nil
         XCTAssertEqual(secondPass.selectedLength, 53)
         
         // see VMC j Tests for blah blah
-        let applyJ = applyMove { asVisualMode.j(on: $0, state) }
+        let applyJ = applyMove { asVisualMode.j(on: $0, vimEngineState) }
         
         XCTAssertEqual(applyJ.caretLocation, 74)
         XCTAssertEqual(applyJ.selectedLength, 21)

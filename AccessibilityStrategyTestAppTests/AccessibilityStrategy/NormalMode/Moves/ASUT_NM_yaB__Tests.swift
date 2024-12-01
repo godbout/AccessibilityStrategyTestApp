@@ -8,9 +8,9 @@ import Common
 class ASUT_NM_yaB__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState()
+        var vimEngineState = VimEngineState()
         
-        return asNormalMode.yaB(on: element, &state)
+        return asNormalMode.yaB(on: element, &vimEngineState)
     }
     
 }

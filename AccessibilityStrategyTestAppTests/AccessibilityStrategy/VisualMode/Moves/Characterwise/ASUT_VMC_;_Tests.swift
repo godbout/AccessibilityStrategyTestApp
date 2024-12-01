@@ -7,9 +7,9 @@ import Common
 class ASUT_VM_semicolon_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int? = 1, lastLeftRightSearch: LeftRightSearch, on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        let state = VimEngineState(visualStyle: .characterwise)
+        let vimEngineState = VimEngineState(visualStyle: .characterwise)
 
-        return asVisualMode.semicolon(times: count, lastLeftRightSearch: lastLeftRightSearch, on: element, state)
+        return asVisualMode.semicolon(times: count, lastLeftRightSearch: lastLeftRightSearch, on: element, vimEngineState)
     }
     
 }

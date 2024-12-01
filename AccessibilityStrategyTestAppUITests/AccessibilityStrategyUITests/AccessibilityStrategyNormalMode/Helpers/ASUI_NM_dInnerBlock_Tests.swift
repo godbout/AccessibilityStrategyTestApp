@@ -33,8 +33,8 @@ extension ASUI_NM_dInnerBlock_Tests {
         applyMove { asNormalMode.b(on: $0) }
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &vimEngineState)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
         XCTAssertEqual(accessibilityElement.fileText.value, "no block here")
@@ -42,8 +42,8 @@ extension ASUI_NM_dInnerBlock_Tests {
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "h")
 
-        XCTAssertEqual(state.lastYankStyle, .linewise)
-        XCTAssertEqual(state.lastMoveBipped, true)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, true)
     }
 
     func test_that_it_gets_the_content_between_two_brackets_on_a_same_line_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
@@ -53,8 +53,8 @@ extension ASUI_NM_dInnerBlock_Tests {
         applyMove { asNormalMode.b(times: 5, on: $0) }
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(using: .leftParenthesis, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let accessibilityElement = applyMoveBeingTested(using: .leftParenthesis, &vimEngineState)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), " some stuff 😄️😄️😄️on the same ")
         XCTAssertEqual(accessibilityElement.fileText.value, "now th😄️at is () line😄️")
@@ -62,8 +62,8 @@ extension ASUI_NM_dInnerBlock_Tests {
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, ")")
 
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
 }
@@ -84,8 +84,8 @@ and } is not preceded by a linefeed
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &vimEngineState)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
  is not followed
@@ -98,8 +98,8 @@ and
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "}")
 
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
     func test_that_if_the_closing_bracket_is_preceded_only_by_whitespaces_up_to_the_beginning_of_the_line_then_the_previous_line_linefeed_is_not_deleted_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_the_caretLocation_ends_up_at_the_opening_bracket() {
@@ -113,8 +113,8 @@ by a linefeed and
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(using: .leftBracket, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let accessibilityElement = applyMoveBeingTested(using: .leftBracket, &vimEngineState)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
  is not followed
@@ -130,8 +130,8 @@ this case is when [
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "[")
 
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
     func test_that_in_the_case_where_ciB_leaves_an_empty_line_well_diB_does_not_and_it_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_the_caretLocation_ends_up_at_the_closing_bracket() {
@@ -146,8 +146,8 @@ now that shit will get cleaned <
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(using: .leftChevron, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let accessibilityElement = applyMoveBeingTested(using: .leftChevron, &vimEngineState)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
     and the non blank
@@ -163,8 +163,8 @@ now that shit will get cleaned <
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, ">")
 
-        XCTAssertEqual(state.lastYankStyle, .linewise)
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
     // this test contains blank spaces
@@ -179,8 +179,8 @@ and } is not preceded by a linefeed
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &vimEngineState)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 is followed by a linefeed
@@ -196,8 +196,8 @@ this work when {
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "}")
 
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
     func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_and_the_closing_bracket_is_immediately_preceded_by_a_linefeed_then_the_move_keeps_an_empty_line_between_the_brackets_and_it_does_not_Bip_and_it_sets_the_LastYankStyle_to_Linewise() {
@@ -211,8 +211,8 @@ is followed by a linefeed and
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let accessibilityElement = applyMoveBeingTested(using: .leftParenthesis, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let accessibilityElement = applyMoveBeingTested(using: .leftParenthesis, &vimEngineState)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "is followed by a linefeed and\n")
         XCTAssertEqual(accessibilityElement.fileText.value, """
@@ -224,8 +224,8 @@ this case is when (
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, ")")
 
-        XCTAssertEqual(state.lastYankStyle, .linewise)
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
 }
@@ -245,8 +245,8 @@ and } is not preceded by a linefeed
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(appFamily: .pgR)
-        let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &state)
+        var vimEngineState = VimEngineState(appFamily: .pgR)
+        let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &vimEngineState)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
  is not followed
@@ -271,8 +271,8 @@ and } is not preceded by a linefeed
         applyMove { asNormalMode.gg(times: 2, on: $0) }
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(appFamily: .pgR)
-        let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &state)
+        var vimEngineState = VimEngineState(appFamily: .pgR)
+        let accessibilityElement = applyMoveBeingTested(using: .leftBrace, &vimEngineState)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
  is not followed

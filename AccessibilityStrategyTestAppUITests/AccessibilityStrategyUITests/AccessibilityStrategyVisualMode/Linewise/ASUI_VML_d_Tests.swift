@@ -5,13 +5,13 @@ import Common
 
 class ASUI_VML_d_Tests: ASUI_VM_BaseTests {
 
-    var state = VimEngineState(visualStyle: .linewise)
+    var vimEngineState = VimEngineState(visualStyle: .linewise)
     
     
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily, visualStyle: .linewise)
+        var vimEngineState = VimEngineState(appFamily: appFamily, visualStyle: .linewise)
         
-        return applyMove { asVisualMode.d(on: $0, &state) }
+        return applyMove { asVisualMode.d(on: $0, &vimEngineState) }
     }
 
 }
@@ -33,7 +33,7 @@ one extra line in between!
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
                      
@@ -61,7 +61,7 @@ some more
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
-        applyMove { asVisualMode.gj(on: $0, state) }
+        applyMove { asVisualMode.gj(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -89,7 +89,7 @@ another line agan
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -114,7 +114,7 @@ and it would be beautiful
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -136,7 +136,7 @@ and it would be beautiful
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
-        applyMove { asVisualMode.k(on: $0, state) }
+        applyMove { asVisualMode.k(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -182,9 +182,9 @@ t
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
-        applyMove { asVisualMode.gk(on: $0, state) }
-        applyMove { asVisualMode.gk(on: $0, state) }
-        applyMove { asVisualMode.gk(on: $0, state) }
+        applyMove { asVisualMode.gk(on: $0, vimEngineState) }
+        applyMove { asVisualMode.gk(on: $0, vimEngineState) }
+        applyMove { asVisualMode.gk(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -213,7 +213,7 @@ one extra line in between!
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
                      
@@ -238,7 +238,7 @@ and it would be beautiful
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
@@ -264,7 +264,7 @@ one extra line in between!
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
                      
@@ -289,7 +289,7 @@ and it would be beautiful
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.k(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 

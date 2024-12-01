@@ -7,9 +7,9 @@ import Common
 class ASUT_NM_df_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
+        var vimEngineState = VimEngineState(appFamily: .auto)
         
-        return asNormalMode.df(to: character, on: element, &state) 
+        return asNormalMode.df(to: character, on: element, &vimEngineState) 
     }
     
 }

@@ -7,9 +7,9 @@ import Common
 class ASNM_ciSingleQuote_Tests: ASUT_NM_BaseTests {
 
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
+        var vimEngineState = VimEngineState(appFamily: .auto)
         
-        return asNormalMode.ciSingleQuote(on: element, &state)
+        return asNormalMode.ciSingleQuote(on: element, &vimEngineState)
     }
     
 }

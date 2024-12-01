@@ -7,9 +7,9 @@ import Common
 class ASUI_NM_dip_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.dip(on: $0, &state) }
+        return applyMove { asNormalMode.dip(on: $0, &vimEngineState) }
     }
     
 }

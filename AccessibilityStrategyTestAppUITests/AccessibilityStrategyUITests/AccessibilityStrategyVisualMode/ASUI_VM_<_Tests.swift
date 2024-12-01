@@ -6,12 +6,12 @@ import Common
 // same for VMC and VML
 class ASUI_VM_leftChevron_Tests: ASUI_VM_BaseTests {
     
-    var state = VimEngineState(visualStyle: .characterwise)
+    var vimEngineState = VimEngineState(visualStyle: .characterwise)
 
     private func applyMoveBeingTested(times count: Int = 1, appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        state.appFamily = appFamily
+        vimEngineState.appFamily = appFamily
         
-        return applyMove { asVisualMode.leftChevron(times: count, on: $0, state) }
+        return applyMove { asVisualMode.leftChevron(times: count, on: $0, vimEngineState) }
     }
 
 }
@@ -29,7 +29,7 @@ extension ASUI_VM_leftChevron_Tests {
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) } 
-        applyMove { asVisualMode.G(on: $0, state) } 
+        applyMove { asVisualMode.G(on: $0, vimEngineState) } 
         
         let accessibilityElement = applyMoveBeingTested(times: 3)
         
@@ -61,7 +61,7 @@ some more
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asNormalMode.k(on: $0) } 
         applyMove { asVisualMode.vFromNormalMode(on: $0) } 
-        applyMove { asVisualMode.k(times: 2, on: $0, state) } 
+        applyMove { asVisualMode.k(times: 2, on: $0, vimEngineState) } 
         
         let accessibilityElement = applyMoveBeingTested()
         
@@ -87,7 +87,7 @@ some more
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.G(on: $0, state) }
+        applyMove { asVisualMode.G(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
         

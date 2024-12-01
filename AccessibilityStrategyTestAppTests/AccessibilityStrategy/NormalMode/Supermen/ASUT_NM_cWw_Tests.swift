@@ -6,9 +6,9 @@ import Common
 class ASUT_NM_cWw_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement, using innerWoRdFunction: (Int) -> Range<Int>) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
+        var vimEngineState = VimEngineState(appFamily: .auto)
         
-        return applyMoveBeingTested(on: element, using: innerWoRdFunction, &state)
+        return applyMoveBeingTested(on: element, using: innerWoRdFunction, &vimEngineState)
     } 
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement, using innerWoRdFunction: (Int) -> Range<Int>, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
@@ -41,12 +41,12 @@ extension ASUT_NM_cWw_Tests {
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
-        _ = applyMoveBeingTested(on: element, using: element.fileText.innerWord, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
+        _ = applyMoveBeingTested(on: element, using: element.fileText.innerWord, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
-        XCTAssertEqual(state.lastYankStyle, .linewise)
-        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
     
@@ -70,12 +70,12 @@ extension ASUT_NM_cWw_Tests {
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(on: element, using: element.fileText.innerWord, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(on: element, using: element.fileText.innerWord, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️😂️😂️")
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
 }

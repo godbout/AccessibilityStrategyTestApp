@@ -5,12 +5,12 @@ import Common
 
 class ASUI_VM_u_Tests: ASUI_VM_BaseTests {
     
-    var state = VimEngineState(visualStyle: .characterwise)
+    var vimEngineState = VimEngineState(visualStyle: .characterwise)
 
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        state.appFamily = appFamily
+        vimEngineState.appFamily = appFamily
         
-        return applyMove { asVisualMode.u(on: $0, state) }
+        return applyMove { asVisualMode.u(on: $0, vimEngineState) }
     }
 
 }
@@ -30,9 +30,9 @@ the SElection!
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(times: 4, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
-        applyMove { asVisualMode.j(on: $0, state) }
-        applyMove { asVisualMode.b(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
+        applyMove { asVisualMode.b(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -64,9 +64,9 @@ the SElection!
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(times: 4, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
-        applyMove { asVisualMode.j(on: $0, state) }
-        applyMove { asVisualMode.b(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
+        applyMove { asVisualMode.b(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 
@@ -92,9 +92,9 @@ the SElection!
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.w(times: 4, on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
-        applyMove { asVisualMode.j(on: $0, state) }
-        applyMove { asVisualMode.b(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
+        applyMove { asVisualMode.b(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
 

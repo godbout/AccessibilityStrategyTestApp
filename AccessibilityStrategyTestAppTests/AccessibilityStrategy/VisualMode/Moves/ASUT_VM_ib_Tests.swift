@@ -7,9 +7,9 @@ import Common
 class ASUT_VM_ib_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState()
+        var vimEngineState = VimEngineState()
         
-        return asVisualMode.ib(on: element, &state)
+        return asVisualMode.ib(on: element, &vimEngineState)
     }
     
 }

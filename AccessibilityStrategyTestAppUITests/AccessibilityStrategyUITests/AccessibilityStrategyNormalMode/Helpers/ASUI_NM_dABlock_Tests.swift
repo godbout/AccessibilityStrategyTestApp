@@ -8,9 +8,9 @@ import Common
 class ASUI_NM_dABlock_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(using openingBlock: OpeningBlockType) -> AccessibilityTextElement {
-        var state = VimEngineState()
+        var vimEngineState = VimEngineState()
         
-        return applyMove { asNormalMode.dABlock(using: openingBlock, on: $0, &state) }
+        return applyMove { asNormalMode.dABlock(using: openingBlock, on: $0, &vimEngineState) }
     }
 
 }

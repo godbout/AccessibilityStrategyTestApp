@@ -6,9 +6,9 @@ import Common
 class ASUI_NM_dBb_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.dBb(on: $0, using: asNormalMode.b, &state) }
+        return applyMove { asNormalMode.dBb(on: $0, using: asNormalMode.b, &vimEngineState) }
     }
     
 }

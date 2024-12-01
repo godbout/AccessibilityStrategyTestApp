@@ -7,9 +7,9 @@ import Common
 class ASUI_NM_dg$_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested() -> AccessibilityTextElement {
-        var state = VimEngineState()
+        var vimEngineState = VimEngineState()
         
-        return applyMove { asNormalMode.dgDollarSign(on: $0, &state) }
+        return applyMove { asNormalMode.dgDollarSign(on: $0, &vimEngineState) }
     }
     
 }

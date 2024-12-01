@@ -5,11 +5,11 @@ import Common
 
 class ASUI_VMC_gCaret_Tests: ASUI_VM_BaseTests {
 
-    var state = VimEngineState(visualStyle: .characterwise)
+    var vimEngineState = VimEngineState(visualStyle: .characterwise)
     
     
     private func applyMoveBeingTested() -> AccessibilityTextElement {
-        return applyMove { asVisualMode.gCaret(on: $0, state) }
+        return applyMove { asVisualMode.gCaret(on: $0, vimEngineState) }
     }
     
 }
@@ -41,7 +41,7 @@ extension ASUI_VMC_gCaret_Tests {
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asNormalMode.b(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.e(on: $0, state) }
+        applyMove { asVisualMode.e(on: $0, vimEngineState) }
 
         let returnedElement = applyMoveBeingTested()
        
@@ -65,7 +65,7 @@ over ⛱️⛱️ multiple     lines coz
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.l(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.k(on: $0, state) }
+        applyMove { asVisualMode.k(on: $0, vimEngineState) }
         
         let returnedElement = applyMoveBeingTested()
        
@@ -84,8 +84,8 @@ start of the line
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
-        applyMove { asVisualMode.w(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
+        applyMove { asVisualMode.w(on: $0, vimEngineState) }
         
         let returnedElement = applyMoveBeingTested()
 

@@ -7,9 +7,9 @@ import Common
 class ASUI_NM_cQuotedString_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(using quote: QuoteType, appFamily: AppFamily) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.cQuotedString($0.currentFileLine.innerQuotedString, quote, on: $0, &state) }
+        return applyMove { asNormalMode.cQuotedString($0.currentFileLine.innerQuotedString, quote, on: $0, &vimEngineState) }
     }
     
 }

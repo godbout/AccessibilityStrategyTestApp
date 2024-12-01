@@ -7,9 +7,9 @@ import Common
 class ASUT_VM_aLeftBracket_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState()
+        var vimEngineState = VimEngineState()
         
-        return asVisualMode.aLeftBracket(on: element, &state)
+        return asVisualMode.aLeftBracket(on: element, &vimEngineState)
     }
     
 }

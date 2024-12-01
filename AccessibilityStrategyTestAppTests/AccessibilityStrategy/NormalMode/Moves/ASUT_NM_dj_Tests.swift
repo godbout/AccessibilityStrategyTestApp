@@ -42,16 +42,16 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
         )
         copyToClipboard(text: "nope you don't copy mofo")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 now 🤡️🤡️this is🤡️ get🤡️🤡️ting cool
 becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next\n
 """
         )
-        XCTAssertEqual(state.lastYankStyle, .linewise)
-        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
     func test_that_when_it_cannot_delete_the_stuff_it_Bips_and_does_not_change_the_the_LastYankStyle_and_does_not_copy_anything() {
@@ -76,12 +76,12 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next\n
         )
         copyToClipboard(text: "nope you don't copy mofo")
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "nope you don't copy mofo")
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertTrue(state.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertTrue(vimEngineState.lastMoveBipped)
     }
     
 }

@@ -38,10 +38,10 @@ extension ASUT_NM_gx_Tests {
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: true)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
-        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
     func test_that_for_a_valid_URL_that_cannot_be_opened_it_sets_the_lastMoveBipped_to_true() {
@@ -65,10 +65,10 @@ extension ASUT_NM_gx_Tests {
             )!
         )
 
-        var state = VimEngineState(lastMoveBipped: false)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
-        XCTAssertTrue(state.lastMoveBipped)
+        XCTAssertTrue(vimEngineState.lastMoveBipped)
     }
     
     func test_that_for_a_non_valid_URL_it_sets_the_lastMoveBipped_to_true() {
@@ -92,10 +92,10 @@ extension ASUT_NM_gx_Tests {
             )!
         )
 
-        var state = VimEngineState(lastMoveBipped: false)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
-        XCTAssertTrue(state.lastMoveBipped)
+        XCTAssertTrue(vimEngineState.lastMoveBipped)
     }
 
 }

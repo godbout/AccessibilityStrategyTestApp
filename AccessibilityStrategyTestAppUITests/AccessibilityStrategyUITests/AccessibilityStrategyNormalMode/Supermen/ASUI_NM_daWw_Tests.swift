@@ -8,9 +8,9 @@ import Common
 class ASUI_NM_daWw_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.daWw(on: $0, using: $0.fileText.aWord, &state) }
+        return applyMove { asNormalMode.daWw(on: $0, using: $0.fileText.aWord, &vimEngineState) }
     }
     
 }

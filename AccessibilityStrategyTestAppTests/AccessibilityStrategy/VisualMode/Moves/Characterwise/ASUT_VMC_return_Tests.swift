@@ -6,9 +6,9 @@ import Common
 class ASUT_VMC_return_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(visualStyle: .characterwise)
+        var vimEngineState = VimEngineState(visualStyle: .characterwise)
             
-        return applyMoveBeingTested(times: count, on: element, &state)
+        return applyMoveBeingTested(times: count, on: element, &vimEngineState)
     }
     
     private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
@@ -53,10 +53,10 @@ or a TF same same
         AccessibilityStrategyVisualMode.anchor = 18
         AccessibilityStrategyVisualMode.head = 34
                 
-        var state = VimEngineState(lastMoveBipped: false)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
-        XCTAssertTrue(state.lastMoveBipped)
+        XCTAssertTrue(vimEngineState.lastMoveBipped)
     }
 
 }

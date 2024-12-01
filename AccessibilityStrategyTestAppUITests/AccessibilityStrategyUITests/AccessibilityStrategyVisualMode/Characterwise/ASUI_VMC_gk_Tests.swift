@@ -6,11 +6,11 @@ import Common
 // see gj for blah blah
 class ASUI_VMC_gk_Tests: ASUI_VM_BaseTests {
     
-    var state = VimEngineState(visualStyle: .characterwise)
+    var vimEngineState = VimEngineState(visualStyle: .characterwise)
     
     
     private func applyMoveBeingTested(times count: Int = 1) -> AccessibilityTextElement {
-        return applyMove { asVisualMode.gk(times: count, on: $0, state)}
+        return applyMove { asVisualMode.gk(times: count, on: $0, vimEngineState)}
     }
 
 }
@@ -72,7 +72,7 @@ the wrapped lines and shit is understood
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.e(on: $0, state) }
+        applyMove { asVisualMode.e(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -90,9 +90,9 @@ the wrapped lines and shit is understood
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.e(on: $0, state) }
-        applyMove { asVisualMode.gj(on: $0, state) }
-        applyMove { asVisualMode.e(on: $0, state) }
+        applyMove { asVisualMode.e(on: $0, vimEngineState) }
+        applyMove { asVisualMode.gj(on: $0, vimEngineState) }
+        applyMove { asVisualMode.e(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
        
@@ -111,8 +111,8 @@ the wrapped lines and shit is understood
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asNormalMode.gk(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.gDollarSign(on: $0, state) }
-        applyMove { asVisualMode.e(on: $0, state) }
+        applyMove { asVisualMode.gDollarSign(on: $0, vimEngineState) }
+        applyMove { asVisualMode.e(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -132,9 +132,9 @@ wow that one is
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.b(on: $0, state) }
-        applyMove { asVisualMode.gk(on: $0, state) }
-        applyMove { asVisualMode.gk(on: $0, state) }
+        applyMove { asVisualMode.b(on: $0, vimEngineState) }
+        applyMove { asVisualMode.gk(on: $0, vimEngineState) }
+        applyMove { asVisualMode.gk(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -154,7 +154,7 @@ own empty
         applyMove { asNormalMode.h(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
         applyMove { asNormalMode.l(on: $0) }
-        applyMove { asVisualMode.gk(on: $0, state) }
+        applyMove { asVisualMode.gk(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -176,7 +176,7 @@ globalColumnNumber is nil
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.zero(on: $0) }
         applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.dollarSign(on: $0, state) }
+        applyMove { asVisualMode.dollarSign(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested()
 
@@ -189,7 +189,7 @@ globalColumnNumber is nil
         XCTAssertEqual(secondPass.selectedLength, 2)
         
         // see VMC j Tests for blah blah
-        let applyJ = applyMove { asVisualMode.gj(on: $0, state) }
+        let applyJ = applyMove { asVisualMode.gj(on: $0, vimEngineState) }
         
         XCTAssertEqual(applyJ.caretLocation, 75)
         XCTAssertEqual(applyJ.selectedLength, 22)

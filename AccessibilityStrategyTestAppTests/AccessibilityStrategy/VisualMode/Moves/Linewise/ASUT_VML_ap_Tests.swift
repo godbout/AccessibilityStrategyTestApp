@@ -6,9 +6,9 @@ import Common
 class ASUT_VML_ap_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(visualStyle: .linewise)
+        var vimEngineState = VimEngineState(visualStyle: .linewise)
         
-        return applyMoveBeingTested(on: element, &state)
+        return applyMoveBeingTested(on: element, &vimEngineState)
     } 
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
@@ -51,8 +51,8 @@ like this will Bip
         AccessibilityStrategyVisualMode.anchor = 20
         AccessibilityStrategyVisualMode.head = 20
         
-        var state = VimEngineState(lastMoveBipped: false)
-        let returnedElement = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false)
+        let returnedElement = applyMoveBeingTested(on: element, &vimEngineState)
         
         
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 20)
@@ -61,7 +61,7 @@ like this will Bip
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
         
-        XCTAssertEqual(state.lastMoveBipped, true)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, true)
     }
     
     func test_that_if_there_is_a_aParagraph_found_it_does_not_Bip() {
@@ -95,15 +95,15 @@ Bip
         AccessibilityStrategyVisualMode.anchor = 15
         AccessibilityStrategyVisualMode.head = 15
         
-        var state = VimEngineState(lastMoveBipped: false)
-        let returnedElement = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false)
+        let returnedElement = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 14)
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 19)
         XCTAssertEqual(returnedElement.caretLocation, 14)
         XCTAssertEqual(returnedElement.selectedLength, 6)
         
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
     
 }

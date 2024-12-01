@@ -8,9 +8,9 @@ import Common
 class ASUT_NM_cEe_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement, using motion: (Int?, AccessibilityTextElement) -> AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: .auto)
+        var vimEngineState = VimEngineState(appFamily: .auto)
         
-        return applyMoveBeingTested(times: count, on: element, using: motion, &state)
+        return applyMoveBeingTested(times: count, on: element, using: motion, &vimEngineState)
     }
     
     private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement, using motion: (Int?, AccessibilityTextElement) -> AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
@@ -43,12 +43,12 @@ extension ASUT_NM_cEe_Tests {
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMoveBeingTested(on: element, using: asNormalMode.e, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(on: element, using: asNormalMode.e, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️😂️😂️")
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertFalse(state.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
 }

@@ -46,16 +46,16 @@ extension ASUT_NM_cABlock_Tests {
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
         XCTAssertEqual(returnedElement.caretLocation, 6)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
         
-        XCTAssertEqual(state.lastYankStyle, .linewise)
-        XCTAssertEqual(state.lastMoveBipped, true)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, true)
     }
     
     func test_that_it_gets_the_block_on_a_same_line_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
@@ -78,16 +78,16 @@ extension ASUT_NM_cABlock_Tests {
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "( some stuff 😄️😄️😄️on the same )")
         XCTAssertEqual(returnedElement.caretLocation, 15)
         XCTAssertEqual(returnedElement.selectedLength, 35)
         XCTAssertEqual(returnedElement.selectedText, "")
         
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
     
 }
@@ -120,8 +120,8 @@ and } is not preceded by a linefeed
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 { is not followed
@@ -133,8 +133,8 @@ and }
         XCTAssertEqual(returnedElement.selectedLength, 37)
         XCTAssertEqual(returnedElement.selectedText, "")
         
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
     func test_that_if_the_closing_bracket_is_preceded_only_by_whitespaces_up_to_the_beginning_of_the_line_then_contrary_to_InnerBlock_it_does_not_care_about_linefeed_and_deletes_it_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
@@ -161,8 +161,8 @@ by a linefeed and
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(using: .leftBrace, on: element, &vimEngineState)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 { is not followed
@@ -174,8 +174,8 @@ by a linefeed and
         XCTAssertEqual(returnedElement.selectedLength, 42)
         XCTAssertEqual(returnedElement.selectedText, "")
         
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
     func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_then_contrary_to_InnerBlock_the_linefeed_is_deleted_and_it_does_not_Bip_and_it_sets_the_LastYankStyle_to_Characterwise() {
@@ -202,8 +202,8 @@ and ] is not preceded by a linefeed
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(using: .leftBracket, on: element, &vimEngineState)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 [
@@ -215,8 +215,8 @@ and ]
         XCTAssertEqual(returnedElement.selectedLength, 33)
         XCTAssertEqual(returnedElement.selectedText, "")
         
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
     func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_and_the_closing_bracket_is_immediately_preceded_by_a_linefeed_then_contrary_to_innerBlock_it_does_not_keep_an_empty_line_and_it_does_not_Bip_but_it_sets_the_LastYankStyle_to_Characterwise() {
@@ -243,8 +243,8 @@ is followed by a linefeed and
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
-        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .characterwise)
+        let returnedElement = applyMoveBeingTested(using: .leftParenthesis, on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 (
@@ -256,8 +256,8 @@ is followed by a linefeed and
         XCTAssertEqual(returnedElement.selectedLength, 33)
         XCTAssertEqual(returnedElement.selectedText, "")
         
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
 }

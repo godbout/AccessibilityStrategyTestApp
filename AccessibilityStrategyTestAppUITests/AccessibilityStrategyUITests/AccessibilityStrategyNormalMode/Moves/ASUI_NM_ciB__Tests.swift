@@ -8,9 +8,9 @@ import Common
 class ASUI_NM_ciB__Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(appFamily: AppFamily) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.ciB(on: $0, &state) }
+        return applyMove { asNormalMode.ciB(on: $0, &vimEngineState) }
     }
 
 }

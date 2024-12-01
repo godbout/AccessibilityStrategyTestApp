@@ -7,9 +7,9 @@ import Common
 class ASUI_NM_caDoubleQuote_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(appFamily: AppFamily) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.caDoubleQuote(on: $0, &state) }
+        return applyMove { asNormalMode.caDoubleQuote(on: $0, &vimEngineState) }
     }
 
 }

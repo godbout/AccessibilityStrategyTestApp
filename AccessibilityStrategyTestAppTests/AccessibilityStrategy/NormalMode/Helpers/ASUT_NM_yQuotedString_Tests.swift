@@ -39,12 +39,12 @@ and now `hohohohoho`
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMove(using: .backtick, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMove(using: .backtick, on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "hohohohoho")
-        XCTAssertFalse(state.lastMoveBipped)
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
     }
     
     func test_that_when_it_does_not_find_the_stuff_it_Bips_and_does_not_change_the_LastYankingStyle_and_does_not_copy_anything() {
@@ -67,12 +67,12 @@ and now `hohohohoho`
         )
         copyToClipboard(text: "no double quote")
         
-        var state = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
-        _ = applyMove(using: .doubleQuote, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMove(using: .doubleQuote, on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "no double quote")
-        XCTAssertTrue(state.lastMoveBipped)
-        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertTrue(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
     }
     
 }
@@ -101,10 +101,10 @@ extension ASUT_NM_yQuotedString_Tests {
         )
         copyToClipboard(text: "no double quote")
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMove(using: .doubleQuote, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMove(using: .doubleQuote, on: element, &vimEngineState)
         
-        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "no double quote")
         XCTAssertEqual(returnedElement.caretLocation, 23)
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -133,10 +133,10 @@ now there's one " double quote
         )
         copyToClipboard(text: "only one double quote")
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMove(using: .doubleQuote, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMove(using: .doubleQuote, on: element, &vimEngineState)
         
-        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "only one double quote")
         XCTAssertEqual(returnedElement.caretLocation, 12)
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -165,10 +165,10 @@ two 'simple quotes' on the second line
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMove(using: .singleQuote, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMove(using: .singleQuote, on: element, &vimEngineState)
         
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "simple quotes")
         XCTAssertEqual(returnedElement.caretLocation, 17)  
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -198,10 +198,10 @@ and now `hohohohoho`
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMove(using: .backtick, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMove(using: .backtick, on: element, &vimEngineState)
         
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "hohohohoho")
         XCTAssertEqual(returnedElement.caretLocation, 31)  
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -230,10 +230,10 @@ double "quotes" before the caret
         )
         copyToClipboard(text: "caret after double quote")
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMove(using: .doubleQuote, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMove(using: .doubleQuote, on: element, &vimEngineState)
         
-        XCTAssertEqual(state.lastYankStyle, .linewise)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "caret after double quote")
         XCTAssertEqual(returnedElement.caretLocation, 26)  
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -262,10 +262,10 @@ heheheheh
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMove(using: .singleQuote, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMove(using: .singleQuote, on: element, &vimEngineState)
         
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), " and some more")
         XCTAssertEqual(returnedElement.caretLocation, 17)  
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -294,10 +294,10 @@ now there's gonna
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMove(using: .backtick, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMove(using: .backtick, on: element, &vimEngineState)
         
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "quotes")
         XCTAssertEqual(returnedElement.caretLocation, 28)  
         XCTAssertEqual(returnedElement.selectedLength, 1)
@@ -332,10 +332,10 @@ those💨️💨️💨️ fac"🍵️s 🥺️☹️😂️ h😀️ha👅️" 
             )!
         )
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
-        let returnedElement = applyMove(using: .doubleQuote, on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .linewise)
+        let returnedElement = applyMove(using: .doubleQuote, on: element, &vimEngineState)
         
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "🍵️s 🥺️☹️😂️ h😀️ha👅️")
         XCTAssertEqual(returnedElement.caretLocation, 37)  
         XCTAssertEqual(returnedElement.selectedLength, 3)

@@ -8,9 +8,9 @@ import Common
 class ASUI_NM_dh_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.dh(times: count, on: $0, &state) }
+        return applyMove { asNormalMode.dh(times: count, on: $0, &vimEngineState) }
     }
     
 }

@@ -45,12 +45,12 @@ like this will Bip
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
-        XCTAssertEqual(state.lastYankStyle, .characterwise)
-        XCTAssertEqual(state.lastMoveBipped, true)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, true)
     }
     
     func test_that_if_there_is_a_aParagraph_found_it_does_not_Bip_and_it_copies_the_deletion_and_it_sets_the_LastYankStyle_to_Linewise() {
@@ -82,8 +82,8 @@ Bip
         )
         copyToClipboard(text: "some fake shit")
         
-        var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
-        _ = applyMoveBeingTested(on: element, &state)
+        var vimEngineState = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 
@@ -92,8 +92,8 @@ Bip
 Bip
 """
         )
-        XCTAssertEqual(state.lastYankStyle, .linewise)
-        XCTAssertEqual(state.lastMoveBipped, false)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .linewise)
+        XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
     
 }

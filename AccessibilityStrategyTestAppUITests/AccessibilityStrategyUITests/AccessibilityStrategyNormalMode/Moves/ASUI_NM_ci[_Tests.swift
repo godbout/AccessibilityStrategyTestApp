@@ -7,9 +7,9 @@ import Common
 class ASUI_NM_ciLeftBracket_Tests: ASUI_NM_BaseTests {
 
     private func applyMoveBeingTested(appFamily: AppFamily) -> AccessibilityTextElement {
-        var state = VimEngineState(appFamily: appFamily)
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
-        return applyMove { asNormalMode.ciLeftBracket(on: $0, &state) }
+        return applyMove { asNormalMode.ciLeftBracket(on: $0, &vimEngineState) }
     }
 
 }

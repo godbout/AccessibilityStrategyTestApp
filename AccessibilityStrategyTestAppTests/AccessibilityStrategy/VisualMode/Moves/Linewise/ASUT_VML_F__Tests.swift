@@ -6,9 +6,9 @@ import Common
 class ASUT_VML_F__Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        let state = VimEngineState(visualStyle: .linewise)
+        let vimEngineState = VimEngineState(visualStyle: .linewise)
         
-        return asVisualMode.F(times: 6, to: "9", on: element, state)
+        return asVisualMode.F(times: 6, to: "9", on: element, vimEngineState)
     }
    
 }

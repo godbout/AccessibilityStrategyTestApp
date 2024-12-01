@@ -7,9 +7,9 @@ import Common
 class ASUT_VMC_g$_Tests: ASUT_VM_BaseTests {
         
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        let state = VimEngineState(visualStyle: .characterwise)
+        let vimEngineState = VimEngineState(visualStyle: .characterwise)
                 
-        return asVisualMode.gDollarSign(on: element, state)
+        return asVisualMode.gDollarSign(on: element, vimEngineState)
     }
     
 }

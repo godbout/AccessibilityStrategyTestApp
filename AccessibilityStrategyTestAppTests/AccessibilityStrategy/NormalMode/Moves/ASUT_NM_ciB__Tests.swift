@@ -10,9 +10,9 @@ import Common
 class ASUT_NM_ciB__Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var state = VimEngineState()
+        var vimEngineState = VimEngineState()
         
-        return asNormalMode.ciB(on: element, &state)
+        return asNormalMode.ciB(on: element, &vimEngineState)
     }
     
 }

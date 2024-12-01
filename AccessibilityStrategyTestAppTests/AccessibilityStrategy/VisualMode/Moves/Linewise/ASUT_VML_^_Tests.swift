@@ -6,9 +6,9 @@ import Common
 class ASUT_VML_caret_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        let state = VimEngineState(visualStyle: .linewise)
+        let vimEngineState = VimEngineState(visualStyle: .linewise)
         
-        return asVisualMode.caret(on: element, state)
+        return asVisualMode.caret(on: element, vimEngineState)
     }
    
 }

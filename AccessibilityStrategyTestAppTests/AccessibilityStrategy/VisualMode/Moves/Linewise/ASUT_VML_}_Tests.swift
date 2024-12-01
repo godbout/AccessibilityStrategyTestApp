@@ -6,9 +6,9 @@ import Common
 class ASUT_VML_rightBrace_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        let state = VimEngineState(visualStyle: .linewise)
+        let vimEngineState = VimEngineState(visualStyle: .linewise)
         
-        return asVisualMode.rightBrace(on: element, state)
+        return asVisualMode.rightBrace(on: element, vimEngineState)
     }
    
 }

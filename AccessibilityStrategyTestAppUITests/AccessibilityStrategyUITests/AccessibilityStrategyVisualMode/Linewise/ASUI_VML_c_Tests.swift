@@ -5,13 +5,13 @@ import Common
 
 class ASUI_VML_c_Tests: ASUI_VM_BaseTests {
     
-    var state = VimEngineState(visualStyle: .linewise)
+    var vimEngineState = VimEngineState(visualStyle: .linewise)
     
        
     private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
-        state.appFamily = appFamily
+        vimEngineState.appFamily = appFamily
         
-        return applyMove { asVisualMode.c(on: $0, &state) }
+        return applyMove { asVisualMode.c(on: $0, &vimEngineState) }
     }
 
 }
@@ -32,7 +32,7 @@ at least if we're not at the end of the text
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
@@ -59,7 +59,7 @@ at least if we're not at the end of the text
         applyMove { asNormalMode.gg(on: $0) }
         applyMove { asNormalMode.j(on: $0) }
         applyMove { asVisualMode.VFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, state) }
+        applyMove { asVisualMode.j(on: $0, vimEngineState) }
         
         let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
         
