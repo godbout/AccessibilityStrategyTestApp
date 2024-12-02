@@ -7,7 +7,6 @@ import Common
 // see diB for blah blah
 class ASUI_NM_diLeftBracket_Tests: ASUI_NM_BaseTests {
 
-    // TODO: see da<
     private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         return applyMove { asNormalMode.diLeftBracket(on: $0, &vimEngineState) }
     }

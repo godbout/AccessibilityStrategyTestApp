@@ -46,7 +46,7 @@ no?
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        // TODO: for the UT moved to the UI, we can simplify what's below
+        // TODO2: for the UT moved to the UI, we can simplify what's below
         // we did it to match the UT but the UT were done manually so we couldn't
         // place the block cursor wherever we wanted. makes no sense for the UIs
         // coz that make them look more complicated than needed
