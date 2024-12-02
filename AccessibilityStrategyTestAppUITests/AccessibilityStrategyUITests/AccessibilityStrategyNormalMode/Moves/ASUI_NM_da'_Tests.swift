@@ -15,27 +15,9 @@ class ASUI_NM_daSingleQuote_Tests: ASUI_NM_BaseTests {
 
 
 // Both
-// TODO: do we need all those tests???
-// see da<. seems we should be able to only test the underlying dQuotedString func and
-// not all combinations??
 extension ASUI_NM_daSingleQuote_Tests {
 
-    func test_that_if_no_innerQuotedString_is_found_then_it_does_nothing() {
-        let textInAXFocusedElement = "those shits work on ' single lines not on multiple lines"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        applyMove { asNormalMode.l(on: $0) }
-        applyMove { asNormalMode.b(times: 10, on: $0) }
-
-        let accessibilityElement = applyMoveBeingTested()
-        
-        XCTAssertEqual(accessibilityElement.fileText.value, "those shits work on ' single lines not on multiple lines")
-        XCTAssertEqual(accessibilityElement.caretLocation, 6)
-        XCTAssertEqual(accessibilityElement.selectedLength, 1)
-        XCTAssertEqual(accessibilityElement.selectedText, "s")
-    }
-
-    func test_that_the_block_cursor_is_repositioned_correctly_after_the_deletion() {
+    func test_that_we_are_passing_the_correct_parameters_to_dQuotedString() {
         let textInAXFocusedElement = "finally dealing with the 'real stuff'!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -49,6 +31,7 @@ extension ASUI_NM_daSingleQuote_Tests {
         XCTAssertEqual(accessibilityElement.selectedText, "!")        
     }
     
+    // extra test because there was a bug when passing aQuotedString
     func test_that_the_block_cursor_is_repositioned_correctly_even_when_the_quote_is_the_last_character_of_the_line() {
         let textInAXFocusedElement = """
 ok so there was 'a bug'

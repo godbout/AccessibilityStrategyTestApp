@@ -13,7 +13,6 @@ class ASUI_NM_daLeftBracket_Tests: ASUI_NM_BaseTests {
 }
 
 
-// TODO: shouldn't the yank style and move bipped be tested in UT?
 extension ASUI_NM_daLeftBracket_Tests {
 
     // this test contains blank spaces

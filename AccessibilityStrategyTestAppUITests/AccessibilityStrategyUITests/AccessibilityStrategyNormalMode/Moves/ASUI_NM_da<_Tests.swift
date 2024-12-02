@@ -13,10 +13,6 @@ class ASUI_NM_daLeftChevron_Tests: ASUI_NM_BaseTests {
 }
 
 
-// TODO: shouldn't bip be tested in UT?
-// UDPATE: actually i think the main point is the caret location etc., not the
-// Bip LYS etc. which means we shouldn't move this, but we should add some
-// explanation below
 extension ASUI_NM_daLeftChevron_Tests {
 
     // this test contains blank spaces

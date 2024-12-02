@@ -14,9 +14,10 @@ class ASUI_NM_diBacktick_Tests: ASUI_NM_BaseTests {
 }
 
 
+// Both
 extension ASUI_NM_diBacktick_Tests {
     
-    func test_that_the_block_cursor_is_repositioned_correctly_after_the_deletion() {
+    func test_that_we_are_passing_the_correct_parameters_to_dQuotedString() {
         let textInAXFocusedElement = "finally dealing with the `real stuff`!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)

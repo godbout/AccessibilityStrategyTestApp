@@ -32,6 +32,21 @@ extension ASUI_NM_dQuotedString_Tests {
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "'")
     }
+        
+    func test_that_if_no_QuotedString_is_found_then_it_does_nothing() {
+        let textInAXFocusedElement = "those shits work on ' single lines not on multiple lines"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.l(on: $0) }
+        applyMove { asNormalMode.b(times: 10, on: $0) }
+
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, "those shits work on ' single lines not on multiple lines")
+        XCTAssertEqual(accessibilityElement.caretLocation, 6)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "s")
+    }
 
 }
 
