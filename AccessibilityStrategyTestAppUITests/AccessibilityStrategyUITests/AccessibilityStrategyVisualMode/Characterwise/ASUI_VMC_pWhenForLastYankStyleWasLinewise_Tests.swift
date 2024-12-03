@@ -173,7 +173,7 @@ in the clipboard
 // PGR and Electron
 extension ASUI_VMC_pWhenLastYankStyleWasLinewise_Tests {
 
-    // in HTML, the textField don't allow linefeed and automatically stripped them out :D
+    // in HTML, the textField don't allow linefeed and automatically strip them out :D
     func test_that_on_TextFields_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR() {
         let textInAXFocusedElement = "check that it works in PGR too"
         app.webViews.textFields.firstMatch.tap()
@@ -235,7 +235,8 @@ GR
 
         // TODO: seems need to decide here if all \n should be stripped or only the last one like currently
         XCTAssertEqual(accessibilityElement.fileText.value, """
-somepastat works in PGR too
+some
+pastat works in PGR too
 """
         )
         XCTAssertEqual(accessibilityElement.caretLocation, 9)
