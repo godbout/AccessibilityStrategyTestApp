@@ -944,7 +944,6 @@
 		91B858E428704B3800C9520F /* FT_nextNonBlank_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT_nextNonBlank_Tests.swift; sourceTree = "<group>"; };
 		91B858E628704B4000C9520F /* FT_previousNonBlank_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT_previousNonBlank_Tests.swift; sourceTree = "<group>"; };
 		91BBA7F9275924B200A87E8D /* ASUI_NM_ciw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_ciw_Tests.swift; sourceTree = "<group>"; };
-		91BD0CA12CF8AF5900F4B4E5 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = SOURCE_ROOT; };
 		91BD8DC82782D5B80009D107 /* ASUT_VM_~_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUT_VM_~_Tests.swift"; sourceTree = "<group>"; };
 		91BD8DCA2782D5FE0009D107 /* ASUI_VM_~_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUI_VM_~_Tests.swift"; sourceTree = "<group>"; };
 		91BEB1C92721AA740093258D /* ASUT_NM_gI__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_gI__Tests.swift; sourceTree = "<group>"; };
@@ -1652,7 +1651,6 @@
 		91F951A826DFF56C00DC26C6 = {
 			isa = PBXGroup;
 			children = (
-				91BD0CA12CF8AF5900F4B4E5 /* AccessibilityStrategy */,
 				91F951B326DFF56C00DC26C6 /* AccessibilityStrategyTestApp */,
 				91F951C626DFF56D00DC26C6 /* AccessibilityStrategyTestAppTests */,
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,
@@ -2279,8 +2277,9 @@
 		91F951A926DFF56C00DC26C6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					913BAFDB26E103FE002E6999 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -3177,6 +3176,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -3239,6 +3239,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -3313,7 +3314,6 @@
 		91F951DB26DFF56D00DC26C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
@@ -3338,7 +3338,6 @@
 		91F951DC26DFF56D00DC26C6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
@@ -3425,7 +3424,7 @@
 			repositoryURL = "git@github.com:godbout/AccessibilityStrategy.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 8.2.0;
+				minimumVersion = 8.3.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
