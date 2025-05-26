@@ -50,7 +50,7 @@ extension ASUI_NM_pForLastYankStyleLinewise_Tests {
 // TextAreas
 extension ASUI_NM_pForLastYankStyleLinewise_Tests {
     
-    func test_that_in_normal_setting_it_pasts_the_content_on_a_new_line_below() {
+    func test_that_in_normal_setting_it_pastes_the_content_on_a_new_line_below() {
         let textInAXFocusedElement = """
 we gonna linewise paste
 on a line that is not
