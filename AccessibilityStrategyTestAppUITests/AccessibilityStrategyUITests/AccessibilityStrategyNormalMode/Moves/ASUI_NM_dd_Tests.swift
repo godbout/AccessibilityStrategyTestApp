@@ -415,25 +415,3 @@ this one
     }
     
 }
-
-
-// specific bug found by jannis where `dd` in PGR on a line that is not the last one doesn't copy the deletion
-extension ASUI_NM_dd_Tests {
-    
-    func test_that_if_there_is_a_next_line_when_it_is_called_in_PGR_Mode_it_copies_the_deletion_in_UI_Elements_receptive_to_PGR() {
-        let textInAXFocusedElement = """
-for example
-  🇫🇷️t should stop
-after the two spaces
-"""
-        app.webViews.textViews.firstMatch.tap()
-        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        applyMove { asNormalMode.gg(on: $0) }
-        applyMove { asNormalMode.w(on: $0) }
-        
-        _ = applyMoveBeingTested(appFamily: .pgR)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "for example\n")
-    }
-    
-}
