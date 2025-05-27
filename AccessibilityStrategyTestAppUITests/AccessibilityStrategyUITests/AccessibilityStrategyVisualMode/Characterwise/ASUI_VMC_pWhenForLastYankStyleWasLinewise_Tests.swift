@@ -271,5 +271,35 @@ GR
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
         XCTAssertEqual(accessibilityElement.selectedText, "s")
     }
-    
+       
+    func test_that_now_in_PGR_Mode_we_can_paste_several_times_in_a_row() {
+        let textInAXFocusedElement = """
+it's gonna paste twice coz
+PGR
+"""
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.ge(on: $0) }
+        applyMove { asVisualMode.vFromNormalMode(on: $0) }
+        applyMove { asVisualMode.w(times: 2, on: $0, vimEngineState) }
+        copyToClipboard(text: "  should paste\nthat somewhere")
+        
+        _ = applyMoveBeingTested(appFamily: .pgR)
+        let accessibilityElement = applyMove { asNormalMode.p(on: $0, VimEngineState(appFamily: .pgR, lastYankStyle: .characterwise)) }
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+it's gonna paste twic
+  se coz
+Phould paste
+that somewhere
+GR
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "e")
+    }
+
 }
