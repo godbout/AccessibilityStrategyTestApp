@@ -14,8 +14,8 @@ import Common
 
 class ASUT_NM_r_Tests: ASUT_NM_BaseTests {
     
-    private func applyMove(with replacement: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        return asNormalMode.r(with: replacement, on: element, VimEngineState(appFamily: .auto))
+    private func applyMoveBeingTested(with replacement: Character, on element: AccessibilityTextElement, appFamily: AppFamily = .auto) -> AccessibilityTextElement {
+        return asNormalMode.r(with: replacement, on: element, VimEngineState(appFamily: appFamily))
     }
     
 }
@@ -43,7 +43,7 @@ extension ASUT_NM_r_Tests {
             )!
         )
         
-        let returnedElement = applyMove(with: "\u{1b}", on: element)
+        let returnedElement = applyMoveBeingTested(with: "\u{1b}", on: element)
         
         XCTAssertNil(returnedElement.selectedText)
     }
@@ -77,11 +77,44 @@ linefeed
             )!
         )
         
-        let returnedElement = applyMove(with: "g", on: element)
+        let returnedElement = applyMoveBeingTested(with: "g", on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 15)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
     }
             
+}
+
+
+// clipboard management in PGR (coz applyMagicPaste)
+extension ASUT_NM_r_Tests {
+    
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_not_overwrite_the_Clipboard() {
+        let text = "gonna replace one of those letters..."
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 37,
+            caretLocation: 0,
+            selectedLength: 1,
+            selectedText: """
+        g
+        """,
+            fullyVisibleArea: 0..<37,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 37,
+                number: 1,
+                start: 0,
+                end: 37
+            )!
+        )
+        copyToClipboard(text: "some fake shit")
+        
+        _ = applyMoveBeingTested(with: "a", on: element, appFamily: .pgR)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
+    }
+    
 }

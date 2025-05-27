@@ -6,6 +6,7 @@ import Common
 // see daB for blah blah
 class ASUT_NM_dab_Tests: ASUT_NM_BaseTests {
 
+    // TODO: replace all applyMove by applyMoveBeingTested?
     private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var vimEngineState = VimEngineState(appFamily: .auto)
         
