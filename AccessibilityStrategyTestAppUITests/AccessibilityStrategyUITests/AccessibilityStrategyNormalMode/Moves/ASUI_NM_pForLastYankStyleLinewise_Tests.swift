@@ -278,6 +278,37 @@ a linefeed at the end of the line
         XCTAssertEqual(accessibilityElement.selectedText, "s")
     }
     
+    func test_that_now_in_PGR_Mode_we_can_paste_several_times_in_a_row() {
+        let textInAXFocusedElement = """
+we gonna linewise paste
+on a line that is not
+the last so there's already
+a linefeed at the end of the line
+"""
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        copyToClipboard(text: "should paste that somewhere\n")
+        
+        _ = applyMoveBeingTested(appFamily: .pgR)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+we gonna linewise paste
+on a line that is not
+the last so there's already
+should paste that somewhere
+should paste that somewhere
+a linefeed at the end of the line
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 102)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "s")
+    }
+    
 }
 
 

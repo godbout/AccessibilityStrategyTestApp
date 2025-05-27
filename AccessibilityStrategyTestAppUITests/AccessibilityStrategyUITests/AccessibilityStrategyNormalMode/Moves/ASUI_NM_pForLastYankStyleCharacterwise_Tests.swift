@@ -240,4 +240,32 @@ ho ho ho
         XCTAssertEqual(accessibilityElement.selectedText, "g")
     }
     
+    func test_that_now_in_PGR_Mode_we_can_paste_several_times_in_a_row() {
+        let textInAXFocusedElement = """
+time to paste
+in TextViews
+ho ho ho
+"""
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.h(on: $0) }
+        applyMove { asNormalMode.gk(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        copyToClipboard(text: "pastaing")
+        
+        _ = applyMoveBeingTested(appFamily: .pgR)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+time to paste
+in pastaingpastaingTextViews
+ho ho ho
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 32)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "g")
+    }
+    
 }

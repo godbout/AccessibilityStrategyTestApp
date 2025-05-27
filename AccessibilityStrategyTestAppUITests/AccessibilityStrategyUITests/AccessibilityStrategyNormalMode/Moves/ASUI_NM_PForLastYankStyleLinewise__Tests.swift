@@ -230,4 +230,36 @@ pasted at the current line place
         XCTAssertEqual(accessibilityElement.selectedText, "🤍️")
     }
     
+    func test_that_now_in_PGR_Mode_we_can_paste_several_times_in_a_row() {
+        let textInAXFocusedElement = """
+so if we use P
+the current line is gonna
+shift and thew new one is gonna be
+pasted at the current line place
+"""
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asNormalMode.h(on: $0) }
+        copyToClipboard(text: "🤍️hould paste 🤍️ that\n")
+        
+        _ = applyMoveBeingTested(appFamily: .pgR)
+        let accessibilityElement = applyMoveBeingTested(appFamily: .pgR)
+
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+so if we use P
+the current line is gonna
+🤍️hould paste 🤍️ that
+🤍️hould paste 🤍️ that
+shift and thew new one is gonna be
+pasted at the current line place
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 41)
+        XCTAssertEqual(accessibilityElement.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.selectedText, "🤍️")
+    }
+    
 }
