@@ -3,7 +3,6 @@ import Common
 import XCTest
 
 
-// TODO: this UT is missing. need to take from UIT
 class ASUT_VM_leftChevron_Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement, appFamily: AppFamily) -> AccessibilityTextElement {
@@ -19,33 +18,32 @@ extension ASUT_VM_leftChevron_Tests {
     func test_that_when_it_is_called_in_PGR_Mode_it_does_not_overwrite_the_Clipboard() {
         let text = """
 seems that even the normal
-🖕️ase fails LMAO
-some more
-and more
+hehe
+       🖕️ase fails LMAO
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 63,
+            length: 56,
             caretLocation: 27,
-            selectedLength: 19,
+            selectedLength: 6,
             selectedText: """
-        🖕️ase fails LMAO
-        s
+        hehe
+         
         """,
-            fullyVisibleArea: 0..<63,
+            fullyVisibleArea: 0..<56,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 63,
+                fullTextLength: 56,
                 number: 2,
                 start: 27,
-                end: 45
+                end: 32
             )!
         )
         copyToClipboard(text: "some fake shit")
         
-        AccessibilityStrategyVisualMode.anchor = 27
-        AccessibilityStrategyVisualMode.head = 45
+        AccessibilityStrategyVisualMode.anchor = 32
+        AccessibilityStrategyVisualMode.head = 27
         
         _ = applyMoveBeingTested(on: element, appFamily: .pgR)
         
