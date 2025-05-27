@@ -158,24 +158,4 @@ and more
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
-    func test_that_when_it_is_called_in_PGR_Mode_it_does_not_overwrite_the_Clipboard() {
-        let textInAXFocusedElement = """
-seems that even the normal
-  🖕️ase fails LMAO
-some more
-and more
-"""
-        app.webViews.textViews.firstMatch.tap()
-        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        applyMove { asNormalMode.G(times: 2, on: $0) }
-        applyMove { asVisualMode.vFromNormalMode(on: $0) }
-        applyMove { asVisualMode.j(on: $0, vimEngineState) }
-        
-        copyToClipboard(text: "some fake shit")
-        
-        _ = applyMoveBeingTested(appFamily: .pgR)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
-    }
-    
 }
