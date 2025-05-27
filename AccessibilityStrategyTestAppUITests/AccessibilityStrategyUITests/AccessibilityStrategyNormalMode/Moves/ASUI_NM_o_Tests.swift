@@ -251,4 +251,20 @@ between the first file line and the second file line
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
+    func test_that_when_it_is_called_in_PGR_Mode_it_does_not_overwrite_the_Clipboard() {
+        let textInAXFocusedElement = """
+that's a multiline and o will create a new line
+between the first file line and the second file line
+"""
+        app.webViews.textViews.firstMatch.tap()
+        app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.gg(on: $0) }
+        
+        copyToClipboard(text: "some fake shit")
+        
+        _ = applyMoveBeingTested(appFamily: .pgR)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "some fake shit")
+    }
+    
 }
