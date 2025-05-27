@@ -10,7 +10,7 @@ import Common
 // recalculated. this is tested in UI.
 class ASUT_NM_daB__Tests: ASUT_NM_BaseTests {
 
-    private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var vimEngineState = VimEngineState(appFamily: .auto)
         
         return asNormalMode.daB(on: element, &vimEngineState)
@@ -43,7 +43,7 @@ extension ASUT_NM_daB__Tests {
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 16)
         XCTAssertEqual(returnedElement.selectedLength, 1)

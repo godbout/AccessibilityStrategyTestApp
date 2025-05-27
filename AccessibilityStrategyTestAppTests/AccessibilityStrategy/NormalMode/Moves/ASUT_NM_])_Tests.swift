@@ -4,7 +4,7 @@ import XCTest
 
 class ASUT_NM_rightBracketRightParenthesis_Tests: ASUT_NM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.rightBracketRightParenthesis(on: element) 
     }
     
@@ -37,7 +37,7 @@ itself d🤨️🤨️🤨️oes
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 101)
         XCTAssertEqual(returnedElement.selectedLength, 1)

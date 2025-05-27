@@ -10,7 +10,7 @@ import Common
 // be recalculated, those tests are in UI.
 class ASUT_NM_dF__Tests: ASUT_NM_BaseTests {
     
-    private func applyMove(to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var vimEngineState = VimEngineState(appFamily: .auto)
         
         return asNormalMode.dF(to: character, on: element, &vimEngineState)
@@ -45,7 +45,7 @@ that is not there
             )!
         )
         
-        let returnedElement = applyMove(to: "z", on: element)
+        let returnedElement = applyMoveBeingTested(to: "z", on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 14)
         XCTAssertEqual(returnedElement.selectedLength, 1)

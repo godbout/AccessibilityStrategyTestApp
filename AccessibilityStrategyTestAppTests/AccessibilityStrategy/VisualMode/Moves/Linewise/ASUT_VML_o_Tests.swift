@@ -4,7 +4,7 @@ import XCTest
 
 class ASUT_VML_o_Tests: ASUT_VM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asVisualMode.o(on: element) 
     }
     
@@ -36,7 +36,7 @@ extension ASUT_VML_o_Tests {
         AccessibilityStrategyVisualMode.anchor = 0
         AccessibilityStrategyVisualMode.head = 34
         
-        _ = applyMove(on: element)
+        _ = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 34)
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 0)        
@@ -69,7 +69,7 @@ tricky
         AccessibilityStrategyVisualMode.anchor = 17
         AccessibilityStrategyVisualMode.head = 36
         
-        _ = applyMove(on: element)
+        _ = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 36)
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 17)  

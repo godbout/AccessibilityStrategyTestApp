@@ -11,7 +11,7 @@ import XCTest
 // the caretLocation, selectedLength and selectedText are the same, hence the wordMotionForward function.
 class ASUT_VM_wordMotionForward_Tests: ASUT_VM_BaseTests {
 
-    private func applyMove(times count: Int = 1, on element: AccessibilityTextElement, using wordMotionForwardFunction: (Int) -> Int?) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement, using wordMotionForwardFunction: (Int) -> Int?) -> AccessibilityTextElement {
         return asVisualMode.wOrDMotionForward(times: count, on: element, using: wordMotionForwardFunction)
     }
     
@@ -43,7 +43,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         AccessibilityStrategyVisualMode.anchor = 2
         AccessibilityStrategyVisualMode.head = 7
         
-        let returnedElement = applyMove(times: 5, on: element, using: element.fileText.beginningOfWordForward)
+        let returnedElement = applyMoveBeingTested(times: 5, on: element, using: element.fileText.beginningOfWordForward)
         
         XCTAssertEqual(returnedElement.caretLocation, 2)
         XCTAssertEqual(returnedElement.selectedLength, 30)
@@ -72,7 +72,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         AccessibilityStrategyVisualMode.anchor = 7
         AccessibilityStrategyVisualMode.head = 2
         
-        let returnedElement = applyMove(times: 6, on: element, using: element.fileText.endOfWordForward)
+        let returnedElement = applyMoveBeingTested(times: 6, on: element, using: element.fileText.endOfWordForward)
         
         XCTAssertEqual(returnedElement.caretLocation, 7)
         XCTAssertEqual(returnedElement.selectedLength, 23)
@@ -106,7 +106,7 @@ will happen
         AccessibilityStrategyVisualMode.anchor = 53
         AccessibilityStrategyVisualMode.head = 53
         
-        let returnedElement = applyMove(times: 69, on: element, using: element.fileText.endOfWordBackward)
+        let returnedElement = applyMoveBeingTested(times: 69, on: element, using: element.fileText.endOfWordBackward)
         
         XCTAssertEqual(returnedElement.caretLocation, 53)
         XCTAssertEqual(returnedElement.selectedLength, 30)
@@ -141,7 +141,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         AccessibilityStrategyVisualMode.anchor = 14
         AccessibilityStrategyVisualMode.head = 22
         
-        let returnedElement = applyMove(on: element, using: element.fileText.beginningOfWordForward)
+        let returnedElement = applyMoveBeingTested(on: element, using: element.fileText.beginningOfWordForward)
         
         XCTAssertEqual(returnedElement.caretLocation, 14)
         XCTAssertEqual(returnedElement.selectedLength, 15)
@@ -149,7 +149,7 @@ extension ASUT_VM_wordMotionForward_Tests {
     }
     
     func test_that_if_the_head_is_before_the_anchor_it_reduces_the_selected_length_to_the_new_head_location_related_to_the_word_motion_move() {
-        let text = "applyMove(on: element, using: element.fileText.beginningOfWORDForward)"
+        let text = "applyMoveBeingTested(on: element, using: element.fileText.beginningOfWORDForward)"
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
@@ -170,7 +170,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         AccessibilityStrategyVisualMode.anchor = 10
         AccessibilityStrategyVisualMode.head = 3
 
-        let returnedElement = applyMove(on: element, using: element.fileText.beginningOfWORDForward)
+        let returnedElement = applyMoveBeingTested(on: element, using: element.fileText.beginningOfWORDForward)
 
         XCTAssertEqual(returnedElement.caretLocation, 10)
         XCTAssertEqual(returnedElement.selectedLength, 5)
@@ -199,7 +199,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         AccessibilityStrategyVisualMode.anchor = 26
         AccessibilityStrategyVisualMode.head = 26
 
-        let returnedElement = applyMove(on: element, using: element.fileText.endOfWordForward)
+        let returnedElement = applyMoveBeingTested(on: element, using: element.fileText.endOfWordForward)
 
         XCTAssertEqual(returnedElement.caretLocation, 26)
         XCTAssertEqual(returnedElement.selectedLength, 3)
@@ -234,7 +234,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         AccessibilityStrategyVisualMode.anchor = 19
         AccessibilityStrategyVisualMode.head = 19
 
-        let returnedElement = applyMove(on: element, using: element.fileText.endOfWORDForward)
+        let returnedElement = applyMoveBeingTested(on: element, using: element.fileText.endOfWORDForward)
 
         XCTAssertEqual(returnedElement.caretLocation, 19)
         XCTAssertEqual(returnedElement.selectedLength, 10)
@@ -263,7 +263,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         AccessibilityStrategyVisualMode.anchor = 19
         AccessibilityStrategyVisualMode.head = 8
 
-        let returnedElement = applyMove(on: element, using: element.fileText.beginningOfWordForward)
+        let returnedElement = applyMoveBeingTested(on: element, using: element.fileText.beginningOfWordForward)
 
         XCTAssertEqual(returnedElement.caretLocation, 10)
         XCTAssertEqual(returnedElement.selectedLength, 12)
@@ -292,7 +292,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         AccessibilityStrategyVisualMode.anchor = 16
         AccessibilityStrategyVisualMode.head = 8
 
-        let returnedElement = applyMove(on: element, using: element.fileText.beginningOfWORDForward)
+        let returnedElement = applyMoveBeingTested(on: element, using: element.fileText.beginningOfWORDForward)
 
         XCTAssertEqual(returnedElement.caretLocation, 16)
         XCTAssertEqual(returnedElement.selectedLength, 14)
@@ -321,7 +321,7 @@ extension ASUT_VM_wordMotionForward_Tests {
         AccessibilityStrategyVisualMode.anchor = 4
         AccessibilityStrategyVisualMode.head = 5
 
-        let returnedElement = applyMove(on: element, using: element.fileText.endOfWORDForward)
+        let returnedElement = applyMoveBeingTested(on: element, using: element.fileText.endOfWORDForward)
 
         XCTAssertEqual(returnedElement.caretLocation, 4)
         XCTAssertEqual(returnedElement.selectedLength, 21)

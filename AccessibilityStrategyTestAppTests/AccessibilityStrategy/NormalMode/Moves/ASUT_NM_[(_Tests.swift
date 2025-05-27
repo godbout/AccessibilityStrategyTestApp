@@ -8,7 +8,7 @@ import XCTest
 // and see if the emojis are fucking with the counts
 class ASUT_NM_leftBracketLeftParenthesis_Tests: ASUT_NM_BaseTests {
     
-    private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         return asNormalMode.leftBracketLeftParenthesis(on: element) 
     }
     
@@ -41,7 +41,7 @@ itself d🤨️🤨️🤨️oes
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 8)
         XCTAssertEqual(returnedElement.selectedLength, 1)

@@ -6,7 +6,7 @@ import Common
 // see daB for blah blah
 class ASUT_NM_daLeftChevron_Tests: ASUT_NM_BaseTests {
 
-    private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var vimEngineState = VimEngineState(appFamily: .auto)
         
         return asNormalMode.daLeftChevron(on: element, &vimEngineState)
@@ -39,7 +39,7 @@ extension ASUT_NM_daLeftChevron_Tests {
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 16)
         XCTAssertEqual(returnedElement.selectedLength, 1)

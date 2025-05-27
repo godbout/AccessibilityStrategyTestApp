@@ -6,8 +6,7 @@ import Common
 // see daB for blah blah
 class ASUT_NM_dab_Tests: ASUT_NM_BaseTests {
 
-    // TODO: replace all applyMove by applyMoveBeingTested?
-    private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var vimEngineState = VimEngineState(appFamily: .auto)
         
         return asNormalMode.dab(on: element, &vimEngineState)
@@ -40,7 +39,7 @@ extension ASUT_NM_dab_Tests {
             )!
         )
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 16)
         XCTAssertEqual(returnedElement.selectedLength, 1)

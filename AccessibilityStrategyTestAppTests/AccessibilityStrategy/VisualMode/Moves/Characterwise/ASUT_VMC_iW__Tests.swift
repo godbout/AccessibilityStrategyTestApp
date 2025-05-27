@@ -5,7 +5,7 @@ import Common
 
 class ASUT_VMC_iW__Tests: ASUT_VM_BaseTests {
 
-    private func applyMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         let vimEngineState = VimEngineState(visualStyle: .characterwise)
         
         return asVisualMode.iW(on: element, vimEngineState)
@@ -39,7 +39,7 @@ extension ASUT_VMC_iW__Tests {
         AccessibilityStrategyVisualMode.anchor = 20
         AccessibilityStrategyVisualMode.head = 39
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 20)
         XCTAssertEqual(returnedElement.selectedLength, 29)
@@ -68,7 +68,7 @@ extension ASUT_VMC_iW__Tests {
         AccessibilityStrategyVisualMode.anchor = 47
         AccessibilityStrategyVisualMode.head = 27
         
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 17)
         XCTAssertEqual(returnedElement.selectedLength, 31)
@@ -97,7 +97,7 @@ extension ASUT_VMC_iW__Tests {
         AccessibilityStrategyVisualMode.anchor = 100
         AccessibilityStrategyVisualMode.head = 100
        
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 86)
         XCTAssertEqual(returnedElement.selectedLength, 24)
@@ -134,7 +134,7 @@ in relation to each other
         AccessibilityStrategyVisualMode.anchor = 61
         AccessibilityStrategyVisualMode.head = 66
        
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 61)
         XCTAssertEqual(returnedElement.selectedLength, 7)
@@ -168,7 +168,7 @@ in relation to each other
         AccessibilityStrategyVisualMode.anchor = 62
         AccessibilityStrategyVisualMode.head = 58
        
-        let returnedElement = applyMove(on: element)
+        let returnedElement = applyMoveBeingTested(on: element)
         
         XCTAssertEqual(returnedElement.caretLocation, 57)
         XCTAssertEqual(returnedElement.selectedLength, 6)
