@@ -9,7 +9,7 @@ import XCTest
 // this is used by VMC w, W, e, E.
 // they all call their own TextEngine func but the VM part of testing the Anchor, Head, and set
 // the caretLocation, selectedLength and selectedText are the same, hence the wordMotionForward function.
-class ASUT_VM_wordMotionForward_Tests: ASUT_VM_BaseTests {
+class ASUT_VM_wOrDMotionForward_Tests: ASUT_VM_BaseTests {
 
     private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement, using wordMotionForwardFunction: (Int) -> Int?) -> AccessibilityTextElement {
         return asVisualMode.wOrDMotionForward(times: count, on: element, using: wordMotionForwardFunction)
@@ -19,7 +19,7 @@ class ASUT_VM_wordMotionForward_Tests: ASUT_VM_BaseTests {
 
 
 // count
-extension ASUT_VM_wordMotionForward_Tests {
+extension ASUT_VM_wOrDMotionForward_Tests {
     
     func test_that_it_implements_the_count_system_for_when_the_Head_is_after_or_equal_to_the_Anchor() {
         let text = "gonna start with text moves in Visual Mode"
@@ -117,7 +117,7 @@ will happen
 
 
 // Both
-extension ASUT_VM_wordMotionForward_Tests {
+extension ASUT_VM_wOrDMotionForward_Tests {
     
     func test_that_if_the_head_is_after_the_anchor_it_extends_the_selected_length_to_the_new_head_location_related_to_the_word_motion_move() {
         let text = "gonna start with text moves in Visual Mode"
@@ -210,7 +210,7 @@ extension ASUT_VM_wordMotionForward_Tests {
 
 
 // emojis
-extension ASUT_VM_wordMotionForward_Tests {
+extension ASUT_VM_wOrDMotionForward_Tests {
 
     func test_that_it_handles_emojis_when_head_and_anchor_are_the_same() {
         let text = "because ☀️urrently 🤖️t-seems it does"
