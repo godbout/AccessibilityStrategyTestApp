@@ -77,9 +77,8 @@ on a line
 """
         app.webViews.textViews.firstMatch.tap()
         app.webViews.textViews.firstMatch.typeText(textInAXFocusedElement)
-        applyMove { asNormalMode.zero(on: $0) }
-        applyMove { asNormalMode.k(on: $0) }
         applyMove { asNormalMode.dollarSign(on: $0) }
+        applyMove { asNormalMode.k(on: $0) }
         
         let accessibilityElement = applyMoveBeingTested(with: "w", appFamily: .pgR)
         
