@@ -149,7 +149,7 @@ extension ASUT_VM_wordMotionForward_Tests {
     }
     
     func test_that_if_the_head_is_before_the_anchor_it_reduces_the_selected_length_to_the_new_head_location_related_to_the_word_motion_move() {
-        let text = "applyMoveBeingTested(on: element, using: element.fileText.beginningOfWORDForward)"
+        let text = "applyMove(on: element, using: element.fileText.beginningOfWORDForward)"
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
