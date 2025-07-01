@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:godbout/AccessibilityStrategy.git",
       "state" : {
-        "revision" : "6e176943eb814c0590908aa046500eda4f81cec7",
-        "version" : "10.5.0"
+        "revision" : "8e4151c579ff3c9194122883d0e4eb0ad85f3772",
+        "version" : "10.7.0"
       }
     },
     {
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:godbout/AXEngine.git",
       "state" : {
-        "revision" : "afd11ac5b6b8bf63f183af7e1a8bf90f9f6754d0",
-        "version" : "6.0.0"
+        "revision" : "e5a50b32e37293c598521d4a03e13febed1ac91f",
+        "version" : "6.1.0"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:godbout/Common.git",
       "state" : {
-        "revision" : "f0f0d38c44bbdb8b4cda7d2ba6795f74b2e3855f",
-        "version" : "3.1.0"
+        "revision" : "d2bea266a7a0737b9efa2feede04405f377f9246",
+        "version" : "4.1.0"
       }
     },
     {
@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:godbout/KeyCombination.git",
       "state" : {
-        "revision" : "cfa01ef514dfa2385952c1160d00ec80a2e58215",
-        "version" : "3.1.0"
+        "revision" : "75feb32a8a610c103767ade14c0fcab7dfde959e",
+        "version" : "4.2.0"
       }
     },
     {
