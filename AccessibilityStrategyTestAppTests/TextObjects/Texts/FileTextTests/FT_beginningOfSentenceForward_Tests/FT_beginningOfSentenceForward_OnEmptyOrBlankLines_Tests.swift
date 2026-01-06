@@ -114,7 +114,7 @@ below
 }
 
 
-// bug found
+// bugs found
 extension FT_beginningOfSentenceForward_OnEmptyOrBlankLines_Tests {
 
     func test_that_if_the_caret_is_on_a_blankLine_it_stops_on_the_next_emptyLine_which_is_actually_a_paragraph_boundary() {
