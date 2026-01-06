@@ -112,3 +112,27 @@ below
     }
     
 }
+
+
+// bug found
+extension FT_beginningOfSentenceForward_OnEmptyOrBlankLines_Tests {
+
+    func test_that_if_the_caret_is_on_a_blankLine_it_stops_on_the_next_emptyLine_which_is_actually_a_paragraph_boundary() {
+        let text = """
+so below there's some blank lines
+but also an empty line in the middle!
+    
+    
+   
+    
+  
+
+    
+hehe
+"""
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 79)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 94)
+    }
+    
+}
