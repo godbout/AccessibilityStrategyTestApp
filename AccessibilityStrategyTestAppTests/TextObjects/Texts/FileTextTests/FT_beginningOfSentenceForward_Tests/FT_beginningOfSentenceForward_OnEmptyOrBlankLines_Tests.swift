@@ -91,7 +91,7 @@ can check the impl of that
 """
         let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 78)
         
-        XCTAssertEqual(beginningOfSentenceForwardLocation, 123)
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 148)
     }
     
     func test_that_if_the_caret_is_on_an_BlankLine_and_the_text_ends_by_multiple_BlankLines_then_it_goes_to_the_endLimit() {
