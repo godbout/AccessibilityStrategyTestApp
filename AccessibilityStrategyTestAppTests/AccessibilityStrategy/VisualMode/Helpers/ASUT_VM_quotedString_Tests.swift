@@ -497,7 +497,7 @@ some sentence with 'some nice' quotes hehe
 }
 
 
-// bugs discovered after
+// bugs found
 // some would/should require testing in lots of different cases but i don't wanna
 // go through all of them :tears: :cry: so i'm make sure they're at least tested
 // in one case, and thoughts and prayers that i've handled all the sibling cases as well.

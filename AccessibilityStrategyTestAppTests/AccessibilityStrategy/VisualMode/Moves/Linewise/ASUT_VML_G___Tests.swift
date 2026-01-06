@@ -290,7 +290,7 @@ the end
 }
 
 
-// bugs found
+// bug found
 extension ASUT_VML_G__Tests {
     
     func test_that_when_the_move_passes_through_the_switch_of_Anchor_and_Head_then_they_are_updated_correctly() {

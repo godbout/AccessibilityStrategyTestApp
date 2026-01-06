@@ -293,7 +293,7 @@ head if before the anchor
 }
 
 
-// bugs found
+// bug found
 extension ASUT_VML_j_Tests {
     
     func test_that_when_we_use_the_count_and_reverse_the_Head_and_Anchor_then_they_are_updated_correctly() {

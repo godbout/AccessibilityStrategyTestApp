@@ -84,7 +84,7 @@ extension ASUT_VMC_rightParenthesis_Tests {
 }
 
 
-// bugs found
+// bug found
 extension ASUT_VMC_rightParenthesis_Tests {
     
     func test_that_the_newHeadLocation_is_calculated_according_to_the_Head_and_not_the_caretLocation_or_selectionUpperBound() {
