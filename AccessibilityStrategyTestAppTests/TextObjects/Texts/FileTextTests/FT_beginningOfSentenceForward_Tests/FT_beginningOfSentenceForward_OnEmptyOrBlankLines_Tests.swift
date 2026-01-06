@@ -135,4 +135,24 @@ hehe
         XCTAssertEqual(beginningOfSentenceForwardLocation, 94)
     }
     
+    func test_that_if_there_are_blankLines_between_emptyLines_then_it_stops_on_the_emptyLine_after_the_last_blankLine() {
+        let text = """
+so below there's some empty lines
+but also a two blank line in the middle!
+
+
+
+
+
+          
+   
+
+
+hehe
+"""
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 77)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 95)
+    }
+    
 }
