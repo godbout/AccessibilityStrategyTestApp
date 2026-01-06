@@ -165,3 +165,39 @@ below is a blank line
     }
     
 }
+
+
+// bug found
+extension FT_beginningOfSentenceForward_NormalSetting_Tests {
+    
+    func test_that_it_stops_at_an_emptyLine_if_the_previous_sentence_has_a_dot_before_its_linefeed() {
+        let text = """
+here is a sentence that ends with a dot and a linefeed.
+
+the line above is an empty line and ( should stop there
+"""
+        let _ = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 112,
+            caretLocation: 29,
+            selectedLength: 1,
+            selectedText: """
+        w
+        """,
+            fullyVisibleArea: 0..<112,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 112,
+                number: 1,
+                start: 0,
+                end: 56
+            )!
+        )
+                
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 29)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 56)
+    }
+
+}
