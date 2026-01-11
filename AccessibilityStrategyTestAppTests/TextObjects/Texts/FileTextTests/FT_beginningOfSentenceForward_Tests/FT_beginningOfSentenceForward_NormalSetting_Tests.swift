@@ -167,7 +167,7 @@ below is a blank line
 }
 
 
-// bug found
+// bugs found
 extension FT_beginningOfSentenceForward_NormalSetting_Tests {
     
     func test_that_it_stops_at_an_emptyLine_if_the_previous_sentence_has_a_dot_before_its_linefeed() {
