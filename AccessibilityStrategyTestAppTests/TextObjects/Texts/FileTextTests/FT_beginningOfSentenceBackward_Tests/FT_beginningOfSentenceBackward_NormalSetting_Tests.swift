@@ -122,6 +122,24 @@ extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
 
 
 // TextViews
+// basic
+extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
+    
+    func test_that_a_single_linefeed_is_a_sentence_boundary() {
+        let text = """
+this is a line.
+then one more.
+and another one.
+"""
+        let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 31)
+        
+        XCTAssertEqual(beginningOfSentenceBackwardLocation, 16)
+    }
+
+}
+
+
+// TextViews
 // surrounded by Empty Lines
 extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
     
