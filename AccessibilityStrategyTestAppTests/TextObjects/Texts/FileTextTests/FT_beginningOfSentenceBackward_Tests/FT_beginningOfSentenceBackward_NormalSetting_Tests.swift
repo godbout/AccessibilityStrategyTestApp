@@ -154,9 +154,9 @@ at paragraph boundaries
 
 can check the impl of that
 """
-        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 84)
+        let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 84)
         
-        XCTAssertEqual(beginningOfSentenceForwardLocation, 67)
+        XCTAssertEqual(beginningOfSentenceBackwardLocation, 67)
     }
     
     func test_that_it_does_not_stop_at_consecutive_lines_when_the_lines_start_with_blanks() {
@@ -167,9 +167,9 @@ this is a first line
    it should go to the empty line
    no the lines above
 """
-        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 87)
+        let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 87)
         
-        XCTAssertEqual(beginningOfSentenceForwardLocation, 25)
+        XCTAssertEqual(beginningOfSentenceBackwardLocation, 25)
     }
     
     func test_that_it_stops_at_the_emptyLine_right_above_even_when_there_are_multiple_consecutive_lines() {
@@ -181,9 +181,9 @@ this is a first line
 
   go up directly
 """ 
-        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 17)
+        let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 17)
         
-        XCTAssertEqual(beginningOfSentenceForwardLocation, 14)
+        XCTAssertEqual(beginningOfSentenceBackwardLocation, 14)
     }
     
     func test_that_it_stops_at_the_emptyLine_right_above_even_if_there_is_only_one() {
@@ -192,9 +192,9 @@ it should
 
 stop on the empty line above
 """ 
-        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 11)
+        let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 11)
         
-        XCTAssertEqual(beginningOfSentenceForwardLocation, 10)
+        XCTAssertEqual(beginningOfSentenceBackwardLocation, 10)
     }
     
 }
@@ -214,9 +214,9 @@ below is an empty line
    it should go to the empty line
    no the lines above
 """
-        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 80)
+        let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 80)
         
-        XCTAssertEqual(beginningOfSentenceForwardLocation, 25)
+        XCTAssertEqual(beginningOfSentenceBackwardLocation, 25)
     }
     
     func test_that_it_skips_multiple_BlankLines() {
@@ -228,9 +228,9 @@ below is an empty line
      
   go up directly
 """ 
-        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 40)
+        let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 40)
         
-        XCTAssertEqual(beginningOfSentenceForwardLocation, 9)
+        XCTAssertEqual(beginningOfSentenceBackwardLocation, 9)
     }
     
 }
