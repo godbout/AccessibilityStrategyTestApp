@@ -3,8 +3,8 @@ import XCTest
 
 
 // yes, `innerParagraph` cannot be from `beginningOfParagraph` to `endOfParagraph`.
-// this is because in normal setting a blank line is not a paragraph boundary, but for
-// innerParagraph it is. so it needs its own computation.
+// this is because for `{` and `}` a blank line is not a paragraph boundary, but for
+// innerParagraph it is. see Vim doc. so innerParagraph needs its own computation.
 class FT_innerParagraph_NormalSetting_Tests: XCTestCase {}
 
 
