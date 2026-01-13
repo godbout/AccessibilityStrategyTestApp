@@ -165,26 +165,6 @@ where it skips
 
 empty lines!
 """
-        let _ = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 46,
-            caretLocation: 33,
-            selectedLength: 1,
-            selectedText: """
-
-
-        """,
-            fullyVisibleArea: 0..<46,
-            currentScreenLine: ScreenLine(
-                fullTextValue: text,
-                fullTextLength: 46,
-                number: 4,
-                start: 33,
-                end: 34
-            )!
-        )
-                
         let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 33)
         
         XCTAssertEqual(beginningOfSentenceBackwardLocation, 18)
