@@ -85,7 +85,7 @@ this is some more text
 }
 
 
-// bug found
+// bugs found
 extension FT_beginningOfSentenceBackward_OnEmptyLines_Tests {
     
     func test_that_it_does_not_skip_EmptyLines_in_some_cases() {
@@ -100,4 +100,25 @@ empty lines!
         
         XCTAssertEqual(beginningOfSentenceBackwardLocation, 18)
     }
+    
+    func test_that_if_there_are_BlankLines_between_EmptyLines_then_it_stops_on_the_EmptyLine_right_before_the_BlankLines() {
+        let text = """
+so below there's some empty lines
+but also a two blank line in the middle!
+
+
+
+
+
+          
+   
+
+
+hehe
+"""
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 96)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 79)
+    }
+
 }
