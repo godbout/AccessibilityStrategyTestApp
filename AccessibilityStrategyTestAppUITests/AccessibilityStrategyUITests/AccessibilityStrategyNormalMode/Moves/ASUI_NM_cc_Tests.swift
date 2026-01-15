@@ -80,7 +80,7 @@ be kept
     }
 
     // this test contains blanks
-    func test_that_if_a_file_line_is_a_blank_line_it_does_not_delete_anything_and_goes_at_the_end_of_the_line_before_the_linefeed() {
+    func test_that_if_a_file_line_is_a_BlankLine_it_does_not_delete_anything_and_goes_at_the_end_of_the_line_before_the_linefeed() {
         let textInAXFocusedElement = """
 something
             

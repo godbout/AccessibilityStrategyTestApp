@@ -139,7 +139,7 @@ and there's that one 🤌🏼️ line after
     }
     
     // middle line has a lot of spaces!
-    func test_that_for_a_blank_line_that_ends_with_a_linefeed_the_computed_properties_are_correct() throws {
+    func test_that_for_a_BlankLine_that_ends_with_a_linefeed_the_computed_properties_are_correct() throws {
         let text = """
 the next like appears empty but it's actually blank!!!
                   

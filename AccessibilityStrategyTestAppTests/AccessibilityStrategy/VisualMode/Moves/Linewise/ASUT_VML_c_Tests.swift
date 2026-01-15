@@ -106,7 +106,7 @@ but the below line will not go up\n
         XCTAssertEqual(returnedElement.selectedText, "")
     } 
     
-    func test_that_it_keeps_the_indentation_of_the_first_selected_line_when_it_is_a_blank_line() {
+    func test_that_it_keeps_the_indentation_of_the_first_selected_line_when_it_is_a_BlankLine() {
         let text = """
 VM c in Linewise
          
@@ -140,7 +140,7 @@ but the below line will not go up
         XCTAssertEqual(returnedElement.selectedText, "")
     } 
     
-    func test_that_it_keeps_the_indentation_of_the_first_selected_line_when_it_is_not_a_blank_line() {
+    func test_that_it_keeps_the_indentation_of_the_first_selected_line_when_it_is_not_a_BlankLine() {
         let text = """
 VM c in Linewise
    will delete the selected lines
