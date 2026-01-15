@@ -227,7 +227,7 @@ the line above nice
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 74)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_not_get_stuck_when_trying_to_move_up_and_selects_the_line_above() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_EmptyLine_it_does_not_get_stuck_when_trying_to_move_up_and_selects_the_line_above() {
         let text = """
 we gonna place the
 caret at the last empty line

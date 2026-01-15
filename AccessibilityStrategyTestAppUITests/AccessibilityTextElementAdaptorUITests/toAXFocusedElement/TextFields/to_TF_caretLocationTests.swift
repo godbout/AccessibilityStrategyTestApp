@@ -4,7 +4,7 @@ import XCTest
 
 class to_TF_caretLocationTests: ATEA_BaseTests {
 
-    func test_that_we_can_set_the_caret_location_to_0_on_a_non_empty_line() {
+    func test_that_we_can_set_the_caret_location_to_0_on_a_non_EmptyLine() {
         let text = "hello you dear"
         let element = AccessibilityTextElement(
             role: .textField,

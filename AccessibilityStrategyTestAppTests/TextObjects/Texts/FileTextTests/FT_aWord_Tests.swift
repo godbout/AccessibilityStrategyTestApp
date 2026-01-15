@@ -92,7 +92,7 @@ extension FT_aWord_Tests {
         XCTAssertEqual(wordRange?.count, 5)
     }
     
-    func test_that_if_the_caret_is_at_the_last_empty_line_it_returns_nil() {
+    func test_that_if_the_caret_is_at_the_last_EmptyLine_it_returns_nil() {
         let text = """
 that's gonna be a text where
 the last line is empty

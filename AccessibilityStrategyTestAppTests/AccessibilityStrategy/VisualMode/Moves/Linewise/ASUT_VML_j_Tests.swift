@@ -216,7 +216,7 @@ head if before the anchor
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 41)
     }
     
-    func test_that_it_does_not_skip_empty_lines() {
+    func test_that_it_does_not_skip_EmptyLines() {
         let text = """
 wow that one is
 

@@ -23,7 +23,7 @@ class ASUT_NM_ccg$_Tests: ASUT_NM_BaseTests {
 // Bip, copy deletion and LYS
 extension ASUT_NM_ccg$_Tests {
     
-    func test_that_when_it_is_on_an_empty_line_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_an_empty_string() {
+    func test_that_when_it_is_on_an_EmptyLine_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_an_empty_string() {
         let text = """
 hehe
 
@@ -55,7 +55,7 @@ hoho
         XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
-    func test_that_when_it_is_not_on_an_empty_line_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Characterwise_also_but_copies_the_deletion() {
+    func test_that_when_it_is_not_on_an_EmptyLine_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Characterwise_also_but_copies_the_deletion() {
         let text = """
 C will now work with file lines and is supposed to delete from the caret ☀️ to before the linefeed
 and of course this is in the case there is a linefeed at the end of the line.
@@ -155,7 +155,7 @@ and of course this is in the case there is a linefeed at the end of the line.
         XCTAssertEqual(returnedElement.selectedText, "")
     }
     
-    func test_that_it_does_not_delete_the_linefeed_even_for_an_empty_line() {
+    func test_that_it_does_not_delete_the_linefeed_even_for_an_EmptyLine() {
         let text = """
 now we have an empty line and C should behave
 

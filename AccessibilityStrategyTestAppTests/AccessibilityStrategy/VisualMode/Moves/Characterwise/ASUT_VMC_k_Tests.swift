@@ -331,7 +331,7 @@ wow that one is
         XCTAssertEqual(returnedElement.selectedLength, 49)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_selects_from_the_last_character_to_some_character_of_the_previous_line() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_EmptyLine_it_works_and_selects_from_the_last_character_to_some_character_of_the_previous_line() {
         let text = """
 caret is on its
 own empty

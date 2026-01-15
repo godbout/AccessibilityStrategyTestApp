@@ -48,7 +48,7 @@ properly!
         XCTAssertEqual(accessibilityElement.fullyVisibleArea, 27..<81)
     }
     
-    func test_that_if_on_an_emptyLine_it_works_properly_and_the_emptyLine_ends_at_the_middle_of_the_visible_area() {
+    func test_that_if_on_an_EmptyLine_it_works_properly_and_the_EmptyLine_ends_at_the_middle_of_the_visible_area() {
         let textInAXFocusedElement = """
  😂k so now we're
 going to

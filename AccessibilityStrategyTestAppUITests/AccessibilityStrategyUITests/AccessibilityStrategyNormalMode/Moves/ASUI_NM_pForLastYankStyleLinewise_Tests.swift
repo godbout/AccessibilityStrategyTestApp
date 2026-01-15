@@ -157,7 +157,7 @@ to the first non blank of the copied line
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_empty_line_it_still_pastes_but_without_an_ending_linefeed() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_EmptyLine_it_still_pastes_but_without_an_ending_linefeed() {
         let textInAXFocusedElement = """
 this should paste
 after a new line and

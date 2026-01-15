@@ -117,7 +117,7 @@ fail only with aParagraph, not with innerParagraph
         XCTAssertEqual(aParagraphRange?.count, 53) 
     }
     
-    func test_that_for_a_single_line_at_the_end_of_the_text_preceded_by_only_one_empty_line_if_returns_the_correct_range() {
+    func test_that_for_a_single_line_at_the_end_of_the_text_preceded_by_only_one_EmptyLine_if_returns_the_correct_range() {
         let text = """
 this is something
 that is gonna

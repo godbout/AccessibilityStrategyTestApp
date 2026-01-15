@@ -76,7 +76,7 @@ and more
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
-    func test_that_it_does_not_shift_empty_lines() {
+    func test_that_it_does_not_shift_EmptyLines() {
         let textInAXFocusedElement = """
 a line empty means with nothing
 

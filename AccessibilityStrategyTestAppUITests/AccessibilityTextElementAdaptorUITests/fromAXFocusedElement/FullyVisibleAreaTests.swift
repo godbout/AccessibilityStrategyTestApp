@@ -47,7 +47,7 @@ It was the White Rabbit, trotting slowly back again, and looking anxiously about
         XCTAssertEqual(accessibilityElement?.fullyVisibleArea, 136..<378)
     }
     
-    func test_that_if_the_TextArea_is_filled_with_text_and_it_is_scrolled_to_the_bottom_and_the_text_ends_with_an_empty_line_then_the_fullyVisibleArea_is_correct() {
+    func test_that_if_the_TextArea_is_filled_with_text_and_it_is_scrolled_to_the_bottom_and_the_text_ends_with_an_EmptyLine_then_the_fullyVisibleArea_is_correct() {
         let textInAXFocusedElement = """
 It was the White Rabbit, trotting slowly back again, and looking anxiously about as it went, as if it had lost something; and she heard it muttering to itself “The Duchess! The Duchess! Oh my dear paws! Oh my fur and whiskers! She’ll get me executed, as sure as ferrets are ferrets! Where can I have dropped them, I wonder?” Alice guessed in a moment that it was looking for the
 

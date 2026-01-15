@@ -250,7 +250,7 @@ non blank of next line
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_it_works_with_an_empty_line() {
+    func test_that_it_works_with_an_EmptyLine() {
         let text = """
 the next line
 will be empty

@@ -20,7 +20,7 @@ extension FT_beginningOfParagraphBackward_Tests {
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 0)
     }
     
-    func test_that_if_the_caret_is_after_the_last_character_on_an_empty_line_then_it_still_goes_to_the_beginning_of_the_paragraph() {
+    func test_that_if_the_caret_is_after_the_last_character_on_an_EmptyLine_then_it_still_goes_to_the_beginning_of_the_paragraph() {
         let text = """
 a couple of
 
@@ -72,7 +72,7 @@ and some more blah blah
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 30)
     }
     
-    func test_that_if_the_caret_is_already_on_an_empty_line_it_skips_all_the_consecutive_empty_lines() {
+    func test_that_if_the_caret_is_already_on_an_EmptyLine_it_skips_all_the_consecutive_EmptyLines() {
         let text = """
 other hello
 
@@ -89,7 +89,7 @@ some more
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 12)
     }
     
-    func test_that_if_it_does_not_find_an_empty_line_it_stops_at_the_beginning_of_the_text() {
+    func test_that_if_it_does_not_find_an_EmptyLine_it_stops_at_the_beginning_of_the_text() {
         let text = """
 this
 text

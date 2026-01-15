@@ -20,7 +20,7 @@ extension FT_beginningOfWordBackward__Tests {
         XCTAssertNil(beginningOfWordBackwardLocation)
     }
     
-    func test_that_if_the_caret_is_after_the_last_character_on_an_empty_line_then_it_still_goes_to_the_beginning_of_the_last_word() {
+    func test_that_if_the_caret_is_after_the_last_character_on_an_EmptyLine_then_it_still_goes_to_the_beginning_of_the_last_word() {
         let text = """
 a couple of
 lines but not
@@ -236,7 +236,7 @@ b can go
         XCTAssertEqual(beginningOfWordBackwardLocation, 16)
     }
     
-    func test_that_it_stops_at_an_empty_line() {
+    func test_that_it_stops_at_an_EmptyLine() {
         let text = """
 b should stop
 
@@ -249,7 +249,7 @@ at empty lines
         XCTAssertEqual(beginningOfWordBackwardLocation, 14)
     }
     
-    func test_that_it_stops_at_an_empty_line_but_skip_the_whitespaces_on_the_current_line() {
+    func test_that_it_stops_at_an_EmptyLine_but_skip_the_whitespaces_on_the_current_line() {
         let text = """
 b should stop at empty lines and 
 

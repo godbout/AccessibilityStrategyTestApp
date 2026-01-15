@@ -161,7 +161,7 @@ spill also
         XCTAssertEqual(wordRange.count, 4)
     }
     
-    func test_that_innerWord_stops_at_Linefeeds_both_at_beginning_and_end_of_lines_that_is_on_empty_lines() {
+    func test_that_innerWord_stops_at_Linefeeds_both_at_beginning_and_end_of_lines_that_is_on_EmptyLines() {
         let text = """
 this shouldn't
 

@@ -54,7 +54,7 @@ gonna try to fuse line 1 with line 2
         XCTAssertEqual(accessibilityElement.selectedText, " ")
     }
     
-    func test_that_if_the_next_line_is_an_empty_line_it_does_not_replace_the_linefeed_by_space_but_instead_deletes_it() {
+    func test_that_if_the_next_line_is_an_EmptyLine_it_does_not_replace_the_linefeed_by_space_but_instead_deletes_it() {
         let textInAXFocusedElement = """
 next line is empty and it works differently
 

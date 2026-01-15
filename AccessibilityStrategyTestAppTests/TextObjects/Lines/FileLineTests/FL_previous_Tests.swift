@@ -65,7 +65,7 @@ here so caret shouldn't move
         XCTAssertNil(characterFoundLocation)
     }
     
-    func test_that_it_returns_nil_for_an_empty_line() throws {
+    func test_that_it_returns_nil_for_an_EmptyLine() throws {
         let text = ""
         
         let fileLine = try XCTUnwrap(

@@ -27,7 +27,7 @@ class ASUT_VMC_d_Tests: ASUT_VM_BaseTests {
 // no that accurate. see c for blah blah.
 extension ASUT_VMC_d_Tests {
 
-    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_selected_text_even_for_an_empty_line() {
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_selected_text_even_for_an_EmptyLine() {
         let text = """
 all that VM d does
 in characterwi😂️e is deleting

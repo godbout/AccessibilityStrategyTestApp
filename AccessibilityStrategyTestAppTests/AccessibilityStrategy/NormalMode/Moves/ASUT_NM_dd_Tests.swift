@@ -22,7 +22,7 @@ class ASUT_NM_dd_Tests: ASUT_NM_BaseTests {
 // Bip, copy deletion and LYS
 extension ASUT_NM_dd_Tests {
     
-    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion_even_for_an_empty_line() {
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion_even_for_an_EmptyLine() {
         let text = """
 if the next line is just blank characters
 then there is no firstNonBlank so we need

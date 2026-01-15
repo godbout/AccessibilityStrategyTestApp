@@ -15,7 +15,7 @@ class ASUT_NM_dl_Tests: ASUT_NM_BaseTests {
 // Bip, copy deletion and LYS, AND count
 extension ASUT_NM_dl_Tests {
     
-    func test_that_for_an_empty_line_it_does_not_Bip_but_does_not_change_the_LastYankStyle_and_does_not_copy_anything() {
+    func test_that_for_an_EmptyLine_it_does_not_Bip_but_does_not_change_the_LastYankStyle_and_does_not_copy_anything() {
         let text = """
 next line is gonna be empty!
 
@@ -50,7 +50,7 @@ but shouldn't be deleted
         XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
-    func test_that_when_it_is_not_on_an_empty_line_and_the_newHeadLocation_is_before_the_end_of_the_line_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_including_the_character_at_newHeadLocation() {
+    func test_that_when_it_is_not_on_an_EmptyLine_and_the_newHeadLocation_is_before_the_end_of_the_line_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_including_the_character_at_newHeadLocation() {
         let text = "x should delete the right character"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -80,7 +80,7 @@ but shouldn't be deleted
         XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
-    func test_that_when_it_is_not_on_an_empty_line_and_the_newHeadLocation_is_after_the_end_of_the_line_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_without_the_linefeed() {
+    func test_that_when_it_is_not_on_an_EmptyLine_and_the_newHeadLocation_is_after_the_end_of_the_line_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_without_the_linefeed() {
         let text = """
 x should delete the right character
  but also 😂️

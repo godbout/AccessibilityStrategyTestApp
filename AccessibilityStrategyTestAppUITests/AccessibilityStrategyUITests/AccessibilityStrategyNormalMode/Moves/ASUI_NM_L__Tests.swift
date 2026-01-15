@@ -137,7 +137,7 @@ short text
     }
     
     
-    func test_that_if_the_lowest_screenLine_is_an_empty_line_it_still_goes_there() {
+    func test_that_if_the_lowest_screenLine_is_an_EmptyLine_it_still_goes_there() {
         let textInAXFocusedElement = """
 that's a lot
 of shits to
@@ -160,7 +160,7 @@ test
     // in some weird edge case that combine one of the 3 Cases + the Start-At-Big-Sur Bug. this can't be tested properly in
     // ATEAdaptor UIT because the Start-At-Big-Sur Bug fails when setting a position through the AX, so we need to pretend a
     // move. very painful stuff.
-    func test_that_if_the_lowest_screenLine_is_an_empty_line_it_still_goes_there2() {
+    func test_that_if_the_lowest_screenLine_is_an_EmptyLine_it_still_goes_there2() {
         let textInAXFocusedElement = """
 that's a lot
 of shits to
@@ -180,7 +180,7 @@ test
         XCTAssertEqual(accessibilityElement.fullyVisibleArea, 0..<31)
     }
         
-    func test_that_the_text_is_not_scrolled_even_when_the_lastScreenLine_is_an_empty_line() {
+    func test_that_the_text_is_not_scrolled_even_when_the_lastScreenLine_is_an_EmptyLine() {
         let textInAXFocusedElement = """
  😂k so now we're
 going to

@@ -21,7 +21,7 @@ class ASUT_NM_cWw_Tests: ASUT_NM_BaseTests {
 // Bip, copy deletion and LYS
 extension ASUT_NM_cWw_Tests {
     
-    func test_that_when_it_is_on_an_empty_line_it_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_an_empty_string() {
+    func test_that_when_it_is_on_an_EmptyLine_it_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_an_empty_string() {
         let text = ""
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -50,7 +50,7 @@ extension ASUT_NM_cWw_Tests {
     }
     
     
-    func test_that_when_it_is_not_on_an_empty_line_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Characterwise_also_but_copies_the_deletion() {
+    func test_that_when_it_is_not_on_an_EmptyLine_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Characterwise_also_but_copies_the_deletion() {
         let text = "😂️😂️😂️😂️hehehe gonna use cw on this sentence"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -164,7 +164,7 @@ extension ASUT_NM_cWw_Tests {
         XCTAssertEqual(returnedElement.selectedText, "")
     }
     
-    func test_that_if_the_caret_is_on_an_empty_line_it_does_not_move() {
+    func test_that_if_the_caret_is_on_an_EmptyLine_it_does_not_move() {
         let text = """
 test that if cw is on an empty line
 

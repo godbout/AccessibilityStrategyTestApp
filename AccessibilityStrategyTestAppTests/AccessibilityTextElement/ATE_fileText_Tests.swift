@@ -38,7 +38,7 @@ extension ATE_fileText_Tests {
         XCTAssertEqual(element.fileText.endLimit, 0)
     }
     
-    func test_that_without_emojis_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_the_computed_properties_are_correctly_calculated() {
+    func test_that_without_emojis_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_EmptyLine_the_computed_properties_are_correctly_calculated() {
         let text = """
 caret is on its
 own empty
@@ -182,7 +182,7 @@ wrapped lines. testing on the linefeed is not enough. there's some more involved
         XCTAssertEqual(element.fileText.endLimit, 130)
     }
     
-    func test_that_without_emojis_if_the_caret_is_on_the_line_before_the_last_empty_line_then_the_computed_properties_are_correct_and_especially_it_is_not_considered_the_last_line() {
+    func test_that_without_emojis_if_the_caret_is_on_the_line_before_the_last_EmptyLine_then_the_computed_properties_are_correct_and_especially_it_is_not_considered_the_last_line() {
         let text = """
 caret is on the line
 just before the empty and before
@@ -220,7 +220,7 @@ after updating to the new isTheLastLine :D
         XCTAssertEqual(element.fileText.endLimit, 137)
     }
     
-    func test_that_without_emojis_for_an_empty_line_with_a_linefeed_the_computed_properties_are_correctly_calculated() {
+    func test_that_without_emojis_for_an_EmptyLine_with_a_linefeed_the_computed_properties_are_correctly_calculated() {
         let text = """
 the next line will be empty
 
@@ -268,7 +268,7 @@ extension ATE_fileText_Tests {
     // well empty but with emojis. how does that work? :D
     func test_that_with_emojis_if_the_TextElement_is_empty_the_computed_properties_are_correctly_calculated() {}
     
-    func test_that_with_emojis_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_the_computed_properties_are_correctly_calculated() {
+    func test_that_with_emojis_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_EmptyLine_the_computed_properties_are_correctly_calculated() {
         let text = """
 caret is on its
 own empty
@@ -442,7 +442,7 @@ wrapped lines. testing on the linefeed is not 😂️nough. there's some more in
         XCTAssertEqual(element.fileText.endLimit, 132)
     }
     
-    func test_that_with_emojis_if_the_caret_is_on_the_line_before_the_last_empty_line_then_the_computed_properties_are_correct_and_especially_it_is_not_considered_the_last_line() {
+    func test_that_with_emojis_if_the_caret_is_on_the_line_before_the_last_EmptyLine_then_the_computed_properties_are_correct_and_especially_it_is_not_considered_the_last_line() {
         let text = """
 caret is on the line
 just before the empty and before

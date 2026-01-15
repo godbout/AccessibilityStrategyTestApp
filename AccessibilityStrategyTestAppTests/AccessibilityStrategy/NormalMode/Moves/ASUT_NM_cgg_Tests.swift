@@ -44,7 +44,7 @@ extension ASUT_NM_cgg_Tests {
         XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
-    func test_that_when_it_is_not_on_an_empty_line_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion() {
+    func test_that_when_it_is_not_on_an_EmptyLine_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion() {
         let text = """
 blah blah some line
 some more

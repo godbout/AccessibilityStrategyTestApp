@@ -179,7 +179,7 @@ by a linefeed and
         XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
     
-    func test_that_in_the_case_where_it_leaves_an_empty_line_between_the_brackets_it_positions_the_cursor_according_to_the_first_non_blank_of_the_first_line_that_is_after_the_opening_bracket_and_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise() {
+    func test_that_in_the_case_where_it_leaves_an_EmptyLine_between_the_brackets_it_positions_the_cursor_according_to_the_first_non_blank_of_the_first_line_that_is_after_the_opening_bracket_and_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise() {
         let text = """
 now that shit will get cleaned (
     and the non blank
@@ -260,7 +260,7 @@ and
         XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
-    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_and_the_closing_bracket_is_immediately_preceded_by_a_linefeed_then_the_move_keeps_an_empty_line_between_the_brackets_and_it_does_not_Bip_and_it_sets_the_LastYankStyle_to_Linewise() {
+    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_and_the_closing_bracket_is_immediately_preceded_by_a_linefeed_then_the_move_keeps_an_EmptyLine_between_the_brackets_and_it_does_not_Bip_and_it_sets_the_LastYankStyle_to_Linewise() {
         let text = """
 this case is when (
 is followed by a linefeed and

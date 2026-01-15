@@ -59,7 +59,7 @@ them like nothing happened. that's how special it is.
 // Bip, copy and LYS, AND count
 extension ASUT_NM_yy_Tests {
     
-    func test_that_for_an_empty_line_it_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_emptiness() {
+    func test_that_for_an_EmptyLine_it_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_emptiness() {
         let text = ""
         let element = AccessibilityTextElement(
             role: .textField,
@@ -296,7 +296,7 @@ my friend
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_the_text_is_empty_it_works_and_copies_the_empty_line() {
+    func test_that_if_the_text_is_empty_it_works_and_copies_the_EmptyLine() {
         let text = ""
         let element = AccessibilityTextElement(
             role: .textField,
@@ -324,7 +324,7 @@ my friend
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_text_and_on_an_empty_line_on_its_own_it_works_and_copies_the_line() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_text_and_on_an_EmptyLine_on_its_own_it_works_and_copies_the_line() {
         let text = """
 caret is on its
 own empty

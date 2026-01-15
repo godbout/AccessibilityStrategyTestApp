@@ -274,7 +274,7 @@ dd here and we suppose
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_EmptyLine_it_works_and_the_caret_goes_to_the_relevant_position() {
         let textInAXFocusedElement = """
 caret is on its
 own empty

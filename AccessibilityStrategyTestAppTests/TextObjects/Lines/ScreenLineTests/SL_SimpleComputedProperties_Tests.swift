@@ -24,7 +24,7 @@ extension SL_SimpleComputerProperties_Tests {
         XCTAssertEqual(screenLine?.firstNonBlankLimit, 0)
     }
     
-    func test_that_if_the_caret_is_at_the_end_of_the_text_on_its_own_empty_line_the_computed_properties_are_correct() {
+    func test_that_if_the_caret_is_at_the_end_of_the_text_on_its_own_EmptyLine_the_computed_properties_are_correct() {
         let text = """
 caret is on its
 own empty 🌬️
@@ -77,7 +77,7 @@ fucking 🔥️🔥️🔥️ hell
         XCTAssertEqual(screenLine?.firstNonBlankLimit, 26)
     }
     
-    func test_that_for_an_empty_line_that_ends_with_a_linefeed_the_computed_properties_are_correct() {
+    func test_that_for_an_EmptyLine_that_ends_with_a_linefeed_the_computed_properties_are_correct() {
         let text = """
 the next line 📏️ will be empty
 

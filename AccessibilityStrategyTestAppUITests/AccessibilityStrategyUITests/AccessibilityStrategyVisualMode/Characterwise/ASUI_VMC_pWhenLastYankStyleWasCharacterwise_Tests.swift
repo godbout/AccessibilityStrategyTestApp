@@ -115,7 +115,7 @@ text does have a linefeed
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_it_replaces_a_current_an_emptyLine_which_means_the_linefeed_is_replaced_by_the_copied_text_and_the_line_below_will_come_up() {
+    func test_that_it_replaces_a_current_an_EmptyLine_which_means_the_linefeed_is_replaced_by_the_copied_text_and_the_line_below_will_come_up() {
         let textInAXFocusedElement = """
 gonna have an empty line
 

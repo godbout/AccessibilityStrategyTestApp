@@ -53,7 +53,7 @@ extension ATE_SimpleComputedProperties_Tests {
         XCTAssertEqual(element.lastCharacterIsNotLinefeed, true)
     }
         
-    func test_that_without_emojis_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_the_computed_properties_are_correctly_calculated() {
+    func test_that_without_emojis_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_EmptyLine_the_computed_properties_are_correctly_calculated() {
         let text = """
 caret is on its
 own empty
@@ -144,7 +144,7 @@ extension ATE_SimpleComputedProperties_Tests {
     // well empty but with emojis. how does that work? :D
     func test_that_with_emojis_if_the_TextElement_is_empty_the_computed_properties_are_correctly_calculated() {}
     
-    func test_that_with_emojis_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_the_computed_properties_are_correctly_calculated() {
+    func test_that_with_emojis_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_EmptyLine_the_computed_properties_are_correctly_calculated() {
         let text = """
 caret is on its
 own empty

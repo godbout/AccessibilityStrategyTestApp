@@ -58,7 +58,7 @@ that is not an empty line🤡️
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
-    func test_that_if_the_caret_is_on_an_empty_line_it_does_not_delete_the_linefeed() {
+    func test_that_if_the_caret_is_on_an_EmptyLine_it_does_not_delete_the_linefeed() {
         let textInAXFocusedElement = """
 next line is gonna be empty!
 

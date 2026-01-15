@@ -172,7 +172,7 @@ this is a first line
         XCTAssertEqual(beginningOfSentenceBackwardLocation, 25)
     }
     
-    func test_that_it_stops_at_the_emptyLine_right_above_even_when_there_are_multiple_consecutive_lines() {
+    func test_that_it_stops_at_the_EmptyLine_right_above_even_when_there_are_multiple_consecutive_lines() {
         let text = """
   it shoud
 
@@ -186,7 +186,7 @@ this is a first line
         XCTAssertEqual(beginningOfSentenceBackwardLocation, 14)
     }
     
-    func test_that_it_stops_at_the_emptyLine_right_above_even_if_there_is_only_one() {
+    func test_that_it_stops_at_the_EmptyLine_right_above_even_if_there_is_only_one() {
         let text = """
 it should
 

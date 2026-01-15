@@ -38,7 +38,7 @@ it will. not move
         XCTAssertEqual(beginningOfSentenceBackwardLocation, 68)
     }
     
-    func test_that_it_does_not_get_stuck_in_the_middle_of_multiple_emptyLines() {
+    func test_that_it_does_not_get_stuck_in_the_middle_of_multiple_EmptyLines() {
         let text = """
 so it's not gonna skip lines but stop
 at paragraph boundaries
@@ -54,7 +54,7 @@ can check the impl of that
         XCTAssertEqual(beginningOfSentenceBackwardLocation, 0)
     }
     
-    func test_that_if_the_caret_is_on_an_emptyLine_and_the_text_starts_by_multiple_emptyLines_then_it_goes_to_the_start() {
+    func test_that_if_the_caret_is_on_an_EmptyLine_and_the_text_starts_by_multiple_EmptyLines_then_it_goes_to_the_start() {
         let text = """
 
 
@@ -157,7 +157,7 @@ this is some more text
 // bug found
 extension FT_beginningOfSentenceBackward_OnEmptyOrBlankLines_Tests {
     
-    func test_that_it_does_not_skip_empty_lines_in_some_cases() {
+    func test_that_it_does_not_skip_EmptyLines_in_some_cases() {
         let text = """
 so that's a case
 

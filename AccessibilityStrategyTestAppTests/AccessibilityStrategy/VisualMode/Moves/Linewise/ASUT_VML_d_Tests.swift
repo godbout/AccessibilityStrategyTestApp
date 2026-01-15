@@ -20,7 +20,7 @@ class ASUT_VML_d_Tests: ASUT_VM_BaseTests {
 // see VMC c for more blah blah.
 extension ASUT_VML_d_Tests {
 
-    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_selected_text_even_for_an_empty_line() {
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_selected_text_even_for_an_EmptyLine() {
         let text = """
 we gonna use VM
 d here and we suppose

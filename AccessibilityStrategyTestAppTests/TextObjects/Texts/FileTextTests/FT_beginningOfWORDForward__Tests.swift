@@ -20,7 +20,7 @@ extension FT_beginningOfWORDForward__Tests {
         XCTAssertNil(beginningOfWORDForwardLocation)
     }
     
-    func test_that_if_the_caret_is_after_the_last_character_on_an_empty_line_then_it_returns_nils() {
+    func test_that_if_the_caret_is_after_the_last_character_on_an_EmptyLine_then_it_returns_nils() {
         let text = """
 a couple of
 lines but not
@@ -189,7 +189,7 @@ to the next line
         XCTAssertEqual(beginningOfWORDForwardLocation, 9)
     }
     
-    func test_that_it_stops_at_an_empty_line() {
+    func test_that_it_stops_at_an_EmptyLine() {
         let text = """
 w should stop
 

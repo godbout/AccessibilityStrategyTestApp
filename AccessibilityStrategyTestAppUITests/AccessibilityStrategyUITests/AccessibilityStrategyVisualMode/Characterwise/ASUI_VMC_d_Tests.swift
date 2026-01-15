@@ -70,7 +70,7 @@ should go back to line end limit
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_if_the_caret_is_on_an_empty_line_it_deletes_the_linefeed_and_stick_the_next_line_up() {
+    func test_that_if_the_caret_is_on_an_EmptyLine_it_deletes_the_linefeed_and_stick_the_next_line_up() {
         let textInAXFocusedElement = """
 there's gonna be an empty line
 
@@ -144,7 +144,7 @@ lines this time
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_EmptyLine_it_works_and_the_caret_goes_to_the_relevant_position() {
         let textInAXFocusedElement = """
 caret is on its
 own empty

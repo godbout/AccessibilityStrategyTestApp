@@ -134,7 +134,7 @@ this case is when [
         XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
-    func test_that_in_the_case_where_ciB_leaves_an_empty_line_well_diB_does_not_and_it_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_the_caretLocation_ends_up_at_the_closing_bracket() {
+    func test_that_in_the_case_where_ciB_leaves_an_EmptyLine_well_diB_does_not_and_it_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_the_caretLocation_ends_up_at_the_closing_bracket() {
         let textInAXFocusedElement = """
 now that shit will get cleaned <
     and the non blank
@@ -200,7 +200,7 @@ this work when {
         XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
-    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_and_the_closing_bracket_is_immediately_preceded_by_a_linefeed_then_the_move_keeps_an_empty_line_between_the_brackets_and_it_does_not_Bip_and_it_sets_the_LastYankStyle_to_Linewise() {
+    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_and_the_closing_bracket_is_immediately_preceded_by_a_linefeed_then_the_move_keeps_an_EmptyLine_between_the_brackets_and_it_does_not_Bip_and_it_sets_the_LastYankStyle_to_Linewise() {
         let textInAXFocusedElement = """
 this case is when (
 is followed by a linefeed and

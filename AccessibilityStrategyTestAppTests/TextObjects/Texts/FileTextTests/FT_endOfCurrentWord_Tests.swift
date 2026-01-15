@@ -27,7 +27,7 @@ extension FT_endOfCurrentWord_Tests {
         XCTAssertNil(endOfCurrentWordLocation)
     }
     
-    func test_that_if_the_caret_is_after_the_last_character_on_an_empty_line_then_it_returns_nil() {
+    func test_that_if_the_caret_is_after_the_last_character_on_an_EmptyLine_then_it_returns_nil() {
         let text = """
 a couple of
 lines but not

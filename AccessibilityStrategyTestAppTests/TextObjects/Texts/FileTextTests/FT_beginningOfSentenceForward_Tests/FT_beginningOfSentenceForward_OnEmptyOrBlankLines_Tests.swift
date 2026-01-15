@@ -38,7 +38,7 @@ it will not move
         XCTAssertEqual(beginningOfSentenceForwardLocation, 76)
     }
        
-    func test_that_it_does_not_get_stuck_in_the_middle_of_multiple_emptyLines() {
+    func test_that_it_does_not_get_stuck_in_the_middle_of_multiple_EmptyLines() {
         let text = """
 so it's not gonna skip lines but stop
 at paragraph boundaries
@@ -54,7 +54,7 @@ can check the impl of that
         XCTAssertEqual(beginningOfSentenceForwardLocation, 67)
     }
     
-    func test_that_if_the_caret_is_on_an_emptyLine_and_the_text_ends_by_multiple_emptyLines_then_it_goes_to_the_end() {
+    func test_that_if_the_caret_is_on_an_EmptyLine_and_the_text_ends_by_multiple_EmptyLines_then_it_goes_to_the_end() {
         let text = """
 plenty of empty lines
 below
@@ -117,7 +117,7 @@ below
 // bugs found
 extension FT_beginningOfSentenceForward_OnEmptyOrBlankLines_Tests {
 
-    func test_that_if_the_caret_is_on_a_BlankLine_it_stops_on_the_next_emptyLine_which_is_actually_a_paragraph_boundary() {
+    func test_that_if_the_caret_is_on_a_BlankLine_it_stops_on_the_next_EmptyLine_which_is_actually_a_paragraph_boundary() {
         let text = """
 so below there's some blank lines
 but also an empty line in the middle!
@@ -135,7 +135,7 @@ hehe
         XCTAssertEqual(beginningOfSentenceForwardLocation, 94)
     }
     
-    func test_that_if_there_are_BlankLines_between_emptyLines_then_it_stops_on_the_emptyLine_after_the_last_BlankLine() {
+    func test_that_if_there_are_BlankLines_between_EmptyLines_then_it_stops_on_the_EmptyLine_after_the_last_BlankLine() {
         let text = """
 so below there's some empty lines
 but also a two blank line in the middle!

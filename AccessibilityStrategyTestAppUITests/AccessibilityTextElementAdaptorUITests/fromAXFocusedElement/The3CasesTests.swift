@@ -61,7 +61,7 @@ extension The3CasesTests {
         XCTAssertEqual(accessibilityElement?.currentScreenLine.end, 0)
     }
     
-    func test_that_we_grab_a_correct_AccessibilityTextElement_when_the_caret_is_at_the_end_of_the_TextView_on_an_empty_line() {
+    func test_that_we_grab_a_correct_AccessibilityTextElement_when_the_caret_is_at_the_end_of_the_TextView_on_an_EmptyLine() {
         let textInAXFocusedElement = """
 it's four O eight
 and i'm still having fun

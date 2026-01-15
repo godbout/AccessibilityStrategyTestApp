@@ -20,7 +20,7 @@ extension FT_endOfParagraphForward_Tests {
         XCTAssertEqual(endOfParagraphForwardLocation, 0)
     }
     
-    func test_that_if_the_caret_is_after_the_last_character_on_an_empty_line_then_it_does_not_move() {
+    func test_that_if_the_caret_is_after_the_last_character_on_an_EmptyLine_then_it_does_not_move() {
         let text = """
 a couple of
 lines but not
@@ -71,7 +71,7 @@ and some more blah blah
         XCTAssertEqual(endOfParagraphForwardLocation, 30)
     }
     
-    func test_that_if_the_caret_is_already_on_an_empty_line_it_skips_all_the_consecutive_empty_lines() {
+    func test_that_if_the_caret_is_already_on_an_EmptyLine_it_skips_all_the_consecutive_EmptyLines() {
         let text = """
 hello
 

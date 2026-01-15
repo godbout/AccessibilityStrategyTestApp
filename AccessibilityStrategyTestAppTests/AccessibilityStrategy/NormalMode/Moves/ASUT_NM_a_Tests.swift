@@ -48,7 +48,7 @@ extension ASUT_NM_a_Tests {
 // TextViews
 extension ASUT_NM_a_Tests {
 
-    func test_that_a_does_not_move_if_caret_is_on_an_empty_line() {
+    func test_that_a_does_not_move_if_caret_is_on_an_EmptyLine() {
         let text = """
 on an empty line
 

@@ -22,7 +22,7 @@ class ASUT_NM_yiWw_Tests: ASUT_NM_BaseTests {
 // Bip, copy deletion and LYS
 extension ASUT_NM_yiWw_Tests {
     
-    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_even_for_an_empty_line() {
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_even_for_an_EmptyLine() {
         let text = "some text without any double quote"
         let element = AccessibilityTextElement(
             role: .textField,

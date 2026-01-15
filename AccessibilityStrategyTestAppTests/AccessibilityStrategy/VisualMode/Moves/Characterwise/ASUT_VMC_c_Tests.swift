@@ -27,7 +27,7 @@ class ASUT_VMC_c_Tests: ASUT_VM_BaseTests {
 // so fuck'em for now.
 extension ASUT_VMC_c_Tests {
 
-    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_even_for_an_empty_line() {
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_even_for_an_EmptyLine() {
         let text = """
 all that VM d does
 in characterwi😂️e is deleting

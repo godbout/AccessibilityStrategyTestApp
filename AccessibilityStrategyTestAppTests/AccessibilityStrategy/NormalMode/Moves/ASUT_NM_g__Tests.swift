@@ -118,7 +118,7 @@ LMAO
 // TextViews
 extension ASUT_NM_g__Tests {
     
-    func test_that_for_an_empty_line_it_stops_at_the_beginning_of_the_line() {
+    func test_that_for_an_EmptyLine_it_stops_at_the_beginning_of_the_line() {
         let text = """
 a multiline and the next
 

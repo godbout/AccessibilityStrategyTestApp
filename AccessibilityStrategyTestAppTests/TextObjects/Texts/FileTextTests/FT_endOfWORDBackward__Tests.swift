@@ -20,7 +20,7 @@ extension FT_endOfWORDBackward__Tests {
         XCTAssertNil(endOfWORDBackwardLocation)
     }
     
-    func test_that_if_the_caret_is_after_the_last_character_on_an_empty_line_then_it_still_goes_to_the_end_of_the_last_word() {
+    func test_that_if_the_caret_is_after_the_last_character_on_an_EmptyLine_then_it_still_goes_to_the_end_of_the_last_word() {
         let text = """
 a couple of
 lines but not
@@ -209,7 +209,7 @@ ge can go
         XCTAssertEqual(endOfWORDBackwardLocation, 19)
     }
     
-    func test_that_it_stops_at_an_empty_line() {
+    func test_that_it_stops_at_an_EmptyLine() {
         let text = """
 ge should stop
 
@@ -222,7 +222,7 @@ at empty lines
         XCTAssertEqual(endOfWORDBackwardLocation, 15)
     }
     
-    func test_that_it_stops_at_an_empty_line_but_skip_the_whitespaces_on_the_current_line() {
+    func test_that_it_stops_at_an_EmptyLine_but_skip_the_whitespaces_on_the_current_line() {
         let text = """
 ge should stop at empty lines and
 
@@ -265,7 +265,7 @@ extension FT_endOfWORDBackward__Tests {
         XCTAssertEqual(endOfWORDBackwardLocation, 22)                
     }
     
-    func test_that_if_the_caret_is_on_the_last_empty_line_and_the_last_visible_character_on_the_previous_line_is_an_emoji_then_the_returned_position_is_correct() {
+    func test_that_if_the_caret_is_on_the_last_EmptyLine_and_the_last_visible_character_on_the_previous_line_is_an_emoji_then_the_returned_position_is_correct() {
         let text = """
 emojis are symbols that 🔫️🔫️🔫️ are longer than 1 length 🔫️
 

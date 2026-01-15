@@ -23,7 +23,7 @@ class ASUT_VML_y_Tests: ASUT_VM_BaseTests {
 // Bip, yank and LYS
 extension ASUT_VML_y_Tests {
 
-    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_selected_text_even_for_an_empty_line() {
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_selected_text_even_for_an_EmptyLine() {
         let text = """
 VM c in Linewise
 will delete the selected lines

@@ -109,7 +109,7 @@ abo😄️ve!
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
-    func test_that_if_on_an_empty_line_it_will_still_create_a_line_above() {
+    func test_that_if_on_an_EmptyLine_it_will_still_create_a_line_above() {
         let textInAXFocusedElement = """
 there is now
 
@@ -134,7 +134,7 @@ an empty line
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
-    func test_that_if_on_the_last_empty_line_it_creates_a_line_above_and_the_caret_goes_on_that_line() {
+    func test_that_if_on_the_last_EmptyLine_it_creates_a_line_above_and_the_caret_goes_on_that_line() {
         let textInAXFocusedElement = """
 now the caret
 will be on
@@ -160,7 +160,7 @@ the last empty line
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
-    func test_that_if_on_the_last_non_empty_line_it_creates_a_line_above_and_the_caret_goes_on_that_line() {
+    func test_that_if_on_the_last_non_EmptyLine_it_creates_a_line_above_and_the_caret_goes_on_that_line() {
         let textInAXFocusedElement = """
 now the caret
 will be on

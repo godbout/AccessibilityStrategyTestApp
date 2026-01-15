@@ -209,7 +209,7 @@ fro
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_goes_to_new_head_location_related_to_the_word_motion_move() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_EmptyLine_it_works_and_goes_to_new_head_location_related_to_the_word_motion_move() {
         let text = """
 caret is on its
 own empty

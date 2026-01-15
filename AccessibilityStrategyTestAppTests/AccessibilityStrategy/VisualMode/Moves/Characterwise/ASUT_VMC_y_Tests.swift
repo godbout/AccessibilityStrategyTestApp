@@ -23,7 +23,7 @@ class ASUT_VMC_y_Tests: ASUT_VM_BaseTests {
 // Bip, yank and LYS
 extension ASUT_VMC_y_Tests {
 
-    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_selected_text_even_for_an_empty_line() {
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_selected_text_even_for_an_EmptyLine() {
         let text = """
 all that VM d does
 in characterwi😂️e is deleting
@@ -144,7 +144,7 @@ extension ASUT_VMC_y_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_own_it_works_and_copies_nothing() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_EmptyLine_on_its_own_it_works_and_copies_nothing() {
         let text = """
 caret is on its
 own empty
