@@ -171,5 +171,4 @@ empty lines!
     }
 }
 
-// TODO: add some text up there to make it clear why now we keep separating NormalSetting and EmptyOrBlankLines
 // TODO: some UT func names should probably be clearer (bug found ones)
