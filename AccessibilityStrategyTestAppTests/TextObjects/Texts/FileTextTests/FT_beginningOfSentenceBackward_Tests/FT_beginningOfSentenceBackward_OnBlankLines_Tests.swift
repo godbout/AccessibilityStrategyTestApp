@@ -75,3 +75,24 @@ this is some more text
     }
     
 }
+
+
+// bugs found
+extension FT_beginningOfSentenceBackward_OnBlankLines_Tests {
+
+    func test_that_if_the_caret_is_on_a_BlankLine_it_stops_on_the_previous_EmptyLine_which_is_actually_a_paragraph_boundary() {
+        let text = """
+so below there's some empty lines
+and some blank lines aftewards!
+
+
+           
+         
+hehe
+"""
+        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 84)
+        
+        XCTAssertEqual(beginningOfSentenceForwardLocation, 67)
+    }
+    
+}
