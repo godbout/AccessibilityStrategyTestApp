@@ -74,7 +74,7 @@ below
 // bugs found
 extension FT_beginningOfSentenceForward_OnEmptyLines_Tests {
 
-    func test_that_if_there_are_BlankLines_between_EmptyLines_then_it_stops_on_the_EmptyLine_after_the_last_BlankLine() {
+    func test_that_if_there_are_BlankLines_between_EmptyLines_then_it_stops_on_the_EmptyLine_right_after_the_BlankLines() {
         let text = """
 so below there's some empty lines
 but also a two blank line in the middle!
