@@ -2,6 +2,7 @@
 import XCTest
 
 
+// see beginningOfSentenceForward for blah blah
 class FT_beginningOfSentenceBackward_NormalSetting_Tests: XCTestCase {
     
     private func applyFuncBeingTested(on text: String, startingAt caretLocation: Int) -> Int {

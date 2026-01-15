@@ -2,7 +2,11 @@
 import XCTest
 
 
-// tests for when the caret is not on an empty or blank line
+// tests for when the caret is not on an empty or blank line.
+// we split tests in Normal Setting, Empty Lines and Blank Lines NOT because of
+// the implementation but because those three cases are quite different on a user
+// point of view and it's better to work on them separately. we can develop each case
+// one by one. same for debugging and adding new bugs found cases.
 class FT_beginningOfSentenceForward_NormalSetting_Tests: XCTestCase {
     
     private func applyFuncBeingTested(on text: String, startingAt caretLocation: Int) -> Int {
