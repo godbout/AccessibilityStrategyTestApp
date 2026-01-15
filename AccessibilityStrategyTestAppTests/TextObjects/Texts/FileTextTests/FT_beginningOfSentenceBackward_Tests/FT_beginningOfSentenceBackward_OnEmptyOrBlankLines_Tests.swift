@@ -170,5 +170,3 @@ empty lines!
         XCTAssertEqual(beginningOfSentenceBackwardLocation, 18)
     }
 }
-
-// TODO: some UT func names should probably be clearer (bug found ones)
