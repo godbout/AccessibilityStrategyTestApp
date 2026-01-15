@@ -978,7 +978,6 @@
 		91C6EE092786F5C2009224DC /* ASUT_NM_c$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_c$_Tests.swift; sourceTree = "<group>"; };
 		91C8CAC5282C0D7700810914 /* ASUT_NM_gx_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_gx_Tests.swift; sourceTree = "<group>"; };
 		91C8CAC7282C23BC00810914 /* FT_urlUnderCaret_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT_urlUnderCaret_Tests.swift; sourceTree = "<group>"; };
-		91C9111F2F18EFFC002418C1 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = SOURCE_ROOT; };
 		91C911212F18F433002418C1 /* FT_beginningOfSentenceForward_OnEmptyLines_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT_beginningOfSentenceForward_OnEmptyLines_Tests.swift; sourceTree = "<group>"; };
 		91C911232F18F614002418C1 /* FT_beginningOfSentenceForward_OnBlankLines_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT_beginningOfSentenceForward_OnBlankLines_Tests.swift; sourceTree = "<group>"; };
 		91C911252F18F924002418C1 /* FT_beginningOfSentenceBackward_OnBlankLines_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT_beginningOfSentenceBackward_OnBlankLines_Tests.swift; sourceTree = "<group>"; };
@@ -1674,7 +1673,6 @@
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,
 				91F951B226DFF56C00DC26C6 /* Products */,
 				9179DC062701D8E100C87DD6 /* Frameworks */,
-				91C9111F2F18EFFC002418C1 /* AccessibilityStrategy */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3456,7 +3454,7 @@
 			repositoryURL = "git@github.com:godbout/AccessibilityStrategy.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.10.0;
+				minimumVersion = 10.11.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
