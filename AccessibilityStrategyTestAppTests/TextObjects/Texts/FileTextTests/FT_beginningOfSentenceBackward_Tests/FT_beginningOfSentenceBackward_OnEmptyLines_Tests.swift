@@ -120,5 +120,19 @@ hehe
         
         XCTAssertEqual(beginningOfSentenceForwardLocation, 79)
     }
+    
+    func test_that_it_does_not_skip_a_sentence_when_there_is_really_only_one_single_EmptyLine_above_it() {
+        let text = """
+
+this is a line.
+
+
+then one more.
+and another one.
+"""
+        let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 18)
+        
+        XCTAssertEqual(beginningOfSentenceBackwardLocation, 1)
+    }
 
 }
