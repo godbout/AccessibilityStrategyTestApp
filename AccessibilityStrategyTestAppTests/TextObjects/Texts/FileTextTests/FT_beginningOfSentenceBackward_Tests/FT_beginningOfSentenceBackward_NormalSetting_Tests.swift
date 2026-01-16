@@ -126,9 +126,7 @@ extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
 // basic
 extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
     
-    // TODO: wrong func name
-    // TODO: adding an EmptyLine at first and it fails LOL
-    func test_that_a_single_linefeed_is_a_sentence_boundary() {
+    func test_that_it_stops_at_the_beginning_of_a_line_if_the_previous_one_ends_with_a_dot_and_a_linefeed() {
         let text = """
 this is a line.
 then one more.
