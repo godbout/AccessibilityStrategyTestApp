@@ -144,9 +144,7 @@ and another one.
 // surrounded by Empty Lines
 extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
     
-    // TODO: rename the paragraph_boundaries ones coz that doesn't make much sense
-    // anymore coz there's so many paragraph boundaries ways
-    func test_that_paragraph_boundaries_are_also_sentence_boundaries() {
+    func test_that_it_stops_at_the_EmptyLine_right_above_when_there_are_multiple_consecutive_EmptyLines() {
         let text = """
 so it's not gonna skip lines but stop
 at paragraph boundaries
