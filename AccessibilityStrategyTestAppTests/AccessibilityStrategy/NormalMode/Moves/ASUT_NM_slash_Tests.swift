@@ -42,7 +42,7 @@ extension ASUT_NM_slash_Tests {
     
     // TODO: this test and the description (func name) are wrong
     // it should loop back through the text, and actually count the pattern skipped
-    func test_that_if_the_count_is_too_high_it_loops_back_and_finds_the_first_occurence_in_the_whole_tex() {
+    func test_that_if_the_count_is_too_high_it_loops_back_and_finds_the_first_occurence_in_the_whole_text() {
         let text = "hehe count is cool yeah count is cool"
         let element = AccessibilityTextElement(
             role: .textField,
