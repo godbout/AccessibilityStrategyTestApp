@@ -88,7 +88,7 @@ this is some more text
 // bugs found
 extension FT_beginningOfSentenceBackward_OnEmptyLines_Tests {
     
-    func test_that_it_does_not_skip_EmptyLines_in_some_cases() {
+    func test_that_if_the_caret_is_on_an_EmptyLine_and_the_previous_line_is_not_empty_then_it_stops_there() {
         let text = """
 so that's a case
 
