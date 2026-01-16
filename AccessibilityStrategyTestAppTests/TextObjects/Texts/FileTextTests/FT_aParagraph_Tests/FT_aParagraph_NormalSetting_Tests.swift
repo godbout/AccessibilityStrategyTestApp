@@ -461,7 +461,7 @@ extension FT_aParagraph_NormalSetting_Tests {
 hehe
        
 """
-        let aParagraphRange = applyFuncBeingTested(on: text, startingAt: 49)
+        let aParagraphRange = applyFuncBeingTested(on: text, startingAt: 48)
         
         XCTAssertEqual(aParagraphRange?.lowerBound, 38)
         XCTAssertEqual(aParagraphRange?.count, 24) 
