@@ -115,8 +115,8 @@ extension FT_beginningOfSentenceForward_NormalSetting_Tests {
 // TextViews
 // basic
 extension FT_beginningOfSentenceForward_NormalSetting_Tests {
-
-    func test_that_a_single_linefeed_is_a_sentence_boundary() {
+    
+    func test_that_it_stops_at_the_beginning_of_the_next_line_if_the_current_one_ends_with_a_dot_and_a_linefeed() {
         let text = """
 this is a line.
 then one more.
