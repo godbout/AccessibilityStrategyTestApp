@@ -126,6 +126,8 @@ extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
 // basic
 extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
     
+    // TODO: wrong func name
+    // TODO: adding an EmptyLine at first and it fails LOL
     func test_that_a_single_linefeed_is_a_sentence_boundary() {
         let text = """
 this is a line.
@@ -144,6 +146,8 @@ and another one.
 // surrounded by Empty Lines
 extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
     
+    // TODO: rename the paragraph_boundaries ones coz that doesn't make much sense
+    // anymore coz there's so many paragraph boundaries ways
     func test_that_paragraph_boundaries_are_also_sentence_boundaries() {
         let text = """
 so it's not gonna skip lines but stop
@@ -173,6 +177,7 @@ this is a first line
         XCTAssertEqual(beginningOfSentenceBackwardLocation, 25)
     }
     
+    // TODO: correct func name?
     func test_that_it_stops_at_the_EmptyLine_right_above_even_when_there_are_multiple_consecutive_lines() {
         let text = """
   it shoud
@@ -232,6 +237,24 @@ below is an empty line
         let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 40)
         
         XCTAssertEqual(beginningOfSentenceBackwardLocation, 9)
+    }
+    
+}
+
+
+// bug found
+extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
+    
+    func test_that_it_does_not_skip_a_sentence_when_there_is_really_only_one_single_EmptyLine_above_it() {
+        let text = """
+
+this is a line.
+then one more.
+and another one.
+"""
+        let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 13)
+        
+        XCTAssertEqual(beginningOfSentenceBackwardLocation, 1)
     }
     
 }
