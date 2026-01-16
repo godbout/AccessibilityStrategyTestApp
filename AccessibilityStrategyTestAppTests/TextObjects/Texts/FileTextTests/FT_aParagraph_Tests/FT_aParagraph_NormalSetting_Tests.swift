@@ -447,9 +447,7 @@ hehe
 
 
 // mix of Empty and Blank Lines
-// happens that a mix of them still doesn't work sometimes.
-// regexes are hard. here will probably have all the bugs we've encountered
-// while using.
+// happens that a mix of them still doesn't work sometimes. regexes are hard.
 // these tests contain Blank Lines.
 extension FT_aParagraph_NormalSetting_Tests {
     
