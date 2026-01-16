@@ -173,8 +173,7 @@ this is a first line
         XCTAssertEqual(beginningOfSentenceBackwardLocation, 25)
     }
     
-    // TODO: correct func name?
-    func test_that_it_stops_at_the_EmptyLine_right_above_even_when_there_are_multiple_consecutive_lines() {
+    func test_that_it_stops_at_the_EmptyLine_right_above_when_there_are_multiple_consecutive_EmptyLines_even_if_the_current_line_starts_with_spaces() {
         let text = """
   it shoud
 
