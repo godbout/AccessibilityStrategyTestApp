@@ -74,6 +74,32 @@ below
 // bugs found
 extension FT_beginningOfSentenceForward_OnEmptyLines_Tests {
 
+    func test_that_if_the_caret_is_on_an_EmptyLine_and_the_next_line_is_not_empty_then_it_stops_there() {
+        let text = """
+so that's a case
+
+where it skips
+
+empty lines!
+"""
+        let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 17)
+        
+        XCTAssertEqual(beginningOfSentenceBackwardLocation, 18)
+    }
+    
+    func test_that_if_the_caret_is_on_an_EmptyLine_and_the_next_line_is_not_empty_then_it_stops_at_the_first_NonBlank_of_that_line() {
+        let text = """
+so that's a case
+
+  where it skips
+
+empty lines!
+"""
+        let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 17)
+        
+        XCTAssertEqual(beginningOfSentenceBackwardLocation, 20)
+    }
+
     func test_that_if_there_are_BlankLines_between_EmptyLines_then_it_stops_on_the_EmptyLine_right_after_the_BlankLines() {
         let text = """
 so below there's some empty lines
