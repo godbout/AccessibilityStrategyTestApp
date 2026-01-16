@@ -125,7 +125,7 @@ paragraph in
         XCTAssertEqual(aParagraphRange?.count, 53) 
     }
     
-    func test_that_for_a_multiple_EmptyLines_after_some_text_it_returns_nil() {
+    func test_that_for_multiple_EmptyLines_after_some_text_it_returns_nil() {
         let text = """
 this text
 is a whole
@@ -140,7 +140,7 @@ paragraph in
         XCTAssertNil(aParagraphRange)
     }
     
-    func test_that_for_a_multiple_EmptyLines_between_some_text_it_returns_the_correct_range() {
+    func test_that_for_multiple_EmptyLines_between_some_text_it_returns_the_correct_range() {
         let text = """
 this text
 is a whole 
