@@ -491,3 +491,42 @@ hehe
     }
     
 }
+
+
+extension FT_aParagraph_NormalSetting_Tests {
+    
+    func test_that_if_there_are_trailing_blanks_on_the_current_line_and_a_line_below_it_returns_the_correct_range() {
+        let text = """
+looks nice
+a bit more
+
+that line has trailing blanks   
+now one line below
+
+
+and more
+"""
+        let aParagraphRange = applyFuncBeingTested(on: text, startingAt: 35)
+        
+        XCTAssertEqual(aParagraphRange?.lowerBound, 23)
+        XCTAssertEqual(aParagraphRange?.count, 54) 
+    }
+    
+    func test_that_if_there_are_trailing_blanks_on_the_line_above_it_returns_the_correct_range() {
+        let text = """
+looks nice
+a bit more
+
+that line has trailing blanks   
+now one line below
+
+
+and more
+"""
+        let aParagraphRange = applyFuncBeingTested(on: text, startingAt: 67)
+        
+        XCTAssertEqual(aParagraphRange?.lowerBound, 23)
+        XCTAssertEqual(aParagraphRange?.count, 54) 
+    }
+    
+}
