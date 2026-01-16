@@ -157,3 +157,41 @@ is a whole
     }
     
 }
+
+
+// bugs found
+extension FT_aParagraph_OnEmptyLines_Tests {
+
+    func test_that_if_there_are_trailing_blanks_at_the_end_of_a_line_they_are_included_in_the_range() {
+        let text = """
+looks nice
+a bit more
+
+
+  that line has trailing blanks   
+
+and they should be counted
+"""
+        let aParagraphRange = applyFuncBeingTested(on: text, startingAt: 23)
+        
+        XCTAssertEqual(aParagraphRange?.lowerBound, 22)
+        XCTAssertEqual(aParagraphRange?.count, 37) 
+    }
+    
+    func test_that_if_the_line_below_another_line_has_only_one_character_then_that_line_is_included_in_the_range_lol() {
+        let text = """
+so
+
+like if only one letter after this sentence   
+a
+
+and it doesn't work???
+"""
+        let aParagraphRange = applyFuncBeingTested(on: text, startingAt: 3)
+        
+        XCTAssertEqual(aParagraphRange?.lowerBound, 3)
+        XCTAssertEqual(aParagraphRange?.count, 50) 
+        
+    }
+
+}
