@@ -2,7 +2,7 @@
 import XCTest
 
 
-// FL and FT nextNonBlank are the same actually coz they're implemented on the TO protocol
+// FL and FT nextNonBlank are the same actually coz they're implemented on the FO protocol
 // but i find it easier to understand the separation, so i test the func on both FL and FT.
 // also UT are cheap, so here you go!
 // hint: blanks are spaces and tabs. linefeed is not blank! (at least most of the time... in some moves it's considered blank in Vim...)
