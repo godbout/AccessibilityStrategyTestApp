@@ -14,7 +14,7 @@ class ASUT_VMC_leftParenthesis_Tests: ASUT_VM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VMC_leftParenthesis_Tests {
 
     func test_that_if_the_Head_is_before_the_Anchor_then_it_extends_the_selection_to_the_new_HeadLocation() {

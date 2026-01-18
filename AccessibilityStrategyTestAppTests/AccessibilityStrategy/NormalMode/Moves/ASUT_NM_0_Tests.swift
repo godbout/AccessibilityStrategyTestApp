@@ -47,7 +47,7 @@ this move does not stop at screen lines. it will just pass by
 }
         
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_0_Tests {
     
     func test_that_if_the_line_is_not_preceded_by_a_linefeed_it_still_goes_to_the_beginning_of_it() {

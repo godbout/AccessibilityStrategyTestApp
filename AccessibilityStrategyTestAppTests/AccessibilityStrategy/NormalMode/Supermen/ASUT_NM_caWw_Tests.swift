@@ -84,7 +84,7 @@ and also a lot of spaces at the end of this line
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_caWw_Tests {
     
     func test_that_when_it_finds_a_word_it_selects_the_range_and_will_delete_the_selection() {

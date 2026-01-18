@@ -112,7 +112,7 @@ Bip
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_yap_Tests {
     
     func test_that_when_it_finds_a_aParagraph_it_copies_the_correct_range_and_repositions_the_caret_correctly() {

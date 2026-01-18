@@ -14,7 +14,7 @@ class FT_innerWORD__Tests_Tests: XCTestCase {
 }
 
 
-// Both
+// TextFields and TextViews
 extension FT_innerWORD__Tests_Tests {
     
     func test_that_if_the_text_is_empty_it_returns_a_range_of_0_to_0() {

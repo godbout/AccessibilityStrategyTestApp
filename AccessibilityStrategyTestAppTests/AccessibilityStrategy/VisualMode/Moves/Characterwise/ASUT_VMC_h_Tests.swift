@@ -148,7 +148,7 @@ count 🈹️ awww
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VMC_h_Tests {
     
     func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_after_the_anchor_then_it_goes_towards_the_beginning_of_the_line_and_reduces_the_selection_by_one() {

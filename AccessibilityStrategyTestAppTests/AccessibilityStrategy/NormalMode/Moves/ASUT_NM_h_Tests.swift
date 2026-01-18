@@ -107,7 +107,7 @@ count awww
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_h_Tests {
     
     func test_that_in_normal_setting_on_a_file_line_it_goes_one_character_to_the_left() {

@@ -15,7 +15,7 @@ class ASUT_NM_dt_Tests: ASUT_NM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_dt_Tests {
     
     func test_that_if_the_character_is_not_found_then_it_does_nothing() {

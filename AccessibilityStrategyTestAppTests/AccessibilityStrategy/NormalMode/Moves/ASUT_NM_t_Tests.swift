@@ -105,7 +105,7 @@ extension ASUT_NM_t_Tests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_t_Tests {
     
     func test_that_in_normal_setting_it_moves_the_caret_before_the_first_occurence_of_the_character_found_to_the_right() {

@@ -15,7 +15,7 @@ class ASUI_NM_cj_Tests: ASUI_NM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_cj_Tests {
     
     func test_that_if_the_caret_is_on_the_lastLine_it_does_not_move() {

@@ -116,7 +116,7 @@ will happen
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VM_wOrDMotionForward_Tests {
     
     func test_that_if_the_head_is_after_the_anchor_it_extends_the_selected_length_to_the_new_head_location_related_to_the_word_motion_move() {

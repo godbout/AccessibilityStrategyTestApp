@@ -181,7 +181,7 @@ extension ASUT_NM_yT__Tests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_yT__Tests {
      
     func test_that_when_it_finds_the_stuff_it_moves_the_caret_to_the_character_found() {

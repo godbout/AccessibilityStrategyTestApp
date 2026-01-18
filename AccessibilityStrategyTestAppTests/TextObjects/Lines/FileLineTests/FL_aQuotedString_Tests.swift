@@ -18,7 +18,7 @@ class FL_aQuotedString_Tests: XCTestCase {
 }
 
 
-// Both
+// TextFields and TextViews
 extension FL_aQuotedString_Tests {
     
     func test_that_if_there_is_no_quote_then_it_returns_nil() {

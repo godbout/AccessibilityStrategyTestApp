@@ -12,7 +12,7 @@ class ASUI_NM_g0_Tests: ASUI_NM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_g0_Tests {
     
     func test_that_in_normal_setting_it_moves_the_caret_position_to_the_first_character_of_the_line() {

@@ -14,7 +14,7 @@ class ASUT_VMC_0_Tests: ASUT_VM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VMC_0_Tests {
     
     func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_before_the_anchor_then_it_goes_to_the_beginning_of_the_line_and_extends_the_selection_backwards() {

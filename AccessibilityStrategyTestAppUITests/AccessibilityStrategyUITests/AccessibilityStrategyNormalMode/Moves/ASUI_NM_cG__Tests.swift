@@ -22,7 +22,7 @@ class ASUI_NM_cG__Tests: ASUI_NM_BaseTests {
 // thing. basically it's like VisualMode instead. so for later.
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_cG__Tests {
     
     func test_that_it_deletes_the_line_up_to_the_firstNonBlankLimit() {

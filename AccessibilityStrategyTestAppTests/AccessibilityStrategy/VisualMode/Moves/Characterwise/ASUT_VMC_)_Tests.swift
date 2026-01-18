@@ -14,7 +14,7 @@ class ASUT_VMC_rightParenthesis_Tests: ASUT_VM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VMC_rightParenthesis_Tests {
 
     func test_that_if_the_Head_is_after_the_Anchor_then_it_extends_the_selection_to_the_new_HeadLocation() {

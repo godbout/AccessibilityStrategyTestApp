@@ -14,7 +14,7 @@ class ASUI_NM_dG__Tests: ASUI_NM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_dG__Tests {
     
     func test_that_if_we_are_on_the_first_line_then_it_deletes_the_whole_text() {

@@ -15,7 +15,7 @@ class ASUI_VML_o_Tests: ASUI_VM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_VML_o_Tests {
     
     func test_that_the_globalColumnNumbers_get_updated() {

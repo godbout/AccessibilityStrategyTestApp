@@ -17,7 +17,7 @@ class ASUI_NM_dEe_Tests: ASUI_NM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_dEe_Tests {
     
     func test_that_the_block_cursor_ends_up_at_the_right_place() {

@@ -178,7 +178,7 @@ extension ASUT_NM_yf_Tests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_yf_Tests {
     
     // on yF and yT move, yf and yt don't

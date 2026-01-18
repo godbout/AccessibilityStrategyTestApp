@@ -14,7 +14,7 @@ class ASUI_NM_cip_Tests: ASUI_NM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_cip_Tests {
     
     func test_that_when_it_finds_an_innerParagraph_it_selects_the_range_and_will_delete_the_selection() {

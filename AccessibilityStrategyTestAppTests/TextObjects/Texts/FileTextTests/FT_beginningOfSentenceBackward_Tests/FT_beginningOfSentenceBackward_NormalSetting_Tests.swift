@@ -14,7 +14,7 @@ class FT_beginningOfSentenceBackward_NormalSetting_Tests: XCTestCase {
 }
 
 
-// Both
+// TextFields and TextViews
 extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
 
     func test_that_if_the_text_is_just_one_word_then_it_goes_to_the_beginning_of_the_text() {

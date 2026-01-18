@@ -16,7 +16,7 @@ class ASUI_NM_dh_Tests: ASUI_NM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_dh_Tests {
     
     func test_that_in_normal_setting_it_deletes_the_character_before_the_caret_location() {

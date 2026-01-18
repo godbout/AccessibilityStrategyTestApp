@@ -14,7 +14,7 @@ class ASUT_VMC_iW__Tests: ASUT_VM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VMC_iW__Tests {
     
     func test_that_if_the_Head_is_after_the_Anchor_it_extends_the_selection_to_the_end_of_the_word_where_the_head_is() {

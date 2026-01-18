@@ -13,7 +13,7 @@ class FT_previousUnmatched_Tests: XCTestCase {
 }
 
 
-// Both
+// TextFields and TextViews
 extension FT_previousUnmatched_Tests {
         
     func test_that_it_can_move_to_a_lonely_bracket() {

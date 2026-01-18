@@ -66,7 +66,7 @@ but the below line will not go up\n
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VML_y_Tests {
     
     func test_that_for_TextFields_it_yanks_the_whole_line() {

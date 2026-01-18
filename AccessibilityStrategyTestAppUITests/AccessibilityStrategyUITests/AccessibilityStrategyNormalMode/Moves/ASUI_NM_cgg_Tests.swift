@@ -14,7 +14,7 @@ class ASUI_NM_cgg_Tests: ASUI_NM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_cgg_Tests {
     
     func test_that_it_deletes_the_line_up_to_the_firstNonBlankLimit() {

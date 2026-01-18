@@ -16,7 +16,7 @@ class ASUI_NM_dABlock_Tests: ASUI_NM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_dABlock_Tests {
     
     func test_that_if_there_is_no_block_found_the_caretLocation_does_not_move() {

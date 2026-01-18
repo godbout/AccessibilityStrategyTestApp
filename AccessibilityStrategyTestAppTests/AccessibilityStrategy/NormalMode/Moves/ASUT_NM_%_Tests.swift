@@ -46,7 +46,7 @@ them like nothin🇫🇷️ happened. (that's how special) it is.
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_percent_Tests {
     
     func test_that_the_caret_does_not_move_if_it_cannot_find_an_item_to_pair() {

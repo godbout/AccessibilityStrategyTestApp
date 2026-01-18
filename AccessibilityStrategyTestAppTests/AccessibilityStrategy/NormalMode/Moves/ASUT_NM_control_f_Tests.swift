@@ -12,7 +12,7 @@ class ASUT_NM_control_f_Tests: ASUT_NM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_control_f_Tests {
 
     func test_that_it_goes_to_the_firstNonBlank_of_the_first_line_of_the_next_page() {

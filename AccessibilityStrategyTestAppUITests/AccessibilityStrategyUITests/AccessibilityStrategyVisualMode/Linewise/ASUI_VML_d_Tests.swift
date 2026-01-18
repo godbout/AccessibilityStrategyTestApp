@@ -17,7 +17,7 @@ class ASUI_VML_d_Tests: ASUI_VM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_VML_d_Tests {
     
     func test_that_it_deletes_line_and_the_caret_will_go_to_the_first_non_blank_of_the_next_line_that_is_taking_over() {

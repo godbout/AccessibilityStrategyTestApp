@@ -16,7 +16,7 @@ class ASUI_VM_u_Tests: ASUI_VM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_VM_u_Tests {
 
     func test_that_it_changes_case_to_uppercase_for_the_selection() {

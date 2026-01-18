@@ -170,7 +170,7 @@ cool because i
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VMC_gg_Tests {
     
     // see G for blah blah!

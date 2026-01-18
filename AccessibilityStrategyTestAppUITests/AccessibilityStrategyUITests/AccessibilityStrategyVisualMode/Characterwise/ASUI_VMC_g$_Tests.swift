@@ -39,7 +39,7 @@ at the anchor, not at the caret location
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_VMC_g$_Tests {
             
     func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_after_the_anchor_then_it_goes_to_the_end_of_the_line_and_extends_the_selection() {

@@ -67,7 +67,7 @@ see\n
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_yip_Tests {
     
     func test_that_it_copies_the_innerParagraph_and_repositions_the_caret_at_the_right_location() {

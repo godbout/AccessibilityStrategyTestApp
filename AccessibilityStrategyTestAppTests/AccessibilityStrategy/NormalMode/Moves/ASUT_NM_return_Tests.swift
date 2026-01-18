@@ -154,7 +154,7 @@ ok.
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_return_Tests {
 
     func test_that_if_the_caret_is_at_the_last_line_then_it_does_not_move() {

@@ -142,7 +142,7 @@ multiline and this
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VML___Tests {
     
     func test_that_if_only_one_line_is_selected_then_it_keeps_the_selection_because_without_a_count_it_does_nothing_in_Linewise() {

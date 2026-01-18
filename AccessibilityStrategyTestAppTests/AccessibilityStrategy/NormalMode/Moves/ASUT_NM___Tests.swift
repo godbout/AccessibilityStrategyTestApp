@@ -115,7 +115,7 @@ LMAO
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM___Tests {
     
     func test_that_in_normal_case_it_goes_to_the_first_non_blank_of_the_line() {

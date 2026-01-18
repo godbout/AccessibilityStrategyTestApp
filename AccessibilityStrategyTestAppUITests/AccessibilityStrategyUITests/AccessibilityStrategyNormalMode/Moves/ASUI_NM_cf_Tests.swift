@@ -35,7 +35,7 @@ extension ASUI_NM_cf_Tests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_cf_Tests {
     
     func test_that_in_normal_setting_it_selects_the_text_from_the_caret_to_the_character_found() {

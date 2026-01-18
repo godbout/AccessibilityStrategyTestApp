@@ -170,7 +170,7 @@ cool because it wi
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VMC_G__Tests {
 
     // this only happens if the new head location and the anchor are on the same line!

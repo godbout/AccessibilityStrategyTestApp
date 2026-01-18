@@ -66,7 +66,7 @@ in characterwi
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VMC_c_Tests {
 
     func test_that_when_the_selection_is_spanning_on_a_single_line_it_deletes_the_selected_text() {

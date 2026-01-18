@@ -38,7 +38,7 @@ with linefeed
 }
 
 
-// Both
+// TextFields and TextViews
 extension FT_beginningOfWORDForward__Tests {
     
     func test_that_it_can_go_to_the_beginning_of_the_next_WORD() {

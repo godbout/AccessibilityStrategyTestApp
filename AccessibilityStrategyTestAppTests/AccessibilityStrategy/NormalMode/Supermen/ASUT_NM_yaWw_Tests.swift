@@ -84,7 +84,7 @@ and also a lot of spaces at the end of this line
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_yaWw_Tests {
     
     func test_that_when_it_finds_a_word_it_copies_the_correct_range_and_repositions_the_caret_properly() {

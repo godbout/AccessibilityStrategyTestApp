@@ -13,7 +13,7 @@ class ASUT_NM_a_Tests: ASUT_NM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_a_Tests {
 
     func test_that_in_normal_setting_a_goes_one_character_to_the_right_in_Text_AXUIElement() {

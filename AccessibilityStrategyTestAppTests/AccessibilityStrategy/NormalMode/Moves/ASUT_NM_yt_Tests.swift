@@ -183,7 +183,7 @@ extension ASUT_NM_yt_Tests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_yt_Tests {
     
     // see yf for blah blah

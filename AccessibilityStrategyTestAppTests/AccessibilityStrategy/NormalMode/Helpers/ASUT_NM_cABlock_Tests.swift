@@ -21,7 +21,7 @@ class ASUT_NM_cABlock_Tests: ASUT_NM_BaseTests {
 // selectedText, Bip, LYS, copy deletion.
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_cABlock_Tests {
     
     func test_that_it_there_is_no_block_found_it_bips_and_does_not_copy_anything_and_does_not_change_the_LastYankStyle() {

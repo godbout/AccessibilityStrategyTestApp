@@ -52,7 +52,7 @@ extension ASUT_NM_yiWw_Tests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_yiWw_Tests {
     
     func test_that_it_copies_the_inner_word() {

@@ -176,7 +176,7 @@ select some stuff and all
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VMC_g__Tests {
             
     func test_that_if_the_selection_spans_over_a_single_line_and_the_Head_is_after_the_Anchor_then_it_goes_to_the_lastNonBlank_of_the_line_and_extends_the_selection() {

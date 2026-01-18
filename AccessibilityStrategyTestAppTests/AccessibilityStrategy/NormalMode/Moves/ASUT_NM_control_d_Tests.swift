@@ -123,7 +123,7 @@ tested
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_control_d_Tests {
 
     func test_that_it_goes_to_the_firstNonBlank_of_the_line_that_is_half_a_page_down_the_current_one() {

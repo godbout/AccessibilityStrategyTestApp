@@ -176,7 +176,7 @@ Visual Mode is gonna be
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VML_G__Tests {
     
     func test_that_if_the_TextElement_is_just_a_single_line_then_it_keeps_the_whole_line_selected() {

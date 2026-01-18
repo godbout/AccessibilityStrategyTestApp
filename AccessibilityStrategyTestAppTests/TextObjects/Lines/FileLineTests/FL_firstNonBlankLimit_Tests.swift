@@ -9,7 +9,7 @@ import XCTest
 class FL_firstNonBlankLimit_Tests: XCTestCase {}
 
 
-// Both
+// TextFields and TextViews
 extension FL_firstNonBlankLimit_Tests {
     
     func test_that_if_the_line_starts_with_spaces_it_returns_the_correct_location() throws {

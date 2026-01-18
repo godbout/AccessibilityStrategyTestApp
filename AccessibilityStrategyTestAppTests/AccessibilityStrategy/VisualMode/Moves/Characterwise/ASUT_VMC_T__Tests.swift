@@ -79,7 +79,7 @@ extension ASUT_VMC_T__Tests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VMC_T__Tests {
     
     func test_that_if_the_new_head_location_is_after_the_Anchor_then_it_selects_from_Anchor_to_the_new_head_location() {

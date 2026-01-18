@@ -15,7 +15,7 @@ class ASUT_VMC_g$_Tests: ASUT_VM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VMC_g$_Tests {
     
     func test_that_it_does_not_set_the_ATE_ColumnNumbers_to_nil() {

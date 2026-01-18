@@ -14,7 +14,7 @@ class ASUI_NM_daSingleQuote_Tests: ASUI_NM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_daSingleQuote_Tests {
 
     func test_that_we_are_passing_the_correct_parameters_to_dQuotedString() {

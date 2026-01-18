@@ -38,7 +38,7 @@ with linefeed
 }
 
 
-// Both
+// TextFields and TextViews
 extension FT_endOfParagraphForward_Tests {
     
     

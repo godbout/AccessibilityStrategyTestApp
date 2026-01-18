@@ -62,7 +62,7 @@ in characterwi
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VMC_y_Tests {
   
     func test_that_it_yanks_the_selection() {

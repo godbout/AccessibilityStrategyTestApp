@@ -14,7 +14,7 @@ class ASUI_NM_dj_Tests: ASUI_NM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_dj_Tests {
     
     func test_that_if_there_is_only_one_line_it_does_not_do_anything() {

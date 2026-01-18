@@ -58,7 +58,7 @@ and one more line
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_tilde_Tests {
 
     func test_that_in_normal_setting_it_replaces_a_lowercase_character_by_an_uppercase_one() {

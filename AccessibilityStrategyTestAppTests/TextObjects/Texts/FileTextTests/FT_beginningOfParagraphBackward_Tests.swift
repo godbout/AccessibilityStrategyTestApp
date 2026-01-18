@@ -40,7 +40,7 @@ with linefeed
 }
 
 
-// Both
+// TextFields and TextViews
 extension FT_beginningOfParagraphBackward_Tests {
     
     func test_that_if_the_text_does_not_have_linefeed_then_it_stops_at_the_beginning_of_the_text() {

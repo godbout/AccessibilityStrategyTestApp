@@ -72,7 +72,7 @@ LMAO
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_ch_Tests {
     
     func test_that_in_normal_setting_it_deletes_the_character_before_the_caretLocation() {

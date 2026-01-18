@@ -19,7 +19,7 @@ class ASUT_NM_daB__Tests: ASUT_NM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_daB__Tests {
 
     func test_that_if_no_block_is_found_then_it_does_nothing() {

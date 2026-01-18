@@ -38,7 +38,7 @@ seems that even the normal
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_rightChevronRightChevron_Tests {
     
     func test_that_in_normal_setting_it_adds_4_spaces_at_the_beginning_of_a_line_and_sets_the_caret_to_the_first_non_blank_of_the_line() {

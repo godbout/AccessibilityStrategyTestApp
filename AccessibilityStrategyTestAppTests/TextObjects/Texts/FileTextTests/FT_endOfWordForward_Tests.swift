@@ -37,7 +37,7 @@ with linefeed
     
 }
 
-// Both
+// TextFields and TextViews
 extension FT_endOfWordForward_Tests {
 
     func test_that_it_can_go_to_the_end_of_the_current_word() {

@@ -203,7 +203,7 @@ of days.
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_yy_Tests {
     
     func test_that_in_normal_setting_it_copies_the_line_into_the_buffer() {

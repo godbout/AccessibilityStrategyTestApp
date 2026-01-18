@@ -186,7 +186,7 @@ select some stuff and all
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VML_gg_Tests {
     
     func test_that_if_the_TextElement_is_just_a_single_line_then_it_keeps_the_whole_line_selected() {

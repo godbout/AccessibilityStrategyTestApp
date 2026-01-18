@@ -78,7 +78,7 @@ and now `hohohohoho`
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_yQuotedString_Tests {
     
     func test_that_there_is_no_quote_it_does_not_move_or_copy_anything_and_does_not_touch_the_LastYankStyle() {

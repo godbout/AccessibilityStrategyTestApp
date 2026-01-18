@@ -13,7 +13,7 @@ class FT_nextUnmatched_Tests: XCTestCase {
 }
 
 
-// Both
+// TextFields and TextViews
 extension FT_nextUnmatched_Tests {
     
     func test_that_it_goes_to_the_next_unmatched_bracket_where_there_is_only_one() {

@@ -46,7 +46,7 @@ extension ASUT_NM_I__Tests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_I__Tests {
     
     func test_that_in_normal_setting_it_goes_at_the_beginning_of_the_line() {

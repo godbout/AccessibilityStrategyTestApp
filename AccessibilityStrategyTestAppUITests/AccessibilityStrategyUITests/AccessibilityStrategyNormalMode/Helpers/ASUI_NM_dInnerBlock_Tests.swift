@@ -23,7 +23,7 @@ class ASUI_NM_dInnerBlock_Tests: ASUI_NM_BaseTests {
 // rather than only testing Bip, copy deletion and LYS on their own. hence they get tested here rather than in UT.
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_dInnerBlock_Tests {
 
     func test_that_it_there_is_no_innerBlock_found_it_bips_and_does_not_copy_anything_and_does_not_change_the_LastYankStyle() {

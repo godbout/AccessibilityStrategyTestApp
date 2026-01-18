@@ -16,7 +16,7 @@ class ASUI_VM_tilde_Tests: ASUI_VM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_VM_tilde_Tests {
 
     func test_that_it_switches_case_for_the_selection() {

@@ -5,7 +5,7 @@ import XCTest
 class ASUI_NM_i_Tests: ASUT_NM_BaseTests {}
 
 
-// Both
+// TextFields and TextViews
 extension ASUI_NM_i_Tests {
     
     func test_that_it_does_nothing_lol() {

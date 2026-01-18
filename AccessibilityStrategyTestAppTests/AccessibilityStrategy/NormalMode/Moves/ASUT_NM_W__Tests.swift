@@ -69,7 +69,7 @@ extension ASUT_NM_W__Tests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_NM_W__Tests {
     
     func test_that_when_there_is_no_word_forward_it_goes_to_the_end_limit_of_the_text() {

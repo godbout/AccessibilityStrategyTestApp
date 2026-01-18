@@ -13,7 +13,7 @@ class ASUT_VM_V__Tests: ASUT_VM_BaseTests {
 }
 
 
-// Both
+// TextFields and TextViews
 extension ASUT_VM_V__Tests {
     
     func test_that_it_selects_the_whole_line_even_if_it_does_not_end_with_a_linefeed() {

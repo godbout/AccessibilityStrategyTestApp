@@ -13,7 +13,7 @@ class FT_aBlock_Tests: XCTestCase {
 }
 
 
-// Both
+// TextFields and TextViews
 extension FT_aBlock_Tests {
 
     func test_that_if_there_is_no_bracket_then_it_returns_nil() {
