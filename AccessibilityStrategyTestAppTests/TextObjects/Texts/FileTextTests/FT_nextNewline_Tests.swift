@@ -2,6 +2,10 @@
 import XCTest
 
 
+// this one and previousNewline only exist on FileText, not FileObjectProtocol
+// coz it makes no sense (or at least currently useless) for FileLine.
+// coz you know, newline. FL acts on a line, lines which are separated by newlines.
+// so yeah. everything is at its right place.
 class FT_nextNewline_Tests: XCTestCase {}
 
 
