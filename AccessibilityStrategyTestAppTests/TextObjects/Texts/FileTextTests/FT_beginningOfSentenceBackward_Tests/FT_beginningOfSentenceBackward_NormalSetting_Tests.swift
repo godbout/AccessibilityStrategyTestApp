@@ -141,7 +141,7 @@ and another one.
 
 
 // TextViews
-// surrounded by Empty Lines
+// surrounded by EmptyLines
 extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
     
     func test_that_it_stops_at_the_EmptyLine_right_above_when_there_are_multiple_consecutive_EmptyLines() {

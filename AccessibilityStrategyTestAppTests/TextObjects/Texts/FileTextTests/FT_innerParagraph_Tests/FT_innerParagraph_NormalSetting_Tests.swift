@@ -8,7 +8,7 @@ import XCTest
 class FT_innerParagraph_NormalSetting_Tests: XCTestCase {}
 
 
-// surrounded by Empty Lines
+// surrounded by EmptyLines
 // these tests contain Blanks
 extension FT_innerParagraph_NormalSetting_Tests {
     
@@ -227,8 +227,8 @@ hehe
 }
 
 
-// surrounded by Blank Lines
-// these tests contain Blank Lines. (duh.)
+// surrounded by BlankLines
+// these tests contain Blank. (duh.)
 extension FT_innerParagraph_NormalSetting_Tests {
     
     func test_that_for_a_single_line_after_an_BlankLine_it_returns_the_correct_range() {
@@ -422,11 +422,11 @@ hehe
 }
 
 
-// mix of Empty and Blank Lines
+// mix of EmptyLines and BlankLines
 // happens that a mix of them still doesn't work sometimes.
 // regexes are hard. here will probably have all the bugs we've encountered
 // while using.
-// these tests contain Blank Lines.
+// these tests contain Blanks
 extension FT_innerParagraph_NormalSetting_Tests {
 
     func test_that_a_mix_of_EmptyLines_and_BlankLines_above_a_text_returns_the_correct_range() {
