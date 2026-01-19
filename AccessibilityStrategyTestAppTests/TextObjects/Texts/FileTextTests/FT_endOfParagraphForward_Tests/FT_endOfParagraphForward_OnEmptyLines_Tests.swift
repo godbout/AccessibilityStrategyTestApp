@@ -13,10 +13,6 @@ class FT_endOfParagraphForward_OnEmptyLines_Tests: XCTestCase {
 }
 
 
-// The 3 Cases:
-// - empty TextElement
-// - 2nd case is now gone!
-// - caret at the end of TextElement on own empty line
 extension FT_endOfParagraphForward_OnEmptyLines_Tests {
     
     func test_that_if_the_text_is_empty_then_it_returns_0() {
@@ -40,13 +36,7 @@ with linefeed
         
         XCTAssertEqual(endOfParagraphForwardLocation, 54)
     }
-    
-}
 
-
-// TODO: split tests like we did for Sentence
-extension FT_endOfParagraphForward_OnEmptyLines_Tests {
-    
     func test_that_if_the_caret_is_already_on_an_EmptyLine_it_skips_all_the_consecutive_EmptyLines() {
         let text = """
 hello
@@ -54,11 +44,13 @@ hello
 
 
 some more
+
+hoho
 """
 
         let endOfParagraphForwardLocation = applyFuncBeingTested(on: text, startingAt: 6)
         
-        XCTAssertEqual(endOfParagraphForwardLocation, 17)
+        XCTAssertEqual(endOfParagraphForwardLocation, 19)
     }
     
 }
