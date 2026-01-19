@@ -1280,6 +1280,22 @@
 			path = FT_innerParagraph_Tests;
 			sourceTree = "<group>";
 		};
+		912269812F1E025B00452650 /* FT_beginningOfParagraphBackward_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9135D818270D6026001C8801 /* FT_beginningOfParagraphBackward_Tests.swift */,
+			);
+			path = FT_beginningOfParagraphBackward_Tests;
+			sourceTree = "<group>";
+		};
+		912269822F1E028000452650 /* FT_endOfParagraphForward_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9135D81A270D6574001C8801 /* FT_endOfParagraphForward_Tests.swift */,
+			);
+			path = FT_endOfParagraphForward_Tests;
+			sourceTree = "<group>";
+		};
 		913BAFDD26E103FE002E6999 /* AccessibilityTextElementAdaptorUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1330,7 +1346,7 @@
 				91585A4D28E42558003A0FA7 /* FT_firstNonBlank_Tests.swift */,
 				9148E9D92770696300A86F61 /* FT_aWORD__Tests.swift */,
 				912289E92710569E0024FBFC /* FT_aWord_Tests.swift */,
-				9135D818270D6026001C8801 /* FT_beginningOfParagraphBackward_Tests.swift */,
+				912269812F1E025B00452650 /* FT_beginningOfParagraphBackward_Tests */,
 				91E224A0289549FB002869AA /* FT_beginningOfSentenceBackward_Tests */,
 				91E2249D289546FD002869AA /* FT_beginningOfSentenceForward_Tests */,
 				91D5D826270D86A700876192 /* FT_beginningOfWORDBackward__Tests.swift */,
@@ -1339,7 +1355,7 @@
 				916BF7E3270E043A00AA0771 /* FT_beginningOfWordForward_Tests.swift */,
 				912BA08728451F79009412A6 /* FT_endOfCurrentWORD__Tests.swift */,
 				91DB468428450F1D00A01996 /* FT_endOfCurrentWord_Tests.swift */,
-				9135D81A270D6574001C8801 /* FT_endOfParagraphForward_Tests.swift */,
+				912269822F1E028000452650 /* FT_endOfParagraphForward_Tests */,
 				91C5C7BB270EE8B7005636F4 /* FT_endOfWORDBackward__Tests.swift */,
 				91A291D8270EE23D009F4B6C /* FT_endOfWordBackward_Tests.swift */,
 				915DEF73270EACDA00EED993 /* FT_endOfWORDForward__Tests.swift */,
