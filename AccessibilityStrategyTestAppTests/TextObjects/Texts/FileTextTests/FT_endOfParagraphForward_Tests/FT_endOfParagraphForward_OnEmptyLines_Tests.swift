@@ -36,8 +36,7 @@ with linefeed
 
 """
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-           let endOfParagraphForwardLocation = fileText.endOfParagraphForward(startingAt: 54)
+        let endOfParagraphForwardLocation = applyFuncBeingTested(on: text, startingAt: 54)
         
         XCTAssertEqual(endOfParagraphForwardLocation, 54)
     }
@@ -57,8 +56,7 @@ hello
 some more
 """
 
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let endOfParagraphForwardLocation = fileText.endOfParagraphForward(startingAt: 6)
+        let endOfParagraphForwardLocation = applyFuncBeingTested(on: text, startingAt: 6)
         
         XCTAssertEqual(endOfParagraphForwardLocation, 17)
     }
