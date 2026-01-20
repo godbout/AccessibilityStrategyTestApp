@@ -113,9 +113,9 @@ below is a blank line
    it should go to the empty line
    no the lines above
 """
-        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 17)
+        let endOfParagraphForwardLocation = applyFuncBeingTested(on: text, startingAt: 17)
         
-        XCTAssertEqual(beginningOfSentenceForwardLocation, 57)
+        XCTAssertEqual(endOfParagraphForwardLocation, 57)
     }
     
     func test_that_it_skips_multiple_BlankLines() {
@@ -129,9 +129,9 @@ below is a blank line
 
 hehe
 """ 
-        let beginningOfSentenceForwardLocation = applyFuncBeingTested(on: text, startingAt: 7)
+        let endOfParagraphForwardLocation = applyFuncBeingTested(on: text, startingAt: 7)
         
-        XCTAssertEqual(beginningOfSentenceForwardLocation, 50)
+        XCTAssertEqual(endOfParagraphForwardLocation, 50)
     }
     
 }
