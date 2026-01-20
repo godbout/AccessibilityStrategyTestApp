@@ -80,6 +80,7 @@ with linefeed
     
 }
 
+
 // TextViews
 // surrounded by EmptyLines
 extension FT_endOfParagraphForward_OnEmptyLines_Tests {
@@ -106,7 +107,7 @@ hoho
 // TextViews
 // surrounded by BlankLines
 extension FT_endOfParagraphForward_OnEmptyLines_Tests {
-
+    
     func test_that_if_the_caret_is_already_on_an_EmptyLine_it_skips_all_the_consecutive_BlankLines() {
         let text = """
 a line and then EL and then BLs
@@ -117,10 +118,35 @@ a line of text before EL
 
 hoho
 """
-
+        
         let endOfParagraphForwardLocation = applyFuncBeingTested(on: text, startingAt: 32)
         
         XCTAssertEqual(endOfParagraphForwardLocation, 70)
+    }
+    
+}
+
+
+// bug found
+extension FT_endOfParagraphForward_OnEmptyLines_Tests {
+    
+    func test_that_it_stops_at_the_first_end_of_paragraph_found_and_not_at_others_down_the_text() {
+        let text = """
+some poetry
+that is beautiful
+
+
+and some more blah blah
+
+
+some more paragraphs!
+
+and some more!
+"""
+        
+        let endOfParagraphForwardLocation = applyFuncBeingTested(on: text, startingAt: 30)
+        
+        XCTAssertEqual(endOfParagraphForwardLocation, 56)
     }
     
 }
