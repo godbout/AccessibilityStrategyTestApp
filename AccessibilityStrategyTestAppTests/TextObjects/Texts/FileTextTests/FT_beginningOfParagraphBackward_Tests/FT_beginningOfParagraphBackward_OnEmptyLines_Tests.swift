@@ -94,6 +94,25 @@ last line hehe
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 124)
     }
     
+    func test_that_it_stops_at_the_first_beginning_of_paragraph_found_and_not_at_others_up_the_text() {
+        let text = """
+some poetry
+that is beautiful
+
+
+and some more blah blah
+
+some more paragraphs!
+
+hehe!
+hoho
+"""
+        
+        let beginningOfParagraphBackwardLocation = applyFuncBeingTested(on: text, startingAt: 79)
+        
+        XCTAssertEqual(beginningOfParagraphBackwardLocation, 56)
+    }
+    
 }
 
 
@@ -114,8 +133,42 @@ with linefeed
         
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 0)
     }
-       
+        
+    func test_that_if_the_caret_is_on_an_EmptyLine_and_it_is_all_EmptyLines_up_to_the_beginning_then_it_goes_to_the_beginning() {
+        let text = """
+
+
+
+
+
+a couple of
+lines but not
+coke haha but
+with linefeed
+"""
+        
+        let beginningOfParagraphBackwardLocation = applyFuncBeingTested(on: text, startingAt: 3)
+        
+        XCTAssertEqual(beginningOfParagraphBackwardLocation, 0)
+    }
+    
     func test_that_if_the_caret_is_already_on_an_EmptyLine_it_skips_all_the_previous_consecutive_EmptyLines() {
+        let text = """
+other hello
+
+hello
+
+
+
+some more
+"""
+        
+        let beginningOfParagraphBackwardLocation = applyFuncBeingTested(on: text, startingAt: 20)
+        
+        XCTAssertEqual(beginningOfParagraphBackwardLocation, 12)
+    }
+        
+    func test_that_if_the_caret_is_already_on_an_EmptyLine_and_it_is_all_EmptyLines_up() {
         let text = """
 other hello
 
