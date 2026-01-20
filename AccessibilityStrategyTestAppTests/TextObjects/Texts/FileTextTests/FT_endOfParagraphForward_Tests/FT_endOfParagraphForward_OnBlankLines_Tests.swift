@@ -143,7 +143,7 @@ can check the impl of that
 
     func test_that_if_the_caret_is_on_an_BlankLine_and_the_text_ends_by_multiple_BlankLines_then_it_goes_to_the_endLimit() {
         let text = """
-plenty of empty lines
+plenty of blank lines
 below
            
         
