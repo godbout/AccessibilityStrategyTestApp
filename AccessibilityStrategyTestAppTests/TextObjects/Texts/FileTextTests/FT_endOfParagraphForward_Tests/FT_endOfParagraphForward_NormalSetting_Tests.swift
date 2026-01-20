@@ -41,7 +41,6 @@ the other but no EmptyLine!
         let endOfParagraphForwardLocation = applyFuncBeingTested(on: text, startingAt: 14)
 
         XCTAssertEqual(endOfParagraphForwardLocation, 69)
-        
     }
     
 }
