@@ -2,8 +2,8 @@
 import XCTest
 
 // aWord moves seem to be separated in two ways:
-// 1. when caretLocation is on a whitespace (ignore forward linefeed, for example)
-// 2. when caretLocation is on a non whitespace (doesn't ignore forward linefeed, for example)
+// 1. when caretLocation is on a whitespace (ignore forward Newline, for example)
+// 2. when caretLocation is on a non whitespace (doesn't ignore forward Newline, for example)
 // so we gonna separate the tests like this.
 class FT_aWord_Tests: XCTestCase {
     

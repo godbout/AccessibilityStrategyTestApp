@@ -72,7 +72,6 @@ extension FL_firstNonBlankLimit_Tests {
         XCTAssertEqual(fileLine.firstNonBlankLimit, 7)
     }
     
-    // TODO: update linefeed to Newline
     func test_that_if_the_line_only_contains_Blanks_and_ends_with_a_Newline_it_returns_the_end_limit() throws {
         let text = "     \n"        
         
