@@ -49,8 +49,8 @@ extension ATE_SimpleComputedProperties_Tests {
         XCTAssertEqual(element.caretIsNotAtTheBeginning, false)
         XCTAssertEqual(element.caretIsAtTheEnd, true)
         XCTAssertEqual(element.caretIsNotAtTheEnd, false)
-        XCTAssertEqual(element.lastCharacterIsLinefeed, false)
-        XCTAssertEqual(element.lastCharacterIsNotLinefeed, true)
+        XCTAssertEqual(element.lastCharacterIsNewline, false)
+        XCTAssertEqual(element.lastCharacterIsNotNewline, true)
     }
         
     func test_that_without_emojis_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_EmptyLine_the_computed_properties_are_correctly_calculated() {
@@ -87,8 +87,8 @@ line
         XCTAssertEqual(element.caretIsNotAtTheBeginning, true)
         XCTAssertEqual(element.caretIsAtTheEnd, true)
         XCTAssertEqual(element.caretIsNotAtTheEnd, false)
-        XCTAssertEqual(element.lastCharacterIsLinefeed, true)
-        XCTAssertEqual(element.lastCharacterIsNotLinefeed, false)
+        XCTAssertEqual(element.lastCharacterIsNewline, true)
+        XCTAssertEqual(element.lastCharacterIsNotNewline, false)
     }
             
 }
@@ -127,8 +127,8 @@ extension ATE_SimpleComputedProperties_Tests {
         XCTAssertEqual(element.caretIsNotAtTheBeginning, true)
         XCTAssertEqual(element.caretIsAtTheEnd, false)
         XCTAssertEqual(element.caretIsNotAtTheEnd, true)
-        XCTAssertEqual(element.lastCharacterIsLinefeed, false)
-        XCTAssertEqual(element.lastCharacterIsNotLinefeed, true)
+        XCTAssertEqual(element.lastCharacterIsNewline, false)
+        XCTAssertEqual(element.lastCharacterIsNotNewline, true)
     }
     
 }
@@ -178,8 +178,8 @@ line 🌻️
         XCTAssertEqual(element.caretIsNotAtTheBeginning, true)
         XCTAssertEqual(element.caretIsAtTheEnd, true)
         XCTAssertEqual(element.caretIsNotAtTheEnd, false)
-        XCTAssertEqual(element.lastCharacterIsLinefeed, true)
-        XCTAssertEqual(element.lastCharacterIsNotLinefeed, false)
+        XCTAssertEqual(element.lastCharacterIsNewline, true)
+        XCTAssertEqual(element.lastCharacterIsNotNewline, false)
     }
     
 }
@@ -216,8 +216,8 @@ extension ATE_SimpleComputedProperties_Tests {
         XCTAssertEqual(element.caretIsNotAtTheBeginning, true)
         XCTAssertEqual(element.caretIsAtTheEnd, false)
         XCTAssertEqual(element.caretIsNotAtTheEnd, true)
-        XCTAssertEqual(element.lastCharacterIsLinefeed, false)
-        XCTAssertEqual(element.lastCharacterIsNotLinefeed, true)
+        XCTAssertEqual(element.lastCharacterIsNewline, false)
+        XCTAssertEqual(element.lastCharacterIsNotNewline, true)
     }
     
 }
