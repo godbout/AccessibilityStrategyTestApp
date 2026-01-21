@@ -18,7 +18,7 @@ class ASUT_VMC_g__Tests: ASUT_VM_BaseTests {
 // line
 extension ASUT_VMC_g__Tests {
     
-    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
+    func test_conspicuously_that_it_does_not_stop_at_ScreenLines() {
         let text = """
 this move does not stop at screen lines. it will just pass by
 them like nothing happened. that's how special it is.

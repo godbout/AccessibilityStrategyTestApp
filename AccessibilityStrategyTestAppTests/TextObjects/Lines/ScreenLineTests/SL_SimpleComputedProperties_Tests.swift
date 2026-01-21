@@ -47,7 +47,7 @@ line
 // other cases
 extension SL_SimpleComputerProperties_Tests {
     
-    func test_that_for_a_screen_line_that_ends_with_a_Newline_the_computed_properties_are_correct() {
+    func test_that_for_a_ScreenLine_that_ends_with_a_Newline_the_computed_properties_are_correct() {
         let text = """
 now i'm a line 📏️📏️📏️ with 📏️
 a linefeed 🤱️
@@ -62,7 +62,7 @@ a linefeed 🤱️
         XCTAssertEqual(screenLine?.firstNonBlankLimit, 21)
     }
 
-    func test_that_for_a_screen_line_that_does_not_end_with_a_Newline_the_computed_properties_are_correct() {
+    func test_that_for_a_ScreenLine_that_does_not_end_with_a_Newline_the_computed_properties_are_correct() {
         let text = """
 here we go baby 👶️👶️👶️
 fucking 🔥️🔥️🔥️ hell

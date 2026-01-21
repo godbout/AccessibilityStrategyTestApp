@@ -62,7 +62,7 @@ extension ASUI_NM_gm_Tests {
 // TextViews
 extension ASUI_NM_gm_Tests {
 
-    func test_that_for_TextViews_when_a_screen_line_has_an_even_number_of_characters_the_move_rounds_up_and_the_block_cursor_ends_up_on_the_next_character_after_the_middle_of_the_line() {
+    func test_that_for_TextViews_when_a_ScreenLine_has_an_even_number_of_characters_the_move_rounds_up_and_the_block_cursor_ends_up_on_the_next_character_after_the_middle_of_the_line() {
         let textInAXFocusedElement = """
 ok so now it's gonna be even cuter
 because we're having something ❤️‍🔥️ere hey
@@ -79,7 +79,7 @@ so let's gooooo brandon
         XCTAssertEqual(accessibilityElement.selectedText, "❤️‍🔥️")
     }
 
-    func test_that_for_TextViews_when_a_screen_line_has_an_odd_number_of_characters_then_the_block_cursor_ends_up_right_on_the_character_in_the_middle_of_the_line() {
+    func test_that_for_TextViews_when_a_ScreenLine_has_an_odd_number_of_characters_then_the_block_cursor_ends_up_right_on_the_character_in_the_middle_of_the_line() {
         let textInAXFocusedElement = """
 ok so now it's gonna be even cuter
 because we're having something here hey
@@ -96,7 +96,7 @@ so let's gooooo brandon
         XCTAssertEqual(accessibilityElement.selectedText, " ")
     }
 
-    func test_that_for_TextViews_if_a_screen_line_is_empty_it_does_not_move_and_definitely_does_not_end_up_at_the_end_of_the_previous_line() {
+    func test_that_for_TextViews_if_a_ScreenLine_is_empty_it_does_not_move_and_definitely_does_not_end_up_at_the_end_of_the_previous_line() {
         let textInAXFocusedElement = """
 ok so now we're gonna try this and
 

@@ -15,7 +15,7 @@ class ASUT_NM___Tests: ASUT_NM_BaseTests {
 // line
 extension ASUT_NM___Tests {
     
-    func test_conspicuously_that_it_does_not_stop_at_screen_lines() {
+    func test_conspicuously_that_it_does_not_stop_at_ScreenLines() {
         let text = """
   this move stops at screen lines, which         🇧🇶️eans it will
   stop even without a linefeed. that's         how special it is.
