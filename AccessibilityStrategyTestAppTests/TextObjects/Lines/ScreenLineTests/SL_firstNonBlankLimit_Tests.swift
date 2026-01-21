@@ -69,7 +69,7 @@ extension SL_firstNonBlankLimit_Tests {
         XCTAssertEqual(screenLine.firstNonBlankLimit, 7)
     }
 
-    func test_that_if_the_line_only_contains_spaces_and_ends_with_a_linefeed_it_returns_nil() throws {
+    func test_that_if_the_line_only_contains_Blanks_and_ends_with_a_Newline_it_returns_nil() throws {
         let text = "     \n"
 
         let screenLine = try XCTUnwrap(

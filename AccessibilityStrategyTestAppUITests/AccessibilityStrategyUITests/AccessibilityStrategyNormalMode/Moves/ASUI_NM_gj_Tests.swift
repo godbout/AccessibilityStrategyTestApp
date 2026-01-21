@@ -164,7 +164,7 @@ hehe
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
 
-    func test_that_if_the_last_line_is_only_a_linefeed_character_j_can_still_go_there_and_the_ColumnNumbers_are_not_overriden() {
+    func test_that_if_the_last_line_is_only_a_Newline_character_j_can_still_go_there_and_the_ColumnNumbers_are_not_overriden() {
         let textInAXFocusedElement = """
 another fucking
 edge case

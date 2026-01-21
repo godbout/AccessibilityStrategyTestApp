@@ -17,7 +17,7 @@ class ASUI_NM_cc_Tests: ASUI_NM_BaseTests {
 // TextFields and TextViews
 extension ASUI_NM_cc_Tests {
     
-    func test_that_if_a_file_line_ends_with_a_linefeed_it_deletes_up_to_but_not_including_the_linefeed() {
+    func test_that_if_a_file_line_ends_with_a_Newline_it_deletes_up_to_but_not_including_the_Newline() {
         let textInAXFocusedElement = """
 looks like it's late coz it's getting harder to reason
 but actually it's only 21.43 LMAOOOOOOOO
@@ -39,7 +39,7 @@ but actually it's only 21.43 LMAOOOOOOOO
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
-    func test_that_if_a_file_line_does_not_end_with_a_linefeed_it_deletes_up_to_the_end() {
+    func test_that_if_a_file_line_does_not_end_with_a_Newline_it_deletes_up_to_the_end() {
         let textInAXFocusedElement = "yeah exactly, it could be at the end of 🌻️🌻️🌻️ a TextArea or like a TextField like this one"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -80,7 +80,7 @@ be kept
     }
 
     // this test contains blanks
-    func test_that_if_a_file_line_is_a_BlankLine_it_does_not_delete_anything_and_goes_at_the_end_of_the_line_before_the_linefeed() {
+    func test_that_if_a_file_line_is_a_BlankLine_it_does_not_delete_anything_and_goes_at_the_end_of_the_line_before_the_Newline() {
         let textInAXFocusedElement = """
 something
             

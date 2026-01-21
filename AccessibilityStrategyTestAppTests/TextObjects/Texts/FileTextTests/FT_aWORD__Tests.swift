@@ -42,7 +42,7 @@ extension FT_aWORD__Tests {
         XCTAssertEqual(WORDRange?.count, 17)
     }
     
-    func test_that_it_does_not_stop_at_linefeeds_going_forward() {
+    func test_that_it_does_not_stop_at_Newlines_going_forward() {
         let text = """
 there's 5 spaces at the end of this line     
    careful-that Xcode doesn't delete them
@@ -54,7 +54,7 @@ there's 5 spaces at the end of this line
         XCTAssertEqual(WORDRange?.count, 21)
     }
     
-    func test_that_it_does_stop_at_linefeeds_going_backward() {
+    func test_that_it_does_stop_at_Newlines_going_backward() {
         let text = """
 there's 5 spaces at the end of this line     
    careful-that Xcode doesn't delete them
@@ -164,7 +164,7 @@ the last line is empty
         XCTAssertEqual(WORDRange?.count, 15)
     }
     
-    func test_that_it_stops_at_linefeeds_when_looking_for_the_WORD_forward() {
+    func test_that_it_stops_at_Newlines_when_looking_for_the_WORD_forward() {
         let text = """
 this line ends with 3-spaces   
   and this line should be kept intact
@@ -176,7 +176,7 @@ this line ends with 3-spaces
         XCTAssertEqual(WORDRange?.count, 11)
     }
     
-    func test_that_if_there_are_no_trailing_spaces_until_the_WORD_forward_it_stops_at_linefeeds_when_looking_for_the_WORD_backward() {
+    func test_that_if_there_are_no_trailing_spaces_until_the_WORD_forward_it_stops_at_Newlines_when_looking_for_the_WORD_backward() {
         let text = """
 this line ends with 3 spaces   
   and(this-line-should-be-kept-intact
@@ -188,7 +188,7 @@ this line ends with 3 spaces
         XCTAssertEqual(WORDRange?.count, 35)
     }
     
-    func test_that_if_there_are_no_trailing_spaces_because_there_is_no_WORD_forward_and_the_previous_non_blank_before_the_WORD_is_a_linefeed_then_it_stops_at_the_beginning_of_the_current_WORD() {
+    func test_that_if_there_are_no_trailing_spaces_because_there_is_no_WORD_forward_and_the_previous_non_blank_before_the_WORD_is_a_Newline_then_it_stops_at_the_beginning_of_the_current_WORD() {
         let text = """
 this line ends with 3 spaces   
   and
@@ -201,7 +201,7 @@ this line ends with 3 spaces
     }
     
     // this test contains blanks
-    func test_that_if_it_is_on_a_Linefeed_it_does_not_delete_too_much() {
+    func test_that_if_it_is_on_a_Newline_it_does_not_delete_too_much() {
         let text = """
 this line ends with 3 spaces   
 

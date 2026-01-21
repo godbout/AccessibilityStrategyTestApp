@@ -29,7 +29,7 @@ extension ASUI_NM_pForLastYankStyleLinewise_Tests {
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
 
-    func test_that_when_the_last_yank_was_linewise_and_the_line_was_ending_with_a_linefeed_the_linfeed_is_not_pasted_in_the_TextField() {
+    func test_that_when_the_last_yank_was_linewise_and_the_line_was_ending_with_a_Newline_the_linfeed_is_not_pasted_in_the_TextField() {
         let textInAXFocusedElement = "we should not paste linefeeds in the TF"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -78,7 +78,7 @@ a linefeed at the end of the line
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_if_the_last_linewise_yanked_line_did_not_have_a_linefeed_pasting_it_will_add_the_linefeed_if_we_are_not_on_the_last_line() {
+    func test_that_if_the_last_linewise_yanked_line_did_not_have_a_Newline_pasting_it_will_add_the_Newline_if_we_are_not_on_the_last_line() {
         let textInAXFocusedElement = """
 when we yank the last line it doesn't contain
 a linefeed but a linefeed should be pasted
@@ -104,7 +104,7 @@ if we are not pasting on the last line
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_if_on_the_last_line_and_the_last_yanking_style_was_linewise_it_pastes_the_content_on_a_new_line_below_without_an_ending_linefeed() {
+    func test_that_if_on_the_last_line_and_the_last_yanking_style_was_linewise_it_pastes_the_content_on_a_new_line_below_without_an_ending_Newline() {
         let textInAXFocusedElement = """
 now we gonna linewise paste
 after the last line
@@ -157,7 +157,7 @@ to the first non blank of the copied line
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_EmptyLine_it_still_pastes_but_without_an_ending_linefeed() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_EmptyLine_it_still_pastes_but_without_an_ending_Newline() {
         let textInAXFocusedElement = """
 this should paste
 after a new line and
@@ -315,7 +315,7 @@ a linefeed at the end of the line
 // bugs found
 extension ASUI_NM_pForLastYankStyleLinewise_Tests {
 
-    func test_that_if_the_Clipboard_is_empty_and_we_paste_Linewise_at_the_LastLine_it_pastes_a_Linefeed_after_that_LastLine() {
+    func test_that_if_the_Clipboard_is_empty_and_we_paste_Linewise_at_the_LastLine_it_pastes_a_Newline_after_that_LastLine() {
         let textInAXFocusedElement = """
 so if the Clipboard is empty
 and we paste the Linewise at the last line
@@ -388,7 +388,7 @@ the last line
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
         
-    func test_that_if_the_Clipboard_is_one_linefeed_and_we_paste_Linewise_at_the_LastLine_it_pastes_a_Linefeed_after_that_LastLine() {
+    func test_that_if_the_Clipboard_is_one_Newline_and_we_paste_Linewise_at_the_LastLine_it_pastes_a_Newline_after_that_LastLine() {
         let textInAXFocusedElement = """
 so if the Clipboard holds a linefeed
 and we paste Linewise at the last line
@@ -412,7 +412,7 @@ it should work hehe
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
     }
         
-    func test_that_if_the_Clipboard_contains_many_Linefeeds_and_we_paste_Linewise_at_the_LastLine_it_pastes_Linefeeds_after_that_LastLine_and_repositions_the_caret_correctly() {
+    func test_that_if_the_Clipboard_contains_many_Newlines_and_we_paste_Linewise_at_the_LastLine_it_pastes_Newlines_after_that_LastLine_and_repositions_the_caret_correctly() {
         let textInAXFocusedElement = """
 that's gonna be
 many many
@@ -443,7 +443,7 @@ at the last line
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_if_the_Clipboard_contains_many_Linefeeds_and_we_paste_Linewise_NOT_at_the_LastLine_but_anywhere_else_it_repositions_the_caret_correctly() {
+    func test_that_if_the_Clipboard_contains_many_Newlines_and_we_paste_Linewise_NOT_at_the_LastLine_but_anywhere_else_it_repositions_the_caret_correctly() {
         let textInAXFocusedElement = """
 doesn't need to be
 at the last line

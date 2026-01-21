@@ -126,7 +126,7 @@ extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
 // basic
 extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
     
-    func test_that_it_stops_at_the_beginning_of_a_line_if_the_previous_one_ends_with_a_dot_and_a_linefeed() {
+    func test_that_it_stops_at_the_beginning_of_a_line_if_the_previous_one_ends_with_a_dot_and_a_Newline() {
         let text = """
 this is a line.
 then one more.

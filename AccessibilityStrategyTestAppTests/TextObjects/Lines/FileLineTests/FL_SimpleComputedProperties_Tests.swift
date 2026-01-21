@@ -75,7 +75,7 @@ extension FL_SimpleComputedProperties_Tests {
         )        
     }
 
-    func test_that_for_a_file_line_that_ends_with_a_linefeed_the_computed_properties_are_correct() throws {
+    func test_that_for_a_file_line_that_ends_with_a_Newline_the_computed_properties_are_correct() throws {
         let text = """
 now i'm a line 📏️📏️📏️ with 📏️
 a linefeed 🤱️
@@ -95,7 +95,7 @@ a linefeed 🤱️
         XCTAssertEqual(fileLine?.isNotTheLastLine, true)
     }
 
-    func test_that_for_a_file_line_that_does_not_end_with_a_linefeed_the_computed_properties_are_correct() throws {
+    func test_that_for_a_file_line_that_does_not_end_with_a_Newline_the_computed_properties_are_correct() throws {
         let text = """
 here we go baby 👶️👶️👶️
 fucking 🔥️🔥️🔥️ hell
@@ -115,9 +115,9 @@ fucking 🔥️🔥️🔥️ hell
         XCTAssertEqual(fileLine?.isNotTheLastLine, false)
     }
 
-    // it may look like it's missing a case where an empty line does not end with a linefeed
+    // it may look like it's missing a case where an EmptyLine does not end with a Newline
     // but this is already tested in the last of The 3 Cases. hehe.
-    func test_that_for_an_EmptyLine_that_ends_with_a_linefeed_the_computed_properties_are_correct() throws {
+    func test_that_for_an_EmptyLine_that_ends_with_a_Newline_the_computed_properties_are_correct() throws {
         let text = """
 the next line 📏️ will be empty
 
@@ -139,7 +139,7 @@ and there's that one 🤌🏼️ line after
     }
     
     // middle line has a lot of spaces!
-    func test_that_for_a_BlankLine_that_ends_with_a_linefeed_the_computed_properties_are_correct() throws {
+    func test_that_for_a_BlankLine_that_ends_with_a_Newline_the_computed_properties_are_correct() throws {
         let text = """
 the next like appears empty but it's actually blank!!!
                   

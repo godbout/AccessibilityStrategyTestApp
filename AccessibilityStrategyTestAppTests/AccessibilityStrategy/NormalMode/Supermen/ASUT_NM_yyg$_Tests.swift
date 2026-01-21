@@ -15,7 +15,7 @@ class ASUT_NM_yyg$_Tests: ASUT_NM_BaseTests {
 
 extension ASUT_NM_yyg$_Tests {
     
-    func test_that_if_the_FileLine_does_not_end_with_a_Linefeed_it_copies_from_the_caretLocation_to_the_LineEndLimit_included_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
+    func test_that_if_the_FileLine_does_not_end_with_a_Newlines_it_copies_from_the_caretLocation_to_the_LineEndLimit_included_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
         let text = "ok so now it's gonna be from caret to end limit"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -49,7 +49,7 @@ extension ASUT_NM_yyg$_Tests {
         XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
     }
     
-    func test_that_if_the_FileLine_ends_with_a_Linefeed_it_copies_from_the_caretLocation_to_the_LineEndLimit_included_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
+    func test_that_if_the_FileLine_ends_with_a_Newlines_it_copies_from_the_caretLocation_to_the_LineEndLimit_included_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
         let text = """
 ok so now we
 gonn have linefeeds

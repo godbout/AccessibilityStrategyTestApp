@@ -16,7 +16,7 @@ class ASUT_NM_dip_Tests: ASUT_NM_BaseTests {
 // Bip, copy deletion and LYS
 extension ASUT_NM_dip_Tests {
     
-    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion_including_the_last_Linefeed_of_the_paragraph() {
+    func test_that_it_always_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise_and_copies_the_deletion_including_the_last_Newline_of_the_paragraph() {
         let text = """
 this is to check
 that

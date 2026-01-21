@@ -16,7 +16,7 @@ class FT_endOfParagraphForward_NormalSetting_Tests: XCTestCase {
 // TextFields and TextViews
 extension FT_endOfParagraphForward_NormalSetting_Tests {
     
-    func test_that_if_there_is_no_newline_at_all_then_it_stops_before_the_last_character() {
+    func test_that_if_there_is_no_Newline_at_all_then_it_stops_before_the_last_character() {
         let text = "like a TextField really"
 
         let endOfParagraphForwardLocation = applyFuncBeingTested(on: text, startingAt: 2)

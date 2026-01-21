@@ -127,7 +127,7 @@ extension FT_endOfWordForward_Tests {
 // TextViews
 extension FT_endOfWordForward_Tests {
 
-    func test_that_it_should_not_stop_on_linefeeds() {
+    func test_that_it_should_not_stop_on_Newlines() {
         let text = """
 guard index != text.index(before: endIndex) else { return text.count - 1 }
 let nextIndex = text.index(after: index)

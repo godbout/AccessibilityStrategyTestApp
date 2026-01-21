@@ -137,7 +137,7 @@ and }
         XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
-    func test_that_if_the_closing_bracket_is_preceded_only_by_whitespaces_up_to_the_beginning_of_the_line_then_contrary_to_InnerBlock_it_does_not_care_about_linefeed_and_deletes_it_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
+    func test_that_if_the_closing_bracket_is_preceded_only_by_whitespaces_up_to_the_beginning_of_the_line_then_contrary_to_InnerBlock_it_does_not_care_about_Newline_and_deletes_it_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
         let text = """
 this case is when { is not followed
 by a linefeed and
@@ -178,7 +178,7 @@ by a linefeed and
         XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
-    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_then_contrary_to_InnerBlock_the_linefeed_is_deleted_and_it_does_not_Bip_and_it_sets_the_LastYankStyle_to_Characterwise() {
+    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_Newline_then_contrary_to_InnerBlock_the_Newline_is_deleted_and_it_does_not_Bip_and_it_sets_the_LastYankStyle_to_Characterwise() {
         let text = """
 this work when [
 is followed by a linefeed
@@ -219,7 +219,7 @@ and ]
         XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
-    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_and_the_closing_bracket_is_immediately_preceded_by_a_linefeed_then_contrary_to_innerBlock_it_does_not_keep_an_EmptyLine_and_it_does_not_Bip_but_it_sets_the_LastYankStyle_to_Characterwise() {
+    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_Newline_and_the_closing_bracket_is_immediately_preceded_by_a_Newline_then_contrary_to_innerBlock_it_does_not_keep_an_EmptyLine_and_it_does_not_Bip_but_it_sets_the_LastYankStyle_to_Characterwise() {
         let text = """
 this case is when (
 is followed by a linefeed and

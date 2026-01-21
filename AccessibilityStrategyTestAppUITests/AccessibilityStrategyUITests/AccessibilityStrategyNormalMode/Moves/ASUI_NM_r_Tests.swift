@@ -32,7 +32,7 @@ extension ASUI_NM_r_Tests {
     
     // if replacement is a linefeed, count is ignored in Vim. but still, the move shouldn't work. count has precedence
     // over the replacement itself.
-    func test_that_if_the_count_is_so_high_that_it_goes_over_the_FileLine_end_it_does_nothing_and_that_includes_if_the_replacement_is_a_linefeed() {
+    func test_that_if_the_count_is_so_high_that_it_goes_over_the_FileLine_end_it_does_nothing_and_that_includes_if_the_replacement_is_a_Newline() {
         let textInAXFocusedElement = """
 we goNNa moVe in tHere with count awww
 and one more line
@@ -94,7 +94,7 @@ extension ASUI_NM_r_Tests {
 // TextViews
 extension ASUI_NM_r_Tests {
     
-    func test_that_replacing_a_character_by_a_linefeed_sets_the_cursor_at_the_first_column_of_the_new_created_line() {
+    func test_that_replacing_a_character_by_a_Newline_sets_the_cursor_at_the_first_column_of_the_new_created_line() {
         let textInAXFocusedElement = """
 gonna replace something
 by😀️

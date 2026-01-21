@@ -39,7 +39,7 @@ extension ASUI_NM_cj_Tests {
 // TextViews
 extension ASUI_NM_cj_Tests {
     
-    func test_that_in_normal_setting_it_can_delete_the_currentFileLine_and_the_line_below_but_excludes_the_linefeed_of_the_second_line_if_any() {
+    func test_that_in_normal_setting_it_can_delete_the_currentFileLine_and_the_line_below_but_excludes_the_Newline_of_the_second_line_if_any() {
         let textInAXFocusedElement = """
 ok real shit now
 come on cj is useful
@@ -65,7 +65,7 @@ no?
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
-    func test_that_if_the_second_line_is_the_last_one_it_can_still_delete_the_two_lines_and_does_not_bug_coz_the_last_one_does_not_have_linefeed() {
+    func test_that_if_the_second_line_is_the_last_one_it_can_still_delete_the_two_lines_and_does_not_bug_coz_the_last_one_does_not_have_Newline() {
         let textInAXFocusedElement = """
 ok real shit now
 come on cj is useful
@@ -114,7 +114,7 @@ this moves does not go to the
     }
     
     // this test contains blanks
-    func test_that_if_the_currentFileLine_is_just_blanks_or_linefeed_and_the_nextLine_is_the_lastLine_the_caret_ends_up_at_the_end_of_the_currentFileLine() {
+    func test_that_if_the_currentFileLine_is_just_blanks_or_Newline_and_the_nextLine_is_the_lastLine_the_caret_ends_up_at_the_end_of_the_currentFileLine() {
         let textInAXFocusedElement = """
 this moves does not go to the
                         
@@ -138,7 +138,7 @@ this moves does not go to the
     }
     
     // this test contains blanks
-    func test_that_if_the_currentFileLine_is_just_blanks_or_linefeed_and_the_nextLine_is_not_the_lastLine_the_caret_ends_up_at_the_end_of_the_currentFileLine() {
+    func test_that_if_the_currentFileLine_is_just_blanks_or_Newline_and_the_nextLine_is_not_the_lastLine_the_caret_ends_up_at_the_end_of_the_currentFileLine() {
         let textInAXFocusedElement = """
 this moves does not go to the
                         

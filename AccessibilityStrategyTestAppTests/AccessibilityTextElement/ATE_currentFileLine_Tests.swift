@@ -88,7 +88,7 @@ line
 // other cases
 extension ATE_currentFileLine_Tests {
     
-    func test_that_without_emojis_for_a_line_without_a_linefeed_the_computed_properties_are_correctly_calculated() {
+    func test_that_without_emojis_for_a_line_without_a_Newline_the_computed_properties_are_correctly_calculated() {
         let text = """
 here we go baby
 fucking hell
@@ -123,7 +123,7 @@ fucking hell
         XCTAssertEqual(element.currentFileLine.isNotTheLastLine, false)
     }
     
-    func test_that_without_emojis_for_a_line_with_a_linefeed_the_computed_properties_are_correctly_calculated() {
+    func test_that_without_emojis_for_a_line_with_a_Newline_the_computed_properties_are_correctly_calculated() {
         let text = """
 now i'm a line with
 a linefeed
@@ -232,7 +232,7 @@ after updating to the new isTheLastLine :D
         XCTAssertEqual(element.currentFileLine.isNotTheLastLine, true)
     }
     
-    func test_that_without_emojis_for_an_EmptyLine_with_a_linefeed_the_computed_properties_are_correctly_calculated() {
+    func test_that_without_emojis_for_an_EmptyLine_with_a_Newline_the_computed_properties_are_correctly_calculated() {
         let text = """
 the next line will be empty
 
@@ -361,7 +361,7 @@ fucking hell 🇸🇨️
     
     
     
-    func test_that_with_emojis_for_a_line_without_a_linefeed_the_computed_properties_are_correctly_calculated_when_the_emoji_is_at_the_end() {
+    func test_that_with_emojis_for_a_line_without_a_Newline_the_computed_properties_are_correctly_calculated_when_the_emoji_is_at_the_end() {
         let text = "i'm a line without linefeed 😅️"
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -393,7 +393,7 @@ fucking hell 🇸🇨️
         XCTAssertEqual(element.currentFileLine.isNotTheLastLine, false)
     }
     
-    func test_that_with_emojis_for_a_line_without_a_linefeed_the_computed_properties_are_correctly_calculated_when_the_emoji_is_right_before_the_linefeed() {
+    func test_that_with_emojis_for_a_line_without_a_Newline_the_computed_properties_are_correctly_calculated_when_the_emoji_is_right_before_the_Newline() {
         let text = """
 now i'm a line with 🇲🇴️
 a linefeed

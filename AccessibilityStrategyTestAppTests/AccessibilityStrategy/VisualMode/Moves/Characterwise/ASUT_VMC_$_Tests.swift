@@ -279,7 +279,7 @@ j or k will go to the line endLimit
 // TextViews
 extension ASUT_VMC_$_Tests {
     
-    func test_that_if_line_ends_with_linefeed_it_goes_to_the_end_of_the_line_still() {
+    func test_that_if_line_ends_with_Newline_it_goes_to_the_end_of_the_line_still() {
         let text = """
 indeed
 that is

@@ -54,7 +54,7 @@ extension ASUT_NM_r_Tests {
 // TextViews
 extension ASUT_NM_r_Tests {
     
-    func test_that_if_the_caret_is_on_a_linefeed_it_does_not_replace_it() {
+    func test_that_if_the_caret_is_on_a_Newline_it_does_not_replace_it() {
         let text = """
 can't change a
 

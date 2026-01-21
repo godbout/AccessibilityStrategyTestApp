@@ -9,7 +9,7 @@ class FT_previousNewline_Tests: XCTestCase {}
 // TextFields
 extension FT_previousNewline_Tests {
     
-    func test_that_if_we_are_on_a_single_line_without_any_newline_then_it_returns_nil() {
+    func test_that_if_we_are_on_a_single_line_without_any_Newline_then_it_returns_nil() {
         let text = "this is a single line without any newline lol"
         
         let fileText = FileText(end: text.utf16.count, value: text)
@@ -51,7 +51,7 @@ extension FT_previousNewline_Tests {
 // TextViews
 extension FT_previousNewline_Tests {
     
-    func test_that_for_multiple_lines_it_finds_the_previous_newline() {
+    func test_that_for_multiple_lines_it_finds_the_previous_Newline() {
         let text = """
 so ok finally
 here we go
@@ -63,7 +63,7 @@ here we go
         XCTAssertEqual(newlineFoundLocation, 13)
     }
     
-    func test_that_if_on_an_EmptyLine_it_does_not_get_stuck_and_find_the_previous_newline() {
+    func test_that_if_on_an_EmptyLine_it_does_not_get_stuck_and_find_the_previous_Newline() {
         let text = """
 here we have a line
 
@@ -76,7 +76,7 @@ rad
         XCTAssertEqual(newlineFoundLocation, 19)
     }
     
-    func test_thatif_we_have_consecutive_EmptyLines_it_returns_the_correct_previous_newline() {
+    func test_thatif_we_have_consecutive_EmptyLines_it_returns_the_correct_previous_Newline() {
         let text = """
 ok now multiple EL
 

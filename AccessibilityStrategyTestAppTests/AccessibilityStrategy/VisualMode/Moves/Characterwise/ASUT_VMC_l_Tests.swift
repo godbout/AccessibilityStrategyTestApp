@@ -113,7 +113,7 @@ extension ASUT_VMC_l_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_the_count_is_too_high_it_stops_after_the_linefeed() {
+    func test_that_if_the_count_is_too_high_it_stops_after_the_Newline() {
         let text = """
 we gonna move
 in there with

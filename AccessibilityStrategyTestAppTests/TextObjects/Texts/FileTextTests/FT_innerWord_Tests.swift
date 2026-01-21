@@ -135,7 +135,7 @@ extension FT_innerWordTests_Tests {
 // TextViews
 extension FT_innerWordTests_Tests {
     
-    func test_that_inner_word_stops_at_linefeeds_at_the_end_of_lines() {
+    func test_that_inner_word_stops_at_Newlines_at_the_end_of_lines() {
         let text = """
 this shouldn't
 spill      
@@ -148,7 +148,7 @@ spill
         XCTAssertEqual(wordRange.count, 6)
     }
     
-    func test_that_inner_word_stops_at_linefeeds_at_the_beginning_of_lines() {
+    func test_that_inner_word_stops_at_Newlines_at_the_beginning_of_lines() {
         let text = """
 this shouldn't
 spill also    
@@ -161,7 +161,7 @@ spill also
         XCTAssertEqual(wordRange.count, 4)
     }
     
-    func test_that_innerWord_stops_at_Linefeeds_both_at_beginning_and_end_of_lines_that_is_on_EmptyLines() {
+    func test_that_innerWord_stops_at_Newlines_both_at_beginning_and_end_of_lines_that_is_on_EmptyLines() {
         let text = """
 this shouldn't
 

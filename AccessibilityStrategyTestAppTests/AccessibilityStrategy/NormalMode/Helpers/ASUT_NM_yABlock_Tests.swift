@@ -131,7 +131,7 @@ and }
         XCTAssertEqual(vimEngineState.lastMoveBipped, false)  
     }
     
-    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_contrary_to_innerBlock_the_whole_thing_is_copied_and_it_does_not_Bip_and_it_sets_the_LastYankStyle_to_Characterwise() {
+    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_Newline_contrary_to_innerBlock_the_whole_thing_is_copied_and_it_does_not_Bip_and_it_sets_the_LastYankStyle_to_Characterwise() {
         let text = """
 this work when {
 is followed by a linefeed
@@ -211,7 +211,7 @@ by a linefeed and
         XCTAssertEqual(vimEngineState.lastMoveBipped, false)  
     }
     
-    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_and_the_closing_bracket_is_immediately_preceded_by_a_linefeed_then_contrary_the_innerBlock_the_move_copies_the_whole_thing_and_it_does_not_Bip_but_it_sets_the_LastYankStyle_to_Characterwise() {
+    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_Newline_and_the_closing_bracket_is_immediately_preceded_by_a_Newline_then_contrary_the_innerBlock_the_move_copies_the_whole_thing_and_it_does_not_Bip_but_it_sets_the_LastYankStyle_to_Characterwise() {
         let text = """
 this case is when {
 is followed by a linefeed and

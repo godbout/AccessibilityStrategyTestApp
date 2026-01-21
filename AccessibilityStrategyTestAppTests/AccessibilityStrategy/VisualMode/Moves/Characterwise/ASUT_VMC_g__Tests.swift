@@ -248,7 +248,7 @@ at the anchor, not at the caret location
 // TextViews
 extension ASUT_VMC_g__Tests {
     
-    func test_that_if_line_ends_with_linefeed_it_goes_to_the_lastNonBlank_of_the_line_still() {
+    func test_that_if_line_ends_with_Newline_it_goes_to_the_lastNonBlank_of_the_line_still() {
         let text = """
 indeed
 that is

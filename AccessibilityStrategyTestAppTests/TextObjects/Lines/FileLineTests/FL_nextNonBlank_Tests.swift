@@ -78,7 +78,7 @@ extension FL_nextNonBlank_Tests {
         XCTAssertEqual(nextNonBlankLocation, 6)
     }
        
-    func test_that_it_returns_nil_if_there_is_no_next_nonBlank_which_would_mean_we_are_at_the_end_of_the_text_and_it_does_not_end_with_a_linefeed() {
+    func test_that_it_returns_nil_if_there_is_no_next_NonBlank_which_would_mean_we_are_at_the_end_of_the_text_and_it_does_not_end_with_a_Newline() {
         let text = "this time no non blank            "
         
         let nextNonBlankLocation = try? applyFuncBeingTested(on: text, after: 25)
@@ -105,7 +105,7 @@ else it's crashing of course!
     }
     
     // this test contains blanks
-    func test_that_for_a_line_that_ends_with_a_linefeed_it_returns_the_linefeed() {
+    func test_that_for_a_line_that_ends_with_a_Newline_it_returns_the_Newline() {
         let text = """
 so the next non blank      
 should not go to the next line

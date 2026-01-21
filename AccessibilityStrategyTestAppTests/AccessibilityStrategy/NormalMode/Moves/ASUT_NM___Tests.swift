@@ -144,7 +144,7 @@ extension ASUT_NM___Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_the_text_is_just_spaces_and_no_linefeed_then_the_caret_goes_at_the_end_of_the_text() {
+    func test_that_if_the_text_is_just_spaces_and_no_Newline_then_the_caret_goes_at_the_end_of_the_text() {
         let text = """
 a multiline
 with a last line
@@ -181,7 +181,7 @@ without a linefeed but with spaces
 // TextViews 
 extension ASUT_NM___Tests {
     
-    func test_that_for_spaces_and_a_linefeed_it_stops_before_the_linefeed_at_the_correct_end_limit() {
+    func test_that_for_spaces_and_a_Newline_it_stops_before_the_Newline_at_the_correct_end_limit() {
         let text = """
 this time the
 empty line has a linefeed

@@ -72,7 +72,7 @@ but the below line will not go up\n
 // TextFields and TextViews
 extension ASUT_VML_c_Tests {
 
-    func test_that_in_normal_setting_it_deletes_the_selected_lines_but_without_the_last_linefeed_of_the_selection_if_any() {
+    func test_that_in_normal_setting_it_deletes_the_selected_lines_but_without_the_last_Newline_of_the_selection_if_any() {
         let text = """
 VM c in Linewise
 will delete the selected lines

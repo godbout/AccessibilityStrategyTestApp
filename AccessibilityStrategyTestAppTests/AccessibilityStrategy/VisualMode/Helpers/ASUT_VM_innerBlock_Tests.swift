@@ -454,7 +454,7 @@ and } is not preceded by a linefeed
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 58)
     }
 
-    func test_on_multilines_that_if_the_closingBlock_is_preceded_only_by_whitespaces_up_to_the_lineStart_then_it_selects_the_previous_line_linefeed_and_does_not_Bip() {
+    func test_on_multilines_that_if_the_closingBlock_is_preceded_only_by_whitespaces_up_to_the_lineStart_then_it_selects_the_previous_line_Newline_and_does_not_Bip() {
         let text = """
 this case is when { is not followed
 by a linefeed and
@@ -495,7 +495,7 @@ by a linefeed and
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 53)
     }
 
-    func test_that_on_multilines_if_the_openingBlock_is_immediately_followed_by_a_linefeed_the_linefeed_is_not_selected_and_it_does_not_Bip() {
+    func test_that_on_multilines_if_the_openingBlock_is_immediately_followed_by_a_Newline_the_Newline_is_not_selected_and_it_does_not_Bip() {
         let text = """
 this work when [
 is followed by a linefeed
@@ -535,7 +535,7 @@ and ] is not preceded by a linefeed
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 46)
     }
 
-    func test_that_on_multilines_if_the_openingBlock_is_immediately_followed_by_a_linefeed_and_the_closingBlock_is_immediately_preceded_by_a_linefeed_then_it_selects_the_line_in_between_the_blocks_including_the_linefeed_and_does_not_Bip() {
+    func test_that_on_multilines_if_the_openingBlock_is_immediately_followed_by_a_Newline_and_the_closingBlock_is_immediately_preceded_by_a_Newline_then_it_selects_the_line_in_between_the_blocks_including_the_Newline_and_does_not_Bip() {
         let text = """
 this case is when (
 is followed by a linefeed and
@@ -575,7 +575,7 @@ is followed by a linefeed and
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 49)
     }
     
-    func test_that_on_multilines_if_the_openingBlock_is_immediately_followed_by_a_linefeed_and_the_closingBlock_is_immediately_preceded_by_a_linefeed_then_it_selects_the_lines_in_between_the_blocks_starting_from_their_start_and_including_the_linefeeds_and_does_not_Bip() {
+    func test_that_on_multilines_if_the_openingBlock_is_immediately_followed_by_a_Newline_and_the_closingBlock_is_immediately_preceded_by_a_Newline_then_it_selects_the_lines_in_between_the_blocks_starting_from_their_start_and_including_the_Newlines_and_does_not_Bip() {
         let text = """
 this case is when <
     is followed by a linefeed and

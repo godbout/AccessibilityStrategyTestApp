@@ -35,7 +35,7 @@ extension FL_lastNonBlankLimit_Tests {
 // TextViews
 extension FL_lastNonBlankLimit_Tests {
 
-    func test_that_if_the_line_ends_with_a_linefeed_it_still_returns_the_correct_location() throws {
+    func test_that_if_the_line_ends_with_a_Newline_it_still_returns_the_correct_location() throws {
         let text = """
 hehe motherfuckers but with linefeed
 
@@ -47,7 +47,7 @@ hehe motherfuckers but with linefeed
         XCTAssertEqual(fileLine.lastNonBlankLimit, 35)     
     }
     
-    func test_that_if_the_line_ends_with_spaces_and_a_linefeed_it_still_returns_the_correct_location() throws {
+    func test_that_if_the_line_ends_with_Blanks_and_a_Newline_it_still_returns_the_correct_location() throws {
         let text = """
 hehe motherfuckers but with spaces and linefeed!       
 

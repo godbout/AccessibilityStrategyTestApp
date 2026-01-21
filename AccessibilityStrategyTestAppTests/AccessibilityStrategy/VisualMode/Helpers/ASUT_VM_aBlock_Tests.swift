@@ -492,7 +492,7 @@ by a linefeed and
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 59)
     }
     
-    func test_that_on_multilines_if_the_openingBlock_is_immediately_followed_by_a_linefeed_then_it_works_normally_and_selects_from_the_openingBlock_to_the_closingBlock() {
+    func test_that_on_multilines_if_the_openingBlock_is_immediately_followed_by_a_Newline_then_it_works_normally_and_selects_from_the_openingBlock_to_the_closingBlock() {
         let text = """
 this work when <
 is followed by a linefeed
@@ -532,7 +532,7 @@ and > is not preceded by a linefeed
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 47)
     }
 
-    func test_that_on_multilines_if_the_openingBlock_is_immediately_followed_by_a_linefeed_and_the_closingBlock_is_immediately_preceded_by_a_linefeed_then_then_it_works_normally_and_selects_from_the_openingBlock_to_the_closingBlock() {
+    func test_that_on_multilines_if_the_openingBlock_is_immediately_followed_by_a_Newline_and_the_closingBlock_is_immediately_preceded_by_a_Newline_then_then_it_works_normally_and_selects_from_the_openingBlock_to_the_closingBlock() {
         let text = """
 this case is when (
 is followed by a linefeed and

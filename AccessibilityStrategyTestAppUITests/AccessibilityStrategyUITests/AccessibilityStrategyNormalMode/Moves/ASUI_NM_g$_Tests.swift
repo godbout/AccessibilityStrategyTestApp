@@ -61,7 +61,7 @@ LMAO
 // TextFields and TextViews
 extension ASUI_NM_g$_Tests {
     
-    func test_that_if_the_line_ends_does_not_end_with_a_linefeed_it_goes_one_character_before_the_end() {
+    func test_that_if_the_line_ends_does_not_end_with_a_Newline_it_goes_one_character_before_the_end() {
         let textInAXFocusedElement = "hello world and that's a long one that we gonna wrap 🗺️"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -97,7 +97,7 @@ $
 // TextViews
 extension ASUI_NM_g$_Tests {
     
-    func test_that_if_the_line_ends_with_a_linefeed_it_goes_two_characters_before_the_end() {
+    func test_that_if_the_line_ends_with_a_Newline_it_goes_two_characters_before_the_end() {
         let textInAXFocusedElement = """
 indeed that is a multiline
 and yes my friend they all

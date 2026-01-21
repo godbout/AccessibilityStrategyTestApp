@@ -20,7 +20,7 @@ class ASUI_VMC_pWhenLastYankStyleWasLinewise_Tests: ASUI_VM_BaseTests {
 // TextFields
 extension ASUI_VMC_pWhenLastYankStyleWasLinewise_Tests {
     
-    func test_that_it_replaces_the_current_Characterwise_selection_and_the_block_cursor_ends_up_at_the_end_of_the_copied_text_and_if_the_previously_copied_Linewise_text_had_a_linefeed_it_removes_it() {
+    func test_that_it_replaces_the_current_Characterwise_selection_and_the_block_cursor_ends_up_at_the_end_of_the_copied_text_and_if_the_previously_copied_Linewise_text_had_a_Newline_it_removes_it() {
         let textInAXFocusedElement = "linewise for TF is still pasted characterwise!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -93,7 +93,7 @@ own line
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_it_replaces_the_current_Characterwise_selection_and_adds_a_linefeed_to_the_copied_text_if_the_selection_does_not_on_include_the_lastLine() {
+    func test_that_it_replaces_the_current_Characterwise_selection_and_adds_a_Newline_to_the_copied_text_if_the_selection_does_not_on_include_the_lastLine() {
         let textInAXFocusedElement = """
 the copied text
 really ends up

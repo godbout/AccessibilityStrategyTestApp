@@ -92,7 +92,7 @@ and of course this is in the case there is a linefeed at the end of the line.
 // TextFields and TextViews
 extension ASUT_NM_ccg$_Tests {
     
-    func test_that_if_a_file_line_does_not_end_with_a_linefeed_it_deletes_from_the_caret_to_the_end_of_the_line() {
+    func test_that_if_a_file_line_does_not_end_with_a_Newline_it_deletes_from_the_caret_to_the_end_of_the_line() {
         let text = """
 this time the line will not end with a linefeed so C should delete from the caret till the end!
 """
@@ -126,7 +126,7 @@ this time the line will not end with a linefeed so C should delete from the care
 // TextViews
 extension ASUT_NM_ccg$_Tests {
 
-    func test_that_if_a_file_line_ends_with_a_linefeed_it_deletes_from_the_caret_to_before_that_linefeed() {
+    func test_that_if_a_file_line_ends_with_a_Newline_it_deletes_from_the_caret_to_before_that_Newline() {
         let text = """
 C will now work with file lines and is supposed to delete from the caret ☀️ to before the linefeed
 and of course this is in the case there is a linefeed at the end of the line.
@@ -155,7 +155,7 @@ and of course this is in the case there is a linefeed at the end of the line.
         XCTAssertEqual(returnedElement.selectedText, "")
     }
     
-    func test_that_it_does_not_delete_the_linefeed_even_for_an_EmptyLine() {
+    func test_that_it_does_not_delete_the_Newline_even_for_an_EmptyLine() {
         let text = """
 now we have an empty line and C should behave
 

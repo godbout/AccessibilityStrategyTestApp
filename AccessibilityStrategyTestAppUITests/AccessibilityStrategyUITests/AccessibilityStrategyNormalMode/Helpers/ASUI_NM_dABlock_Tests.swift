@@ -85,7 +85,7 @@ by a linefeed and
         XCTAssertEqual(accessibilityElement.selectedText, " ")
     }
 
-    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_then_it_repositions_the_caretLocation_correctly() {
+    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_Newline_then_it_repositions_the_caretLocation_correctly() {
         let textInAXFocusedElement = """
 this work when [
 is followed by a linefeed
@@ -102,7 +102,7 @@ and ] is not preceded by a linefeed
         XCTAssertEqual(accessibilityElement.selectedText, " ")
     }
 
-    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_and_the_closing_bracket_is_immediately_preceded_by_a_linefeed_then_it_repositions_the_caretLocation_correctly() {
+    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_Newline_and_the_closing_bracket_is_immediately_preceded_by_a_Newline_then_it_repositions_the_caretLocation_correctly() {
         let textInAXFocusedElement = """
 this case is when (
 is followed by a linefeed and
@@ -119,7 +119,7 @@ is followed by a linefeed and
         XCTAssertEqual(accessibilityElement.selectedText, " ")
     }
     
-    func test_that_if_the_closing_bracket_is_immediately_followed_by_a_linefeed_then_it_repositions_the_caretLocation_correctly() {
+    func test_that_if_the_closing_bracket_is_immediately_followed_by_a_Newline_then_it_repositions_the_caretLocation_correctly() {
         let textInAXFocusedElement = """
 this case is when <
 is followed by a linefeed and

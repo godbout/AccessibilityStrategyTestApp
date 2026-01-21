@@ -45,7 +45,7 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_when_the_last_yank_was_linewise_and_the_line_was_ending_with_a_linefeed_the_linefeed_is_not_pasted_in_the_TextField() {
+    func test_that_when_the_last_yank_was_linewise_and_the_line_was_ending_with_a_Newline_the_Newline_is_not_pasted_in_the_TextField() {
         let textInAXFocusedElement = "P should not paste linefeeds in the TF"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -80,7 +80,7 @@ extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
 // TextAreas
 extension ASUI_NM_PForLastYankStyleCharacterwise_Tests {
     
-    func test_that_in_normal_setting_it_pastes_the_text_at_the_caret_location_and_if_the_text_does_not_contain_a_linefeed_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
+    func test_that_in_normal_setting_it_pastes_the_text_at_the_caret_location_and_if_the_text_does_not_contain_a_Newline_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
         let textInAXFocusedElement = """
 time to paste
 in TextViews
@@ -106,7 +106,7 @@ ho ho ho
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
 
-    func test_that_in_normal_setting_it_pastes_the_text_at_the_caret_location_and_if_the_text_contains_a_linefeed_the_block_cursor_ends_up_at_the_beginning_of_the_pasted_text() {
+    func test_that_in_normal_setting_it_pastes_the_text_at_the_caret_location_and_if_the_text_contains_a_Newline_the_block_cursor_ends_up_at_the_beginning_of_the_pasted_text() {
         let textInAXFocusedElement = """
 time to paste
 in TextViews

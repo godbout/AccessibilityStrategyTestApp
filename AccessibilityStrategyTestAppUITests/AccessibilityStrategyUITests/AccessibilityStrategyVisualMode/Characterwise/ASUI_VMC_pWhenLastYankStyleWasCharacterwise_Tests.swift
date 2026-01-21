@@ -20,7 +20,7 @@ class ASUI_VMC_pWhenLastYankStyleWasCharacterwise_Tests: ASUI_VM_BaseTests {
 // TextFields
 extension ASUI_VMC_pWhenLastYankStyleWasCharacterwise_Tests {
     
-    func test_that_it_replaces_the_current_Characterwise_selection_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text_and_if_the_previous_copied_Characterwise_text_ended_with_a_linefeed_it_gets_removed() {
+    func test_that_it_replaces_the_current_Characterwise_selection_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text_and_if_the_previous_copied_Characterwise_text_ended_with_a_Newline_it_gets_removed() {
         let textInAXFocusedElement = "we gonna select some text and replace it by pasting"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -66,7 +66,7 @@ it maybe have been a multiliney pasting
 // TextAreas
 extension ASUI_VMC_pWhenLastYankStyleWasCharacterwise_Tests {
     
-    func test_that_in_normal_setting_it_replaces_the_current_Characterwise_selection_and_if_the_text_does_not_contain_a_linefeed_the_block_cursor_ends_up_at_the_end_of_the_copied_text() {
+    func test_that_in_normal_setting_it_replaces_the_current_Characterwise_selection_and_if_the_text_does_not_contain_a_Newline_the_block_cursor_ends_up_at_the_end_of_the_copied_text() {
         let textInAXFocusedElement = """
 this is when the copied
 text doesn't have a linefeed
@@ -90,7 +90,7 @@ text doesn't have a linefeed
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_in_normal_setting_it_replaces_the_current_Characterwise_selection_and_if_the_text_does_contain_a_linefeed_the_block_cursor_ends_up_at_the_beginning_of_the_copied_text() {
+    func test_that_in_normal_setting_it_replaces_the_current_Characterwise_selection_and_if_the_text_does_contain_a_Newline_the_block_cursor_ends_up_at_the_beginning_of_the_copied_text() {
         let textInAXFocusedElement = """
 this is when the copied
 text does have a linefeed
@@ -115,7 +115,7 @@ text does have a linefeed
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_it_replaces_a_current_an_EmptyLine_which_means_the_linefeed_is_replaced_by_the_copied_text_and_the_line_below_will_come_up() {
+    func test_that_it_replaces_a_current_an_EmptyLine_which_means_the_Newline_is_replaced_by_the_copied_text_and_the_line_below_will_come_up() {
         let textInAXFocusedElement = """
 gonna have an empty line
 

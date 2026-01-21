@@ -80,7 +80,7 @@ but shouldn't be deleted
         XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
-    func test_that_when_it_is_not_on_an_EmptyLine_and_the_newHeadLocation_is_after_the_end_of_the_line_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_without_the_linefeed() {
+    func test_that_when_it_is_not_on_an_EmptyLine_and_the_newHeadLocation_is_after_the_end_of_the_line_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_deletion_without_the_Newline() {
         let text = """
 x should delete the right character
  but also 😂️

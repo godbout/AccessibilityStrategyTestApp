@@ -9,7 +9,7 @@ class FT_nextNonBlank_Tests: XCTestCase {}
 // TextViews
 extension FT_nextNonBlank_Tests {
     
-    func test_that_even_on_the_whole_text_the_nextNonBlank_stops_at_FileLines_because_linefeed_is_actually_a_nonBlank() {
+    func test_that_even_on_the_whole_text_the_nextNonBlank_stops_at_FileLines_because_Newline_is_actually_a_nonBlank() {
         let text = """
 so even if this is a whole text
 with multiple lines, the func stays

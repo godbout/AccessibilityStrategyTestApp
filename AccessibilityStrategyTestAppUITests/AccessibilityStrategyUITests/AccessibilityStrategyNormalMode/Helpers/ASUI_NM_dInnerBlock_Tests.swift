@@ -102,7 +102,7 @@ and
         XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
-    func test_that_if_the_closing_bracket_is_preceded_only_by_whitespaces_up_to_the_beginning_of_the_line_then_the_previous_line_linefeed_is_not_deleted_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_the_caretLocation_ends_up_at_the_opening_bracket() {
+    func test_that_if_the_closing_bracket_is_preceded_only_by_whitespaces_up_to_the_beginning_of_the_line_then_the_previous_line_Newline_is_not_deleted_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_the_caretLocation_ends_up_at_the_opening_bracket() {
         let textInAXFocusedElement = """
 this case is when [ is not followed
 by a linefeed and
@@ -168,7 +168,7 @@ now that shit will get cleaned <
     }
 
     // this test contains blank spaces
-    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_the_linefeed_is_not_deleted_and_it_does_not_Bip_and_it_sets_the_LastYankStyle_to_Characterwise_and_the_caretLocation_ends_up_at_the_closing_bracket() {
+    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_Newline_the_Newline_is_not_deleted_and_it_does_not_Bip_and_it_sets_the_LastYankStyle_to_Characterwise_and_the_caretLocation_ends_up_at_the_closing_bracket() {
         let textInAXFocusedElement = """
 this work when {
 is followed by a linefeed
@@ -200,7 +200,7 @@ this work when {
         XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
 
-    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_linefeed_and_the_closing_bracket_is_immediately_preceded_by_a_linefeed_then_the_move_keeps_an_EmptyLine_between_the_brackets_and_it_does_not_Bip_and_it_sets_the_LastYankStyle_to_Linewise() {
+    func test_that_if_the_opening_bracket_is_immediately_followed_by_a_Newline_and_the_closing_bracket_is_immediately_preceded_by_a_Newline_then_the_move_keeps_an_EmptyLine_between_the_brackets_and_it_does_not_Bip_and_it_sets_the_LastYankStyle_to_Linewise() {
         let textInAXFocusedElement = """
 this case is when (
 is followed by a linefeed and

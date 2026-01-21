@@ -4,7 +4,7 @@ import XCTest
 
 // this one and previousNewline only exist on FileText, not FileObjectProtocol
 // coz it makes no sense (or at least currently useless) for FileLine.
-// coz you know, newline. FL acts on a line, lines which are separated by newlines.
+// coz you know, Newline. FL acts on a line, lines which are separated by Newlines.
 // so yeah. everything is at its right place.
 class FT_nextNewline_Tests: XCTestCase {}
 
@@ -12,7 +12,7 @@ class FT_nextNewline_Tests: XCTestCase {}
 // TextFields
 extension FT_nextNewline_Tests {
     
-    func test_that_if_we_are_on_a_single_line_without_any_newline_then_it_returns_nil() {
+    func test_that_if_we_are_on_a_single_line_without_any_Newline_then_it_returns_nil() {
         let text = "this is a single line without any newline lol"
         
         let fileText = FileText(end: text.utf16.count, value: text)
@@ -63,7 +63,7 @@ extension FT_nextNewline_Tests {
 // TextViews
 extension FT_nextNewline_Tests {
     
-    func test_that_for_multiple_lines_it_finds_the_next_newline() {
+    func test_that_for_multiple_lines_it_finds_the_next_Newline() {
         let text = """
 so ok finally
 here we go
@@ -75,7 +75,7 @@ here we go
         XCTAssertEqual(newlineFoundLocation, 13)
     }
     
-    func test_that_if_on_an_EmptyLine_it_does_not_get_stuck_and_find_the_next_newline() {
+    func test_that_if_on_an_EmptyLine_it_does_not_get_stuck_and_find_the_next_Newline() {
         let text = """
 here we have a line
 
@@ -88,7 +88,7 @@ rad
         XCTAssertEqual(newlineFoundLocation, 43)
     }
     
-    func test_thatif_we_have_consecutive_EmptyLines_it_returns_the_correct_following_newline() {
+    func test_thatif_we_have_consecutive_EmptyLines_it_returns_the_correct_following_Newline() {
         let text = """
 ok now multiple EL
 

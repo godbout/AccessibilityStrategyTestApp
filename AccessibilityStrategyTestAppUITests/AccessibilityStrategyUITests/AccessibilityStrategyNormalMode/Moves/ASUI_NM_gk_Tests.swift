@@ -158,7 +158,7 @@ to previ ous line length
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
 
-    func test_that_if_we_are_on_the_last_line_and_it_is_just_a_linefeed_we_can_still_go_up_and_follow_the_screenLineColumnNumber() {
+    func test_that_if_we_are_on_the_last_line_and_it_is_just_a_Newline_we_can_still_go_up_and_follow_the_screenLineColumnNumber() {
         let textInAXFocusedElement = """
 fucking hell
 with the last line

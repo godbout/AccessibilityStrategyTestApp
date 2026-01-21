@@ -116,7 +116,7 @@ extension FT_beginningOfSentenceForward_NormalSetting_Tests {
 // basic
 extension FT_beginningOfSentenceForward_NormalSetting_Tests {
     
-    func test_that_it_stops_at_the_beginning_of_the_next_line_if_the_current_one_ends_with_a_dot_and_a_linefeed() {
+    func test_that_it_stops_at_the_beginning_of_the_next_line_if_the_current_one_ends_with_a_dot_and_a_Newline() {
         let text = """
 this is a line.
 then one more.
@@ -192,7 +192,7 @@ below is a blank line
 // bugs found
 extension FT_beginningOfSentenceForward_NormalSetting_Tests {
     
-    func test_that_it_stops_at_an_EmptyLine_if_the_previous_sentence_has_a_dot_before_its_linefeed() {
+    func test_that_it_stops_at_an_EmptyLine_if_the_previous_sentence_has_a_dot_before_its_Newline() {
         let text = """
 here is a sentence that ends with a dot and a linefeed.
 
@@ -203,7 +203,7 @@ the line above is an empty line and ( should stop there
         XCTAssertEqual(beginningOfSentenceForwardLocation, 56)
     }
 
-    func test_that_it_stops_at_an_EmptyLine_if_the_previous_sentence_has_blanks_following_a_dot_before_its_linefeed() {
+    func test_that_it_stops_at_an_EmptyLine_if_the_previous_sentence_has_blanks_following_a_dot_before_its_Newline() {
         let text = """
 having spaces after a dot or exclamation mark etc. is gonna fail.    
 

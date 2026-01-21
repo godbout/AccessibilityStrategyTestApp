@@ -47,7 +47,7 @@ with linefeed
         XCTAssertEqual(beginningOfParagraphBackwardLocation, 13)
     }
     
-    func test_that_it_does_not_crash_if_the_location_is_on_the_first_line_which_is_a_linefeed() {
+    func test_that_it_does_not_crash_if_the_location_is_on_the_first_line_which_is_a_Newline() {
         let text = """
 
 hehe first line

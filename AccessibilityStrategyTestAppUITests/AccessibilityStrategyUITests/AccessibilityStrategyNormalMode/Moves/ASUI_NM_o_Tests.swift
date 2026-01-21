@@ -36,7 +36,7 @@ extension ASUI_NM_o_Tests {
 // TextViews
 extension ASUI_NM_o_Tests {
     
-    func test_that_if_a_file_line_ends_with_a_linefeed_it_creates_a_new_line_below() {
+    func test_that_if_a_file_line_ends_with_a_Newline_it_creates_a_new_line_below() {
         let textInAXFocusedElement = """
 that's a multiline and o will create a new line
 between the first file line and the second file line
@@ -59,7 +59,7 @@ between the first file line and the second file line
         XCTAssertEqual(accessibilityElement.selectedText, "")
     }
     
-    func test_that_if_a_file_line_does_not_end_with_a_linefeed_it_still_creates_a_new_line_below() {
+    func test_that_if_a_file_line_does_not_end_with_a_Newline_it_still_creates_a_new_line_below() {
         let textInAXFocusedElement = """
 now that's gonna be a multiline but we will put the caret at the last line
 that doesn't end with a linefeed and it's still gonna work coz 🪄️🪄️🪄️ we're genius

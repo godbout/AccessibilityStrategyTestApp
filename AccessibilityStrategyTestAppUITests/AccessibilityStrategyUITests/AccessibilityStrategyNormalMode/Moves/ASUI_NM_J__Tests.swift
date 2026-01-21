@@ -14,7 +14,7 @@ class ASUI_NM_J__Tests: ASUI_NM_BaseTests {
 
 extension ASUI_NM_J__Tests {
     
-    func test_that_in_normal_setting_it_replaces_the_linefeed_at_the_end_of_the_current_line_by_a_space() {
+    func test_that_in_normal_setting_it_replaces_the_Newline_at_the_end_of_the_current_line_by_a_space() {
         let textInAXFocusedElement = """
 gonna try to fuse line 1
 with line 2
@@ -54,7 +54,7 @@ gonna try to fuse line 1 with line 2
         XCTAssertEqual(accessibilityElement.selectedText, " ")
     }
     
-    func test_that_if_the_next_line_is_an_EmptyLine_it_does_not_replace_the_linefeed_by_space_but_instead_deletes_it() {
+    func test_that_if_the_next_line_is_an_EmptyLine_it_does_not_replace_the_Newline_by_space_but_instead_deletes_it() {
         let textInAXFocusedElement = """
 next line is empty and it works differently
 

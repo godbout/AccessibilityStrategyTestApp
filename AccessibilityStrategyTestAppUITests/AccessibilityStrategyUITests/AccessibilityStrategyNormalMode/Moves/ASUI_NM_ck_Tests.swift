@@ -37,7 +37,7 @@ extension ASUI_NM_ck_Tests {
 // TextViews
 extension ASUI_NM_ck_Tests {
     
-    func test_that_in_normal_setting_it_can_delete_the_currentFileLine_and_the_one_above_but_excludes_the_linefeed_of_the_currentFileLine_if_any() {
+    func test_that_in_normal_setting_it_can_delete_the_currentFileLine_and_the_one_above_but_excludes_the_Newline_of_the_currentFileLine_if_any() {
         let textInAXFocusedElement = """
 ok real shit now
 come on ck is useful
@@ -89,7 +89,7 @@ this moves does not go to the
     }
     
     // this test contains blanks
-    func test_that_if_the_line_above_is_just_blanks_or_linefeed_and_the_currentFileLine_is_the_lastLine_the_caret_ends_up_at_the_end_of_the_line_above() {
+    func test_that_if_the_line_above_is_just_blanks_or_Newline_and_the_currentFileLine_is_the_lastLine_the_caret_ends_up_at_the_end_of_the_line_above() {
         let textInAXFocusedElement = """
 this moves does not go to the
                         

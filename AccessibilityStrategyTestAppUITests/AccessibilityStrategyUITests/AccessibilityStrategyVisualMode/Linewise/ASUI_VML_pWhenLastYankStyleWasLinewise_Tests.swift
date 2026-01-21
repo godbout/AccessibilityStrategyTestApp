@@ -20,7 +20,7 @@ class ASUI_VML_pWhenLastYankStyleWasLinewise_Tests: ASUI_VM_BaseTests {
 // TextFields
 extension ASUI_VML_pWhenLastYankStyleWasLinewise_Tests {
     
-    func test_that_it_replaces_the_current_Linewise_selection_and_the_block_cursor_goes_to_the_firstNonBlank_and_if_the_previously_copied_Linewise_text_had_a_linefeed_it_removes_it() {
+    func test_that_it_replaces_the_current_Linewise_selection_and_the_block_cursor_goes_to_the_firstNonBlank_and_if_the_previously_copied_Linewise_text_had_a_Newline_it_removes_it() {
         let textInAXFocusedElement = "gonna select the whole line and replace it and remove linefeed in copied text"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -86,7 +86,7 @@ can be done in one go with VM P!
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
-    func test_that_it_replaces_the_current_Linewise_selection_and_if_the_previously_copied_Linewise_text_did_not_have_a_linefeed_it_will_add_the_linefeed_if_we_are_not_on_the_last_line() {
+    func test_that_it_replaces_the_current_Linewise_selection_and_if_the_previously_copied_Linewise_text_did_not_have_a_Newline_it_will_add_the_Newline_if_we_are_not_on_the_last_line() {
         let textInAXFocusedElement = """
 if the selection doesn't include the last line
 then pasting will add a linefeed to the previously copied text
@@ -110,7 +110,7 @@ even if there was none
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_it_replaces_the_current_Linewise_selection_and_that_if_that_selection_includes_the_lastLine_it_removes_the_last_linefeed_from_the_text_to_copy() {
+    func test_that_it_replaces_the_current_Linewise_selection_and_that_if_that_selection_includes_the_lastLine_it_removes_the_last_Newline_from_the_text_to_copy() {
         let textInAXFocusedElement = """
 if the selection includes the last line
 we gonna have to remove the

@@ -94,7 +94,7 @@ extension ASUI_NM_cl_Tests {
 // TextViews
 extension ASUI_NM_cl_Tests {
     
-    func test_that_on_an_EmptyLine_it_does_not_delete_the_linefeed_and_deselects_the_linefeed() {
+    func test_that_on_an_EmptyLine_it_does_not_delete_the_Newline_and_deselects_the_Newline() {
         let textInAXFocusedElement = """
   blah blah some line
 

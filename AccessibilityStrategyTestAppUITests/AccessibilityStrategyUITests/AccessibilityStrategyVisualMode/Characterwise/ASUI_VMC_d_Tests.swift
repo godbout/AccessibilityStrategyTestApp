@@ -46,7 +46,7 @@ the selection!
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
-    func test_that_if_there_is_only_one_character_on_a_line_deleting_it_stays_on_the_line_and_does_not_go_to_the_linefeed_of_the_above_line() {
+    func test_that_if_there_is_only_one_character_on_a_line_deleting_it_stays_on_the_line_and_does_not_go_to_the_Newline_of_the_above_line() {
         let textInAXFocusedElement = """
 if deleting the last character of
 x
@@ -70,7 +70,7 @@ should go back to line end limit
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_if_the_caret_is_on_an_EmptyLine_it_deletes_the_linefeed_and_stick_the_next_line_up() {
+    func test_that_if_the_caret_is_on_an_EmptyLine_it_deletes_the_Newline_and_stick_the_next_line_up() {
         let textInAXFocusedElement = """
 there's gonna be an empty line
 

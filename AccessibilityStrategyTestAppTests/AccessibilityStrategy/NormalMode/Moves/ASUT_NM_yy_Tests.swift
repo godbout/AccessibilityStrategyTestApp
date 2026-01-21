@@ -233,7 +233,7 @@ extension ASUT_NM_yy_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_it_includes_the_end_of_the_line_linefeed() {
+    func test_that_it_includes_the_end_of_the_line_Newline() {
         let text = 
 """
 some very long multiple lines just to be sure that it
@@ -264,7 +264,7 @@ workd properly my friend
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_it_does_not_include_the_linefeed_of_the_previous_line() {
+    func test_that_it_does_not_include_the_Newline_of_the_previous_line() {
         let text = 
             """
 some more long multiple lines for you because you're my best friend

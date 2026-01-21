@@ -46,7 +46,7 @@ the caret is on the first file line
         XCTAssertTrue(vimEngineState.lastMoveBipped)
     }
     
-    func test_that_in_other_cases_it_does_not_Bip_and_sets_the_LastYankingStyle_to_Linewise_and_copies_the_deletion_plus_the_last_linefeed_if_any() {
+    func test_that_in_other_cases_it_does_not_Bip_and_sets_the_LastYankingStyle_to_Linewise_and_copies_the_deletion_plus_the_last_Newline_if_any() {
         let text = """
 ok now let's check
 when the deleting

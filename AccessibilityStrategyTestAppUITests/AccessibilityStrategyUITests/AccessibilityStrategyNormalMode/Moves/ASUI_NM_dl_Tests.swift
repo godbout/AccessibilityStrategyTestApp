@@ -36,7 +36,7 @@ extension ASUI_NM_dl_Tests {
 // TextViews
 extension ASUI_NM_dl_Tests {
 
-    func test_that_if_the_caret_is_at_the_last_character_of_a_line_that_does_not_end_with_a_linefeed_it_deletes_the_last_character_and_goes_back_one_character() {
+    func test_that_if_the_caret_is_at_the_last_character_of_a_line_that_does_not_end_with_a_Newline_it_deletes_the_last_character_and_goes_back_one_character() {
         let textInAXFocusedElement = """
 so we're on the last
 character of the last line
@@ -58,7 +58,7 @@ that is not an empty line🤡️
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
-    func test_that_if_the_caret_is_on_an_EmptyLine_it_does_not_delete_the_linefeed() {
+    func test_that_if_the_caret_is_on_an_EmptyLine_it_does_not_delete_the_Newline() {
         let textInAXFocusedElement = """
 next line is gonna be empty!
 

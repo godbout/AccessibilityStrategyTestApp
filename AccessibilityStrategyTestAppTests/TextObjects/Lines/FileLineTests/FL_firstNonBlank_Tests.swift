@@ -77,7 +77,7 @@ extension FL_firstNonBlank_Tests {
 // TextViews
 extension FL_firstNonBlank_Tests {
     
-    func test_that_for_a_line_with_linefeed_the_caret_goes_to_the_end_of_the_line_before_the_linefeed() throws {
+    func test_that_for_a_line_with_Newline_the_caret_goes_to_the_end_of_the_line_before_the_Newline() throws {
         let text = """
             
 and a line is empty!

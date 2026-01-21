@@ -104,7 +104,7 @@ so that's a line, that's for sure
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_the_line_is_full_of_spaces_and_ends_with_a_linefeed_it_goes_just_before_the_linefeed() {
+    func test_that_if_the_line_is_full_of_spaces_and_ends_with_a_Newline_it_goes_just_before_the_Newline() {
         let text = """
 so yeah like basically we should go right before the linefeed
                      
@@ -134,7 +134,7 @@ of this previous line
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_the_line_is_full_of_spaces_and_does_not_end_with_a_linefeed_it_goes_to_the_end_of_the_line() {
+    func test_that_if_the_line_is_full_of_spaces_and_does_not_end_with_a_Newline_it_goes_to_the_end_of_the_line() {
         let text = """
 so now we will have a line that is full of spaces but no linefeed
                

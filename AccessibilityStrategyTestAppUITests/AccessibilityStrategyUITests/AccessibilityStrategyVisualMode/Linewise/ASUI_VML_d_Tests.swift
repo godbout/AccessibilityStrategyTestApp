@@ -75,7 +75,7 @@ some more
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_if_the_next_line_is_only_blanks_the_caret_goes_to_the_limit_of_the_line_before_the_linefeed() {
+    func test_that_if_the_next_line_is_only_blanks_the_caret_goes_to_the_limit_of_the_line_before_the_Newline() {
         let textInAXFocusedElement = """
 we gonna use VM
 d here and we suppose

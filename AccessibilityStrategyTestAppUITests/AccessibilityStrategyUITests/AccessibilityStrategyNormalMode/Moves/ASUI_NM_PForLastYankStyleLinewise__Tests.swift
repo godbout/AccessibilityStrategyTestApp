@@ -31,7 +31,7 @@ extension ASUI_NM_PForLastYankStyleLinewise_Tests {
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_when_the_last_yank_was_linewise_and_the_line_was_ending_with_a_linefeed_the_linefeed_is_not_pasted_in_the_TextField() {
+    func test_that_when_the_last_yank_was_linewise_and_the_line_was_ending_with_a_Newline_the_Newline_is_not_pasted_in_the_TextField() {
         let textInAXFocusedElement = "P should not paste linefeeds in the TF"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -107,7 +107,7 @@ to the first non blank of the copied line
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_EmptyLine_it_still_pastes_and_will_enforce_a_trailing_linefeed() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_EmptyLine_it_still_pastes_and_will_enforce_a_trailing_Newline() {
         let textInAXFocusedElement = """
 this should paste
 on the last line and

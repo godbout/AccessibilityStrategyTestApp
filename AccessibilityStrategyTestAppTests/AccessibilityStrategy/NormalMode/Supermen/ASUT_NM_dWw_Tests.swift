@@ -46,7 +46,7 @@ extension ASUT_NM_dWw_Tests {
         XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
-    func test_that_for_a_word_that_is_at_the_end_of_a_line_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_proper_deletion_which_means_without_the_Linefeed() {
+    func test_that_for_a_word_that_is_at_the_end_of_a_line_it_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_copies_the_proper_deletion_which_means_without_the_Newline() {
         let text = """
 ok my friend here
 you shouldn't copy

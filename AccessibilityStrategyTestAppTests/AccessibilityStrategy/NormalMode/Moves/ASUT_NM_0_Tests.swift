@@ -50,7 +50,7 @@ this move does not stop at screen lines. it will just pass by
 // TextFields and TextViews
 extension ASUT_NM_0_Tests {
     
-    func test_that_if_the_line_is_not_preceded_by_a_linefeed_it_still_goes_to_the_beginning_of_it() {
+    func test_that_if_the_line_is_not_preceded_by_a_Newline_it_still_goes_to_the_beginning_of_it() {
         let text = "hello world and that's a long one that we gonna wrap 🗺️"
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -82,7 +82,7 @@ extension ASUT_NM_0_Tests {
 // TextViews
 extension ASUT_NM_0_Tests {
     
-    func test_that_if_the_line_is_preceded_by_a_linefeed_it_goes_to_the_beginning_of_it() {
+    func test_that_if_the_line_is_preceded_by_a_Newline_it_goes_to_the_beginning_of_it() {
         let text = """
 indeed that is a multiline
 and yes my friend they all

@@ -49,7 +49,7 @@ extension ASUI_NM_pForLastYankStyleCharacterwise_Tests {
 // TextAreas
 extension ASUI_NM_pForLastYankStyleCharacterwise_Tests {
     
-    func test_that_in_normal_setting_it_pastes_the_text_after_the_block_cursor_and_if_the_text_does_not_contain_a_linefeed_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
+    func test_that_in_normal_setting_it_pastes_the_text_after_the_block_cursor_and_if_the_text_does_not_contain_a_Newline_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
         let textInAXFocusedElement = """
 time to paste
 in TextViews
@@ -75,7 +75,7 @@ ho ho ho
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_in_normal_setting_it_pastes_the_text_after_the_block_cursor_and_if_the_text_contains_a_linefeed_the_block_cursor_ends_up_at_the_beginning_of_the_pasted_text() {
+    func test_that_in_normal_setting_it_pastes_the_text_after_the_block_cursor_and_if_the_text_contains_a_Newline_the_block_cursor_ends_up_at_the_beginning_of_the_pasted_text() {
         let textInAXFocusedElement = """
 time to paste
 in TextViews

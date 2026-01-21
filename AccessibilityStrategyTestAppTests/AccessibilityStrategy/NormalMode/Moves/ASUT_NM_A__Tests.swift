@@ -48,7 +48,7 @@ them like nothing happened. that's how special it is.
 
 extension ASUT_NM_A__Tests {
     
-    func test_that_if_a_file_line_ends_with_a_linefeed_it_goes_after_the_last_visible_character_of_that_line() {
+    func test_that_if_a_file_line_ends_with_a_Newline_it_goes_after_the_last_visible_character_of_that_line() {
         let text = """
 there's no such thing anymore as going to the end
 of a screen line 🖥️🖥️🖥️ most of the moves have to be file line
@@ -78,7 +78,7 @@ LMAO what a dumbass i am
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_a_file_line_does_not_end_with_a_linefeed_it_goes_after_the_last_visible_character_of_that_line_which_means_before_the_linefeed() {
+    func test_that_if_a_file_line_does_not_end_with_a_Newline_it_goes_after_the_last_visible_character_of_that_line_which_means_before_the_Newline() {
         let text = "yes A now goes to the end of file lines rather than screen lines because i was a dumbass LMAO"
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -104,7 +104,7 @@ LMAO what a dumbass i am
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_a_file_line_is_empty_it_still_stops_before_the_linefeed_and_does_not_end_on_the_line_below() {
+    func test_that_if_a_file_line_is_empty_it_still_stops_before_the_Newline_and_does_not_end_on_the_line_below() {
         let text = """
 yeah so it always seems easy but actually it's fucking hard
 
