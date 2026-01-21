@@ -209,7 +209,7 @@ after the two spaces
         XCTAssertEqual(accessibilityElement.selectedLength, 5)
     }
     
-    func test_that_if_on_the_last_line_it_deletes_the_line_and_goes_up_to_the_first_non_blank_of_the_previous_line() {
+    func test_that_if_on_the_last_line_it_deletes_the_line_and_goes_up_to_the_first_NonBlank_of_the_previous_line() {
         let textInAXFocusedElement = """
 this one
     🌲️s a tough
@@ -225,7 +225,7 @@ one
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
-    func test_that_the_caret_ends_up_at_the_next_line_end_limit_if_the_next_line_is_just_made_out_of_non_blank_characters() {
+    func test_that_the_caret_ends_up_at_the_next_line_end_limit_if_the_next_line_is_just_made_out_of_NonBlank_characters() {
         let textInAXFocusedElement = """
 if the next line is just blank characters
 then there is no firstNonBlank so we need
@@ -250,7 +250,7 @@ to stop at the end limit of the line
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_if_the_next_line_is_only_blanks_the_caret_goes_to_the_limit_of_the_line_before_the_Newline() {
+    func test_that_if_the_next_line_is_only_Blanks_the_caret_goes_to_the_limit_of_the_line_before_the_Newline() {
         let textInAXFocusedElement = """
 we gonna use VM
 dd here and we suppose

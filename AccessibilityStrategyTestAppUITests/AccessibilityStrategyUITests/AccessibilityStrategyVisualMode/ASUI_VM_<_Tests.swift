@@ -48,7 +48,7 @@ seems that even the normal
 // TextFields and TextViews
 extension ASUI_VM_leftChevron_Tests {
     
-    func test_that_in_normal_setting_it_removes_4_spaces_at_the_beginning_of_each_line_of_the_selection_and_sets_the_caret_to_the_first_non_blank_of_the_first_line() {
+    func test_that_in_normal_setting_it_removes_4_spaces_at_the_beginning_of_each_line_of_the_selection_and_sets_the_caret_to_the_first_NonBlank_of_the_first_line() {
         let textInAXFocusedElement = """
 seems that even the normal
        🖕️ase fails LMAO

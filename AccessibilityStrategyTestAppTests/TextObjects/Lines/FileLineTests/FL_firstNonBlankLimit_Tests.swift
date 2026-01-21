@@ -42,7 +42,7 @@ extension FL_firstNonBlankLimit_Tests {
         XCTAssertEqual(fileLine.firstNonBlankLimit, 3)   
     }
     
-    func test_that_if_the_line_starts_with_non_blank_characters_then_the_caret_location_is_0() throws {
+    func test_that_if_the_line_starts_with_NonBlank_characters_then_the_caret_location_is_0() throws {
         let text = "non whitespace at the beginning here"        
         
         let fileLine = try XCTUnwrap(
@@ -72,7 +72,6 @@ extension FL_firstNonBlankLimit_Tests {
         XCTAssertEqual(fileLine.firstNonBlankLimit, 7)
     }
     
-    // TODO: update blanks to Blanks
     // TODO: update linefeed to Newline
     // TODO: update screen_line to ScreenLine lol
     func test_that_if_the_line_only_contains_Blanks_and_ends_with_a_Newline_it_returns_the_end_limit() throws {

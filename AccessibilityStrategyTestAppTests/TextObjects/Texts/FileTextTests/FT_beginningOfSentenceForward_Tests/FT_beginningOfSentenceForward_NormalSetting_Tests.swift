@@ -203,7 +203,7 @@ the line above is an empty line and ( should stop there
         XCTAssertEqual(beginningOfSentenceForwardLocation, 56)
     }
 
-    func test_that_it_stops_at_an_EmptyLine_if_the_previous_sentence_has_blanks_following_a_dot_before_its_Newline() {
+    func test_that_it_stops_at_an_EmptyLine_if_the_previous_sentence_has_Blanks_following_a_dot_before_its_Newline() {
         let text = """
 having spaces after a dot or exclamation mark etc. is gonna fail.    
 

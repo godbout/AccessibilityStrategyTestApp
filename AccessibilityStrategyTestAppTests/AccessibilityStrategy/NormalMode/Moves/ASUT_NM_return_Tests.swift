@@ -219,7 +219,7 @@ do you want to
         XCTAssertNil(returnedElement.selectedText)
     }
 
-    func test_that_it_actually_goes_to_the_first_non_blank_of_the_next_line() {
+    func test_that_it_actually_goes_to_the_first_NonBlank_of_the_next_line() {
         let text = """
 hehe so return in AS
         will go
@@ -282,7 +282,7 @@ hehe
     }
     
     // this test contains blanks
-    func test_that_it_stops_at_the_first_non_blank_limit_if_line_is_just_spaces() {
+    func test_that_it_stops_at_the_first_NonBlank_limit_if_line_is_just_spaces() {
         let text = """
 fucking loads of spaces
              

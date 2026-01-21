@@ -162,7 +162,7 @@ is a whole
 // bugs found
 extension FT_aParagraph_OnEmptyLines_Tests {
 
-    func test_that_if_there_are_trailing_blanks_at_the_end_of_a_line_they_are_included_in_the_range() {
+    func test_that_if_there_are_trailing_Blanks_at_the_end_of_a_line_they_are_included_in_the_range() {
         let text = """
 looks nice
 a bit more

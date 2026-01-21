@@ -35,7 +35,7 @@ extension FL_previousNonBlank_Tests {
         XCTAssertEqual(previousNonBlankLocation, 11)
     }
     
-    func test_that_it_gets_the_correct_location_for_a_nonBlank_preceded_by_a_blank() {
+    func test_that_it_gets_the_correct_location_for_a_nonBlank_preceded_by_a_Blank() {
         let text = "ok so now we're gonna be preceded by a blank LOL"
         
         let previousNonBlankLocation = try? applyFuncBeingTested(on: text, startingAt: 25)
@@ -43,7 +43,7 @@ extension FL_previousNonBlank_Tests {
         XCTAssertEqual(previousNonBlankLocation, 23)
     }
     
-    func test_that_it_gets_the_correct_location_for_a_nonBlank_preceded_by_several_blanks() {
+    func test_that_it_gets_the_correct_location_for_a_nonBlank_preceded_by_several_Blanks() {
         let text = "now we're gonna have                 many blanks"
         
         let previousNonBlankLocation = try? applyFuncBeingTested(on: text, startingAt: 37)
@@ -51,7 +51,7 @@ extension FL_previousNonBlank_Tests {
         XCTAssertEqual(previousNonBlankLocation, 19)
     }
     
-    func test_that_it_gets_the_correct_location_for_a_blank_preceded_by_a_nonBlank() {
+    func test_that_it_gets_the_correct_location_for_a_Blank_preceded_by_a_nonBlank() {
         let text = "a     blank preceded by a non blank"
         
         let previousNonBlankLocation = try? applyFuncBeingTested(on: text, startingAt: 11)
@@ -59,7 +59,7 @@ extension FL_previousNonBlank_Tests {
         XCTAssertEqual(previousNonBlankLocation, 10)
     }
     
-    func test_that_it_gets_the_correct_location_for_a_blank_preceded_by_another_blank() {
+    func test_that_it_gets_the_correct_location_for_a_Blank_preceded_by_another_Blank() {
         let text = "a     blank preceded by  a non blank"
         
         let previousNonBlankLocation = try? applyFuncBeingTested(on: text, startingAt: 24)
@@ -67,7 +67,7 @@ extension FL_previousNonBlank_Tests {
         XCTAssertEqual(previousNonBlankLocation, 22)
     }
     
-    func test_that_it_gets_the_correct_location_for_a_blank_preceded_by_several_blanks() {
+    func test_that_it_gets_the_correct_location_for_a_Blank_preceded_by_several_Blanks() {
         let text = "a     blank preceded by            a non blank"
         
         let previousNonBlankLocation = try? applyFuncBeingTested(on: text, startingAt: 29)
@@ -75,7 +75,7 @@ extension FL_previousNonBlank_Tests {
         XCTAssertEqual(previousNonBlankLocation, 22)
     }
        
-    func test_that_it_returns_nil_if_there_is_no_previous_nonBlank_which_would_mean_from_the_caret_to_the_beginning_of_the_FileLine_it_is_all_blanks() {
+    func test_that_it_returns_nil_if_there_is_no_previous_nonBlank_which_would_mean_from_the_caret_to_the_beginning_of_the_FileLine_it_is_all_Blanks() {
         let text = "                    this time no non blank"
         
         let previousNonBlankLocation = try? applyFuncBeingTested(on: text, startingAt: 16)

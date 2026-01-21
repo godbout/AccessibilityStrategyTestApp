@@ -20,7 +20,7 @@ class ASUI_VML_d_Tests: ASUI_VM_BaseTests {
 // TextFields and TextViews
 extension ASUI_VML_d_Tests {
     
-    func test_that_it_deletes_line_and_the_caret_will_go_to_the_first_non_blank_of_the_next_line_that_is_taking_over() {
+    func test_that_it_deletes_line_and_the_caret_will_go_to_the_first_NonBlank_of_the_next_line_that_is_taking_over() {
         let textInAXFocusedElement = """
 we gonna use VM
 d here and we suppose
@@ -75,7 +75,7 @@ some more
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_if_the_next_line_is_only_blanks_the_caret_goes_to_the_limit_of_the_line_before_the_Newline() {
+    func test_that_if_the_next_line_is_only_Blanks_the_caret_goes_to_the_limit_of_the_line_before_the_Newline() {
         let textInAXFocusedElement = """
 we gonna use VM
 d here and we suppose
@@ -103,7 +103,7 @@ d here and we suppose
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_removing_the_last_line_puts_the_caret_at_the_first_non_blank_of_the_previous_line() {
+    func test_that_removing_the_last_line_puts_the_caret_at_the_first_NonBlank_of_the_previous_line() {
         let textInAXFocusedElement = """
    ⛱️e gonna remove the last
 line and caret should go up

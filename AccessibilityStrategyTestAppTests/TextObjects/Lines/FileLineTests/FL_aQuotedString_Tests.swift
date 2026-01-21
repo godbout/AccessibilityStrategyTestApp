@@ -82,7 +82,7 @@ extension FL_aQuotedString_Tests {
         XCTAssertEqual(aQuotedStringRange?.count, 29) 
     }
     
-    func test_that_if_the_FileLine_starts_with_blanks_it_still_grabs_the_correct_range() {
+    func test_that_if_the_FileLine_starts_with_Blanks_it_still_grabs_the_correct_range() {
         let text = "                  'gourmet'shit"
         
         let aQuotedStringRange = try? applyFuncBeingTested(on: text, using: .singleQuote, startingAt: 4)
@@ -91,7 +91,7 @@ extension FL_aQuotedString_Tests {
         XCTAssertEqual(aQuotedStringRange?.count, 27) 
     }
         
-    func test_that_if_the_FileLine_ends_with_blanks_it_still_grabs_the_correct_range() {
+    func test_that_if_the_FileLine_ends_with_Blanks_it_still_grabs_the_correct_range() {
         let text = "hehe'gourmet'                    "
         
         let aQuotedStringRange = try? applyFuncBeingTested(on: text, using: .singleQuote, startingAt: 4)
@@ -100,7 +100,7 @@ extension FL_aQuotedString_Tests {
         XCTAssertEqual(aQuotedStringRange?.count, 29) 
     }
     
-    func test_just_to_be_sure_lol_with_an_empty_quotedString_surrounded_by_blanks_just_to_feel_i_am_doing_a_great_job() {
+    func test_just_to_be_sure_lol_with_an_empty_quotedString_surrounded_by_Blanks_just_to_feel_i_am_doing_a_great_job() {
         let text = "         `              `              "
         
         let aQuotedStringRange = try? applyFuncBeingTested(on: text, using: .backtick, startingAt: 4)
@@ -137,7 +137,7 @@ so it failed again here.
         XCTAssertEqual(aQuotedStringRange?.count, 11) 
     }
     
-    // this test contains blanks
+    // this test contains Blanks
     func test_that_it_grabs_on_the_current_FileLine_and_does_not_spill_over() {
         let text = """
 so this is some "multiline"       

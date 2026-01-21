@@ -39,7 +39,7 @@ extension SL_firstNonBlankLimit_Tests {
         XCTAssertEqual(screenLine.firstNonBlankLimit, 3)
     }
 
-    func test_that_if_the_line_starts_with_non_blank_characters_then_the_caret_location_is_0() throws {
+    func test_that_if_the_line_starts_with_NonBlank_characters_then_the_caret_location_is_0() throws {
         let text = "non whitespace at the beginning here"
 
         let screenLine = try XCTUnwrap(

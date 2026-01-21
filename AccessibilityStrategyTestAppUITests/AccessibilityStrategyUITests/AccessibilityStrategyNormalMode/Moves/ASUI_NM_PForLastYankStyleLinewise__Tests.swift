@@ -81,7 +81,7 @@ pasted at the current line place
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
 
-    func test_that_when_pasting_the_new_line_the_block_cursor_goes_to_the_first_non_blank_of_the_new_current_line() {
+    func test_that_when_pasting_the_new_line_the_block_cursor_goes_to_the_first_NonBlank_of_the_new_current_line() {
         let textInAXFocusedElement = """
 so now we gonna
 have to move the caret

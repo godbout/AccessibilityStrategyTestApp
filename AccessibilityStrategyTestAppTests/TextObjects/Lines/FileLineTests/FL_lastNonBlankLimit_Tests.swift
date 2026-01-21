@@ -9,7 +9,7 @@ class FL_lastNonBlankLimit_Tests: XCTestCase {}
 // TextFields and TextViews
 extension FL_lastNonBlankLimit_Tests {
 
-    func test_that_it_returns_the_correct_location_for_a_line_that_ends_with_a_non_blank_character() throws {
+    func test_that_it_returns_the_correct_location_for_a_line_that_ends_with_a_NonBlank_character() throws {
         let text = "hehe motherfuckers"
         
         let fileLine = try XCTUnwrap(

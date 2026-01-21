@@ -111,7 +111,7 @@ extension FT_beginningOfSentenceBackward_NormalSetting_Tests {
         XCTAssertEqual(beginningOfSentenceBackwardLocation, 19)
     }
     
-    func test_that_it_skips_consecutive_blanks_because_there_is_a_bug() {
+    func test_that_it_skips_consecutive_Blanks_because_there_is_a_bug() {
         let text = "one more.    ok so it seems that.       if there are many blanks it does not work"
         let beginningOfSentenceBackwardLocation = applyFuncBeingTested(on: text, startingAt: 38)
         
@@ -160,7 +160,7 @@ can check the impl of that
         XCTAssertEqual(beginningOfSentenceBackwardLocation, 67)
     }
     
-    func test_that_it_does_not_stop_at_consecutive_lines_when_the_lines_start_with_blanks() {
+    func test_that_it_does_not_stop_at_consecutive_lines_when_the_lines_start_with_Blanks() {
         let text = """
 this is a first line
 

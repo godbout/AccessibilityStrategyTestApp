@@ -134,7 +134,7 @@ new line to paste after last line
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
-    func test_that_it_replaces_the_current_Linewise_selection_and_that_the_block_cursor_goes_to_the_first_non_blank_of_the_firstLine_of_the_pasted_text() {
+    func test_that_it_replaces_the_current_Linewise_selection_and_that_the_block_cursor_goes_to_the_first_NonBlank_of_the_firstLine_of_the_pasted_text() {
         let textInAXFocusedElement = """
 caret needs to go
 to the first non blank

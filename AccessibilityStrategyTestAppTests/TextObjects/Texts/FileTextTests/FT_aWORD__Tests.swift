@@ -188,7 +188,7 @@ this line ends with 3 spaces
         XCTAssertEqual(WORDRange?.count, 35)
     }
     
-    func test_that_if_there_are_no_trailing_spaces_because_there_is_no_WORD_forward_and_the_previous_non_blank_before_the_WORD_is_a_Newline_then_it_stops_at_the_beginning_of_the_current_WORD() {
+    func test_that_if_there_are_no_trailing_spaces_because_there_is_no_WORD_forward_and_the_previous_NonBlank_before_the_WORD_is_a_Newline_then_it_stops_at_the_beginning_of_the_current_WORD() {
         let text = """
 this line ends with 3 spaces   
   and

@@ -17,7 +17,7 @@ class ASUI_NM_gCaret_Tests: ASUI_NM_BaseTests {
 // TextFields and TextViews
 extension ASUI_NM_gCaret_Tests {
     
-    func test_that_in_normal_case_it_goes_to_the_first_non_blank_of_the_line() {
+    func test_that_in_normal_case_it_goes_to_the_first_NonBlank_of_the_line() {
         let textInAXFocusedElement = "    hehe ankulay that's a long like that we gonna wrap"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)

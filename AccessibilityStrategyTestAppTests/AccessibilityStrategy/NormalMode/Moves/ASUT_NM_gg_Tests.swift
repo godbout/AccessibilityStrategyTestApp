@@ -179,7 +179,7 @@ but hey surprise mofo
 // TextFields
 extension ASUT_NM_gg_Tests {
     
-    func test_that_it_goes_to_the_beginning_of_the_line_if_it_starts_with_non_blank() {
+    func test_that_it_goes_to_the_beginning_of_the_line_if_it_starts_with_NonBlank() {
         let text = "a normal sentence"
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -204,7 +204,7 @@ extension ASUT_NM_gg_Tests {
         XCTAssertEqual(returnedElement.selectedLength, 1)
     }
     
-    func test_that_it_goes_to_the_first_non_blank_of_the_line() {
+    func test_that_it_goes_to_the_first_NonBlank_of_the_line() {
         let text = "      😀️g should go to 😀️"
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -229,7 +229,7 @@ extension ASUT_NM_gg_Tests {
         XCTAssertEqual(returnedElement.selectedLength, 3)
     }
     
-    func test_that_it_goes_to_the_end_limit_of_the_line_if_there_is_no_non_blank() {
+    func test_that_it_goes_to_the_end_limit_of_the_line_if_there_is_no_NonBlank() {
         let text = "         "
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -260,7 +260,7 @@ extension ASUT_NM_gg_Tests {
 // TextViews
 extension ASUT_NM_gg_Tests {
     
-    func test_that_it_goes_to_the_first_character_of_the_TextView_if_it_starts_with_non_blank() {
+    func test_that_it_goes_to_the_first_character_of_the_TextView_if_it_starts_with_NonBlank() {
         let text = """
 a beautiful poem
 right
@@ -289,7 +289,7 @@ here
         XCTAssertEqual(returnedElement.selectedLength, 1)
     }
     
-    func test_that_it_goes_to_the_first_non_blank_of_the_TextView() {
+    func test_that_it_goes_to_the_first_NonBlank_of_the_TextView() {
         let text = """
    🇫🇷️ couple of spaces
 then a lot

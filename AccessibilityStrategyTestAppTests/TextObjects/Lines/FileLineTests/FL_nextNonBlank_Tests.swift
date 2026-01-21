@@ -5,7 +5,7 @@ import XCTest
 // FL and FT nextNonBlank are the same actually coz they're implemented on the FO protocol
 // but i find it easier to understand the separation, so i test the func on both FL and FT.
 // also UT are cheap, so here you go!
-// hint: blanks are spaces and tabs. linefeed is not blank! (at least most of the time... in some moves it's considered blank in Vim...)
+// hint: Blanks are spaces and tabs. linefeed is not blank! (at least most of the time... in some moves it's considered blank in Vim...)
 class FL_nextNonBlank_Tests: XCTestCase {
     
     private func applyFuncBeingTested(on text: String, after caretLocation: Int) throws -> Int? {
@@ -38,7 +38,7 @@ extension FL_nextNonBlank_Tests {
         XCTAssertEqual(nextNonBlankLocation, 13)
     }
     
-    func test_that_it_gets_the_correct_location_for_a_nonBlank_followed_by_a_blank() {
+    func test_that_it_gets_the_correct_location_for_a_nonBlank_followed_by_a_Blank() {
         let text = "ok so now we're gonna be followed by a blank LOL"
         
         let nextNonBlankLocation = try? applyFuncBeingTested(on: text, after: 23)
@@ -46,7 +46,7 @@ extension FL_nextNonBlank_Tests {
         XCTAssertEqual(nextNonBlankLocation, 25)
     }
     
-    func test_that_it_gets_the_correct_location_for_a_nonBlank_followed_by_several_blanks() {
+    func test_that_it_gets_the_correct_location_for_a_nonBlank_followed_by_several_Blanks() {
         let text = "now we're gonna have                 many blanks"
         
         let nextNonBlankLocation = try? applyFuncBeingTested(on: text, after: 19)
@@ -54,7 +54,7 @@ extension FL_nextNonBlank_Tests {
         XCTAssertEqual(nextNonBlankLocation, 37)
     }
     
-    func test_that_it_gets_the_correct_location_for_a_blank_followed_by_a_nonBlank() {
+    func test_that_it_gets_the_correct_location_for_a_Blank_followed_by_a_nonBlank() {
         let text = "a     blank followed by a non blank"
         
         let nextNonBlankLocation = try? applyFuncBeingTested(on: text, after: 5)
@@ -62,7 +62,7 @@ extension FL_nextNonBlank_Tests {
         XCTAssertEqual(nextNonBlankLocation, 6)
     }
     
-    func test_that_it_gets_the_correct_location_for_a_blank_followed_by_another_blank() {
+    func test_that_it_gets_the_correct_location_for_a_Blank_followed_by_another_Blank() {
         let text = "a     blank followed by a non blank"
         
         let nextNonBlankLocation = try? applyFuncBeingTested(on: text, after: 4)
@@ -70,7 +70,7 @@ extension FL_nextNonBlank_Tests {
         XCTAssertEqual(nextNonBlankLocation, 6)
     }
     
-    func test_that_it_gets_the_correct_location_for_a_blank_followed_by_several_blanks() {
+    func test_that_it_gets_the_correct_location_for_a_Blank_followed_by_several_Blanks() {
         let text = "a     blank followed by a non blank"
         
         let nextNonBlankLocation = try? applyFuncBeingTested(on: text, after: 3)

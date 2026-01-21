@@ -89,7 +89,7 @@ this moves does not go to the
     }
     
     // this test contains blanks
-    func test_that_if_the_line_above_is_just_blanks_or_Newline_and_the_currentFileLine_is_the_lastLine_the_caret_ends_up_at_the_end_of_the_line_above() {
+    func test_that_if_the_line_above_is_just_Blanks_or_Newline_and_the_currentFileLine_is_the_lastLine_the_caret_ends_up_at_the_end_of_the_line_above() {
         let textInAXFocusedElement = """
 this moves does not go to the
                         

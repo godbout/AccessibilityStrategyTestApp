@@ -448,7 +448,7 @@ hehe
     }
 
     // there is a space at the end of the second line (which is why the regex failed)
-    func test_that_if_a_line_ends_with_blanks_it_returns_the_correct_range() {
+    func test_that_if_a_line_ends_with_Blanks_it_returns_the_correct_range() {
         let text = """
     XCTAssertEqual(innerParagraphRange.lowerBound, 0)
     XCTAssertEqual(innerParagraphRange.count, 3)  
@@ -462,7 +462,7 @@ hehe
         XCTAssertEqual(innerParagraphRange.count, 106)
     }
     
-    func test_that_if_a_whole_text_end_with_blanks_it_returns_the_correct_range() {
+    func test_that_if_a_whole_text_end_with_Blanks_it_returns_the_correct_range() {
         let text = """
        OMFG regex                      
 """

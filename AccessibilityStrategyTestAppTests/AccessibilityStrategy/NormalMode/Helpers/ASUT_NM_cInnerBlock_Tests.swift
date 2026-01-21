@@ -179,7 +179,7 @@ by a linefeed and
         XCTAssertEqual(vimEngineState.lastMoveBipped, false)
     }
     
-    func test_that_in_the_case_where_it_leaves_an_EmptyLine_between_the_brackets_it_positions_the_cursor_according_to_the_first_non_blank_of_the_first_line_that_is_after_the_opening_bracket_and_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise() {
+    func test_that_in_the_case_where_it_leaves_an_EmptyLine_between_the_brackets_it_positions_the_cursor_according_to_the_first_NonBlank_of_the_first_line_that_is_after_the_opening_bracket_and_does_not_Bip_and_sets_the_LastYankStyle_to_Linewise() {
         let text = """
 now that shit will get cleaned (
     and the non blank

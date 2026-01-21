@@ -75,7 +75,7 @@ extension ASUT_NM_I__Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_it_goes_to_the_first_non_blank_of_the_line() {
+    func test_that_it_goes_to_the_first_NonBlank_of_the_line() {
         let text = """
 so that's a line, that's for sure
      and that's the second one where we gonna put the caret

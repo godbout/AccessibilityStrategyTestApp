@@ -53,7 +53,7 @@ one should disappear
         XCTAssertEqual(accessibilityElement.selectedLength, 0)
     }
     
-    func test_that_if_there_are_more_than_two_lines_the_caret_goes_to_the_first_non_blank_of_the_third_line() {
+    func test_that_if_there_are_more_than_two_lines_the_caret_goes_to_the_first_NonBlank_of_the_third_line() {
         let textInAXFocusedElement = """
 now 🤡️🤡️this is🤡️ get🤡️🤡️ting cool
 becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
@@ -73,7 +73,7 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
         XCTAssertEqual(accessibilityElement.selectedLength, 3)
     }
     
-    func test_that_if_what_we_deleted_are_the_two_last_lines_then_the_caret_goes_to_the_first_non_blank_of_what_is_now_the_newly_last_line() {
+    func test_that_if_what_we_deleted_are_the_two_last_lines_then_the_caret_goes_to_the_first_NonBlank_of_what_is_now_the_newly_last_line() {
         let textInAXFocusedElement = """
    😚️ow 🤡️🤡️this is🤡️ get🤡️🤡️ting cool
 becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next

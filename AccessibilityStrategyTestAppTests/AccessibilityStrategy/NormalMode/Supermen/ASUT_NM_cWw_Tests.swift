@@ -86,7 +86,7 @@ extension ASUT_NM_cWw_Tests {
     
     // careful with "end of word". if the caret is already on the end of the current word, it goes to the end of the next word.
     // this is how `e` behaves.
-    func test_that_if_the_caret_is_on_a_non_blank_or_a_non_punctuation_it_selects_the_text_from_the_caret_to_the_end_of_word() {
+    func test_that_if_the_caret_is_on_a_NonBlank_or_a_non_punctuation_it_selects_the_text_from_the_caret_to_the_end_of_word() {
         let text = "😂️😂️😂️😂️hehehe gonna use cw on this sentence"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -112,7 +112,7 @@ extension ASUT_NM_cWw_Tests {
         XCTAssertEqual(returnedElement.selectedText, "")
     }
     
-    func test_that_if_the_caret_is_on_a_blank_it_selects_the_text_from_the_caret_to_the_beginning_of_the_next_WORD() {
+    func test_that_if_the_caret_is_on_a_Blank_it_selects_the_text_from_the_caret_to_the_beginning_of_the_next_WORD() {
         let text = "😂️😂️😂️😂️hehehe                   gonna use cw on this sentence"
         let element = AccessibilityTextElement(
             role: .textField,
