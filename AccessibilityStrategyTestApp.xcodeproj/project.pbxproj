@@ -915,7 +915,6 @@
 		919A9F142F1F580600A3341C /* FT_beginningOfParagraphBackward_NormalSetting_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT_beginningOfParagraphBackward_NormalSetting_Tests.swift; sourceTree = "<group>"; };
 		919A9F162F1F582300A3341C /* FT_beginningOfParagraphBackward_OnEmptyLines_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT_beginningOfParagraphBackward_OnEmptyLines_Tests.swift; sourceTree = "<group>"; };
 		919A9F182F1F583500A3341C /* FT_beginningOfParagraphOnBlankLines_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT_beginningOfParagraphOnBlankLines_Tests.swift; sourceTree = "<group>"; };
-		919A9F1A2F208B4100A3341C /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = SOURCE_ROOT; };
 		919C256927D643C3001ABB18 /* ASUT_VM_u_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_VM_u_Tests.swift; sourceTree = "<group>"; };
 		919D093B2704CFCF0066CDE8 /* ASUT_NM_0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_0_Tests.swift; sourceTree = "<group>"; };
 		919FF482270C12A000A6E0C0 /* FL_firstNonBlank_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FL_firstNonBlank_Tests.swift; sourceTree = "<group>"; };
@@ -1713,7 +1712,6 @@
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,
 				91F951B226DFF56C00DC26C6 /* Products */,
 				9179DC062701D8E100C87DD6 /* Frameworks */,
-				919A9F1A2F208B4100A3341C /* AccessibilityStrategy */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3504,7 +3502,7 @@
 			repositoryURL = "git@github.com:godbout/AccessibilityStrategy.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.21.0;
+				minimumVersion = 10.24.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
