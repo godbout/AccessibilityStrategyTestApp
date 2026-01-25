@@ -8,6 +8,10 @@ import XCTest
 // 2022-04-05: the 2nd case is back. will be needed for calculation of ScreenLines with visibleCharacterRange
 // because the visibleCharacterRange is a range that goes from one character to AFTER another one, which could be the last one.
 // so even though we cannot set the caret location there, we still need to ping that location and generate proper data where the AX fails.
+// 2026-01-25: the 2nd case is linked to the Start-At-Big-Sur bug reported as FB9114768. this bug is actually fixed in the
+// SwiftUI version released in June 2025! this version comes with macOS 26, and the minor versions of Sonoma and Sequoia.
+// the Start-At-Big-Sur (and then 2nd case) is still here tho with old AppKit apps like iA Writer, although this is not testable
+// as even a NSTextView in the AccessibilityStrategyTestApp works lol. so here we only test for TextEditor on macOS 26.
 class The3CasesTests: ATEA_BaseTests {}
 
 

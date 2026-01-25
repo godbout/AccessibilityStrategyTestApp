@@ -6,6 +6,7 @@ import XCTest
 // the start of a line, if selected through mouse or AX (but not keyboard),
 // will return data from the previous line.
 // reported as FB9114768 but as usual, i should just put it up my asshole
+// 2026-01-25: see The3CasesTests for blah blah
 class StartAtBigSurBugTests: ATEA_BaseTests {
     
     func test_that_we_grab_a_correct_AccessibilityTextElement_from_the_character_right_after_the_start_of_a_line() {
