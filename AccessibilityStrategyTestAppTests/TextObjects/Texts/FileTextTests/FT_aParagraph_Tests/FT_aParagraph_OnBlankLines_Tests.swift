@@ -14,8 +14,9 @@ class FT_aParagraph_OnBlankLines_Tests: XCTestCase {
 }
 
 
+// TextFields and TextViews
 extension FT_aParagraph_OnBlankLines_Tests {
-
+    
     func test_that_for_a_BlankLine_it_returns_nil() {
         let text = "                      "
         
@@ -23,6 +24,13 @@ extension FT_aParagraph_OnBlankLines_Tests {
         
         XCTAssertNil(aParagraphRange)
     }
+    
+}
+
+
+// TextFields and TextViews
+// surrounded by BlankLines
+extension FT_aParagraph_OnBlankLines_Tests {
     
     func test_that_for_a_single_BlankLine_before_some_text_it_returns_the_correct_range() {
         let text = """
