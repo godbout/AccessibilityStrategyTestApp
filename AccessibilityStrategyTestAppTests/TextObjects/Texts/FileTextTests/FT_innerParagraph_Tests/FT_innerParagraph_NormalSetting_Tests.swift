@@ -17,8 +17,7 @@ class FT_innerParagraph_NormalSetting_Tests: XCTestCase {
 }
 
 
-// surrounded by EmptyLines
-// these tests contain Blanks
+// TextFields and TextViews
 extension FT_innerParagraph_NormalSetting_Tests {
     
     func test_that_for_a_single_line_it_returns_the_whole_line() {
@@ -29,6 +28,13 @@ extension FT_innerParagraph_NormalSetting_Tests {
         XCTAssertEqual(innerParagraphRange.lowerBound, 0)
         XCTAssertEqual(innerParagraphRange.count, 71) 
     }
+    
+}
+
+
+// TextViews
+// surrounded by EmptyLines
+extension FT_innerParagraph_NormalSetting_Tests {
     
     func test_that_for_a_single_line_after_an_EmptyLine_it_returns_the_correct_range() {
         let text = """
