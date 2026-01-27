@@ -3,7 +3,15 @@ import XCTest
 
 
 // see innerParagraph NormalSetting for blah blah
-class FT_innerParagraph_OnBlankLines_Tests: XCTestCase {}
+class FT_innerParagraph_OnBlankLines_Tests: XCTestCase {
+    
+    private func applyFuncBeingTested(on text: String, startingAt caretLocation: Int) -> Range<Int> {
+        let fileText = FileText(end: text.utf16.count, value: text)
+        
+        return fileText.innerParagraph(startingAt: caretLocation)
+    }
+    
+}
 
 
 extension FT_innerParagraph_OnBlankLines_Tests {
@@ -11,8 +19,7 @@ extension FT_innerParagraph_OnBlankLines_Tests {
     func test_that_for_an_BlankLine_it_returns_the_correct_range() {
         let text = "                      "
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let innerParagraphRange = fileText.innerParagraph(startingAt: 0)
+        let innerParagraphRange = applyFuncBeingTested(on: text, startingAt: 0)
         
         XCTAssertEqual(innerParagraphRange.lowerBound, 0)
         XCTAssertEqual(innerParagraphRange.count, 22) 
@@ -24,8 +31,7 @@ extension FT_innerParagraph_OnBlankLines_Tests {
   so for innerParagraph blank lines are a boundary. it's an exception.
 """
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let innerParagraphRange = fileText.innerParagraph(startingAt: 5)
+        let innerParagraphRange = applyFuncBeingTested(on: text, startingAt: 5)
         
         XCTAssertEqual(innerParagraphRange.lowerBound, 0)
         XCTAssertEqual(innerParagraphRange.count, 21) 
@@ -38,8 +44,7 @@ extension FT_innerParagraph_OnBlankLines_Tests {
               so for innerParagraph blank lines are a boundary. it's an exception.
 """
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let innerParagraphRange = fileText.innerParagraph(startingAt: 12)
+        let innerParagraphRange = applyFuncBeingTested(on: text, startingAt: 12)
         
         XCTAssertEqual(innerParagraphRange.lowerBound, 0)
         XCTAssertEqual(innerParagraphRange.count, 24) 
@@ -51,8 +56,7 @@ so for innerParagraph blank lines are a boundary. it's an exception.
                     
 """
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let innerParagraphRange = fileText.innerParagraph(startingAt: 81)
+        let innerParagraphRange = applyFuncBeingTested(on: text, startingAt: 81)
         
         XCTAssertEqual(innerParagraphRange.lowerBound, 72)
         XCTAssertEqual(innerParagraphRange.count, 20) 
@@ -65,8 +69,7 @@ so for innerParagraph blank lines are a boundary. it's an exception.
           
 """
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let innerParagraphRange = fileText.innerParagraph(startingAt: 69)
+        let innerParagraphRange = applyFuncBeingTested(on: text, startingAt: 69)
         
         XCTAssertEqual(innerParagraphRange.lowerBound, 69)
         XCTAssertEqual(innerParagraphRange.count, 34) 
@@ -79,8 +82,7 @@ so for innerParagraph blank lines are a boundary. it's an exception.
   so for innerParagraph blank lines are a boundary. it's an exception.
 """
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let innerParagraphRange = fileText.innerParagraph(startingAt: 78)
+        let innerParagraphRange = applyFuncBeingTested(on: text, startingAt: 78)
         
         XCTAssertEqual(innerParagraphRange.lowerBound, 71)
         XCTAssertEqual(innerParagraphRange.count, 22) 
@@ -98,8 +100,7 @@ hehe
 
 """
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let innerParagraphRange = fileText.innerParagraph(startingAt: 45)
+        let innerParagraphRange = applyFuncBeingTested(on: text, startingAt: 45)
         
         XCTAssertEqual(innerParagraphRange.lowerBound, 42)
         XCTAssertEqual(innerParagraphRange.count, 12) 
@@ -112,8 +113,8 @@ hehe
         
                    
 """
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let innerParagraphRange = fileText.innerParagraph(startingAt: 1)
+        
+        let innerParagraphRange = applyFuncBeingTested(on: text, startingAt: 1)
         
         XCTAssertEqual(innerParagraphRange.lowerBound, 0)
         XCTAssertEqual(innerParagraphRange.count, 61) 
@@ -129,8 +130,8 @@ is a whole
 paragraph in
    itself
 """
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let innerParagraphRange = fileText.innerParagraph(startingAt: 4)
+        
+        let innerParagraphRange = applyFuncBeingTested(on: text, startingAt: 4)
         
         XCTAssertEqual(innerParagraphRange.lowerBound, 0)
         XCTAssertEqual(innerParagraphRange.count, 22) 
@@ -146,8 +147,8 @@ paragraph in
       
 
 """
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let innerParagraphRange = fileText.innerParagraph(startingAt: 48)
+        
+        let innerParagraphRange = applyFuncBeingTested(on: text, startingAt: 48)
         
         XCTAssertEqual(innerParagraphRange.lowerBound, 44)
         XCTAssertEqual(innerParagraphRange.count, 21) 
@@ -163,8 +164,8 @@ is a whole
   paragraph in
    itself
 """
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let innerParagraphRange = fileText.innerParagraph(startingAt: 33)
+        
+        let innerParagraphRange = applyFuncBeingTested(on: text, startingAt: 33)
         
         XCTAssertEqual(innerParagraphRange.lowerBound, 24)
         XCTAssertEqual(innerParagraphRange.count, 25) 
@@ -184,8 +185,7 @@ extension FT_innerParagraph_OnBlankLines_Tests {
                 
 """
         
-        let fileText = FileText(end: text.utf16.count, value: text)
-        let innerParagraphRange = fileText.innerParagraph(startingAt: 18)
+        let innerParagraphRange = applyFuncBeingTested(on: text, startingAt: 18)
         
         XCTAssertEqual(innerParagraphRange.lowerBound, 0)
         XCTAssertEqual(innerParagraphRange.count, 27) 
