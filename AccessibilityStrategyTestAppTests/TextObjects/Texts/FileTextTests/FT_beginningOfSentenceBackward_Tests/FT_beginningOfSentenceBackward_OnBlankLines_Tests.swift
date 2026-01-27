@@ -13,6 +13,8 @@ class FT_beginningOfSentenceBackward_OnBlankLines_Tests: XCTestCase {
 }
 
 
+// TextViews
+// surrounded by BlankLines
 extension FT_beginningOfSentenceBackward_OnBlankLines_Tests {
     
     func test_that_if_the_caret_is_on_the_last_BlankLine_it_goes_to_the_beginning_of_the_sentence() {
