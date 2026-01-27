@@ -16,7 +16,7 @@ class FT_aParagraph_OnBlankLines_Tests: XCTestCase {
 
 extension FT_aParagraph_OnBlankLines_Tests {
 
-    func test_that_for_an_BlankLine_it_returns_nil() {
+    func test_that_for_a_BlankLine_it_returns_nil() {
         let text = "                      "
         
         let aParagraphRange = applyFuncBeingTested(on: text, startingAt: 0)
