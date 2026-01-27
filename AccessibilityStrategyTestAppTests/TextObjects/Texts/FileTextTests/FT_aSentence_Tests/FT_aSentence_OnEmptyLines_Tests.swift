@@ -13,6 +13,7 @@ class FT_aSentence_OnEmptyLines_Tests: XCTestCase {
 }
 
 
+// TextFields and TextViews
 extension FT_aSentence_OnEmptyLines_Tests {
     
     func test_that_for_an_EmptyLine_it_returns_the_correct_range() {
