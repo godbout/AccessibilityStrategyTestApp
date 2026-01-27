@@ -13,6 +13,7 @@ class FT_beginningOfSentenceBackward_OnEmptyLines_Tests: XCTestCase {
 }
 
 
+// TextFields and TextViews
 extension FT_beginningOfSentenceBackward_OnEmptyLines_Tests {
     
     func test_that_if_the_text_is_empty_then_it_returns_0() {
@@ -22,6 +23,13 @@ extension FT_beginningOfSentenceBackward_OnEmptyLines_Tests {
         
         XCTAssertEqual(beginningOfSentenceBackwardLocation, 0)
     }
+
+}
+
+
+// TextViews
+// surrounded by EmptyLines
+extension FT_beginningOfSentenceBackward_OnEmptyLines_Tests {
     
     func test_that_if_the_caret_is_on_the_last_EmptyLine_it_goes_to_the_beginning_of_the_sentence() {
         let text = """
