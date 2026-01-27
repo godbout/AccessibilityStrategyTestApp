@@ -13,6 +13,8 @@ class FT_beginningOfSentenceForward_OnBlankLines_Tests: XCTestCase {
 }
 
 
+// TextViews
+// surrounded by BlankLines
 extension FT_beginningOfSentenceForward_OnBlankLines_Tests {
     
     func test_that_it_does_not_get_stuck_in_the_middle_of_multiple_BlankLines() {
