@@ -11,3 +11,27 @@ class FT_aSentence_NormalSetting_Tests: XCTestCase {
     }
     
 }
+
+
+// TextFields and TextViews
+extension FT_aSentence_NormalSetting_Tests {
+
+    func test_that_if_the_text_is_just_one_word_then_it_returns_the_whole_text_lol() {
+        let text = "dumb"
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 3)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 4) 
+    }
+    
+    func test_that_for_the_first_sentence_of_the_text_it_returns_from_the_start_of_the_text_to_the_beginning_of_the_next_sentence_including_the_blank_before_it() {
+        let text = "dumb. and dumber"
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 6) 
+    }
+    
+}
