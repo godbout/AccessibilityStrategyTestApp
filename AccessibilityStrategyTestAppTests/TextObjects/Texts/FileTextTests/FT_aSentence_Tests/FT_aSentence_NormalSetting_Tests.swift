@@ -52,4 +52,13 @@ extension FT_aSentence_NormalSetting_Tests {
         XCTAssertEqual(aSentenceRange.count, 16) 
     }
     
+    func test_that_for_the_last_sentence_of_the_text_it_returns_from_the_end_of_the_previous_sentence_including_the_blanks_after_it_to_the_end_of_the_text() {
+        let text = "dumb   and.     dumber"
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 18)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 11)
+        XCTAssertEqual(aSentenceRange.count, 11) 
+    }
+    
 }
