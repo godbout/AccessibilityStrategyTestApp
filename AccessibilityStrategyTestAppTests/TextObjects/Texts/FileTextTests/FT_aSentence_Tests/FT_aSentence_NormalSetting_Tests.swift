@@ -61,4 +61,13 @@ extension FT_aSentence_NormalSetting_Tests {
         XCTAssertEqual(aSentenceRange.count, 11) 
     }
     
+    func test_that_if_a_sentence_is_surrounded_by_two_other_sentences_then_it_returns_from_the_beginning_of_that_sentence_until_the_beginning_of_the_next_sentence_including_the_blanks_before_it() {
+        let text = "dumb. and. dumber."
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 7)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 6)
+        XCTAssertEqual(aSentenceRange.count, 5) 
+    }
+    
 }
