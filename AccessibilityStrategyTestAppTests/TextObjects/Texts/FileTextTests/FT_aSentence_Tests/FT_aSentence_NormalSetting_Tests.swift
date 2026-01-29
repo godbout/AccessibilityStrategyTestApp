@@ -42,5 +42,14 @@ extension FT_aSentence_NormalSetting_Tests {
         XCTAssertEqual(aSentenceRange.lowerBound, 0)
         XCTAssertEqual(aSentenceRange.count, 27) 
     }
+        
+    func test_that_for_the_first_sentence_of_the_text_it_does_not_stop_at_blanks_and_return_from_the_start_of_the_text_to_the_beginning_of_the_next_sentence_including_the_blanks_before_it() {
+        let text = "dumb   and.     dumber"
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 8)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 16) 
+    }
     
 }
