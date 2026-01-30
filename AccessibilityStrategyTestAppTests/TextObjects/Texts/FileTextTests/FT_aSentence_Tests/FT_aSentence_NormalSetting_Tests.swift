@@ -25,7 +25,7 @@ extension FT_aSentence_NormalSetting_Tests {
         XCTAssertEqual(aSentenceRange.count, 4) 
     }
     
-    func test_that_for_the_first_sentence_of_the_text_it_returns_from_the_start_of_the_text_to_the_beginning_of_the_next_sentence_including_the_blank_before_it() {
+    func test_that_for_the_first_sentence_of_the_text_it_returns_from_the_start_of_the_text_to_the_end_of_the_first_sentence_including_the_trailing_blanks() {
         let text = "dumb. and dumber"
         
         let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
@@ -34,7 +34,7 @@ extension FT_aSentence_NormalSetting_Tests {
         XCTAssertEqual(aSentenceRange.count, 6) 
     }
     
-    func test_that_for_the_first_sentence_of_the_text_it_returns_from_the_start_of_the_text_to_the_beginning_of_the_next_sentence_including_the_blanks_before_it() {
+    func test_that_for_the_first_sentence_of_the_text_it_returns_from_the_start_of_the_text_to_end_of_the_first_sentence_including_the_trailing_blanks() {
         let text = "dumb.                      and dumber"
         
         let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 3)
@@ -43,7 +43,7 @@ extension FT_aSentence_NormalSetting_Tests {
         XCTAssertEqual(aSentenceRange.count, 27) 
     }
         
-    func test_that_for_the_first_sentence_of_the_text_it_does_not_stop_at_blanks_when_looking_backward_and_return_from_the_start_of_the_text_to_the_beginning_of_the_next_sentence_including_the_blanks_before_it() {
+    func test_that_for_the_first_sentence_of_the_text_it_does_not_stop_at_blanks_when_looking_backward_and_return_from_the_start_of_the_text_to_the_end_of_the_first_sentence_including_the_trailing_blanks() {
         let text = "dumb   and.     dumber"
         
         let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 8)
@@ -52,7 +52,7 @@ extension FT_aSentence_NormalSetting_Tests {
         XCTAssertEqual(aSentenceRange.count, 16) 
     }
     
-    func test_that_for_the_last_sentence_of_the_text_it_returns_from_the_end_of_the_previous_sentence_including_the_blanks_after_it_to_the_end_of_the_text() {
+    func test_that_for_the_last_sentence_of_the_text_it_returns_from_the_beginning_of_the_last_sentence_including_the_leading_blanks_to_the_end_of_the_text() {
         let text = "dumb   and.     dumber"
         
         let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 18)
@@ -61,8 +61,7 @@ extension FT_aSentence_NormalSetting_Tests {
         XCTAssertEqual(aSentenceRange.count, 11) 
     }
     
-    // TODO: update func names with "trailing spaces" and "leading spaces"?
-    func test_that_if_a_sentence_is_surrounded_by_two_other_sentences_then_it_returns_from_the_beginning_of_that_sentence_until_the_beginning_of_the_next_sentence_including_the_blanks_before_it() {
+    func test_that_if_a_sentence_is_surrounded_by_two_other_sentences_then_it_returns_from_the_beginning_of_that_sentence_not_including_the_leading_blank_to_the_end_of_the_sentence_including_the_trailing_blank() {
         let text = "dumb. and. dumber."
         
         let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 7)
