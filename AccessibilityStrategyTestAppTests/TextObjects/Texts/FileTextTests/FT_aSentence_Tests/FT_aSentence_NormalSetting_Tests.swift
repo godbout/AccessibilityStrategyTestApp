@@ -108,3 +108,27 @@ extension FT_aSentence_NormalSetting_Tests {
     }
     
 }
+
+
+// TextViews
+// basic
+extension FT_aSentence_NormalSetting_Tests {
+    
+    func test_that_if_the_caret_is_on_a_sentence_separated_by_newlines_then_it_returns_from_the_beginning_of_that_sentence_to_the_end_of_that_sentence_not_including_the_newline() {
+        let text = """
+this is a line.
+then one more.
+and another one.
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 26)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 16)
+        XCTAssertEqual(innerSentenceRange.count, 14) 
+    }
+    
+}
+
+
+// TextViews
+// surrounded by EmptyLines
