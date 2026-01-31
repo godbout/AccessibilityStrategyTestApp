@@ -70,6 +70,15 @@ extension FT_aSentence_NormalSetting_Tests {
         XCTAssertEqual(aSentenceRange.count, 5) 
     }
     
+    func test_that_if_the_caret_is_on_a_blank_that_is_right_after_a_dot_it_returns_the_correct_range_and_does_not_include_the_previous_sentence() {
+        let text = "dumb. and. dumber."
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 5)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 5)
+        XCTAssertEqual(aSentenceRange.count, 5) 
+    }
+    
     func test_that_if_a_sentence_is_surrounded_by_two_other_sentences_then_it_returns_from_the_beginning_of_that_sentence_not_including_the_leading_blanks_to_the_end_of_the_sentence_including_the_trailing_blanks() {
         let text = "dumb.        and.      dumber."
         
