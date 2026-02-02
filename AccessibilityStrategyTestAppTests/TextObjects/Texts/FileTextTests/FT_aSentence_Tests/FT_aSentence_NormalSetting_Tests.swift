@@ -138,6 +138,19 @@ and another one.
         XCTAssertEqual(aSentenceRange.count, 14) 
     }
     
+    func test_that_if_the_caret_is_on_a_sentence_separated_by_newlines_and_that_there_are_blanks_between_the_leading_newline_and_the_previous_dot_then_it_returns_from_the_beginning_of_that_sentence_including_the_leading_blanks_and_the_leading_newline_to_the_end_of_that_sentence_not_including_the_trailing_newline() {
+        let text = """
+this is a line.  
+then one more.
+and another one.
+"""
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 27)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 15)
+        XCTAssertEqual(aSentenceRange.count, 17) 
+    }
+    
     func test_that_if_the_caret_is_on_the_last_sentence_of_the_text_that_is_separated_from_another_sentence_above_by_a_newline_then_it_returns_from_the_beginning_of_the_last_sentence_not_including_the_leading_newline_to_the_end_of_the_text() {
         let text = """
 this is a line.
