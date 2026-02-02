@@ -136,7 +136,7 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 14) 
     }
     
-    func test_that_if_the_caret_is_on_the_last_sentence_of_the_text_that_is_separated_from_another_sentence_above_by_a_newline_then_it_returns_from_the_beginning_of_the_last_sentence_to_the_end_of_the_text() {
+    func test_that_if_the_caret_is_on_the_last_sentence_of_the_text_that_is_separated_from_another_sentence_above_by_a_newline_then_it_returns_from_the_beginning_of_the_last_sentence_not_including_the_newline_to_the_end_of_the_text() {
         let text = """
 this is a line.
 then one more.
