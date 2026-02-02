@@ -11,3 +11,6 @@ class FT_aSentence_OnBlankLines_Tests: XCTestCase {
     }
     
 }
+
+
+// TODO: probably we wanna add simple BL here too first
