@@ -92,28 +92,28 @@ extension FT_aSentence_NormalSetting_Tests {
     func test_that_if_the_caret_is_on_a_blank_that_is_before_a_sentence_it_returns_from_the_beginning_of_that_sentence_including_the_leading_blanks_to_the_end_of_that_sentence_not_including_the_trailing_blanks() {
         let text = "dumb.        and.      dumber."
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 9)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 9)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 5)
-        XCTAssertEqual(innerSentenceRange.count, 12) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 5)
+        XCTAssertEqual(aSentenceRange.count, 12) 
     }
     
     func test_that_if_the_caret_is_on_a_blank_within_a_sentence_it_returns_from_the_beginning_of_that_sentence_not_including_leading_blanks_to_the_end_of_that_sentence_including_trailing_blanks() {
         let text = "dumb.        and  and.      dumber."
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 17)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 17)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 13)
-        XCTAssertEqual(innerSentenceRange.count, 15) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 13)
+        XCTAssertEqual(aSentenceRange.count, 15) 
     }
     
     func test_that_when_calculating_the_start_of_the_range_it_returns_from_the_last_match_and_not_from_the_first_match() {
         let text = "dumb.        and  and.      dumber."
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 31)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 31)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 22)
-        XCTAssertEqual(innerSentenceRange.count, 13) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 22)
+        XCTAssertEqual(aSentenceRange.count, 13) 
     }
     
 }
@@ -130,10 +130,10 @@ then one more.
 and another one.
 """
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 26)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 26)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 16)
-        XCTAssertEqual(innerSentenceRange.count, 14) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 16)
+        XCTAssertEqual(aSentenceRange.count, 14) 
     }
     
     func test_that_if_the_caret_is_on_the_last_sentence_of_the_text_that_is_separated_from_another_sentence_above_by_a_newline_then_it_returns_from_the_beginning_of_the_last_sentence_not_including_the_leading_newline_to_the_end_of_the_text() {
@@ -143,10 +143,10 @@ then one more.
 and another one.
 """
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 41)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 41)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 31)
-        XCTAssertEqual(innerSentenceRange.count, 16) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 31)
+        XCTAssertEqual(aSentenceRange.count, 16) 
     }
     
     func test_that_if_the_caret_is_on_the_last_sentence_of_the_text_that_is_separated_from_another_sentence_above_by_a_newline_and_that_there_are_blanks_between_that_newline_and_the_previous_dot_then_it_returns_from_the_beginning_of_the_last_sentence_including_the_leading_blanks_and_the_leading_newline_to_the_end_of_the_text() {
@@ -156,10 +156,10 @@ then one more.
 and another one.
 """
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 41)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 41)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 30)
-        XCTAssertEqual(innerSentenceRange.count, 19) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 30)
+        XCTAssertEqual(aSentenceRange.count, 19) 
     }
     
 }
@@ -177,10 +177,10 @@ then one more.
 and another one.
 """
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 3)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 3)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 1)
-        XCTAssertEqual(innerSentenceRange.count, 15) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 1)
+        XCTAssertEqual(aSentenceRange.count, 15) 
     }
     
     func test_that_if_the_caret_is_on_the_first_line_of_the_text_that_is_an_EmptyLine_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_second_line_not_including_the_trailing_newline() {
@@ -191,10 +191,10 @@ then one more.
 and another one.
 """
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
-        XCTAssertEqual(innerSentenceRange.count, 17) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 17) 
     }
     
 }
