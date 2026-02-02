@@ -149,11 +149,19 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 16) 
     }
     
-    // TODO: 
-    // 1. when first line is a newline and caret location is on second line. shouldn't grab first line
-    // 2. add tests with blanks before newline on second line
+    func test_that_if_the_caret_is_on_the_last_sentence_of_the_text_that_is_separated_from_another_sentence_above_by_a_newline_and_that_there_are_blanks_between_that_newline_and_the_previous_dot_then_it_returns_from_the_beginning_of_the_last_sentence_including_the_leading_blanks_and_the_newline_to_the_end_of_the_text() {
+        let text = """
+this is a line.
+then one more.  
+and another one.
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 41)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 30)
+        XCTAssertEqual(innerSentenceRange.count, 19) 
+    }
     
-
 }
 
 
