@@ -225,4 +225,6 @@ and another one.
         XCTAssertEqual(aSentenceRange.count, 16)
     }
 
+    // TODO: need to add multiple EL in a row. gonna be painful...
+
 }
