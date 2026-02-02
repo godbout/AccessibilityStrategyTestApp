@@ -148,6 +148,11 @@ and another one.
         XCTAssertEqual(innerSentenceRange.lowerBound, 31)
         XCTAssertEqual(innerSentenceRange.count, 16) 
     }
+    
+    // TODO: 
+    // 1. when first line is a newline and caret location is on second line. shouldn't grab first line
+    // 2. add tests with blanks before newline on second line
+    
 
 }
 
