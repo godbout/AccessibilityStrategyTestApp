@@ -123,7 +123,7 @@ extension FT_aSentence_NormalSetting_Tests {
 // basic
 extension FT_aSentence_NormalSetting_Tests {
     
-    func test_that_if_the_caret_is_on_a_sentence_separated_by_newlines_then_it_returns_from_the_beginning_of_that_sentence_to_the_end_of_that_sentence_not_including_the_newline() {
+    func test_that_if_the_caret_is_on_a_sentence_separated_by_newlines_then_it_returns_from_the_beginning_of_that_sentence_to_the_end_of_that_sentence_not_including_the_leading_and_trailing_newlines() {
         let text = """
 this is a line.
 then one more.
