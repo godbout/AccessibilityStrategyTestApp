@@ -183,4 +183,18 @@ extension FT_aSentence_NormalSetting_Tests {
         XCTAssertEqual(innerSentenceRange.count, 15) 
     }
     
+    func test_that_if_the_caret_is_on_the_first_line_of_the_text_that_is_an_EmptyLine_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_second_line_not_including_the_trailing_newline() {
+    let text = """
+
+this is a line.
+then one more.
+and another one.
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 17) 
+    }
+    
 }
