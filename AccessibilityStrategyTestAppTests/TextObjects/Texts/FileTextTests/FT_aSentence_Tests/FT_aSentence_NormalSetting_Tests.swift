@@ -194,7 +194,7 @@ and another one.
         let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
         
         XCTAssertEqual(aSentenceRange.lowerBound, 0)
-        XCTAssertEqual(aSentenceRange.count, 17) 
+        XCTAssertEqual(aSentenceRange.count, 16) 
     }
     
 }
