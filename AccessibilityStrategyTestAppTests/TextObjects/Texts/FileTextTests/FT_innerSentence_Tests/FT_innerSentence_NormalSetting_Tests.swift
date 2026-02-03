@@ -89,4 +89,22 @@ extension FT_innerSentence_NormalSetting_Tests {
         XCTAssertEqual(innerSentenceRange.count, 9) 
     }
     
+    func test_1() {
+        let text = "dumb. and dumber"
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 5)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 5)
+        XCTAssertEqual(innerSentenceRange.count, 1) 
+    }
+    
+    func test_2() {
+        let text = "dumb. and dumber "
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 16)
+        XCTAssertEqual(innerSentenceRange.count, 1)
+    }
+    
 }
