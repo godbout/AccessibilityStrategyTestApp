@@ -80,8 +80,6 @@ extension FT_innerSentence_NormalSetting_Tests {
         XCTAssertEqual(innerSentenceRange.count, 8) 
     }
         
-    // TODO: failing
-    // should we split the "on a blank"?
     func test_that_if_the_caret_is_on_a_blank_within_a_sentence_it_returns_from_the_beginning_of_that_sentence_not_including_leading_blanks_to_the_end_of_that_sentence_not_including_the_trailing_blanks() {
         let text = "dumb.        and  and.      dumber."
         
