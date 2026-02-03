@@ -116,8 +116,6 @@ extension FT_aSentence_NormalSetting_Tests {
         XCTAssertEqual(aSentenceRange.count, 13) 
     }
     
-    // TODO: time to add some more stuff like the interrogation mark, multiple dots etc.
-    
 }
 
 
