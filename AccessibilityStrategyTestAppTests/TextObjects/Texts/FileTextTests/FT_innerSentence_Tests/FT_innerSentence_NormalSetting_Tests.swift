@@ -14,6 +14,7 @@ class FT_innerSentence_NormalSetting_Tests: XCTestCase {
 }
 
 
+// TODO: seems like many failing if we are on a space that is within a sentence. FUCK
 // TextFields and TextViews
 extension FT_innerSentence_NormalSetting_Tests {
 
