@@ -1,8 +1,2 @@
-//
-//  FL_previousNonWhitespace_Tests.swift
-//  AccessibilityStrategyTestAppTests
-//
-//  Created by Guillaume Leclerc on 03/02/2026.
-//
+// TODO: do the tests if we find out we really need this func (after implementing `as` and `is`)
 
-import Foundation
