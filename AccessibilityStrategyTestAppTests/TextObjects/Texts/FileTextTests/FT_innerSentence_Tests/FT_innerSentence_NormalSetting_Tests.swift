@@ -89,7 +89,7 @@ extension FT_innerSentence_NormalSetting_Tests {
         XCTAssertEqual(innerSentenceRange.count, 9) 
     }
     
-    func test_1() {
+    func test_that_if_the_caret_is_on_a_single_blank_that_is_before_a_sentence_it_just_returns_the_leading_blank_of_that_sentence_lol() {
         let text = "dumb. and dumber"
         
         let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 5)
