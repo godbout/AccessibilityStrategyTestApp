@@ -107,6 +107,17 @@ extension FT_innerSentence_NormalSetting_Tests {
         XCTAssertEqual(innerSentenceRange.count, 1)
     }
     
+    // TODO: do same for first sentence
+    // TODO: do same for aSentence
+    func test_that_if_the_caret_is_on_a_single_blank_that_within_the_last_sentence_of_the_text_then_it_returns_from_the_beginning_of_the_last_sentence_not_including_the_leading_blanks_to_the_end_of_the_last_sentence_not_including_the_trailing_blanks() {
+        let text = "dumb. and dumber "
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 9)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 6)
+        XCTAssertEqual(innerSentenceRange.count, 10)
+    }
+    
 }
 
 
