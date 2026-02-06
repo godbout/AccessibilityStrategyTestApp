@@ -206,6 +206,19 @@ and another one.
         XCTAssertEqual(aSentenceRange.count, 2)
     }
 
+    func test_basically_that_when_the_caret_is_on_a_blank_that_is_before_a_sentence_and_that_the_previous_non_blank_from_that_blank_is_not_a_newline_then_it_returns_that_group_of_blanks_that_will_actually_include_a_newline_lol_fuck() {
+        let text = """
+this is a line.
+  then one more.
+and another one.
+"""
+
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 19)
+
+        XCTAssertEqual(aSentenceRange.lowerBound, 15)
+        XCTAssertEqual(aSentenceRange.count, 5)
+    }
+
 }
 
 
