@@ -193,6 +193,19 @@ and another one.
         XCTAssertEqual(aSentenceRange.count, 16) 
     }
     
+    func test_basically_that_when_the_caret_is_on_a_blank_that_is_before_a_sentence_and_that_the_previous_non_blank_from_that_blank_is_a_newline_then_it_returns_the_range_of_leading_blanks() {
+        let text = """
+this is a line.
+  then one more.
+and another one.
+"""
+
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
+
+        XCTAssertEqual(aSentenceRange.lowerBound, 16)
+        XCTAssertEqual(aSentenceRange.count, 2)
+    }
+
 }
 
 
