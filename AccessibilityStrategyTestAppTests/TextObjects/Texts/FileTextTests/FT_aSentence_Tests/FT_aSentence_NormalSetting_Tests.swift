@@ -82,10 +82,10 @@ extension FT_aSentence_NormalSetting_Tests {
     func test_that_if_a_sentence_is_surrounded_by_two_other_sentences_then_it_returns_from_the_beginning_of_that_sentence_not_including_the_leading_blanks_to_the_end_of_the_sentence_including_the_trailing_blanks() {
         let text = "dumb.        and.      dumber."
         
-        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 9)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 14)
         
-        XCTAssertEqual(aSentenceRange.lowerBound, 5)
-        XCTAssertEqual(aSentenceRange.count, 12) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 13)
+        XCTAssertEqual(aSentenceRange.count, 10) 
     }
     
     
