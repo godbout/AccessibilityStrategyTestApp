@@ -2,7 +2,6 @@
 import XCTest
 
 
-// TODO: might be that we wanna do innerSentence first coz maybe aSentence will be based on that?
 class FT_innerSentence_NormalSetting_Tests: XCTestCase {
     
     private func applyFuncBeingTested(on text: String, startingAt caretLocation: Int) -> Range<Int> {
