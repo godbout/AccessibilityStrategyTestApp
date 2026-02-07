@@ -24,6 +24,7 @@ ok so here
 we're gonna deal with sentences. and shit. lol.
 are you OK??
 """
+        // TODO: verify the element data
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
