@@ -119,19 +119,19 @@ are you OK??
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 72,
+            length: 73,
             caretLocation: 22,
             selectedLength: 1,
             selectedText: """
-        a
+        n
         """,
-            fullyVisibleArea: 0..<72,
+            fullyVisibleArea: 0..<73,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 72,
+                fullTextLength: 73,
                 number: 3,
                 start: 12,
-                end: 60
+                end: 61
             )!
         )
         

@@ -31,7 +31,7 @@ are you OK??
             caretLocation: 24,
             selectedLength: 1,
             selectedText: """
-         
+        d
         """,
             fullyVisibleArea: 0..<72,
             currentScreenLine: ScreenLine(

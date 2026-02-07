@@ -33,19 +33,19 @@ are you OK??
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 68,
+            length: 67,
             caretLocation: 24,
             selectedLength: 1,
             selectedText: """
         d
         """,
-            fullyVisibleArea: 0..<68,
+            fullyVisibleArea: 0..<67,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 68,
+                fullTextLength: 67,
                 number: 3,
                 start: 12,
-                end: 56
+                end: 55
             )!
         )
 
@@ -76,19 +76,19 @@ are you OK??
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 68,
+            length: 67,
             caretLocation: 47,
             selectedLength: 1,
             selectedText: """
         d
         """,
-            fullyVisibleArea: 0..<68,
+            fullyVisibleArea: 0..<67,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 68,
+                fullTextLength: 67,
                 number: 3,
                 start: 12,
-                end: 56
+                end: 55
             )!
         )
 
@@ -123,7 +123,7 @@ are you OK??
             caretLocation: 22,
             selectedLength: 1,
             selectedText: """
-        a
+        n
         """,
             fullyVisibleArea: 0..<72,
             currentScreenLine: ScreenLine(
