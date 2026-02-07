@@ -28,7 +28,7 @@ are you OK??
             role: .textArea,
             value: text,
             length: 72,
-            caretLocation: 23,
+            caretLocation: 24,
             selectedLength: 1,
             selectedText: """
          
