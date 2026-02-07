@@ -14,8 +14,8 @@
             filePath = "../AccessibilityStrategy/Sources/AccessibilityStrategy/TextObjects/Texts/FileText.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "aWORD(startingAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "../AccessibilityStrategy/Sources/AccessibilityStrategy/TextObjects/Texts/FileText.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "innerSentence(startingAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "../AccessibilityStrategy/Sources/AccessibilityStrategy/TextObjects/Texts/FileText.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
             landmarkName = "beginningOfWORDBackward(startingAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "../AccessibilityStrategy/Sources/AccessibilityStrategy/TextObjects/Texts/FileText.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "beginningOfWORDBackward(startingAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "../AccessibilityStrategy/Sources/AccessibilityStrategy/TextObjects/Texts/FileText.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "aSentence(startingAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "../AccessibilityStrategy/Sources/AccessibilityStrategy/TextObjects/Texts/FileText.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "aSentence(startingAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,9 +110,25 @@
             filePath = "../AccessibilityStrategy/Sources/AccessibilityStrategy/TextObjects/Texts/FileText.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "innerSentence(startingAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "97C98F70-4C4C-417D-9590-EB174070D98D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../AccessibilityStrategy/Sources/AccessibilityStrategy/AccessibilityStrategy/NormalMode/ASKV_NM_cis.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "cis(on:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
