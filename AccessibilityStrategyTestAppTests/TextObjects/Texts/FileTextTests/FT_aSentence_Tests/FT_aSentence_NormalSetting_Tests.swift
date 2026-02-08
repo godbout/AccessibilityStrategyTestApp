@@ -119,28 +119,28 @@ extension FT_aSentence_NormalSetting_Tests {
     func test_that_if_the_caret_is_on_a_single_blank_that_is_within_the_last_sentence_of_the_text_that_has_both_leading_and_trailing_blanks_then_it_returns_from_the_beginning_of_the_last_sentence_not_including_the_leading_blanks_to_the_end_of_the_last_sentence_including_the_trailing_blanks() {
         let text = "dumb.  and dumber   "
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 10)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 10)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 7)
-        XCTAssertEqual(innerSentenceRange.count, 13)
+        XCTAssertEqual(aSentenceRange.lowerBound, 7)
+        XCTAssertEqual(aSentenceRange.count, 13)
     }
     
     func test_that_if_the_caret_is_on_a_single_blank_that_within_the_first_sentence_of_the_text_that_has_both_leading_and_trailing_blanks_then_it_returns_from_the_beginning_of_the_first_sentence_including_the_leading_blanks_to_the_end_of_the_first_sentence_including_the_trailing_blanks() {
         let text = "  and dumber.  dumber"
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 5)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 5)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
-        XCTAssertEqual(innerSentenceRange.count, 15)
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 15)
     }
     
     func test_that_if_the_caret_is_on_a_single_blank_that_is_before_the_first_sentence_of_the_text_that_has_both_leading_obviously_and_trailing_blanks_then_it_returns_from_the_beginning_of_the_first_sentence_including_the_leading_blanks_to_the_end_of_the_first_sentence_including_the_trailing_blanks() {
         let text = "  and dumber.  dumber"
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 1)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 1)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
-        XCTAssertEqual(innerSentenceRange.count, 15)
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 15)
     }
     
     // TODO: add some more?
