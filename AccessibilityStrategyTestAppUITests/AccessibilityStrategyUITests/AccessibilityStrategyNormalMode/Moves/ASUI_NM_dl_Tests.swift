@@ -30,6 +30,27 @@ extension ASUI_NM_dl_Tests {
         XCTAssertEqual(accessibilityElement.selectedLength, 1)
     }
     
+    func test_that_if_the_caret_ends_up_after_the_end_limit_then_it_is_moved_back_to_the_end_limit() {
+        let textInAXFocusedElement = """
+repositionin🇫🇷️o
+the block cursor is important!
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.ge(on: $0) }
+        
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+repositionin🇫🇷️
+the block cursor is important!
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 12)
+        XCTAssertEqual(accessibilityElement.selectedLength, 5)
+    }
+    
 }
 
 
