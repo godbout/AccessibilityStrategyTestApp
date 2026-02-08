@@ -53,8 +53,6 @@ extension ASUI_NM_df_Tests {
         XCTAssertEqual(accessibilityElement.selectedLength, 2)
     }
         
-    // TODO: shouldn't we have this for all the `d` moves??? or did i miss something?
-    // it seems that a bunch of `d` impl don't have the test on endLimit??
     func test_that_if_the_caret_ends_up_after_the_end_limit_then_it_is_moved_back_to_the_end_limit() {
         let textInAXFocusedElement = """
 repositionin🇫🇷️of
