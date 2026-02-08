@@ -17,8 +17,6 @@ class ASUI_NM_dap_Tests: ASUI_NM_BaseTests {
 
 extension ASUI_NM_dap_Tests {
     
-    // TODO: shouldn't we have this for all the `d` moves??? or did i miss something?
-    // it seems that a bunch of `d` impl don't have the test on endLimit??
     func test_that_the_block_cursor_ends_up_at_the_right_place() {
         let textInAXFocusedElement = """
 this is to check
