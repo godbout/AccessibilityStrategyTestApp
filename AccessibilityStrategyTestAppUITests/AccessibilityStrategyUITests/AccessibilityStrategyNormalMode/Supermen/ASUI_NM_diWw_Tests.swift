@@ -46,7 +46,7 @@ like honestly that one should be
     
     func test_that_if_the_caret_ends_up_after_the_end_limit_then_it_is_moved_back_to_the_end_limit() {
         let textInAXFocusedElement = """
-repositionin🇫🇷️ of-what
+repositionin🇫🇷️ofwhat
 the block cursor is important!
 """
         app.textViews.firstMatch.tap()
@@ -57,12 +57,12 @@ the block cursor is important!
         let accessibilityElement = applyMoveBeingTested()
         
         XCTAssertEqual(accessibilityElement.fileText.value, """
-repositionin🇫🇷️ of-
+repositionin🇫🇷️
 the block cursor is important!
 """
         )
-        XCTAssertEqual(accessibilityElement.caretLocation, 20)
-        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.caretLocation, 12)
+        XCTAssertEqual(accessibilityElement.selectedLength, 5)
     }
 
 }
