@@ -133,7 +133,7 @@ extension FT_innerSentence_NormalSetting_Tests {
         XCTAssertEqual(innerSentenceRange.count, 13)
     }
     
-    func test_that_we_actually_calculate_the_range_according_to_the_matches_upperBound_and_now_lowerBound_lol() {
+    func test_that_we_actually_calculate_the_range_according_to_the_last_start_match_upperBound_and_not_lowerBound_lol() {
         let text = """
 dumb. and." dumber.
 """
