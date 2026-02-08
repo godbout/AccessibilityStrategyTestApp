@@ -223,10 +223,24 @@ this is a line.
 and another one.
 """
 
-        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 19)
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 19)
 
-        XCTAssertEqual(aSentenceRange.lowerBound, 15)
-        XCTAssertEqual(aSentenceRange.count, 5)
+        XCTAssertEqual(innerSentence.lowerBound, 15)
+        XCTAssertEqual(innerSentence.count, 5)
+    }
+
+    // TODO: should we separate also on Blanks and on NonBlanks???
+    func test_that_if_there_is_no_start_range_found_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_current_sentence() {
+        let text = """
+this is a line
+then one more.
+and another one.
+"""
+
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 21)
+
+        XCTAssertEqual(innerSentence.lowerBound, 0)
+        XCTAssertEqual(innerSentence.count, 29)
     }
 
 }
