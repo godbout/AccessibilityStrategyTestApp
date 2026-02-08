@@ -133,6 +133,20 @@ extension FT_innerSentence_NormalSetting_Tests {
         XCTAssertEqual(innerSentenceRange.count, 13)
     }
     
+    // TODO: JUST DO IT
+    func test_() {
+        let text = """
+dumb. and." dumber.
+"""
+
+        
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 15)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 12)
+        XCTAssertEqual(innerSentenceRange.count, 7)
+    }
+    
 }
 
 
