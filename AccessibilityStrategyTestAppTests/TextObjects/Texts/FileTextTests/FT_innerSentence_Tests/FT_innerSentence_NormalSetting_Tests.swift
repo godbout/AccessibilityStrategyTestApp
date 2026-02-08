@@ -243,6 +243,19 @@ and another one.
         XCTAssertEqual(innerSentence.count, 29)
     }
 
+    func test_that_if_there_is_no_start_range_found_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_current_sentence_not_including_the_trailing_blanks() {
+        let text = """
+this is a line
+then one more.
+and another one.
+"""
+
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 25)
+
+        XCTAssertEqual(innerSentence.lowerBound, 0)
+        XCTAssertEqual(innerSentence.count, 31)
+    }
+
 }
 
 
