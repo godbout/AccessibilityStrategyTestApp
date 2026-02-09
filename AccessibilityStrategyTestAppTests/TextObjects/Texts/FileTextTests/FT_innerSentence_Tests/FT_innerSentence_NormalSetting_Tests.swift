@@ -285,6 +285,8 @@ and another one.
 }
 
 
+// TODO: more EL and BL tests needed
+// TODO: need to test END of paragraph boundary, not just start
 // TextViews
 // surrounded by EmptyLines
 extension FT_innerSentence_NormalSetting_Tests {
