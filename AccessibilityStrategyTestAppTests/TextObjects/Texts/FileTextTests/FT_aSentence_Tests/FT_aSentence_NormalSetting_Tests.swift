@@ -276,10 +276,10 @@ then one more.
 and another one.  
 """
 
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 30)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 30)
 
-        XCTAssertEqual(innerSentence.lowerBound, 30)
-        XCTAssertEqual(innerSentence.count, 19)
+        XCTAssertEqual(aSentenceRange.lowerBound, 30)
+        XCTAssertEqual(aSentenceRange.count, 19)
     }
 
 }
@@ -315,10 +315,10 @@ which is a paragraph boundary which
 is also a sentence boundary!
 """
         
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 26)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 26)
         
-        XCTAssertEqual(innerSentence.lowerBound, 17)
-        XCTAssertEqual(innerSentence.count, 15)
+        XCTAssertEqual(aSentenceRange.lowerBound, 17)
+        XCTAssertEqual(aSentenceRange.count, 15)
     }
         
 }
@@ -336,10 +336,10 @@ above is an BL not an EL!
 and BL are NOT sentence boundaries!
 """
 
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 39)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 39)
 
-        XCTAssertEqual(innerSentence.lowerBound, 0)
-        XCTAssertEqual(innerSentence.count, 51)
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 51)
     }
 
 }
