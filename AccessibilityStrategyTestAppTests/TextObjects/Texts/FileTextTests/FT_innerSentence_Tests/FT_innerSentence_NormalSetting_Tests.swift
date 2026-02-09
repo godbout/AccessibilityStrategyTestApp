@@ -303,4 +303,19 @@ and another one.
         XCTAssertEqual(innerSentence.count, 15) 
     }
     
+    func test_that_if_there_is_no_start_range_found_then_it_returns_from_the_beginning_of_paragraph_backward_boundary_to_the_end_of_the_current_sentence() {
+        let text = """
+first line hehe
+
+above is an EL!
+which is a paragraph boundary which
+is also a sentence boundary!
+"""
+        
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 26)
+        
+        XCTAssertEqual(innerSentence.lowerBound, 17)
+        XCTAssertEqual(innerSentence.count, 15)
+    }
+    
 }
