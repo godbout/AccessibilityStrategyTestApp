@@ -53,7 +53,7 @@ are you OK??
         _ = applyMoveBeingTested(on: element, &vimEngineState)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
-we're gonna deal with sentences.
+we're gonna deal with sentences. 
 """
         )
         XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
@@ -95,10 +95,10 @@ are you OK??
         let returnedElement = applyMoveBeingTested(on: element)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
-and shit.
+ and shit.
 """
         )
-        XCTAssertEqual(returnedElement.caretLocation, 45)
+        XCTAssertEqual(returnedElement.caretLocation, 44)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
     }
@@ -138,7 +138,7 @@ are you OK??
         let returnedElement = applyMoveBeingTested(on: element)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
-🤣e're gonna deal with ❤️‍🔥entences.
+🤣e're gonna deal with ❤️‍🔥entences. 
 """
         )
         XCTAssertEqual(returnedElement.caretLocation, 12)
