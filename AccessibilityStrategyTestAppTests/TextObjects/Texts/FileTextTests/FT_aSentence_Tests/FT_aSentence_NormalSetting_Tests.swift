@@ -255,27 +255,6 @@ and another one.
         XCTAssertEqual(aSentenceRange.lowerBound, 0)
         XCTAssertEqual(aSentenceRange.count, 33)
     }
-
-}
-
-
-// TextViews
-// surrounded by EmptyLines
-extension FT_aSentence_NormalSetting_Tests {
-    
-    func test_that_if_the_caret_is_on_the_second_sentence_of_the_text_and_the_first_line_is_an_EmptyLine_then_it_returns_from_the_beginning_of_the_second_sentence_not_including_the_leading_newline_to_the_end_of_that_second_sentence_not_including_the_trailing_newline() {
-        let text = """
-
-this is a line.
-then one more.
-and another one.
-"""
-        
-        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 3)
-        
-        XCTAssertEqual(aSentenceRange.lowerBound, 1)
-        XCTAssertEqual(aSentenceRange.count, 15) 
-    }
     
     func test_that_if_the_caret_is_on_a_sentence_separated_by_newlines_and_that_there_are_blanks_between_the_leading_newline_and_the_previous_dot_but_also_there_are_trailing_blanks_on_that_sentence_then_it_returns_from_the_beginning_of_that_sentence_not_including_the_leading_blanks_and_the_leading_newline_to_the_end_of_that_sentence_including_the_trailing_blanks() {
         let text = """
@@ -289,7 +268,18 @@ and another one.
         XCTAssertEqual(aSentenceRange.lowerBound, 18)
         XCTAssertEqual(aSentenceRange.count, 16)
     }
+    
+    func test_basically_that_when_the_caret_is_on_a_blank_that_is_after_a_sentence_and_that_the_next_non_blank_from_that_blank_is_a_newline_then_it_returns_from_the_beginning_of_the_sentence_including_the_leading_blanks_and_the_leading_newline_to_the_end_of_that_sentence_not_including_the_trailing_blanks() {
+        let text = """
+this is a line.
+then one more.  
+and another one.  
+"""
 
-    // TODO: need to add multiple EL in a row. gonna be painful...
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 30)
+
+        XCTAssertEqual(innerSentence.lowerBound, 30)
+        XCTAssertEqual(innerSentence.count, 19)
+    }
 
 }
