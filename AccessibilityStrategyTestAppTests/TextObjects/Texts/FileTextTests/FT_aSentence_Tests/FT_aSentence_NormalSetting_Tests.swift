@@ -304,8 +304,6 @@ and another one.
         XCTAssertEqual(aSentenceRange.count, 15) 
     }
     
-    // TODO: failing. does `as` need the paragraph boundary check too??? :D
-    // see more complicated actually
     func test_that_if_there_is_no_start_range_found_then_it_returns_from_the_beginning_of_paragraph_backward_boundary_to_the_end_of_the_current_sentence() {
         let text = """
 first line hehe
