@@ -321,3 +321,24 @@ is also a sentence boundary!
     }
         
 }
+
+
+// TextViews
+// surrounded by BlankLines
+extension FT_aSentence_NormalSetting_Tests {
+
+    func test_that_if_there_is_no_start_range_found_then_it_does_not_stop_at_BlankLines_and_returns_from_the_beginning_of_the_text_to_the_end_of_the_current_sentence_including_the_trailing_blanks_but_not_the_trailing_newline() {
+        let text = """
+first line hehe
+       
+above is an BL not an EL!  
+and BL are NOT sentence boundaries!
+"""
+
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 39)
+
+        XCTAssertEqual(innerSentence.lowerBound, 0)
+        XCTAssertEqual(innerSentence.count, 51)
+    }
+
+}
