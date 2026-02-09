@@ -283,3 +283,24 @@ and another one.
     }
     
 }
+
+
+// TextViews
+// surrounded by EmptyLines
+extension FT_innerSentence_NormalSetting_Tests {
+    
+    func test_that_if_the_caret_is_on_the_second_sentence_of_the_text_and_the_first_line_is_an_EmptyLine_then_it_returns_from_the_beginning_of_the_second_sentence_not_including_the_leading_newline_to_the_end_of_that_second_sentence_not_including_the_trailing_newline() {
+        let text = """
+
+this is a line.
+then one more.
+and another one.
+"""
+        
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 3)
+        
+        XCTAssertEqual(innerSentence.lowerBound, 1)
+        XCTAssertEqual(innerSentence.count, 15) 
+    }
+    
+}
