@@ -283,3 +283,25 @@ and another one.
     }
 
 }
+
+
+// TODO: need to add multiple EL and BL in a row. gonna be painful... (ACTUALLY WITH PARAGRAPH BOUNDARIES MAYBE NOT :D)
+// TextViews
+// surrounded by EmptyLines
+extension FT_aSentence_NormalSetting_Tests {
+    
+    func test_that_if_the_caret_is_on_the_second_sentence_of_the_text_and_the_first_line_is_an_EmptyLine_then_it_returns_from_the_beginning_of_the_second_sentence_not_including_the_leading_newline_to_the_end_of_that_second_sentence_not_including_the_trailing_newline() {
+        let text = """
+
+this is a line.
+then one more.
+and another one.
+"""
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 3)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 1)
+        XCTAssertEqual(aSentenceRange.count, 15) 
+    }
+    
+}
