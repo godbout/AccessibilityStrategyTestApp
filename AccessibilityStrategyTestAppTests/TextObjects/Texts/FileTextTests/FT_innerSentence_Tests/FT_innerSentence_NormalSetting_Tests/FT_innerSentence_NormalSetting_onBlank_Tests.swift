@@ -154,6 +154,97 @@ dumb. and." dum ber.
 // basic
 extension FT_innerSentence_NormalSetting_onBlank_Tests {
     
+    func test_that_if_the_caret_is_on_a_sentence_separated_by_newlines_then_it_returns_from_the_beginning_of_that_sentence_to_the_end_of_that_sentence_not_including_the_leading_and_trailing_newlines() {
+        let text = """
+this is a line.
+then one more.
+and another one.
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 24)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 16)
+        XCTAssertEqual(innerSentenceRange.count, 14) 
+    }
+    
+    func test_that_if_the_caret_is_on_a_sentence_separated_by_newlines_and_that_there_are_blanks_between_the_leading_newline_and_the_previous_dot_then_it_returns_from_the_beginning_of_that_sentence_including_the_leading_blanks_and_the_leading_newline_to_the_end_of_that_sentence_not_including_the_trailing_newline() {
+        let text = """
+this is a line.  
+then one more.
+and another one.
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 26)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 18)
+        XCTAssertEqual(innerSentenceRange.count, 14) 
+    }
+    
+    func test_that_if_the_caret_is_on_the_last_sentence_of_the_text_that_is_separated_from_another_sentence_above_by_a_newline_then_it_returns_from_the_beginning_of_the_last_sentence_not_including_the_leading_newline_to_the_end_of_the_text() {
+        let text = """
+this is a line.
+then one more.
+and another one.
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 42)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 31)
+        XCTAssertEqual(innerSentenceRange.count, 16) 
+    }
+    
+    func test_that_if_the_caret_is_on_the_last_sentence_of_the_text_that_is_separated_from_another_sentence_above_by_a_newline_and_that_there_are_blanks_between_that_newline_and_the_previous_dot_then_it_returns_from_the_beginning_of_the_last_sentence_including_the_leading_blanks_and_the_leading_newline_to_the_end_of_the_text() {
+        let text = """
+this is a line.
+then one more.  
+and another one.
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 36)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 33)
+        XCTAssertEqual(innerSentenceRange.count, 16) 
+    }
+    
+    func test_that_if_there_is_no_start_range_found_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_current_sentence() {
+        let text = """
+this is a line
+then one more.
+and another one.
+"""
+
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 19)
+
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 29)
+    }
+
+    func test_that_if_there_is_no_start_range_found_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_current_sentence_not_including_the_trailing_blanks() {
+        let text = """
+this is a line  
+then one more.  
+and another one.
+"""
+
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 25)
+
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 31)
+    }
+    
+    func test_that_if_the_caret_is_on_a_sentence_separated_by_newlines_and_that_there_are_blanks_between_the_leading_newline_and_the_previous_dot_but_also_there_are_trailing_blanks_on_that_sentence_then_it_returns_from_the_beginning_of_that_sentence_not_including_the_leading_blanks_and_the_leading_newline_to_the_end_of_that_sentence_not_including_the_trailing_blanks() {
+        let text = """
+this is a line.  
+then one more.  
+and another one.
+"""
+
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 22)
+
+        XCTAssertEqual(innerSentenceRange.lowerBound, 18)
+        XCTAssertEqual(innerSentenceRange.count, 14)
+    }
+
     func test_basically_that_when_the_caret_is_on_the_leading_blanks_of_a_sentence_and_that_the_previous_non_blank_from_that_blank_is_a_newline_then_it_returns_the_range_of_leading_blanks() {
         let text = """
 this is a line.
