@@ -287,6 +287,35 @@ and another one.
 // surrounded by EmptyLines
 extension FT_aSentence_NormalSetting_onBlank_Tests {
     
+    func test_that_if_the_caret_is_on_the_second_sentence_of_the_text_and_the_first_line_is_an_EmptyLine_then_it_returns_from_the_beginning_of_the_second_sentence_not_including_the_leading_newline_to_the_end_of_that_second_sentence_not_including_the_trailing_newline() {
+        let text = """
+
+this is a line.
+then one more.
+and another one.
+"""
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 5)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 1)
+        XCTAssertEqual(aSentenceRange.count, 15) 
+    }
+    
+    func test_that_if_there_is_no_start_range_found_then_it_returns_from_the_beginning_of_paragraph_backward_boundary_to_the_end_of_the_current_sentence() {
+        let text = """
+first line hehe
+
+above is an EL!
+which is a paragraph boundary which
+is also a sentence boundary!
+"""
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 25)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 17)
+        XCTAssertEqual(aSentenceRange.count, 15)
+    }
+    
 }
 
 
