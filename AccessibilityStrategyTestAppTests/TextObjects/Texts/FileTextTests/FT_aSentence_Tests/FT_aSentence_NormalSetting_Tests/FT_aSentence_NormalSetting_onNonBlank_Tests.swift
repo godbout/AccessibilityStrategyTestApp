@@ -168,7 +168,7 @@ then one more.
 and another one.
 """
 
-        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 25)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 26)
 
         XCTAssertEqual(aSentenceRange.lowerBound, 0)
         XCTAssertEqual(aSentenceRange.count, 33)
