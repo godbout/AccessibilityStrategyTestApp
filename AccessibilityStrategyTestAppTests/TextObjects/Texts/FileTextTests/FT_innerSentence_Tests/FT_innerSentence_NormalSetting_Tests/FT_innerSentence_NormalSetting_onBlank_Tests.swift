@@ -15,10 +15,77 @@ class FT_innerSentence_NormalSetting_onBlank_Tests: XCTestCase {
 
 // TextFields and TextViews
 extension FT_innerSentence_NormalSetting_onBlank_Tests {
+    
+    func test_that_if_there_are_not_start_nor_end_match_then_it_returns_the_whole_text_lol() {
+        let text = "dum b"
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 3)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 5) 
+    }
+    
+    func test_that_for_the_first_sentence_of_the_text_it_returns_from_the_start_of_the_text_to_the_end_of_the_first_sentence_not_including_the_trailing_blank() {
+        let text = "dum b. and dumber"
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 3)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 6) 
+    }
+        
+    func test_that_for_the_first_sentence_of_the_text_it_returns_from_the_start_of_the_text_to_the_end_of_the_first_sentence_not_including_the_trailing_blanks() {
+        let text = "dum b.                      and dumber"
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 3)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 6) 
+    }
+    
+    func test_that_for_the_first_sentence_of_the_text_it_does_not_stop_at_blanks_when_looking_backward_and_return_from_the_start_of_the_text_to_the_end_of_the_first_sentence_not_including_the_trailing_blanks() {
+        let text = "dumb   and.     dumber"
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 5)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 11) 
+    }
+    
+    // TODO: failing
+    func test_that_for_the_last_sentence_of_the_text_it_returns_from_the_beginning_of_the_last_sentence_not_including_the_leading_blanks_to_the_end_of_the_text() {
+        let text = "dumb   and.     du mber"
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 18)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 16)
+        XCTAssertEqual(innerSentenceRange.count, 7) 
+    }
+    
+    func test_that_if_a_sentence_is_surrounded_by_two_other_sentences_then_it_returns_from_the_beginning_of_that_sentence_not_including_the_leading_blanks_to_the_end_of_that_sentence_not_including_the_trailing_blanks() {
+        let text = "dumb. a nd. dumber."
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 7)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 6)
+        XCTAssertEqual(innerSentenceRange.count, 5) 
+    }
+    
+    // TODO: failing
+    func test_that_we_actually_calculate_the_range_according_to_the_last_start_match_upperBound_and_not_lowerBound_lol() {
+        let text = """
+dumb. and." dum ber.
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 15)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 12)
+        XCTAssertEqual(innerSentenceRange.count, 8)
+    }
 
     // TODO: remove the on a blank from the func names
     // TODO: match the Blank tests with nonBlank tests
-    func test_that_if_the_caret_is_on_a_blank_that_is_before_a_sentence_it_just_returns_the_leading_blanks_of_that_sentence_lol() {
+    func test_that_if_the_caret_is_on_the_leading_blanks_of_a_sentence_it_just_returns_the_leading_blanks_of_that_sentence_lol() {
         let text = "dumb.        and.      dumber."
         
         let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 9)
@@ -27,7 +94,7 @@ extension FT_innerSentence_NormalSetting_onBlank_Tests {
         XCTAssertEqual(innerSentenceRange.count, 8) 
     }
         
-    func test_that_if_the_caret_is_on_a_blank_within_a_sentence_it_returns_from_the_beginning_of_that_sentence_not_including_leading_blanks_to_the_end_of_that_sentence_not_including_the_trailing_blanks() {
+    func test_that_if_the_caret_is_within_a_sentence_it_returns_from_the_beginning_of_that_sentence_not_including_leading_blanks_to_the_end_of_that_sentence_not_including_the_trailing_blanks() {
         let text = "dumb.        and  and.      dumber."
         
         let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 17)
@@ -36,7 +103,7 @@ extension FT_innerSentence_NormalSetting_onBlank_Tests {
         XCTAssertEqual(innerSentenceRange.count, 9) 
     }
     
-    func test_that_if_the_caret_is_on_a_single_blank_that_is_before_a_sentence_it_just_returns_the_leading_blank_of_that_sentence_lol() {
+    func test_that_if_the_caret_is_on_only_a_single_blank_that_is_before_a_sentence_it_just_returns_the_leading_blank_of_that_sentence_lol() {
         let text = "dumb. and dumber"
         
         let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 5)
@@ -45,7 +112,7 @@ extension FT_innerSentence_NormalSetting_onBlank_Tests {
         XCTAssertEqual(innerSentenceRange.count, 1) 
     }
     
-    func test_that_if_the_caret_is_on_a_single_blank_that_is_at_the_end_of_the_text_then_returns_from_the_first_non_blank_before_that_blank_to_the_end_of_the_text() {
+    func test_that_if_the_caret_is_on_only_a_single_blank_that_is_at_the_end_of_the_text_then_returns_from_the_first_non_blank_before_that_blank_to_the_end_of_the_text() {
         let text = "dumb. and dumber "
         
         let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
@@ -54,7 +121,7 @@ extension FT_innerSentence_NormalSetting_onBlank_Tests {
         XCTAssertEqual(innerSentenceRange.count, 1)
     }
     
-    func test_that_if_the_caret_is_on_a_single_blank_that_is_within_the_last_sentence_of_the_text_then_it_returns_from_the_beginning_of_the_last_sentence_not_including_the_leading_blanks_to_the_end_of_the_last_sentence_not_including_the_trailing_blanks() {
+    func test_that_if_the_caret_is_only_on_a_single_blank_that_is_within_the_last_sentence_of_the_text_then_it_returns_from_the_beginning_of_the_last_sentence_not_including_the_leading_blanks_to_the_end_of_the_last_sentence_not_including_the_trailing_blanks() {
         let text = "dumb. and dumber "
         
         let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 9)
@@ -63,7 +130,7 @@ extension FT_innerSentence_NormalSetting_onBlank_Tests {
         XCTAssertEqual(innerSentenceRange.count, 10)
     }
     
-    func test_that_if_the_caret_is_on_a_single_blank_that_is_within_the_first_sentence_of_the_text_then_it_returns_from_the_beginning_of_the_first_sentence_including_the_leading_blanks_to_the_end_of_the_first_sentence_not_including_the_trailing_blanks() {
+    func test_that_if_the_caret_is_only_on_a_single_blank_that_is_within_the_first_sentence_of_the_text_then_it_returns_from_the_beginning_of_the_first_sentence_including_the_leading_blanks_to_the_end_of_the_first_sentence_not_including_the_trailing_blanks() {
         let text = "  and dumber.  dumber"
         
         let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 5)
@@ -72,7 +139,7 @@ extension FT_innerSentence_NormalSetting_onBlank_Tests {
         XCTAssertEqual(innerSentenceRange.count, 13)
     }
     
-    func test_that_if_the_caret_is_on_a_single_blank_that_is_before_the_first_sentence_of_the_text_then_it_returns_from_the_beginning_of_the_first_sentence_including_the_leading_blanks_to_the_end_of_the_first_sentence_not_including_the_trailing_blanks() {
+    func test_that_if_the_caret_is_only_on_a_single_blank_that_is_before_the_first_sentence_of_the_text_then_it_returns_from_the_beginning_of_the_first_sentence_including_the_leading_blanks_to_the_end_of_the_first_sentence_not_including_the_trailing_blanks() {
         let text = "  and dumber.  dumber"
         
         let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 1)
@@ -88,7 +155,7 @@ extension FT_innerSentence_NormalSetting_onBlank_Tests {
 // basic
 extension FT_innerSentence_NormalSetting_onBlank_Tests {
     
-    func test_basically_that_when_the_caret_is_on_a_blank_that_is_before_a_sentence_and_that_the_previous_non_blank_from_that_blank_is_a_newline_then_it_returns_the_range_of_leading_blanks() {
+    func test_basically_that_when_the_caret_is_on_the_leading_blanks_of_a_sentence_and_that_the_previous_non_blank_from_that_blank_is_a_newline_then_it_returns_the_range_of_leading_blanks() {
         let text = """
 this is a line.
   then one more.
@@ -101,7 +168,7 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 2)
     }
 
-    func test_basically_that_when_the_caret_is_on_a_blank_that_is_before_a_sentence_and_that_the_previous_non_blank_from_that_blank_is_not_a_newline_then_it_returns_that_group_of_blanks_that_will_actually_include_a_newline_lol_fuck() {
+    func test_basically_that_when_the_caret_is_on_the_leading_blanks_of_a_sentence_and_that_the_previous_non_blank_from_that_blank_is_not_a_newline_then_it_returns_that_group_of_blanks_that_will_actually_include_a_newline_lol_fuck() {
         let text = """
 this is a line.  
   then one more.
@@ -114,7 +181,7 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 5)
     }
     
-    func test_basically_that_when_the_caret_is_on_a_blank_that_is_after_a_sentence_and_that_the_next_non_blank_from_that_blank_is_a_newline_then_it_returns_that_group_of_blanks_not_including_the_newline() {
+    func test_basically_that_when_the_caret_is_on_the_trailing_blanks_of_a_sentence_and_that_the_next_non_blank_from_that_blank_is_a_newline_then_it_returns_that_group_of_blanks_not_including_the_newline() {
         let text = """
 this is a line.
 then one more.  
