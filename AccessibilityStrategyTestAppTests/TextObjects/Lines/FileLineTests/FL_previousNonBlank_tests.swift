@@ -18,7 +18,7 @@ class FL_previousNonBlank_Tests: XCTestCase {
 
 // TextFields and TextViews
 extension FL_previousNonBlank_Tests {
-
+    
     func test_that_it_returns_nil_if_the_text_is_empty() {
         let text = ""
         
@@ -83,6 +83,30 @@ extension FL_previousNonBlank_Tests {
         XCTAssertNil(previousNonBlankLocation)
     }
     
+    func test_that_if_we_want_the_previous_non_blank_from_the_end_of_the_text_like_we_would_need_when_using_ranges_for_innerSentence_for_example_then_it_returns_correctly_the_last_nonBlank_from_the_text() {
+        let text = "get previous non blank from text END"
+        
+        let previousNonBlankLocation = try? applyFuncBeingTested(on: text, startingAt: 36)
+        
+        XCTAssertEqual(previousNonBlankLocation, 35)
+    }
+        
+    func test_that_if_we_want_the_previous_non_blank_before_the_second_character_and_the_first_indeed_a_non_blank_then_it_returns_0_and_not_nil() {
+        let text = "get previous non blank from location 1"
+        
+        let previousNonBlankLocation = try? applyFuncBeingTested(on: text, startingAt: 1)
+        
+        XCTAssertEqual(previousNonBlankLocation, 0)
+    }
+
+    func test_that_if_we_want_the_previous_non_blank_before_the_first_character_then_it_returns_nil() {
+        let text = "get previous non blank from location 0"
+        
+        let previousNonBlankLocation = try? applyFuncBeingTested(on: text, startingAt: 0)
+        
+        XCTAssertNil(previousNonBlankLocation)
+    }
+
 }
 
 
