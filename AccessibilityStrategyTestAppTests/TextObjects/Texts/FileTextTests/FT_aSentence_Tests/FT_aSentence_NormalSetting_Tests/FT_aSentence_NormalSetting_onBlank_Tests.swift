@@ -16,6 +16,79 @@ class FT_aSentence_NormalSetting_onBlank_Tests: XCTestCase {
 // TextFields and TextViews
 extension FT_aSentence_NormalSetting_onBlank_Tests {
     
+    func test_that_if_there_are_not_start_nor_end_match_then_it_returns_the_whole_text_lol() {
+        let text = "dum b"
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 3)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 5) 
+    }
+        
+    func test_that_for_the_first_sentence_of_the_text_it_returns_from_the_start_of_the_text_to_the_end_of_the_first_sentence_including_the_trailing_blanks() {
+        let text = "dum b. and dumber"
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 3)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 7) 
+    }
+    
+    func test_that_for_the_first_sentence_of_the_text_it_returns_from_the_start_of_the_text_to_end_of_the_first_sentence_including_the_trailing_blanks() {
+        let text = "dum b.                      and dumber"
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 3)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 28) 
+    }
+    
+    func test_that_for_the_first_sentence_of_the_text_it_does_not_stop_at_blanks_when_looking_backward_and_return_from_the_start_of_the_text_to_the_end_of_the_first_sentence_including_the_trailing_blanks() {
+        let text = "dumb   a nd.     dumber"
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 8)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 17) 
+    }
+    
+    // TODO: failing
+    func test_that_for_the_last_sentence_of_the_text_it_returns_from_the_beginning_of_the_last_sentence_including_the_leading_blanks_to_the_end_of_the_text() {
+        let text = "dumb   and.     du mber"
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 18)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 11)
+        XCTAssertEqual(aSentenceRange.count, 12) 
+    }
+    
+    func test_that_if_a_sentence_is_surrounded_by_two_other_sentences_then_it_returns_from_the_beginning_of_that_sentence_not_including_the_leading_blank_to_the_end_of_the_sentence_including_the_trailing_blank() {
+        let text = "dumb. a nd. dumber."
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 7)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 6)
+        XCTAssertEqual(aSentenceRange.count, 6) 
+    }
+    
+    func test_that_if_a_sentence_is_surrounded_by_two_other_sentences_then_it_returns_from_the_beginning_of_that_sentence_not_including_the_leading_blanks_to_the_end_of_the_sentence_including_the_trailing_blanks() {
+        let text = "dumb.        a nd.      dumber."
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 14)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 13)
+        XCTAssertEqual(aSentenceRange.count, 11) 
+    }
+    
+    func test_that_when_calculating_the_start_of_the_range_it_returns_from_the_last_match_and_not_from_the_first_match() {
+        let text = "dumb.        and  and.      dum ber."
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 31)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 22)
+        XCTAssertEqual(aSentenceRange.count, 14) 
+    }
+    
     func test_that_if_the_caret_is_on_a_blank_that_is_right_after_a_dot_it_returns_the_correct_range_and_does_not_include_the_previous_sentence() {
         let text = "dumb. and. dumber."
         
