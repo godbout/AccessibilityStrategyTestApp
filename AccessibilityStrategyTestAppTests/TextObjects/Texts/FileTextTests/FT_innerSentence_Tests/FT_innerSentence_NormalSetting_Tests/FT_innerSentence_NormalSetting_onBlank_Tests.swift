@@ -70,7 +70,6 @@ extension FT_innerSentence_NormalSetting_onBlank_Tests {
         XCTAssertEqual(innerSentenceRange.count, 5) 
     }
     
-    // TODO: failing
     func test_that_we_actually_calculate_the_range_according_to_the_last_start_match_upperBound_and_not_lowerBound_lol() {
         let text = """
 dumb. and." dum ber.
