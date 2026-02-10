@@ -17,6 +17,7 @@ class FT_innerSentence_NormalSetting_onBlank_Tests: XCTestCase {
 extension FT_innerSentence_NormalSetting_onBlank_Tests {
 
     // TODO: remove the on a blank from the func names
+    // TODO: match the Blank tests with nonBlank tests
     func test_that_if_the_caret_is_on_a_blank_that_is_before_a_sentence_it_just_returns_the_leading_blanks_of_that_sentence_lol() {
         let text = "dumb.        and.      dumber."
         
