@@ -83,7 +83,6 @@ dumb. and." dum ber.
         XCTAssertEqual(innerSentenceRange.count, 8)
     }
 
-    // TODO: match the Blank tests with nonBlank tests
     func test_that_if_the_caret_is_on_the_leading_blanks_of_a_sentence_it_just_returns_the_leading_blanks_of_that_sentence_lol() {
         let text = "dumb.        and.      dumber."
         
