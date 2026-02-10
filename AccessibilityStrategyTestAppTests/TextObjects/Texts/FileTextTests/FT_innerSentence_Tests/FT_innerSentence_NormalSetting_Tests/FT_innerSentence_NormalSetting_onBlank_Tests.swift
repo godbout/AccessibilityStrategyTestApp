@@ -52,7 +52,6 @@ extension FT_innerSentence_NormalSetting_onBlank_Tests {
         XCTAssertEqual(innerSentenceRange.count, 11) 
     }
     
-    // TODO: failing
     func test_that_for_the_last_sentence_of_the_text_it_returns_from_the_beginning_of_the_last_sentence_not_including_the_leading_blanks_to_the_end_of_the_text() {
         let text = "dumb   and.     du mber"
         
