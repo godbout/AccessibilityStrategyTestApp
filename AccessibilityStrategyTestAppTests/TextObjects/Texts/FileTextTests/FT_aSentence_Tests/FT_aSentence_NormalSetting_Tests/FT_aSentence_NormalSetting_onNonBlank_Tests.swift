@@ -190,7 +190,8 @@ and another one.
 }
 
 
-// TODO: need to add multiple EL and BL in a row. gonna be painful... (ACTUALLY WITH PARAGRAPH BOUNDARIES MAYBE NOT :D)
+// TODO: isn't it the last ones to add are for endOfParagraph boundary?
+// with no endMatch, boundaries between paragraphs, etc.
 // TextViews
 // surrounded by EmptyLines
 extension FT_aSentence_NormalSetting_onNonBlank_Tests {
