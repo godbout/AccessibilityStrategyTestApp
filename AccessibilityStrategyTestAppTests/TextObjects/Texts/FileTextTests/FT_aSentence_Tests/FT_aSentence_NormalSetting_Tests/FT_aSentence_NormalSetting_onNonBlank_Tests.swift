@@ -260,6 +260,7 @@ is also a sentence boundary!
 }
 
 
+// TODO: need to add cases here. same as EL above? need to think
 // TextViews
 // surrounded by BlankLines
 extension FT_aSentence_NormalSetting_onNonBlank_Tests {
