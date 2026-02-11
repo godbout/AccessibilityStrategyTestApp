@@ -332,6 +332,23 @@ is also a sentence boundary!
         XCTAssertEqual(innerSentenceRange.lowerBound, 17)
         XCTAssertEqual(innerSentenceRange.count, 15)
     }
+    
+    func test_that_if_there_is_a_start_range_found_but_that_it_is_before_the_beginning_of_paragraph_backward_boundary_then_it_returns_from_the_beginning_of_paragraph_backward_boundary_to_the_end_of_the_current_sentence() {
+        let text = """
+first line hehe.
+
+
+
+above is an EL!
+which is a paragraph boundary which
+is also a sentence boundary!
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 25)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 20)
+        XCTAssertEqual(innerSentenceRange.count, 15)
+    }
    
 }
     
