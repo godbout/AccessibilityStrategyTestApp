@@ -201,6 +201,22 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 15) 
     }
     
+    func test_basically_that_if_the_text_starts_with_a_whole_bunch_of_EmptyLines_it_still_returns_from_the_beginning_of_the_somehow_first_real_sentence_not_including_any_leading_newlines_to_the_end_of_that_sentence_not_including_the_trailing_newline() {
+        let text = """
+
+
+
+this is a line.
+then one more.
+and another one.
+"""
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 9)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 3)
+        XCTAssertEqual(aSentenceRange.count, 15) 
+    }
+    
     func test_that_if_there_is_no_start_range_found_then_it_returns_from_the_beginning_of_paragraph_backward_boundary_to_the_end_of_the_current_sentence() {
         let text = """
 first line hehe
