@@ -14,6 +14,8 @@ class FT_aSentence_NormalSetting_onNonBlank_Tests: XCTestCase {
 
 
 // TODO: add some more?
+// how tho? aren't they all done? i think need to try with
+// `vis` and `vas` to see if some cases are fucked
 // TextFields and TextViews
 extension FT_aSentence_NormalSetting_onNonBlank_Tests {
 
