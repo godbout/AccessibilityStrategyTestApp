@@ -201,12 +201,12 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 15) 
     }
     
-    func test_basically_that_if_the_text_starts_with_a_whole_bunch_of_EmptyLines_it_still_returns_from_the_beginning_of_the_somehow_first_real_sentence_not_including_any_leading_newlines_to_the_end_of_that_sentence_not_including_the_trailing_newline() {
+    func test_basically_that_if_the_text_starts_with_a_whole_bunch_of_EmptyLines_it_still_returns_from_the_beginning_of_the_somehow_first_real_sentence_not_including_any_leading_newlines_to_the_end_of_that_sentence_not_including_trailing_blanks_nor_the_trailing_newline() {
         let text = """
 
 
 
-this is a line.
+this is a line.  
 then one more.
 and another one.
 """
@@ -232,13 +232,13 @@ is also a sentence boundary!
         XCTAssertEqual(innerSentenceRange.count, 15)
     }
     
-    func test_that_if_there_is_a_start_range_found_but_that_it_is_before_the_beginning_of_paragraph_backward_boundary_then_it_returns_from_the_beginning_of_paragraph_backward_boundary_to_the_end_of_the_current_sentence() {
+    func test_that_if_there_is_a_start_range_found_but_that_it_is_before_the_beginning_of_paragraph_backward_boundary_then_it_returns_from_the_beginning_of_paragraph_backward_boundary_to_the_end_of_the_current_sentence_not_including_the_trailing_blanks_nor_the_trailing_newline() {
         let text = """
 first line hehe.
 
 
 
-above is an EL!
+above is an EL!  
 which is a paragraph boundary which
 is also a sentence boundary!
 """
