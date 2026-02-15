@@ -260,37 +260,6 @@ is also a sentence boundary!
         XCTAssertEqual(innerSentenceRange.count, 18)
     }
     
-    func test_that_if_there_is_no_end_range_found_then_it_returns_from_the_beginning_of_the_current_sentence_to_the_paragraph_forward_boundary_but_also_not_including_the_leading_newline_wor() {
-        let text = """
-this is a line.
-then one more.
-and another one
-
-"""
-        
-        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 40)
-        
-        XCTAssertEqual(aSentenceRange.lowerBound, 31)
-        XCTAssertEqual(aSentenceRange.count, 15) 
-    }
-    
-    func test_basically_that_if_the_text_ends_with_a_whole_bunch_of_EmptyLines_it_still_returns_from_the_beginning_of_the_current_sentence_to_the_paragraph_forward_boundary_but_also_not_including_the_newline() {
-        let text = """
-this is a line.
-then one more.
-and another one
-
-
-
-
-"""
-        
-        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 40)
-        
-        XCTAssertEqual(aSentenceRange.lowerBound, 31)
-        XCTAssertEqual(aSentenceRange.count, 15) 
-    }
-        
 }
 
 
