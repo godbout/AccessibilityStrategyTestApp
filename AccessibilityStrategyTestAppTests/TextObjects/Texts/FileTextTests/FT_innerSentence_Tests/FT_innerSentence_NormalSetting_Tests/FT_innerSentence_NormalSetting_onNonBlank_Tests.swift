@@ -211,10 +211,10 @@ then one more.
 and another one.
 """
         
-        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 9)
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 9)
         
-        XCTAssertEqual(aSentenceRange.lowerBound, 3)
-        XCTAssertEqual(aSentenceRange.count, 15) 
+        XCTAssertEqual(innerSentence.lowerBound, 3)
+        XCTAssertEqual(innerSentence.count, 15) 
     }
     
     func test_that_if_there_is_no_start_range_found_then_it_returns_from_the_beginning_of_paragraph_backward_boundary_to_the_end_of_the_current_sentence() {
