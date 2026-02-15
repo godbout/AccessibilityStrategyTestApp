@@ -81,6 +81,15 @@ dumb. and." dumber.
         XCTAssertEqual(innerSentenceRange.count, 7)
     }
     
+    func test_that_for_the_last_sentence_of_the_text_it_returns_from_the_beginning_of_the_last_sentence_not_including_the_leading_blanks_to_the_end_of_that_sentence_not_including_the_trailing_blanks() {
+        let text = "dumb. and dumber "
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 10)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 6)
+        XCTAssertEqual(innerSentenceRange.count, 10)
+    }
+    
 }
 
 
