@@ -208,7 +208,6 @@ and another one.
 }
 
 
-// TODO: isn't it the last ones to add are for endOfParagraph boundary?
 // with no endMatch, boundaries between paragraphs, etc.
 // TextViews
 // surrounded by EmptyLines
