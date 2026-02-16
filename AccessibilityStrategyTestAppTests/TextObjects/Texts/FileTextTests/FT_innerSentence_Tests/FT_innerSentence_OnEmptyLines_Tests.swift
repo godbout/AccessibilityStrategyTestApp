@@ -43,3 +43,4 @@ extension FT_innerSentence_OnEmptyLines_Tests {
 //        XCTAssertEqual(aSentenceRange.count, 1) 
 //    }
 //    
+// TODO: there's a crash when we `is` on the last EL of a text coz start ends up being higher than end range lol
