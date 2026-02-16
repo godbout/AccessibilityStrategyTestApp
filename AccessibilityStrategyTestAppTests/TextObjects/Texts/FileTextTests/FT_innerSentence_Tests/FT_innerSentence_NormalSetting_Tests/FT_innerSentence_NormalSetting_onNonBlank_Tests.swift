@@ -13,7 +13,6 @@ class FT_innerSentence_NormalSetting_onNonBlank_Tests: XCTestCase {
 }
 
 
-// TODO: how come we don't have cases with leading blanks??? (without being on them)
 // TextFields and TextViews
 extension FT_innerSentence_NormalSetting_onNonBlank_Tests {
 
