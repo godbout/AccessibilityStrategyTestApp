@@ -142,6 +142,14 @@ extension FT_aSentence_NormalSetting_onBlank_Tests {
         XCTAssertEqual(aSentenceRange.count, 15)
     }
     
+    func test_that_if_the_caret_is_within_the_first_sentence_of_the_text_it_returns_from_the_start_of_sentence_including_the_leading_blanks_to_the_end_of_the_first_sentence_including_the_trailing_blank() {
+        let text = "   dum b. and dumber"  
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 6)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 10)
+    }
+    
 }
 
 
