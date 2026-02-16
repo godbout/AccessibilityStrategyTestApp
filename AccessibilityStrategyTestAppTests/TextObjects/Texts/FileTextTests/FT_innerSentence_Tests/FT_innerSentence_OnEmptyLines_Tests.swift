@@ -28,6 +28,27 @@ extension FT_innerSentence_OnEmptyLines_Tests {
 }
 
 
+extension FT_innerSentence_OnEmptyLines_Tests {
+    
+    // TODO: currently this crash is circumvented by testing onEmptyLineOrBlank but most probably
+    // need more tests and the onBlank shouldn't matter (so need to add the onBlank tests)
+    func test_that_it_does_not_crash() {
+        let text = """
+this is
+some text and it crashes
+on last EL.
+
+"""
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 45)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 43)
+        XCTAssertEqual(aSentenceRange.count, 2) 
+    }
+
+}
+
+
 // TODO: this is an EL test!
 //    func test_that_if_the_caret_is_on_the_first_line_of_the_text_that_is_an_EmptyLine_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_second_line_not_including_the_trailing_newline() {
 //        let text = """
@@ -42,5 +63,3 @@ extension FT_innerSentence_OnEmptyLines_Tests {
 //        XCTAssertEqual(aSentenceRange.lowerBound, 0)
 //        XCTAssertEqual(aSentenceRange.count, 1) 
 //    }
-//    
-// TODO: there's a crash when we `is` on the last EL of a text coz start ends up being higher than end range lol
