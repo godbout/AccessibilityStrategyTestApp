@@ -159,6 +159,14 @@ dumb. and." dum ber.
         XCTAssertEqual(innerSentenceRange.lowerBound, 0)
         XCTAssertEqual(innerSentenceRange.count, 18)
     }
+    
+    func test_that_if_the_caret_is_on_a_blank_that_is_at_the_end_of_the_text_and_that_there_are_no_start_range_found_and_no_end_range_found_then_it_returns_from_the_beginning_of_that_group_of_blanks_to_the_end_of_the_text() {
+        let text = "   dumb and dumber   "  
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 19)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 18)
+        XCTAssertEqual(innerSentenceRange.count, 3)
+    }
 
 }
 
