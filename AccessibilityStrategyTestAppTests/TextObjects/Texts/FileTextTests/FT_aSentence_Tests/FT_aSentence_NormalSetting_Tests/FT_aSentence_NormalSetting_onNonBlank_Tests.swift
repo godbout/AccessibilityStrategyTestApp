@@ -98,6 +98,14 @@ extension FT_aSentence_NormalSetting_onNonBlank_Tests {
         XCTAssertEqual(innerSentenceRange.lowerBound, 0)
         XCTAssertEqual(innerSentenceRange.count, 9)
     }
+    
+    func test_that_if_there_are_no_start_range_found_and_no_end_range_found_then_it_returns_from_the_beginning_of_the_text_even_if_there_are_leading_blanks_to_the_end_of_the_text_even_if_there_are_trailing_blanks() {
+        let text = "   dumb and dumber   "  
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 6)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 21)
+    }
 
 }
 
