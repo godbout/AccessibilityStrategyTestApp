@@ -157,6 +157,15 @@ extension FT_aSentence_NormalSetting_onBlank_Tests {
         XCTAssertEqual(innerSentenceRange.count, 21)
     }
     
+    // TODO: this move in Vim is weird. if `as` at the end of text on blanks it grab the last non blank character + 1?
+//    func test_that_if_the_caret_is_on_a_blank_that_is_at_the_end_of_the_text_and_that_there_are_no_start_range_found_and_no_end_range_found_then_it_returns_a_range_from_the_last_NonBlank_character_included_to_the_single_next_Blank_character_included_which_is_really_weird() {
+//        let text = "   dumb and dumber   "  
+//        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 19)
+//        
+//        XCTAssertEqual(innerSentenceRange.lowerBound, 17)
+//        XCTAssertEqual(innerSentenceRange.count, 2)
+//    }
+    
 }
 
 
