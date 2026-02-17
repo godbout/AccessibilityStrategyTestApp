@@ -418,6 +418,19 @@ and another one
         XCTAssertEqual(innerSentence.lowerBound, 31)
         XCTAssertEqual(innerSentence.count, 15) 
     }
+        
+    func test_that_if_the_caret_is_on_trailing_blanks_and_there_is_no_start_range_found_nor_end_range_found_then_it_returns_from_the_beginning_of_the_group_of_trailing_blanks_to_the_end_of_the_group_of_trailing_blanks_not_including_the_trailing_newline_and_the_following_ones() {
+        let text = """
+no start no end range and trailing blanks    
+
+
+"""
+        
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 42)
+        
+        XCTAssertEqual(innerSentence.lowerBound, 41)
+        XCTAssertEqual(innerSentence.count, 4) 
+    }
    
 }
     
