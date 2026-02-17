@@ -417,6 +417,22 @@ and another one
         XCTAssertEqual(innerSentence.count, 17) 
     }
     
+    // TODO: this move in Vim is weird. if `as` at the end of text on blanks it grab the last non blank character + 1?
+    // actually the above is only true if there are no more than 2 EL after LMAO. if more then the selection is something different,
+    // including the trailing blanks and some EL!!! crazy. not sure what to do yet.
+//    func test_that_if_the_caret_is_on_trailing_blanks_and_there_is_no_start_range_found_nor_end_range_found_then_it_returns_a_range_from_the_last_NonBlank_character_included_to_the_single_next_Blank_character_included_which_is_really_weird() {
+//        let text = """
+//no start no end range and trailing blanks    
+//
+//
+//"""
+//        
+//        let innerSentence = applyFuncBeingTested(on: text, startingAt: 42)
+//        
+//        XCTAssertEqual(innerSentence.lowerBound, 40)
+//        XCTAssertEqual(innerSentence.count, 2) 
+//    }
+    
 }
 
 
