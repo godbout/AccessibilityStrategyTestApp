@@ -456,16 +456,32 @@ extension FT_aSentence_NormalSetting_onBlank_Tests {
     
     func test_that_if_the_caret_is_on_the_second_sentence_of_the_text_and_the_first_line_is_a_BlankLine_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_that_second_sentence_not_including_the_trailing_newline() {
         let text = """
-  
+      
 this is a line.
 then one more.
 and another one.
 """
         
-        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 7)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 11)
         
         XCTAssertEqual(aSentenceRange.lowerBound, 0)
-        XCTAssertEqual(aSentenceRange.count, 18) 
+        XCTAssertEqual(aSentenceRange.count, 22) 
+    }
+    
+    func test_basically_that_if_the_text_starts_with_a_whole_bunch_of_BlankLines_it_still_returns_from_the_beginning_of_the_text_to_the_end_of_that_sentence_including_the_trailing_blanks_but_not_including_the_trailing_newline() {
+        let text = """
+  
+ 
+   
+this is a line.   
+then one more.
+and another one.
+"""
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 13)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 27) 
     }
     
     func test_that_if_there_is_no_start_range_found_then_it_does_not_stop_at_BlankLines_and_returns_from_the_beginning_of_the_text_to_the_end_of_the_current_sentence_including_the_trailing_blanks_but_not_the_trailing_newline() {
