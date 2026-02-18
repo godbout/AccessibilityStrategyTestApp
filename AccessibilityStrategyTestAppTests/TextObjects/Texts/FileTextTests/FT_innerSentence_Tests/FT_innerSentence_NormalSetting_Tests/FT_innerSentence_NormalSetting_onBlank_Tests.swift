@@ -467,5 +467,19 @@ and BL are NOT sentence boundaries!
         XCTAssertEqual(innerSentenceRange.lowerBound, 0)
         XCTAssertEqual(innerSentenceRange.count, 49)
     }
+    
+    func test_that_if_the_caret_is_on_the_second_sentence_of_the_text_and_the_first_line_is_a_BlankLine_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_that_second_sentence_not_including_the_trailing_newline() {
+        let text = """
+   
+this is a line.
+then one more.
+and another one.
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 13)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 19) 
+    }
 
 }
