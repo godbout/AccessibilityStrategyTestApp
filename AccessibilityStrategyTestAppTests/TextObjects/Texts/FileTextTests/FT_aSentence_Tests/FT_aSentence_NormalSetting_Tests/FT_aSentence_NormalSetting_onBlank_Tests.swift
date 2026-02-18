@@ -497,5 +497,22 @@ and BL are NOT sentence boundaries!
         XCTAssertEqual(aSentenceRange.lowerBound, 0)
         XCTAssertEqual(aSentenceRange.count, 51)
     }
+    
+    func test_that_if_there_is_a_start_range_found_but_that_it_is_before_a_bunch_of_BlankLines_then_it_returns_from_the_beginning_of_the_current_sentence_no_including_any_leading_newline_and_blanks_to_the_end_of_the_current_sentence_including_the_trailing_blanks_but_not_the_trailing_newline() {
+        let text = """
+first line hehe.
+  
+  
+  
+above is an EL!   bl
+which is a paragraph boundary which
+is also a sentence boundary!
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 31)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 26)
+        XCTAssertEqual(innerSentenceRange.count, 18)
+    }
 
 }
