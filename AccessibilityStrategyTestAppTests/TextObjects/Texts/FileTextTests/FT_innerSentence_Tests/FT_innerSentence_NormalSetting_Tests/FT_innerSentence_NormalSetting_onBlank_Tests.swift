@@ -449,7 +449,6 @@ no start no end range and trailing blanks
 }
     
 
-// TODO: need to do those ones now
 // TextViews
 // surrounded by BlankLines
 extension FT_innerSentence_NormalSetting_onBlank_Tests {
