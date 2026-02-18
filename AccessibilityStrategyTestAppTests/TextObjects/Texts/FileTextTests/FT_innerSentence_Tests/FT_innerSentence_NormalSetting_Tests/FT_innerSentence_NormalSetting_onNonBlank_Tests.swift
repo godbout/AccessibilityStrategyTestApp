@@ -354,18 +354,19 @@ and another one.
         XCTAssertEqual(innerSentence.count, 30) 
     }
     
-    func test_that_if_there_is_no_start_range_found_then_it_does_not_stop_at_a_BlankLine_and_returns_from_the_beginning_of_the_text_to_the_end_of_the_current_sentence_not_including_the_trailing_newline() {
+    func test_that_if_there_is_no_start_range_found_and_no_paragraph_backward_boundary_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_current_sentence() {
         let text = """
 first line hehe
-       
-above is an BL not an EL!
-and BL are NOT sentence boundaries!
+   
+above is an EL!
+which is a paragraph boundary which
+is also a sentence boundary!
 """
-
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 39)
-
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 21)
+        
         XCTAssertEqual(innerSentenceRange.lowerBound, 0)
-        XCTAssertEqual(innerSentenceRange.count, 49)
+        XCTAssertEqual(innerSentenceRange.count, 35)
     }
     
     func test_that_if_there_is_no_end_range_found_then_it_returns_from_the_beginning_of_the_current_sentence_to_the_end_of_the_current_sentence_not_including_the_trailing_blanks_nor_the_trailing_newline_nor_the_following_BlankLine() {
