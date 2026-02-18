@@ -454,20 +454,6 @@ no start no end range and trailing blanks
 // surrounded by BlankLines
 extension FT_innerSentence_NormalSetting_onBlank_Tests {
     
-    func test_that_if_there_is_no_start_range_found_then_it_does_not_stop_at_BlankLines_and_returns_from_the_beginning_of_the_text_to_the_end_of_the_current_sentence() {
-        let text = """
-first line hehe
-       
-above is an BL not an EL!
-and BL are NOT sentence boundaries!
-"""
-
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 38)
-
-        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
-        XCTAssertEqual(innerSentenceRange.count, 49)
-    }
-    
     func test_that_if_the_caret_is_on_the_second_sentence_of_the_text_and_the_first_line_is_a_BlankLine_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_that_second_sentence_not_including_the_trailing_newline() {
         let text = """
    
@@ -496,6 +482,20 @@ and another one.
         
         XCTAssertEqual(aSentenceRange.lowerBound, 0)
         XCTAssertEqual(aSentenceRange.count, 29) 
+    }
+    
+    func test_that_if_there_is_no_start_range_found_then_it_does_not_stop_at_BlankLines_and_returns_from_the_beginning_of_the_text_to_the_end_of_the_current_sentence() {
+        let text = """
+first line hehe
+       
+above is an BL not an EL!
+and BL are NOT sentence boundaries!
+"""
+
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 38)
+
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 49)
     }
     
     func test_tat_if_there_is_a_start_range_found_but_that_it_is_before_the_beginning_of_paragraph_backward_boundary_then_it_returns_from_the_beginning_of_paragraph_backward_boundary_to_the_end_of_the_current_sentence_not_including_the_trailing_blanks_nor_the_trailine_newline() {
