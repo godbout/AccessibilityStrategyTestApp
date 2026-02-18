@@ -433,6 +433,20 @@ and another one
 //        XCTAssertEqual(innerSentence.count, 2) 
 //    }
     
+    func test_that_if_the_caret_is_on_leading_blanks_and_that_there_is_a_start_range_that_is_an_EmptyLine_then_actually_rather_than_returning_the_group_of_blanks_it_returns_from_the_beginning_of_the_sentence_with_character_not_including_those_leading_blanks_to_the_end_of_the_sentence_with_character_including_the_trailing_blanks_and_not_including_the_trailing_newlines_this_is_a_weird_edge_case_YES() {
+        let text = """
+
+    this is.  
+
+
+"""
+        
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 2)
+        
+        XCTAssertEqual(innerSentence.lowerBound, 5)
+        XCTAssertEqual(innerSentence.count, 10) 
+    }
+    
 }
 
 
