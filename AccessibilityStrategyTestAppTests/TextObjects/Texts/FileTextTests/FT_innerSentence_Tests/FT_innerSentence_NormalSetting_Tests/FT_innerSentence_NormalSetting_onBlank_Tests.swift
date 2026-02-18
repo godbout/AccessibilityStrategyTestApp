@@ -498,7 +498,7 @@ and BL are NOT sentence boundaries!
         XCTAssertEqual(innerSentenceRange.count, 49)
     }
     
-    func test_tat_if_there_is_a_start_range_found_but_that_it_is_before_the_beginning_of_paragraph_backward_boundary_then_it_returns_from_the_beginning_of_paragraph_backward_boundary_to_the_end_of_the_current_sentence_not_including_the_trailing_blanks_nor_the_trailine_newline() {
+    func test_tat_if_there_is_a_start_range_found_but_that_it_is_before_a_bunch_of_BlankLines_then_it_returns_from_the_beginning_of_the_current_sentence_not_including_any_leading_newline_and_blanks_to_the_end_the_current_sentence_not_including_the_trailing_blanks_and_the_trailing_newline() {
         let text = """
 first line hehe.
   
@@ -514,7 +514,5 @@ is also a sentence boundary!
         XCTAssertEqual(innerSentenceRange.lowerBound, 26)
         XCTAssertEqual(innerSentenceRange.count, 15)
     }
-    
-
 
 }
