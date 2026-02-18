@@ -369,6 +369,23 @@ is also a sentence boundary!
         XCTAssertEqual(innerSentenceRange.count, 35)
     }
     
+    func test_that_if_there_is_a_start_range_found_but_that_it_is_before_a_bunch_of_BlankLines_then_it_returns_from_the_beginning_of_the_current_sentence_not_including_any_leading_newline_and_blanks_to_the_end_the_current_sentence_not_including_the_trailing_blanks_and_the_trailing_newline() {
+        let text = """
+first line hehe.
+  
+    
+      
+above is an EL!  
+which is a paragraph boundary which
+is also a sentence boundary!
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 34)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 32)
+        XCTAssertEqual(innerSentenceRange.count, 15)
+    }
+    
     func test_that_if_there_is_no_end_range_found_then_it_returns_from_the_beginning_of_the_current_sentence_to_the_end_of_the_current_sentence_not_including_the_trailing_blanks_nor_the_trailing_newline_nor_the_following_BlankLine() {
         let text = """
 this is a line.
