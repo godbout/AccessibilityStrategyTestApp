@@ -354,7 +354,7 @@ and another one.
         XCTAssertEqual(innerSentence.count, 30) 
     }
     
-    func test_that_if_there_is_no_start_range_found_and_no_paragraph_backward_boundary_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_current_sentence() {
+    func test_that_if_there_is_no_start_range_found_it_does_not_stop_on_a_BlankLine_and_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_current_sentence() {
         let text = """
 first line hehe
    
