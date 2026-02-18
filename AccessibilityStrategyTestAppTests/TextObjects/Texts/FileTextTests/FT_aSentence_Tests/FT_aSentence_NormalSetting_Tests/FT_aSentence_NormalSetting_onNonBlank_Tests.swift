@@ -402,5 +402,22 @@ and another one
         XCTAssertEqual(innerSentence.lowerBound, 31)
         XCTAssertEqual(innerSentence.count, 18) 
     }
+    
+    func test_basically_that_if_the_text_ends_with_a_whole_bunch_of_BlankLines_it_still_returns_from_the_beginning_of_the_current_sentence_to_the_end_of_the_text() {
+        let text = """
+this is a line.
+then one more.
+and another one
+  
+    
+  
+     
+"""
+        
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 40)
+        
+        XCTAssertEqual(innerSentence.lowerBound, 31)
+        XCTAssertEqual(innerSentence.count, 32) 
+    }
 
 }
