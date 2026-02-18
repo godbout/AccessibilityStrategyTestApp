@@ -206,7 +206,6 @@ and another one.
 }
 
 
-// TODO: more EL and BL tests needed
 // TextViews
 // surrounded by EmptyLines
 extension FT_innerSentence_NormalSetting_onNonBlank_Tests {
