@@ -572,5 +572,19 @@ no start no end range and trailing blanks
         XCTAssertEqual(innerSentence.lowerBound, 41)
         XCTAssertEqual(innerSentence.count, 12) 
     }
+    
+    func test_that_if_the_caret_is_on_leading_blanks_and_that_there_is_a_start_range_that_is_a_BlankLine_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_sentence_with_character_not_including_the_trailing_blanks_nor_the_trailing_newlines() {
+        let text = """
+  
+    this is.  
+  
+   
+"""
+        
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 4)
+        
+        XCTAssertEqual(innerSentence.lowerBound, 0)
+        XCTAssertEqual(innerSentence.count, 15) 
+    }
 
 }
