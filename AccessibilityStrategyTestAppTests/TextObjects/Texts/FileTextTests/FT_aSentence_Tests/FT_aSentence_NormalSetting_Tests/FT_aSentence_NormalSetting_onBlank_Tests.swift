@@ -421,21 +421,21 @@ and another one
         XCTAssertEqual(innerSentence.count, 17) 
     }
     
-    // TODO: this move in Vim is weird. if `as` at the end of text on blanks it grab the last non blank character + 1?
-    // actually the above is only true if there are no more than 2 EL after LMAO. if more then the selection is something different,
-    // including the trailing blanks and some EL!!! crazy. not sure what to do yet.
-//    func test_that_if_the_caret_is_on_trailing_blanks_and_there_is_no_start_range_found_nor_end_range_found_then_it_returns_a_range_from_the_last_NonBlank_character_included_to_the_single_next_Blank_character_included_which_is_really_weird() {
-//        let text = """
-//no start no end range and trailing blanks    
-//
-//
-//"""
-//        
-//        let innerSentence = applyFuncBeingTested(on: text, startingAt: 42)
-//        
-//        XCTAssertEqual(innerSentence.lowerBound, 40)
-//        XCTAssertEqual(innerSentence.count, 2) 
-//    }
+    // see some TODO above to see why skipped
+    func test_that_if_the_caret_is_on_trailing_blanks_and_there_is_no_start_range_found_nor_end_range_found_then_it_returns_a_range_from_the_last_NonBlank_character_included_to_the_single_next_Blank_character_included_which_is_really_weird() throws {
+        throw XCTSkip("edge case not handled yet coz it's super weird lol")
+
+        let text = """
+no start no end range and trailing blanks    
+
+
+"""
+        
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 42)
+        
+        XCTAssertEqual(innerSentence.lowerBound, 40)
+        XCTAssertEqual(innerSentence.count, 2) 
+    }
     
     func test_that_if_the_caret_is_on_leading_blanks_and_that_there_is_a_start_range_that_is_an_EmptyLine_then_actually_rather_than_returning_the_group_of_blanks_it_returns_from_the_beginning_of_the_sentence_with_character_not_including_those_leading_blanks_to_the_end_of_the_sentence_with_character_including_the_trailing_blanks_and_not_including_the_trailing_newlines_this_is_a_weird_edge_case_YES() {
         let text = """
@@ -517,6 +517,67 @@ is also a sentence boundary!
         
         XCTAssertEqual(innerSentenceRange.lowerBound, 26)
         XCTAssertEqual(innerSentenceRange.count, 18)
+    }
+    
+    func test_that_if_there_is_no_end_range_found_and_the_last_line_is_a_BlankLine_then_it_returns_from_the_beginning_of_the_current_sentence_to_the_end_of_the_text() {
+        let text = """
+this is a line.
+then one more.
+and another one
+  
+"""
+        
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 42)
+        
+        XCTAssertEqual(innerSentence.lowerBound, 31)
+        XCTAssertEqual(innerSentence.count, 18) 
+    }
+    
+    func test_basically_that_if_the_text_ends_with_a_whole_bunch_of_BlankLines_it_still_returns_from_the_beginning_of_the_current_sentence_to_the_end_of_the_text() {
+        let text = """
+this is a line.
+then one more.
+and another one
+  
+    
+  
+     
+"""
+        
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 42)
+        
+        XCTAssertEqual(innerSentence.lowerBound, 31)
+        XCTAssertEqual(innerSentence.count, 32) 
+    }
+    
+    // see some TODO above to see why skipped
+    func test_that_if_the_caret_is_on_trailing_blanks_and_there_is_no_start_range_found_nor_end_range_found_and_the_text_ends_with_BlankLines_then_it_returns_a_range_from_the_last_NonBlank_character_included_to_the_single_next_Blank_character_included_which_is_really_weird() throws {
+        throw XCTSkip("edge case not handled yet coz it's super weird lol")
+
+        let text = """
+no start no end range and trailing blanks    
+  
+    
+"""
+        
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 42)
+        
+        XCTAssertEqual(innerSentence.lowerBound, 40)
+        XCTAssertEqual(innerSentence.count, 2) 
+    }
+    
+    func test_that_if_the_caret_is_on_leading_blanks_and_that_the_first_line_is_a_BlankLine_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_sentence_with_character_including_the_trailing_blanks_and_not_including_the_trailing_newline_and_following_blanks() {
+        let text = """
+  
+    this is.  
+  
+  
+"""
+        
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 5)
+        
+        XCTAssertEqual(innerSentence.lowerBound, 0)
+        XCTAssertEqual(innerSentence.count, 17) 
     }
 
 }
