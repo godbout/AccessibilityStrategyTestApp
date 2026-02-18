@@ -24,6 +24,27 @@ extension FT_aSentence_OnEmptyLines_Tests {
         XCTAssertEqual(aSentenceRange.lowerBound, 0)
         XCTAssertEqual(aSentenceRange.count, 0) 
     }
+    
+}
+
+
+extension FT_aSentence_OnEmptyLines_Tests {
+    
+    // TODO: currently this crash is circumvented by testing onEmptyLineOrBlank
+    // see innerSentence EL for blah blah
+    func test_that_it_does_not_crash() {
+        let text = """
+this is
+some text and it crashes
+on last EL.
+
+"""
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 45)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 43)
+        XCTAssertEqual(aSentenceRange.count, 2) 
+    }
 
 }
 
