@@ -515,7 +515,7 @@ is also a sentence boundary!
         XCTAssertEqual(innerSentenceRange.count, 15)
     }
     
-    func test1_that_if_there_is_no_end_range_found_then_it_returns_from_the_beginning_of_the_current_sentence_to_end_of_the_current_sentence_not_including_any_trailing_newline_or_following_blanks() {
+    func test_that_if_there_is_no_end_range_found_then_it_returns_from_the_beginning_of_the_current_sentence_to_end_of_the_current_sentence_not_including_any_trailing_newline_or_following_blanks() {
         let text = """
 this is a line.
 then one more.
