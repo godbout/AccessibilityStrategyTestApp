@@ -108,4 +108,18 @@ and another one
         XCTAssertEqual(innerSentence.count, 18) 
     }
     
+    func test_that_if_there_is_no_end_range_found_and_the_last_line_is_a_BlankLine_then_it_returns_from_the_beginning_of_that_BlankLine_including_the_trailing_blanks_of_the_last_sentence_with_characters_to_the_end_of_that_BlankLine() {
+        let text = """
+this is a line.
+then one more.
+and another one  
+  
+"""
+        
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 50)
+        
+        XCTAssertEqual(innerSentence.lowerBound, 46)
+        XCTAssertEqual(innerSentence.count, 5) 
+    }
+
 }
