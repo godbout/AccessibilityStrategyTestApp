@@ -54,7 +54,7 @@ which is a paragraph boundary which
 is also a sentence boundary!
 """
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 21)
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 18)
         
         XCTAssertEqual(innerSentenceRange.lowerBound, 0)
         XCTAssertEqual(innerSentenceRange.count, 35)
