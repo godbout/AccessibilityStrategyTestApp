@@ -77,4 +77,19 @@ is also a sentence boundary!
         XCTAssertEqual(innerSentenceRange.count, 14)
     }
     
+    func test_that_if_there_is_no_end_range_found_then_it_returns_from_beginning_of_that_group_of_BlankLines_to_the_end_of_that_group_of_BlankLines() {
+        let text = """
+this is a line.
+then one more.
+and another one
+  
+    
+"""
+        
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 52)
+        
+        XCTAssertEqual(innerSentence.lowerBound, 47)
+        XCTAssertEqual(innerSentence.count, 7) 
+    }
+    
 }
