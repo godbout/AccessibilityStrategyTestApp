@@ -82,14 +82,13 @@ is also a sentence boundary!
 this is a line.
 then one more.
 and another one
-  
-    
+      
 """
         
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 52)
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 49)
         
         XCTAssertEqual(innerSentence.lowerBound, 47)
-        XCTAssertEqual(innerSentence.count, 7) 
+        XCTAssertEqual(innerSentence.count, 6) 
     }
     
 }
