@@ -39,7 +39,7 @@ then one more.
 and another one.
 """
         
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 17)
+        let innerSentence = applyFuncBeingTested(on: text, startingAt: 3)
         
         XCTAssertEqual(innerSentence.lowerBound, 0)
         XCTAssertEqual(innerSentence.count, 30) 
