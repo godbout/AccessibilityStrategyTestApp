@@ -87,8 +87,8 @@ and another one
         
         let innerSentence = applyFuncBeingTested(on: text, startingAt: 49)
         
-        XCTAssertEqual(innerSentence.lowerBound, 47)
-        XCTAssertEqual(innerSentence.count, 6) 
+        XCTAssertEqual(innerSentence.lowerBound, 46)
+        XCTAssertEqual(innerSentence.count, 7) 
     }
     
     func test_basically_that_if_the_text_ends_with_a_whole_bunch_of_BlankLines_it_still_returns_from_the_beginning_of_that_group_of_BlankLines_to_the_end_of_that_group_of_BlankLines() {
