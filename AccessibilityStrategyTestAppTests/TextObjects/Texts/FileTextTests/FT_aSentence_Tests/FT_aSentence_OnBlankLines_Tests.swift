@@ -45,4 +45,18 @@ and another one.
         XCTAssertEqual(aSentenceRange.count, 27) 
     }
     
+    func test_that_if_there_is_no_start_range_found_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_sentence_with_characters_that_is_below_the_BlankLine_including_the_trailing_blanks_of_that_line_but_not_the_trailing_newline() {
+        let text = """
+first line hehe
+       
+above is an BL not an EL!  
+and BL are NOT sentence boundaries!
+"""
+
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 18)
+
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 51)
+    }
+    
 }
