@@ -109,7 +109,22 @@ and another one
         let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 61)
         
         XCTAssertEqual(aSentenceRange.lowerBound, 45)
-        XCTAssertEqual(aSentenceRange.count, 3) 
+        XCTAssertEqual(aSentenceRange.count, 2) 
+    }
+    
+    // TODO: next test to work on. seems it's gonna change the way we approach aSentence.
+    func test() {
+        let text = """
+  
+    this is.  
+  
+  
+"""
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 1)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 23) 
     }
     
 }
