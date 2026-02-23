@@ -135,7 +135,7 @@ no start no end range and trailing blanks
         XCTAssertEqual(innerSentence.count, 7) 
     }
     
-    func test_that_if_there_is_no_start_range_found_and_there_is_no_end_range_found_and_the_last_lines_are_a_bunch_of_BlankLines_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_including_the_trailing_blanks_of_the_last_sentence_with_characters_to_the_end_of_that_group_of_BlankLines() {
+    func test_that_if_there_is_no_start_range_found_and_there_is_no_end_range_found_and_the_last_lines_are_a_bunch_of_BlankLines_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_including_the_trailing_blanks_and_hence_the_trailing_newline_of_the_last_sentence_with_characters_to_the_end_of_that_group_of_BlankLines() {
         let text = """
 no start no end range and trailing blanks    
    
