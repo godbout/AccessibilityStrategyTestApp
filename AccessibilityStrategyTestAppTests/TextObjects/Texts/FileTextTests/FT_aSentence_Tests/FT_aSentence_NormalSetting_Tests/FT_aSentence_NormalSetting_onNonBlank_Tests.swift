@@ -93,18 +93,20 @@ extension FT_aSentence_NormalSetting_onNonBlank_Tests {
     
     func test_that_for_the_first_sentence_of_the_text_it_returns_from_the_start_of_sentence_including_the_leading_blanks_to_the_end_of_the_first_sentence_including_the_trailing_blank() {
         let text = "   dumb. and dumber"  
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 6)
+
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 6)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
-        XCTAssertEqual(innerSentenceRange.count, 9)
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 9)
     }
     
     func test_that_if_there_are_no_start_range_found_and_no_end_range_found_then_it_returns_from_the_beginning_of_the_text_even_if_there_are_leading_blanks_to_the_end_of_the_text_even_if_there_are_trailing_blanks() {
         let text = "   dumb and dumber   "  
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 6)
+
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 6)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
-        XCTAssertEqual(innerSentenceRange.count, 21)
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 21)
     }
 
 }
@@ -283,10 +285,10 @@ and another one
 
 """
         
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 40)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 40)
         
-        XCTAssertEqual(innerSentence.lowerBound, 31)
-        XCTAssertEqual(innerSentence.count, 15) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 31)
+        XCTAssertEqual(aSentenceRange.count, 15) 
     }
     
     func test_basically_that_if_the_text_ends_with_a_whole_bunch_of_EmptyLines_it_still_returns_from_the_beginning_of_the_current_sentence_to_the_paragraph_forward_boundary_but_also_not_including_the_newline() {
@@ -300,10 +302,10 @@ and another one
 
 """
         
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 40)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 40)
         
-        XCTAssertEqual(innerSentence.lowerBound, 31)
-        XCTAssertEqual(innerSentence.count, 15) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 31)
+        XCTAssertEqual(aSentenceRange.count, 15) 
     }
     
     func test_that_if_there_is_no_end_range_found_then_it_returns_from_the_beginning_of_the_current_sentence_to_the_end_of_the_current_sentence_including_the_trailing_blanks_but_not_the_trailing_newline() {
@@ -314,10 +316,10 @@ and another one
 
 """
         
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 40)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 40)
         
-        XCTAssertEqual(innerSentence.lowerBound, 31)
-        XCTAssertEqual(innerSentence.count, 17) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 31)
+        XCTAssertEqual(aSentenceRange.count, 17) 
     }
     
 }
@@ -382,10 +384,10 @@ which is a paragraph boundary which
 is also a sentence boundary!
 """
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 28)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 28)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 26)
-        XCTAssertEqual(innerSentenceRange.count, 18)
+        XCTAssertEqual(aSentenceRange.lowerBound, 26)
+        XCTAssertEqual(aSentenceRange.count, 18)
     }
     
     func test_that_if_there_is_no_end_range_found_and_the_last_line_is_a_BlankLine_then_it_returns_from_the_beginning_of_the_current_sentence_to_the_end_of_the_text() {
@@ -396,10 +398,10 @@ and another one
   
 """
         
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 40)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 40)
         
-        XCTAssertEqual(innerSentence.lowerBound, 31)
-        XCTAssertEqual(innerSentence.count, 18) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 31)
+        XCTAssertEqual(aSentenceRange.count, 18) 
     }
     
     func test_basically_that_if_the_text_ends_with_a_whole_bunch_of_BlankLines_it_still_returns_from_the_beginning_of_the_current_sentence_to_the_end_of_the_text() {
@@ -413,10 +415,10 @@ and another one
      
 """
         
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 40)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 40)
         
-        XCTAssertEqual(innerSentence.lowerBound, 31)
-        XCTAssertEqual(innerSentence.count, 32) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 31)
+        XCTAssertEqual(aSentenceRange.count, 32) 
     }
 
 }
