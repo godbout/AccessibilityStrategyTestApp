@@ -144,6 +144,7 @@ extension FT_aSentence_NormalSetting_onBlank_Tests {
     
     func test_that_if_the_caret_is_within_the_first_sentence_of_the_text_it_returns_from_the_start_of_sentence_including_the_leading_blanks_to_the_end_of_the_first_sentence_including_the_trailing_blank() {
         let text = "   dum b. and dumber"  
+        
         let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 6)
         
         XCTAssertEqual(innerSentenceRange.lowerBound, 0)
@@ -151,6 +152,7 @@ extension FT_aSentence_NormalSetting_onBlank_Tests {
     }
     func test_that_if_the_caret_is_not_on_a_blank_that_is_at_the_end_of_the_text_but_within_a_sentence_and_that_there_are_no_start_range_found_and_no_end_range_found_then_it_returns_from_the_beginning_of_the_text_even_if_there_are_leading_blanks_to_the_end_of_the_text_even_if_there_are_trailing_blanks() {
         let text = "   dumb and dumber   "  
+        
         let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 7)
         
         XCTAssertEqual(innerSentenceRange.lowerBound, 0)
@@ -164,6 +166,7 @@ extension FT_aSentence_NormalSetting_onBlank_Tests {
         throw XCTSkip("edge case not handled yet coz it's super weird lol")
         
         let text = "   dumb and dumber   "  
+        
         let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 19)
         
         XCTAssertEqual(innerSentenceRange.lowerBound, 17)
