@@ -39,8 +39,6 @@ then one more.
 and another one.
 """
         
-        // TODO: should be innerSentenceRange
-        // TODO: most probably some var names are wrong between innerSentence and aSentence
         let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 3)
         
         XCTAssertEqual(innerSentenceRange.lowerBound, 0)
