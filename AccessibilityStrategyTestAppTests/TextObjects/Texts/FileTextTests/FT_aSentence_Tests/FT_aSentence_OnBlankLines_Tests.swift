@@ -76,4 +76,21 @@ is also a sentence boundary!
         XCTAssertEqual(aSentenceRange.count, 30)
     }
     
+    // see some TODO in aSentence NormalSettign onBlank for more info
+    func test_that_if_there_is_no_end_range_found_and_the_last_line_is_a_BlankLine_then_it_returns_from_the_beginning_of_the_current_sentence_to_the_end_of_the_text() throws {
+        throw XCTSkip("edge case not handled yet coz it's super weird lol")
+
+        let text = """
+this is a line.
+then one more.
+and another one
+        
+"""
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 52)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 45)
+        XCTAssertEqual(aSentenceRange.count, 3) 
+    }
+    
 }
