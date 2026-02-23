@@ -19,10 +19,10 @@ extension FT_innerSentence_OnEmptyLines_Tests {
     func test_that_for_an_EmptyLine_it_returns_the_correct_range() {
         let text = ""
         
-        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
         
-        XCTAssertEqual(aSentenceRange.lowerBound, 0)
-        XCTAssertEqual(aSentenceRange.count, 0) 
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 0) 
     }
 
 }
@@ -40,10 +40,10 @@ on last EL.
 
 """
         
-        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 45)
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 45)
         
-        XCTAssertEqual(aSentenceRange.lowerBound, 43)
-        XCTAssertEqual(aSentenceRange.count, 2) 
+        XCTAssertEqual(innerSentenceRange.lowerBound, 43)
+        XCTAssertEqual(innerSentenceRange.count, 2) 
     }
 
 }
@@ -58,8 +58,8 @@ on last EL.
 //and another one.
 //"""
 //        
-//        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
+//        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
 //        
-//        XCTAssertEqual(aSentenceRange.lowerBound, 0)
-//        XCTAssertEqual(aSentenceRange.count, 1) 
+//        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+//        XCTAssertEqual(innerSentenceRange.count, 1) 
 //    }
