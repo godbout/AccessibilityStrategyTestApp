@@ -93,4 +93,23 @@ and another one
         XCTAssertEqual(aSentenceRange.count, 3) 
     }
     
+    func test_that_if_there_is_no_end_range_found_and_the_last_lines_are_BlankLines_then_it_returns_a_range_from_the_last_NonBlank_character_included_to_the_single_next_Blank_character_included_which_is_really_weird() throws {
+        throw XCTSkip("edge case not handled yet coz it's super weird lol")
+        
+        let text = """
+this is a line.
+then one more.
+and another one
+  
+    
+  
+     
+"""
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 61)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 45)
+        XCTAssertEqual(aSentenceRange.count, 3) 
+    }
+    
 }
