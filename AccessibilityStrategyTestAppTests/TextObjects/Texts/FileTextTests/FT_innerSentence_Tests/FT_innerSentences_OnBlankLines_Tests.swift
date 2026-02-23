@@ -41,10 +41,10 @@ and another one.
         
         // TODO: should be innerSentenceRange
         // TODO: most probably some var names are wrong between innerSentence and aSentence
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 3)
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 3)
         
-        XCTAssertEqual(innerSentence.lowerBound, 0)
-        XCTAssertEqual(innerSentence.count, 30) 
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 30) 
     }
     
     func test_that_if_there_is_no_start_range_found_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_sentence_with_characters_that_is_below_the_BlankLine() {
@@ -87,10 +87,10 @@ and another one
       
 """
         
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 49)
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 49)
         
-        XCTAssertEqual(innerSentence.lowerBound, 47)
-        XCTAssertEqual(innerSentence.count, 6) 
+        XCTAssertEqual(innerSentenceRange.lowerBound, 47)
+        XCTAssertEqual(innerSentenceRange.count, 6) 
     }
     
     func test_basically_that_if_the_text_ends_with_a_whole_bunch_of_BlankLines_it_still_returns_from_the_beginning_of_that_group_of_BlankLines_to_the_end_of_that_group_of_BlankLines() {
@@ -104,10 +104,10 @@ and another one
      
 """
         
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 55)
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 55)
         
-        XCTAssertEqual(innerSentence.lowerBound, 47)
-        XCTAssertEqual(innerSentence.count, 18) 
+        XCTAssertEqual(innerSentenceRange.lowerBound, 47)
+        XCTAssertEqual(innerSentenceRange.count, 18) 
     }
     
     func test_that_if_there_is_no_end_range_found_and_the_last_line_is_a_BlankLine_then_it_returns_from_the_beginning_of_that_BlankLine_including_the_trailing_blanks_of_the_last_sentence_with_characters_to_the_end_of_that_BlankLine() {
@@ -118,10 +118,10 @@ and another one
   
 """
         
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 50)
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 50)
         
-        XCTAssertEqual(innerSentence.lowerBound, 46)
-        XCTAssertEqual(innerSentence.count, 5) 
+        XCTAssertEqual(innerSentenceRange.lowerBound, 46)
+        XCTAssertEqual(innerSentenceRange.count, 5) 
     }
     
     func test_that_if_there_is_no_start_range_found_and_there_is_no_end_range_found_and_the_last_lines_are_a_bunch_of_BlankLines_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_not_including_the_trailing_newline_of_the_last_sentence_with_characters_to_the_end_of_that_group_of_BlankLines() {
@@ -131,10 +131,10 @@ no start no end range and trailing blanks
    
 """
         
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 44)
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 44)
         
-        XCTAssertEqual(innerSentence.lowerBound, 42)
-        XCTAssertEqual(innerSentence.count, 7) 
+        XCTAssertEqual(innerSentenceRange.lowerBound, 42)
+        XCTAssertEqual(innerSentenceRange.count, 7) 
     }
     
     func test_that_if_there_is_no_start_range_found_and_there_is_no_end_range_found_and_the_last_lines_are_a_bunch_of_BlankLines_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_including_the_trailing_blanks_and_hence_the_trailing_newline_of_the_last_sentence_with_characters_to_the_end_of_that_group_of_BlankLines() {
@@ -144,10 +144,10 @@ no start no end range and trailing blanks
    
 """
         
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 52)
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 52)
         
-        XCTAssertEqual(innerSentence.lowerBound, 41)
-        XCTAssertEqual(innerSentence.count, 12) 
+        XCTAssertEqual(innerSentenceRange.lowerBound, 41)
+        XCTAssertEqual(innerSentenceRange.count, 12) 
     }
     
     func test_that_if_there_is_a_start_range_found_but_there_is_no_end_range_found_and_the_last_lines_are_a_bunch_of_BlankLines_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_including_the_trailing_blanks_of_the_last_sentence_with_characters_to_the_end_of_that_group_of_BlankLines() {
@@ -157,10 +157,10 @@ no start no end range and trailing blanks
    
 """
         
-        let innerSentence = applyFuncBeingTested(on: text, startingAt: 31)
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 31)
         
-        XCTAssertEqual(innerSentence.lowerBound, 24)
-        XCTAssertEqual(innerSentence.count, 9) 
+        XCTAssertEqual(innerSentenceRange.lowerBound, 24)
+        XCTAssertEqual(innerSentenceRange.count, 9) 
     }
 
 }
