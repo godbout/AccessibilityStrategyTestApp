@@ -29,4 +29,20 @@ and another one.
         XCTAssertEqual(aSentenceRange.count, 22) 
     }
     
+    func test_basically_that_if_the_text_starts_with_a_whole_bunch_of_BlankLines_it_still_returns_from_the_beginning_of_the_text_to_the_end_of_that_sentence_including_the_trailing_blanks_but_not_including_the_trailing_newline() {
+        let text = """
+  
+ 
+   
+this is a line.   
+then one more.
+and another one.
+"""
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 3)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 27) 
+    }
+    
 }
