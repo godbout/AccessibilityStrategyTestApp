@@ -44,7 +44,6 @@ are you OK??
     }
     
     // TODO: more???
-    // 1. what is the shit about cip indentation. shouldn't be needed here
     // 2. maybe later we wanna do tests ON EL?
     
 }
