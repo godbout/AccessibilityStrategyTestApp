@@ -112,8 +112,7 @@ and another one
         XCTAssertEqual(aSentenceRange.count, 2) 
     }
     
-    // TODO: FR next test to work on. seems it's gonna change the way we approach aSentence.
-    func test() {
+    func test_that_if_the_caret_is_on_the_first_line_that_is_a_BlankLine_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_sentence_with_characters_including_the_trailing_blanks_and_trailing_newlines_which_means_until_the_end_of_the_text_yes_wow() {
         let text = """
   
     this is.  
