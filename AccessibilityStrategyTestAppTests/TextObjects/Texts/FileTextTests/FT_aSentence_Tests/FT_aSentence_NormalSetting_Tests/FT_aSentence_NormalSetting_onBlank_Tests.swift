@@ -159,13 +159,7 @@ extension FT_aSentence_NormalSetting_onBlank_Tests {
         XCTAssertEqual(aSentenceRange.count, 21)
     }
     
-    // TODO: FR check if we can do that?
-    // implement one day?
-    // this move in Vim is weird. if `as` at the end of text on blanks it grab the last non blank character + 1?
-    // honestly i don't think users will notice. it's just too weird even in Vim lol
     func test_that_if_the_caret_is_on_a_blank_that_is_at_the_end_of_the_text_and_that_there_are_no_start_range_found_and_no_end_range_found_then_it_returns_a_range_from_the_last_NonBlank_character_included_to_the_single_next_Blank_character_included_which_is_really_weird() throws {
-        throw XCTSkip("edge case not handled yet coz it's super weird lol")
-        
         let text = "   dumb and dumber   "  
         
         let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 19)
@@ -425,10 +419,7 @@ and another one
         XCTAssertEqual(aSentenceRange.count, 17) 
     }
     
-    // see some TODO above to see why skipped
     func test_that_if_the_caret_is_on_trailing_blanks_and_there_is_no_start_range_found_nor_end_range_found_then_it_returns_a_range_from_the_last_NonBlank_character_included_to_the_single_next_Blank_character_included_which_is_really_weird() throws {
-        throw XCTSkip("edge case not handled yet coz it's super weird lol")
-
         let text = """
 no start no end range and trailing blanks    
 
@@ -554,10 +545,7 @@ and another one
         XCTAssertEqual(aSentenceRange.count, 32) 
     }
     
-    // see some TODO above to see why skipped
     func test_that_if_the_caret_is_on_trailing_blanks_and_there_is_no_start_range_found_nor_end_range_found_and_the_text_ends_with_BlankLines_then_it_returns_a_range_from_the_last_NonBlank_character_included_to_the_single_next_Blank_character_included_which_is_really_weird() throws {
-        throw XCTSkip("edge case not handled yet coz it's super weird lol")
-
         let text = """
 no start no end range and trailing blanks    
   
