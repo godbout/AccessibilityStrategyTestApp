@@ -569,7 +569,6 @@ no start no end range and trailing blanks
         XCTAssertEqual(aSentenceRange.count, 2) 
     }
     
-    // TODO: FR it seems that this one is wrong. should be 23 instead of 17??
     func test_that_if_the_caret_is_on_leading_blanks_and_that_the_first_line_is_a_BlankLine_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_sentence_with_character_including_the_trailing_blanks_and_trailing_newlines_until_the_end_of_the_text_yes_wow() {
         let text = """
   
