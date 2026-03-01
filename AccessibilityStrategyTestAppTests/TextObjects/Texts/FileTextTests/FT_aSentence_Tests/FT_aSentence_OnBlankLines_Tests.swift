@@ -122,3 +122,29 @@ and another one
     }
     
 }
+
+
+
+// TODO: FR !
+// TextViews
+// surrounded by EmptyLines
+extension FT_aSentence_OnBlankLines_Tests {
+    
+    func test_2() {
+        let text = """
+this is a line.
+then one more.
+and another one  
+  
+
+  
+     
+"""
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 57)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 52)
+        XCTAssertEqual(aSentenceRange.count, 2) 
+    }
+
+}
