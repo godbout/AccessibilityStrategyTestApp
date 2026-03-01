@@ -42,6 +42,41 @@ and another one.
         XCTAssertEqual(aSentenceRange.count, 22) 
     }
     
+    func test_that_if_there_is_no_start_range_found_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_sentence_with_characters_that_is_below_the_BlankLine_including_the_trailing_blanks_of_that_line_but_not_the_trailing_newline() {
+        let text = """
+first line hehe
+       
+above is an BL not an EL!  
+and BL are NOT sentence boundaries!
+"""
+
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 18)
+
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 51)
+    }
+    
+    func test_that_if_there_is_no_end_range_found_and_the_last_line_is_a_BlankLine_then_it_returns_a_range_from_the_last_NonBlank_character_included_to_the_single_next_Blank_character_included_which_is_really_weird() throws {
+        let text = """
+this is a line.
+then one more.
+and another one
+        
+"""
+        
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 52)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 45)
+        XCTAssertEqual(aSentenceRange.count, 3) 
+    }
+    
+}
+
+
+// TextViews
+// surrounded by BlankLines
+extension FT_aSentence_OnBlankLines_Tests {
+    
     func test_basically_that_if_the_text_starts_with_a_whole_bunch_of_BlankLines_it_still_returns_from_the_beginning_of_the_text_to_the_end_of_that_sentence_including_the_trailing_blanks_but_not_including_the_trailing_newline() {
         let text = """
   
@@ -56,20 +91,6 @@ and another one.
         
         XCTAssertEqual(aSentenceRange.lowerBound, 0)
         XCTAssertEqual(aSentenceRange.count, 27) 
-    }
-    
-    func test_that_if_there_is_no_start_range_found_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_sentence_with_characters_that_is_below_the_BlankLine_including_the_trailing_blanks_of_that_line_but_not_the_trailing_newline() {
-        let text = """
-first line hehe
-       
-above is an BL not an EL!  
-and BL are NOT sentence boundaries!
-"""
-
-        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 18)
-
-        XCTAssertEqual(aSentenceRange.lowerBound, 0)
-        XCTAssertEqual(aSentenceRange.count, 51)
     }
     
     func test_that_if_there_is_a_start_range_found_but_that_it_is_before_a_bunch_of_BlankLines_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_no_including_any_leading_newline_to_the_end_of_the_sentence_with_characters_that_below_the_group_of_BlankLines_not_including_the_trailing_blanks_of_that_sentence() {
@@ -87,20 +108,6 @@ is also a sentence boundary!
         
         XCTAssertEqual(aSentenceRange.lowerBound, 17)
         XCTAssertEqual(aSentenceRange.count, 30)
-    }
-    
-    func test_that_if_there_is_no_end_range_found_and_the_last_line_is_a_BlankLine_then_it_returns_a_range_from_the_last_NonBlank_character_included_to_the_single_next_Blank_character_included_which_is_really_weird() throws {
-        let text = """
-this is a line.
-then one more.
-and another one
-        
-"""
-        
-        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 52)
-        
-        XCTAssertEqual(aSentenceRange.lowerBound, 45)
-        XCTAssertEqual(aSentenceRange.count, 3) 
     }
     
     func test_that_if_there_is_no_end_range_found_and_the_last_lines_are_BlankLines_then_it_returns_a_range_from_the_last_NonBlank_character_included_to_the_single_next_Blank_character_included_which_is_really_weird() throws {
