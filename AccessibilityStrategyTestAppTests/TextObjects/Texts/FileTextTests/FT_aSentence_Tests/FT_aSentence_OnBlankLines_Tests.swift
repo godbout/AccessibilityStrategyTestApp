@@ -13,7 +13,6 @@ class FT_aSentence_OnBlankLines_Tests: XCTestCase {
 }
 
 
-// TODO: FR we forgot this???
 // TextFields and TextViews
 extension FT_aSentence_OnBlankLines_Tests {
 
