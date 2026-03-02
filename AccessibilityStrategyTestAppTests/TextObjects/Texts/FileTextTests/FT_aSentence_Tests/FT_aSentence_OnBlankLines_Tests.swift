@@ -167,7 +167,7 @@ and another one
 // surrounded by EmptyLines
 extension FT_aSentence_OnBlankLines_Tests {
     
-    func test_2() {
+    func test_that_if_the_text_ends_with_BlankLines_and_that_before_them_there_is_an_EmptyLine_then_it_does_not_crash_LOL_and_returns_from_the_beginning_of_the_EmptyLine_to_the_first_Blank_of_the_next_line_included() {
         let text = """
 this is a line.
 then one more.
