@@ -17,8 +17,13 @@ class FT_aSentence_OnBlankLines_Tests: XCTestCase {
 // TextFields and TextViews
 extension FT_aSentence_OnBlankLines_Tests {
 
-    func test_1() {
-        let text = "        "
+    func test_that_when_the_text_is_just_one_BlankLine_it_returns_from_the_beginning_of_the_text_to_the_current_caret_location() {
+        let text = "                "
+    
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 8)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 9) 
     }
     
 }
