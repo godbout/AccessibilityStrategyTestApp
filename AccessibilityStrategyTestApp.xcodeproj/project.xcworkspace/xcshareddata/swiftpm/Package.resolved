@@ -1,5 +1,15 @@
 {
+  "originHash" : "e5d9e4bc283345db0615baa26054717bda177731bf683804755e6fdee1feb79d",
   "pins" : [
+    {
+      "identity" : "accessibilitystrategy",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:godbout/AccessibilityStrategy.git",
+      "state" : {
+        "revision" : "3d9e9f36a5fdf0b466687746bfb01b4d15ab3c5a",
+        "version" : "10.28.0"
+      }
+    },
     {
       "identity" : "axengine",
       "kind" : "remoteSourceControl",
@@ -14,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:godbout/Common.git",
       "state" : {
-        "revision" : "1e235abd3079d5348f61348bd3ecc89d87707f62",
-        "version" : "7.1.0"
+        "revision" : "35ae9b815aca04ee38716b2932bab1c81e91932f",
+        "version" : "8.0.0"
       }
     },
     {
@@ -37,5 +47,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
