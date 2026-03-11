@@ -13,6 +13,9 @@ class FT_innerSentence_OnBlankLines_Tests: XCTestCase {
 }
 
 
+// TODO: FR this needs to be split in TF/TV, TV Basic etc. like aSentence
+// coz i can find some bugs already. then later down there we also have to do the
+// mix of ELs and BLs.
 extension FT_innerSentence_OnBlankLines_Tests {
     
     func test_that_if_the_caret_is_on_the_first_BlankLine_the_text_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_first_sentence_with_characters_not_including_the_trailing_newline() {
