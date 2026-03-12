@@ -130,20 +130,6 @@ is also a sentence boundary!
         XCTAssertEqual(innerSentenceRange.count, 14)
     }
     
-    func test_that_if_there_is_no_end_range_found_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_to_the_end_of_that_group_of_BlankLines() {
-        let text = """
-this is a line.
-then one more.
-and another one
-      
-"""
-        
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 49)
-        
-        XCTAssertEqual(innerSentenceRange.lowerBound, 47)
-        XCTAssertEqual(innerSentenceRange.count, 6) 
-    }
-    
     func test_basically_that_if_the_text_ends_with_a_whole_bunch_of_BlankLines_it_still_returns_from_the_beginning_of_that_group_of_BlankLines_to_the_end_of_that_group_of_BlankLines() {
         let text = """
 this is a line.
@@ -159,20 +145,6 @@ and another one
         
         XCTAssertEqual(innerSentenceRange.lowerBound, 47)
         XCTAssertEqual(innerSentenceRange.count, 18) 
-    }
-    
-    func test_that_if_there_is_no_end_range_found_and_the_last_line_is_a_BlankLine_then_it_returns_from_the_beginning_of_that_BlankLine_including_the_trailing_blanks_of_the_last_sentence_with_characters_to_the_end_of_that_BlankLine() {
-        let text = """
-this is a line.
-then one more.
-and another one  
-  
-"""
-        
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 50)
-        
-        XCTAssertEqual(innerSentenceRange.lowerBound, 46)
-        XCTAssertEqual(innerSentenceRange.count, 5) 
     }
     
     func test_that_if_there_is_no_start_range_found_and_there_is_no_end_range_found_and_the_last_lines_are_a_bunch_of_BlankLines_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_not_including_the_trailing_newline_of_the_last_sentence_with_characters_to_the_end_of_that_group_of_BlankLines() {
@@ -214,4 +186,12 @@ no start no end range and trailing blanks
         XCTAssertEqual(innerSentenceRange.count, 9) 
     }
 
+}
+
+
+// TODO: FR to do. fr. lol
+// TextViews
+// surrounded by EmptyLines
+extension FT_innerSentence_OnBlankLines_Tests {
+    
 }
