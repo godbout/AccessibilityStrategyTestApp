@@ -32,19 +32,6 @@ extension FT_aSentence_OnBlankLines_Tests {
 // basic
 extension FT_aSentence_OnBlankLines_Tests {
     
-    func test_that_when_the_text_is_just_BlankLines_it_returns_from_the_beginning_of_the_text_to_the_current_caret_location() {
-        let text = """
-             
-          
-    
-"""
-    
-        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 18)
-        
-        XCTAssertEqual(aSentenceRange.lowerBound, 0)
-        XCTAssertEqual(aSentenceRange.count, 19) 
-    }
-    
     func test_that_if_the_caret_is_on_the_first_BlankLine_the_text_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_first_sentence_with_characters_not_including_the_trailing_newline() {
         let text = """
       
@@ -94,6 +81,19 @@ and another one
 // surrounded by BlankLines
 extension FT_aSentence_OnBlankLines_Tests {
     
+    func test_that_when_the_text_is_just_BlankLines_it_returns_from_the_beginning_of_the_text_to_the_current_caret_location() {
+        let text = """
+             
+          
+    
+"""
+    
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 18)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 19) 
+    }
+
     func test_basically_that_if_the_text_starts_with_a_whole_bunch_of_BlankLines_it_still_returns_from_the_beginning_of_the_text_to_the_end_of_that_sentence_including_the_trailing_blanks_but_not_including_the_trailing_newline() {
         let text = """
   
