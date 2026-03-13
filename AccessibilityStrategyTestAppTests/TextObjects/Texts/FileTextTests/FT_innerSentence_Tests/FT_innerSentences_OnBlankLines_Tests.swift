@@ -16,14 +16,13 @@ class FT_innerSentence_OnBlankLines_Tests: XCTestCase {
 // TextFields and TextViews
 extension FT_innerSentence_OnBlankLines_Tests {
 
-    // TODO: FR. not implemented yet
-    func test_that_when_the_text_is_just_one_BlankLine_it_returns_from_the_beginning_of_the_text_to_one_character_before_the_end_of_the_text_lol() {
+    func test_that_when_the_text_is_just_one_BlankLine_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_text() {
         let text = "                "
     
         let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 8)
         
         XCTAssertEqual(aSentenceRange.lowerBound, 0)
-        XCTAssertEqual(aSentenceRange.count, 15) 
+        XCTAssertEqual(aSentenceRange.count, 16) 
     }
     
 }
