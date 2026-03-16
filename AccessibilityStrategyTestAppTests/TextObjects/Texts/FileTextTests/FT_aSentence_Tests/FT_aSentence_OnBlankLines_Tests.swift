@@ -220,8 +220,12 @@ and another one
         XCTAssertEqual(aSentenceRange.count, 2) 
     }
     
+    // i don't understand the logic here lol
+    // behavior is different depending on the number of ELs at the end of the next???
+    // also not worth the effort so skipping for now. might check this out later if i feel like it
+    // yeah big balls i know
     func test_that_if_the_text_ends_with_three_EmptyLines_below_a_group_of_BlankLines_and_that_before_them_there_is_also_an_EmptyLine_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_to_the_last_EmptyLine_NOT_included_this_is_weird_lol() throws {
-        throw XCTSkip("i don't understand the logic here lol different depending on the number of lines??? also not worth the effort so skip for now big balls")
+        throw XCTSkip("don't understand the logic here")
         
         let text = """
 this is a line.
