@@ -227,7 +227,7 @@ and another one
         XCTAssertEqual(aSentenceRange.count, 8) 
     }
     
-    func test_that_if_the_text_ends_with_multiple_EmptyLines_below_a_group_of_BlankLines_and_that_before_them_there_is_also_an_EmptyLine_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_to_the_end_of_that_group_of_BlankLines_not_including_the_trailing_newline() {
+    func test_that_if_the_text_ends_with_two_EmptyLines_below_a_group_of_BlankLines_and_that_before_them_there_is_also_an_EmptyLine_then_it_returns_from_the_beginning_of_the_EmptyLine_to_the_first_Blank_of_the_next_line_included() {
         let text = """
 this is a line.
 then one more.
