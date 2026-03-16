@@ -162,7 +162,6 @@ and another one
 
 
 
-// TODO: FR many more tests mixing EL and BL!!!
 // TextViews
 // surrounded by EmptyLines
 extension FT_aSentence_OnBlankLines_Tests {
