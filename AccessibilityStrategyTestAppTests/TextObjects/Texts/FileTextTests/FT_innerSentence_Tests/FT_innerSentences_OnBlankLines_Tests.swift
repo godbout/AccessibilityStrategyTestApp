@@ -193,7 +193,7 @@ no start no end range and trailing blanks
 // surrounded by EmptyLines
 extension FT_innerSentence_OnBlankLines_Tests {
 
-    func test_that_if_the_text_ends_with_BlankLines_and_that_before_them_there_is_an_EmptyLine_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_the_end_of_the_text() {
+    func test_that_if_the_text_ends_with_BlankLines_and_that_before_them_there_is_an_EmptyLine_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_to_the_end_of_the_text() {
         let text = """
 this is a line.
 then one more.
