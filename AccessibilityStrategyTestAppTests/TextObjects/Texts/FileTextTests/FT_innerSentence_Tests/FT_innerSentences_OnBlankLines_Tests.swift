@@ -188,7 +188,6 @@ no start no end range and trailing blanks
 }
 
 
-// TODO: FR to do. fr. lol
 // TextViews
 // surrounded by EmptyLines
 extension FT_innerSentence_OnBlankLines_Tests {
