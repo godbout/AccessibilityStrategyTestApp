@@ -183,5 +183,23 @@ and another one
         XCTAssertEqual(aSentenceRange.lowerBound, 52)
         XCTAssertEqual(aSentenceRange.count, 2) 
     }
+    
+    func test_that_if_the_text_ends_with_an_EmptyLine_below_a_group_of_BlankLines_and_that_before_them_there_is_also_an_EmptyLine_then_it_returns_from_the_beginning_of_the_EmptyLine_to_the_first_Blank_of_the_next_line_included() {
+        let text = """
+this is a line.
+then one more.
+and another one  
+  
 
+  
+     
+
+"""
+            
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 57)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 52)
+        XCTAssertEqual(aSentenceRange.count, 2) 
+    }
+    
 }
