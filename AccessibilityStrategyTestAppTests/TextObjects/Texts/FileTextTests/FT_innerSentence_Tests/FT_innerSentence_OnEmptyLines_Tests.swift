@@ -28,6 +28,72 @@ extension FT_innerSentence_OnEmptyLines_Tests {
 }
 
 
+// TextViews
+// basic
+extension FT_innerSentence_OnEmptyLines_Tests {
+    
+    func test_that_if_the_caret_is_on_the_first_EmptyLine_the_text_then_it_returns_just_that_line_lol() {
+        let text = """
+
+this is a line.
+then one more.
+and another one.
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 1) 
+    }
+    
+//    func test_that_if_there_is_no_start_range_found_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_sentence_with_characters_that_is_below_the_BlankLine() {
+//        let text = """
+//first line hehe
+//   
+//above is an EL!
+//which is a paragraph boundary which
+//is also a sentence boundary!
+//"""
+//        
+//        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 18)
+//        
+//        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+//        XCTAssertEqual(innerSentenceRange.count, 35)
+//    }
+//    
+//    func test_that_if_there_is_no_end_range_found_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_to_the_end_of_that_group_of_BlankLines() {
+//        let text = """
+//this is a line.
+//then one more.
+//and another one
+//      
+//"""
+//        
+//        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 49)
+//        
+//        XCTAssertEqual(innerSentenceRange.lowerBound, 47)
+//        XCTAssertEqual(innerSentenceRange.count, 6) 
+//    }
+//    
+//    func test_that_if_there_is_no_end_range_found_and_the_last_line_is_a_BlankLine_then_it_returns_from_the_beginning_of_that_BlankLine_including_the_trailing_blanks_of_the_last_sentence_with_characters_to_the_end_of_that_BlankLine() {
+//        let text = """
+//this is a line.
+//then one more.
+//and another one  
+//  
+//"""
+//        
+//        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 50)
+//        
+//        XCTAssertEqual(innerSentenceRange.lowerBound, 46)
+//        XCTAssertEqual(innerSentenceRange.count, 5) 
+//    }
+    
+}
+
+
+
+
 extension FT_innerSentence_OnEmptyLines_Tests {
     
     // TODO: currently this crash is circumvented by testing onEmptyLineOrBlank but most probably
