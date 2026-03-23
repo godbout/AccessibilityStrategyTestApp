@@ -61,20 +61,22 @@ is also a sentence boundary!
         XCTAssertEqual(innerSentenceRange.count, 1)
     }
     
-//    func test_that_if_there_is_no_end_range_found_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_to_the_end_of_that_group_of_BlankLines() {
-//        let text = """
-//this is a line.
-//then one more.
-//and another one
-//      
-//"""
-//        
-//        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 49)
-//        
-//        XCTAssertEqual(innerSentenceRange.lowerBound, 47)
-//        XCTAssertEqual(innerSentenceRange.count, 6) 
-//    }
-//    
+    // TODO: weird one. think more
+    test_that_if_there_is_no_end_range_found_and_the_last_line_is_a_BlankLine_then_it_returns_a_range_from_the_last_NonBlank_character_included_to_the_single_next_Blank_character_included_which_is_really_weird
+    func test_that_if_there_is_no_end_range_found_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_to_the_end_of_that_group_of_BlankLines() {
+        let text = """
+this is a line.
+then one more.
+and another one
+
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 49)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 47)
+        XCTAssertEqual(innerSentenceRange.count, 6) 
+    }
+    
 //    func test_that_if_there_is_no_end_range_found_and_the_last_line_is_a_BlankLine_then_it_returns_from_the_beginning_of_that_BlankLine_including_the_trailing_blanks_of_the_last_sentence_with_characters_to_the_end_of_that_BlankLine() {
 //        let text = """
 //this is a line.
