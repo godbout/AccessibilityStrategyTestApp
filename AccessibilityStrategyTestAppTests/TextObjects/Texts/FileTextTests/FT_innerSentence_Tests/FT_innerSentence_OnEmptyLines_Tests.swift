@@ -46,21 +46,21 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 1) 
     }
     
-//    func test_that_if_there_is_no_start_range_found_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_sentence_with_characters_that_is_below_the_BlankLine() {
-//        let text = """
-//first line hehe
-//   
-//above is an EL!
-//which is a paragraph boundary which
-//is also a sentence boundary!
-//"""
-//        
-//        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 18)
-//        
-//        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
-//        XCTAssertEqual(innerSentenceRange.count, 35)
-//    }
-//    
+    func test_that_if_there_is_no_start_range_found_it_returns_just_the_EmptyLine_lol_again() {
+        let text = """
+first line hehe
+
+above is an EL!
+which is a paragraph boundary which
+is also a sentence boundary!
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 16)
+        XCTAssertEqual(innerSentenceRange.count, 1)
+    }
+    
 //    func test_that_if_there_is_no_end_range_found_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_to_the_end_of_that_group_of_BlankLines() {
 //        let text = """
 //this is a line.
