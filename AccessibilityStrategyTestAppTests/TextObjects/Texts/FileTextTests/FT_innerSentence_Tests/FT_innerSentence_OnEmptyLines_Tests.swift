@@ -61,9 +61,8 @@ is also a sentence boundary!
         XCTAssertEqual(innerSentenceRange.count, 1)
     }
     
-    // TODO: weird one. think more
-    test_that_if_there_is_no_end_range_found_and_the_last_line_is_a_BlankLine_then_it_returns_a_range_from_the_last_NonBlank_character_included_to_the_single_next_Blank_character_included_which_is_really_weird
-    func test_that_if_there_is_no_end_range_found_then_it_returns_from_the_beginning_of_that_group_of_BlankLines_to_the_end_of_that_group_of_BlankLines() {
+    // TODO: FR do the impl
+    func test_that_if_there_is_no_end_range_found_and_that_there_is_no_trailing_Blanks_on_the_previous_line_then_it_returns_a_range_from_the_last_NonBlank_character_of_the_previous_line_included_to_the_trailing_newline_of_the_previous_line_included() {
         let text = """
 this is a line.
 then one more.
