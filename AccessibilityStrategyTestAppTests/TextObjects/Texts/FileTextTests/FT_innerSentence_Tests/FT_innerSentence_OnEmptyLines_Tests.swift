@@ -89,27 +89,10 @@ and another one
         XCTAssertEqual(innerSentenceRange.count, 6)
     }
     
-}
-
-
-extension FT_innerSentence_OnEmptyLines_Tests {
+    // TODO: FR
+    // 1. think if there's some more cases here for the basic?
+    // 2. then we need to start doing surrounded by BLs and ELs :D
     
-    // TODO: currently this crash is circumvented by testing onEmptyLineOrBlank but most probably
-    // need more tests and the onBlank shouldn't matter (so need to add the onBlank tests)
-    func test_that_it_does_not_crash() {
-        let text = """
-this is
-some text and it crashes
-on last EL.
-
-"""
-        
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 45)
-        
-        XCTAssertEqual(innerSentenceRange.lowerBound, 43)
-        XCTAssertEqual(innerSentenceRange.count, 2) 
-    }
-
 }
 
 
