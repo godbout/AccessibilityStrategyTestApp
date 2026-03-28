@@ -419,7 +419,7 @@ and another one
         XCTAssertEqual(aSentenceRange.count, 17) 
     }
     
-    func test_that_if_the_caret_is_on_trailing_blanks_and_there_is_no_start_range_found_nor_end_range_found_then_it_returns_a_range_from_the_last_NonBlank_character_included_to_the_single_next_Blank_character_included_which_is_really_weird() throws {
+    func test_that_if_the_caret_is_on_trailing_blanks_and_there_is_no_start_range_found_nor_end_range_found_and_the_text_ends_with_EmptyLines_then_it_returns_a_range_from_the_last_NonBlank_character_included_to_the_single_next_Blank_character_included_which_is_really_weird() throws {
         let text = """
 no start no end range and trailing blanks    
 
