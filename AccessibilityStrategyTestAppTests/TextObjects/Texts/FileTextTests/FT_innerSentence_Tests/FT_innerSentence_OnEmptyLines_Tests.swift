@@ -46,6 +46,21 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 1) 
     }
     
+    func test_that_if_the_caret_is_on_the_first_EmptyLine_and_the_next_line_starts_with_Blanks_then_it_returns_from_the_beginning_of_the_text_to_the_first_NonBlank_from_the_next_line() {
+        let text = """
+
+   this is a line.
+then one more.
+and another one.
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 4) 
+    }
+    
+    // TODO: FR the "no_start_range" doesn't make sense here
     func test_that_if_there_is_no_start_range_found_it_returns_just_the_EmptyLine_lol_again() {
         let text = """
 first line hehe
