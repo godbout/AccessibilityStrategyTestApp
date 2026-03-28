@@ -133,8 +133,10 @@ end range
     }
     
     // TODO: FR
-    // 2. then we need to start doing surrounded by BLs and ELs :D
+    // * check if there's any other possible cases with the basic cases that we've missed (like the no end range but NonBlanks!)
+    // * doing the surrounded by BLs and ELs :D
+    // * the `is` when on BL but with a EL above currently is wrong. same "weird edge case YES" we have in some innerSentence tests
     
-    // also the `is` when on BL but with a EL above currently is wrong. weird case?
+    // after all that then aSentence
     
 }
