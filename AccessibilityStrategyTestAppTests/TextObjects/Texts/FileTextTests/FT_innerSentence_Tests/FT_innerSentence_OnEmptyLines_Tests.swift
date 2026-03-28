@@ -119,11 +119,8 @@ and another one
     }
     
     // TODO: FR
-    // 1. think if there's some more cases here for the basic?
     // 2. then we need to start doing surrounded by BLs and ELs :D
     
-    // conclusion of research so yeah there's more cases, when following
-    // line starts with blanks lol.
     // also the `is` when on BL but with a EL above currently is wrong. weird case?
     
 }
