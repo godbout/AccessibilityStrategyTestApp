@@ -60,8 +60,7 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 4) 
     }
     
-    // TODO: FR the "no_start_range" doesn't make sense here
-    func test_that_if_there_is_no_start_range_found_it_returns_just_the_EmptyLine_lol_again() {
+    func test_that_if_the_caret_is_on_an_EmptyLine_and_there_is_an_end_range_then_it_returns_just_the_EmptyLine() {
         let text = """
 first line hehe
 
