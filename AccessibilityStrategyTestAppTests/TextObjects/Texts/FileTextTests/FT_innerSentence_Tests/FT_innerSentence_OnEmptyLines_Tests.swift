@@ -75,20 +75,6 @@ is also a sentence boundary!
         XCTAssertEqual(innerSentenceRange.count, 1)
     }
     
-    func test_that_if_the_caret_is_on_an_EmptyLine_and_there_is_no_end_range_but_after_the_caret_location_there_are_NonBlanks_then_it_returns_just_the_EmptyLine() {
-        let text = """
-first line hehe
-
-and then no
-end range
-"""
-        
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
-        
-        XCTAssertEqual(innerSentenceRange.lowerBound, 16)
-        XCTAssertEqual(innerSentenceRange.count, 1)
-    }
-    
     func test_that_if_the_caret_is_on_an_EmptyLine_and_there_is_an_end_range_and_the_next_line_starts_with_Blanks_then_it_returns_from_the_beginning_of_the_EmptyLine_to_the_first_NonBlank_from_the_next_line() {
         let text = """
 first line hehe
@@ -130,6 +116,20 @@ and another one
 
         XCTAssertEqual(innerSentenceRange.lowerBound, 46)
         XCTAssertEqual(innerSentenceRange.count, 6)
+    }
+    
+    func test_that_if_the_caret_is_on_an_EmptyLine_and_there_is_no_end_range_but_after_the_caret_location_there_are_NonBlanks_then_it_returns_just_the_EmptyLine() {
+        let text = """
+first line hehe
+
+and then no
+end range
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 16)
+        XCTAssertEqual(innerSentenceRange.count, 1)
     }
     
     // TODO: FR
