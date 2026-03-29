@@ -266,4 +266,19 @@ and another one
         XCTAssertEqual(aSentenceRange.count, 8) 
     }
     
+    func test_that_if_there_is_an_EmptyLine_before_the_BlankLine_then_it_does_NOT_return_from_the_BlankLine_but_instead_from_the_first_NonBlank_of_the_following_normal_line_until_the_end_of_that_line_but_not_including_the_trailing_blanks_or_the_trailing_newline_and_yeah_the_whole_thing_is_weird_LOL() {
+        let text = """
+EL below and then BL
+
+      
+  and lines.  
+and more?
+"""
+            
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 24)
+        
+        XCTAssertEqual(aSentenceRange.lowerBound, 31)
+        XCTAssertEqual(aSentenceRange.count, 10) 
+    }
+
 }
