@@ -138,3 +138,47 @@ end range
     // after all that then aSentence
     
 }
+
+
+// TextViews
+// surrounded by BlankLines
+extension FT_innerSentence_OnEmptyLines_Tests {
+    
+    // TODO: FR this test and the following one
+    func test_a() {
+        let text = """
+
+
+
+
+
+this is a line.
+then one more.
+and another one.
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 2)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 2)
+        XCTAssertEqual(innerSentenceRange.count, 3) 
+    }
+
+    func test_b() {
+        let text = """
+
+
+
+
+
+   this is a line.
+then one more.
+and another one.
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 2)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 2)
+        XCTAssertEqual(innerSentenceRange.count, 3) 
+    }
+
+}
