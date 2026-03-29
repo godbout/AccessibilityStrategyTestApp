@@ -133,9 +133,6 @@ end range
     }
     
     // TODO: FR
-    // * check if there's any other possible cases with the basic cases that we've missed (like the no end range but NonBlanks!)
-    //   actually check in general when it comes to that "weird case" thing. check UTs but also impl and check if we need
-    //   to test more, or update func names etc.
     // * doing the surrounded by BLs and ELs :D
     // * the `is` when on BL but with a EL above currently is wrong. same "weird edge case YES" we have in some innerSentence tests
     
