@@ -134,7 +134,6 @@ end range
     
     // TODO: FR
     // * doing the surrounded by BLs and ELs :D
-    // * the `is` when on BL but with a EL above currently is wrong. same "weird edge case YES" we have in some innerSentence tests
     
     // after all that then aSentence
     
