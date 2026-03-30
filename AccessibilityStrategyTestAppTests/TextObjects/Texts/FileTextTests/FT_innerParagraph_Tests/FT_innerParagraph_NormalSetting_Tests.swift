@@ -125,7 +125,7 @@ is a whole
    itself
 """
         
-        let innerParagraphRange = applyFuncBeingTested(on: text, startingAt: 10)
+        let innerParagraphRange = applyFuncBeingTested(on: text, startingAt: 9)
         
         XCTAssertEqual(innerParagraphRange.lowerBound, 0)
         XCTAssertEqual(innerParagraphRange.count, 46) 
