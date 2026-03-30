@@ -132,11 +132,6 @@ end range
         XCTAssertEqual(innerSentenceRange.count, 1)
     }
     
-    // TODO: FR
-    // * doing the surrounded by BLs and ELs :D
-    
-    // after all that then aSentence
-    
 }
 
 
