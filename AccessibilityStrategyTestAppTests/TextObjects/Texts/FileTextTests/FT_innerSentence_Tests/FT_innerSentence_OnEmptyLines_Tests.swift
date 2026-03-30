@@ -144,8 +144,16 @@ end range
 // surrounded by BlankLines
 extension FT_innerSentence_OnEmptyLines_Tests {
     
+    
+}
+
+
+// TextViews
+// surrounded by EmptyLines
+extension FT_innerSentence_OnEmptyLines_Tests {
+    
     // TODO: FR this test and the following one
-    func test_a() {
+    func test_that_if_the_text_starts_with_multiple_EmptyLines_then_it_returns_from_the_beginning_of_the_EmptyLine_where_the_caret_is_to_the_last_EmptyLine_included_that_is_before_a_normal_line() {
         let text = """
 
 
