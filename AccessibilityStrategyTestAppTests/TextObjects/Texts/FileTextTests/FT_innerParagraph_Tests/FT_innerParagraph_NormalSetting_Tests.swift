@@ -334,8 +334,6 @@ paragraph in
         XCTAssertEqual(innerParagraphRange.count, 47) 
     }
     
-    // TODO: FR it seems that the failing UTs start at a location that is not really possible
-    // so we'll change the impl of the onBL and onEL funcs but this should be fixed also in UTs
     func test_that_for_multiple_lines_before_two_BlankLines_it_returns_the_correct_range() {
         let text = """
 
