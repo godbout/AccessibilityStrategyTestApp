@@ -1328,8 +1328,8 @@
 			isa = PBXGroup;
 			children = (
 				91F190A32F3B10A800E7B991 /* FT_aSentence_NormalSetting_Tests */,
-				911BB8762F278A54002F3EB0 /* FT_aSentence_OnEmptyLines_Tests.swift */,
 				911BB8792F278B2C002F3EB0 /* FT_aSentence_OnBlankLines_Tests.swift */,
+				911BB8762F278A54002F3EB0 /* FT_aSentence_OnEmptyLines_Tests.swift */,
 			);
 			path = FT_aSentence_Tests;
 			sourceTree = "<group>";
@@ -1672,8 +1672,8 @@
 			isa = PBXGroup;
 			children = (
 				91F190A02F3B0F1A00E7B991 /* FT_innerSentence_NormalSetting_Tests */,
-				91B9E9EB2F2CD814005C316B /* FT_innerSentence_OnEmptyLines_Tests.swift */,
 				91B9E9ED2F2CD822005C316B /* FT_innerSentences_OnBlankLines_Tests.swift */,
+				91B9E9EB2F2CD814005C316B /* FT_innerSentence_OnEmptyLines_Tests.swift */,
 			);
 			path = FT_innerSentence_Tests;
 			sourceTree = "<group>";
