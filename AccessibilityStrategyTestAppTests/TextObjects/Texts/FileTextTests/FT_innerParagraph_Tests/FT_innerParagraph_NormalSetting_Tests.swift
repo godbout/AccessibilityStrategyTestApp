@@ -346,7 +346,7 @@ paragraph in
    itself
 """
         
-        let innerParagraphRange = applyFuncBeingTested(on: text, startingAt: 32)
+        let innerParagraphRange = applyFuncBeingTested(on: text, startingAt: 31)
         
         XCTAssertEqual(innerParagraphRange.lowerBound, 12)
         XCTAssertEqual(innerParagraphRange.count, 43) 
