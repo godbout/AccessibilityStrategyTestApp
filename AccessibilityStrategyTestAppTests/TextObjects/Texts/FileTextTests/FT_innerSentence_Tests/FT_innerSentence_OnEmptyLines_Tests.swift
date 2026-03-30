@@ -165,7 +165,25 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 3) 
     }
 
-    func test_that_if_the_text_starts_with_multiple_EmptyLines_then_it_returns_from_the_beginning_of_the_EmptyLine_where_the_caret_is_to_the_last_EmptyLine_included_that_is_before_a_normal_line_and_that_means_that_it_does_NOT_include_the_leading_blanks_from_the_following_normal_line() {
+    func test_that_if_the_text_starts_with_multiple_EmptyLines_and_the_caret_is_two_lines_above_the_first_normal_line_then_it_returns_from_the_beginning_of_the_EmptyLine_where_the_caret_is_to_the_last_EmptyLine_included_that_is_before_a_normal_line_and_that_means_that_it_does_NOT_include_the_leading_blanks_from_the_following_normal_line() {
+        let text = """
+
+
+
+
+
+   this is a line.
+then one more.
+and another one.
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 3)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 3)
+        XCTAssertEqual(innerSentenceRange.count, 2) 
+    }
+
+    func test_that_if_the_text_starts_with_multiple_EmptyLines_and_the_caret_is_three_lines_above_the_first_normal_line_then_it_returns_from_the_beginning_of_the_EmptyLine_where_the_caret_is_to_the_last_EmptyLine_included_that_is_before_a_normal_line_and_that_means_that_it_does_NOT_include_the_leading_blanks_from_the_following_normal_line() {
         let text = """
 
 
