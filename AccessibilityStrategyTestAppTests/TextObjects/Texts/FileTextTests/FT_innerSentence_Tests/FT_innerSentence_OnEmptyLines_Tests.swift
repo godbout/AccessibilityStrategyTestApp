@@ -171,7 +171,7 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 3) 
     }
 
-    func test_b() {
+    func test_that_if_the_text_starts_with_multiple_EmptyLines_then_it_returns_from_the_beginning_of_the_EmptyLine_where_the_caret_is_to_the_last_EmptyLine_included_that_is_before_a_normal_line_and_that_means_that_it_does_NOT_include_the_leading_blanks_from_the_following_normal_line() {
         let text = """
 
 
