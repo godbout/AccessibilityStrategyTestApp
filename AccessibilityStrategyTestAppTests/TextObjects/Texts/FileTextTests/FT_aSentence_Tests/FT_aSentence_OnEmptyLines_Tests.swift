@@ -60,6 +60,22 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 4) 
     }
     
+    func test_that_if_the_caret_is_on_an_EmptyLine_it_returns_from_the_beginning_of_that_EmptyLine_to_the_end_of_the_next_normal_sentence_not_including_the_trailing_newline() {
+        let text = """
+first line hehe
+
+above is an EL!
+which is a paragraph boundary which
+is also a sentence boundary!
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 16)
+        XCTAssertEqual(innerSentenceRange.count, 16)
+    }
+    
+    
 }
 
 
