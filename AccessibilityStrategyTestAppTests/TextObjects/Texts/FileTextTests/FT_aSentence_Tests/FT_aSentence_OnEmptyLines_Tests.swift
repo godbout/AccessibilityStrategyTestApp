@@ -46,8 +46,7 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 16) 
     }
     
-    // TODO: FR name this, and keep going
-    func test_b() {
+    func test_that_if_the_caret_is_on_the_first_EmptyLine_of_the_text_and_the_first_normal_sentence_has_leading_blanks_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_first_nonBlank_not_included_of_the_normal_sentence() {
         let text = """
 
    this is a line.
