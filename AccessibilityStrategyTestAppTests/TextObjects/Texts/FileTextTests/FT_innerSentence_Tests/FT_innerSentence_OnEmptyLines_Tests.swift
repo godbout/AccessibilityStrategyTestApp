@@ -32,7 +32,7 @@ extension FT_innerSentence_OnEmptyLines_Tests {
 // basic
 extension FT_innerSentence_OnEmptyLines_Tests {
     
-    func test_that_if_the_caret_is_on_the_first_EmptyLine_the_text_then_it_returns_just_that_line_lol() {
+    func test_that_if_the_caret_is_on_the_first_EmptyLine_of_the_text_then_it_returns_just_that_line_lol() {
         let text = """
 
 this is a line.
