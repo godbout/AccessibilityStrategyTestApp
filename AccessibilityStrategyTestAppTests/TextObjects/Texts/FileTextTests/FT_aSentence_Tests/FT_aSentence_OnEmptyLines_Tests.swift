@@ -40,7 +40,6 @@ then one more.
 and another one.
 """
         
-        // TODO: FR aSentence not innerSentence :D
         let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
         
         XCTAssertEqual(aSentenceRange.lowerBound, 0)
