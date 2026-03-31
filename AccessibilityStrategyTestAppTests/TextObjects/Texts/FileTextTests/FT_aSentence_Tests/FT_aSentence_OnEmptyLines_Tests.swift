@@ -75,7 +75,20 @@ is also a sentence boundary!
         XCTAssertEqual(innerSentenceRange.count, 16)
     }
     
-    
+    func test_that_if_the_caret_is_on_an_EmptyLine_it_returns_from_the_beginning_of_that_EmptyLine_to_the_end_of_the_next_normal_sentence_not_including_the_trailing_blanks_and_the_trailine_newline() {
+        let text = """
+first line hehe
+
+above is an BL not an EL!  
+and BL are NOT sentence boundaries!
+"""
+
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
+
+        XCTAssertEqual(aSentenceRange.lowerBound, 16)
+        XCTAssertEqual(aSentenceRange.count, 26)
+    }
+
 }
 
 
