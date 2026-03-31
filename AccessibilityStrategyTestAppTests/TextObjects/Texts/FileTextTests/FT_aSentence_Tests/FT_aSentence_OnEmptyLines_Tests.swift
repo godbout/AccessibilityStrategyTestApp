@@ -41,10 +41,10 @@ and another one.
 """
         
         // TODO: FR aSentence not innerSentence :D
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
-        XCTAssertEqual(innerSentenceRange.count, 16) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 16) 
     }
     
     func test_that_if_the_caret_is_on_the_first_EmptyLine_of_the_text_and_the_first_normal_sentence_has_leading_blanks_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_first_nonBlank_not_included_of_the_normal_sentence() {
@@ -55,10 +55,10 @@ then one more.
 and another one.
 """
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
-        XCTAssertEqual(innerSentenceRange.count, 4) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 0)
+        XCTAssertEqual(aSentenceRange.count, 4) 
     }
     
     func test_that_if_the_caret_is_on_an_EmptyLine_it_returns_from_the_beginning_of_that_EmptyLine_to_the_end_of_the_next_normal_sentence_not_including_the_trailing_newline() {
@@ -70,10 +70,10 @@ which is a paragraph boundary which
 is also a sentence boundary!
 """
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 16)
-        XCTAssertEqual(innerSentenceRange.count, 16)
+        XCTAssertEqual(aSentenceRange.lowerBound, 16)
+        XCTAssertEqual(aSentenceRange.count, 16)
     }
     
     func test_that_if_the_caret_is_on_an_EmptyLine_it_returns_from_the_beginning_of_that_EmptyLine_to_the_end_of_the_next_normal_sentence_not_including_the_trailing_blanks_and_the_trailine_newline() {
@@ -99,10 +99,10 @@ which is a paragraph boundary which
 is also a sentence boundary!
 """
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 16)
-        XCTAssertEqual(innerSentenceRange.count, 4)
+        XCTAssertEqual(aSentenceRange.lowerBound, 16)
+        XCTAssertEqual(aSentenceRange.count, 4)
     }
     
     func test_that_if_there_is_no_end_range_found_and_that_there_is_no_trailing_Blanks_on_the_previous_line_then_it_returns_a_range_from_the_last_NonBlank_character_of_the_previous_line_included_to_the_trailing_newline_of_the_previous_line_included() {
@@ -113,10 +113,10 @@ and another one
 
 """
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 47)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 47)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 45)
-        XCTAssertEqual(innerSentenceRange.count, 2) 
+        XCTAssertEqual(aSentenceRange.lowerBound, 45)
+        XCTAssertEqual(aSentenceRange.count, 2) 
     }
     
     func test_that_if_there_is_no_end_range_found_and_that_there_are_trailing_Blanks_on_the_previous_line_then_it_returns_a_range_from_the_last_NonBlank_character_of_the_previous_line_included_to_the_single_next_Blank_character_included_which_is_really_weird() {
@@ -127,10 +127,10 @@ and another one
 
 """
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 53)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 53)
 
-        XCTAssertEqual(innerSentenceRange.lowerBound, 45)
-        XCTAssertEqual(innerSentenceRange.count, 2)
+        XCTAssertEqual(aSentenceRange.lowerBound, 45)
+        XCTAssertEqual(aSentenceRange.count, 2)
     }
     
     func test_that_if_the_caret_is_on_an_EmptyLine_and_there_is_no_end_range_but_after_the_caret_location_there_are_NonBlanks_then_it_returns_from_the_beginning_of_the_EmptyLine_to_the_end_of_the_text() {
@@ -141,10 +141,10 @@ and then no
 end range
 """
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
+        let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
         
-        XCTAssertEqual(innerSentenceRange.lowerBound, 16)
-        XCTAssertEqual(innerSentenceRange.count, 22)
+        XCTAssertEqual(aSentenceRange.lowerBound, 16)
+        XCTAssertEqual(aSentenceRange.count, 22)
     }
     
 }
@@ -160,9 +160,9 @@ end range
 //and another one.
 //"""
 //    
-//    let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
+//    let aSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
 //    
-//    XCTAssertEqual(innerSentenceRange.lowerBound, 1)
-//    XCTAssertEqual(innerSentenceRange.count, 4) 
+//    XCTAssertEqual(aSentenceRange.lowerBound, 1)
+//    XCTAssertEqual(aSentenceRange.count, 4) 
 //}
 
