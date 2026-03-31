@@ -104,6 +104,19 @@ is also a sentence boundary!
         XCTAssertEqual(innerSentenceRange.count, 4)
     }
     
+    func test_that_if_there_is_no_end_range_found_and_that_there_is_no_trailing_Blanks_on_the_previous_line_then_it_returns_a_range_from_the_last_NonBlank_character_of_the_previous_line_included_to_the_trailing_newline_of_the_previous_line_included() {
+        let text = """
+this is a line.
+then one more.
+and another one
+
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 47)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 45)
+        XCTAssertEqual(innerSentenceRange.count, 2) 
+    }
     
 }
 
