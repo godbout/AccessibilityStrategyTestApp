@@ -88,7 +88,23 @@ and BL are NOT sentence boundaries!
         XCTAssertEqual(aSentenceRange.lowerBound, 16)
         XCTAssertEqual(aSentenceRange.count, 26)
     }
+    
+    func test_that_if_the_caret_is_on_an_EmptyLine_and_there_is_an_end_range_and_the_next_line_starts_with_Blanks_then_it_returns_from_the_beginning_of_the_EmptyLine_to_the_first_NonBlank_not_included_of_the_next_line() {
+        let text = """
+first line hehe
 
+   above is an EL!
+which is a paragraph boundary which
+is also a sentence boundary!
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 16)
+        XCTAssertEqual(innerSentenceRange.count, 4)
+    }
+    
+    
 }
 
 
