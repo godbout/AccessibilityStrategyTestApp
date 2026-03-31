@@ -46,6 +46,21 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 16) 
     }
     
+    // TODO: FR name this, and keep going
+    func test_b() {
+        let text = """
+
+   this is a line.
+then one more.
+and another one.
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 4) 
+    }
+    
 }
 
 
@@ -79,6 +94,101 @@ on last EL.
     }
 
 }
+
+
+
+
+
+
+
+
+
+//extension FT_aSentence_OnEmptyLines_Tests {
+//
+//    
+//    func test_that_if_the_caret_is_on_an_EmptyLine_and_there_is_an_end_range_then_it_returns_just_the_EmptyLine() {
+//        let text = """
+//first line hehe
+//
+//above is an EL!
+//which is a paragraph boundary which
+//is also a sentence boundary!
+//"""
+//        
+//        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
+//        
+//        XCTAssertEqual(innerSentenceRange.lowerBound, 16)
+//        XCTAssertEqual(innerSentenceRange.count, 1)
+//    }
+//    
+//    func test_that_if_the_caret_is_on_an_EmptyLine_and_there_is_an_end_range_and_the_next_line_starts_with_Blanks_then_it_returns_from_the_beginning_of_the_EmptyLine_to_the_first_NonBlank_from_the_next_line() {
+//        let text = """
+//first line hehe
+//
+//   above is an EL!
+//which is a paragraph boundary which
+//is also a sentence boundary!
+//"""
+//        
+//        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
+//        
+//        XCTAssertEqual(innerSentenceRange.lowerBound, 16)
+//        XCTAssertEqual(innerSentenceRange.count, 4)
+//    }
+//    
+//    func test_that_if_there_is_no_end_range_found_and_that_there_is_no_trailing_Blanks_on_the_previous_line_then_it_returns_a_range_from_the_last_NonBlank_character_of_the_previous_line_included_to_the_trailing_newline_of_the_previous_line_included() {
+//        let text = """
+//this is a line.
+//then one more.
+//and another one
+//
+//"""
+//        
+//        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 47)
+//        
+//        XCTAssertEqual(innerSentenceRange.lowerBound, 45)
+//        XCTAssertEqual(innerSentenceRange.count, 2) 
+//    }
+//    
+//    func test_that_if_there_is_no_end_range_found_and_that_there_are_trailing_Blanks_on_the_previous_line_then_it_returns_a_range_from_the_last_NonBlank_character_of_the_previous_line_not_included_to_the_trailing_newline_of_the_previous_line_not_included() {
+//        let text = """
+//this is a line.
+//then one more.
+//and another one      
+//
+//"""
+//        
+//        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 53)
+//
+//        XCTAssertEqual(innerSentenceRange.lowerBound, 46)
+//        XCTAssertEqual(innerSentenceRange.count, 6)
+//    }
+//    
+//    func test_that_if_the_caret_is_on_an_EmptyLine_and_there_is_no_end_range_but_after_the_caret_location_there_are_NonBlanks_then_it_returns_just_the_EmptyLine() {
+//        let text = """
+//first line hehe
+//
+//and then no
+//end range
+//"""
+//        
+//        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 16)
+//        
+//        XCTAssertEqual(innerSentenceRange.lowerBound, 16)
+//        XCTAssertEqual(innerSentenceRange.count, 1)
+//    }
+//    
+//}
+//
+//
+
+
+
+
+
+
+
+
 
 
 // TODO: this is an EL test!
