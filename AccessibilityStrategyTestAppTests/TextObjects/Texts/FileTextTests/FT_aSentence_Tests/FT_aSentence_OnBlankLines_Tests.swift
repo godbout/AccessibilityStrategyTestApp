@@ -32,7 +32,7 @@ extension FT_aSentence_OnBlankLines_Tests {
 // basic
 extension FT_aSentence_OnBlankLines_Tests {
     
-    func test_that_if_the_caret_is_on_the_first_BlankLine_the_text_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_first_sentence_with_characters_not_including_the_trailing_newline() {
+    func test_that_if_the_caret_is_on_the_first_BlankLine_of_the_text_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_first_sentence_with_characters_not_including_the_trailing_newline() {
         let text = """
       
 this is a line.
