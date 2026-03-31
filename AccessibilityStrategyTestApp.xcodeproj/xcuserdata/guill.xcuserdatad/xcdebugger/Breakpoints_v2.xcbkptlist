@@ -30,8 +30,8 @@
             filePath = "../AccessibilityStrategy/Sources/AccessibilityStrategy/TextObjects/Texts/FileText.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "innerSentence(startingAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -39,16 +39,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "34E2C1AA-70F4-4338-B691-E626ABD4BBA5"
-            shouldBeEnabled = "Yes"
+            uuid = "4A2A8EEF-73DB-40F7-9966-712CE817D871"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../AccessibilityStrategy/Sources/AccessibilityStrategy/TextObjects/Texts/FileText.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
-            landmarkName = "innerSentence(startingAt:)"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "aSentence(startingAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
