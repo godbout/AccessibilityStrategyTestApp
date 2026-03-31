@@ -28,7 +28,39 @@ extension FT_aSentence_OnEmptyLines_Tests {
 }
 
 
+// TextViews
+// basic
 extension FT_aSentence_OnEmptyLines_Tests {
+    
+    func test_that_if_the_caret_is_on_the_first_EmptyLine_of_the_text_then_it_returns_from_the_beginning_of_the_text_to_the_end_of_the_following_line_not_including_the_trailing_newline() {
+        let text = """
+
+this is a line.
+then one more.
+and another one.
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 0)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 0)
+        XCTAssertEqual(innerSentenceRange.count, 16) 
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+extension FT_aSentence_OnEmptyLines_Tests {
+    
+    
     
     // TODO: currently this crash is circumvented by testing onEmptyLineOrBlank
     // see innerSentence EL for blah blah
