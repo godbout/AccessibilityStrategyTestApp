@@ -75,7 +75,7 @@ is also a sentence boundary!
         XCTAssertEqual(innerSentenceRange.count, 1)
     }
     
-    func test_that_if_the_caret_is_on_an_EmptyLine_and_there_is_an_end_range_and_the_next_line_starts_with_Blanks_then_it_returns_from_the_beginning_of_the_EmptyLine_to_the_first_NonBlank_from_the_next_line() {
+    func test_that_if_the_caret_is_on_an_EmptyLine_and_there_is_an_end_range_and_the_next_line_starts_with_Blanks_then_it_returns_from_the_beginning_of_the_EmptyLine_to_the_first_NonBlank_not_included_of_the_next_line() {
         let text = """
 first line hehe
 
