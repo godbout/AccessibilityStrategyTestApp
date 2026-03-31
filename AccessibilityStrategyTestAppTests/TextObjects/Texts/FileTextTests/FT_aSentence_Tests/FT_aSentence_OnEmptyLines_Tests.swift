@@ -118,6 +118,20 @@ and another one
         XCTAssertEqual(innerSentenceRange.count, 2) 
     }
     
+    func test_that_if_there_is_no_end_range_found_and_that_there_are_trailing_Blanks_on_the_previous_line_then_it_returns_a_range_from_the_last_NonBlank_character_of_the_previous_line_included_to_the_single_next_Blank_character_included_which_is_really_weird() {
+        let text = """
+this is a line.
+then one more.
+and another one      
+
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 53)
+
+        XCTAssertEqual(innerSentenceRange.lowerBound, 45)
+        XCTAssertEqual(innerSentenceRange.count, 2)
+    }
+    
 }
 
 
