@@ -236,5 +236,9 @@ and another one.
         XCTAssertEqual(innerSentenceRange.lowerBound, 51)
         XCTAssertEqual(innerSentenceRange.count, 1) 
     }
+    
+    // TODO: FR!
+    // 1. same as above but with Blanks at the end of last normal line
+    // 2. multiple ELs in middle of text
 
 }
