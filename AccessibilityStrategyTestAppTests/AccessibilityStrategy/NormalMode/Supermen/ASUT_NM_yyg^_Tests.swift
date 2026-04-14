@@ -1,0 +1,51 @@
+import XCTest
+@testable import AccessibilityStrategy
+import Common
+
+
+class ASUT_NM_yygCaret_Tests: ASUT_NM_BaseTests {
+    
+    private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        return asNormalMode.yygCaret(using: element.currentScreenLine, on: element, &vimEngineState)
+    }
+    
+}
+
+
+extension ASUT_NM_yygCaret_Tests {
+    
+    func test_that_if_the_caret_is_before_the_firstNonBlank_of_the_line_then_it_copies_from_the_caretLocation_to_the_firstNonBlank_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_actually_does_not_even_move_the_caret_location_WOT() {
+        let text = "    so let's see if the caret is BEFORE the first non blank hehe"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 64,
+            caretLocation: 1,
+            selectedLength: 1,
+            selectedText: """
+         
+        """,
+            fullyVisibleArea: 0..<64,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 64,
+                number: 1,
+                start: 0,
+                end: 64
+            )!
+        )
+        copyToClipboard(text: "some fake shit")
+        
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(on: element, &vimEngineState)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "   ")
+        XCTAssertEqual(returnedElement.caretLocation, 1)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+        
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+    }
+    
+}
