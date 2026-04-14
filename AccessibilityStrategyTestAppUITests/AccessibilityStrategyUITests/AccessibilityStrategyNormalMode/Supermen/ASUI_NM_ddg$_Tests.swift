@@ -3,6 +3,11 @@ import XCTest
 import Common
 
 
+// TODO: FR
+// new and more tests will have to be added because ddg$ is gonna stop calling ccg$ because of
+// different behavior in LastYankStyle and copy to clipboard
+
+
 // internally this is calling C that is already tested, so we're not gonna repeat
 // every case scenario here. we're just gonna test the cases where we know we need to pay attention.
 // the UI Tests are for the block cursor repositioning after the move.
