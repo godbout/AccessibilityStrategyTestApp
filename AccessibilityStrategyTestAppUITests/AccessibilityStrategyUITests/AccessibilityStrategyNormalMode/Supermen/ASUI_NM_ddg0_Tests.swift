@@ -3,6 +3,11 @@ import XCTest
 import Common
 
 
+// TODO: FR
+// test ddg0 to make sure if works like Vim and that there's no issue like we have found
+// with ddg$
+
+
 class ASUI_NM_ddg0_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveBeingTested() -> AccessibilityTextElement {
