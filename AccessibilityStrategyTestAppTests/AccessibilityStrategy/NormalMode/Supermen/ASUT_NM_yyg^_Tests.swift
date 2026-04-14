@@ -48,4 +48,38 @@ extension ASUT_NM_yygCaret_Tests {
         XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
     }
     
+    func test_that_if_the_caret_is_already_at_the_firstNonBlank_of_the_line_then_it_fills_the_Pasteboard_with_an_empty_string_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_of_course_does_not_move_the_caret_location() {
+        let text = "    so let's see if the caret is AT the first non blank hehe"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 60,
+            caretLocation: 4,
+            selectedLength: 1,
+            selectedText: """
+        s
+        """,
+            fullyVisibleArea: 0..<60,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 60,
+                number: 1,
+                start: 0,
+                end: 60
+            )!
+        )
+        copyToClipboard(text: "some fake shit")
+        
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(on: element, &vimEngineState)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
+        XCTAssertEqual(returnedElement.caretLocation, 4)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+        
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+    }
+
 }
