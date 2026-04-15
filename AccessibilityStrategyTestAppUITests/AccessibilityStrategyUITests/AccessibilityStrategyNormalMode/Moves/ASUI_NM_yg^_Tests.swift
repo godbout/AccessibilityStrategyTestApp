@@ -14,10 +14,9 @@ class ASUI_NM_ygCaret_Tests: ASUI_NM_BaseTests {
 
 extension ASUI_NM_ygCaret_Tests {
 
-    // ok so there's something a little special here in the fact that we can't test with Blanks at the start of the ScreenLines
-    // because macOS doesn't allow that LMAO. when we try to add Blanks at the beginning of a ScreenLine macOS adds the Blanks
-    // at the END OF THE PREVIOUS LINE instead. so we can't test the different positions (caret before first non blank, at first non blank
-    // and after first non blank) for yg^. basically it will always behave like yg0. 
+    // see ASUT y^ for more blah blah but basically we can't test the different caret location positions here
+    // (before first non blank, at, or after) because in macOS you can't add Blanks at the beginning of a ScreenLine lol
+    // so basically yg^ actually acts like yg0 in reality
     func test_that_in_normal_setting_it_copies_from_the_ScreenLineStart_to_the_caretLocation_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
         let textInAXFocusedElement = "    yg0 is like y0 except that it works on screen lines!!!"
         app.textViews.firstMatch.tap()
