@@ -1,8 +1,63 @@
-//
-//  ASUI_NM_yg^_Tests.swift
-//  AccessibilityStrategyTestAppTests
-//
-//  Created by G. on 15/04/2026.
-//
+import XCTest
+import AccessibilityStrategy
+import Common
 
-import Foundation
+
+class ASUI_NM_ygCaret_Tests: ASUI_NM_BaseTests {
+    
+    private func applyMoveBeingTested(_ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        return applyMove { asNormalMode.ygCaret(on: $0, &vimEngineState) }
+    }
+    
+}
+
+
+extension ASUI_NM_ygCaret_Tests {
+
+    // ok so there's something a little special here in the fact that we can't test with Blanks at the start of the ScreenLines
+    // because macOS doesn't allow that LMAO. when we try to add Blanks at the beginning of a ScreenLine macOS adds the Blanks
+    // at the END OF THE PREVIOUS LINE instead. so we can't test the different positions (caret before first non blank, at first non blank
+    // and after first non blank) for yg^. basically it will always behave like yg0. 
+    func test_that_in_normal_setting_it_copies_from_the_ScreenLineStart_to_the_caretLocation_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
+        let textInAXFocusedElement = "    yg0 is like y0 except that it works on screen lines!!!"
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.b(on: $0) }
+        copyToClipboard(text: "some fake shit")
+        
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let accessibilityElement = applyMoveBeingTested(&vimEngineState)
+        
+        XCTAssertEqual(accessibilityElement.caretLocation, 43)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "s")
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "screen lines")
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+    }
+        
+    func test_that_for_an_EmptyLine_it_fills_the_Pasteboard_with_an_empty_string_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
+        let textInAXFocusedElement = """
+so this has to be a bit longer than the other one 
+
+and maybe a little here too coz ScreenLines
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.gg(times: 2, on: $0) }
+        copyToClipboard(text: "some fake shit")
+        
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let accessibilityElement = applyMoveBeingTested(&vimEngineState)
+        
+        XCTAssertEqual(accessibilityElement.caretLocation, 51)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "\n")
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+    }
+    
+}
