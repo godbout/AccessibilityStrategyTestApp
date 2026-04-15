@@ -115,5 +115,44 @@ extension ASUT_NM_yygCaret_Tests {
         XCTAssertFalse(vimEngineState.lastMoveBipped)
         XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
     }
+    
+    func test_that_for_an_EmptyLine_it_fills_the_Pasteboard_with_an_empty_string_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise() {
+        let text = """
+that's gonna be
+
+a little more
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 30,
+            caretLocation: 16,
+            selectedLength: 1,
+            selectedText: """
+
+
+        """,
+            fullyVisibleArea: 0..<30,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 30,
+                number: 2,
+                start: 16,
+                end: 17
+            )!
+        )
+        copyToClipboard(text: "some fake shit")
+        
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(on: element, &vimEngineState)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
+        XCTAssertEqual(returnedElement.caretLocation, 16)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+        
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+    }
 
 }
