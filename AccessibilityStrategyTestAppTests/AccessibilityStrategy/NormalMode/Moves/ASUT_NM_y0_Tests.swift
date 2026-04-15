@@ -15,25 +15,23 @@ class ASUT_NM_y0_Tests: ASUT_NM_BaseTests {
 
 extension ASUT_NM_y0_Tests {
 
-    // TODO: FR this test actually doesn't test properly the ScreenLine. needs to be fixed.
-    // and need to see if some other cases, like probably y$, but maybe also c0, d$, etc.
     func test_that_a_FileLine_and_not_a_ScreenLine_is_sent_as_parameter_to_the_superman_move() {
         let text = "but are we gonna use y0 that much tho"
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
             length: 37,
-            caretLocation: 19,
+            caretLocation: 32,
             selectedLength: 1,
             selectedText: """
-        e
+        h
         """,
             fullyVisibleArea: 0..<37,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 37,
-                number: 1,
-                start: 0,
+                number: 2,
+                start: 24,
                 end: 37
             )!
         )
@@ -42,7 +40,7 @@ extension ASUT_NM_y0_Tests {
         var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
         let returnedElement = applyMoveBeingTested(on: element, &vimEngineState)
         
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "but are we gonna us")
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "but are we gonna use y0 that muc")
         XCTAssertEqual(returnedElement.caretLocation, 0)
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
