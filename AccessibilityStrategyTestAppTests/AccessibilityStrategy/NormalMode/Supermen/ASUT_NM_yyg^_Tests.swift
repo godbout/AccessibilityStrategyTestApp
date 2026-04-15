@@ -154,5 +154,43 @@ a little more
         XCTAssertFalse(vimEngineState.lastMoveBipped)
         XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
     }
+    
+    func test_that_for_a_BlankLine_it_behaves_like_if_the_caret_is_before_the_FirstNonBlankLimit_because_it_does_LMAO() {
+        let text = """
+that's gonna be
+         
+a little more
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 40,
+            caretLocation: 17,
+            selectedLength: 1,
+            selectedText: """
+         
+        """,
+            fullyVisibleArea: 0..<40,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 40,
+                number: 2,
+                start: 16,
+                end: 26
+            )!
+        )
+        copyToClipboard(text: "some fake shit")
+        
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(on: element, &vimEngineState)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "       ")
+        XCTAssertEqual(returnedElement.caretLocation, 17)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+        
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+    }
 
 }
