@@ -28,7 +28,7 @@ correct type of line heheheheheheh
             role: .textArea,
             value: text,
             length: 111,
-            caretLocation: 52,
+            caretLocation: 47,
             selectedLength: 1,
             selectedText: """
         e
@@ -37,16 +37,16 @@ correct type of line heheheheheheh
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
                 fullTextLength: 111,
-                number: 2,
+                number: 3,
                 start: 41,
-                end: 77
+                end: 64
             )!
         )
         
         let returnedElement = applyMoveBeingTested(on: element)
         
-        XCTAssertEqual(returnedElement.caretLocation, 52)
-        XCTAssertEqual(returnedElement.selectedLength, 24)
+        XCTAssertEqual(returnedElement.caretLocation, 47)
+        XCTAssertEqual(returnedElement.selectedLength, 29)
         XCTAssertEqual(returnedElement.selectedText, "")
     }
    
