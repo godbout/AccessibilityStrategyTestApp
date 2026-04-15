@@ -81,5 +81,39 @@ extension ASUT_NM_yygCaret_Tests {
         XCTAssertFalse(vimEngineState.lastMoveBipped)
         XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
     }
+        
+    func test_that_if_the_caret_is_after_the_firstNonBlank_of_the_line_then_it_copies_from_the_firstNonBlank_to_the_caret_location_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_in_this_case_moves_the_caret_location_to_the_firstNonBlank_of_the_line() {
+        let text = "    so let's see if the caret is after the first non blank hehe"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 63,
+            caretLocation: 22,
+            selectedLength: 1,
+            selectedText: """
+        e
+        """,
+            fullyVisibleArea: 0..<63,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 63,
+                number: 1,
+                start: 0,
+                end: 63
+            )!
+        )
+        copyToClipboard(text: "some fake shit")
+        
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        let returnedElement = applyMoveBeingTested(on: element, &vimEngineState)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "so let's see if th")
+        XCTAssertEqual(returnedElement.caretLocation, 4)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+        
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+    }
 
 }
