@@ -14,7 +14,7 @@ class ASUT_NM_yygCaret_Tests: ASUT_NM_BaseTests {
 
 extension ASUT_NM_yygCaret_Tests {
     
-    func test_that_if_the_caret_is_before_the_firstNonBlank_of_the_line_then_it_copies_from_the_caretLocation_to_the_firstNonBlank_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_actually_does_not_even_move_the_caret_location_WOT() {
+    func test_that_if_the_caret_is_before_the_FirstNonBlankLimit_of_the_line_then_it_copies_from_the_caretLocation_to_the_FirstNonBlankLimit_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_actually_does_not_even_move_the_caret_WOT() {
         let text = "    so let's see if the caret is BEFORE the first non blank hehe"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -48,7 +48,7 @@ extension ASUT_NM_yygCaret_Tests {
         XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
     }
     
-    func test_that_if_the_caret_is_already_at_the_firstNonBlank_of_the_line_then_it_fills_the_Pasteboard_with_an_empty_string_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_of_course_does_not_move_the_caret_location() {
+    func test_that_if_the_caret_is_already_at_the_FirstNonBlankLimit_of_the_line_then_it_fills_the_Pasteboard_with_an_empty_string_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_of_course_does_not_move_the_caret() {
         let text = "    so let's see if the caret is AT the first non blank hehe"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -82,7 +82,7 @@ extension ASUT_NM_yygCaret_Tests {
         XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
     }
         
-    func test_that_if_the_caret_is_after_the_firstNonBlank_of_the_line_then_it_copies_from_the_firstNonBlank_to_the_caret_location_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_in_this_case_moves_the_caret_location_to_the_firstNonBlank_of_the_line() {
+    func test_that_if_the_caret_is_after_the_FirstNonBlankLimit_of_the_line_then_it_copies_from_the_FirstNonBlankLimit_to_the_caretLocation_and_does_not_Bip_and_sets_the_LastYankStyle_to_Characterwise_and_in_this_case_moves_the_caret_to_the_FirstNonBlankLimit_of_the_line() {
         let text = "    so let's see if the caret is after the first non blank hehe"
         let element = AccessibilityTextElement(
             role: .textField,
