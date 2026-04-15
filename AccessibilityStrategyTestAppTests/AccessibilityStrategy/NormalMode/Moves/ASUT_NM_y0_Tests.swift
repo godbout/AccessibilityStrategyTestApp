@@ -15,6 +15,8 @@ class ASUT_NM_y0_Tests: ASUT_NM_BaseTests {
 
 extension ASUT_NM_y0_Tests {
 
+    // TODO: FR this test actually doesn't test properly the ScreenLine. needs to be fixed.
+    // and need to see if some other cases, like probably y$, but maybe also c0, d$, etc.
     func test_that_a_FileLine_and_not_a_ScreenLine_is_sent_as_parameter_to_the_superman_move() {
         let text = "but are we gonna use y0 that much tho"
         let element = AccessibilityTextElement(
