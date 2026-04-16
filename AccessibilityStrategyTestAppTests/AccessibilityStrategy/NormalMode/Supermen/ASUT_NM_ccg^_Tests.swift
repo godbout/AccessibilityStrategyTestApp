@@ -125,3 +125,11 @@ extension ASUT_NM_ccgCaret_Tests {
     }
     
 }
+
+
+// TextFields and TextViews
+extension ASUT_NM_ccgCaret_Tests {
+    
+    // TODO: FR
+
+}
