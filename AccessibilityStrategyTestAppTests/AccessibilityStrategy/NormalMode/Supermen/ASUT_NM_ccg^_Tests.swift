@@ -89,5 +89,39 @@ extension ASUT_NM_ccgCaret_Tests {
         XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
         XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
-
-} 
+    
+    func test_that_if_the_caret_is_after_the_FirstNonBlankLimit_it_also_does_not_Bip_but_it_changes_the_LastYankStyle_to_Characterwise_and_copies_from_the_caretLocation_to_the_FirstNonBlankLimit() {
+        let text = """
+    hello dear friend
+   😂️hat's some text
+  and also some more
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 64,
+            caretLocation: 37,
+            selectedLength: 1,
+            selectedText: """
+        e
+        """,
+            fullyVisibleArea: 0..<64,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 64,
+                number: 2,
+                start: 22,
+                end: 44
+            )!
+        )
+        copyToClipboard(text: "some fake shit")
+        
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😂️hat's som")
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
+    }
+    
+}
