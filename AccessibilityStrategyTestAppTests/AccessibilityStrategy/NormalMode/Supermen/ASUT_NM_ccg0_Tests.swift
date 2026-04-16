@@ -147,7 +147,6 @@ and also some more
         XCTAssertEqual(returnedElement.caretLocation, 37)
         XCTAssertEqual(returnedElement.selectedLength, 0)
         XCTAssertNil(returnedElement.selectedText)
-
     }
 
 }
