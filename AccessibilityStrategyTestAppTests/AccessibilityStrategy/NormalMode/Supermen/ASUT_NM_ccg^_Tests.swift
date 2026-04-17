@@ -130,6 +130,36 @@ extension ASUT_NM_ccgCaret_Tests {
 // TextFields and TextViews
 extension ASUT_NM_ccgCaret_Tests {
     
-    // TODO: FR
-
+    func test_that_if_the_caret_is_at_the_FirstNonBlankLimit_it_does_not_do_anything() {
+        let text = """
+    hello dear friend
+   😂️hat's some text
+  and also some more
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 64,
+            caretLocation: 25,
+            selectedLength: 3,
+            selectedText: """
+        😂️
+        """,
+            fullyVisibleArea: 0..<64,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 64,
+                number: 2,
+                start: 22,
+                end: 44
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 25)
+        XCTAssertEqual(returnedElement.selectedLength, 0)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
 }
