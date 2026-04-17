@@ -162,4 +162,36 @@ extension ASUT_NM_ccgCaret_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
+    func test_that_if_the_caret_is_before_the_FirstNonBlankLimit_it_deletes_from_the_caretLocation_to_the_FirstNonBlankLimit() {
+        let text = """
+    hello dear friend
+   😂️hat's some text
+  and also some more
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 64,
+            caretLocation: 23,
+            selectedLength: 1,
+            selectedText: """
+         
+        """,
+            fullyVisibleArea: 0..<64,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 64,
+                number: 2,
+                start: 22,
+                end: 44
+            )!
+        )
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 23)
+        XCTAssertEqual(returnedElement.selectedLength, 2)
+        XCTAssertEqual(returnedElement.selectedText, "")
+    }
+    
 }
