@@ -14,7 +14,7 @@ class ASUI_NM_cDollarSign_Tests: ASUI_NM_BaseTests {
 }
     
     
-// PGR and Electron
+// PGR and Electron + passing right LineType parameter to superman func
 extension ASUI_NM_cDollarSign_Tests {
         
     func test_that_when_it_is_called_in_PGR_Mode_it_does_delete_or_paste_in_UI_Elements_receptive_to_PGR_and_also_passes_the_right_LineType_parameter_to_the_superman_func() {
