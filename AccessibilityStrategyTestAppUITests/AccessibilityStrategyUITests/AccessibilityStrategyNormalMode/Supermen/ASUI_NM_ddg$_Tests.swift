@@ -57,5 +57,5 @@ which😂️
 
 
 // PGR and Electron
-// already tested in c$
+// already tested in c$ and cg$
 extension ASUI_NM_ddgDollarSign_Tests {}

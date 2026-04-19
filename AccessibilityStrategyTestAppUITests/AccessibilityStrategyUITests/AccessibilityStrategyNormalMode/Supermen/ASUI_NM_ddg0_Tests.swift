@@ -49,5 +49,5 @@ and that has to include emojis
 
 
 // PGR and Electron
-// tested in c0, not called in d0
+// already tested in c0 and cg0
 extension ASUI_NM_ddg0_Tests {}
