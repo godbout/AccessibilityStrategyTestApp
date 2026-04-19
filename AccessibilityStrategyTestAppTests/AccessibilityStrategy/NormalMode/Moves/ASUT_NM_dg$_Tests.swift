@@ -2,5 +2,5 @@
 import XCTest
 
 
-// see ddg$
+// see superman move
 class ASUT_NM_dg$_Tests: ASUT_NM_BaseTests {}
