@@ -1,8 +1,6 @@
-//
-//  ASUI_NM_d^_Tests.swift
-//  AccessibilityStrategyTestAppTests
-//
-//  Created by G. on 19/04/2026.
-//
+@testable import AccessibilityStrategy
+import XCTest
 
-import Foundation
+
+// UIT
+class ASUT_NM_dCaret_Tests: ASUT_NM_BaseTests {}
