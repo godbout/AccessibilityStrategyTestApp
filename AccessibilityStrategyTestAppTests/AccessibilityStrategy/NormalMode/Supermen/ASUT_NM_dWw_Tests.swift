@@ -3,7 +3,8 @@ import XCTest
 import Common
 
 
-// UIT, PGR
+// dWw does NOT call cWw, hence the Bip, copy and LYS need ot be tested here separately.
+// for moves themselves, as usual they're in UIT.
 class ASUT_NM_dWw_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
