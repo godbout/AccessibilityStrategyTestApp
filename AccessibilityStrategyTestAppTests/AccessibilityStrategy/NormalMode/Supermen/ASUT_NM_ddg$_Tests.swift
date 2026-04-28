@@ -3,6 +3,9 @@ import XCTest
 import Common
 
 
+// ddg$ used to call ccg$ but they are actually different in how they handle ELs with the copy and YLS
+// we have to make ddg$ impl on its own. so here now we have to test the Bip, Copy and LYS for ddg$ itself.
+// when it comes to moves themselves, they have to be tested in UIT.
 class ASUT_NM_ddg$_Tests: ASUT_NM_BaseTests {
     
     private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
