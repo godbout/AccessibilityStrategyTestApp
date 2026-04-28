@@ -3,17 +3,10 @@ import XCTest
 import Common
 
 
-// TODO: FR add some blah blah here?
 class ASUT_NM_ddg$_Tests: ASUT_NM_BaseTests {
     
-    private func applyMoveBeingTested(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var vimEngineState = VimEngineState(appFamily: .auto)
-        
-        return applyMoveBeingTested(on: element, &vimEngineState)
-    }
-    
     private func applyMoveBeingTested(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        return asNormalMode.ddgDollarSign(using: element.currentFileLine, on: element, &vimEngineState) 
+        asNormalMode.ddgDollarSign(using: element.currentFileLine, on: element, &vimEngineState) 
     }
 
 }
