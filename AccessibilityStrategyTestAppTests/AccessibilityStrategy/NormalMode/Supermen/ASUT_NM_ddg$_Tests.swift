@@ -54,4 +54,35 @@ hoho
         XCTAssertFalse(vimEngineState.lastMoveBipped)
     }
     
+    func test_that_when_it_is_not_on_an_EmptyLine_it_does_not_Bip_either_and_sets_the_LastYankStyle_to_Characterwise_also_but_copies_the_deletion() {
+        let text = """
+C will now work with file lines and is supposed to delete from the caret ☀️ to before the linefeed
+and of course this is in the case there is a linefeed at the end of the line.
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 176,
+            caretLocation: 55,
+            selectedLength: 1,
+            selectedText: "t",
+            fullyVisibleArea: 0..<176,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 176,
+                number: 2,
+                start: 51,
+                end: 99
+            )!
+        )
+        copyToClipboard(text: "some fake shit")
+        
+        var vimEngineState = VimEngineState(lastMoveBipped: true, lastYankStyle: .linewise)
+        _ = applyMoveBeingTested(on: element, &vimEngineState)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "te from the caret ☀️ to before the linefeed")
+        XCTAssertEqual(vimEngineState.lastYankStyle, .characterwise)
+        XCTAssertFalse(vimEngineState.lastMoveBipped)
+    }
+    
 }
