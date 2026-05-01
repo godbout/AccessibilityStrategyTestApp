@@ -3,18 +3,12 @@ import XCTest
 import Common
 
 
-// TODO: FR
-// new and more tests will have to be added because ddg$ is gonna stop calling ccg$ because of
-// different behavior in LastYankStyle and copy to clipboard
-
-
-// internally this is calling C that is already tested, so we're not gonna repeat
-// every case scenario here. we're just gonna test the cases where we know we need to pay attention.
-// the UI Tests are for the block cursor repositioning after the move.
+// in the past ddg$ would call ccg$ but they actually act differently on ELs so now ddg$ is on its own
+// and we have all the required tests here.
 class ASUI_NM_ddgDollarSign_Tests: ASUI_NM_BaseTests {
     
-    private func applyMoveBeingTested() -> AccessibilityTextElement {
-        var vimEngineState = VimEngineState()
+    private func applyMoveBeingTested(appFamily: AppFamily = .auto) -> AccessibilityTextElement {
+        var vimEngineState = VimEngineState(appFamily: appFamily)
         
         return applyMove { asNormalMode.ddgDollarSign(using: $0.currentFileLine, on: $0, &vimEngineState) }
     }
