@@ -16,40 +16,23 @@ class ASUI_NM_ddgDollarSign_Tests: ASUI_NM_BaseTests {
 }
 
 
-// yes, only one test. i know you will want to add 32 other ones when you see that in 2 weeks
-// but here's the reason:
-// 1. as stated above, here we only need to test the caret repositioning (D calls C, C is already tested)
-// 2. the caret position will always go to the line endLimit, whether the line is empty or not. this is
-// tested in the endLimit tests. so here we mostly have nothing to do. :D
-// UPDATE: 2. is not valid anymore as ddgDollarSign may be passed the ScreenLine, in which case the caret position will not
-// end up at the line endLimit, but will not move instead. that part is tested in ASUI dg$ test.
+// TextFields and TextViews
 extension ASUI_NM_ddgDollarSign_Tests {
-
-    func test_that_in_any_case_the_caret_location_will_end_up_at_the_line_end_limit() {
-        let textInAXFocusedElement = """
-D will delete till the end of line but not the linefeed (tested in C) and will go to the end limit even if the line is empty
-which😂️means it will not up one line and this is tested in the endLimit!
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+    
+    func test_that_if_a_file_line_does_not_end_with_a_Newline_it_deletes_from_the_caret_to_the_end_of_the_line() {
+        let textInAXFocusedElement = "this time the line will not end with a linefeed so C should delete from the caret till the end!"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
         applyMove { asNormalMode.zero(on: $0) }
-        applyMove { asNormalMode.w(on: $0) }
+        applyMove { asNormalMode.w(times: 2, on: $0) }
         applyMove { asNormalMode.l(on: $0) }
         
         let accessibilityElement = applyMoveBeingTested()
         
-        XCTAssertEqual(accessibilityElement.fileText.value, """
-D will delete till the end of line but not the linefeed (tested in C) and will go to the end limit even if the line is empty
-which😂️
-"""
-        )
-        XCTAssertEqual(accessibilityElement.caretLocation, 130)
-        XCTAssertEqual(accessibilityElement.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement.fileText.value, "this time t")
+        XCTAssertEqual(accessibilityElement.caretLocation, 10)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "t")
     }
-
+    
 }
-
-
-// PGR and Electron
-// already tested in c$ and cg$
-extension ASUI_NM_ddgDollarSign_Tests {}
