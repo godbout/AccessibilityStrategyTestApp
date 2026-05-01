@@ -62,4 +62,28 @@ and of course this is in the case there is a linefeed at the end of the line.
         XCTAssertEqual(accessibilityElement.selectedText, "☀️")
     }
     
+    func test_that_it_does_not_delete_the_Newline_even_for_an_EmptyLine() {
+        let textInAXFocusedElement = """
+now we have an empty line and C should behave
+
+and not delete that fucking shit
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.zero(on: $0) }
+        applyMove { asNormalMode.b(on: $0) }
+        
+        let accessibilityElement = applyMoveBeingTested()
+        
+        XCTAssertEqual(accessibilityElement.fileText.value, """
+now we have an empty line and C should behave
+
+and not delete that fucking shit
+"""
+        )
+        XCTAssertEqual(accessibilityElement.caretLocation, 46)
+        XCTAssertEqual(accessibilityElement.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement.selectedText, "\n")
+    }
+
 }
