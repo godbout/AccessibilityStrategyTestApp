@@ -215,7 +215,7 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 2) 
     }
 
-    func test_that_if_the_text_ends_with_multiple_EmptyLines_and_the_caret_is_NOT_on_the_last_EmptyLine_then_it_returns_from_the_beginning_of_the_previous_normal_sentence_to_the_end_of_that_previous_normal_sentence_not_including_its_trailing_line() {
+    func test_that_if_the_text_ends_with_multiple_EmptyLines_and_the_caret_is_NOT_on_the_last_EmptyLine_and_the_last_normal_line_does_not_have_any_trailing_Blanks_then_it_returns_from_the_beginning_of_the_previous_normal_sentence_to_the_end_of_that_previous_normal_sentence_not_including_its_trailing_line() {
         let text = """
 this is a line.
 then one more.
