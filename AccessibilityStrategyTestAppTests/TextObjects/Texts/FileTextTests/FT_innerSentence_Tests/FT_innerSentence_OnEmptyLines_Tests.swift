@@ -287,5 +287,7 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 1) 
     }
     
+    // TODO: FR!
+    // 2. multiple ELs in middle of text
 
 }
