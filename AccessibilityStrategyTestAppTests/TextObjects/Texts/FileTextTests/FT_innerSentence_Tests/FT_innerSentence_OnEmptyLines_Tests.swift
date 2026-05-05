@@ -240,5 +240,23 @@ and another one.
     // TODO: FR!
     // 1. same as above but with Blanks at the end of last normal line
     // 2. multiple ELs in middle of text
+    func test_something() {
+        let text = """
+this is a line.
+then one more.
+and another one.   
+
+
+
+
+
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 55)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 54)
+        XCTAssertEqual(innerSentenceRange.count, 1) 
+    }
+    
 
 }
