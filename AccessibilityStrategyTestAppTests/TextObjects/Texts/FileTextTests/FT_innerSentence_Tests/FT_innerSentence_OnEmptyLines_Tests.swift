@@ -233,7 +233,25 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 16) 
     }
     
-    func test_that_if_the_text_ends_with_multiple_EmptyLines_and_the_caret_IS_on_the_last_EmptyLine_then_it_returns_from_the_previous_EmptyLine_included_to_the_last_EmptyLine_but_actually_that_one_cannot_be_included_because_macOS_Text_Views_last_lines_are_not_selectable_lol() {
+    func test_that_if_the_text_ends_with_multiple_EmptyLines_and_the_caret_is_NOT_on_the_last_EmptyLine_and_the_last_normal_line_does_have_trailing_Blanks_then_it_returns_from_the_beginning_of_the_previous_normal_sentence_to_the_end_of_that_previous_normal_sentence_not_including_its_trailing_line() {
+        let text = """
+this is a line.
+then one more.
+and another one.     
+
+
+
+
+
+"""
+        
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 56)
+        
+        XCTAssertEqual(innerSentenceRange.lowerBound, 31)
+        XCTAssertEqual(innerSentenceRange.count, 16) 
+    }
+    
+    func test_that_if_the_text_ends_with_multiple_EmptyLines_and_the_caret_IS_on_the_last_EmptyLine_and_the_last_normal_line_does_not_have_any_trailing_Blanks_then_it_returns_from_the_previous_EmptyLine_included_to_the_last_EmptyLine_but_actually_that_one_cannot_be_included_because_macOS_Text_Views_last_lines_are_not_selectable_lol() {
         let text = """
 this is a line.
 then one more.
