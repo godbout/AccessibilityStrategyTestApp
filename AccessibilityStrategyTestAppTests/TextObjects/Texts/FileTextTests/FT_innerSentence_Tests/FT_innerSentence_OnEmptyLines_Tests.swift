@@ -104,8 +104,7 @@ and another one
         XCTAssertEqual(innerSentenceRange.count, 2) 
     }
     
-    // TODO: FR name
-    func test_wot() {
+    func test_that_if_there_is_no_end_range_found_and_that_there_is_ONE_trailing_Blank_on_the_previous_line_then_it_returns_a_range_from_the_last_NonBlank_character_of_the_previous_line_not_included_to_the_trailing_newline_of_the_previous_line_INCLUDED() {
         let text = """
 this is a line.
 then one more.
