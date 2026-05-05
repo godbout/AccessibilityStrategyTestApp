@@ -108,14 +108,14 @@ and another one
         let text = """
 this is a line.
 then one more.
-and another one      
+and another one  
 
 """
         
-        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 53)
+        let innerSentenceRange = applyFuncBeingTested(on: text, startingAt: 49)
 
         XCTAssertEqual(innerSentenceRange.lowerBound, 46)
-        XCTAssertEqual(innerSentenceRange.count, 6)
+        XCTAssertEqual(innerSentenceRange.count, 2)
     }
     
     func test_that_if_the_caret_is_on_an_EmptyLine_and_there_is_no_end_range_but_after_the_caret_location_there_are_NonBlanks_then_it_returns_just_the_EmptyLine() {
