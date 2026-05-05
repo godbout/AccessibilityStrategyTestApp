@@ -251,10 +251,7 @@ and another one.
         XCTAssertEqual(innerSentenceRange.count, 1) 
     }
     
-    // TODO: FR!
-    // 1. same as above but with Blanks at the end of last normal line
-    // 2. multiple ELs in middle of text
-    func test_something() {
+    func test_that_if_the_text_ends_with_multiple_EmptyLines_and_the_caret_IS_on_the_last_EmptyLine_and_the_last_normal_line_does_have_any_trailing_Blanks_then_it_still_returns_from_the_previous_EmptyLine_included_to_the_last_EmptyLine_but_actually_that_one_cannot_be_included_because_macOS_Text_Views_last_lines_are_not_selectable_lol() {
         let text = """
 this is a line.
 then one more.
