@@ -78,5 +78,39 @@ extension ASUT_VMC_is_Tests {
         XCTAssertEqual(returnedElement.selectedLength, 15)
         XCTAssertNil(returnedElement.selectedText)
     }
+    
+    func test_that_if_the_Head_and_the_Anchor_are_equal_it_selects_the_whole_inner_sentence_and_the_Anchor_gets_updated_to_the_beginning_of_the_inner_sentence_and_the_Head_gets_updated_to_the_end_of_the_inner_sentence() {
+        let text = "brother. we're gonna need some sentences here. else it's not gonna work!"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 72,
+            caretLocation: 16,
+            selectedLength: 1,
+            selectedText: """
+        o
+        """,
+            fullyVisibleArea: 0..<72,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 72,
+                number: 1,
+                start: 0,
+                end: 72
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 16
+        AccessibilityStrategyVisualMode.head = 16
+       
+        let returnedElement = applyMoveBeingTested(on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 9)
+        XCTAssertEqual(returnedElement.selectedLength, 37)
+        XCTAssertNil(returnedElement.selectedText)
+                
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 9)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 45)
+    }
 
 }
