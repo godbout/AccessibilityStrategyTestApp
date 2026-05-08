@@ -211,5 +211,41 @@ altogether. right?
         XCTAssertEqual(returnedElement.selectedLength, 25)
         XCTAssertNil(returnedElement.selectedText)
     }
+    
+    func test_that_it_does_not_get_blocked_when_the_Head_is_before_the_Anchor_and_the_caret_is_at_the_beginning_of_an_inner_sentence_right_after_an_EmptyLine() {
+        let text = """
+ok so this is. something
+else
+
+altogether. right?
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 49,
+            caretLocation: 31,
+            selectedLength: 5,
+            selectedText: """
+        altog
+        """,
+            fullyVisibleArea: 0..<49,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 49,
+                number: 4,
+                start: 31,
+                end: 49
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 35
+        AccessibilityStrategyVisualMode.head = 31
+       
+        let returnedElement = applyMoveBeingTested(on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 30)
+        XCTAssertEqual(returnedElement.selectedLength, 6)
+        XCTAssertNil(returnedElement.selectedText)
+    }
 
 }
