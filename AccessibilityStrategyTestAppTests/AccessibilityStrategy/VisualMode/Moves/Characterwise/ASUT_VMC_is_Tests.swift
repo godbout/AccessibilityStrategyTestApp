@@ -144,7 +144,7 @@ extension ASUT_VMC_is_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_it_does_not_get_blocked_when_the_Head_if_before_the_Anchor_and_the_caret_is_at_the_beginning_of_an_inner_sentence() {
+    func test_that_it_does_not_get_blocked_when_the_Head_is_before_the_Anchor_and_the_caret_is_at_the_beginning_of_an_inner_sentence() {
         let text = "brother. we're gonna need some sentences here. else it's not gonna work!"
         let element = AccessibilityTextElement(
             role: .textField,
