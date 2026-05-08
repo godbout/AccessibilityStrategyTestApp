@@ -185,17 +185,17 @@ altogether. right?
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 50,
+            length: 49,
             caretLocation: 17,
             selectedLength: 12,
             selectedText: """
         mething
         else
         """,
-            fullyVisibleArea: 0..<50,
+            fullyVisibleArea: 0..<49,
             currentScreenLine: ScreenLine(
                 fullTextValue: text,
-                fullTextLength: 50,
+                fullTextLength: 49,
                 number: 1,
                 start: 0,
                 end: 25
