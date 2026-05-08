@@ -175,8 +175,7 @@ extension ASUT_VMC_is_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    // TODO: FR
-    func test_that_it_does_not_get_blocked_when_the_Head_if_after_the_Anchor_and_the_caret_is_at_the_end_of_an_inner_sentence_right_before_an_EmptyLine() {
+    func test_that_it_does_not_get_blocked_when_the_Head_is_after_the_Anchor_and_the_caret_is_at_the_end_of_an_inner_sentence_right_before_an_EmptyLine() {
         let text = """
 ok so this is. something
 else
