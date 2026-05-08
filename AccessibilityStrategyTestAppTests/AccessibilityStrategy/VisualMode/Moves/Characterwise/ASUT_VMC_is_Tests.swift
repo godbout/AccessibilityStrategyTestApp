@@ -17,7 +17,7 @@ class ASUT_VMC_is_Tests: ASUT_VM_BaseTests {
 // TextFields and TextViews
 extension ASUT_VMC_is_Tests {
     
-    func test_that_if_the_Head_is_after_the_Anchor_it_extends_the_selection_to_the_end_of_the_inner_sentence_where_the_head_is() {
+    func test_that_if_the_Head_is_after_the_Anchor_it_extends_the_selection_to_the_end_of_the_innerSentence_where_the_head_is() {
         let text = "brother. we're gonna need some sentences here. else it's not gonna work!"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -48,7 +48,7 @@ extension ASUT_VMC_is_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_the_Head_is_before_the_Anchor_it_extends_the_selection_to_the_beginning_of_the_inner_sentence_where_the_Head_is() {
+    func test_that_if_the_Head_is_before_the_Anchor_it_extends_the_selection_to_the_beginning_of_the_innerSentence_where_the_Head_is() {
         let text = "brother. we're gonna need some sentences here. else it's not gonna work!"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -79,7 +79,7 @@ extension ASUT_VMC_is_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_the_Head_and_the_Anchor_are_equal_it_selects_the_whole_inner_sentence_and_the_Anchor_gets_updated_to_the_beginning_of_the_inner_sentence_and_the_Head_gets_updated_to_the_end_of_the_inner_sentence() {
+    func test_that_if_the_Head_and_the_Anchor_are_equal_it_selects_the_whole_innerSentence_and_the_Anchor_gets_updated_to_the_beginning_of_the_innerSentence_and_the_Head_gets_updated_to_the_end_of_the_innerSentence() {
         let text = "brother. we're gonna need some sentences here. else it's not gonna work!"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -113,7 +113,7 @@ extension ASUT_VMC_is_Tests {
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 45)
     }
     
-    func test_that_it_does_not_get_blocked_when_the_Head_is_after_the_Anchor_and_the_caret_is_at_the_end_of_an_inner_sentence() {
+    func test_that_it_does_not_get_blocked_when_the_Head_is_after_the_Anchor_and_the_caret_is_at_the_end_of_an_innerSentence() {
         let text = "brother. we're gonna need some sentences here. else it's not gonna work!"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -144,7 +144,7 @@ extension ASUT_VMC_is_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_it_does_not_get_blocked_when_the_Head_is_before_the_Anchor_and_the_caret_is_at_the_beginning_of_an_inner_sentence() {
+    func test_that_it_does_not_get_blocked_when_the_Head_is_before_the_Anchor_and_the_caret_is_at_the_beginning_of_an_innerSentence() {
         let text = "brother. we're gonna need some sentences here. else it's not gonna work!"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -175,7 +175,7 @@ extension ASUT_VMC_is_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_it_does_not_get_blocked_when_the_Head_is_after_the_Anchor_and_the_caret_is_at_the_end_of_an_inner_sentence_right_before_an_EmptyLine() {
+    func test_that_it_does_not_get_blocked_when_the_Head_is_after_the_Anchor_and_the_caret_is_at_the_end_of_an_innerSentence_right_before_an_EmptyLine() {
         let text = """
 ok so this is. something
 else
@@ -212,7 +212,7 @@ altogether. right?
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_it_does_not_get_blocked_when_the_Head_is_before_the_Anchor_and_the_caret_is_at_the_beginning_of_an_inner_sentence_right_after_an_EmptyLine() {
+    func test_that_it_does_not_get_blocked_when_the_Head_is_before_the_Anchor_and_the_caret_is_at_the_beginning_of_an_innerSentence_right_after_an_EmptyLine() {
         let text = """
 ok so this is. something
 else
