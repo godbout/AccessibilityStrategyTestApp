@@ -108,4 +108,40 @@ extension ASUT_VMC_aw_Tests {
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 107)
     }
     
+    func test_that_it_does_not_get_blocked_when_the_Head_if_after_the_Anchor_and_the_caret_is_at_the_end_of_an_aWord() {
+        let text = """
+so it seems that calculating the innerWord
+is going to be different depending
+on where the anchor and head are positioned
+in relation to each other
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 147,
+            caretLocation: 61,
+            selectedLength: 7,
+            selectedText: """
+        ferent 
+        """,
+            fullyVisibleArea: 0..<147,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 147,
+                number: 2,
+                start: 43,
+                end: 78
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 61
+        AccessibilityStrategyVisualMode.head = 67
+       
+        let returnedElement = applyMoveBeingTested(on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 61)
+        XCTAssertEqual(returnedElement.selectedLength, 16)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
 }
