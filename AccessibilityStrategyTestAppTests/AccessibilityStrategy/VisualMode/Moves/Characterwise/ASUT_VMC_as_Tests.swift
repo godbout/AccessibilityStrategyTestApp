@@ -48,4 +48,35 @@ extension ASUT_VMC_as_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
+    func test_that_if_the_Head_is_before_the_Anchor_it_extends_the_selection_to_the_beginning_of_the_aSentence_where_the_Head_is() {
+        let text = "brother. we're gonna need some sentences here. else it's not gonna work!"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 72,
+            caretLocation: 16,
+            selectedLength: 8,
+            selectedText: """
+        onna nee
+        """,
+            fullyVisibleArea: 0..<72,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 72,
+                number: 1,
+                start: 0,
+                end: 72
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 23
+        AccessibilityStrategyVisualMode.head = 16
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 8)
+        XCTAssertEqual(returnedElement.selectedLength, 16)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
 }
