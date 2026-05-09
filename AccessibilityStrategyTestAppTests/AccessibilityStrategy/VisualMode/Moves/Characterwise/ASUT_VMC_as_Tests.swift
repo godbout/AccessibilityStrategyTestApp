@@ -144,4 +144,36 @@ extension ASUT_VMC_as_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
+    // TODO: FR failing. coz we as is very different? or there's a way in VMC?
+    func test_that_it_does_not_get_blocked_when_the_Head_is_before_the_Anchor_and_the_caret_is_at_the_beginning_of_an_aSentence() {
+        let text = "brother. we're gonna need some sentences here. else it's not gonna work! hehe!"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 78,
+            caretLocation: 46,
+            selectedLength: 13,
+            selectedText: """
+         else it's no
+        """,
+            fullyVisibleArea: 0..<78,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 78,
+                number: 1,
+                start: 0,
+                end: 78
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 58
+        AccessibilityStrategyVisualMode.head = 46
+       
+        let returnedElement = applyMoveBeingTested(on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 8)
+        XCTAssertEqual(returnedElement.selectedLength, 51)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
 }
