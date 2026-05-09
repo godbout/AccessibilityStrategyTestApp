@@ -1,5 +1,15 @@
 {
+  "originHash" : "e5d9e4bc283345db0615baa26054717bda177731bf683804755e6fdee1feb79d",
   "pins" : [
+    {
+      "identity" : "accessibilitystrategy",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:godbout/AccessibilityStrategy.git",
+      "state" : {
+        "revision" : "c80997c3cc92e015174ce3807fd4d49c30b4c264",
+        "version" : "10.33.0"
+      }
+    },
     {
       "identity" : "axengine",
       "kind" : "remoteSourceControl",
@@ -32,10 +42,10 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:Clipy/Sauce.git",
       "state" : {
-        "revision" : "df657bc1beba23ffd580953f183cd756b5bcd514",
-        "version" : "2.4.1"
+        "revision" : "c9ebdcfddb4b94da5b9a6ebd113ab385edda88c1",
+        "version" : "2.5.0"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

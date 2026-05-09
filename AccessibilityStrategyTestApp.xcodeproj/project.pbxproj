@@ -413,6 +413,10 @@
 		91CAE73927EB8E9E0099B67D /* ASUT_NM_control_u_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CAE73827EB8E9E0099B67D /* ASUT_NM_control_u_Tests.swift */; };
 		91CB320F27593091004C844C /* ASUI_NM_cInnerBlock_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB320D27592FD7004C844C /* ASUI_NM_cInnerBlock_Tests.swift */; };
 		91CB321D27593CCC004C844C /* ASUI_NM_ci[_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB321627593BFD004C844C /* ASUI_NM_ci[_Tests.swift */; };
+		91CCF8172FAF22C900226F41 /* ASUT_VML_aW__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CCF8162FAF22C900226F41 /* ASUT_VML_aW__Tests.swift */; };
+		91CCF8192FAF230D00226F41 /* ASUT_VML_aw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CCF8182FAF230D00226F41 /* ASUT_VML_aw_Tests.swift */; };
+		91CCF81B2FAF234900226F41 /* ASUT_VMC_aW__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CCF81A2FAF234900226F41 /* ASUT_VMC_aW__Tests.swift */; };
+		91CCF81D2FAF236700226F41 /* ASUT_VMC_aw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CCF81C2FAF236700226F41 /* ASUT_VMC_aw_Tests.swift */; };
 		91D2DB652795C77800CC7978 /* ASUT_NM_dip_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D2DB642795C77800CC7978 /* ASUT_NM_dip_Tests.swift */; };
 		91D2DB682795C80200CC7978 /* ASUI_NM_dip_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D2DB662795C7CC00CC7978 /* ASUI_NM_dip_Tests.swift */; };
 		91D2DB6A2795CA2600CC7978 /* FT_innerParagraph_NormalSetting_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D2DB692795CA2600CC7978 /* FT_innerParagraph_NormalSetting_Tests.swift */; };
@@ -760,7 +764,6 @@
 		913DEF6C275BCAC300BE75FB /* ASUI_VMC_c_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_VMC_c_Tests.swift; sourceTree = "<group>"; };
 		913DEF6E275BD07100BE75FB /* ASUI_VML_c_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_VML_c_Tests.swift; sourceTree = "<group>"; };
 		913DFFEF26E3D00700DB4468 /* ASUI_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_BaseTests.swift; sourceTree = "<group>"; };
-		913EB06B2FA8B71600ED6079 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = SOURCE_ROOT; };
 		913EB0792FAA339E00ED6079 /* ASUT_VMC_as_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_VMC_as_Tests.swift; sourceTree = "<group>"; };
 		913EB07A2FAA339E00ED6079 /* ASUT_VMC_is_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_VMC_is_Tests.swift; sourceTree = "<group>"; };
 		913EB07D2FAA33B000ED6079 /* ASUT_VML_as_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_VML_as_Tests.swift; sourceTree = "<group>"; };
@@ -1064,6 +1067,10 @@
 		91CAE73827EB8E9E0099B67D /* ASUT_NM_control_u_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_control_u_Tests.swift; sourceTree = "<group>"; };
 		91CB320D27592FD7004C844C /* ASUI_NM_cInnerBlock_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_cInnerBlock_Tests.swift; sourceTree = "<group>"; };
 		91CB321627593BFD004C844C /* ASUI_NM_ci[_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUI_NM_ci[_Tests.swift"; sourceTree = "<group>"; };
+		91CCF8162FAF22C900226F41 /* ASUT_VML_aW__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_VML_aW__Tests.swift; sourceTree = "<group>"; };
+		91CCF8182FAF230D00226F41 /* ASUT_VML_aw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_VML_aw_Tests.swift; sourceTree = "<group>"; };
+		91CCF81A2FAF234900226F41 /* ASUT_VMC_aW__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_VMC_aW__Tests.swift; sourceTree = "<group>"; };
+		91CCF81C2FAF236700226F41 /* ASUT_VMC_aw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_VMC_aw_Tests.swift; sourceTree = "<group>"; };
 		91D2DB642795C77800CC7978 /* ASUT_NM_dip_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_dip_Tests.swift; sourceTree = "<group>"; };
 		91D2DB662795C7CC00CC7978 /* ASUI_NM_dip_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_dip_Tests.swift; sourceTree = "<group>"; };
 		91D2DB692795CA2600CC7978 /* FT_innerParagraph_NormalSetting_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT_innerParagraph_NormalSetting_Tests.swift; sourceTree = "<group>"; };
@@ -1840,7 +1847,6 @@
 				91F951D126DFF56D00DC26C6 /* AccessibilityStrategyTestAppUITests */,
 				91F951B226DFF56C00DC26C6 /* Products */,
 				9179DC062701D8E100C87DD6 /* Frameworks */,
-				913EB06B2FA8B71600ED6079 /* AccessibilityStrategy */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2202,6 +2208,8 @@
 				914B80DF27171B0F00688C91 /* ASUT_VMC_0_Tests.swift */,
 				91FC5B2228C1058900A24D48 /* ASUT_VMC_ap_Tests.swift */,
 				913EB0792FAA339E00ED6079 /* ASUT_VMC_as_Tests.swift */,
+				91CCF81A2FAF234900226F41 /* ASUT_VMC_aW__Tests.swift */,
+				91CCF81C2FAF236700226F41 /* ASUT_VMC_aw_Tests.swift */,
 				9134ABB626F13FD600B5B4FA /* ASUT_VMC_B__Tests.swift */,
 				91F9523426DFF7F900DC26C6 /* ASUT_VMC_b_Tests.swift */,
 				91F9523726DFF7F900DC26C6 /* ASUT_VMC_c_Tests.swift */,
@@ -2257,6 +2265,8 @@
 				919756472789A90600B37AA7 /* ASUT_VML_0_Tests.swift */,
 				91FC5B2428C1059900A24D48 /* ASUT_VML_ap_Tests.swift */,
 				913EB07D2FAA33B000ED6079 /* ASUT_VML_as_Tests.swift */,
+				91CCF8162FAF22C900226F41 /* ASUT_VML_aW__Tests.swift */,
+				91CCF8182FAF230D00226F41 /* ASUT_VML_aw_Tests.swift */,
 				919756492789A92400B37AA7 /* ASUT_VML_B__Tests.swift */,
 				9197564B2789A94400B37AA7 /* ASUT_VML_b_Tests.swift */,
 				91F9523C26DFF7F900DC26C6 /* ASUT_VML_c_Tests.swift */,
@@ -2811,6 +2821,7 @@
 				916BF7E4270E043A00AA0771 /* FT_beginningOfWordForward_Tests.swift in Sources */,
 				911619B228608EB2002E5DAF /* ASUT_NM_yg0_Tests.swift in Sources */,
 				91FC5AFC28C0BA3500A24D48 /* ASUT_NM_dap_Tests.swift in Sources */,
+				91CCF81D2FAF236700226F41 /* ASUT_VMC_aw_Tests.swift in Sources */,
 				9180A9532862248000F3EFE1 /* ASUT_NM_ccg$_Tests.swift in Sources */,
 				91F952B426DFF7F900DC26C6 /* ASUT_VM_AnchorAndHead_Tests.swift in Sources */,
 				919C256A27D643C3001ABB18 /* ASUT_VM_u_Tests.swift in Sources */,
@@ -2832,6 +2843,7 @@
 				9185CBE528B4BDB000BA533D /* ASUT_VM_i`_Tests.swift in Sources */,
 				911619A0285F7B06002E5DAF /* ASUT_NM_y0_Tests.swift in Sources */,
 				919A9F192F1F583500A3341C /* FT_beginningOfParagraphOnBlankLines_Tests.swift in Sources */,
+				91CCF81B2FAF234900226F41 /* ASUT_VMC_aW__Tests.swift in Sources */,
 				91128C7327971808006B4A0C /* FT_innerParagraph_OnEmptyLines_Tests.swift in Sources */,
 				91E4BE1228ABF102001C2357 /* ASUT_VM_i<_Tests.swift in Sources */,
 				9130B96B271A85E6006B775E /* ASUT_VML_gk_Tests.swift in Sources */,
@@ -3077,6 +3089,7 @@
 				91FD70742784AE6E00BA873C /* ASUT_NM_cBb_Tests.swift in Sources */,
 				916C7002276650C9004624CB /* ASUT_NM_cB__Tests.swift in Sources */,
 				9190FCC8285B245F00BE148D /* ASUT_NM_diB__Tests.swift in Sources */,
+				91CCF8172FAF22C900226F41 /* ASUT_VML_aW__Tests.swift in Sources */,
 				918022AC2700C6B30094BF92 /* ASUT_NM_daw_Tests.swift in Sources */,
 				915F50E427E0C24E00A38E0A /* ASUT_NM_L__Tests.swift in Sources */,
 				91DA3290287164AF007AA5A9 /* ASUT_NM_ya'_Tests.swift in Sources */,
@@ -3121,6 +3134,7 @@
 				9177049C2F3725B100052BAA /* ASUT_NM_das_Tests.swift in Sources */,
 				9181F7362864871A00100486 /* ASUT_NM_yl_Tests.swift in Sources */,
 				915DEF74270EACDA00EED993 /* FT_endOfWORDForward__Tests.swift in Sources */,
+				91CCF8192FAF230D00226F41 /* ASUT_VML_aw_Tests.swift in Sources */,
 				91DBC3FA2703951200F30EA6 /* ASUT_NM_$_Tests.swift in Sources */,
 				91ACF2DC2858EDB00087E1AB /* ASUT_NM_yiB__Tests.swift in Sources */,
 				916C700D276655AA004624CB /* ASUT_NM_dB__Tests.swift in Sources */,
@@ -3684,7 +3698,7 @@
 			repositoryURL = "git@github.com:godbout/AccessibilityStrategy.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.32.0;
+				minimumVersion = 10.33.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
