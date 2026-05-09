@@ -17,7 +17,7 @@ class ASUT_VMC_iw_Tests: ASUT_VM_BaseTests {
 // TextFields and TextViews
 extension ASUT_VMC_iw_Tests {
     
-    func test_that_if_the_Head_is_after_the_Anchor_it_extends_the_selection_to_the_end_of_the_inner_word_where_the_head_is() {
+    func test_that_if_the_Head_is_after_the_Anchor_it_extends_the_selection_to_the_end_of_the_innerWord_where_the_head_is() {
         let text = "the Head and the Anchor position are important to know in which way we extend the selection"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -46,7 +46,7 @@ extension ASUT_VMC_iw_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_the_Head_is_before_the_Anchor_it_extends_the_selection_to_the_beginning_of_the_inner_word_where_the_Head_is() {
+    func test_that_if_the_Head_is_before_the_Anchor_it_extends_the_selection_to_the_beginning_of_the_innerWord_where_the_Head_is() {
         let text = "the Head and the Anchor ⚓️⚓️⚓️⚓️ position are important to know in which way we extend the selection"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -75,7 +75,7 @@ extension ASUT_VMC_iw_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_the_Head_and_the_Anchor_are_equal_it_selects_the_whole_inner_word_and_the_Anchor_gets_updated_to_the_beginning_of_the_inner_word_and_the_Head_gets_updated_to_the_end_of_the_inner_word() {
+    func test_that_if_the_Head_and_the_Anchor_are_equal_it_selects_the_whole_innerWord_and_the_Anchor_gets_updated_to_the_beginning_of_the_innerWord_and_the_Head_gets_updated_to_the_end_of_the_innerWord() {
         let text = "when anchor and head are equal the whole word is selected and the anchor and head are actually deliberately changed"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -107,7 +107,7 @@ extension ASUT_VMC_iw_Tests {
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 106)
     }
     
-    func test_that_it_does_not_get_blocked_when_the_Head_if_after_the_Anchor_and_the_caret_is_at_the_end_of_an_inner_word() {
+    func test_that_it_does_not_get_blocked_when_the_Head_if_after_the_Anchor_and_the_caret_is_at_the_end_of_an_innerWord() {
         let text = """
 so it seems that calculating the innerWord
 is going to be different depending
@@ -141,7 +141,7 @@ in relation to each other
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_it_does_not_get_blocked_when_the_Head_if_before_the_Anchor_and_the_caret_is_at_the_beginning_of_an_inner_word() {
+    func test_that_it_does_not_get_blocked_when_the_Head_if_before_the_Anchor_and_the_caret_is_at_the_beginning_of_an_innerWord() {
         let text = """
 so it seems that calculating the innerWord
 is going to be different depending
