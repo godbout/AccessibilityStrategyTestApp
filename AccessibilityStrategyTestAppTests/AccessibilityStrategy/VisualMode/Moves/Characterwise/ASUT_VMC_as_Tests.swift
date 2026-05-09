@@ -112,4 +112,35 @@ extension ASUT_VMC_as_Tests {
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 46)
     }
     
+    func test_that_it_does_not_get_blocked_when_the_Head_is_after_the_Anchor_and_the_caret_is_at_the_end_of_an_aSentence() {
+        let text = "some more. brother. we're gonna need some sentences here. else it's not gonna work!"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 83,
+            caretLocation: 13,
+            selectedLength: 7,
+            selectedText: """
+        other. 
+        """,
+            fullyVisibleArea: 0..<83,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 83,
+                number: 1,
+                start: 0,
+                end: 83
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 13
+        AccessibilityStrategyVisualMode.head = 19
+       
+        let returnedElement = applyMoveBeingTested(on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 13)
+        XCTAssertEqual(returnedElement.selectedLength, 45)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
 }
