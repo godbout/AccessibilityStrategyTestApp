@@ -17,7 +17,7 @@ class ASUT_VMC_iW__Tests: ASUT_VM_BaseTests {
 // TextFields and TextViews
 extension ASUT_VMC_iW__Tests {
     
-    func test_that_if_the_Head_is_after_the_Anchor_it_extends_the_selection_to_the_end_of_the_word_where_the_head_is() {
+    func test_that_if_the_Head_is_after_the_Anchor_it_extends_the_selection_to_the_end_of_the_innerWORD_where_the_Head_is() {
         let text = "the Head and the Anchor position are important-to know in which way we extend the selection"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -46,7 +46,7 @@ extension ASUT_VMC_iW__Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_the_Head_is_before_the_Anchor_it_extends_the_selection_to_the_beginning_of_the_word_where_the_Head_is() {
+    func test_that_if_the_Head_is_before_the_Anchor_it_extends_the_selection_to_the_beginning_of_the_innerWORD_where_the_Head_is() {
         let text = "the Head and the Anchor⚓️⚓️⚓️⚓️ position are important to know in which way we extend the selection"
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -75,7 +75,7 @@ extension ASUT_VMC_iW__Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    func test_that_if_the_Head_and_the_Anchor_are_equal_it_selects_the_whole_innerWORD_and_the_Anchor_gets_updated_to_the_beginning_of_the_word_and_the_Head_gets_updated_to_the_end_of_the_word() {
+    func test_that_if_the_Head_and_the_Anchor_are_equal_it_selects_the_whole_innerWORD_and_the_Anchor_gets_updated_to_the_beginning_of_the_innerWORD_and_the_Head_gets_updated_to_the_end_of_the_innerWORD() {
         let text = "when anchor and head are equal the whole word is selected and the anchor and head are actually-deliberately-ch anged"
         let element = AccessibilityTextElement(
             role: .textArea,
