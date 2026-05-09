@@ -17,7 +17,7 @@ class ASUT_VMC_as_Tests: ASUT_VM_BaseTests {
 // TextFields and TextViews
 extension ASUT_VMC_as_Tests {
     
-    func test_that_if_the_Head_is_after_the_Anchor_it_extends_the_selection_to_the_end_of_the_a_sentence_where_the_head_is() {
+    func test_that_if_the_Head_is_after_the_Anchor_it_extends_the_selection_to_the_end_of_the_aSentence_where_the_head_is() {
         let text = "brother. we're gonna need some sentences here. else it's not gonna work!"
         let element = AccessibilityTextElement(
             role: .textField,
