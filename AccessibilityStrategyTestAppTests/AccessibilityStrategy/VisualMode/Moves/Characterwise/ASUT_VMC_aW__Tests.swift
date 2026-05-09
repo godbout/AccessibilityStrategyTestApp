@@ -144,4 +144,41 @@ in relation to each other
         XCTAssertNil(returnedElement.selectedText)
     }
     
+    // TODO: FR failing. coz we as is very different? or there's a way in VMC?
+    func test_that_it_does_not_get_blocked_when_the_Head_if_before_the_Anchor_and_the_caret_is_at_the_beginning_of_a_word() {
+        let text = """
+so it seems that calculating the innerWord
+is going to be different depending
+on where the anchor and head are positioned
+in relation to each other
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 147,
+            caretLocation: 57,
+            selectedLength: 6,
+            selectedText: """
+         diffe
+        """,
+            fullyVisibleArea: 0..<147,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 147,
+                number: 2,
+                start: 43,
+                end: 78
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 62
+        AccessibilityStrategyVisualMode.head = 57
+       
+        let returnedElement = applyMoveBeingTested(on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 54)
+        XCTAssertEqual(returnedElement.selectedLength, 9)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
 }
