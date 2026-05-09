@@ -48,6 +48,7 @@ extension ASUT_VMC_as_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
+    // TODO: FR failing. coz we as is very different? or there's a way in VMC?
     func test_that_if_the_Head_is_before_the_Anchor_it_extends_the_selection_to_the_beginning_of_the_aSentence_where_the_Head_is() {
         let text = "brother. we're gonna need some sentences here. else it's not gonna work!"
         let element = AccessibilityTextElement(
