@@ -17,7 +17,7 @@ class ASUT_VMC_aw_Tests: ASUT_VM_BaseTests {
 // TextFields and TextViews
 extension ASUT_VMC_aw_Tests {
     
-    func test_that_if_the_Head_is_after_the_Anchor_it_extends_the_selection_to_the_end_of_the_aWord_where_the_head_is() {
+    func test_that_if_the_Head_is_after_the_Anchor_it_extends_the_selection_to_the_end_of_the_aWord_where_the_Head_is() {
         let text = "the Head and the Anchor position are important to know in which way we extend the selection"
         let element = AccessibilityTextElement(
             role: .textField,
