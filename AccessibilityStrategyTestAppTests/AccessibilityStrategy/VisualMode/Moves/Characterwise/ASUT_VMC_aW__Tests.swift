@@ -76,4 +76,36 @@ extension ASUT_VMC_aW__Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
+    func test_that_if_the_Head_and_the_Anchor_are_equal_it_selects_the_whole_aWORD_and_the_Anchor_gets_updated_to_the_beginning_of_the_aWORD_and_the_Head_gets_updated_to_the_end_of_the_aWORD() {
+        let text = "when anchor and head are equal the whole word is selected and the anchor and head are actually-deliberately-ch anged"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 116,
+            caretLocation: 100,
+            selectedLength: 1,
+            selectedText: "e",
+            fullyVisibleArea: 0..<116,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 116,
+                number: 2,
+                start: 58,
+                end: 116
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 100
+        AccessibilityStrategyVisualMode.head = 100
+       
+        let returnedElement = applyMoveBeingTested(on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 86)
+        XCTAssertEqual(returnedElement.selectedLength, 25)
+        XCTAssertNil(returnedElement.selectedText)
+                
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 86)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 110)
+    }
+    
 }
