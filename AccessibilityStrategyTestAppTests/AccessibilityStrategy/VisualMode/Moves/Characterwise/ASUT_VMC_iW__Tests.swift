@@ -176,3 +176,45 @@ in relation to each other
     }
 
 }
+
+
+// bug found
+extension ASUT_VMC_iW__Tests {
+
+    func test_that_when_the_caret_is_on_an_EmptyLine_it_keeps_the_EmptyLine_selected() {
+        let text = """
+not an empty line
+
+still not an empty
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 37,
+            caretLocation: 18,
+            selectedLength: 1,
+            selectedText: """
+
+
+        """,
+            fullyVisibleArea: 0..<37,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 37,
+                number: 2,
+                start: 18,
+                end: 19
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 18
+        AccessibilityStrategyVisualMode.head = 18
+       
+        let returnedElement = applyMoveBeingTested(on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 18)
+        XCTAssertEqual(returnedElement.selectedLength, 1)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+
+}
