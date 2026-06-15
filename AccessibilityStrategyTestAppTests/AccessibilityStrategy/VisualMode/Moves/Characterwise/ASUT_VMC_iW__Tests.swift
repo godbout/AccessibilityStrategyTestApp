@@ -107,6 +107,43 @@ extension ASUT_VMC_iW__Tests {
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 109)
     }
     
+    func test_that_if_the_Head_and_the_Anchor_are_equal_and_the_caret_is_at_the_last_word_of_a_line_that_is_not_the_last_line_then_it_selects_the_whole_innerWord_and_the_Anchor_gets_updated_to_the_beginning_of_the_innerWord_and_the_Head_gets_updated_to_the_end_of_the_innerWord() {
+        let text = """
+so it's gonna select the whole wo-Rd
+at the end of previous line
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 64,
+            caretLocation: 32,
+            selectedLength: 1,
+            selectedText: """
+        o
+        """,
+            fullyVisibleArea: 0..<64,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 64,
+                number: 1,
+                start: 0,
+                end: 37
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 32
+        AccessibilityStrategyVisualMode.head = 32
+       
+        let returnedElement = applyMoveBeingTested(on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 31)
+        XCTAssertEqual(returnedElement.selectedLength, 5)
+        XCTAssertNil(returnedElement.selectedText)
+        
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 31)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 35)
+    }
+    
     func test_that_it_does_not_get_blocked_when_the_Head_if_after_the_Anchor_and_the_caret_is_at_the_end_of_a_word() {
         let text = """
 so it seems that calculating the innerWord
