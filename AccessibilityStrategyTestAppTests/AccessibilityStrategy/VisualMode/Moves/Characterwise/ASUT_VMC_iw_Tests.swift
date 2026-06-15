@@ -215,7 +215,7 @@ in relation to each other
 }
 
 
-// bug found
+// bugs found
 extension ASUT_VMC_iw_Tests {
 
     func test_that_when_the_caret_is_on_an_EmptyLine_it_keeps_the_EmptyLine_selected() {
