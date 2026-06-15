@@ -253,5 +253,39 @@ still not an empty
         XCTAssertEqual(returnedElement.selectedLength, 1)
         XCTAssertNil(returnedElement.selectedText)
     }
+    
+    func test_that_it_does_not_get_blocked_by_the_newline_at_the_end_of_a_line() {
+        let text = """
+shouldn't st-p
+at end of line
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 29,
+            caretLocation: 11,
+            selectedLength: 3,
+            selectedText: """
+        top
+        """,
+            fullyVisibleArea: 0..<29,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 29,
+                number: 1,
+                start: 0,
+                end: 15
+            )!
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 11
+        AccessibilityStrategyVisualMode.head = 13
+       
+        let returnedElement = applyMoveBeingTested(on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 11)
+        XCTAssertEqual(returnedElement.selectedLength, 6)
+        XCTAssertNil(returnedElement.selectedText)
+    }
 
 }
