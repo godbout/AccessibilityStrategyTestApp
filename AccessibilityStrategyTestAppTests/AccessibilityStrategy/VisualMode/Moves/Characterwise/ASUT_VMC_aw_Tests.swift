@@ -180,3 +180,39 @@ in relation to each other
     }
     
 }
+
+
+// bug found
+extension ASUT_VMC_aw_Tests {
+    
+    func test_that_if_the_Head_is_before_the_Anchor_and_the_selection_has_reached_the_beginning_of_the_text_then_it_does_not_crash_LOL() {
+        let text = "the Head and the Anchor ⚓️⚓️⚓️⚓️ position are important to know in which way we extend the selection"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 100,
+            caretLocation: 0,
+            selectedLength: 9,
+            selectedText: """
+        the Head 
+        """,
+            fullyVisibleArea: 0..<100,
+            currentScreenLine: ScreenLine(
+                fullTextValue: text,
+                fullTextLength: 100,
+                number: 1,
+                start: 0,
+                end: 77
+            )!
+        )        
+        AccessibilityStrategyVisualMode.anchor = 8
+        AccessibilityStrategyVisualMode.head = 0
+        
+        let returnedElement = applyMoveBeingTested(on: element)
+        
+        XCTAssertEqual(returnedElement.caretLocation, 0)
+        XCTAssertEqual(returnedElement.selectedLength, 9)
+        XCTAssertNil(returnedElement.selectedText)
+    }
+    
+}
