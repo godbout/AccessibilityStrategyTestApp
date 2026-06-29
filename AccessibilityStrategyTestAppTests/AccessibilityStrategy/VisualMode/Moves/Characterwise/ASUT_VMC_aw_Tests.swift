@@ -143,7 +143,6 @@ in relation to each other
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    // TODO: FR failing. coz we as is very different? or there's a way in VMC?
     func test_that_it_does_not_get_blocked_when_the_Head_if_before_the_Anchor_and_the_caret_is_at_the_beginning_of_an_aWord() {
         let text = """
 so it seems that calculating the innerWord
