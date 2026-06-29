@@ -46,7 +46,6 @@ extension ASUT_VMC_aw_Tests {
         XCTAssertNil(returnedElement.selectedText)
     }
     
-    // TODO: FR failing. coz we as is very different? or there's a way in VMC?
     func test_that_if_the_Head_is_before_the_Anchor_it_extends_the_selection_to_the_beginning_of_the_aWord_where_the_Head_is() {
         let text = "the Head and the Anchor ⚓️⚓️⚓️⚓️ position are important to know in which way we extend the selection"
         let element = AccessibilityTextElement(
