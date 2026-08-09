@@ -1,0 +1,40 @@
+import XCTest
+import AccessibilityStrategy
+import Common
+
+
+class ASUI_VML_O_Tests: ASUI_VM_BaseTests {
+
+    var vimEngineState = VimEngineState(visualStyle: .characterwise)
+    
+    
+    private func applyMoveBeingTested() -> AccessibilityTextElement {
+        return applyMove { asVisualMode.O(on: $0) }
+    }
+    
+}
+
+
+// TextFields and TextViews
+extension ASUI_VML_O_Tests {
+    
+    func test_that_the_globalColumnNumbers_get_updated() {
+        let textInAXFocusedElement = """
+when using O whether in Characterwise or Linewise
+the globalColumnNumbers have to get recalculated!
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        applyMove { asNormalMode.b(on: $0) }
+        applyMove { asVisualMode.VFromNormalMode(on: $0) }
+        
+        let fileLineColumnNumber = AccessibilityTextElement.fileLineColumnNumber
+        let screenLineColumnNumber = AccessibilityTextElement.screenLineColumnNumber
+                
+        _ = applyMoveBeingTested()
+                
+        XCTAssertNotEqual(AccessibilityTextElement.fileLineColumnNumber, fileLineColumnNumber)
+        XCTAssertNotEqual(AccessibilityTextElement.screenLineColumnNumber, screenLineColumnNumber)
+    }
+
+}
