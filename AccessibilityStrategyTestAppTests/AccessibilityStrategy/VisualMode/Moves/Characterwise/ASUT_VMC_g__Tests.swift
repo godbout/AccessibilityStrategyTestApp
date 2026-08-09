@@ -4,6 +4,7 @@ import Common
 
 
 // by its nature these tests will contain blanks.
+// TODO: FR what is this g__ with two _?
 class ASUT_VMC_g__Tests: ASUT_VM_BaseTests {
     
     private func applyMoveBeingTested(times count: Int = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
